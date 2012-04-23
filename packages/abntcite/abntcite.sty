@@ -6,6 +6,11 @@
 %%            http://www.latex-project.org/lppl.html
 %% You are free to modify this file under the LPPL.
 %%
+%% laurocesar em 26 de abril de 2012: Incluída as contribuições de compatibilização com o pacote backref de
+%% Alan Wilter Sousa da Silva (AWSS), desenvolvida em 2005-06-26 23:13:59 GMT
+%% http://comments.gmane.org/gmane.comp.tex.brazilian/11158
+%% http://mtc-m18.sid.inpe.br/col/sid.inpe.br/iris@1905/2005/08.25.14.01/doc/abntcite.sty
+%%
 %% $Log: abntcite.sty,v $
 %% Revision 1.26  2003/10/13 09:40:41  gweber
 %% Passa a usar cvs-id.def para gerar informações sobre data e versão.
@@ -123,9 +128,9 @@
 %     [9,2,3,1,4,11,7,10] becames [1--4,7,9--11]
 
 \NeedsTeXFormat{LaTeX2e}
-\input{cvs-id.def}
-\CVSExtract$Id: abntcite.sty,v 1.26 2003/10/13 09:40:41 gweber Exp $
-\CVSPackage{abntcite}{\space Chamadas de referencias no texto (NBR10520)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
+%\input{cvs-id.def}
+%\CVSExtract$Id: abntcite.sty,v 1.26 2003/10/13 09:40:41 gweber Exp $
+%\CVSPackage{abntcite}{\space Chamadas de referencias no texto (NBR10520)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
 
 \RequirePackage{ifthen}
 \RequirePackage{calc}
@@ -300,6 +305,13 @@
 \addtociteoptionlist{abnt-url-package=hyperref}
 \setboolean{ABNThyperref}{true}
 }{\setboolean{ABNThyperref}{false}}
+
+\provideboolean{ABNTbackref} %By AWSS
+
+\@ifpackageloaded{backref}{% %By AWSS
+\setboolean{ABNTbackref}{true} %By AWSS
+}{\setboolean{ABNTbackref}{false}} %By AWSS
+
 \ProcessOptions
 
 % really foot?
@@ -627,6 +639,7 @@
              \fi%
              \let\@citeprevious\@citename%
            }%
+           \ifthenelse{\boolean{ABNTbackref}}{\Hy@backout{#2}}{}% By AWSS: put backref
         }% end for
     }{#1}%
   }
@@ -683,6 +696,7 @@
             {\yearstyle\@citeyear\@}%
             \let\@citeprevious\@citename%
            }%
+           \ifthenelse{\boolean{ABNTbackref}}{\Hy@backout{#2}}{}% By AWSS: put backref
         }% end for
     }{#1}%
   }
@@ -926,6 +940,7 @@
          \fi%
          \let\@citeprevious\@citename%
        }%
+       \ifthenelse{\boolean{ABNTbackref}}{\Hy@backout{#1}}{}% By AWSS: put backref
     }% end for
 }
 
@@ -970,6 +985,7 @@
          \fi%
          \let\@citeprevious\@citename%
        }%
+       \ifthenelse{\boolean{ABNTbackref}}{\Hy@backout{#1}}{}% By AWSS: put backref
     }% end for
 }
 
@@ -1013,6 +1029,7 @@
          \fi%
          \let\@citeprevious\@citename%
        }%
+       \ifthenelse{\boolean{ABNTbackref}}{\Hy@backout{#1}}{}% By AWSS: put backref
     }% end for
 }
 
@@ -1059,6 +1076,7 @@
          \fi%
          \let\@citeprevious\@citename%
        }%
+       \ifthenelse{\boolean{ABNTbackref}}{\Hy@backout{#1}}{}% By AWSS: put backref
     }% end for
 }
 
@@ -1306,6 +1324,5 @@
 
 
 \endinput
-
 
 
