@@ -1,0 +1,25 @@
+\documentclass[11pt]{memoir}
+
+\setstocksize{11in}{8.5in}
+\settrimmedsize{11in}{8.5in}{*}
+\settrims{0in}{0in}
+\settypeblocksize{9.0in}{30pc}{*}
+\setlrmargins{1.25in}{*}{*}
+\setulmargins{1.0in}{*}{*}
+\setheadfoot{13pt}{26pt}
+\setheaderspaces{*}{13pt}{*}
+\checkandfixthelayout
+
+\usepackage{setspace}
+\doublespacing
+
+\begin{document}
+
+\renewcommand{\chaptitlefont}{%\removelastskip\vskip-\onelineskip%
+  \normalfont\Huge\bfseries\singlespace}
+
+\chapter{Primeiro Capítulo}
+
+Este é o meu texto.
+
+\end{document}
