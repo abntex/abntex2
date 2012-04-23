@@ -1,0 +1,13 @@
+
+syntax: regexp
+^\.project$
+syntax: regexp
+^\.texlipse$
+syntax: regexp
+^\.settings$
+syntax: regexp
+\.project$
+syntax: regexp
+\.texlipse$
+syntax: regexp
+^\.metadata$

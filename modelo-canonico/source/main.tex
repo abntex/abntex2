@@ -1,25 +1,38 @@
-\documentclass[11pt]{memoir}
+\documentclass[a4paper,11pt,openright]{memoir}
 
-\setstocksize{11in}{8.5in}
-\settrimmedsize{11in}{8.5in}{*}
-\settrims{0in}{0in}
-\settypeblocksize{9.0in}{30pc}{*}
-\setlrmargins{1.25in}{*}{*}
-\setulmargins{1.0in}{*}{*}
-\setheadfoot{13pt}{26pt}
-\setheaderspaces{*}{13pt}{*}
-\checkandfixthelayout
+% packages
 
-\usepackage{setspace}
-\doublespacing
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}						% Seleção de códigos de fonte.
+
+% packages customizations
+
+\include{customization/customization}
+
 
 \begin{document}
 
-\renewcommand{\chaptitlefont}{%\removelastskip\vskip-\onelineskip%
-  \normalfont\Huge\bfseries\singlespace}
+% -------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS  
+% -------------------------------------------------
 
-\chapter{Primeiro Capítulo}
+\tableofcontents  
 
-Este é o meu texto.
+% -------------------------------------------------
+% ELEMENTOS TEXTUAIS  
+% -------------------------------------------------
+  
+% Capitulo de citações
+\input{texto/citacoes}
+
+% -------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS  
+% -------------------------------------------------
+
+\bibliographystyle{cj}
+\bibliography{bib/references}
+
 
 \end{document}
