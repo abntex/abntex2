@@ -1,0 +1,229 @@
+\documentclass[a4paper,12pt]{scrbook}
+\usepackage{scrpage2}
+\usepackage{graphicx}
+\usepackage[bookmarks=true]{hyperref} %colorlinks=true
+\usepackage[dvipsnames]{xcolor}
+%\addtokomafont{title}{\color{red}} 
+%\addtokomafont{title}{\color{RawSienna}}
+%\usepackage{sidecap}
+\widowpenalty=10000
+\clubpenalty=10000
+\deffootnote{0em}{1em}{\thefootnotemark\hspace*{.5em}}
+%\usepackage{xunicode}
+\usepackage{polyglossia}
+\setmainlanguage{brazil}
+\setotherlanguages{german,french,english}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{New Caledonia LT Std}
+\setsansfont{New Caledonia LT Std}
+%\setsansfont{Myriad Pro}
+\setmonofont[Scale=MatchLowercase]{Consolas}
+\setlength{\parskip}{0pt}
+%\setheadsepline{.4pt}
+%\addtokomafont{caption}{\footnotesize \bfseries}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage[bottom=2cm,top=3cm,left=3cm,right=2cm]{geometry}
+%\usepackage[tocgraduated]{tocstyle} %isso pode ser modificado para não indentar/graduar entradas de seção (fica feio, mas se for exigido...)
+%\usetocstyle{nopagecolumn}
+\usepackage{lipsum}
+%\setheadsepline{.4pt}[\color{BurntOrange}]
+\setlength{\parskip}{0pt}
+\usepackage{caption}
+\captionsetup{figurewithout=chapter,labelsep=endash} %para números de figura correntes (sem capítulos); labelsep=endash: para “Figura 1 — etc” em vez de “Figura 1: etc”. 
+\usepackage[titles]{tocloft} % para colocar nome “Figuras” antes do número na “Lista de Figuras”. Mais uma regra da ABNT, não siga se não precisar.
+\usepackage{chngcntr}
+\usepackage{setspace}
+
+
+%\usepackage[titles]{tocloft}
+
+\newlength{\mylen}
+
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{ -- }
+\settowidth{\mylen}{\cftfigpresnum} %pondo \cftfigaftersnum aqui dentro dá um espaço maior depois do travessão
+\addtolength{\cftfignumwidth}{\mylen}
+
+\renewcommand{\cfttabpresnum}{\tablename\enspace}
+\renewcommand{\cfttabaftersnum}{ --\hspace{\enspace}}
+\settowidth{\mylen}{\cfttabpresnum\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mylen}
+
+
+%\newlength{\mylenf}
+%\settowidth{\mylenf}{\cftfigpresnum}
+%\setlength{\cftfignumwidth}{\dimexpr\mylenf+1.5em}
+%\setlength{\cfttabnumwidth}{\dimexpr\mylenf+1.5em}
+
+\begin{document}
+
+\renewcommand{\chapterpagestyle}{scrheadings}
+
+
+
+\begin{titlepage}
+\begin{center}
+\large \bfseries UNIVERSIDADE FEDERAL DE SÃO PAULO
+
+ESCOLA DE FILOSOFIA, LETRAS E CIÊNCIAS HUMANAS
+\end{center}
+
+\vspace{3cm}
+
+\centering
+
+\LARGE \bfseries \sffamily
+
+NOME DO ALUNO
+\vspace{5cm}
+
+
+TÍTULO : Subtítulo
+
+\vfill
+
+\large Guarulhos \par
+ANO
+
+\end{titlepage}
+
+%folha de rosto
+\begin{titlepage}
+\begin{center}
+\large \bfseries UNIVERSIDADE FEDERAL DE SÃO PAULO
+
+ESCOLA DE FILOSOFIA, LETRAS E CIÊNCIAS HUMANAS
+\end{center}
+
+\vspace{3cm}
+
+\begin{center}
+
+
+
+
+\LARGE \bfseries \sffamily 
+
+
+NOME DO ALUNO
+\vspace{3cm}
+
+TÍTULO: Subtítulo
+\end{center}
+
+\bigskip
+
+
+\begin{flushright}
+\begin{minipage}{.5\textwidth}
+\singlespacing
+Trabalho de Conclusão de Curso apresentado à Universidade Federal de São Paulo como requisito parcial para obtenção do grau em Bacharel (ou Licenciado) em (nome do curso).\par 
+Orientador: Nome do Orientador.
+\end{minipage}
+\end{flushright}
+
+\vfill
+\centering
+Guarulhos \par 
+Ano
+\end{titlepage}
+
+%para começar a folha de aprovacao na página 3, se nao usar os comandos para capa e folha de rosto:
+
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\setcounter{page}{3}
+
+
+
+\chapter*{}
+\phantom{}
+\vspace{10cm}
+\begin{center}
+\textit{Dedicado a todos que me ajudaram nesta caminhada.}
+\end{center}
+\vfill
+%\cleardoublepage
+
+
+
+\tableofcontents
+%\cleardoublepage
+
+\listoffigures
+%\cleardoublepage
+
+\listoftables
+
+
+\chapter*{\begin{center}Resumo\end{center}}
+
+
+\chapter*{\begin{center} Abstract \end{center}}
+
+\onehalfspacing
+
+
+
+\addchap{Introdução}
+\ohead{\normalfont \thepage}
+\lipsum[1-8]
+
+\chapter{Teste de capítulo}
+\lipsum[1-8]
+
+\section{Jean-Baptiste Camille Corot (1796–1875)}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=.8\textwidth]{avray}
+\caption[Jean-Baptiste Camille Corot. \textit{Ville d'Avray}. (ca. 1867).]{Jean-Baptiste Camille Corot. \textit{Ville d'Avray}. (ca. 1867). Óleo sobre tela. National Gallery, Washington DC. Fonte: Wikipedia (\url{http://fr.wikipedia.org/wiki/Fichier:Corot.villedavray.750pix.jpg})}
+\label{corot}
+\end{figure}
+
+
+
+\chapter{Novo Capítulo}
+
+Este é um capítulo com exemplo da nova regra da ABNT para figuras. 
+Deve-se usar o pacote \texttt{caption}: \verb+\usepackage{caption}+.
+
+\begin{verbatim}
+\begin{figure}[htbp]
+  \centering
+  \caption{Figura de teste}
+  \rule{4cm}{3cm}%para simular uma figura real
+    \label{tab:test}
+  %\captionsetup{font={footnotesize,bf,it}}
+  \caption*{A fonte da figura}
+\end{figure}
+\end{verbatim}
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Figura de teste}
+  \rule{4cm}{3cm}%para simular uma figura real
+    \label{tab:test}
+  %\captionsetup{font={footnotesize,bf,it}}
+  \caption*{A fonte da figura}
+\end{figure}
+
+
+\begin{table}[htdp]
+\caption{Exemplo de Tabela}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+A & B & C\\
+\hline
+D & E & F\\
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}
+
+\addchap{Apêndice A}
+
+
+\end{document}
