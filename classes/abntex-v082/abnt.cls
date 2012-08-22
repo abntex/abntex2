@@ -265,10 +265,9 @@
 %%%%%%%%%%%%        IDENTIFICATION        %%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}%
-%\input{cvs-id.def}
-%\CVSExtract$Id: abnt.cls,v 1.27.2.1 2004/11/02 15:04:29 gweber Exp $
-%\CVSClass{abnt}{\space Classe abnt (NBR6024, NBR6027, NBR6028, NBR14724)}
-% %substitui \ProvidesPackage (replaces \ProvidesPackage)
+\input{cvs-id.def}
+\CVSExtract$Id: abnt.cls,v 1.27.2.1 2004/11/02 15:04:29 gweber Exp $
+\CVSClass{abnt}{\space Classe abnt (NBR6024, NBR6027, NBR6028, NBR14724)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
 
 % \NeedsTeXFormat{LaTeX2e}%
 % \ProvidesClass{abnt}%
@@ -278,8 +277,6 @@
 
 % ifthen - conditions in LaTeX
 \RequirePackage{ifthen}
-
-\RequirePackage{multicol}
 
 % calc - standard package for length and number easy calculations
 \RequirePackage{calc}

@@ -172,7 +172,7 @@
 
 \DeclareOption{nbr6027=1989}  {\input{nbr6027-1989.def}}
 \DeclareOption{nbr14724=2001} {\input{nbr14724-2001.def}}
-  
+    
 %options which declare version specific behaviour,
 %default options expected for each version are declared here
 
@@ -1327,8 +1327,8 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   }%
   {%
    \ifthenelse{\boolean{ABNTbalancedindex}}
-     {\end{multicols}}
-     {\end{multicols*}}%
+     {\end{multicols*}}
+     {\end{multicols}}%
    \endgroup%
    \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
   }%
