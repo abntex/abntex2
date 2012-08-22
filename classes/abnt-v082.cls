@@ -142,21 +142,21 @@
 % Retirado um bug no \@chapter que causa o cabecalho ter o numero do capitulo errado
 %
 % Revision 1.26  2003/10/13 09:40:01  gweber
-% Passa a usar cvs-id.def para gerar informações sobre data e versão.
+% Passa a usar cvs-id.def para gerar informaï¿½ï¿½es sobre data e versï¿½o.
 %
 % Revision 1.25  2003/09/16 16:49:29  gweber
-% Troca de \bibname por \refname o que equivale a trocar "Referêncas Bibliográficas" por
-% "Referências". Isto atende ao que entendemos esteja implícito na NBR14724-2002.
+% Troca de \bibname por \refname o que equivale a trocar "Referï¿½ncas Bibliogrï¿½ficas" por
+% "Referï¿½ncias". Isto atende ao que entendemos esteja implï¿½cito na NBR14724-2002.
 %
 % Revision 1.24  2003/08/22 14:45:18  gweber
 % Resolvido bug 178 que fazia o texto de \part aparecer duas vezes.
 %
 % Revision 1.23  2003/06/30 14:10:47  gweber
-% Links criados com hyperref para apêndices e anexos não misturam mais com os links para capítulos comuns,
+% Links criados com hyperref para apï¿½ndices e anexos nï¿½o misturam mais com os links para capï¿½tulos comuns,
 % resolvendo o bug #140.
 %
 % Revision 1.22  2003/05/30 10:39:19  gweber
-% Alterações introduzidas em 0.7-beta.
+% Alteraï¿½ï¿½es introduzidas em 0.7-beta.
 %
 % Revision 1.21.2.1  2003/05/30 10:16:07  gweber
 % Correction of bug 137 which causes the class to fail when loading
@@ -265,9 +265,10 @@
 %%%%%%%%%%%%        IDENTIFICATION        %%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}%
-\input{cvs-id.def}
-\CVSExtract$Id: abnt.cls,v 1.27.2.1 2004/11/02 15:04:29 gweber Exp $
-\CVSClass{abnt}{\space Classe abnt (NBR6024, NBR6027, NBR6028, NBR14724)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
+%\input{cvs-id.def}
+%\CVSExtract$Id: abnt.cls,v 1.27.2.1 2004/11/02 15:04:29 gweber Exp $
+%\CVSClass{abnt}{\space Classe abnt (NBR6024, NBR6027, NBR6028, NBR14724)}
+% %substitui \ProvidesPackage (replaces \ProvidesPackage)
 
 % \NeedsTeXFormat{LaTeX2e}%
 % \ProvidesClass{abnt}%
@@ -277,6 +278,8 @@
 
 % ifthen - conditions in LaTeX
 \RequirePackage{ifthen}
+
+\RequirePackage{multicol}
 
 % calc - standard package for length and number easy calculations
 \RequirePackage{calc}
@@ -1598,8 +1601,8 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   }%
   {%
    \ifthenelse{\boolean{ABNTbalancedindex}}
-     {\end{multicols}}
-     {\end{multicols*}}%
+     {\end{multicols*}}
+     {\end{multicols}}%
    \endgroup%
    \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
   }%
