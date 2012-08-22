@@ -30,9 +30,10 @@
 %   Maintainer    : Gerald Weber
 %
 \NeedsTeXFormat{LaTeX2e}%
-\input{cvs-id.def}
-\CVSExtract$Id: abnt.cls,v 1.32 2006/09/09 22:41:03 gweber Exp $
-\CVSClass{abnt}{\space Classe abnt (NBR6024, NBR6027, NBR6028, NBR14724)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
+%\input{cvs-id.def}
+%\CVSExtract$Id: abnt.cls,v 1.32 2006/09/09 22:41:03 gweber Exp $
+%\CVSClass{abnt}{\space Classe abnt (NBR6024, NBR6027, NBR6028, NBR14724)}
+% %substitui \ProvidesPackage (replaces \ProvidesPackage)
 
 %%%%%%   Required packages for the implementation of this class  %%%%%%
 
