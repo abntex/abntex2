@@ -1,29 +1,38 @@
 \documentclass[a4paper,11pt,openright]{memoir}
-
 % packages
-
 \usepackage[utf8]{inputenc}
+\DisemulatePackage{setspace}
+\usepackage{setspace}
+\usepackage{ifthen}
+\usepackage{anysize}
+
 \usepackage[brazil]{babel}
 \usepackage{hyperref}
-\usepackage[T1]{fontenc}						% Seleção de códigos de fonte.
-
+%{left}{right}{top}{bottom}
+\marginsize{3cm}{2cm}{3cm}{2cm}
 % packages customizations
-
-\include{customization/customization}
+%\include{customization/customization}
 
 
 \begin{document}
 
 
 % -------------------------------------------------
-% ELEMENTOS PRÉ-TEXTUAIS  
-% -------------------------------------------------
-
-\tableofcontents  
-
-% -------------------------------------------------
 % ELEMENTOS TEXTUAIS  
 % -------------------------------------------------
+
+\input{texto/folhaRosto}
+
+
+\autor{GUILHERME LOPES DOS SANTOS FONSECA}
+\tituloFolhaRosto{PROCESSO DE DESENVOLVIMENTO ALIADO AO TESTE DE SOFTWARE}
+\orientadoresFolhaRosto{Orientador: Esp. Michel Anderson}
+\comentarioFolhaRosto{Artigo apresentado ao curso de pós-graduação em Engenharia e Desenvolvimento de Software
+ da Fundação Universa, como requisito parcial para obtenção do título de Pós-Graduado em Ciência da Computação.}
+\localDataFolhaRosto{Brasília,2012}
+
+
+\folhaDeRosto
   
 % Capitulo de Lorem Ipsum para exemplos
 % extraído de http://br.lipsum.com/
@@ -36,12 +45,10 @@
 % Capitulo com exemplos de comandos gerais
 \input{texto/comandos_gerais}
 
-% -------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS  
-% -------------------------------------------------
 
-\bibliographystyle{plain}
-\bibliography{bib/references}
+
+
+
 
 
 \end{document}
