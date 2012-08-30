@@ -1,0 +1,134 @@
+%%% -*-LaTeX-*-
+%%% inpi.sty -- pacote com definições e pacotes usados para a
+%%% elaboração de uma patente brasileira.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{inpi}
+
+
+
+
+%\RequirePackage{a4paper}
+
+%\RequirePackage{srcltx}
+
+\RequirePackage{isolatin1}
+
+\RequirePackage{itemsep}
+
+%% \RequirePackage{chappg}
+
+\RequirePackage[latin1]{inputenc}
+
+\RequirePackage[brazil]{babel}
+
+ \RequirePackage{geometry}
+%
+ \geometry{lmargin=3cm,rmargin=3cm,top=1.5cm,bottom=2.5cm}
+
+
+\renewcommand{\baselinestretch}{1.5}
+
+\@addtoreset{page}{chapter}
+
+% The next magic makes the page counter be reset to one rather than zero
+\renewcommand\@stpelt[1]{%
+  \global\csname c@#1\endcsname
+    \expandafter\ifx \csname c@#1\endcsname \c@page
+      \@ne
+    \else
+      \z@
+    \fi
+}
+
+%% \def\thesection{%
+%%   \ifnum\c@section=0
+%%     \expandafter\@gobble
+%%   \else
+%%     \thesection
+%%   \fi
+%% }
+
+% Para usar fonte helvetica 
+
+\RequirePackage{helvet}
+
+\renewcommand\familydefault{\sfdefault}
+
+
+\setlength{\headsep}{2cm}
+%\setlength{\headheight}{1cm}
+% \setlength{\rmargin}{3cm}
+% \setlength{\lmargin}{3cm}
+
+
+
+\RequirePackage{fancyheadings}
+\pagestyle{fancy}
+\setlength\headrulewidth{0cm}
+%\setlength{\marginparsep}{3cm}
+%\setlength{\itemsep}{0cm}
+
+\chead{\rm\hfil\thepage\ / \pageref{fimdescr}\hfil}
+\cfoot{}
+% \RequirePackage{nofm} % para ter as opcoes 1/2  1/3 etc
+
+
+
+% \def \@oddhead{\rm\hfil\thepage\ / \pageref{@reivindicacoes}\hfil}
+% \def \@evenhead{\@oddhead}
+% \def \@oddfoot{}
+% \def \@evenfoot{\@oddfoot}
+
+%  \def\section{\@startsection {section}{1}{\z@}{-3.5ex plus -1ex minus 
+%   -.2ex}{2.3ex plus .2ex}{\centering\normalsize\bf}}
+
+
+%% \def\nomepatente#1{ #1
+%% }
+
+\newcommand{\nomepatente}[1][dispositivo]{#1}
+
+\def\chapter#1{
+   \large #1 \normalsize
+}
+
+
+\def\chapter*#1{
+   \large #1 \normalsize
+}
+
+\def\section#1{ #1
+%   \large #1 \normalsize
+}
+
+\def\subsection#1{
+%    \textbf{#1} 
+}
+
+\RequirePackage{graphicx}
+
+%  \addtolength{\headwidth}{\marginparwidth}
+%  \addtolength{\headwidth}{\marginparsep}
+
+
+\RequirePackage{indentfirst}
+%\RequirePackage{danielPortugues}
+
+\RequirePackage[brazil]{babel}
+
+% \RequirePackage{numline}
+\RequirePackage[pagewise,modulo]{lineno}
+
+%%% Abreviaturas que uso muito frequentemente
+
+\def\ie{{\em i.e.\/~}}
+\def\eg{{\em e.g.\/~}}
+
+\noitemsep
+
+%%% Used by GNU Emacs and AUC TeX.
+%%% Local Variables:
+%%% TeX-master: "inpy.sty"
+%%% TeX-auto-save: t
+%%% End:

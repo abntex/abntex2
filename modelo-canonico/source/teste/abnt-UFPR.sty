@@ -1,0 +1,316 @@
+%% $Id: abnt-UFPR.sty,v 1.3 2005/11/14 09:00:47 gweber Exp $
+%% name of this file abntcite.sty
+%% Copyright 2003, 2005 by the abnTeX group at http://abntex.codigolivre.org.br
+%% and by the authors Rogerio C. <rogerioc@cesec.ufpr.br>
+%%                and Dornelles Vissotto Junior <dvissotto@ufpr.br>
+%%
+%% This file is distributed under the LaTeX-Project Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html
+%% You are free to modify this file under the LPPL.
+%%
+\NeedsTeXFormat{LaTeX2e}
+
+\input{cvs-id.def}
+\CVSExtract$Id: abnt-UFPR.sty,v 1.3 2005/11/14 09:00:47 gweber Exp $
+\CVSPackage{abntUFPR}{} %substitui \ProvidesPackage (replaces \ProvidesPackage)
+
+\PassOptionsToClass{pagestart=firstchapter}{abnt}
+
+\RequirePackage{ifthen}
+\PassOptionsToPackage{hyperindex=false}{hyperref}
+\PassOptionsToPackage{estilo=UFPR}{tabela-simbolos}
+
+\makeatletter	%Para que ele entenda o @
+
+% ** Altera defini�es da ABNT para adaptar �UFPR
+
+% ************* CAPA **************
+\renewcommand{\capa}{
+\begin{titlepage}
+\espaco{1.1}
+
+\begin{center}
+	\large\ABNTchapterfont\ABNTautordata
+\end{center}
+
+\vspace{7.5cm}
+
+\begin{center}
+	\large\ABNTchapterfont\ABNTtitulodata\par
+\end{center}
+
+\vfill
+
+\begin{center}
+	\textbf{\ABNTlocaldata}\par
+	\textbf{\ABNTdatadata}
+\end{center}
+\end{titlepage}
+}% end of \capa
+
+% ******** FOLHA DE ROSTO *********
+\newcommand{\esporient}[2]{
+	\leftskip 0em
+	\@tempdima 5.5em
+	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+	{#1#2\hfil}}
+
+\newcommand{\espcoorient}[2]{
+	\leftskip 0em
+	\@tempdima 7em
+	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+	{#1#2\hfil}}
+
+\renewcommand{\folhaderosto}{
+\begin{titlepage}
+\espaco{1.1}
+
+\begin{center}
+	\large\ABNTchapterfont\ABNTautordata
+\end{center}
+
+\vspace{7.5cm}
+
+\begin{center}
+	\large\ABNTchapterfont\ABNTtitulodata\par
+\end{center}
+
+\vspace{2cm}
+
+\hspace{.3\textwidth}
+\begin{minipage}{.55\textwidth}
+	\begin{espacosimples}
+		\ABNTcomentariodata\par
+	\end{espacosimples}
+\end{minipage}
+
+\hspace{.3\textwidth}
+\begin{minipage}{.55\textwidth}
+	\begin{espacosimples}
+		\esporient{\numberline {Orientador:}}{\ignorespaces\ABNTorientadordata}
+	\end{espacosimples}
+\end{minipage}
+
+\ABNTifnotempty{\ABNTcoorientadordata}{
+	\hspace{.3\textwidth}
+	\begin{minipage}{.55\textwidth}
+		\begin{espacosimples}
+			\espcoorient{\numberline {Co-Orientador:}}{\ignorespaces\ABNTcoorientadordata}
+		\end{espacosimples}
+	\end{minipage}}
+
+\vfill
+
+\begin{center}
+	\textbf{\ABNTlocaldata}\par
+	\textbf{\ABNTdatadata}
+\end{center}
+
+\end{titlepage}
+
+}% end of \folhaderosto
+
+% Altera o tamanho das fontes dos cap�ulos e dos ap�dices
+\renewcommand{\ABNTchapterfont}{\bfseries}
+\renewcommand{\ABNTchaptersize}{\Large}
+\renewcommand{\ABNTsectionfont}{\large}
+\renewcommand{\ABNTanapsize}{\Large}
+
+%Altera o espa�mento entre dots
+\renewcommand\@dotsep{2}
+
+%Altera forma de montagem do table of contents
+\renewcommand\l@chapter[2]{
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \ifthenelse{\boolean{ABNTpagenumstyle}}
+        {\renewcommand{\@pnumwidth}{3.5em}}
+        {}
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \normalsize\ABNTtocchapterfont
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\dotfill \nobreak%
+      \ifthenelse{\boolean{ABNTpagenumstyle}}
+         {%
+          \hb@xt@\@pnumwidth{\hss 
+            \ifthenelse{\not\equal{#2}{}}{{\normalfont p.\thinspace#2}}{}}\par
+         }
+         {%
+          \hb@xt@\@pnumwidth{\hss #2}\par
+         }
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{2.3em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{0em}{3.2em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{0em}{4.1em}}
+
+% Cria um comando auxiliar para montagem da lista de figuras
+\newcommand{\figfillnum}[1]{%
+  {\hspace{1em}\normalfont\dotfill}\nobreak
+  \hb@xt@\@pnumwidth{\hfil\normalfont #1}{}\par}
+
+% Cria um comando auxiliar para montagem da lista de tabelas
+\newcommand{\tabfillnum}[1]{%
+	{\hspace{1em}\normalfont\dotfill}\nobreak
+	\hb@xt@\@pnumwidth{\hfil\normalfont #1}{}\par}
+
+% Altera a forma de montagem da lista de figuras
+\renewcommand*{\l@figure}[2]{
+	\leftskip 3.1em
+	\rightskip 1.6em
+	\parfillskip -\rightskip
+	\parindent 0em
+	\@tempdima 2.0em
+	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+	{Figura \normalfont #1}\nobreak \figfillnum{#2}}
+
+% Altera a forma de montagem de lista de tabelas
+\renewcommand*{\l@table}[2]{
+	\leftskip 3.4em
+	\rightskip 1.6em
+	\parfillskip -\rightskip
+	\parindent 0em
+	\@tempdima 2.0em
+	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+	{Tabela \normalfont #1}\nobreak \tabfillnum{#2}}
+
+% Define os comandos que montam a lista de s�bolos
+\newcommand{\listadesimbolos}{\pretextualchapter{Lista de S�bolos}\@starttoc{lsb}}
+\newcommand{\simbolo}[2]{{\addcontentsline{lsb}{simbolo}{\numberline{#1}{#2}}}#1}
+\newcommand{\l@simbolo}[2]{
+	\vspace{-0.75cm}
+	\leftskip 0em
+	\parindent 0em
+	\@tempdima 5em
+	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+	{\normalfont #1}\hfil\nobreak\par}
+
+% Define o comando que monta a lista de siglas
+\newcommand{\listadesiglas}{\pretextualchapter{Lista de Siglas}\@starttoc{lsg}}
+\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{\numberline{#1}{#2}}}#1}
+\newcommand{\l@sigla}[2]{
+	\vspace{-0.75cm}
+	\leftskip 0em
+	\parindent 0em
+	\@tempdima 5em
+	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+	{\normalfont #1}\hfil\nobreak\par}
+
+% Define o tipo de numera�o das p�inas
+\renewcommand{\chaptertitlepagestyle}{plain}
+
+% Altera a posi�o da numera�o de p�inas dos elementos pr�textuais
+\renewcommand\pretextualchapter{
+	\if@openright\cleardoublepage\else\clearpage\fi
+	\pagestyle{\chaptertitlepagestyle}
+	\global\@topnum\z@
+	\@afterindentfalse
+	\@schapter}
+
+% Altera a posi�o da numera�o de p�inas dos elementos textuais
+\renewcommand{\ABNTchaptermark}[1]{
+	\ifthenelse{\boolean{ABNTNextOutOfTOC}}
+		{\markboth{\ABNTnextmark}{\ABNTnextmark}}
+		{\chaptermark{#1}
+		\pagestyle{\chaptertitlepagestyle}}}
+
+% Redefine o tipo de numera�o das p�inas
+\renewcommand{\ABNTBeginOfTextualPart}{
+	\renewcommand{\chaptertitlepagestyle}{plainheader}
+	\renewcommand{\thepage}{\arabic{page}}
+	\setcounter{page}{1}}
+
+\makeatother
+
+%Altera o tamanho do par�rafo
+\setlength{\parindent}{1.5cm}
+
+% ******* TERMO DE APROVA�O ******
+\providecommand{\ABNTtextoaprovacaodata}{}
+\newcommand{\textoaprovacao}[1]{\renewcommand{\ABNTtextoaprovacaodata}{#1}}
+
+\providecommand{\ABNTprimeiroassinadata}{}
+\newcommand{\primeiroassina}[1]{\renewcommand{\ABNTprimeiroassinadata}{#1}}
+
+\providecommand{\ABNTsegundoassinadata}{}
+\newcommand{\segundoassina}[1]{\renewcommand{\ABNTsegundoassinadata}{#1}}
+
+\providecommand{\ABNTterceiroassinadata}{}
+\newcommand{\terceiroassina}[1]{\renewcommand{\ABNTterceiroassinadata}{#1}}
+
+\providecommand{\ABNTquartoassinadata}{}
+\newcommand{\quartoassina}[1]{\renewcommand{\ABNTquartoassinadata}{#1}}
+
+\providecommand{\ABNTlocaldiadata}{}
+\newcommand{\localdia}[1]{\renewcommand{\ABNTlocaldiadata}{#1}}
+
+\newcommand{\termodeaprovacao}{
+\begin{titlepage}
+
+\pretextualchapter{Termo de Aprova�o}
+
+\vspace{-0.25cm}
+
+\begin{center}
+	\large\ABNTautordata
+\end{center}
+
+\vspace{0.75cm}
+
+\begin{center}
+	\large\ABNTtitulodata
+\end{center}
+
+\vspace{0.75cm}
+
+\begin{espacosimples}
+	\noindent\ABNTtextoaprovacaodata\par
+\end{espacosimples}
+
+\setlength{\ABNTsignthickness}{0.4pt}
+\setlength{\ABNTsignskip}{1.75cm}
+
+\ABNTifnotempty{\ABNTprimeiroassinadata}%
+{%
+  \begin{center}
+    \vspace{-0.5cm}
+    \assinatura{\ABNTprimeiroassinadata}
+  \end{center}
+}
+\ABNTifnotempty{\ABNTsegundoassinadata}%
+{%
+  \begin{center}
+    \vspace{-0.5cm}
+    \assinatura{\ABNTsegundoassinadata}
+  \end{center}
+}
+\ABNTifnotempty{\ABNTterceiroassinadata}%
+{%
+  \begin{center}
+    \vspace{-0.5cm}
+    \assinatura{\ABNTterceiroassinadata}
+  \end{center}
+}
+\ABNTifnotempty{\ABNTquartoassinadata}%
+{%
+  \begin{center}
+    \vspace{-0.5cm}
+    \assinatura{\ABNTquartoassinadata}
+  \end{center}
+}
+
+\vfill
+
+\begin{center}
+	\ABNTlocaldiadata
+\end{center}
+
+\end{titlepage}
+}

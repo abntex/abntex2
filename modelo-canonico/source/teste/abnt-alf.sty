@@ -1,0 +1,23 @@
+%% $Id: abnt-alf.sty,v 1.17 2002/06/28 07:47:14 mvsfrasson Exp $
+%% 
+%% name of this file abnt-alf.sty
+%% Copyright 2001-2002 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% This file is distributed under the LaTeXProject Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html 
+%% You are free to modify this file under the LPPL.
+%%
+%% This style file contains heavily modified code from latex.ltx
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{abnt-alf}[2002/06/24]
+
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{abntcite}}
+
+\ProcessOptions
+
+\PassOptionsToPackage{alf}{abntcite}
+
+\RequirePackage{abntcite}
+
+\endinput

@@ -1,0 +1,20 @@
+%% $Id: nbr10520-1988.def,v 1.2 2006/04/25 15:58:20 gweber Exp $
+%% name of this file nbr10520-2001.sty
+%% Copyright 2003-2006 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% This file is distributed under the LaTeX-Project Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html
+%% You are free to modify this file under the LPPL.
+%%
+
+\input{cvs-id.def}
+\CVSExtract$Id: nbr10520-1988.def,v 1.2 2006/04/25 15:58:20 gweber Exp $
+\CVSFile{nbr}{\space Definicoes para abntcite (NBR10520:1988)}
+
+\ExecuteOptions{overcite}
+\ifx\AbntCitetype\AbntCitetypeALF
+\else
+\renewcommand{\setcitebrackets}{\citebrackets[]}
+\fi
+\addtociteoptionlist{abnt-nbr10520=1988}
+\ExecuteOption{indent}

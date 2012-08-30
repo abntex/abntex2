@@ -1,0 +1,55 @@
+%% $Id: nbr10522-1988.def,v 1.2 2003/10/13 09:42:13 gweber Exp $
+%% name of this file nbr10522-1988.sty
+%% Copyright 2003 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% This file is distributed under the LaTeX-Project Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html
+%% You are free to modify this file under the LPPL.
+%%
+%% $Log: nbr10522-1988.def,v $
+%% Revision 1.2  2003/10/13 09:42:13  gweber
+%% Passa a usar cvs-id.def para gerar informações sobre data e versão.
+%%
+%% Revision 1.1  2003/06/27 13:50:41  gweber
+%% Lista (muito incompleta) das abreviações contidas em NBR10522/1988.
+%%
+
+\input{cvs-id.def}
+\CVSExtract$Id: nbr10522-1988.def,v 1.2 2003/10/13 09:42:13 gweber Exp $
+\CVSFile{nbr}{\space Abreviacoes bibliograficas (NBR10522:1988)}
+
+\newcommand{\@NBR@A@abril}{abr}
+\newcommand{\@NBR@A@acompanhamento}{acomp}
+\newcommand{\@NBR@A@adaptacao}{adapt}
+\newcommand{\@NBR@A@adaptado}{adapt}
+\newcommand{\@NBR@A@adaptada}{adapt}
+\newcommand{\@NBR@A@adaptador}{adapt}
+\newcommand{\@NBR@A@adaptadora}{adapt}
+\newcommand{\@NBR@A@agosto}{ago}
+\newcommand{\@NBR@A@ampliado}{ampl}
+\newcommand{\@NBR@A@ampliada}{ampl}
+\newcommand{\@NBR@A@capitulo}{cap}
+\newcommand{\@NBR@A@capitulos}{cap}
+\newcommand{\@NBR@A@citacao}{cit}
+\newcommand{\@NBR@A@edicao}{ed}
+\newcommand{\@NBR@A@editado}{ed}
+\newcommand{\@NBR@A@editada}{ed}
+\newcommand{\@NBR@A@editor}{ed}
+\newcommand{\@NBR@A@editora}{ed}
+\newcommand{\@NBR@A@fevereiro}{fev}
+\newcommand{\@NBR@A@dezembro}{dez}
+\newcommand{\@NBR@A@ilustracao}{il}
+\newcommand{\@NBR@A@ilustrado}{il}
+\newcommand{\@NBR@A@ilustrada}{il}
+\newcommand{\@NBR@A@ilustrador}{il}
+\newcommand{\@NBR@A@ilustradora}{il}
+\newcommand{\@NBR@A@janeiro}{jan}
+\newcommand{\@NBR@A@junho}{jun}
+\newcommand{\@NBR@A@julho}{jul}
+\newcommand{\@NBR@A@marco}{mar}
+\newcommand{\@NBR@A@maio}{maio\NoAbrevending}
+\newcommand{\@NBR@A@novembro}{nov}
+\newcommand{\@NBR@A@outubro}{out}
+\newcommand{\@NBR@A@oeste}{O\NoAbrevending}
+\newcommand{\@NBR@A@setembro}{set}
+\newcommand{\@NBR@A@pagina}{p}

@@ -1,0 +1,28 @@
+%% $Id: abntex-text-pt_BR.def,v 1.2 2005/12/21 12:52:20 gweber Exp $
+%% name of this file abntex-abrev.sty
+%% Copyright 2005 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% This file is distributed under the LaTeX-Project Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html
+%% You are free to modify this file under the LPPL.
+%%
+
+\input{cvs-id.def}
+\CVSExtract$Id: abntex-text-pt_BR.def,v 1.2 2005/12/21 12:52:20 gweber Exp $
+\CVSFile{nbr}{\space Definicao de nomes em Portugues/Brasil (pt_BR)}
+
+%used in abnt.cls
+\providecommand{\ABNTabstractname}{Abstract}
+\providecommand{\ABNTbibliographyname}{\bibname}%alternativamente \refname
+\providecommand{\annexname}{Anexo}
+\providecommand{\supervisorname}{Orientador}
+\providecommand{\cosupervisorname}{Co-orientador}
+\providecommand{\resumoname}{Resumo}
+%used by tabela-simbolos
+\providecommand{\listofabreviationsname}{Lista de abreviaturas e siglas}
+\providecommand{\listofsymbolsname}{Lista de s\'\i mbolos}
+\providecommand{\romansymbolsname}{S\'\i mbolos romanos}
+\providecommand{\greeksymbolsname}{S\'\i mbolos gregos}
+\providecommand{\othersymbolsname}{Outros s\'\i mbolos}
+
+

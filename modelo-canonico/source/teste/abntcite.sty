@@ -1,0 +1,1215 @@
+%% $Id: abntcite.sty,v 1.30 2006/04/25 15:57:42 gweber Exp $
+%% name of this file abntcite.sty
+%% Copyright 2001-2006 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% This file is distributed under the LaTeX-Project Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html
+%% You are free to modify this file under the LPPL.
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\input{cvs-id.def}
+\CVSExtract$Id: abntcite.sty,v 1.30 2006/04/25 15:57:42 gweber Exp $
+\CVSPackage{abntcite}{\space Chamadas de referencias no texto (NBR10520, NBR10522)} %substitui \ProvidesPackage (replaces \ProvidesPackage)
+
+%Packages from standard LaTeX
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+
+%Pages from the abnTeX project
+\RequirePackage{abntex-abrev}
+\RequirePackage{abntex-text}
+\RequirePackage{abntex-default-design}
+
+%%%%%%  Options Declaration  %%%%%%
+
+
+%----------------------------------------------------------------
+%    Extracted from substr.sty (2000-06-15) 
+%----------------------------------------------------------------
+% Copyright 2000 Harald Harders <h.harders@tu-bs.de>
+% Look at www.ctan.org for original package
+%
+% Commands:
+%
+% \IfSubStringInString{substring}{string}{true part}{false part}
+% This command searches <substring> in <string> and executes the 
+% <true part> if it is and else the <else part>
+
+% expands the first and second argument with
+% \protected@edef and calls #3 with them:
+\newcommand{\su@ExpandTwoArgs}[3]{%
+  \protected@edef\su@SubString{#1}%
+  \protected@edef\su@String{#2}%
+  \expandafter\expandafter\expandafter#3%
+  \expandafter\expandafter\expandafter{%
+    \expandafter\su@SubString\expandafter
+  }\expandafter{\su@String}%
+}
+%%
+%% tests if #1 in #2. If yes execute #3, else #4
+\newcommand*{\IfSubStringInString}[2]{%
+  \su@ExpandTwoArgs{#1}{#2}\su@IfSubStringInString
+}
+%%
+\newcommand*{\su@IfSubStringInString}[2]{%
+  \def\su@compare##1#1##2\@nil{%
+    \def\su@param{##2}%
+    \ifx\su@param\@empty
+      \expandafter\@secondoftwo
+    \else
+      \expandafter\@firstoftwo
+    \fi
+  }%
+  \su@compare#2#1\@nil
+}
+
+% To grab 6 letters.
+\newcommand{\grabsix}[6]{}
+
+% To grab 7 letters.
+\newcommand{\grabseven}[7]{}
+
+%----------------------------------------------------------------
+
+%Commands set by options
+\newcommand{\citebrackets}[2]{\def\citeopen{#1}\def\citeclose{#2}}
+\newcommand{\setcitebrackets}{\citebrackets()}
+% A LaTeX list is a command containing a comma separated list of
+% itens. The list is processed by command \@for, as in \citeoption.
+\def\citeoptionlist{}
+% This command adds a string to the list.
+\newcommand{\addtociteoptionlist}[1]{
+  \ifthenelse{\equal{\citeoptionlist}{}}
+    {\edef\citeoptionlist{#1}}
+    {\edef\citeoptionlist{\citeoptionlist,#1}}
+}
+
+% Booleans set by options
+\newboolean{ABCItextondemand}
+\newboolean{ABCIfoot}
+\newboolean{ABCIcompoldalf}
+\newboolean{ABCIbibjustif}
+\newboolean{ABCIbiblabelonmargin}
+\newboolean{ABCIauto-abntoptions}
+\newboolean{ABNTovercite}
+\newboolean{ABNTstrictnumformat}
+
+\provideboolean{ABNThyperref}
+\@ifpackageloaded{hyperref}{\addtociteoptionlist{abnt-url-package=hyperref}
+\setboolean{ABNThyperref}{true}}{\setboolean{ABNThyperref}{false}}
+
+
+%Lengths set by options
+\setlength{\bibindent}{0em}
+% used for \@biblabel in num
+\newlength{\minimumbiblabelwidth}
+\newlength{\ABCIauxlen}
+
+%Counters used in options
+% auxiliar counters used in `sort and group' mechanism
+\newcounter{ABCIaux}
+\newcounter{ABCImax}
+
+
+%main options
+\DeclareOption{call=authordate}{\def\AbntCallType{authordate}\setboolean{ABCItextondemand}{true}}
+\DeclareOption{call=numeric}{\def\AbntCallType{numeric}}
+\DeclareOption{order=alphabetic}{\def\AbntOrderType{alphabetic}}
+\DeclareOption{order=citation}{\def\AbntOrderType{citation}}
+
+% references on page foot
+\DeclareOption{foot}{\setboolean{ABCIfoot}{true}\setboolean{ABCItextondemand}{false}}
+\DeclareOption{not-foot}{\setboolean{ABCIfoot}{false}\setboolean{ABCItextondemand}{true}}
+
+% cite text on demand (defaults depends on foot or not-foot)
+%  (also recall that options are executed in order of definition at
+%    \ProcessOptions) 
+\DeclareOption{load-text-on-demand}{\setboolean{ABCItextondemand}{true}}
+\DeclareOption{load-text}{\setboolean{ABCItextondemand}{false}}
+
+% biblabel-on-margin
+\DeclareOption{rightalign=yes}{\setboolean{ABCIbibjustif}{true}}
+\DeclareOption{rightalign=no}{\setboolean{ABCIbibjustif}{false}}
+
+% biblabel-on-margin
+\DeclareOption{biblabel-on-margin}{\setboolean{ABCIbiblabelonmargin}{true}}
+\DeclareOption{biblabel-not-on-margin}{\setboolean{ABCIbiblabelonmargin}{false}}
+
+% \bibliography includes abnt-options automatically unless next option is used
+\DeclareOption{optionfile=abnt-options.bib}{\setboolean{ABCIauto-abntoptions}{true}}
+\DeclareOption{optionfile=none}{\setboolean{ABCIauto-abntoptions}{false}}
+
+% recuo : compatibility with old norms
+\DeclareOption{indent}{\setlength{\bibindent}{1.8em}}
+
+% 10520:2002 now defines only two numerical styles
+\DeclareOption{citepos=over}{\setboolean{ABNTovercite}{true}}
+\DeclareOption{citepos=inline}{\setboolean{ABNTovercite}{false}}
+
+%Options specific to the several versions of 10520
+\DeclareOption{nbr10520=1988}{\input{nbr10520-1988.def}}
+\DeclareOption{nbr10520=2001}{\input{nbr10520-2001.def}}
+\DeclareOption{nbr10520=2002}{\input{nbr10520-2002.def}}
+
+\DeclareOption{abnt-substyle=COPPE}
+  {\newcommand{\bibtextitlecommand}[2]{``#2''}%
+   \addtociteoptionlist{abnt-substyle=COPPE}}
+
+% suporting options in a keyval style
+% recuo=<length> gives indentation of \bibitem
+% other options: passed thought \citeoption (stored now in \citeoptionlist
+%   and after (in \AtBeginDocument hook) \citeoption will act on it)
+
+\DeclareOption*{
+  \IfSubStringInString{recuo=}{\CurrentOption}
+     {\setlength{\bibindent}{\expandafter\grabsix\CurrentOption}}
+     {\IfSubStringInString{indent=}{\CurrentOption}
+        {\setlength{\bibindent}{\expandafter\grabseven\CurrentOption}}
+        {\addtociteoptionlist{\CurrentOption}}}
+}
+
+%deprecated options, maintained for backward compatibility
+\DeclareOption{alf}{\ExecuteOptions{call=authordate,order=alphabetic}}
+\DeclareOption{num}{\ExecuteOptions{call=numeric,order=citation}}
+\DeclareOption{bibjustif}{\ExecuteOptions{rightalign=yes}}
+\DeclareOption{bibleftalign}{\ExecuteOptions{rightalign=yes}} %left/right mixed
+\DeclareOption{abnt-option-file}{\ExecuteOptions{optionfile=abnt-options.bib}}
+\DeclareOption{no-abnt-option-file}{\ExecuteOptions{optionfile=none}}
+\DeclareOption{overcite}{\ExecuteOptions{citepos=over}}
+\DeclareOption{inlinecite}{\ExecuteOptions{citepos=inline}}
+\DeclareOption{nbr10520-2001}{\ExecuteOptions{nbr10520=2001}}
+\DeclareOption{nbr10520-2002}{\ExecuteOptions{nbr10520=2002}}
+\DeclareOption{recuo}{ExecuteOptions{indent}}
+% compatibility with old abnt-alf.bst
+\DeclareOption{alfantigo}{\setboolean{ABCIcompoldalf}{true}}
+\DeclareOption{experimental}{\setboolean{ABCIcompoldalf}{false}}
+%end of depecated options
+
+%Options controlling version-dependent behavior
+\DeclareOption{abntex=0.8}
+  {
+  %non-norm dependent default options
+  \ExecuteOptions{biblabel-not-on-margin}
+  \ExecuteOptions{call=authordate,order=alphabetic}
+  \ExecuteOptions{optionfile=abnt-options.bib}
+  \ExecuteOptions{experimental}
+  \ExecuteOptions{not-foot}
+  %norm-dependent default options
+  \ExecuteOptions{nbr10520=2002}
+  \renewcommand{\authorcapstyle}{\smaller}
+  }
+
+\DeclareOption{abntex=0.9}
+  {
+  %non-norm dependent default options
+  \ExecuteOptions{biblabel-not-on-margin}
+  \ExecuteOptions{call=authordate,order=alphabetic}
+  \ExecuteOptions{optionfile=abnt-options.bib}
+  \ExecuteOptions{experimental}
+  \ExecuteOptions{not-foot}
+  %norm-dependent default options
+  \ExecuteOptions{nbr10520=2002}
+  }
+  
+%default for this version
+\ExecuteOptions{abntex=0.9}
+\ProcessOptions
+
+% really foot?
+\ifthenelse{\boolean{ABCIfoot}\and\equal{\AbntCallType}{numeric}}
+  {\setboolean{ABCIfoot}{true}}
+  {\setboolean{ABCIfoot}{false}}
+
+% Now, after all options are processed, \citeoption process the list of
+% options given as package options.
+%
+\ifthenelse{\equal{\citeoptionlist}{}}
+  {}
+  {\AtBeginDocument{\citeoption{\citeoptionlist}}}
+
+
+% \citeoption - equal to \nocite  (I copied source from \nocite)
+%               but not complains about this option be obviously undefined
+\newboolean{ABCIciteoptionwasused}
+\setboolean{ABCIciteoptionwasused}{false}
+\def\citeoption#1{\@bsphack
+  \@for\@citekey:=#1\do{%
+    % next line eliminates white space before citation name
+    \edef\@citekey{\expandafter\@firstofone\@citekey}%
+    \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi
+  }%
+  \@esphack%
+  \setboolean{ABCIciteoptionwasused}{true}%
+}
+
+
+%
+% \bibliography{list of files .bib to be processed by bibTeX}
+%
+%   I had to redefine this command such that abnt-options.bib is
+%   automatically used in case that some \citeoption was given as package
+%   option. An entry
+%      \bibliography{abnt-options,abnt-options,..}
+%   produces an error in bibTeX. So I had to check if user already
+%   includes abnt-options by (him/her)self.
+%
+%   implementation:
+%
+%     \citeoption was used?
+%     If YES, (abnt-options must be given to bibtex!)
+%       checks for abnt-options into parameter given to \bibliography
+%       if present
+%          user have included, so I don't add it once more
+%       not present
+%          I add necessary abnt-options
+%     If NO
+%       no changes to \bibliography
+
+\def\bibliography#1{%
+   
+  \ifthenelse{\boolean{ABCIciteoptionwasused}
+               \and\boolean{ABCIauto-abntoptions}}
+   {
+   % this system of checking is not good...
+    \IfSubStringInString{abnt-options}{#1}
+      {\if@filesw\immediate\write\@auxout{\string\bibdata{#1}}\fi}
+      {\if@filesw\immediate\write\@auxout{\string\bibdata{abnt-options,#1}}\fi}
+   }
+   {
+    \if@filesw
+       \immediate\write\@auxout{\string\bibdata{#1}}%
+    \fi
+   }
+ \@input@{\jobname.bbl}}
+
+
+%
+% The next piece of code looks if bibtexstyle is used or not, and if not,
+% includes the respective style from the abntcite mode (alf or num)
+
+\newboolean{ABCIbibtexstyleused}
+\setboolean{ABCIbibtexstyleused}{false}
+
+%
+\def\bibliographystyle#1{%
+  \ifx\@begindocumenthook\@undefined\else
+    \expandafter\AtBeginDocument
+  \fi
+    {\if@filesw
+       \immediate\write\@auxout{\string\bibstyle{#1}}%
+     \fi}
+  \setboolean{ABCIbibtexstyleused}{true}
+  }
+
+% \AtEndDocument is the last chace for include bibliography style..
+\AtEndDocument{
+  \ifthenelse{\not\boolean{ABCIbibtexstyleused}}
+    {\ifthenelse{\equal{\AbntOrderType}{citation}}{\bibliographystyle{abnt-num}}{}
+     \ifthenelse{\equal{\AbntOrderType}{alphabetic}}{\bibliographystyle{abnt-alf}}{}}
+    {}
+}
+
+
+%%%%%%%%%%%%%% Style %%%%%%%%%%%%%%%%%
+
+
+\newlength{\biblabelsep}
+\setlength{\biblabelsep}{1ex}
+
+%%%%%%%%%%%%%%%%%%%%%  Implementation  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% automatic care for commas inside references
+\providecommand{\ABCIccomma}{}
+\newcommand{\ABCIcitecommadefault}{,\penalty\@m\ }
+\newcommand{\ABCIcitecomma}{\ABCIccomma\let\ABCIccomma\ABCIcitecommadefault}
+\newcommand{\ABCIinitcitecomma}{\def\ABCIccomma{}}
+\newcommand{\ABCIcitecolondefault}{; }%{;\penalty\@m\ }
+
+
+% How \bibitem works?
+%   definition of \bibitem
+%   \def\bibitem{\@ifnextchar\@lbibitem\@bibitem}
+
+\ifthenelse{\boolean{ABCIcompoldalf}\and\equal{\AbntCallType}{authordate}}
+{
+
+% In the old mplementation on abnt-alf, the command \bibitem should be
+%   \bibitem[{explicit}{implicit}{year}]{key}
+
+  % if \bibitem has optional parameter, uses it (three pieces of data
+  % stored into .aux file)
+
+  \def\@lbibitem[#1#2#3]#4{
+    \gdef\abntnextkey{#4}
+    \item[\@biblabel{#1}\hfill]%
+    \if@filesw
+       {
+        \let\protect\noexpand
+        \immediate\write\@auxout{\string\bibcite{#4++EXPL}{#1}}
+        \immediate\write\@auxout{\string\bibcite{#4++IMPL}{#2}}
+        \immediate\write\@auxout{\string\bibcite{#4++YEAR}{#3}}
+       }
+    \fi%
+    \ignorespaces
+  }
+
+  % if no optional is used, uses a list counter (stores its value into .aux)
+  \def\@bibitem#1{
+    \gdef\abntnextkey{#1}
+    \item%
+    \if@filesw
+       {\immediate\write\@auxout{\string\bibcite{#1}{\the\value{\@listctr}}}}
+    \fi%
+    \ignorespaces
+  }
+
+}
+{ %if normal mode (non-compatible with old alf)
+
+ \ifthenelse{\boolean{ABCIfoot}}
+  {
+    % foot-num mode
+
+    \def\@lbibitem[#1]#2{\gdef\abntnextkey{#2}}
+
+    \def\@bibitem#1{\gdef\abntnextkey{#1}}
+
+  }
+  {
+    \def\@lbibitem[#1]#2{
+      \gdef\abntnextkey{#2}
+      \item[\@biblabel{#1}\hfill]%
+      \ifthenelse{\boolean{ABNThyperref}}{%
+        \hyper@anchorstart{cite.#2}\relax\hyper@anchorend}{}%
+      \if@filesw
+         {
+          \let\protect\noexpand
+          \immediate\write\@auxout{\string\bibcite{#2}{#1}}
+         }
+      \fi%
+      \ignorespaces
+    }
+  
+    \def\@bibitem#1{
+      \gdef\abntnextkey{#1}
+  %    \ifthenelse{}{\item}{\item}
+      \item%
+      \ifthenelse{\boolean{ABNThyperref}}{%
+        \hyper@anchorstart{cite.#1}\relax\hyper@anchorend}{}%
+      \if@filesw
+         {\immediate\write\@auxout{\string\bibcite{#1}{\the\value{\@listctr}}}}
+      \fi%
+      \ignorespaces
+    }
+  }
+}
+
+\newcommand{\hiddenbibitem}[2][]{\gdef\abntnextkey{#2}}
+
+\newcommand{\ABCIgetcitetext}[1]{
+  \if@filesw
+    {\let\protect\noexpand
+     \immediate\write\@auxout{\string\bibcite{\abntnextkey++TEXT}{#1}}}%
+  \fi}
+
+\newcommand{\ABCIgetcitetextecho}[1]{\ABCIgetcitetext{#1}#1}
+
+%we are repeating \bibcite command as defined in hyperref.sty
+%so that we have it all together at one place.
+\ifthenelse{\boolean{ABNThyperref}}{%
+\renewcommand{\bibcite}[2]{%
+ \@newl@bel{b}{#1}{\hyper@@link[cite]{}{cite.#1}{#2}}}%
+\newcommand{\bibciteEXPL}[2]{%
+ \@newl@bel{b}{#1++EXPL}{\hyper@@link[cite]{}{cite.#1}{#2}}}%
+\newcommand{\bibciteIMPL}[2]{%
+ \@newl@bel{b}{#1++IMPL}{\hyper@@link[cite]{}{cite.#1}{#2}}}%
+\newcommand{\bibciteYEAR}[2]{%
+ \@newl@bel{b}{#1++YEAR}{\hyper@@link[cite]{}{cite.#1}{#2}}}%
+}{}
+
+\newcommand{\abntrefinfo}[3]{%
+  \if@filesw
+    {%
+     \let\protect\noexpand
+     \ifthenelse{\boolean{ABNThyperref}}{%
+     \immediate\write\@auxout{\string\bibciteEXPL{\abntnextkey}{#1}}%
+     \immediate\write\@auxout{\string\bibciteIMPL{\abntnextkey}{#2}}%
+     \immediate\write\@auxout{\string\bibciteYEAR{\abntnextkey}{#3}}}{%
+     \immediate\write\@auxout{\string\bibcite{\abntnextkey++EXPL}{#1}}%
+     \immediate\write\@auxout{\string\bibcite{\abntnextkey++IMPL}{#2}}%
+     \immediate\write\@auxout{\string\bibcite{\abntnextkey++YEAR}{#3}}}%
+   }%
+  \fi
+  \ifthenelse{\boolean{ABCIfoot}}
+     {\ifthenelse{\boolean{ABCItextondemand}}
+        {\@ifundefined{ABCIdemand@\abntnextkey}
+          {\let\ABCIprocesscitetext\@gobble}
+          {\let\ABCIprocesscitetext\ABCIgetcitetext}}
+        {\let\ABCIprocesscitetext\ABCIgetcitetext}}
+     {\ifthenelse{\boolean{ABCItextondemand}}
+        {\@ifundefined{ABCIdemand@\abntnextkey}
+          {\let\ABCIprocesscitetext\relax}
+          {\let\ABCIprocesscitetext\ABCIgetcitetextecho}}
+        {\let\ABCIprocesscitetext\ABCIgetcitetextecho}}%
+  \ABCIprocesscitetext
+}
+
+
+\newcommand{\ABCIdemand}[1]{\expandafter\gdef\csname ABCIdemand@#1\endcsname{}}
+
+
+\def\AbntCallTypeALF{authordate}
+
+\let\ABCInewblock\newblock
+\DeclareRobustCommand{\newblock}{\ABCInewblock}
+
+
+%%%%%%%%%%%%%%%%%%%%  abnt-alf  %%%%%%%%%%%%%%%%%%%%%%%
+
+% the next line was before \ifthenelse{\equal{\AbntCallType}{alf}}
+
+\setcitebrackets
+
+\ifx\AbntCallType\AbntCallTypeALF % if alf
+
+  \renewcommand{\@biblabel}[1]{}
+  
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %
+  %               \cite[optional]{list of keys}
+  %
+  %  Implicit citation - author in capital letters and year; 
+  %                       mechanism to deal with repeated names;
+  %
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  \renewcommand{\@cite}[2]%
+    {\citeopen{#1\ifthenelse{\equal{#2}{}}{}{,
+          {\optionaltextstyle#2}}}\citeclose}
+  
+  \DeclareRobustCommand{\cite}[2][]{%
+  %
+    \leavevmode
+    \let\@citeprevious\@empty%
+    \@cite{%
+      \@for\@citekey:=#2\do%  \@citekey contains the key
+        {%
+         \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
+         %
+         % here, a tricky \let\@citename\"b@\@citekey++IMPL"
+         \expandafter\let\expandafter\@citename%
+             \csname b@\@citekey++IMPL\endcsname%
+         \expandafter\let\expandafter\@citeyear%
+             \csname b@\@citekey++YEAR\endcsname%
+         \ifx\@citeprevious\@empty%
+         \else%
+           \ifx\@citename\@citeprevious%
+              \ABCIcitecommadefault% echoing ", "
+           \else%
+              \ABCIcitecolondefault% echoing "; "
+           \fi%
+         \fi%
+         % writing on aux file
+         \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
+         % if undefined bibitem
+         \@ifundefined{b@\@citekey++IMPL}%
+           {% if undefined
+               {\bfseries??}% echoing ?
+            \G@refundefinedtrue%
+            \@latex@warning%
+              {Citation `\@citekey' on page \thepage \space undefined}%
+           }%
+           {% if already defined
+             \ifx\@citename\@citeprevious%
+               {\yearstyle\@citeyear\@}\@%
+             \else%
+               {\authorcapstyle\@citename}, %
+               {\yearstyle\@citeyear\@}%
+             \fi%
+             \let\@citeprevious\@citename%
+           }%
+        }% end for
+    }{#1}%
+  }
+  
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %
+  %             \citeonline[optional]{list of keys}
+  %
+  %  Inline (explicit) citation - author in "inline style" and year; 
+  %                               mechanism to deal with repeated names;
+  %
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+  \newcommand{\@citeonline}[2]%
+    {{#1\ifthenelse{\equal{#2}{}}{}{, {\optionaltextstyle#2}}}\citeclose}
+  
+  \DeclareRobustCommand{\citeonline}[2][]{%
+  %
+    \leavevmode
+    \let\@citeprevious\@empty%
+    \@citeonline{%
+      \@for\@citekey:=#2\do%\@citekey contains the key
+        {%
+         \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
+         %
+         % here, a tricky \let\@citename\"b@\@citekey++UP" :-)
+         \expandafter\let\expandafter\@citename%
+             \csname b@\@citekey++EXPL\endcsname%
+         \expandafter\let\expandafter\@citeyear%
+             \csname b@\@citekey++YEAR\endcsname%
+         \ifx\@citeprevious\@empty%
+         \else%
+           \ifx\@citename\@citeprevious%       
+             \ABCIcitecommadefault% echoing ", "
+           \else%
+             \citeclose, % echoing "), "
+           \fi%   
+         \fi%
+         % writing in aux file
+         \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
+         \@ifundefined{b@\@citekey++EXPL}%
+           {% if undefined
+            {\bfseries??}% echoing ?
+            \G@refundefinedtrue%
+            \@latex@warning%
+              {Citation `\@citekey' on page \thepage \space undefined}%
+           }%
+           {% if really defined
+            \ifx\@citename\@citeprevious%
+            \else%
+               {\authorstyle\@citename\@{}} \citeopen%
+            \fi%
+            {\yearstyle\@citeyear\@}%
+            \let\@citeprevious\@citename%
+           }%
+        }% end for
+    }{#1}%
+  }
+  
+  % "overcite" compatibility
+  \let\citen\citeonline
+  \let\citenum\citeonline
+
+% end alf
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%  abnt-num  %%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+
+\else % if not alf,
+
+  \ifABCIfoot
+
+     \renewenvironment{thebibliography}[1]{}{}
+
+     \citebrackets{}{}
+
+     \let\ABCIscriptfont\scriptsize
+     \renewcommand{\newblock}{}
+
+     \def\ABCI@cite#1#2{\raisebox{.8ex}%
+         {\ABCIscriptfont\citeopen{#1\if@tempswa, #2\fi}\citeclose}}
+
+     \def\ABCI@citeonline#1#2{{#1\if@tempswa, #2\fi}}
+
+     \DeclareRobustCommand\cite{%
+        \let\@cite\ABCI@cite%
+        \@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+
+     \DeclareRobustCommand\citeonline{%
+        \leavevmode\let\@cite\ABCI@citeonline%
+        \@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+
+     \def\@citex[#1]#2{%
+       \def\@safe@activesfalse{}%
+       \ABCIinitcitecomma%
+       \def\ABCIcitelist{}%
+       \def\ABCIaftercitex{}% to put the footnotes
+       \@cite{%
+         \@for\@citeb:=#2\do%
+            {%
+             \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+             \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi%
+             \@ifundefined{b@\@citeb++IMPL}%
+                {%
+                 {\bfseries??}%
+                 \G@refundefinedtrue%
+                 \@latex@warning%
+                   {Citation `\@citeb' on page \thepage \space undefined}%
+                }%
+                {%
+                 \@ifundefined{b@\@citeb}
+                   {%
+                    \stepcounter{footnote}%
+                    \expandafter\xdef\csname b@\@citeb\endcsname{\thefootnote}%
+                    \ABCItoken=\expandafter{\ABCIaftercitex}%
+                    \xdef\ABCIaftercitex%
+                       {\the\ABCItoken\noexpand\footnotetext%
+                             {\noexpand\citetext{\@citeb}}}%
+                   }
+                   {}%
+                 \expandafter\let\expandafter\ABCIcitation%
+                               \csname b@\@citeb\endcsname%
+                 % test for positive number
+                 \ifcat _\ifnum\z@<0\ABCIcitation _\else A\fi
+                    \ABCIaddtocitelist{\ABCIcitation}%
+                 \else% else \ifcat
+                    \ABCIcitecomma\hbox{\ABCIcitation}%
+                 \fi% end \ifcat
+                }%
+            }%
+         \ABCIoutputgroupedcitelist%
+       }{#1}%
+       \ABCIaftercitex%
+     }
+
+   \newcommand{\citeifnotcited}[1]{%
+     \def\ABCIcitelist{}%
+     \@for\@citeb:=#1\do%
+        {%     
+         \@ifundefined{b@\@citeb}
+           {\ABCIaddtocitelist{\@citeb}}
+           {}%
+        }%
+     \expandafter\cite\expandafter{\ABCIcitelist}%
+   }     
+
+   \newcommand{\citeonlineifnotcited}[1]{%
+     \def\ABCIcitelist{}%
+     \@for\@citeb:=#1\do%
+        {%     
+         \@ifundefined{b@\@citeb}
+           {\ABCIaddtocitelist{\@citeb}}
+           {}%
+        }%
+     \expandafter\citeonline\expandafter{\ABCIcitelist}%
+   }     
+
+   \newcommand{\ABCIaddtocitelist}[1]{%
+     \ifthenelse{\equal{\ABCIcitelist}{}}%
+       {\edef\ABCIcitelist{#1}}
+       {\edef\ABCIcitelist{\ABCIcitelist,#1}}%
+   }%
+
+   \newcommand{\ifcited}[3]{\@ifundefined{b@#1}{#3}{#2}}
+
+  \else % if num and NOT foot
+
+     % this only works with proper settings in \ABCIthebibliformat
+     \ifthenelse{\boolean{ABCIbiblabelonmargin}}
+     {
+     \renewcommand{\@biblabel}[1]%
+        {\ifthenelse{\equal{#1}{}}{}{{\citenumstyle #1\hspace{\biblabelsep}}}}
+     }
+     {
+     \renewcommand{\@biblabel}[1]%
+        {%
+         \ifthenelse{\equal{#1}{}}
+           {}
+           {%
+            \def\biblabeltext{{\citenumstyle #1\hspace{\biblabelsep}}}%
+            \settowidth{\ABCIauxlen}{\biblabeltext}%
+            \ifthenelse{\lengthtest{\ABCIauxlen<\minimumbiblabelwidth}}
+               {\setlength{\ABCIauxlen}{\minimumbiblabelwidth-\ABCIauxlen}}
+               {\setlength{\ABCIauxlen}{0cm}}%
+            {\biblabeltext\hspace{\ABCIauxlen}}%   
+           }%
+        }%
+     }
+
+     \let\ABCIscriptfont\scriptsize
+
+     \ifthenelse{\boolean{ABNTovercite}}{%
+     \def\ABCI@cite#1#2{\raisebox{1ex}%
+         {\ABCIscriptfont\citeopen{#1\if@tempswa, #2\fi}\citeclose}}}{%
+     \def\ABCI@cite#1#2{\citeopen{#1\if@tempswa, #2\fi}\citeclose}}
+
+     \def\ABCI@citeonline#1#2{{#1\if@tempswa, #2\fi}}
+
+     \DeclareRobustCommand\cite{%
+        \let\@cite\ABCI@cite%
+        \@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+
+     \DeclareRobustCommand\citeonline{%
+        \leavevmode\let\@cite\ABCI@citeonline%
+        \@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+
+%      \renewcommand{\@openbib@code}%
+%      {\setlength{\leftmargin}{0pt}\addtolength{\itemindent}{\labelsep}}
+
+
+     \def\@citex[#1]#2{%
+       \def\@safe@activesfalse{}%
+       \ABCIinitcitecomma%
+       \def\ABCIcitelist{}%
+       \@cite{%
+         \@for\@citeb:=#2\do%
+            {%
+             \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+             \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi%
+             \@ifundefined{b@\@citeb}%
+                {%
+                 {\bfseries??}%
+                 \G@refundefinedtrue%
+                 \@latex@warning%
+                   {Citation `\@citeb' on page \thepage \space undefined}%
+                }%
+                {%
+                 \expandafter\let\expandafter\ABCIcitation%
+                               \csname b@\@citeb\endcsname%
+                 % test for positive number
+                 \ifcat _\ifnum\z@<0\ABCIcitation _\else A\fi
+                    \ABCIaddtocitelist{\ABCIcitation}%
+                 \else% else \ifcat
+                    \ABCIcitecomma\hbox{\ABCIcitation}%
+                 \fi% end \ifcat
+                }%
+            }%
+         \ABCIoutputgroupedcitelist%
+       }{#1}%
+     }
+
+   \newcommand{\ABCIaddtocitelist}[1]{%
+     \ifthenelse{\equal{\ABCIcitelist}{}}%
+       {\edef\ABCIcitelist{#1}}
+       {\edef\ABCIcitelist{\ABCIcitelist,#1}}%
+   }%
+  
+
+  \fi
+\fi % end if alf
+
+\providecommand{\citeifnotcited}[1]{}
+\providecommand{\citeonlineifnotcited}[1]{}
+\providecommand{\ifcited}[3]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%                \citeyear{list of keys}
+%
+%  Citation by year 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareRobustCommand{\citeyear}[1]{%
+%
+%  \let\@safe@activesfalse\@empty%
+  \leavevmode
+  \let\@citeprevious\@empty%
+  \@for\@citekey:=#1\do %\@citekey contains the key
+    {%
+%     \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%     
+     \expandafter\let\expandafter\@citename%
+          \csname b@\@citekey++YEAR\endcsname%
+     %compare previous name with current name and decide the punctuation marks
+     %if first use do nothing
+     \ifx\@citeprevious\@empty%
+     \else%
+        , % echoing ", 
+     \fi%
+     % writing on aux file
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
+     % if undefined bibitem
+     \@ifundefined{b@\@citekey++YEAR}%
+       {% if undefined
+        {\bfseries??}% echoing ?
+        \G@refundefinedtrue%
+        \@latex@warning%
+          {Citation `\@citekey' on page \thepage \space undefined}%
+       }%
+       {% if already defined
+         \ifx\@citename\@citeprevious%
+         \else%
+           {\@citename\@}%
+         \fi%
+         \let\@citeprevious\@citename%
+       }%
+    }% end for
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%               \citeauthor{list of keys}
+%
+%  Implicit citation (capital letters)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\DeclareRobustCommand{\citeauthor}[1]{%
+%
+%  \let\@safe@activesfalse\@empty%
+  \leavevmode
+  \let\@citeprevious\@empty%
+  \@for\@citekey:=#1\do %\@citekey contains the key
+    {%
+%     \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
+     \expandafter\let\expandafter\@citename\csname b@\@citekey++IMPL\endcsname%
+     % writing on aux file
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
+     % if undefined bibitem
+     \@ifundefined{b@\@citekey++IMPL}%
+       {% if undefined
+        {\bfseries??}%
+        \G@refundefinedtrue%
+        \@latex@warning%
+          {Citation `\@citekey' on page \thepage \space undefined}%
+       }%
+       {% if already defined
+         \ifx\@citename\@citeprevious%
+         \else%
+            \ifx\@citeprevious\@empty%
+            \else%
+              ; % echoing "; "
+            \fi%
+            {\authorcapstyle\@citename\@}%
+         \fi%
+         \let\@citeprevious\@citename%
+       }%
+    }% end for
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%             \citeauthoronline{list of keys}
+%
+%  Explicit citation (non capital letter)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\DeclareRobustCommand{\citeauthoronline}[1]{%
+%
+%  \let\@safe@activesfalse\@empty%
+  \leavevmode
+  \let\@citeprevious\@empty%
+  \@for\@citekey:=#1\do %\@citekey contains the key
+    {%
+%     \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
+     \expandafter\let\expandafter\@citename\csname b@\@citekey++EXPL\endcsname%
+     % writing on aux file
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
+     % if undefined bibitem
+     \@ifundefined{b@\@citekey++EXPL}%
+       {% if undefined
+        {\bfseries??}%
+        \G@refundefinedtrue%
+        \@latex@warning%
+          {Citation `\@citekey' on page \thepage \space undefined}%
+       }%
+       {% if already defined
+         \ifx\@citename\@citeprevious%
+         \else%
+            \ifx\@citeprevious\@empty%
+            \else%
+              ; % echoing "; "
+            \fi%
+            {\authorstyle\@citename\@}%
+         \fi%
+         \let\@citeprevious\@citename%
+       }%
+    }% end for
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%             \citetext{list of keys}
+%
+%  Text of the reference
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\DeclareRobustCommand{\citetext}[1]{%
+%
+%  \let\@safe@activesfalse\@empty%
+  \leavevmode
+  \let\@citeprevious\@empty%
+  \@for\@citekey:=#1\do %\@citekey contains the key
+    {%
+%     \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
+     \expandafter\let\expandafter\@citename\csname b@\@citekey++TEXT\endcsname%
+     % writing on aux file
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
+     \if@filesw\immediate\write\@auxout{\string\ABCIdemand{\@citekey}}\fi%
+     % if undefined bibitem
+     \@ifundefined{b@\@citekey++TEXT}%
+       {% if undefined
+        {\bfseries??}%
+        \G@refundefinedtrue%
+        \@latex@warning%
+          {Citation `\@citekey' on page \thepage \space undefined}%
+       }%
+       {% if already defined
+         \ifx\@citename\@citeprevious%
+         \else%
+            \relax
+            \ifx\@citeprevious\@empty%
+            \else%
+              ; % echoing "; "
+            \fi%
+            {\@citename}%
+         \fi%
+         \let\@citeprevious\@citename%
+       }%
+    }% end for
+}
+
+
+%
+% Setting up `recuo' (=indent in Portuguese)
+%
+
+% To ensure that the margin settings of this package works, \leftmargin
+% (inside thebibliography) must be 0cm. \@openbib@code is a hook inside
+% thebibliography.
+\let\@openbib@codeBACKUP\@openbib@code
+\def\@openbib@code{\@openbib@codeBACKUP\setlength{\leftmargin}{0cm}}
+
+
+% adding things after \begin{thebibliography}{}
+
+\let\thebibliographyBkUp\thebibliography
+\def\thebibliography#1{\thebibliographyBkUp{#1}\ABCIthebibliformat}
+
+%
+% \AfterTheBibliography{} hook
+%
+
+\newtoks\ABCItoken
+
+\newcommand{\ABCIthebiblihook}{}
+
+\newcommand{\AfterTheBibliography}[1]{
+  \ABCItoken=\expandafter{\ABCIthebiblihook}
+  \expandafter\def\expandafter\ABCIthebiblihook\expandafter{\the\ABCItoken#1}
+}
+
+
+\ifthenelse{\boolean{ABCIbibjustif}}
+  {}
+  {\AfterTheBibliography{\setlength{\rightskip}{0pt plus 2cm}}}
+
+\ifthenelse{\equal{\AbntCallType}{authordate}}
+  {% mode alf
+   \newcommand{\ABCIthebibliformat}{
+     \setlength{\leftskip}{\bibindent}
+     \setlength{\labelwidth}{0cm}
+     \setlength{\labelsep}{0cm}
+     \setlength{\itemindent}{-\bibindent}
+     \setlength{\listparindent}{0cm}
+     \ABCIthebiblihook
+     }     
+  }
+  {% mode num
+   \ifthenelse{\boolean{ABCIbiblabelonmargin}}
+     {
+       \newcommand{\ABCIthebibliformat}{
+         \setlength{\leftskip}{\bibindent}
+         \setlength{\labelwidth}{10cm}
+         \setlength{\labelsep}{0cm}
+         \setlength{\itemindent}{-\bibindent}
+         \setlength{\listparindent}{0cm}
+         \setlength{\biblabelsep}{1.5ex}
+         \ABCIthebiblihook
+       }
+     }
+     {
+       \newcommand{\ABCIthebibliformat}{
+         \setlength{\leftskip}{\bibindent}
+         \setlength{\labelwidth}{0cm}
+         \setlength{\labelsep}{0cm}
+         \setlength{\itemindent}{-\bibindent}
+         \setlength{\listparindent}{0cm}
+         \setlength{\minimumbiblabelwidth}{\leftskip}
+         \ABCIthebiblihook
+         }
+         \AfterTheBibliography{
+           \ifthenelse{\lengthtest{\minimumbiblabelwidth=0pt}}
+             {\setlength{\biblabelsep}{1.8ex}}
+             {\setlength{\biblabelsep}{1ex}}
+         }
+     }
+  }
+
+
+
+
+%---------------------------------------------------------------%
+%  Macros for output sorted and compressed numerical citations  %
+%---------------------------------------------------------------%
+
+
+% Store to maximum of a given list to the counter "ABCImax"
+\newcommand{\maximuminlist}[1]{%
+  \setcounter{ABCImax}{0}%
+  \@for\ABCIaux:=#1\do%
+     {%
+      \setcounter{ABCIaux}{\ABCIaux}%
+      \ifnum \value{ABCIaux}>\value{ABCImax}%
+         \setcounter{ABCImax}{\value{ABCIaux}}%
+      \fi%
+     }%
+}
+
+% It takes a command containing a comma separeted list of
+% positive numbers and redefines the original command with
+% the list without its maximum element.
+\newcommand{\ABCIlistwithoutmaximum}[1]{%
+  \maximuminlist{#1}%
+  \let\ABCItemplist#1%
+  \def#1{}%
+  \def\ABCIcomma{}%
+  \@for\ABCIaux:=\ABCItemplist\do%
+    {%
+      \ifnum\ABCIaux<\value{ABCImax}%
+        \edef#1{#1\ABCIcomma\ABCIaux}%
+        \def\ABCIcomma{,}%
+      \fi%
+    }%
+}
+
+% It requires a command containing a comma separeted list of
+% positive numbers. It redefines that command with the same
+% list, but sorted.
+\newcommand{\ABCIsortlist}[1]{%
+  \edef\ABCItempslist{#1}%
+  \def#1{}%
+  \def\ABCIcomma{}%
+  \whiledo{\not\equal{\ABCItempslist}{}}%
+    {%
+     \maximuminlist{\ABCItempslist}%
+     \edef#1{\arabic{ABCImax}\ABCIcomma#1}%
+     \def\ABCIcomma{,}%
+     \ABCIlistwithoutmaximum{\ABCItempslist}%
+    }%
+}
+
+% \ifconsecutive{num1}{num2}{block1}{block2}
+% executes block1 if num1 = num2+1 and block2 otherwise.
+\newcommand{\ifconsecutive}[4]{%
+  \@tempcnta#1%
+  \@tempcntb#2%
+  \advance\@tempcntb 1 %
+  \ifnum\@tempcnta=\@tempcntb#3\else#4\fi%
+}
+
+%
+% It sorts and outputs in grouped way the list \ABCIcitelist generated in
+% \cite when in `num' mode.
+%
+\newcommand{\ABCIoutputgroupedcitelist}{%
+  \ifthenelse{\equal{\ABCIcitelist}{}}%
+    {}%
+    {%
+     \ABCIsortlist{\ABCIcitelist}%
+     \setcounter{ABCIaux}{0}%
+     \@for \ABCIaux:=\ABCIcitelist\do%
+       {%
+        \ifthenelse{\value{ABCIaux}=0}%
+          {%
+           \let\ABCIfirst\ABCIaux%
+           \let\ABCIlast\ABCIaux%
+           \setcounter{ABCIaux}{1}%
+          }%
+          {%
+           \ifconsecutive{\ABCIaux}{\ABCIlast}%
+             {%
+              \let\ABCIlast\ABCIaux%
+              \addtocounter{ABCIaux}{1}%
+             }%
+             {%
+              \ifthenelse{\value{ABCIaux}=1}%
+                {%
+                 \ABCIcitecomma\ABCIfirst%
+                }%
+                {%
+                 \ifthenelse{\value{ABCIaux}=2}%
+                   {%
+                    \ABCIcitecomma\ABCIfirst%
+                    \ABCIcitecomma\ABCIlast%
+                   }%
+                   {%
+                    \ABCIcitecomma\ABCIfirst--\ABCIlast%
+                   }%
+                }%
+              \let\ABCIfirst\ABCIaux%
+              \let\ABCIlast\ABCIaux%
+              \setcounter{ABCIaux}{1}%
+             }%
+          }%
+       }%
+     \ifthenelse{\value{ABCIaux}=1}%
+       {%
+        \ABCIcitecomma\ABCIfirst%
+       }%
+       {%
+        \ifthenelse{\value{ABCIaux}=2}%
+          {%
+           \ABCIcitecomma\ABCIfirst%
+           \ABCIcitecomma\ABCIlast%
+          }%
+          {%
+           \ABCIcitecomma\ABCIfirst--\ABCIlast%
+          }%
+       }%
+     }%
+}
+
+\newcommand{\apudname}{apud}
+\newcommand{\Idemname}{Id.}
+\newcommand{\Ibidemname}{Ibid.}
+\newcommand{\opcitname}{op.\ cit.}
+\newcommand{\passimname}{passim}
+\newcommand{\loccitname}{loc.\ cit.}
+\newcommand{\cfcitename}{Cf.}
+\newcommand{\etseqname}{et seq.}
+
+\newcommand{\apud}[3][]{\citeopen\citeauthor{#2}, \citeyear{#2} \apudname\ %
+\citeauthor{#3}, \citeyear{#3}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}\citeclose}
+
+\newcommand{\apudonline}[3][]{\citeauthoronline{#2} \citeopen\apudname\ %
+\citeauthor{#3}, \citeyear{#3}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}\citeclose}
+
+\newcommand{\Idem}[2][]{\Idemname, \citeyear{#2}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}}
+
+\newcommand{\Ibidem}[2][]{\Ibidemname%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}}
+
+\newcommand{\opcit}[2][]{\citeauthor{#2}, \opcitname%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}}
+
+\newcommand{\passim}[2][]{\citeauthor{#2}, \citeyear{#2}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}, \passimname}
+
+\newcommand{\loccit}[2][]{\citeauthor{#2}, \citeyear{#2}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}, \loccitname}
+
+\newcommand{\cfcite}[2][]{\cfcitename\ \citeauthor{#2}, \citeyear{#2}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}}
+
+\newcommand{\etseq}[2][]{\citeauthor{#2}, \citeyear{#2}%
+\ifthenelse{\equal{#1}{\empty}}{}{, #1}, \etseqname}
+
+\ifthenelse{\equal{\AbntCallType}{numeric}}%
+{\renewcommand{\citeauthor}[1]{\citeauthoronline{#1}\cite{#1}}}{}
+
+
+\endinput
+
+
+

@@ -1,0 +1,49 @@
+%% $Id: abntex-abrev.sty,v 1.4 2005/11/14 09:01:37 gweber Exp $
+%% name of this file abntex-abrev.sty
+%% Copyright 2003, 2005 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% This file is distributed under the LaTeX-Project Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html
+%% You are free to modify this file under the LPPL.
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\input{cvs-id.def}
+\CVSExtract$Id: abntex-abrev.sty,v 1.4 2005/11/14 09:01:37 gweber Exp $
+\CVSPackage{abntex-abrev}{\space Abreviacoes}
+
+\RequirePackage{ifthen}
+
+\newcommand{\NoAbrevending}{\let\Abrevending\@empty}
+\input{nbr10522-1988.def}
+\newcommand{\@NBR}{@NBR@A@}
+\newcommand{\@PREF@}[1]{\csname \@NBR#1\endcsname}
+\input{abntex-abrev-pt_BR.def}
+\ProcessOptions
+
+\newcommand{\@TR@}{@TR@}
+\newcommand{\Capitalize}[1]{\uppercase{#1}}
+
+%para testar, coloca os resultados em forma mais explicita
+\newcommand{\TESTabrev}[1]{%
+\@ifundefined{@TR@#1}{pt(#1):\csname \@NBR#1\endcsname}{en(#1):\csname \@TR@#1\endcsname}}
+
+%controla como termina a abreviacao
+\newcommand{\abrevending}{.}
+\newcommand{\Abrevending}{}
+%comando para usuarios, pode ser portugues�ou ingles�
+\newcommand{\abrev}[1]{\let\Abrevending\abrevending%
+\@ifundefined{@TR@#1}{\csname \@NBR#1\endcsname\Abrevending}{\csname \@TR@#1\endcsname\Abrevending}}
+
+%comando para usuarios, pode ser portugues�ou ingles�
+\newcommand{\Abrev}[1]{\expandafter\Capitalize\abrev{#1}}
+
+%comando para desenvolvedores, so ingles�sem finalizacao, ou seja sem ponto
+\newcommand{\ABNTEXabrev}[1]{\@ifundefined{@TR@#1}{#1}{\csname \@TR@#1\endcsname}}
+
+%comando para desenvolvedores, so�ingles com finalizacao, ou seja com ponto
+\newcommand{\ABNTEXabrevp}[1]{\let\Abrevending\abrevending
+\ABNTEXabrev{#1}\Abrevending}
+
+
+
