@@ -11,3 +11,23 @@ syntax: regexp
 \.texlipse$
 syntax: regexp
 ^\.metadata$
+syntax: regexp
+^modelo-tese-abntex2/main\.brf$
+syntax: regexp
+^modelo-tese-abntex2/main\.glo$
+syntax: regexp
+^modelo-tese-abntex2/main\.ist$
+syntax: regexp
+^modelo-tese-abntex2/main\.pdf$
+syntax: regexp
+^modelo-tese-abntex2/main\.synctex\.gz$
+syntax: regexp
+^modelo-tese-abntex2/main\.idx$
+syntax: regexp
+^modelo-tese-abntex1/main\.brf$
+syntax: regexp
+^modelo-tese-abntex1/main\.glo$
+syntax: regexp
+^modelo-tese-abntex1/main\.idx$
+syntax: regexp
+^modelo-tese-abntex1/main\.ist$
