@@ -1,0 +1,34 @@
+%%%%%%%%%%%%%%DADOS DE CAPA & FOLHA DE ROSTO
+\providecommand{\ABNTautordata}{}
+\let\oldauthor\author\relax
+\newcommand{\autor}[1]{\renewcommand{\ABNTautordata}{#1}\oldauthor{#1}}
+\renewcommand{\author}[1]{\autor{#1}}
+
+\providecommand{\ABNTinstituicaodata}{}
+\newcommand{\instituicao}[1]{\renewcommand{\ABNTinstituicaodata}{#1}}
+
+\providecommand{\ABNTorientadordata}{}
+\providecommand{\ABNTorientadorname}{}
+\newcommand{\orientador}[2][\supervisorname:\vspace{1mm}\\]%
+  {\renewcommand{\ABNTorientadorname}{#1}%
+   \renewcommand{\ABNTorientadordata}{#2}}
+   
+\providecommand{\ABNTcoorientadordata}{}
+\providecommand{\ABNTcoorientadorname}{}
+\newcommand{\coorientador}[2][\cosupervisorname:\vspace{1mm}\\]%
+  {\renewcommand{\ABNTcoorientadorname}{#1}%
+   \renewcommand{\ABNTcoorientadordata}{#2}}
+   
+\providecommand{\ABNTtitulodata}{}
+\let\oldtitle\title\relax
+\newcommand{\titulo}[1]{\renewcommand{\ABNTtitulodata}{#1}\oldtitle{#1}}
+\renewcommand{\title}[1]{\titulo{#1}}
+
+\providecommand{\ABNTcomentariodata}{}
+\newcommand{\comentario}[1]{\renewcommand{\ABNTcomentariodata}{#1}}
+
+\providecommand{\ABNTlocaldata}{}
+\newcommand{\local}[1]{\renewcommand{\ABNTlocaldata}{#1}}   
+ 
+\providecommand{\ABNTdatadata}{}
+\newcommand{\data}[1]{\renewcommand{\ABNTdatadata}{#1}}

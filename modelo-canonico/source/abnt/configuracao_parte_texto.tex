@@ -1,0 +1,46 @@
+% From \@startsection. The only difference is that it calls \@ssect
+% changing the meaning id the first parameter. Now, instead of indentation,
+% it gives section level for TOC purposes.
+\def\ABNTstartsection#1#2#3#4#5#6{%
+  \if@noskipsec \leavevmode \fi
+  \par
+  \@tempskipa #4\relax
+  \@afterindenttrue
+  \ifdim \@tempskipa <\z@
+    \@tempskipa -\@tempskipa \@afterindentfalse
+  \fi
+  \if@nobreak
+    \everypar{}%
+  \else
+    \addpenalty\@secpenalty\addvspace\@tempskipa
+  \fi
+  \@ifstar
+    {\ABNTssect{#1}{#4}{#5}{#6}}% #3 replaced by #1 here
+    {\@dblarg{\ABNTsect{#1}{#2}{#3}{#4}{#5}{#6}}}}
+
+
+\renewcommand\section{\ABNTstartsection{section}{1}{\z@}%
+                           {-3.5ex \@plus -1ex \@minus -.2ex}%
+                           {2.3ex \@plus.2ex}%
+                           {\espaco{simples}\normalfont%
+                            \ABNTsectionfont\ABNTsectionfontsize}}
+\renewcommand\subsection{\ABNTstartsection{subsection}{2}{\z@}%
+                           {-3.25ex\@plus -1ex \@minus -.2ex}%
+                           {1.5ex \@plus .2ex}%
+                           {\espaco{simples}\normalfont%
+                            \ABNTsubsectionfont\ABNTsubsectionfontsize}}
+\renewcommand\subsubsection{\ABNTstartsection{subsubsection}{3}{\z@}%
+                           {-3.25ex\@plus -1ex \@minus -.2ex}%
+                           {1.5ex \@plus .2ex}%
+                           {\espaco{simples}\normalfont%
+                            \ABNTsubsubsectionfont\ABNTsubsubsectionfontsize}}
+\renewcommand\paragraph{\ABNTstartsection{paragraph}{4}{\z@}%
+                           {3.25ex \@plus1ex \@minus.2ex}%
+                           {-1em}%
+                           {\espaco{simples}\normalfont%
+                            \ABNTparagraphfont\ABNTparagraphfontsize}}
+\renewcommand\subparagraph{\ABNTstartsection{subparagraph}{5}{\parindent}%
+                           {3.25ex \@plus1ex \@minus .2ex}%
+                           {-1em}%
+                           {\espaco{simples}\normalfont%
+                            \ABNTsubparagraphfont\ABNTsubparagraphfontsize}}

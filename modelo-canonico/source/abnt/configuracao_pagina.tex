@@ -1,0 +1,147 @@
+%% Margin care --> Removed since version 1 beta
+
+%% Options `spacednotes': removed since version 0.3
+%  Assuming notes single spaced always (no alternative if using setspace ;-D
+
+%% Auto bold math: bold math version ir text font is in bold face
+\newboolean{ABNTautobm}
+\DeclareOption{boldmath=auto}   {\setboolean{ABNTautobm}{true}}
+\DeclareOption{boldmath=noauto} {\setboolean{ABNTautobm}{false}}
+%deprecated options
+\DeclareOption{autobm}   {\ExecuteOptions{boldmath=auto}}
+\DeclareOption{noautobm} {\ExecuteOptions{boldmath=noauto}}
+
+%% font option: times as default or not
+\newboolean{ABNTtimesfont}
+\DeclareOption{font=times}   {\setboolean{ABNTtimesfont}{true}}
+\DeclareOption{font=plain}   {\setboolean{ABNTtimesfont}{false}}
+%
+\DeclareOption{times}   {\ExecuteOptions{font=times}}
+\DeclareOption{notimes} {\ExecuteOptions{font=plain}}
+
+%% Option to indent the first paragraph of each section or chapter
+\newboolean{ABNTindentfirst}
+\DeclareOption{indent=all}       {\setboolean{ABNTindentfirst}{true}}
+\DeclareOption{indent=firstonly} {\setboolean{ABNTindentfirst}{false}}
+%deprecated options
+\DeclareOption{indentfirst}   {\ExecuteOptions{indent=all}}
+\DeclareOption{noindentfirst} {\ExecuteOptions{indent=firstonly}}
+
+%Options which group options according to specific norms.
+
+\DeclareOption{nbr6027=1989}  {\input{normas/nbr6027-1989.def}}
+\DeclareOption{nbr14724=2001} {\input{normas/nbr14724-2001.def}}
+
+\DeclareOption{abntex=0.9} 
+  {\ExecuteOptions{boldmath=auto}
+   \ExecuteOptions{font=times}
+   \ExecuteOptions{nbr6027=1989,nbr14724=2001}}
+
+
+% This should be the only default \ExecuteOptions command.
+\ExecuteOptions{abntex=0.9}
+
+\def\ABNTcurrentoptions{}
+\newcommand{\AddCurrentOptionToList}{%
+  \ifx\ABNTcurrentoptions\@empty%
+     \edef\ABNTcurrentoptions{\CurrentOption}%
+  \else%
+     \edef\ABNTcurrentoptions{\ABNTcurrentoptions,\CurrentOption}%
+  \fi%
+}
+
+%% All options not defined are passed to `report'
+\DeclareOption*{%
+  \AddCurrentOptionToList
+% if some font or paper option is passed, a flag is set.
+  \ifthenelse{\equal{\CurrentOption}{10pt}\or\equal{\CurrentOption}{11pt}}%
+    {\setboolean{ABNTfontsize}{true}}{}%
+  \ifthenelse{\equal{\CurrentOption}{a5paper}\or%
+              \equal{\CurrentOption}{b5paper}\or%
+              \equal{\CurrentOption}{letterpaper}}%
+    {\setboolean{ABNTpaper}{true}}{}%
+  \ifthenelse{\equal{\CurrentOption}{openany}}%
+    {\setboolean{ABNTopen}{true}}{}%
+  \PassOptionsToClass{\CurrentOption}{report}}
+
+
+% testing if user use other options for font size or paper
+% than 12pt, a4paper and openright
+\newboolean{ABNTfontsize}
+\setboolean{ABNTfontsize}{false}
+\newboolean{ABNTpaper}
+\setboolean{ABNTpaper}{false}
+\newboolean{ABNTopen}
+\setboolean{ABNTopen}{false}
+
+
+% Process options (without star -> in the order of definition!).
+\ProcessOptions
+
+% After process options, flags are properly set.
+% Passing options to class, that will be loaded in \LoadClass
+\ifthenelse{\boolean{ABNTfontsize}}%
+  {}{\PassOptionsToClass{12pt}{report}}
+\ifthenelse{\boolean{ABNTpaper}}%
+  {}{\PassOptionsToClass{a4paper}{report}}
+\ifthenelse{\boolean{ABNTopen}}%
+  {}{\PassOptionsToClass{openright}{report}}
+  
+  
+\ifthenelse{\boolean{ABNTtimesfont}}% if `times'option enabled...
+ {\IfFileExists{mathptmx.sty}%  try `mathptmx' first
+    {\RequirePackage{mathptmx}}% 
+    {\IfFileExists{mathptm.sty}% if not installed, try `mathptm'
+       {\RequirePackage{mathptm}}%
+       {\IfFileExists{times.sty} % 
+         {\RequirePackage{times}}%
+         {\renewcommand{\rmdefault}{ptm}}%
+       }%
+    }%
+  \IfFileExists{helvet.sty}% including also Helvetica as sans serif.
+    {\RequirePackage{helvet}}%
+    {\IfFileExists{helvetic.sty}%
+       {\RequirePackage{helvetic}}%
+       {\renewcommand{\rmdefault}{phv}}%
+    }%
+ }%
+ {}
+ 
+ \input{abnt/configuracao_margem}
+ 
+ %%%%% auto bold math (try follow bold face in text)
+
+% plan: redefine commands that change font to bold to ALSO change math
+% version; I don't change all commands that change font weight because I
+% suppose this uses are local
+
+\AtBeginDocument{
+\ifthenelse{\boolean{ABNTautobm}\and\not\isundefined{\mv@bold}}%
+ {%
+  % \bfseries
+  \let\ABNToldbfseries\bfseries\relax%
+  \renewcommand{\bfseries}{\mathversion{bold}\ABNToldbfseries}%
+  %
+  % \textbf{}
+  \let\ABNToldtextbf\textbf\relax%
+  \renewcommand{\textbf}[1]{\ABNToldtextbf{\mathversion{bold}#1}}%
+  %
+  % \bf
+  \let\ABNToldbf\bf\relax%
+  \renewcommand{\bf}{\mathversion{bold}\ABNToldbf}%
+  %
+ }%
+ {}%
+}
+
+%%%%%%    Indent code 
+
+% indenting first paragraph of each section
+\ifthenelse{\boolean{ABNTindentfirst}}%
+ {\RequirePackage{indentfirst}}%
+ {}
+
+% paragraph indentation size and skip
+\setlength{\parindent}{.7cm}
+\setlength{\parskip}{.25cm}
+ 

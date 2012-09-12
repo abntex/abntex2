@@ -1,0 +1,48 @@
+%% Line Spacing options: change current setting.
+\DeclareOption{espaco=umemeio} {\renewcommand*{\ABNTespacodefault}{\taxaespacoumemeio}} % default
+\DeclareOption{espaco=simples} {\renewcommand*{\ABNTespacodefault}{\taxaespacosimples}}
+\DeclareOption{espaco=duplo}   {\renewcommand*{\ABNTespacodefault}{\taxaespacoduplo}}
+%deprecated options
+\DeclareOption{espacoumemeio} {\ExecuteOptions{espaco=umemeio}}
+\DeclareOption{espacosimples} {\ExecuteOptions{espaco=simples}}
+\DeclareOption{espacoduplo}   {\ExecuteOptions{espaco=duplo}}
+
+\newcommand*{\ABNTespacodefault}{} %
+\newcommand*{\taxaespacosimples}{1.}
+\newcommand*{\taxaespacoumemeio}{1.35}
+\newcommand*{\taxaespacoduplo}{1.7}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Line spacing stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Since version 0.3 the `setspace' package is used.
+
+% Space scheme in notes (footnotes and margin notes) removed since
+% version 0.3 since setspace do not support it; footnotes are always
+% single spaced!
+
+% \espaco{} - ativa o espacamento para um numero dado (taxa de
+% esticamento), mas aceita os parametros simples, umemeio, e duplo.
+
+\newcommand{\espaco}[1]%
+{\ifthenelse{\equal{#1}{simples}}% se espacamentos simples
+  {\setstretch{\taxaespacosimples}} % entao
+  { %senao (espaco simples)
+   \ifthenelse{\equal{#1}{umemeio}}% se espaco 1 1/2
+     {\setstretch{\taxaespacoumemeio}} % entao
+     {%senao (espaco 1 1/2)
+      \ifthenelse{\equal{#1}{duplo}}% se espaco duplo
+        {\setstretch{\taxaespacoduplo}}% entao
+        {\setstretch{#1}} % senao espaco dado
+     } %fim se espaco 1 1/2
+  } %fim se espaco simples
+}%fim newcommand
+\newenvironment{espacosimples}
+  {\begin{spacing}{\taxaespacosimples}}{\end{spacing}}
+
+\newenvironment{espacoumemeio}
+  {\begin{spacing}{\taxaespacoumemeio}}{\end{spacing}}
+
+\newenvironment{espacoduplo}%
+  {\begin{spacing}{\taxaespacoduplo}}{\end{spacing}}
