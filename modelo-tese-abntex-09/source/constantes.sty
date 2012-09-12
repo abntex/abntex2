@@ -1,0 +1,58 @@
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+%                        Lauro César Araujo
+%
+%     File       : constantes.sty
+%     Type       : TeX
+%     Date       : terça-feira, 19 de março de 2012 
+%
+%    Content   : Ambiente para escrever constantes em textos
+%
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%    Exemplo:
+%                  \NOME_DA_CONSTANTE
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% --- Ambiente para definição de próprias -------
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%definindo o variaveis globais
+\newcommand{\meutitulo}{Teses e Dissertações CPAI:\\Textos ricos produzidos com
+Latex - v2012} 
+\newcommand{\meutituloLinhaUnica}{Teses e Dissertações CPAI: Textos ricos
+produzidos com Latex - v2012}
+\newcommand{\palavrasChavesPortugues}{palavra1; palavra2; palavra3}
+\newcommand{\palavrasChavesIngles}{word1; word2; ``term1''}
+
+\newcommand{\autores}{Nome dos pesquisadores} 
+\newcommand{\autoresEmail}{laurocesar@laurocesar.com}
+\newcommand{\nomeOrientador}{Mamede Lima-Marques}
+
+\newcommand{\dataAno}{2012}
+\newcommand{\dataTexto}{Março de 2012}
+\newcommand{\dataDefesa}{19 de março de 2012}
+
+\newcommand{\tipoTrabalho}{Dissertação}%Tese 
+\newcommand{\tituloObtido}{Mestre}
+\newcommand{\tipoTrabalhoCompleto}{Dissertação de mestrado}%Tese de Doutorado
+\newcommand{\textoEpigrafe}{\tipoTrabalho apresentada à Faculdade de Ciência da
+    		Informação da Universidade de Brasília como requisito parcial para a
+    		obtenção do título de \tituloObtido.}
+
+% Define a constante com o objetivo geral, reutilizada em outras partes do
+% texto:
+% introducao.tex objetivo.tex conclusao.tex
+\newcommand{\objetivoGeral}{servir de modelo para construção de textos
+acadêmicos ricos}
+
+% definindo a cor azul
+\definecolor{blue}{RGB}{41,5,195}
+	
+% comando útil para referencias apêndices e anexos
+% use como: \textref[Apêndice]{apendice_ArquiteturaInformacao}
+\newcommand{\textref}[2][autoref]{%
+	\ifthenelse{\equal{#1}{autoref}}%
+		{\autoref{#2}}%
+		{\hyperref[#2]{#1~\ref{#2}}}}	
