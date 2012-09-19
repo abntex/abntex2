@@ -1,0 +1,13 @@
+% ====  \listoftables  ====
+% Same comments in \listoffigures
+\renewcommand\listoftables{%
+  \ifthenelse{\boolean{@twocolumn}}%
+    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
+    {\setboolean{ABNTrestorecol}{false}}%
+  \setchaptertype{listoftables}
+  \pretextualchapter{\listtablename}
+  \@starttoc{lot}%
+  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
+}%
+
+\let\listadetabelas\listoftables\relax

@@ -1,9 +1,13 @@
 \input{abnt/required_packages}
+\input{abnt/declared_options}
 \input{abnt/atributos_customizacao}
 \input{abnt/espacamento}
 \input{abnt/configuracao_pagina}
-\input{abnt/configuracao_parte_texto}
-
+\input{abnt/estilo_pagina}
+\input{abnt/numeracao_pagina}
+\input{abnt/configuracao_capitulo}
+\input{abnt/configuracao_secao}
+\input{abnt/configuracao_part}
 
 \AtBeginDocument{%
 % default spacing (set by class options)
@@ -12,16 +16,17 @@
 \@ifpackageloaded{hyperref}{\setboolean{ABNThypertoc}{true}}{\setboolean{ABNThypertoc}{false}}%
 }
 
-%% Font which chapter titles will be printed
-\ifthenelse{\boolean{ABNTcapchap}}
-  {\newcommand{\ABNTchapterfont}{\ABNTCHAPTERfont}}%uppercase
-  {\newcommand{\ABNTchapterfont}{\ABNTChapterfont}}%titlecase
-  
 \newcommand{\ABNTifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 
 %Componentes da abnt 
 \input{abnt/componentes/dados_capa_folharosto} 
 \input{abnt/componentes/capa}
-\input{abnt/componentes/folha_rosto}	
+\input{abnt/componentes/folha_rosto}
+\input{abnt/componentes/resumo}	
+\input{abnt/componentes/anexo_apendice}
+\input{abnt/componentes/sumario}
+\input{abnt/componentes/tabela_conteudo}
+\input{abnt/componentes/lista_figuras}
+
  
  

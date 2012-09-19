@@ -1,0 +1,120 @@
+%%%%%%%%%% Implementation for Annex and Appendix
+%
+%TODO COMANDOS ABAIXO ABNTO8
+\providecommand{\annexname}{Anexo}
+\providecommand{\appendixname}{Andice} % for completeness ;-)
+\newcommand{\anapchaptername}{\relax}
+
+\newcommand*{\ABNTtravessao}{-$\!$-}
+
+\def\@anapchapter[#1]#2%
+      {
+       \refstepcounter{chapter}%
+       \ifthenelse{\boolean{ABNTAnApName}}
+        {
+         \begingroup
+         \ifthenelse{\equal{#1}{}}
+            {\def\thechapter{\anapchaptername{} \Alph{chapter}}}
+            {\def\thechapter{\anapchaptername{} \Alph{chapter}{}
+                                \ABNTtravessao{} #1}} 
+         \ABNTchaptermark{}
+         \endgroup
+         \if@twocolumn
+           \@topnewpage[\@makeanapchapterhead{#2}]%
+         \else
+           \@makeanapchapterhead{#2}%
+           \@afterheading
+         \fi
+        }
+        {
+         \ABNTchaptermark{#1}
+         \if@twocolumn
+            \@topnewpage[\@makechapterhead{#2}]%
+         \else
+            \@makechapterhead{#2}%
+            \@afterheading
+         \fi
+        }
+       \ifnum \c@secnumdepth >\m@ne
+         \typeout{\@chapapp\space\thechapter.}%
+         \ifthenelse{\boolean{ABNTAnApName}}{
+           \ifthenelse{\equal{#1}{}}
+              {\ABNTaddcontentsline{toc}{chapter}%
+                  {\anapchaptername{} \thechapter}}
+              {\ABNTaddcontentsline{toc}{chapter}%
+                  {\anapchaptername{} \thechapter{} \ABNTtravessao{} #1}}
+         }
+         {
+          \ABNTaddcontentsline{toc}{chapter}%
+                   {\protect\numberline{\thechapter}#1}
+         }  
+       \else
+         \ABNTaddcontentsline{toc}{chapter}{#1}
+       \fi
+       \par
+      }
+
+
+\newcommand{\ABNTaposindicativoanap}{\relax}
+
+\def\@makeanapchapterhead#1{%
+  {%
+%  \noindent\rule{\textwidth}{1.7pt}\\\par
+  \normalfont\ABNTchapterfont\ABNTanapsize
+  \espaco{simples}
+  \ifthenelse{\boolean{ABNTAnApIndicativoIndent}}
+    {\ifthenelse{\boolean{ABNTCapAnnexAppendix}}
+       {\settowidth{\ABNTanapindent}{\MakeUppercase{\anapchaptername}
+          \thechapter{} \ABNTtravessao{}}}
+       {\settowidth{\ABNTanapindent}{\anapchaptername
+          \thechapter{} \ABNTtravessao{}}}
+    }
+    {}
+  \vspace*{30pt}
+%
+  \raggedright\espaco{1.2}\par  
+  \begin{list}{}{%
+       \setlength{\listparindent}{0cm}%
+       \setlength{\itemindent}{-\ABNTanapindent}%
+       \setlength{\rightmargin}{0cm}%
+       \setlength{\leftmargin}{\ABNTanapindent}%
+       \setlength{\parsep}{0pt}}%
+    \item %
+      \ifthenelse{\equal{#1}{}}
+         {\ifthenelse{\boolean{ABNTCapAnnexAppendix}}
+            {\MakeUppercase{\anapchaptername}}
+            {\anapchaptername} 
+          \thechapter \ABNTaposindicativoanap}
+         {\ifthenelse{\boolean{ABNTCapAnnexAppendix}}
+            {\MakeUppercase{\anapchaptername}}
+            {\anapchaptername}
+          \thechapter{} \ABNTtravessao{} \ABNTaposindicativoanap
+            \ifthenelse{\boolean{ABNTcapchap}}%
+              {\MakeUppercase{#1}}%
+              {#1}}
+  \end{list}
+  \par\vspace{50pt}%
+  }%
+}
+
+\renewcommand{\appendix}{
+  \setcounter{chapter}{0}
+  \resetsubcounters{chapter}
+  \gdef\thechapter{\Alph{chapter}}
+  \setchaptertype{appendix}
+  \gdef\@chapapp{Apendice}
+  \renewcommand{\anapchaptername}{\appendixname}
+  \global\let\@chapter\@anapchapter}
+
+\let\apendice\appendix
+
+\newcommand{\annex}{
+  \setcounter{chapter}{0}
+  \resetsubcounters{chapter}
+  \gdef\thechapter{\Alph{chapter}}
+  \setchaptertype{annex}
+  \gdef\@chapapp{Anexo}
+  \renewcommand{\anapchaptername}{\annexname}
+  \global\let\@chapter\@anapchapter}
+
+\let\anexo\annex

@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    Page numbering 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newboolean{ABNTinpretext}
+\setboolean{ABNTinpretext}{true}
+
+\newboolean{ABNTaftertoc}
+\setboolean{ABNTaftertoc}{false}
+
+% The command \ABNTBeginOfTextualPart is executed by \tableofcontents at
+% its end. It's intented to page style and page number settings.
+\providecommand{\ABNTBeginOfTextualPart}{}
+
+\newcommand{\chaptertitlepagestyle}{plain}
+
+\ifthenelse{\equal{\ABNTpnum}{plain}}
+  {%
+    \setboolean{ABNTinpretext}{false}
+    \setboolean{ABNTaftertoc}{true}
+    \ifthenelse{\boolean{ABNTheader}}
+       {%
+        \ifthenelse{\equal{\ABNTheadertype}{plain}}%
+          {\pagestyle{plainheader}}
+          {%
+           \ifthenelse{\equal{\ABNTheadertype}{normal}}%
+             {\pagestyle{header}}%
+             {\pagestyle{ruledheader}}%
+          }%
+        \renewcommand{\chaptertitlepagestyle}{plainheader}%
+       }%
+       {%
+        \pagestyle{plain}%
+        \renewcommand{\chaptertitlepagestyle}{plain}
+       }%
+  }% 
+  {%
+   \ifthenelse{\equal{\ABNTpnum}{ABNT}}%
+     {% ABNT strict
+      % - pagestyle is empty until \tableofcontents, when it becames with
+      %   numeration (depending on `header' or `plain' header style)
+      % - page counter starts AT `folha de rosto'.
+      %
+      % Makeing titlepage environment increase page counter
+      \let\ABNToldendtitlepage\endtitlepage\relax
+      \renewcommand{\endtitlepage}{\ABNToldendtitlepage\addtocounter{page}{1}}
+      \pagestyle{empty}
+      \renewcommand{\thepage}{}
+      \renewcommand{\chaptertitlepagestyle}{empty}
+      \renewcommand{\ABNTBeginOfTextualPart}%
+        {%
+         \renewcommand{\thepage}{\arabic{page}}
+         \ifthenelse{\boolean{ABNTheader}}
+           {%
+            \ifthenelse{\equal{\ABNTheadertype}{plain}}%
+              {\pagestyle{plainheader}}
+              {%
+               \ifthenelse{\equal{\ABNTheadertype}{normal}}%
+                 {\pagestyle{header}}%
+                 {\pagestyle{ruledheader}}%
+              }%
+            \renewcommand{\chaptertitlepagestyle}{plainheader}%
+           }%
+           {%
+            \pagestyle{plain}%
+            \renewcommand{\chaptertitlepagestyle}{plain}
+           }%
+
+        }%
+     }%
+     {% RomArab
+      % - page style with numeration 
+      % - BEFORE \tableofcontents
+      %     \thepage in roman
+      %     page counter starts AFTER `folha de rosto'
+      % - AFTER \tableofcontents
+      %     \thepage in arabic
+      %     page counter starts again
+      %
+      \ifthenelse{\boolean{ABNTheader}}
+        {%
+         \ifthenelse{\equal{\ABNTheadertype}{plain}}%
+           {\pagestyle{plainheader}}
+           {%
+            \ifthenelse{\equal{\ABNTheadertype}{normal}}%
+              {\pagestyle{header}}%
+              {\pagestyle{ruledheader}}%
+           }%
+         \renewcommand{\chaptertitlepagestyle}{plainheader}%
+        }%
+        {%
+         \pagestyle{plain}%
+         \renewcommand{\chaptertitlepagestyle}{plain}
+        }%
+      \renewcommand{\thepage}{\roman{page}}
+      \renewcommand{\ABNTBeginOfTextualPart}%
+        {%
+         \renewcommand{\thepage}{\arabic{page}}
+         \setcounter{page}{1}
+        }%
+     }%
+  }%

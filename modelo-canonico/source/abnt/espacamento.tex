@@ -1,13 +1,3 @@
-%% Line Spacing options: change current setting.
-\DeclareOption{espaco=umemeio} {\renewcommand*{\ABNTespacodefault}{\taxaespacoumemeio}} % default
-\DeclareOption{espaco=simples} {\renewcommand*{\ABNTespacodefault}{\taxaespacosimples}}
-\DeclareOption{espaco=duplo}   {\renewcommand*{\ABNTespacodefault}{\taxaespacoduplo}}
-%deprecated options
-\DeclareOption{espacoumemeio} {\ExecuteOptions{espaco=umemeio}}
-\DeclareOption{espacosimples} {\ExecuteOptions{espaco=simples}}
-\DeclareOption{espacoduplo}   {\ExecuteOptions{espaco=duplo}}
-
-\newcommand*{\ABNTespacodefault}{} %
 \newcommand*{\taxaespacosimples}{1.}
 \newcommand*{\taxaespacoumemeio}{1.35}
 \newcommand*{\taxaespacoduplo}{1.7}
