@@ -1,39 +1,211 @@
-%%This is a very basic article template.
-%%There is just one section and two subsections.
+%
+% Documento de teste do abnTeX2
+%
 \documentclass{abntex2}
 
- 	\usepackage[T1]{fontenc}						% Seleção de códigos de fonte.
-	\usepackage[utf8]{inputenc}					% Determina a codificação utiizada (conversão automática dos acentos)
+	% PACOTES FUNDAMENTAIS
+ 	\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+	\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+	\usepackage{makeidx}            % cria o indice
+	\usepackage[font=footnotesize,skip=4pt]{caption}[2011/11/10]	% captions
+    \usepackage{bookmark,hyperref}  % controla a formação do índice
 
+    
+    % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
+    \usepackage{lipsum}				% para geração de dummy text
+    \usepackage{mychemistry}	    % Desenho de estruturas químicas
+    
+
+	% CONFIGURACOES DE PACOTES
+     \hypersetup{
+     	%backref=true,
+     	%pagebackref=true,
+		%bookmarks=true,         		% show bookmarks bar?
+		pdftitle={TITULO DO PDF}, 
+		pdfauthor={AUTORES},
+		pdfkeywords={PALAVRAS CHAVES EM PORTUGUES},
+    		pdfsubject={EPIGRAFE},
+	    pdfproducer={Latex}, 	% producer of the document
+    		colorlinks=true,       		% false: boxed links; true: colored links
+    		linkcolor=blue,          	% color of internal links
+    		citecolor=blue,        		% color of links to bibliography
+    		filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+		}
+    
+
+% compila o indice
+\makeindex
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEMENTOS PRÉ-TEXTUAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{resumo}
-Este é o resumo que deve funcionar.
-\end{resumo}
+% inserir a capa
+% \capa
 
-% ----------
-% capitulo 1
-% ----------
-\chapter{Capítulo 1}
+% inserir a folha de rosto
+% \folhaderosto
+
+% inserir a ficha bibliografica
+% \fichabibliografica
+
+% inserir folha de aprovação
+% \folhaaprovacao
+
+% dedicatória
+% \dedicatoria
+
+% agradecimentos
+% \agradecimentos
+
+% epígrafe
+% \epigrafe
+
+% inserir o resumo em português  {título do resumo}{palavras chaves}
+% \begin{resumo}{Reumo}{latex, abntex, editoração de texto}
+%  Este é o resumo em português
+% \end{resumo}
+
+% inserir o resumo em inglês {título do resumo}{palavras chaves}
+% \begin{resumo}{Abstract}{latex, abntex, text editing}
+%  This is the english abstract.
+% \end{resumo}
+
+% inserir o resumo em inglês {título do resumo}{palavras chaves}
+% \begin{resumo}{Résumé}{latex, abntex, l'édition de texte}
+%  Ceci est le résumé français.
+% \end{resumo}
+
+% inserir o resumo em inglês {título do resumo}{palavras chaves}
+% \begin{resumo}{Resumen}{latex, abntex, edición de texto}
+%  Este es el resumen de español.
+% \end{resumo}
+
+% inserir o sumario
+\tableofcontents
+
+% inserir lista de figuras
+\listoffigures
+
+% inserir lista de tabelas
+\listoftables
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEMENTOS TEXTUAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter{Introdução}
+
+\lipsum[1-2]
+
+
+% ----------------------------------------------------------
+% Capitulo 1
+% ----------------------------------------------------------
+\chapter{Lorem ipsum dolor sit amet}
+
+\lipsum[3]
+
+\begin{itemize}
+  \item Item 1
+  \item Item 2\footnote{Item 2 little longer footnote, once there is more
+  about the world then there is about ourselves.}
+  \item Item 3\footnote{Item 3 footnote.}
+\end{itemize}
+
+% \begin{resumo}
+% Este é o resumo que deve funcionar.
+% \end{resumo}
+
+\lipsum[4]
+
+\begin{table}[htb]
+\footnotesize
+\caption[Níveis de investigação]{\footnotesize{Níveis de investigação.
+\cite{van86}}}
+\label{tab-nivinv}
+\begin{tabular}{p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}}
+  %\hline
+   \textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
+    \hline
+    Meta-nível & Filosofia da Ciência  & Epistemologia & Paradigma  \\
+    \hline
+    Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
+    Ciência  & Teorias e modelos \\
+    \hline
+    Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas  \\
+   % \hline
+\end{tabular}
+\end{table}
+
+\lipsum[5]
+
+% figura química 
+
+\begin{figure}[htb]
+	\begin{center}
+		\makevisible
+		\colorlet{mCgreen}{green!50!gray}
+		\colorlet{mCblue}{cyan!50!gray}
+		\colorlet{mCred}{magenta!50!gray}
+		\colorlet{mCyellow}{yellow!50!gray}
+		\begin{rxn}
+			\tikzset{reactant/.style={draw=#1,fill=#1!10,inner sep=1em,minimum height=10em,minimum width=12em,rounded corners}}
+			\reactant[,cytosine,reactant=mCred]{\chemfig{H-[:30]N*6(-(=O)-N=(-NH _2)-=-)}}
+			\anywhere{cytosine.-90,,yshift=-2mm}{Citosina}
+			\reactant[,thymine,reactant=mCyellow]{\chemfig{H-[:30]N*6(-(=O)-N(-H)
+			-(=O)-(-CH_3)=-)}}
+			\anywhere{thymine.-90,,yshift=-2mm}{Timina}
+			\reactant[cytosine.-90,adenine,yshift=-2em,reactant=mCblue]{\chemfig
+			{[:-36]*5(-N(-H)-*6(-N=-N=(-NH_2)--)--N=)}}
+			\anywhere{adenine.-90,Guanin,yshift=-2mm}{Adenina}
+			\reactant[,guanine,reactant=mCgreen]{\chemfig{[:-36]*5(-N(-H)-*6(-N=(-
+			NH_2)-N(-H)-(=O)--)--N=)}}
+			\anywhere{guanine.-90,,yshift=-2mm}{Guanina}
+		\end{rxn}
+	
+	    \caption{\label{fig_aromaticos}Configurações de moléculas químicas}
+	    \caption*{Fonte: autores}
+	\end{center}
+\end{figure}
+
+\lipsum[6]
+
 
 \section{Seção 1}
 
+\lipsum[7]
+
 \subsection{Subseção 1}
 
-Plain text.
+\lipsum[8-10]
 
-\begin{citacao}
-Esta é uma citação longa. O tamanho do texto deve ser reduzido, o espaçamento
-deve ser simples as margens devem ser reduzidas
-\end{citacao}
+
+% \begin{citacao}
+% Esta é uma citação longa. O tamanho do texto deve ser reduzido, o espaçamento
+% deve ser simples as margens devem ser reduzidas
+% \end{citacao}
 
 \subsection{Subseção 2}
 
 Plain text.
 
+\lipsum[11-15]
+
 \subsection{Subseção 3}
+
+More plain text.
+
+\lipsum[16-20]
 
 More plain text.
 
@@ -41,30 +213,96 @@ More plain text.
 
 More plain text.
 
+\lipsum[21-25]
 
-% ----------
-% capitulo 2
-% ----------
 
-\chapter{Capítulo 2}
+
+% ----------------------------------------------------------
+% capitulo Segundo assunto
+% ----------------------------------------------------------
+
+\chapter{Etiam eget ligula eu lectus lobortis condimentum}
+
+\lipsum[1-3]
 
 \section{Seção 1}
+
+\lipsum[4-5]
 
 \subsection{Subseção 1}
 
 Plain text.
 
+\lipsum[6-10]
+
 \subsection{Subseção 2}
 
 Plain text.
+
+\lipsum[11-15]
 
 \subsection{Subseção 3}
 
 More plain text.
 
+\lipsum[16-17]
+
 \subsubsection{Subsubseção 3.1}
 
 More plain text.
 
+\lipsum[18-20]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEMENTOS PÓS-TEXTUAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ----------------------------------------------------------
+% Conclusão
+% ----------------------------------------------------------
+
+\chapter*{Conclusão}
+
+\lipsum[21-23]
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliographystyle{plain}	% (uses file "plain.bst")
+\bibliography{references}
+
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+\appendix
+
+% ----------------------------------------------------------
+\chapter{Primeiro apêndice}
+% ----------------------------------------------------------
+
+\lipsum[50-52]
+
+% ----------------------------------------------------------
+\chapter{Segundo apêndice}
+% ----------------------------------------------------------
+\lipsum[55-57]
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% \annex
+% 
+% % ----------------------------------------------------------
+% \chapter{Primeiro anexo}
+% % ----------------------------------------------------------
+% 
+% \lipsum[200-202]
+% 
+% % ----------------------------------------------------------
+% \chapter{Segundo anexo}
+% % ----------------------------------------------------------
+% \lipsum[210-212]
 
 \end{document}

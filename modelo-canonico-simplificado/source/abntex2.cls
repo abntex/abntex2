@@ -13,12 +13,29 @@
 \ProcessOptions\relax
 \LoadClass{report}
 
+% ----------------------------------------------------------
 % Pacotes necessários:
-\RequirePackage[brazil]{babel}
+
+% necessário para tradução de strings
+% português-brasil
+\RequirePackage[brazil]{babel}   
 
 
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+% Anexo
+
+% NAO FUNCIONA:
+
+% \newcommand\annex{\par
+%   \setcounter{chapter}{0}%
+%   \setcounter{section}{0}%
+%   \gdef\@chapapp{\annexname}%
+%   \gdef\thechapter{\@Roman\c@chapter}}
+
+
 
 % Resumo e abstract
 
