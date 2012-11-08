@@ -1,7 +1,7 @@
 %
 % Documento de teste do abnTeX2
 %
-\documentclass{abntex2}
+\documentclass[twoside,openright,a4paper]{abntex2}
 
 	% PACOTES FUNDAMENTAIS
  	\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
@@ -75,24 +75,30 @@
 %  This is the english abstract.
 % \end{resumo}
 
-% inserir o resumo em inglês {título do resumo}{palavras chaves}
+% inserir o resumo em francês {título do resumo}{palavras chaves}
 % \begin{resumo}{Résumé}{latex, abntex, l'édition de texte}
 %  Ceci est le résumé français.
 % \end{resumo}
 
-% inserir o resumo em inglês {título do resumo}{palavras chaves}
+% inserir o resumo em espanhol {título do resumo}{palavras chaves}
 % \begin{resumo}{Resumen}{latex, abntex, edición de texto}
 %  Este es el resumen de español.
 % \end{resumo}
 
-% inserir o sumario
-\tableofcontents
-
-% inserir lista de figuras
+% inserir lista de ilustrações
 \listoffigures
 
 % inserir lista de tabelas
 \listoftables
+
+% inserir lista de Abreviaturas e Siglas
+%\listofabreviaturasSiglas
+
+% inserir lista de símbolos
+%\listofsimbols
+
+% inserir o sumario
+\tableofcontents
 
 
 
@@ -118,7 +124,7 @@
 \begin{itemize}
   \item Item 1
   \item Item 2\footnote{Item 2 little longer footnote, once there is more
-  about the world then there is about ourselves.}
+  about the \index{world}world then there is about ourselves.}
   \item Item 3\footnote{Item 3 footnote.}
 \end{itemize}
 
@@ -137,7 +143,8 @@
   %\hline
    \textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
     \hline
-    Meta-nível & Filosofia da Ciência  & Epistemologia & Paradigma  \\
+    Meta-nível & Filosofia\index{Filosofia} da Ciência  & Epistemologia &
+    Paradigma  \\
     \hline
     Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
     Ciência  & Teorias e modelos \\
@@ -207,11 +214,11 @@ More plain text.
 
 \lipsum[16-20]
 
-More plain text.
+More plain text\index{plain text}.
 
 \subsubsection{Subsubseção 3.1}
 
-More plain text.
+More plain text\index{plain text}.
 
 \lipsum[21-25]
 
@@ -237,7 +244,7 @@ Plain text.
 
 \subsection{Subseção 2}
 
-Plain text.
+Plain text\index{plain text}.
 
 \lipsum[11-15]
 
@@ -273,6 +280,16 @@ More plain text.
 
 
 % ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+
+%
+% Há diversas soluções prontas para glossário. Não é necessário nos preocuparmos
+% com isso agora.
+%
+%\glossary
+
+% ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------
 \appendix
@@ -304,5 +321,16 @@ More plain text.
 % \chapter{Segundo anexo}
 % % ----------------------------------------------------------
 % \lipsum[210-212]
+
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection 
+\addcontentsline{toc}{chapter}{\indexname}
+% \ProximoForaDoSumario
+\printindex
 
 \end{document}
