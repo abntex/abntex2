@@ -14,11 +14,60 @@
 \LoadClass{report}
 
 % ----------------------------------------------------------
-% Pacotes necessários:
+% Pacotes e customizações gerais
+% ----------------------------------------------------------
 
-% necessário para tradução de strings
-% português-brasil
-\RequirePackage[brazil]{babel}   
+% ---
+% Hifenação e caracteres especiais
+% português-brasil e inglês
+\RequirePackage[brazil,english]{babel}   
+% ---
+
+% ---
+% Margens - NBR 14724/2011 - 5.1 Formato
+\RequirePackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+% ---
+
+% ---
+% Espaçamento entre linhas - NBR 14724/2011 - 5.2 Espaçamento
+\RequirePackage{setspace}
+%\singlespacing						% espaçamento simples
+\onehalfspacing						% espaçamento de 1.5
+%\doublespacing						% espaçamento duplo
+%\setstretch{1.1}					% espaçamento customizável
+%\begin{spacing}{2.5}\end{spacing}	% espaçamento customizável
+% ---
+
+% ---
+% Notas de rodapé - NBR 14724/2011 - 5.2.1 
+\makeatletter
+\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.2cm\@makefnmark#1}
+\makeatother
+% ---
+
+
+% ---
+% Mapear caracteres especiais no PDF
+\usepackage{cmap}
+% ---
+
+
+% ----------------------------------------------------------
+% Novos comandos
+% ----------------------------------------------------------
+
+% ---
+% Citação direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
+\newenvironment*{citacao}[1][]{%
+  \begin{singlespace}%
+  \footnotesize%   \small
+  \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
+  \noindent%
+  }%
+  {%
+  \normalsize%
+  \end{singlespace}}%abstract
+% ---
 
 
 
