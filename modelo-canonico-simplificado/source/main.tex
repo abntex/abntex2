@@ -3,22 +3,32 @@
 %
 \documentclass[12pt,twoside,openright,a4paper]{abntex2}
 
-	% PACOTES FUNDAMENTAIS
- 	\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
-	\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
-	\usepackage{makeidx}            % cria o indice
-	\usepackage[font=footnotesize,skip=4pt]{caption}[2011/11/10]	% captions
-    \usepackage{bookmark}
-    \usepackage{hyperref}  % controla a formação do índice
+% ----------------------------------------------------------
+% PACOTES
+% ----------------------------------------------------------
 
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{makeidx}            % cria o indice
+\usepackage[font=footnotesize,skip=4pt]{caption}[2011/11/10]	% captions
+\usepackage{bookmark}
+\usepackage{hyperref}  % controla a formação do índice
+\usepackage{cmap}			% Mapear caracteres especiais no PDF
     
-    % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
-    \usepackage{lipsum}				% para geração de dummy text
-    \usepackage{mychemistry}	    % Desenho de estruturas químicas
+% ---
+% PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{mychemistry}	    % Desenho de estruturas químicas
     
 
-	% CONFIGURACOES DE PACOTES
-     \hypersetup{
+% ---
+% CONFIGURACOES DE PACOTES
+% ---
+\hypersetup{
      	backref=true,
      	%pagebackref=true,
 		%bookmarks=true,         		% show bookmarks bar?
@@ -33,73 +43,136 @@
     		filecolor=magenta,      		% color of file links
 		urlcolor=blue,
 		bookmarksdepth=4
-		}
+}
+% ---
     
 
+% ----------------------------------------------------------
 % compila o indice
+% ----------------------------------------------------------
 \makeindex
 
+% ----------------------------------------------------------
+% Início do documento
+% ----------------------------------------------------------
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------------------------------------------------
 
-% inserir a capa
-% \capa
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Modelo Canônico de Dissertação, Tese e monografias em geral}
+\autor{Equipe do abn\TeX2}
+\local{Brasília, DF}
+\data{2012}
+\orientador{Lauro César Araujo}
+\coorientador{Mamede Lima-Marques}
+\preambulo{Tese de doutorado apresentada à Faculdade de Ciência da Informação
+da Universidade de Brasília para obtenção do título de Doutor.}
+\instituicao{%
+  Universidade de Brasília -- UnB
+  \par
+  Faculdade de Ciência da Informação
+  \par
+  Programa de Pós-Graduação}
 
-% inserir a folha de rosto
-% \folhaderosto
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
 
-% inserir a ficha bibliografica
+% ---
+% Folha de rosto
+% ---
+\imprimirfolhaderosto
+
+% ---
+% Inserir a ficha bibliografica
+% ---
 % \fichabibliografica
+% ---
 
-% inserir folha de aprovação
+% ---
+% Inserir folha de aprovação
+% ---
 % \folhaaprovacao
+% ---
 
-% dedicatória
+% ---
+% Dedicatória
+% ---
 % \dedicatoria
+% ---
 
-% agradecimentos
+% ---
+% Agradecimentos
+% ---
 % \agradecimentos
+% ---
 
-% epígrafe
+% ---
+% Epígrafe
+% ---
 % \epigrafe
+% ---
 
-% inserir o resumo em português  {título do resumo}{palavras chaves}
+% ---
+% RESUMOS
+% ---
+
+% Resumo em português  {título do resumo}{palavras chaves}
 % \begin{resumo}{Reumo}{latex, abntex, editoração de texto}
 %  Este é o resumo em português
 % \end{resumo}
 
-% inserir o resumo em inglês {título do resumo}{palavras chaves}
+% Resumo em inglês {título do resumo}{palavras chaves}
 % \begin{resumo}{Abstract}{latex, abntex, text editing}
 %  This is the english abstract.
 % \end{resumo}
 
-% inserir o resumo em francês {título do resumo}{palavras chaves}
+% Resumo em francês {título do resumo}{palavras chaves}
 % \begin{resumo}{Résumé}{latex, abntex, l'édition de texte}
 %  Ceci est le résumé français.
 % \end{resumo}
 
-% inserir o resumo em espanhol {título do resumo}{palavras chaves}
+% Resumo em espanhol {título do resumo}{palavras chaves}
 % \begin{resumo}{Resumen}{latex, abntex, edición de texto}
 %  Este es el resumen de español.
 % \end{resumo}
 
+% ---
 % inserir lista de ilustrações
+% ---
 \listoffigures
+% ---
 
+% ---
 % inserir lista de tabelas
+% ---
 \listoftables
+% ---
 
+% ---
 % inserir lista de Abreviaturas e Siglas
+% ---
 %\listofabreviaturasSiglas
+% ---
 
+% ---
 % inserir lista de símbolos
+% ---
 %\listofsimbols
+% ---
 
+% ---
 % inserir o sumario
+% ---
 \tableofcontents
+% ---
 
 
 
