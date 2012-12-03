@@ -94,6 +94,19 @@
   \end{singlespace}}%abstract
 % ---
 
+% ---
+% Resumo e abstract - NBR 14724/2011
+% ---
+\newenvironment{resumo}[1][Resumo]{%
+   \if@openright\cleardoublepage\else\clearpage\fi%
+   \singlespacing
+   \chapter*{#1}
+  }{%
+   \newpage
+  }
+  
+% ---
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -161,6 +174,7 @@
     {\large\PRIVATEdata}
     \vspace*{1cm}
   \end{titlepage}
+  \if@openright\cleardoublepage\else\clearpage\fi%
 }
 % ---
 
@@ -198,6 +212,7 @@
     {\large\PRIVATEdata}
     \vspace*{1cm}
   \end{titlepage}
+  \if@openright\cleardoublepage\else\clearpage\fi%
 }
 
 % ---
@@ -220,15 +235,5 @@
 %   \gdef\thechapter{\@Roman\c@chapter}}
 
 
-
-% Resumo e abstract
-
-\newenvironment*{resumo}[1][]{%
-   \if@openright\cleardoublepage\else\clearpage\fi%
-   \setchaptertype{resumo}
-   \pretextualchapter{#1}%
-   \begin{espacosimples}%
-  }%
-  {\end{espacosimples}\newpage}%abstract
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -57,6 +57,7 @@
 % ----------------------------------------------------------
 \begin{document}
 
+
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
@@ -125,24 +126,49 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ---
 
 % Resumo em português  {título do resumo}{palavras chaves}
-% \begin{resumo}{Reumo}{latex, abntex, editoração de texto}
-%  Este é o resumo em português
-% \end{resumo}
+\begin{resumo}
+ Segundo a ABNT NBR 6028/2003:
+ 3.1 O resumo deve ressaltar o objetivo, o método, os resultados e as
+ conclusões do documento. A ordem e a extensão destes itens dependem do tipo
+ de resumo (informativo ou indicativo) e do tratamento que cada item recebe no
+ documento original. 3.2 O resumo deve ser precedido da referência do
+ documento, com exceção do resumo inserido no próprio documento.
+ 
+ \vspace{1cm}
+ 
+ \noindent
+ \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+\end{resumo}
 
-% Resumo em inglês {título do resumo}{palavras chaves}
-% \begin{resumo}{Abstract}{latex, abntex, text editing}
-%  This is the english abstract.
-% \end{resumo}
+% Resumo em inglês
+\begin{resumo}[Abstract]
+ This is the english abstract.
 
-% Resumo em francês {título do resumo}{palavras chaves}
-% \begin{resumo}{Résumé}{latex, abntex, l'édition de texte}
-%  Ceci est le résumé français.
-% \end{resumo}
+ \vspace{1cm}
+ 
+ \noindent 
+ \textbf{Key-words}: latex. abntex. text editoration.
+\end{resumo}
 
-% Resumo em espanhol {título do resumo}{palavras chaves}
-% \begin{resumo}{Resumen}{latex, abntex, edición de texto}
-%  Este es el resumen de español.
-% \end{resumo}
+% Resumo em francês 
+\begin{resumo}[Résumé]
+  Ceci est le résumé français.
+ 
+ \vspace{1cm}
+ 
+ \noindent
+ \textbf{Mots-clés}: latex. abntex. text editoration.
+\end{resumo}
+
+% Resumo em espanhol
+\begin{resumo}[Resumen]
+  Este es el resumen de español.
+  
+ \vspace{1cm}
+ 
+  \noindent
+  \textbf{Palabras clave}: latex. abntex. text editoration.
+\end{resumo}
 
 % ---
 % inserir lista de ilustrações
@@ -183,7 +209,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
-\chapter{Introdução}
+\chapter*{Introdução}
 
 \lipsum[1-2]
 
