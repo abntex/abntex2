@@ -1,7 +1,7 @@
 %
 % Documento de teste do abnTeX2
 %
-\documentclass[12pt,twoside,openright,a4paper]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper]{abntex2}
 
 % ----------------------------------------------------------
 % PACOTES
@@ -15,53 +15,16 @@
 \usepackage{makeidx}            % cria o indice
 \usepackage[font=footnotesize,skip=4pt]{caption}[2011/11/10]	% captions
 \usepackage{bookmark}
-\usepackage{hyperref}  % controla a formação do índice
-\usepackage{cmap}			% Mapear caracteres especiais no PDF
+\usepackage{hyperref}  			% controla a formação do índice
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lastpage}			% usado pela fichacatalografica.tex
     
 % ---
 % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
 % ---
 \usepackage{lipsum}				% para geração de dummy text
 \usepackage{mychemistry}	    % Desenho de estruturas químicas
-    
-
-% ---
-% CONFIGURACOES DE PACOTES
-% ---
-\hypersetup{
-     	backref=true,
-     	%pagebackref=true,
-		%bookmarks=true,         		% show bookmarks bar?
-		pdftitle={TITULO DO PDF}, 
-		pdfauthor={AUTORES},
-		pdfkeywords={PALAVRAS CHAVES EM PORTUGUES},
-    		pdfsubject={EPIGRAFE},
-	    pdfproducer={Latex}, 	% producer of the document
-    		colorlinks=true,       		% false: boxed links; true: colored links
-    		linkcolor=blue,          	% color of internal links
-    		citecolor=blue,        		% color of links to bibliography
-    		filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
-}
-% ---
-    
-
-% ----------------------------------------------------------
-% compila o indice
-% ----------------------------------------------------------
-\makeindex
-
-% ----------------------------------------------------------
-% Início do documento
-% ----------------------------------------------------------
-\begin{document}
-
-
-% ----------------------------------------------------------
-% ELEMENTOS PRÉ-TEXTUAIS
-% ----------------------------------------------------------
-
+        
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
@@ -79,6 +42,72 @@ da Universidade de Brasília para obtenção do título de Doutor.}
   Faculdade de Ciência da Informação
   \par
   Programa de Pós-Graduação}
+\tipotrabalho{Tese (Doutorado)}
+% ---
+
+% ---
+% CONFIGURACOES DE PACOTES
+% ---
+\hypersetup{
+     	backref=true,
+     	%pagebackref=true,
+		%bookmarks=true,         		% show bookmarks bar?
+		pdftitle={\imprimirtitulo}, 
+		pdfauthor={\imprimirautor},
+		pdfkeywords={PALAVRAS CHAVES EM PORTUGUES},
+    		pdfsubject={\imprimirpreambulo},
+	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+    		colorlinks=true,       		% false: boxed links; true: colored links
+    		linkcolor=blue,          	% color of internal links
+    		citecolor=blue,        		% color of links to bibliography
+    		filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+% --- 
+    
+% \makeatletter
+% \let\leo@chapter\chapter
+% \renewcommand{\chapter}{
+%   \ifnum\value{chapter}>0 
+%     \changesectionanddefi 
+%     \let\chapter\leo@chapter
+%   \fi
+%     \leo@chapter
+% }
+% \makeatother
+
+% \RequirePackage{dsfont}
+% \usepackage{titlesec}
+% \titleformat{name=\chapter*}[display]
+%   {\bfseries\itshape\upshape\Large\bfseries\centering}
+%   {\chaptertitlename\ \thechapter}{0pt}{\Huge}
+% \titlespacing*{\chapter}{0pt}{30pt}{20pt}
+    
+%\usepackage[scaled=.90]{helvet}% Helvetica, served as a model for arial
+%\usepackage{titlesec}
+% \titleformat{\chapter}[display]
+%   {\normalfont\sffamily\huge\bfseries}
+%   {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+ 
+\usepackage{sectsty}    
+\allsectionsfont{\sffamily\textbf}
+
+
+% ---
+% compila o indice
+% ---
+\makeindex
+
+% ----------------------------------------------------------
+% Início do documento
+% ----------------------------------------------------------
+\begin{document}
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
 
 % ---
 % Capa
@@ -94,7 +123,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ---
 % Inserir a ficha bibliografica
 % ---
-% \fichabibliografica
+\include{fichacatalografica}
 % ---
 
 % ---
@@ -106,19 +135,32 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ---
 % Dedicatória
 % ---
-% \dedicatoria
+\begin{dedicatoria}
+Dedico este trabalho ao infinito.
+\end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
-% \agradecimentos
+\begin{agradecimentos}
+Os agradecimentos vão aqui.
+\end{agradecimentos}
 % ---
 
 % ---
 % Epígrafe
 % ---
-% \epigrafe
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+		\textit{``Não vos amoldeis às estruturas deste mundo, \\
+		mas transformai-vos pela renovação da mente, \\
+		a fim de distinguir qual é a vontade de Deus: \\
+		o que é bom, o que Lhe é agradável, o que é perfeito.\\
+		(Bíblia Sagrada, Romanos 12, 2)}
+	\end{flushright}
+\end{epigrafe}
 % ---
 
 % ---
@@ -133,7 +175,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
  de resumo (informativo ou indicativo) e do tratamento que cada item recebe no
  documento original. 3.2 O resumo deve ser precedido da referência do
  documento, com exceção do resumo inserido no próprio documento.
- 
+    
  \vspace{1cm}
  
  \noindent
@@ -213,11 +255,17 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 
 \lipsum[1-2]
 
+% ----------------------------------------------------------
+% Parte de preparação da pesquisa
+% ----------------------------------------------------------
+\part{Preparação da pesquisa}
 
 % ----------------------------------------------------------
 % Capitulo 1
 % ----------------------------------------------------------
 \chapter{Lorem ipsum dolor sit amet}
+
+\section{Seção aqui começa}
 
 \lipsum[3]
 
@@ -334,6 +382,10 @@ More plain text\index{plain text}.
 \lipsum[21-25]
 
 
+% ----------------------------------------------------------
+% Parte de revisãod e literatura
+% ----------------------------------------------------------
+\part{Revisão de Literatura}
 
 % ----------------------------------------------------------
 % capitulo Segundo assunto
@@ -371,6 +423,20 @@ More plain text.
 
 \lipsum[18-20]
 
+% ----------------------------------------------------------
+% Resultados
+% ----------------------------------------------------------
+\part{Resultados}
+
+% ----------------------------------------------------------
+% capitulo de Resultados
+% ----------------------------------------------------------
+
+\chapter{Lectus lobortis condimentum}
+
+\lipsum[21-23]
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEMENTOS PÓS-TEXTUAIS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,7 +447,7 @@ More plain text.
 
 \chapter*{Conclusão}
 
-\lipsum[21-23]
+\lipsum[31-33]
 
 % ----------------------------------------------------------
 % Referências bibliográficas

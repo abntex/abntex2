@@ -98,13 +98,34 @@
 % Resumo e abstract - NBR 14724/2011
 % ---
 \newenvironment{resumo}[1][Resumo]{%
-   \if@openright\cleardoublepage\else\clearpage\fi%
+   % \if@openright\cleardoublepage\else\clearpage\fi%
    \singlespacing
    \chapter*{#1}
-  }{%
-   \newpage
-  }
-  
+  }{\cleardoublepage}
+% ---
+
+% ---
+% Dedicatória
+% ---
+\newenvironment{dedicatoria}[1][Dedicat\'oria]{%
+   \chapter*{#1}
+  }{\cleardoublepage}
+% ---
+
+% ---
+% Dedicatória
+% ---
+\newenvironment{agradecimentos}[1][Agradecimentos]{%
+   \chapter*{#1}
+  }{\cleardoublepage}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\newenvironment{epigrafe}[1][]{%
+   \PRIVATEifnotempty{#1}{\chapter*{#1}}
+  }{\cleardoublepage}
 % ---
 
 
@@ -119,42 +140,47 @@
 % ---
 
 % Comandos de dados - título do documento
-\providecommand{\PRIVATEtitulo}{}
-\newcommand{\titulo}[1]{\renewcommand{\PRIVATEtitulo}{#1}}
+\providecommand{\imprimirtitulo}{}
+\newcommand{\titulo}[1]{\renewcommand{\imprimirtitulo}{#1}}
 
 % Comandos de dados - autor (use \and para múltiplos autores)
-\providecommand{\PRIVATEautor}{}
-\newcommand{\autor}[1]{\renewcommand{\PRIVATEautor}{#1}}
+\providecommand{\imprimirautor}{}
+\newcommand{\autor}[1]{\renewcommand{\imprimirautor}{#1}}
 
 % Comandos de dados - data
-\providecommand{\PRIVATEdata}{}
-\newcommand{\data}[1]{\renewcommand{\PRIVATEdata}{#1}\date{#1}}
+\providecommand{\imprimirdata}{}
+\newcommand{\data}[1]{\renewcommand{\imprimirdata}{#1}\date{#1}}
 
 % Comandos de dados - instituição
-\providecommand{\PRIVATEinstituicao}{}
-\newcommand{\instituicao}[1]{\renewcommand{\PRIVATEinstituicao}{#1}}
+\providecommand{\imprimirinstituicao}{}
+\newcommand{\instituicao}[1]{\renewcommand{\imprimirinstituicao}{#1}}
 
 % Comandos de dados - local
-\providecommand{\PRIVATElocal}{}
-\newcommand{\local}[1]{\renewcommand{\PRIVATElocal}{#1}}
+\providecommand{\imprimirlocal}{}
+\newcommand{\local}[1]{\renewcommand{\imprimirlocal}{#1}}
 
 % Comandos de dados - preâmbulo
-\providecommand{\PRIVATEpreambulo}{}
-\newcommand{\preambulo}[1]{\renewcommand{\PRIVATEpreambulo}{#1}}
+\providecommand{\imprimirpreambulo}{}
+\newcommand{\preambulo}[1]{\renewcommand{\imprimirpreambulo}{#1}}
 
 % Comandos de dados - orientador
-\providecommand{\PRIVATEorientadorRotulo}{}
-\providecommand{\PRIVATEorientadorConteudo}{}
+\providecommand{\imprimirorientadorRotulo}{}
+\providecommand{\imprimirorientadorConteudo}{}
 \newcommand{\orientador}[2][Orientador:]%
-  {\renewcommand{\PRIVATEorientadorRotulo}{#1}%
-   \renewcommand{\PRIVATEorientadorConteudo}{#2}}
+  {\renewcommand{\imprimirorientadorRotulo}{#1}%
+   \renewcommand{\imprimirorientadorConteudo}{#2}}
 
 % Comandos de dados - coorientador
-\providecommand{\PRIVATEcoorientadorRotulo}{}
-\providecommand{\PRIVATEcoorientadorConteudo}{}
+\providecommand{\imprimircoorientadorRotulo}{}
+\providecommand{\imprimircoorientadorConteudo}{}
 \newcommand{\coorientador}[2][Coorientador:]%
-  {\renewcommand{\PRIVATEcoorientadorRotulo}{#1}%
-   \renewcommand{\PRIVATEcoorientadorConteudo}{#2}}
+  {\renewcommand{\imprimircoorientadorRotulo}{#1}%
+   \renewcommand{\imprimircoorientadorConteudo}{#2}}
+
+% Comandos de dados - tipo de trabalho
+\providecommand{\imprimirtipotrabalho}{}
+\newcommand{\tipotrabalho}[1]{\renewcommand{\imprimirtipotrabalho}{#1}}
+
 
 % ---
 % Capa
@@ -163,18 +189,18 @@
   \begin{titlepage}%
     \center
     \vspace*{1cm}
-    {\large\textbf\PRIVATEautor}
+    {\large\textbf\imprimirautor}
 
     \vspace*{\fill}
-    {\Large\textbf\PRIVATEtitulo}
+    {\Large\textbf\imprimirtitulo}
     \vspace*{\fill}
     
-    {\large\PRIVATElocal}
+    {\large\imprimirlocal}
     \par
-    {\large\PRIVATEdata}
+    {\large\imprimirdata}
     \vspace*{1cm}
   \end{titlepage}
-  \if@openright\cleardoublepage\else\clearpage\fi%
+  \cleardoublepage
 }
 % ---
 
@@ -185,34 +211,33 @@
   \begin{titlepage}%
     \center
     \vspace*{1cm}
-    {\large\textbf\PRIVATEautor}
+    {\large\textbf\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
-    {\Large\textbf\PRIVATEtitulo}
+    {\Large\textbf\imprimirtitulo}
     \vspace*{\fill}
     
-    \PRIVATEifnotempty{\PRIVATEpreambulo}{%
+    \PRIVATEifnotempty{\imprimirpreambulo}{%
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
-         \PRIVATEpreambulo
+         \imprimirpreambulo
        \end{minipage}%
        \vspace*{\fill}
     }%
     
-    {\large\PRIVATEorientadorRotulo~\PRIVATEorientadorConteudo\par}
-    \PRIVATEifnotempty{\PRIVATEcoorientadorConteudo}{%
-       {\large\PRIVATEcoorientadorRotulo~\PRIVATEcoorientadorConteudo}%
+    {\large\imprimirorientadorRotulo~\imprimirorientadorConteudo\par}
+    \PRIVATEifnotempty{\imprimircoorientadorConteudo}{%
+       {\large\imprimircoorientadorRotulo~\imprimircoorientadorConteudo}%
     }%
     \vspace*{\fill}
     
-    {\PRIVATEifnotempty{\PRIVATEinstituicao}{\PRIVATEinstituicao\vspace*{\fill}}}
+    {\PRIVATEifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
     
-    {\large\PRIVATElocal}
+    {\large\imprimirlocal}
     \par
-    {\large\PRIVATEdata}
+    {\large\imprimirdata}
     \vspace*{1cm}
   \end{titlepage}
-  \if@openright\cleardoublepage\else\clearpage\fi%
 }
 
 % ---
