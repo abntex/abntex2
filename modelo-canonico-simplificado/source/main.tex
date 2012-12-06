@@ -14,17 +14,17 @@
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage{makeidx}            % cria o indice
 \usepackage[font=footnotesize,skip=4pt]{caption}[2011/11/10]	% captions
-\usepackage{bookmark}
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{cmap}				% Mapear caracteres especiais no PDF
 \usepackage{lastpage}			% usado pela fichacatalografica.tex
+\usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.    
     
 % ---
 % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
 % ---
 \usepackage{lipsum}				% para geração de dummy text
 \usepackage{mychemistry}	    % Desenho de estruturas químicas
-        
+    
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
@@ -65,33 +65,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 		bookmarksdepth=4
 }
 % --- 
-    
-% \makeatletter
-% \let\leo@chapter\chapter
-% \renewcommand{\chapter}{
-%   \ifnum\value{chapter}>0 
-%     \changesectionanddefi 
-%     \let\chapter\leo@chapter
-%   \fi
-%     \leo@chapter
-% }
-% \makeatother
 
-% \RequirePackage{dsfont}
-% \usepackage{titlesec}
-% \titleformat{name=\chapter*}[display]
-%   {\bfseries\itshape\upshape\Large\bfseries\centering}
-%   {\chaptertitlename\ \thechapter}{0pt}{\Huge}
-% \titlespacing*{\chapter}{0pt}{30pt}{20pt}
-    
-%\usepackage[scaled=.90]{helvet}% Helvetica, served as a model for arial
-%\usepackage{titlesec}
-% \titleformat{\chapter}[display]
-%   {\normalfont\sffamily\huge\bfseries}
-%   {\chaptertitlename\ \thechapter}{20pt}{\Huge}
- 
-\usepackage{sectsty}    
-\allsectionsfont{\sffamily\textbf}
 
 
 % ---
@@ -99,11 +73,36 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ---
 \makeindex
 
+
+% \renewcommand{\cftchapterpagefont}{\normalfont\sffamily}   
+ 
+ %\renewcommand{\cftdot}{->}
+ 
+%  \renewcommand{\cftsectionindent}{\cftchapterindent}
+%  \renewcommand{\cftsubsectionindent}{\cftchapterindent}
+%  \renewcommand{\cftsubsubsectionindent}{\cftchapterindent}
+%  \renewcommand{\cftsubsectionindent}{\cftchapterindent}
+
+
+% TOC
+\setsecnumdepth{subsubsection}
+\settocdepth{subsubsection}
+%\maxtocdepth{subsubsection}
+ \renewcommand{\cftfigurename}{\figurename\space}
+ \renewcommand{\cfttablename}{\tablename\space}
+
+\newcommand{\PRIVATEdeltatocident}{0.2cm}
+\addtolength\cftpartnumwidth{\PRIVATEdeltatocident}
+\addtolength\cftchapternumwidth{\PRIVATEdeltatocident}
+\addtolength\cftsectionindent{\PRIVATEdeltatocident}
+\addtolength\cftsubsectionindent{\PRIVATEdeltatocident}
+\addtolength\cftsubsubsectionindent{\PRIVATEdeltatocident}
+
+
 % ----------------------------------------------------------
 % Início do documento
 % ----------------------------------------------------------
 \begin{document}
-
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -176,7 +175,7 @@ Os agradecimentos vão aqui.
  documento original. 3.2 O resumo deve ser precedido da referência do
  documento, com exceção do resumo inserido no próprio documento.
     
- \vspace{1cm}
+ \vspace{\onelineskip}
  
  \noindent
  \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
@@ -186,7 +185,7 @@ Os agradecimentos vão aqui.
 \begin{resumo}[Abstract]
  This is the english abstract.
 
- \vspace{1cm}
+ \vspace{\onelineskip}
  
  \noindent 
  \textbf{Key-words}: latex. abntex. text editoration.
@@ -196,7 +195,7 @@ Os agradecimentos vão aqui.
 \begin{resumo}[Résumé]
   Ceci est le résumé français.
  
- \vspace{1cm}
+ \vspace{\onelineskip}
  
  \noindent
  \textbf{Mots-clés}: latex. abntex. text editoration.
@@ -206,22 +205,26 @@ Os agradecimentos vão aqui.
 \begin{resumo}[Resumen]
   Este es el resumen de español.
   
- \vspace{1cm}
+ \vspace{\onelineskip}
  
-  \noindent
-  \textbf{Palabras clave}: latex. abntex. text editoration.
+ \noindent
+ \textbf{Palabras clave}: latex. abntex. text editoration.
 \end{resumo}
 
 % ---
 % inserir lista de ilustrações
 % ---
-\listoffigures
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
 % ---
 
 % ---
 % inserir lista de tabelas
 % ---
-\listoftables
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
 % ---
 
 % ---
@@ -239,7 +242,9 @@ Os agradecimentos vão aqui.
 % ---
 % inserir o sumario
 % ---
-\tableofcontents
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
 % ---
 
 
@@ -251,7 +256,10 @@ Os agradecimentos vão aqui.
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
+\addcontentsline{}{}{}
 \chapter*{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+
 
 \lipsum[1-2]
 
@@ -387,9 +395,9 @@ More plain text\index{plain text}.
 % ----------------------------------------------------------
 \part{Revisão de Literatura}
 
-% ----------------------------------------------------------
+% ---
 % capitulo Segundo assunto
-% ----------------------------------------------------------
+% ---
 
 \chapter{Etiam eget ligula eu lectus lobortis condimentum}
 
@@ -428,14 +436,23 @@ More plain text.
 % ----------------------------------------------------------
 \part{Resultados}
 
-% ----------------------------------------------------------
+% ---
 % capitulo de Resultados
-% ----------------------------------------------------------
-
+% ---
 \chapter{Lectus lobortis condimentum}
 
 \lipsum[21-23]
 
+\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
+elementum}
+
+\lipsum[24]
+
+% ---
+% Finaliza a parte no bookmark do PDF
+% ---
+\bookmarksetup{startatroot}% this is it
+% ---
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEMENTOS PÓS-TEXTUAIS
@@ -446,8 +463,10 @@ More plain text.
 % ----------------------------------------------------------
 
 \chapter*{Conclusão}
+\addcontentsline{toc}{chapter}{Conclusão}
 
 \lipsum[31-33]
+
 
 % ----------------------------------------------------------
 % Referências bibliográficas
@@ -469,7 +488,15 @@ More plain text.
 % ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------
-\appendix
+
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+% ---
+
+% Imprime uma página indicando o início dos apêndices
+\appendixpage
 
 % ----------------------------------------------------------
 \chapter{Primeiro apêndice}
@@ -478,36 +505,51 @@ More plain text.
 \lipsum[50-52]
 
 % ----------------------------------------------------------
-\chapter{Segundo apêndice}
+\chapter{Segundo apêndice com um nome bem logo de modo}
 % ----------------------------------------------------------
 \lipsum[55-57]
+\end{apendicesenv}
 
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------
 
-% \annex
+% ---
+% Inicia os anexos
+% ---
+%\anexos
+\begin{anexosenv}
 % 
-% % ----------------------------------------------------------
-% \chapter{Primeiro anexo}
-% % ----------------------------------------------------------
-% 
-% \lipsum[200-202]
-% 
-% % ----------------------------------------------------------
-% \chapter{Segundo anexo}
-% % ----------------------------------------------------------
-% \lipsum[210-212]
+
+% Imprime uma página indicando o início dos anexos
+\appendixpage
+
+% ---
+\chapter{Primeiro anexo}
+% ---
+\lipsum[200-202]
+
+% ---
+\chapter{Segundo anexo}
+% ---
+
+\lipsum[210-212]
+
+% ---
+\chapter{Terceiro anexo}
+% ---
+
+\lipsum[213-214]
+
+\end{anexosenv}
 
 
 %---------------------------------------------------------------------
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
 
-\cleardoublepage
-\phantomsection 
-\addcontentsline{toc}{chapter}{\indexname}
-% \ProximoForaDoSumario
+% \cleardoublepage
+% \phantomsection 
 \printindex
 
 \end{document}

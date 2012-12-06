@@ -12,10 +12,10 @@
 % Repassa todos os parâmetros à report
 %
 \DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{report}%
+  \PassOptionsToClass{\CurrentOption}{memoir}%
 }
 \ProcessOptions\relax
-\LoadClass{report}
+\LoadClass{memoir}
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -31,6 +31,12 @@
 % ---
 
 % ---
+% Controla os bookmarks do PDF
+% ---
+\RequirePackage{bookmark}  			
+% ---
+
+% ---
 % Margens - NBR 14724/2011 - 5.1 Formato
 % ---
 \RequirePackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
@@ -39,6 +45,7 @@
 % ---
 % Espaçamento entre linhas - NBR 14724/2011 - 5.2 Espaçamento
 % ---
+\DisemulatePackage{setspace}
 \RequirePackage{setspace}
 %\singlespacing						% espaçamento simples
 \onehalfspacing						% espaçamento de 1.5
@@ -63,7 +70,7 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos internos (PRIVATEs)
+% Comandos e variaveis internas (PRIVATEs)
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -73,12 +80,129 @@
 \newcommand{\PRIVATEifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 % ---
 
+% ---
+% Comando que cria capítulos não numerados já com bookmark anotado
+% ---
+\newcounter{PRIVATECOUNTERchapterb}
+\setcounter{PRIVATECOUNTERchapterb}{0}
+\newcommand{\PRIVATEchapterb}[1]{%
+  \addtocounter{PRIVATECOUNTERchapterb}{1}
+  \pdfbookmark[0]{#1}{chapterb\arabic{PRIVATECOUNTERchapterb}}
+  \chapter*{#1}
+}
+
+\newcommand{\PRIVATEapendiceousecao}{false}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Configurações gerais de pacotes
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Nome do rótulo lista de ilustrações
+% ---
+\addto\captionsbrazil{%
+  \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
+}
+% ---
+
+% ---
+% Configuração dos títulos dos capítulos 
+% ABNT NBR 14724-2011 - 5.2.2-5.2.4; ABNT NBR 6024-2003 - 3.1-3.8
+% ---
+\makechapterstyle{abnt}{%
+  \newlength{\chapternamenumlength}
+
+  \renewcommand{\chapternamenum}{}
+  \renewcommand{\printchaptername}{%
+   \chaptitlefont\ifthenelse{\equal{\PRIVATEapendiceousecao}{true}}{\appendixname}{}%
+  }
+    
+  \def\printchaptertitle##1{%
+    \chaptitlefont%
+    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+    \parbox[t]{\textwidth-\chapternamenumlength}{##1}%
+  }
+       
+  \renewcommand{\printchapternum}{%
+     \chapnumfont%
+     \space\thechapter\space%
+     \ifthenelse{\equal{\PRIVATEapendiceousecao}{true}}{%
+       --\space%
+     }{%
+       %
+     }%
+  }
+  \renewcommand{\afterchapternum}{}
+  \renewcommand{\beforechapskip}{0cm}
+  
+  \renewcommand\printchapternonum{%
+     \centering
+    }
+}
+\chapterstyle{abnt}
+% ---
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Comandos de editoração (PUBLICs)
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
+
+% ------
+% Apêndices e Anexos
+% ------
+
+% ---
+% Apendices
+% ---
+
+\makeatletter
+\newcommand\@switch[1]{ \@writefile{toc}{\renewcommand*{\cftappendixname}{#1 \space}} }
+\newcommand{\switchchapname}[1]{ \protected@write \@auxout {}{\string\@switch{#1} }}
+\makeatother
+
+\newcommand{\PRIVATEapendiceconfig}[2]{%
+ \renewcommand{\PRIVATEapendiceousecao}{true}%
+ \renewcommand{\appendixname}{#1}
+ \renewcommand{\appendixpagename}{#2}
+ \renewcommand{\appendixtocname}{#2}
+ 
+ \switchchapname{#1}% Corrected from \switchapname → \switchchapname
+ \renewcommand*{\cftappendixname}{#1 \space}
+}
+
+\newcommand{\apendices}{%
+ \PRIVATEapendiceconfig{AP\^ENDICE}{Ap\^endices}
+ 
+ \appendix
+}
+\newenvironment{apendicesenv}{%
+ \PRIVATEapendiceconfig{AP\^ENDICE}{Ap\^endices}
+ \begin{appendix}
+}{
+ \end{appendix}
+ \renewcommand{\PRIVATEapendiceousecao}{false}
+}
+% ---
+
+% ---
+% Anexos
+% ---
+\newcommand{\anexos}[1][{\enclname}s]{%
+ \PRIVATEapendiceconfig{ANEXO}{Anexos}
+ \appendix
+}
+\newenvironment{anexosenv}{%
+ \PRIVATEapendiceconfig{ANEXO}{Anexos}
+ \begin{appendix}
+}{
+ \end{appendix}
+ \renewcommand{\PRIVATEapendiceousecao}{false}
+}
+% ---
 
 % ---
 % Citação direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
@@ -98,9 +222,8 @@
 % Resumo e abstract - NBR 14724/2011
 % ---
 \newenvironment{resumo}[1][Resumo]{%
-   % \if@openright\cleardoublepage\else\clearpage\fi%
    \singlespacing
-   \chapter*{#1}
+   \PRIVATEchapterb{#1}
   }{\cleardoublepage}
 % ---
 
@@ -108,7 +231,7 @@
 % Dedicatória
 % ---
 \newenvironment{dedicatoria}[1][Dedicat\'oria]{%
-   \chapter*{#1}
+   \PRIVATEchapterb{#1}
   }{\cleardoublepage}
 % ---
 
@@ -116,7 +239,7 @@
 % Dedicatória
 % ---
 \newenvironment{agradecimentos}[1][Agradecimentos]{%
-   \chapter*{#1}
+   \PRIVATEchapterb{#1}
   }{\cleardoublepage}
 % ---
 
@@ -127,7 +250,6 @@
    \PRIVATEifnotempty{#1}{\chapter*{#1}}
   }{\cleardoublepage}
 % ---
-
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -186,7 +308,8 @@
 % Capa
 % ---
 \newcommand{\imprimircapa}{%
-  \begin{titlepage}%
+  \begin{titlingpage}%
+   {
     \center
     \vspace*{1cm}
     {\large\textbf\imprimirautor}
@@ -198,8 +321,10 @@
     {\large\imprimirlocal}
     \par
     {\large\imprimirdata}
+    
     \vspace*{1cm}
-  \end{titlepage}
+   } 
+  \end{titlingpage}
   \cleardoublepage
 }
 % ---
@@ -208,7 +333,10 @@
 % Folha de Rosto
 % ---
 \newcommand{\imprimirfolhaderosto}{%
-  \begin{titlepage}%
+  % \begin{titlingpage}%
+  \clearpage
+  \begin{center}
+ 
     \center
     \vspace*{1cm}
     {\large\textbf\imprimirautor}
@@ -237,28 +365,11 @@
     \par
     {\large\imprimirdata}
     \vspace*{1cm}
-  \end{titlepage}
+    
+  \end{center}
+  \newpage  
+    
+  % \end{titlingpage}
 }
 
 % ---
-
-
-
-
-
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-% Anexo
-
-% NAO FUNCIONA:
-
-% \newcommand\annex{\par
-%   \setcounter{chapter}{0}%
-%   \setcounter{section}{0}%
-%   \gdef\@chapapp{\annexname}%
-%   \gdef\thechapter{\@Roman\c@chapter}}
-
-
-
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
