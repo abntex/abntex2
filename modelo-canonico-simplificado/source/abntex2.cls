@@ -90,8 +90,14 @@
   \pdfbookmark[0]{#1}{chapterb\arabic{PRIVATECOUNTERchapterb}}
   \chapter*{#1}
 }
-
 \newcommand{\PRIVATEapendiceousecao}{false}
+% ---
+
+% ---
+% ``Tamanho menor e uniforme'' ditada pela NBR 14724/2011 - 5.1
+% ---
+\newcommand{\PRIVATEfontereduzida}{\footnotesize}
+% ---
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -107,6 +113,42 @@
 }
 % ---
 
+% TOC - nível de profundidade
+\setsecnumdepth{subsubsection}
+\settocdepth{subsubsection}
+%\maxtocdepth{subsubsection}
+
+% lista de ilustrações
+ \renewcommand{\cftfigurename}{\figurename\space}
+ %\renewcommand{\cftfigureaftersnum}{\space--\space}
+
+% lista de tabelas  
+ \renewcommand{\cfttablename}{\tablename\space}
+ %\renewcommand{\cfttableaftersnum}{\space--\space}
+
+% TOC - espaços à esqueda para comportar os números romanos das partes
+\newcommand{\PRIVATEdeltatocident}{0.2cm}
+\addtolength\cftpartnumwidth{\PRIVATEdeltatocident}
+\addtolength\cftchapternumwidth{\PRIVATEdeltatocident}
+\addtolength\cftsectionindent{\PRIVATEdeltatocident}
+\addtolength\cftsubsectionindent{\PRIVATEdeltatocident}
+\addtolength\cftsubsubsectionindent{\PRIVATEdeltatocident}
+
+% Numeração contínua das figuras
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+% Estipos de caption
+\captiondelim{\space--\space}
+
+
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Configurações de layout
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
 % ---
 % Configuração dos títulos dos capítulos 
 % ABNT NBR 14724-2011 - 5.2.2-5.2.4; ABNT NBR 6024-2003 - 3.1-3.8
@@ -116,13 +158,16 @@
 
   \renewcommand{\chapternamenum}{}
   \renewcommand{\printchaptername}{%
-   \chaptitlefont\ifthenelse{\equal{\PRIVATEapendiceousecao}{true}}{\appendixname}{}%
+   \chaptitlefont
+   \ifthenelse{\equal{\PRIVATEapendiceousecao}{true}}{\appendixname}{}%
   }
     
   \def\printchaptertitle##1{%
     \chaptitlefont%
-    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-    \parbox[t]{\textwidth-\chapternamenumlength}{##1}%
+    \ifthenelse{\equal{\thechapter}{0}}{##1}{%
+	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+	    \parbox[t]{\textwidth-\chapternamenumlength}{##1}%
+	}    
   }
        
   \renewcommand{\printchapternum}{%
@@ -145,11 +190,63 @@
 % ---
 
 
+% ---
+% Declarações de cabeçalhos e de rodapé
+% ---
+% Cabeçalho padrão
+\makepagestyle{abntheadings}
+\makeevenhead{abntheadings}{\PRIVATEfontereduzida\thepage}{}{\PRIVATEfontereduzida\textit\leftmark}
+\makeoddhead{abntheadings}{\PRIVATEfontereduzida\textit\rightmark}{}{\PRIVATEfontereduzida\thepage}
+\makeheadrule{abntheadings}{\textwidth}{\normalrulethickness}
+
+% Cabeçalho do início do capítulo
+\makepagestyle{abntchapfirst}
+\makeoddhead{abntchapfirst}{}{}{\PRIVATEfontereduzida\thepage}
+% ---
+
+% ---
+% Configura layout para elementos pré-textuais
+% ---
+\newcommand{\pretextual}{%
+  \aliaspagestyle{chapter}{empty}% customizing chapter pagestyle
+  \pagestyle{empty}
+  \aliaspagestyle{cleared}{empty}
+  \aliaspagestyle{part}{empty}
+}
+\let\elementospretextuais\pretextual
+\let\pretextuais\pretextual
+% ---
+
+% ---
+% Configura layout para elementos textuais
+% ---
+\newcommand{\textual}{%
+  \pagestyle{abntheadings}
+  \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+  \nouppercaseheads
+}
+\let\elementostextuais\textual
+\let\textuais\textual
+% ---
+
+% ---
+% Configura layout para elementos pós-textuais
+% ---
+\newcommand{\postextual}{}
+\let\elementospostextuais\postextual
+\let\postextuais\postextual
+% ---
+
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Comandos de editoração (PUBLICs)
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
+
+% ------
+% Nomes constantes
+% ------
+\newcommand{\epigraphname}{Ep\'grafe}
 
 % ------
 % Apêndices e Anexos
@@ -209,7 +306,7 @@
 % ---
 \newenvironment*{citacao}[1][]{%
   \begin{singlespace}%
-  \footnotesize%   \small
+  \PRIVATEfontereduzida%   \small
   \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
   \noindent%
   }%
@@ -225,6 +322,7 @@
    \singlespacing
    \PRIVATEchapterb{#1}
   }{\cleardoublepage}
+
 % ---
 
 % ---
@@ -247,7 +345,13 @@
 % Epígrafe
 % ---
 \newenvironment{epigrafe}[1][]{%
-   \PRIVATEifnotempty{#1}{\chapter*{#1}}
+   \ifthenelse{\equal{#1}{}}{%
+    \addtocounter{PRIVATECOUNTERchapterb}{1}
+    \phantomsection\pdfbookmark[0]{Ep\'igrafe}{chapterb\arabic{PRIVATECOUNTERchapterb}}
+   }{\chapter*{#1}}
+  %\PRIVATEifnotempty{#1}{\chapter*{#1}}{\phantomsection\pdfbookmark[0]{Ep\'igrafe}}
+   %\phantomsection\pdfbookmark[0]{#1}
+   %\PRIVATEifnotempty{#1}{\chapter*{#1}}
   }{\cleardoublepage}
 % ---
 
@@ -337,7 +441,6 @@
   \clearpage
   \begin{center}
  
-    \center
     \vspace*{1cm}
     {\large\textbf\imprimirautor}
 
