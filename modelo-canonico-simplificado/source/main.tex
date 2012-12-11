@@ -1,8 +1,8 @@
 %
 % Documento de teste do abnTeX2
 %
-%\documentclass[12pt,openright,twoside,a4paper]{abntex2}
-\documentclass[12pt,oneside,a4paper]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper]{abntex2}
+%\documentclass[12pt,oneside,a4paper]{abntex2}
 
 % ----------------------------------------------------------
 % PACOTES
@@ -19,7 +19,9 @@
 \usepackage{lastpage}			% usado pela fichacatalografica.tex
 \usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
 \usepackage{nomencl} 			% Lista de simbolos
- 
+% \usepackage[alf]{abntcite}					% Citações padrão ABNT
+
+  
 % ---
 % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
 % ---
@@ -89,7 +91,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
-\pretextual
+% \pretextual
 
 % ---
 % Capa
@@ -101,6 +103,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % Folha de rosto
 % ---
 \imprimirfolhaderosto
+% ---
 
 % ---
 % Inserir a ficha bibliografica
@@ -159,7 +162,7 @@ Os agradecimentos vão aqui.
  documento, com exceção do resumo inserido no próprio documento.
     
  \vspace{\onelineskip}
- 
+  
  \noindent
  \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
 \end{resumo}
@@ -271,16 +274,28 @@ adicional que não seja a própria qualidade ter um nome longo}
 
 \lipsum[3]
 
-\begin{itemize}
-  \item Item 1
-  \item Item 2\footnote{As notas devem ser digitadas ou datilografadas dentro
-  das margens, ficando separadas do texto por um espaço simples de entre as
+Alineas:
+
+\begin{alineas}
+  \item Item 1\footnote{As notas devem ser digitadas ou datilografadas
+  dentro das margens, ficando separadas do texto por um espaço simples de entre as
   linhas e por filete de 5 cm, a partir da margem esquerda. Devem ser
   alinhadas, a partir da segunda linha da mesma nota, abaixo da primeira letra
   da primeira palavra, de forma a destacar o expoente, sem espaço entre elas e
   com fonte menor. NBR 14724/2011 - 5.2.1}
-  \item Item 3\footnote{Item 3 footnote.}
-\end{itemize}
+  \item \lipsum[41]
+  \item Item 3\footnote{Item 3 footnote.}:
+  \begin{alineas}
+    \item \lipsum[50]
+    \item \lipsum[51]
+  \end{alineas}
+  \begin{incisos}
+    \item \lipsum[52]
+    \item \lipsum[53]
+  \end{incisos}
+  \item \lipsum[60]
+\end{alineas}
+
 
 \lipsum[4]
 
