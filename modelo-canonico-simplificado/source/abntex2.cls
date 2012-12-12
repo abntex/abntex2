@@ -82,6 +82,12 @@
 \newcommand{\PRIVATEifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 % ---
 
+% ---
+% Pacote que permite realizar operacoes matematicas no codigo TeX
+\RequirePackage{calc}
+% ---
+
+
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Comandos públicos
