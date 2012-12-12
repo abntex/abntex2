@@ -1,0 +1,1 @@
+../../abntex2/classes/abntex2.cls

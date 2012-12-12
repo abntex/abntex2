@@ -380,6 +380,15 @@
 % ---
 
 % ---
+% Ficha catalográfica (Dados internacionais de
+% catalogação-na-publicação)
+\newenvironment{fichacatalografica}{%
+\thispagestyle{empty}
+}{}
+% ---
+
+
+% ---
 % Definicoes compartilhadas entre Apendices e Anexos
 % ---
 \makeatletter
