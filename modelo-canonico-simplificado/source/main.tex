@@ -37,8 +37,6 @@
 \data{2012}
 \orientador{Lauro César Araujo}
 \coorientador{Mamede Lima-Marques}
-\preambulo{Tese de doutorado apresentada à Faculdade de Ciência da Informação
-da Universidade de Brasília para obtenção do título de Doutor.}
 \instituicao{%
   Universidade de Brasília -- UnB
   \par
@@ -46,6 +44,11 @@ da Universidade de Brasília para obtenção do título de Doutor.}
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Tese (Doutorado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo, o nome da instituição
+% e a área de concentração 
+\preambulo{Tese de doutorado apresentada à Faculdade de Ciência da Informação
+da Universidade de Brasília como requisito parcial para obtenção do título de
+Doutor em Ciência da Informação.}
 % ---
 
 % ---
@@ -102,7 +105,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ---
 % Folha de rosto
 % ---
-\imprimirfolhaderosto
+\imprimirfolhaderosto*
 % ---
 
 % ---
@@ -114,7 +117,7 @@ da Universidade de Brasília para obtenção do título de Doutor.}
 % ---
 % Inserir folha de aprovação
 % ---
-% \folhaaprovacao
+\include{folhadeaprovacao}
 % ---
 
 % ---
@@ -361,12 +364,17 @@ Alineas:
 
 \lipsum[7]
 
-\begin{citacao}
+\begin{directcite}
 As citações diretas, no texto, com mais de três linhas, devem ser
 destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
 utilizado e sem as aspas. No caso de documentos datilografados, deve-se
-observar apenas o recuo. (ABNT NBR 10520/2002 - 5.3) 5.1 Formato
-(...)
+observar apenas o recuo.
+\end{directcite}
+
+Você também pode utilizar o comando ``citacao'', que é o mesmo que ``directcite'':
+
+\begin{citacao} (ABNT NBR 10520/2002 - 5.3) 5.1
+Formato (...)
 Recomenda-se, quando digitado, a fonte tamanho 12 para todo o trabalho,
 inclusive capa, excetuando-se citaçõess com mais de três linhas, notas de
 rodapé, paginação, dados internacionais de catalogação-na-publicação,

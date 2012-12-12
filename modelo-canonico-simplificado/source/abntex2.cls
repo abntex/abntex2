@@ -1,8 +1,25 @@
+  %% abntex2.cls
+  %% Copyright 2012 Lauro César Araujo
+  %
+  % This work may be distributed and/or modified under the
+  % conditions of the LaTeX Project Public License, either version 1.3
+  % of this license or (at your option) any later version.
+  % The latest version of this license is in
+  %   http://www.latex-project.org/lppl.txt
+  % and version 1.3 or later is part of all distributions of LaTeX
+  % version 2005/12/01 or later.
+  %
+  % This work has the LPPL maintenance status `maintained'.
+  % 
+  % The Current Maintainer of this work is Lauro César Araujo in http://code.google.com/p/abntex2/.
+  %
+  % This work consists of the files abntex2.cls, abntex2example.tex and
+  % abntcite2.sty.
+
+
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-%
 % Declaração da classe abntex2 como uma extensão da classe report
-%
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
@@ -88,6 +105,7 @@
 \newcommand{\apendicesname}{Ap\^endices}
 \newcommand{\orientadorname}{Orientador}
 \newcommand{\coorientadorname}{Coorientador:}
+\newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao} 
 % ---
 
 % ------------------------------------------------------------------------
@@ -101,7 +119,7 @@
 % ---
 \newcounter{PRIVATECOUNTERchapterb}
 \setcounter{PRIVATECOUNTERchapterb}{0}
-\newcommand{\PRIVATEchapterb}[1]{%
+\newcommand{\pretextualchapter}[1]{%
   \addtocounter{PRIVATECOUNTERchapterb}{1}
   \pdfbookmark{#1}{chapterb\arabic{PRIVATECOUNTERchapterb}}
   \chapter*{#1}
@@ -277,17 +295,17 @@
 
 % Comandos de dados - orientador
 \providecommand{\imprimirorientadorRotulo}{}
-\providecommand{\imprimirorientadorConteudo}{}
+\providecommand{\imprimirorientador}{}
 \newcommand{\orientador}[2][\orientadorname]%
   {\renewcommand{\imprimirorientadorRotulo}{#1}%
-   \renewcommand{\imprimirorientadorConteudo}{#2}}
+   \renewcommand{\imprimirorientador}{#2}}
 
 % Comandos de dados - coorientador
 \providecommand{\imprimircoorientadorRotulo}{}
-\providecommand{\imprimircoorientadorConteudo}{}
+\providecommand{\imprimircoorientador}{}
 \newcommand{\coorientador}[2][\coorientadorname]%
   {\renewcommand{\imprimircoorientadorRotulo}{#1}%
-   \renewcommand{\imprimircoorientadorConteudo}{#2}}
+   \renewcommand{\imprimircoorientador}{#2}}
 
 % Comandos de dados - tipo de trabalho
 \providecommand{\imprimirtipotrabalho}{}
@@ -309,6 +327,8 @@
   }{%
   \normalsize%
   \end{singlespace}}
+\newenvironment*{directcite}[1][]{%
+  \begin{citacao}}{\end{citacao}}
 % ---
 
 % ---
@@ -321,27 +341,25 @@
 \setlist[incisos,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
 % ---
 
-
 % ---
 % Resumo e abstracts em diferentes idiomas - NBR 14724/2011
 \newenvironment{resumo}[1][\abstractname]{%
    \singlespacing
-   \PRIVATEchapterb{#1}
+   \pretextualchapter{#1}
   }{\cleardoublepage}
-
 % ---
 
 % ---
 % Dedicatória
 \newenvironment{dedicatoria}[1][\dedicatorianame]{%
-   \PRIVATEchapterb{#1}
+   \pretextualchapter{#1}
   }{\cleardoublepage}
 % ---
 
 % ---
 % Agradecimentos
 \newenvironment{agradecimentos}[1][\agradecimentosname]{%
-   \PRIVATEchapterb{#1}
+   \pretextualchapter{#1}
   }{\cleardoublepage}
 % ---
 
@@ -351,7 +369,7 @@
    \ifthenelse{\equal{#1}{}}{%
     \addtocounter{PRIVATECOUNTERchapterb}{1}
     \phantomsection\pdfbookmark{\epigraphname}{chapterb\arabic{PRIVATECOUNTERchapterb}}
-   }{\chapter*{#1}}
+   }{\pretextualchapter{#1}}
   }{\cleardoublepage}
 % ---
 
@@ -432,6 +450,7 @@
 
 % ---
 % Folha de Rosto
+\makeatletter
 \newcommand{\imprimirfolhaderosto}{%
   \clearpage
   \begin{center}
@@ -452,9 +471,9 @@
        \vspace*{\fill}
     }%
     
-    {\large\imprimirorientadorRotulo~\imprimirorientadorConteudo\par}
-    \PRIVATEifnotempty{\imprimircoorientadorConteudo}{%
-       {\large\imprimircoorientadorRotulo~\imprimircoorientadorConteudo}%
+    {\large\imprimirorientadorRotulo~\imprimirorientador\par}
+    \PRIVATEifnotempty{\imprimircoorientador}{%
+       {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
     }%
     \vspace*{\fill}
     
@@ -466,6 +485,53 @@
     \vspace*{1cm}
     
   \end{center}
-  \newpage  
+  % usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
+  % página no caso de estar no modo twoside. Útil para imprimir a Ficha
+  % Bibliográfica. Porém, se estiver no modo oneside, a versão sem estrela
+  % é idêntica.
+  \@ifstar
+    \newpage  
+    \cleardoublepage
 }
+\makeatother
+% ---
+
+% ---
+% Folha de aprovação - NBR 14724/2011 - 4.2.1.3
+\newenvironment{folhadeaprovacao}[1][]{%
+   \ifthenelse{\equal{#1}{}}{%
+    \addtocounter{PRIVATECOUNTERchapterb}{1}
+    \phantomsection\pdfbookmark{\folhadeaprovacaoname}{chapterb\arabic{PRIVATECOUNTERchapterb}}
+    }{\pretextualchapter{#1}}
+  }{\cleardoublepage}
+% ---
+  
+% ---
+% Comando \assinatura for signature
+% ---
+% width of the line and text under the line
+\newlength{\ABNTsignwidth}
+\setlength{\ABNTsignwidth}{8cm}
+% thickness of the line
+\newlength{\ABNTsignthickness}
+\setlength{\ABNTsignthickness}{1pt}
+% ammount of space left between previous text and th signature line
+\newlength{\ABNTsignskip}
+\setlength{\ABNTsignskip}{1cm}
+% \assinatura{name} -> types a line with name under the line, centralized
+% \assinatura*{name} -> Creates the box with the line and name under
+%     it, but the box has no position assigned. However the line and the
+%     name are centralized with respect to each other.
+\makeatletter
+\newcommand{\assinatura}{\@ifstar{\ABNTsign}{\ABNTcsign}}
+\makeatother
+% assinatura com estrela
+\newcommand{\ABNTsign}[1]{%
+  \parbox[t]{\ABNTsignwidth}{\singlespacing\vspace*{\ABNTsignskip}\centering%
+  \rule{\ABNTsignwidth}{\ABNTsignthickness}\\%
+  \nopagebreak #1\par}%
+}
+% assinatura sem estrela
+\newcommand{\ABNTcsign}[1]%
+  {\begingroup\par\centering\ABNTsign{#1}\par\endgroup}  
 % ---
