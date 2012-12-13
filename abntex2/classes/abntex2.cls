@@ -1,21 +1,21 @@
-  %% abntex2.cls
-  %% Copyright 2012 Lauro César Araujo
-  %
-  % This work may be distributed and/or modified under the
-  % conditions of the LaTeX Project Public License, either version 1.3
-  % of this license or (at your option) any later version.
-  % The latest version of this license is in
-  %   http://www.latex-project.org/lppl.txt
-  % and version 1.3 or later is part of all distributions of LaTeX
-  % version 2005/12/01 or later.
-  %
-  % This work has the LPPL maintenance status `maintained'.
-  % 
-  % The Current Maintainer of this work is Lauro César Araujo in http://code.google.com/p/abntex2/.
-  %
-  % This work consists of the files abntex2.cls, abntex2example.tex and
-  % abntcite2.sty.
-
+%% abntex2.cls
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
+%%
+%% This work consists of the file abntex2.cls.
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -79,7 +79,7 @@
 % ---
 % Pacote de if/them/else
 \RequirePackage{ifthen}
-\newcommand{\PRIVATEifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
+\newcommand{\abntex@ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 % ---
 
 % ---
@@ -114,23 +114,29 @@
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao} 
 % ---
 
+% ---
+% Valores constantes
+\newcommand{\abntextocitemnumberhspace}{0.2cm}
+% ---
+
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos e variaveis internas (PRIVATEs)
+% Comandos e variaveis privadas
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
 % Comando que cria capítulos não numerados já com bookmark anotado
 % ---
-\newcounter{PRIVATECOUNTERchapterb}
-\setcounter{PRIVATECOUNTERchapterb}{0}
+\newcounter{abntex@pretextualchaptercounter}
+\setcounter{abntex@pretextualchaptercounter}{0}
 \newcommand{\pretextualchapter}[1]{%
-  \addtocounter{PRIVATECOUNTERchapterb}{1}
-  \pdfbookmark{#1}{chapterb\arabic{PRIVATECOUNTERchapterb}}
+  \addtocounter{abntex@pretextualchaptercounter}{1}
+  \pdfbookmark{#1}{chapterb\arabic{abntex@pretextualchaptercounter}}
   \chapter*{#1}
 }
-\newcommand{\PRIVATEapendiceousecao}{false}
+\provideboolean{abntex@apendiceousecao}
+\setboolean{abntex@apendiceousecao}{false}
 % ---
 
 % ------------------------------------------------------------------------
@@ -173,12 +179,11 @@
 %\renewcommand{\cfttableaftersnum}{\space--\space}
 
 % espaços à esqueda para comportar os números romanos das partes
-\newcommand{\PRIVATEdeltatocident}{0.2cm}
-\addtolength\cftpartnumwidth{\PRIVATEdeltatocident}
-\addtolength\cftchapternumwidth{\PRIVATEdeltatocident}
-\addtolength\cftsectionindent{\PRIVATEdeltatocident}
-\addtolength\cftsubsectionindent{\PRIVATEdeltatocident}
-\addtolength\cftsubsubsectionindent{\PRIVATEdeltatocident}
+\addtolength\cftpartnumwidth{\abntextocitemnumberhspace}
+\addtolength\cftchapternumwidth{\abntextocitemnumberhspace}
+\addtolength\cftsectionindent{\abntextocitemnumberhspace}
+\addtolength\cftsubsectionindent{\abntextocitemnumberhspace}
+\addtolength\cftsubsubsectionindent{\abntextocitemnumberhspace}
 % -----
 
 % ---
@@ -191,12 +196,12 @@
   \renewcommand{\chapternamenum}{}
   \renewcommand{\printchaptername}{%
    \chaptitlefont
-   \ifthenelse{\equal{\PRIVATEapendiceousecao}{true}}{\appendixname}{}%
+   \ifthenelse{\boolean{abntex@apendiceousecao}}{\appendixname}{}%
   }
     
   \def\printchaptertitle##1{%
     \chaptitlefont%
-    \ifthenelse{\equal{\thechapter}{0}}{##1}{%
+    \ifthenelse{\equal{\thechapter}{0}}{##1}{% else
 	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
 	    \parbox[t]{\textwidth-\chapternamenumlength}{##1}%
 	}    
@@ -205,9 +210,9 @@
   \renewcommand{\printchapternum}{%
      \chapnumfont%
      \space\thechapter\space%
-     \ifthenelse{\equal{\PRIVATEapendiceousecao}{true}}{%
+     \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        --\space%
-     }{%
+     }{% else
        %
      }%
   }
@@ -373,8 +378,8 @@
 % Epigrafe
 \newenvironment{epigrafe}[1][]{%
    \ifthenelse{\equal{#1}{}}{%
-    \addtocounter{PRIVATECOUNTERchapterb}{1}
-    \phantomsection\pdfbookmark{\epigraphname}{chapterb\arabic{PRIVATECOUNTERchapterb}}
+    \addtocounter{abntex@pretextualchaptercounter}{1}
+    \phantomsection\pdfbookmark{\epigraphname}{chapterb\arabic{abntex@pretextualchaptercounter}}
    }{\pretextualchapter{#1}}
   }{\cleardoublepage}
 % ---
@@ -397,7 +402,7 @@
 \makeatother
 
 \newcommand{\PRIVATEapendiceconfig}[2]{%
- \renewcommand{\PRIVATEapendiceousecao}{true}%
+ \setboolean{abntex@apendiceousecao}{true}%
  \renewcommand{\appendixname}{#1}
  \renewcommand{\appendixpagename}{#2}
  \renewcommand{\appendixtocname}{#2}
@@ -419,7 +424,7 @@
  \begin{appendix}
 }{
  \end{appendix}
- \renewcommand{\PRIVATEapendiceousecao}{false}
+ \setboolean{abntex@apendiceousecao}{false}
 }
 % ---
 
@@ -435,7 +440,7 @@
  \begin{appendix}
 }{
  \end{appendix}
- \renewcommand{\PRIVATEapendiceousecao}{false}
+ \setboolean{abntex@apendiceousecao}{false}
 }
 % ---
 
@@ -477,7 +482,7 @@
     {\Large\textbf\imprimirtitulo}
     \vspace*{\fill}
     
-    \PRIVATEifnotempty{\imprimirpreambulo}{%
+    \abntex@ifnotempty{\imprimirpreambulo}{%
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
       	\singlespacing
@@ -487,12 +492,12 @@
     }%
     
     {\large\imprimirorientadorRotulo~\imprimirorientador\par}
-    \PRIVATEifnotempty{\imprimircoorientador}{%
+    \abntex@ifnotempty{\imprimircoorientador}{%
        {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
     }%
     \vspace*{\fill}
     
-    {\PRIVATEifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
     
     {\large\imprimirlocal}
     \par
@@ -515,8 +520,8 @@
 % Folha de aprovação - NBR 14724/2011 - 4.2.1.3
 \newenvironment{folhadeaprovacao}[1][]{%
    \ifthenelse{\equal{#1}{}}{%
-    \addtocounter{PRIVATECOUNTERchapterb}{1}
-    \phantomsection\pdfbookmark{\folhadeaprovacaoname}{chapterb\arabic{PRIVATECOUNTERchapterb}}
+    \addtocounter{abntex@pretextualchaptercounter}{1}
+    \phantomsection\pdfbookmark{\folhadeaprovacaoname}{chapterb\arabic{abntex@pretextualchaptercounter}}
     }{\pretextualchapter{#1}}
   }{\cleardoublepage}
 % ---

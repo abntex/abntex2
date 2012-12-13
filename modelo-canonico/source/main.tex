@@ -11,27 +11,28 @@
 % ---
 % Pacotes fundamentais 
 % ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
 \usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage{makeidx}            % cria o indice
 \usepackage{hyperref}  			% controla a formação do índice
-\usepackage{cmap}				% Mapear caracteres especiais no PDF
 \usepackage{lastpage}			% usado pela fichacatalografica.tex
 \usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
 \usepackage{nomencl} 			% Lista de simbolos
-% \usepackage[alf]{abntcite}					% Citações padrão ABNT
 
-  
+
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+    
 % ---
 % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
 % ---
 \usepackage{lipsum}				% para geração de dummy text
 \usepackage{mychemistry}	    % Desenho de estruturas químicas
-    
+
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Modelo Canônico de Dissertação, Tese e monografias em geral}
+\titulo{Modelo Canônico de Trabalhos acadêmicos}
 \autor{Equipe do abn\TeX2}
 \local{Brasília, DF}
 \data{2012}
@@ -44,8 +45,8 @@
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Tese (Doutorado)}
-% O preambulo deve conter o tipo do trabalho, o objetivo, o nome da instituição
-% e a área de concentração 
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
 \preambulo{Tese de doutorado apresentada à Faculdade de Ciência da Informação
 da Universidade de Brasília como requisito parcial para obtenção do título de
 Doutor em Ciência da Informação.}
@@ -55,7 +56,7 @@ Doutor em Ciência da Informação.}
 % CONFIGURACOES DE PACOTES
 % ---
 \hypersetup{
-     	backref=true,
+     	%backref=true,
      	%pagebackref=true,
 		%bookmarks=true,         		% show bookmarks bar?
 		pdftitle={\imprimirtitulo}, 
@@ -302,6 +303,8 @@ Alineas:
 
 \lipsum[4]
 
+\cite{albuquerque2011}, \cite{EIA649B}, \cite{bates2010}
+
 \begin{table}[htb]
 \footnotesize
 \caption[Níveis de investigação]{\footnotesize{Níveis de investigação.
@@ -527,7 +530,6 @@ elementum}
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-\bibliographystyle{plain}	% (uses file "plain.bst")
 \bibliography{references}
 
 

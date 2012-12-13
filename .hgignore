@@ -31,3 +31,23 @@ syntax: regexp
 ^modelo-tese-abntex1/main\.idx$
 syntax: regexp
 ^modelo-tese-abntex1/main\.ist$
+syntax: regexp
+^tmp$
+syntax: regexp
+\.idx$
+syntax: regexp
+\.nlo$
+syntax: regexp
+\.nls$
+syntax: regexp
+\.toc$
+syntax: regexp
+^modelo-canonico/source/abntex2-abrev\.sty$
+syntax: regexp
+^modelo-canonico/source/abntex2-alf\.bst$
+syntax: regexp
+^modelo-canonico/source/abntex2cite\.sty$
+syntax: regexp
+^modelo-canonico/source/abntex2-num\.bst$
+syntax: regexp
+^modelo-canonico/source/abnt-options\.bib$
