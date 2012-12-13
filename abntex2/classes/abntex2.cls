@@ -67,6 +67,11 @@
 % ---
 
 % ---
+% Controla as referências internas do PDF
+\RequirePackage{hyperref}  			
+% ---
+
+% ---
 % Controla os bookmarks do PDF
 \RequirePackage{bookmark}   			
 % ---
@@ -109,7 +114,7 @@
 \newcommand{\anexosname}{Anexos}
 \newcommand{\apendicename}{AP\^ENDICE}
 \newcommand{\apendicesname}{Ap\^endices}
-\newcommand{\orientadorname}{Orientador}
+\newcommand{\orientadorname}{Orientador:}
 \newcommand{\coorientadorname}{Coorientador:}
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao} 
 % ---
@@ -118,6 +123,12 @@
 % Valores constantes
 \newcommand{\abntextocitemnumberhspace}{0.2cm}
 % ---
+
+% ---
+% abnTeX2 name
+\newcommand{\abnTeX}{abn\TeX2}
+% ---
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -141,7 +152,7 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Configurações gerais de layout
+% Configurações de layout
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -412,6 +423,7 @@
 }
 % ---
 
+
 % ---
 % Apendices - comando 
 \newcommand{\apendices}{%
@@ -433,11 +445,13 @@
 \newcommand{\anexos}{%
  \PRIVATEapendiceconfig{\anexoname}{\anexosname}
  \appendix
+ \renewcommand\theHchapter{anexochapback.\arabic{chapter}}
 }
 % Anexos - ambiente
 \newenvironment{anexosenv}{%
  \PRIVATEapendiceconfig{\anexoname}{\anexosname}
  \begin{appendix}
+ \renewcommand\theHchapter{anexochapback.\arabic{chapter}}
 }{
  \end{appendix}
  \setboolean{abntex@apendiceousecao}{false}

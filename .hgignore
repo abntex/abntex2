@@ -57,3 +57,5 @@ syntax: regexp
 \.ilg$
 syntax: regexp
 \.ilg$
+syntax: regexp
+\.ilg$
