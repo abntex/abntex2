@@ -51,3 +51,9 @@ syntax: regexp
 ^modelo-canonico/source/abntex2-num\.bst$
 syntax: regexp
 ^modelo-canonico/source/abnt-options\.bib$
+syntax: regexp
+^modelo-canonico/source/main\.brf$
+syntax: regexp
+\.ilg$
+syntax: regexp
+\.ilg$

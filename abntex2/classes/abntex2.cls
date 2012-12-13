@@ -555,3 +555,30 @@
 \newcommand{\ABNTcsign}[1]%
   {\begingroup\par\centering\ABNTsign{#1}\par\endgroup}  
 % ---
+
+% ---
+% Configurações do pacote backref
+\makeatletter
+\@ifpackageloaded{backref}{%
+   % Usado sem a opção hyperpageref de backref
+ 	\@ifundefined{backrefpagesname}{}%
+ 		{\renewcommand{\backrefpagesname}				
+ 			{Citado na(s) página(s): }}
+	% Texto padrão antes do número das páginas
+	\@ifundefined{backref}{}
+		{\renewcommand{\backref}{}}
+
+	% Define os textos da citação
+	\@ifundefined{backrefalt}{}
+		{\renewcommand*{\backrefalt}[4]{
+		   \ifcase #1 %
+		       Nenhuma citação no texto.%
+		   \or
+		       Citado na página #2.%
+		   \else
+		       Citado #1 vezes nas páginas #2.%
+			\fi}
+	}%
+}{}
+\makeatother
+% ---
