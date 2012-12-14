@@ -1,12 +1,36 @@
-%% $Id: abntcite.sty,v 1.26 2003/10/13 09:40:41 gweber Exp $
-%% name of this file abntcite.sty
+%% abntex2-abrev.sty, v 1.0 2013/01/01 laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
+%%
+%% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2002 by the abnTeX group at http://abntex.codigolivre.org.br
+%% 
 %%
-%% This file is distributed under the LaTeX-Project Public License (LPPL)
-%%            http://www.latex-project.org/lppl.html
-%% You are free to modify this file under the LPPL.
+%% Revision history:
 %%
-%% laurocesar em 26 de abril de 2012: Incluída as contribuições de compatibilização com o pacote backref de
+%% 2012/12/13 22h31 laurocesar
+%% Fork of the version v 1.26 2003/10/13 09:40:41 gweber created by gweber
+%% Changed file name to from abntcite.sty to abntex2-abrev.sty
+%% Removed CVS revision automation
+%% Changed referentes of abnt-options.bib to abntex2-options.bib
+%% 
+%% The original revision history is the following:
+%%
+%% 2012/04/26 20h20 	laurocesar
+%% Incluída as contribuições de compatibilização com o pacote backref de
 %% Alan Wilter Sousa da Silva (AWSS), desenvolvida em 2005-06-26 23:13:59 GMT
 %% http://comments.gmane.org/gmane.comp.tex.brazilian/11158
 %% http://mtc-m18.sid.inpe.br/col/sid.inpe.br/iris@1905/2005/08.25.14.01/doc/abntcite.sty
@@ -375,10 +399,10 @@
                \and\boolean{ABCIauto-abntoptions}}
    {
    % this system of checking is not good...
-    \IfSubStringInString{abnt-options}{#1}
+    \IfSubStringInString{abntex2-options}{#1}
       {\if@filesw\immediate\write\@auxout{\string\bibdata{#1}}\fi}
-      {\if@filesw\immediate\write\@auxout{\string\bibdata{abnt-options,#1}}\fi}
-   }
+      {\if@filesw\immediate\write\@auxout{\string\bibdata{abntex2-options,#1}}\fi}
+      }
    {
     \if@filesw
        \immediate\write\@auxout{\string\bibdata{#1}}%

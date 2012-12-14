@@ -42,7 +42,13 @@
 \usepackage{lastpage}			% usado pela fichacatalografica.tex
 \usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
 \usepackage{nomencl} 			% Lista de simbolos
-		
+						
+% ---
+% PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{mychemistry}	    % Desenho de estruturas químicas
+
 % ---
 % Pacotes de citações
 % ---
@@ -50,10 +56,21 @@
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 % ---
-% PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
 % ---
-\usepackage{lipsum}				% para geração de dummy text
-\usepackage{mychemistry}	    % Desenho de estruturas químicas
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
