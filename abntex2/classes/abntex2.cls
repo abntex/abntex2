@@ -61,9 +61,10 @@
 % ---
 % Espaçamento entre linhas - NBR 14724/2011 - 5.2 Espaçamento
 % ---
-\DisemulatePackage{setspace}
-\RequirePackage{setspace}
-\onehalfspacing						% espaçamento de 1.5
+%\DisemulatePackage{setspace}
+%\RequirePackage{setspace}
+%\onehalfspacing						% espaçamento de 1.5
+\OnehalfSpacing
 % ---
 
 % ---
@@ -107,8 +108,10 @@
 
 % ---
 % Nomes constantes
+\newcommand{\folhaderostoname}{Folha de rosto}
 \newcommand{\epigraphname}{Ep\'igrafe}
 \newcommand{\dedicatorianame}{Dedicat\'oria}
+\newcommand{\errataname}{Errata}
 \newcommand{\agradecimentosname}{Agradecimentos}
 \newcommand{\anexoname}{ANEXO}
 \newcommand{\anexosname}{Anexos}
@@ -117,6 +120,7 @@
 \newcommand{\orientadorname}{Orientador:}
 \newcommand{\coorientadorname}{Coorientador:}
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao} 
+
 % ---
 
 % ---
@@ -149,18 +153,27 @@
 % ------------------------------------------------------------------------
 
 % ---
+% Comando para registro do bookmark interno
+\newcounter{abntex@bookmarkcounter}
+\setcounter{abntex@bookmarkcounter}{0}
+\newcommand{\PRIVATEbookmarkthis}[1]{%
+  \addtocounter{abntex@bookmarkcounter}{1}%
+  \phantomsection\pdfbookmark[0]{#1}{chapterb\arabic{abntex@bookmarkcounter}}
+}
+
+% ---
 % Comando que cria capítulos não numerados já com bookmark anotado
 % ---
-\newcounter{abntex@pretextualchaptercounter}
-\setcounter{abntex@pretextualchaptercounter}{0}
 \newcommand{\pretextualchapter}[1]{%
-  \addtocounter{abntex@pretextualchaptercounter}{1}
-  \pdfbookmark{#1}{chapterb\arabic{abntex@pretextualchaptercounter}}
+  \addtocounter{abntex@bookmarkcounter}{1}
+  \PRIVATEbookmarkthis{#1}
   \chapter*{#1}
-}
+  }
 \provideboolean{abntex@apendiceousecao}
 \setboolean{abntex@apendiceousecao}{false}
 % ---
+
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -294,11 +307,10 @@
   \aliaspagestyle{cleared}{empty}
   \aliaspagestyle{part}{empty}
 }
-\let\elementospretextuais\pretextual
-\let\pretextuais\pretextual
+\renewcommand{\frontmatter}{\pretextual} 
 
 % por default, inicializa o documento com elementos \pretextuais
-\AtBeginDocument{\pretextual}
+\AtBeginDocument{\frontmatter}
 % ---
 
 % ---
@@ -308,16 +320,12 @@
   \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
   \nouppercaseheads
 }
-\let\elementostextuais\textual
-\let\textuais\textual
+\renewcommand{\mainmatter}{\textual}
 % ---
 
 % ---
 % Configura layout para elementos pós-textuais
 \newcommand{\postextual}{}
-\let\elementospostextuais\postextual
-\let\postextuais\postextual
-% ---
 % -----
 
 % ------------------------------------------------------------------------
@@ -370,40 +378,41 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos e ambientes de editoração (que imprimem conteúdo)
+% Comandos e ambientes de editoração PRÉ-TEXTUAIS
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
-% Citação direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
-\newenvironment*{citacao}[1][]{%
-  \begin{singlespace}%
-  \ABNTEXfontereduzida% 
-  \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
-  \noindent%
-  }{%
-  \normalsize%
-  \end{singlespace}}
-\newenvironment*{directcite}[1][]{%
-  \begin{citacao}}{\end{citacao}}
+% Ambiente para definição da Capa
+\newenvironment{capa}{\begin{titlingpage}}{\end{titlingpage}\cleardoublepage}
 % ---
 
 % ---
-% Ambiente para alíneas e incisos
-% ABNT NBR 6024/2012 - 3.8
-\newlist{alineas}{enumerate}{2}
-\setlist[alineas,1]{label={\alph*)},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
-\setlist[alineas,2]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}
-\newlist{incisos}{enumerate}{1}
-\setlist[incisos,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+% Ficha catalográfica (Dados internacionais de
+% catalogação-na-publicação)
+\newenvironment{fichacatalografica}{%
+    \thispagestyle{empty}
+    \begin{SingleSpacing}
+      \ABNTEXfontereduzida
+}{%   
+    \end{SingleSpacing}%
+}%
 % ---
 
 % ---
-% Resumo e abstracts em diferentes idiomas - NBR 14724/2011
-\newenvironment{resumo}[1][\abstractname]{%
-   \singlespacing
+% Errata
+\newenvironment{errata}[1][\errataname]{%
    \pretextualchapter{#1}
   }{\cleardoublepage}
+% ---
+
+% ---
+% Folha de aprovação - NBR 14724/2011 - 4.2.1.3
+\newenvironment{folhadeaprovacao}[1][\folhadeaprovacaoname]{%
+   \clearpage%
+   \PRIVATEbookmarkthis{#1}%
+   \begin{Spacing}{1.0}
+}{\end{Spacing}\cleardoublepage}   
 % ---
 
 % ---
@@ -424,20 +433,24 @@
 % Epigrafe
 \newenvironment{epigrafe}[1][]{%
    \ifthenelse{\equal{#1}{}}{%
-    \addtocounter{abntex@pretextualchaptercounter}{1}
-    \phantomsection\pdfbookmark{\epigraphname}{chapterb\arabic{abntex@pretextualchaptercounter}}
-   }{\pretextualchapter{#1}}
+    \PRIVATEbookmarkthis{\epigraphname}
+    }{\pretextualchapter{#1}}
   }{\cleardoublepage}
 % ---
 
 % ---
-% Ficha catalográfica (Dados internacionais de
-% catalogação-na-publicação)
-\newenvironment{fichacatalografica}{%
-\thispagestyle{empty}
-}{}
+% Resumo e abstracts em diferentes idiomas - NBR 14724/2011
+\newenvironment{resumo}[1][\abstractname]{%
+   \SingleSpacing
+   \pretextualchapter{#1}
+  }{\cleardoublepage}
 % ---
 
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos e ambientes de editoração APENDICES e ANEXOS
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
 
 % ---
 % Definicoes compartilhadas entre Apendices e Anexos
@@ -457,7 +470,6 @@
  \renewcommand*{\cftappendixname}{#1 \space}
 }
 % ---
-
 
 % ---
 % Apendices - comando 
@@ -493,11 +505,75 @@
 }
 % ---
 
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos e ambientes de editoração CITACAO, ALINEA, INCISO, ASSINATURA
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
 % ---
-% Capa
+% Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
+\newenvironment*{citacao}[1][]{%
+  \begin{SingleSpace}%
+  \ABNTEXfontereduzida% 
+  \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
+  \noindent%
+  }{%
+  \normalsize%
+  \end{SingleSpace}}
+% ---
+
+% ---
+% Ambiente para alineas e e subalineas (incisos)
+% ABNT NBR 6024/2012 - 4.2 e 4.3
+\newlist{alineas}{enumerate}{2}
+\setlist[alineas,1]{label={\alph*)},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
+\setlist[alineas,2]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}
+\newlist{incisos}{enumerate}{1}
+\setlist[incisos,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+\newlist{subalineas}{enumerate}{1}
+\setlist[subalineas,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+% ---
+  
+% ---
+% Comando \assinatura for signature
+   % width of the line and text under the line
+\newlength{\ABNTEXsignwidth}
+\setlength{\ABNTEXsignwidth}{8cm}
+   % thickness of the line
+\newlength{\ABNTEXsignthickness}
+\setlength{\ABNTEXsignthickness}{1pt}
+   % ammount of space left between previous text and th signature line
+\newlength{\ABNTEXsignskip}
+\setlength{\ABNTEXsignskip}{1cm}
+   % \assinatura{name} -> types a line with name under the line, centralized
+   % \assinatura*{name} -> Creates the box with the line and name under
+   %     it, but the box has no position assigned. However the line and the
+   %     name are centralized with respect to each other.
+\makeatletter
+\newcommand{\assinatura}{\@ifstar{\ABNTEXsign}{\ABNTEXcsign}}
+\makeatother
+   % assinatura com estrela
+\newcommand{\ABNTEXsign}[1]{%
+  \parbox[t]{\ABNTEXsignwidth}{\SingleSpacing\vspace*{\ABNTEXsignskip}\centering%
+  \rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
+  \nopagebreak #1\par}%
+}
+   % assinatura sem estrela
+\newcommand{\ABNTEXcsign}[1]%
+  {\begingroup\par\centering\ABNTEXsign{#1}\par\endgroup}  
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Impressão da Capa
 \newcommand{\imprimircapa}{%
-  \begin{titlingpage}%
-   {
+  \begin{capa}%
     \center
     \vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
@@ -511,97 +587,74 @@
     {\large\imprimirdata}
     
     \vspace*{1cm}
-   } 
-  \end{titlingpage}
-  \cleardoublepage
+  \end{capa}
 }
 % ---
 
+
 % ---
-% Folha de Rosto
+% Folha de rosto
+%   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
+%   página no caso de estar no modo twoside. Útil para imprimir a Ficha
+%   Bibliográfica. Porém, se estiver no modo oneside, a versão sem estrela
+%   é idêntica.
+\newenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
+\newenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
+
+% ---
+% Conteudo padrao da Folha de Rosto
 \makeatletter
-\newcommand{\imprimirfolhaderosto}{%
-  \clearpage
+\newcommand{\folhaderostocontent}{
   \begin{center}
- 
+
     \vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
     {\ABNTEXchapterfont\Large\imprimirtitulo}
     \vspace*{\fill}
-    
+
     \abntex@ifnotempty{\imprimirpreambulo}{%
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
-      	\singlespacing
+      	\SingleSpacing
          \imprimirpreambulo
        \end{minipage}%
        \vspace*{\fill}
     }%
-    
+
     {\large\imprimirorientadorRotulo~\imprimirorientador\par}
     \abntex@ifnotempty{\imprimircoorientador}{%
        {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
     }%
     \vspace*{\fill}
-    
+
     {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
-    
+
     {\large\imprimirlocal}
     \par
     {\large\imprimirdata}
     \vspace*{1cm}
-    
-  \end{center}
-  % usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
-  % página no caso de estar no modo twoside. Útil para imprimir a Ficha
-  % Bibliográfica. Porém, se estiver no modo oneside, a versão sem estrela
-  % é idêntica.
-  \@ifstar
-    \newpage  
-    \cleardoublepage
-}
-\makeatother
-% ---
 
-% ---
-% Folha de aprovação - NBR 14724/2011 - 4.2.1.3
-\newenvironment{folhadeaprovacao}[1][]{%
-   \ifthenelse{\equal{#1}{}}{%
-    \addtocounter{abntex@pretextualchaptercounter}{1}
-    \phantomsection\pdfbookmark{\folhadeaprovacaoname}{chapterb\arabic{abntex@pretextualchaptercounter}}
-    }{\pretextualchapter{#1}}
-    {\singlespacing
-  }{}\cleardoublepage}
-% ---
-  
-% ---
-% Comando \assinatura for signature
-% ---
-% width of the line and text under the line
-\newlength{\ABNTEXsignwidth}
-\setlength{\ABNTEXsignwidth}{8cm}
-% thickness of the line
-\newlength{\ABNTEXsignthickness}
-\setlength{\ABNTEXsignthickness}{1pt}
-% ammount of space left between previous text and th signature line
-\newlength{\ABNTEXsignskip}
-\setlength{\ABNTEXsignskip}{1cm}
-% \assinatura{name} -> types a line with name under the line, centralized
-% \assinatura*{name} -> Creates the box with the line and name under
-%     it, but the box has no position assigned. However the line and the
-%     name are centralized with respect to each other.
-\makeatletter
-\newcommand{\assinatura}{\@ifstar{\ABNTEXsign}{\ABNTEXcsign}}
-\makeatother
-% assinatura com estrela
-\newcommand{\ABNTEXsign}[1]{%
-  \parbox[t]{\ABNTEXsignwidth}{\singlespacing\vspace*{\ABNTEXsignskip}\centering%
-  \rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
-  \nopagebreak #1\par}%
+  \end{center}
 }
-% assinatura sem estrela
-\newcommand{\ABNTEXcsign}[1]%
-  {\begingroup\par\centering\ABNTEXsign{#1}\par\endgroup}  
+\makeatother
+
+\newcommand{\imprimirfolhaderostostar}[1]{%
+  \begin{folhaderosto*}{#1}
+     \folhaderostocontent
+  \end{folhaderosto*}}
+
+\newcommand{\imprimirfolhaderostonostar}[1]{%
+  \begin{folhaderosto}{#1}
+     \folhaderostocontent
+  \end{folhaderosto}}
+
+\makeatletter
+\newcommand{\imprimirfolhaderosto}[1][\folhaderostoname]{%
+   \@ifstar
+     \imprimirfolhaderostostar  
+     \imprimirfolhaderostonostar
+}
+\makeatother
 % ---

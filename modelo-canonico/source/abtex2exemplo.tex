@@ -39,10 +39,10 @@
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage{makeidx}            % cria o indice
 \usepackage{hyperref}  			% controla a formação do índice
-\usepackage{lastpage}			% usado pela fichacatalografica.tex
+\usepackage{lastpage}			% usado por abntex2-fichacatalografica.tex
 \usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
 \usepackage{nomencl} 			% Lista de simbolos
-						
+												
 % ---
 % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
 % ---
@@ -80,19 +80,18 @@
 \local{Brasil}
 \data{2012}
 \orientador{Lauro César Araujo}
-\coorientador{Mamede Lima-Marques}
+\coorientador{Equipe \abnTeX}
 \instituicao{%
-  Universidade de Brasília -- UnB
+  Universidade do Brasil -- UBr
   \par
-  Faculdade de Ciência da Informação
+  Faculdade de Arquitetura da Informação
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Tese (Doutorado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Tese de doutorado apresentada à Faculdade de Ciência da Informação
-da Universidade de Brasília como requisito parcial para obtenção do título de
-Doutor em Ciência da Informação.}
+\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
+as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
 
 % ---
@@ -158,20 +157,28 @@ Doutor em Ciência da Informação.}
 % ---
 % Inserir a ficha bibliografica
 % ---
-\include{fichacatalografica}
+\include{abtex2exemplo-fichacatalografica}
+% ---
+
+% ---
+% Inserir errata
+% ---
+\include{abtex2exemplo-errata}
 % ---
 
 % ---
 % Inserir folha de aprovação
 % ---
-\include{folhadeaprovacao}
+\include{abtex2exemplo-folhadeaprovacao}
 % ---
 
 % ---
 % Dedicatória
 % ---
 \begin{dedicatoria}
-Dedico este trabalho ao infinito.
+Este trabalho é dedicado à criança de León Werth, por ter sido o maior amigo do
+mundo de Antoine de Saint-Exupery, autor que cativou muitas horas de minhas
+alegrias e imaginação.
 \end{dedicatoria}
 % ---
 
@@ -179,7 +186,20 @@ Dedico este trabalho ao infinito.
 % Agradecimentos
 % ---
 \begin{agradecimentos}
-Os agradecimentos vão aqui.
+Os agradecimentos principais são direcionados à Miguel Frasson, Gerald Weber,
+Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+Salvador, Renato Machnievscz\footnote{Os nomes dos primeiros integrantes do
+projeto abn\TeX foram extraídos de
+\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+contribuíram para que a produção de trabalhos acadêmicos conforme
+as normas ABNT com \LaTeX~ fosse possível.
+
+Agradecimentos especiais são direcionados ao grupo de usuários
+\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+novos voluntários do grupo \emph{\abnTeX}
+\footnote{\url{http://groups.google.com/group/abntex2} e
+\url{https://code.google.com/p/abntex2/}} que contribuíram e que ainda
+contribuirão para a evolução do abn\TeX.
 \end{agradecimentos}
 % ---
 
@@ -202,22 +222,24 @@ Os agradecimentos vão aqui.
 % RESUMOS
 % ---
 
-% Resumo em português  {título do resumo}{palavras chaves}
+% resumo em português
 \begin{resumo}
- Segundo a ABNT NBR 6028/2003:
- 3.1 O resumo deve ressaltar o objetivo, o método, os resultados e as
- conclusões do documento. A ordem e a extensão destes itens dependem do tipo
- de resumo (informativo ou indicativo) e do tratamento que cada item recebe no
- documento original. 3.2 O resumo deve ser precedido da referência do
- documento, com exceção do resumo inserido no próprio documento.
-    
+ Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
+ objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
+ destes itens dependem do tipo de resumo (informativo ou indicativo) e do
+ tratamento que cada item recebe no documento original. O resumo deve ser
+ precedido da referência do documento, com exceção do resumo inserido no
+ próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
+ resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
+ ponto e finalizadas também por ponto.
+
  \vspace{\onelineskip}
-  
+    
  \noindent
  \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
 \end{resumo}
 
-% Resumo em inglês
+% resumo em inglês
 \begin{resumo}[Abstract]
  This is the english abstract.
 
@@ -227,25 +249,26 @@ Os agradecimentos vão aqui.
  \textbf{Key-words}: latex. abntex. text editoration.
 \end{resumo}
 
-% Resumo em francês 
+% resumo em francês 
 \begin{resumo}[Résumé]
-  Ceci est le résumé français.
+  Il s'agit d'un résumé en français.
  
  \vspace{\onelineskip}
  
  \noindent
- \textbf{Mots-clés}: latex. abntex. text editoration.
+ \textbf{Mots-clés}: latex. abntex. publication de textes.
 \end{resumo}
 
-% Resumo em espanhol
+% resumo em espanhol
 \begin{resumo}[Resumen]
   Este es el resumen de español.
   
  \vspace{\onelineskip}
  
  \noindent
- \textbf{Palabras clave}: latex. abntex. text editoration.
+ \textbf{Palabras clave}: latex. abntex. publicación de textos.
 \end{resumo}
+% ---
 
 % ---
 % inserir lista de ilustrações
@@ -265,13 +288,15 @@ Os agradecimentos vão aqui.
 
 % ---
 % inserir lista de Abreviaturas e Siglas
+% A lista de Abreviaturas e Siglas pode ser facilmente montada com o pacote 
+% nomencl. Abaixo segue um exemplo.
 % ---
-\nomenclature{Fig.}{Figure}
+\nomenclature{Fig.}{Figura}
 \nomenclature{$A_i$}{Area of the $i^{th}$ component} 
 \nomenclature{456}{Isto é um número}
-\nomenclature{4456}{Isto é outro número}
+\nomenclature{123}{Isto é outro número}
 \nomenclature{a}{primeira letra do alfabeto}
-\nomenclature{lauro}{meu nome} 
+\nomenclature{lauro}{este é meu nome} 
 
 \renewcommand{\nomname}{Lista de Abreviaturas e Siglas}
 \pdfbookmark[0]{\nomname}{las}
@@ -282,6 +307,7 @@ Os agradecimentos vão aqui.
 % ---
 % inserir lista de símbolos
 % ---
+% O abnTeX2 não provê mecanismo para lista de símbolos.
 % ---
 
 % ---
@@ -297,20 +323,19 @@ Os agradecimentos vão aqui.
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
-\textual
+% É possível usar \textual ou \mainmatter, que é a macro padrão do memoir.  
+\mainmatter
 
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
-\addcontentsline{}{}{}
 \chapter*{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
-
 
 \lipsum[1-2]
 
 % ----------------------------------------------------------
-% Parte de preparação da pesquisa
+% PARTE - preparação da pesquisa
 % ----------------------------------------------------------
 \part{Preparação da pesquisa}
 
@@ -319,39 +344,75 @@ Os agradecimentos vão aqui.
 % ----------------------------------------------------------
 \chapter{Lorem ipsum dolor sit amet}
 
-\chapterprecis{Our hero is introduced; family tree; early days.}
+\chapterprecis{Phasellus eu tellus sit amet tortor gravida placerat, lacus
+libero, pretium at, lobortis vitae, ultricies et, tellus cum sociis natoque
+penatibus et magnis dis parturient montes.}
 
-\section{Este é um nome muito longo de uma seção sem nenhuma outra qualificação
-adicional que não seja a própria qualidade ter um nome longo}
+\section{Aliquam ullamcorper euismod nulla mollis enim vel tortor sodales placerat nunc
+tempus rutrum wisi accumsan gravida purus etiam facilisis dui eu sem semper}
 
-\lipsum[3]
-
-Alineas:
+Quando for necessário enumerar os diversos assuntos de uma seção que não possua
+título, esta deve ser subdividida em alíneas \cite[4.2]{NBR6024:2012}:
 
 \begin{alineas}
-  \item Item 1\footnote{As notas devem ser digitadas ou datilografadas
+
+  \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
+  seção, devem ser subdivididos em alíneas\footnote{As notas devem ser digitadas ou datilografadas
   dentro das margens, ficando separadas do texto por um espaço simples de entre as
   linhas e por filete de 5 cm, a partir da margem esquerda. Devem ser
   alinhadas, a partir da segunda linha da mesma nota, abaixo da primeira letra
   da primeira palavra, de forma a destacar o expoente, sem espaço entre elas e
-  com fonte menor. NBR 14724/2011 - 5.2.1}
-  \item \lipsum[41]
-  \item Item 3\footnote{Item 3 footnote.}:
+  com fonte menor. \citeonline[5.2.1]{NBR14724:2011}}; 
+  
+  \item o texto que antecede as alíneas termina em dois pontos;
+  \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
+  seguida de parêntese.  Utilizam-se letras dobradas, quando esgotadas as
+  letras do alfabeto;
+
+  \item as letras indicativas das alíneas devem apresentar recuso em relação à
+  margem esquerda;
+
+  \item o texto da alínea deve começar por letra minúscula e terminar em
+  ponto-e-vírgula, exceto a última alínea que termina em ponto final;
+
+  \item o texto da alínea deve terminar em dois pontos, se houver subalínea;
+
+  \item a segunda e as seguintes linhas do texto da alínea começa sob a
+  primeira letra do texto da própria alínea;
+  
+  \item subalíneas \cite[4.3]{NBR6024:2012} deve ser conforme as alíneas a seguir:
+
   \begin{alineas}
-    \item \lipsum[50]
-    \item \lipsum[51]
+     \item as subalíneas devem começar por travessão seguido de espaço;
+
+     \item as subalíneas devem apresentar recuo em relação à alínea;
+
+     \item o texto da subalínea deve começar por letra minúscula e terminar em
+     ponto-e-vírgula. A última subalínea deve terminar em ponto final, se não
+     houver alínea subsequente;
+
+     \item a segunda e as seguintes linhas do texto da subalínea começam sob a
+     primeira letra do texto da própria subalínea.
   \end{alineas}
+  
+  \item estão disponíveis os ambientes ``incisos'' e ``subalineas'', que em sua
+  são o mesmo que se criar outro nível de ``alineas'':
+  
   \begin{incisos}
     \item \lipsum[52]
-    \item \lipsum[53]
   \end{incisos}
+  
   \item \lipsum[60]
+  
+  \begin{subalineas}
+    \item \lipsum[53]
+  \end{subalineas}
+  
+  \item \lipsum[54]
+  
 \end{alineas}
 
-
 \lipsum[4]
-
-\cite{albuquerque2011}, \cite{EIA649B}, \cite{bates2010}
 
 \begin{table}[htb]
 \footnotesize
@@ -375,88 +436,38 @@ Alineas:
 
 \lipsum[5]
 
-% figura química 
+\section{Aliquam consectetuer varius nulla}
 
-\begin{figure}[htb]
-	\caption{\label{fig_aromaticos}Configurações de moléculas químicas}
+\lipsum[6-7]
 
+\subsection{Integer vitae justo}
 
-	\begin{center}
-		\makevisible
-		\colorlet{mCgreen}{green!50!gray}
-		\colorlet{mCblue}{cyan!50!gray}
-		\colorlet{mCred}{magenta!50!gray}
-		\colorlet{mCyellow}{yellow!50!gray}
-		\begin{rxn}
-			\tikzset{reactant/.style={draw=#1,fill=#1!10,inner sep=1em,minimum height=10em,minimum width=12em,rounded corners}}
-			\reactant[,cytosine,reactant=mCred]{\chemfig{H-[:30]N*6(-(=O)-N=(-NH _2)-=-)}}
-			\anywhere{cytosine.-90,,yshift=-2mm}{Citosina}
-			\reactant[,thymine,reactant=mCyellow]{\chemfig{H-[:30]N*6(-(=O)-N(-H)
-			-(=O)-(-CH_3)=-)}}
-			\anywhere{thymine.-90,,yshift=-2mm}{Timina}
-			\reactant[cytosine.-90,adenine,yshift=-2em,reactant=mCblue]{\chemfig
-			{[:-36]*5(-N(-H)-*6(-N=-N=(-NH_2)--)--N=)}}
-			\anywhere{adenine.-90,Guanin,yshift=-2mm}{Adenina}
-			\reactant[,guanine,reactant=mCgreen]{\chemfig{[:-36]*5(-N(-H)-*6(-N=(-
-			NH_2)-N(-H)-(=O)--)--N=)}}
-			\anywhere{guanine.-90,,yshift=-2mm}{Guanina}
-		\end{rxn}
-	
-	\end{center}
-	
-	\legend{Fonte: os autores}
-	
-\end{figure}
+\lipsum[8]
 
-\lipsum[6]
-
-
-\section{Seção 1}
-
-\lipsum[7]
-
-\begin{directcite}
+\begin{citacao}
 As citações diretas, no texto, com mais de três linhas, devem ser
 destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
 utilizado e sem as aspas. No caso de documentos datilografados, deve-se
-observar apenas o recuo.
-\end{directcite}
-
-Você também pode utilizar o comando ``citacao'', que é o mesmo que ``directcite'':
-
-\begin{citacao} (ABNT NBR 10520/2002 - 5.3) 5.1
-Formato (...)
-Recomenda-se, quando digitado, a fonte tamanho 12 para todo o trabalho,
-inclusive capa, excetuando-se citaçõess com mais de três linhas, notas de
-rodapé, paginação, dados internacionais de catalogação-na-publicação,
-legendas e fontes das ilustrações e das tabelas, que devem ser em tamanho menor
-e uniforme.
+observar apenas o recuo \cite[5.3]{NBR10520:2002}
 \end{citacao}
 
-\subsection{Subseção 1}
+\lipsum[9]
 
-\lipsum[8-10]
+\subsubsection{Integer vitae extra justo}
 
-\subsection{Subseção 2}
+\lipsum[9-10]
 
-Plain text.
+\subsubsection{Nulla vitae fringilla}
 
-\lipsum[11-15]
+\lipsum[11-12]
 
-\subsection{Subseção 3}
+\subsection{Mauris nibh leo}
 
-More plain text.
+\lipsum[12-13]
 
-\lipsum[16-20]
+\section{Sed ante tellus}
 
-More plain text\index{plain text}.
-
-\subsubsection{Subsubseção 3.1}
-
-More plain text\index{plain text}.
-
-\lipsum[21-25]
-
+\lipsum[14-15]
 
 % ----------------------------------------------------------
 % Parte de revisãod e literatura
@@ -464,12 +475,13 @@ More plain text\index{plain text}.
 \part{Revisão de Literatura}
 
 % ---
-% capitulo Segundo assunto
+% Capitulo de revisão de literatura
 % ---
-
 \chapter{Etiam eget ligula eu lectus lobortis condimentum}
 
-\lipsum[1-1]
+\section{Aliquam vestibulum fringilla lorem}
+
+\lipsum[1]
 
 \begin{figure}[htb]
 	\caption{\label{fig_circulo}A delimitação do espaço}
@@ -509,55 +521,35 @@ More plain text\index{plain text}.
 
 \lipsum[2-3]
 
-\section{Seção 1}
-
-\lipsum[4-5]
-
-\subsection{Subseção 1}
-
-Plain text.
-
-\lipsum[6-10]
-
-\subsection{Subseção 2}
-
-Plain text\index{plain text}.
-
-\lipsum[11-15]
-
-\subsection{Subseção 3}
-
-More plain text.
-
-\lipsum[16-17]
-
-\subsubsection{Subsubseção 3.1}
-
-More plain text.
-
-\lipsum[18-20]
-
 % ----------------------------------------------------------
 % Resultados
 % ----------------------------------------------------------
 \part{Resultados}
 
 % ---
-% capitulo de Resultados
+% primeiro capitulo de Resultados
 % ---
 \chapter{Lectus lobortis condimentum}
 
-\lipsum[21-23]
+\section{Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+posuere cubilia Curae}
 
+\lipsum[21-22]
+
+% ---
+% segundo capitulo de Resultados
+% ---
 \chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
 elementum}
+
+\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
 
 \lipsum[24]
 
 % ---
-% Finaliza a parte no bookmark do PDF
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
 % ---
-\bookmarksetup{startatroot}% this is it
+\bookmarksetup{startatroot}% 
 % ---
 
 % ----------------------------------------------------------
@@ -565,20 +557,18 @@ elementum}
 % ----------------------------------------------------------
 \postextual
 
-% ----------------------------------------------------------
+% ---
 % Conclusão
-% ----------------------------------------------------------
-
+% ---
 \chapter*{Conclusão}
 \addcontentsline{toc}{chapter}{Conclusão}
 
 \lipsum[31-33]
 
-
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-\bibliography{references}
+\bibliography{abtex2exemplo-references}
 
 % ----------------------------------------------------------
 % Glossário
@@ -597,22 +587,25 @@ elementum}
 % Inicia os apêndices
 % ---
 \begin{apendicesenv}
-% ---
 
 % Imprime uma página indicando o início dos apêndices
 \appendixpage
 
 % ----------------------------------------------------------
-\chapter{Primeiro apêndice}
+\chapter{Quisque libero justo}
 % ----------------------------------------------------------
 
-\lipsum[50-52]
+\lipsum[50]
 
 % ----------------------------------------------------------
-\chapter{Segundo apêndice com um nome bem logo de modo}
+\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 % ----------------------------------------------------------
 \lipsum[55-57]
+
 \end{apendicesenv}
+% ---
+
 
 % ----------------------------------------------------------
 % Anexos
@@ -623,30 +616,29 @@ elementum}
 % ---
 %\anexos
 \begin{anexosenv}
-% 
 
 % Imprime uma página indicando o início dos anexos
 \appendixpage
 
 % ---
-\chapter{Primeiro anexo}
+\chapter{Morbi ultrices rutrum lorem.}
 % ---
-\lipsum[200-202]
+\lipsum[30]
 
 % ---
-\chapter{Segundo anexo}
+\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+parturient montes nascetur ridiculus mus}
 % ---
 
-\lipsum[210-212]
+\lipsum[31]
 
 % ---
-\chapter{Terceiro anexo}
+\chapter{Fusce facilisis lacinia dui}
 % ---
 
-\lipsum[213-214]
+\lipsum[32]
 
 \end{anexosenv}
-
 
 %---------------------------------------------------------------------
 % INDICE REMISSIVO
