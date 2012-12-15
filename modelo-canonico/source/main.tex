@@ -97,7 +97,11 @@ Doutor em Ciência da Informação.}
 
 % ---
 % Configurações de aparência do PDF final
-% ---
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
 \hypersetup{
      	%backref=true,
      	%pagebackref=true,
@@ -105,12 +109,12 @@ Doutor em Ciência da Informação.}
 		pdftitle={\imprimirtitulo}, 
 		pdfauthor={\imprimirautor},
 		pdfkeywords={PALAVRAS CHAVES EM PORTUGUES},
-    		pdfsubject={\imprimirpreambulo},
+    	pdfsubject={\imprimirpreambulo},
 	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
-    		colorlinks=true,       		% false: boxed links; true: colored links
-    		linkcolor=blue,          	% color of internal links
-    		citecolor=blue,        		% color of links to bibliography
-    		filecolor=magenta,      		% color of file links
+    	colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
 		urlcolor=blue,
 		bookmarksdepth=4
 }
@@ -146,6 +150,7 @@ Doutor em Ciência da Informação.}
 
 % ---
 % Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
 % ---
 \imprimirfolhaderosto*
 % ---
@@ -313,6 +318,8 @@ Os agradecimentos vão aqui.
 % Capitulo 1
 % ----------------------------------------------------------
 \chapter{Lorem ipsum dolor sit amet}
+
+\chapterprecis{Our hero is introduced; family tree; early days.}
 
 \section{Este é um nome muito longo de uma seção sem nenhuma outra qualificação
 adicional que não seja a própria qualidade ter um nome longo}

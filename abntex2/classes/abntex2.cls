@@ -23,7 +23,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{abntex2}[2013/01/01 abnTeX2]
+\ProvidesClass{abntex2}[2013/02/01 v1.0 abnTeX2]
 
 %
 % Repassa todos os parâmetros à report
@@ -120,15 +120,27 @@
 % ---
 
 % ---
-% Valores constantes
-\newcommand{\abntextocitemnumberhspace}{0.2cm}
-% ---
-
-% ---
 % abnTeX2 name
 \newcommand{\abnTeX}{abn\TeX2}
 % ---
 
+% ---
+% Fontes padrões de part, chapter, section, subsection e subsubsection
+\newcommand{\ABNTEXchapterfont}{\fontfamily{cmss}\fontseries{sbc}\selectfont}
+\newcommand{\ABNTEXchapterfontsize}{\Huge}
+
+\newcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
+\newcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
+
+\newcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
+\newcommand{\ABNTEXsectionfontsize}{\Large}
+
+\newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
+\newcommand{\ABNTEXsubsectionfontsize}{\large}
+
+\newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
+\newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+% ---
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -190,48 +202,71 @@
 %\renewcommand{\cfttableaftersnum}{\space--\space}
 
 % espaços à esqueda para comportar os números romanos das partes
-\addtolength\cftpartnumwidth{\abntextocitemnumberhspace}
-\addtolength\cftchapternumwidth{\abntextocitemnumberhspace}
-\addtolength\cftsectionindent{\abntextocitemnumberhspace}
-\addtolength\cftsubsectionindent{\abntextocitemnumberhspace}
-\addtolength\cftsubsubsectionindent{\abntextocitemnumberhspace}
+\newcommand{\ABNTEXtocitemnumberhspace}{0.2cm}
+\addtolength\cftpartnumwidth{\ABNTEXtocitemnumberhspace}
+\addtolength\cftchapternumwidth{\ABNTEXtocitemnumberhspace}
+\addtolength\cftsectionindent{\ABNTEXtocitemnumberhspace}
+\addtolength\cftsubsectionindent{\ABNTEXtocitemnumberhspace}
+\addtolength\cftsubsubsectionindent{\ABNTEXtocitemnumberhspace}
+
+% fonte das partes e do captítulo do TOC
+\renewcommand{\tocheadstart}{\ABNTEXchapterfont}
 % -----
 
 % ---
 % Configuração dos títulos dos capítulos
 % Novo estido do memoir 
 % ABNT NBR 14724-2011 - 5.2.2-5.2.4; ABNT NBR 6024-2003 - 3.1-3.8
+\provideboolean{abntex@innonumchapter}
+\setboolean{abntex@innonumchapter}{true}
 \makechapterstyle{abnt}{%
   \newlength{\chapternamenumlength}
 
+  % tamanhos de fontes de chapter e part	
+  \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}
+  \renewcommand{\chapnumfont}{\chaptitlefont}
+  \renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  \renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  \renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  
+  % tamanhos de fontes de section, subsection e subsubsection
+  \setsecheadstyle{\ABNTEXchapterfont\ABNTEXsectionfontsize}
+  \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize}
+  \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize}
+  
+  % impressao do numero do capitulo
   \renewcommand{\chapternamenum}{}
+  
+  % impressao do nome do capitulo
   \renewcommand{\printchaptername}{%
    \chaptitlefont
    \ifthenelse{\boolean{abntex@apendiceousecao}}{\appendixname}{}%
   }
     
+  % impressao do titulo do capitulo
   \def\printchaptertitle##1{%
     \chaptitlefont%
-    \ifthenelse{\equal{\thechapter}{0}}{##1}{% else
+    \ifthenelse{\boolean{abntex@innonumchapter}}{\centering##1}{% else
 	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
 	    \parbox[t]{\textwidth-\chapternamenumlength}{##1}%
 	}    
   }
        
+  % impressao do numero do capitulo     	
   \renewcommand{\printchapternum}{%
+     \setboolean{abntex@innonumchapter}{false}
      \chapnumfont%
      \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        --\space%
-     }{% else
-       %
-     }%
+     }{} % else
   }
   \renewcommand{\afterchapternum}{}
   \renewcommand{\beforechapskip}{0cm}
   
+  % impressao do capitulo nao numerado
   \renewcommand\printchapternonum{%
-     \centering
+     \setboolean{abntex@innonumchapter}{true}%
     }
 }
 \chapterstyle{abnt}
@@ -465,10 +500,10 @@
    {
     \center
     \vspace*{1cm}
-    {\large\textbf\imprimirautor}
+    {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}
-    {\Large\textbf\imprimirtitulo}
+    {\ABNTEXchapterfont\LARGE\imprimirtitulo}
     \vspace*{\fill}
     
     {\large\imprimirlocal}
@@ -490,10 +525,10 @@
   \begin{center}
  
     \vspace*{1cm}
-    {\large\textbf\imprimirautor}
+    {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
-    {\Large\textbf\imprimirtitulo}
+    {\ABNTEXchapterfont\Large\imprimirtitulo}
     \vspace*{\fill}
     
     \abntex@ifnotempty{\imprimirpreambulo}{%
@@ -537,35 +572,36 @@
     \addtocounter{abntex@pretextualchaptercounter}{1}
     \phantomsection\pdfbookmark{\folhadeaprovacaoname}{chapterb\arabic{abntex@pretextualchaptercounter}}
     }{\pretextualchapter{#1}}
-  }{\cleardoublepage}
+    {\singlespacing
+  }{}\cleardoublepage}
 % ---
   
 % ---
 % Comando \assinatura for signature
 % ---
 % width of the line and text under the line
-\newlength{\ABNTsignwidth}
-\setlength{\ABNTsignwidth}{8cm}
+\newlength{\ABNTEXsignwidth}
+\setlength{\ABNTEXsignwidth}{8cm}
 % thickness of the line
-\newlength{\ABNTsignthickness}
-\setlength{\ABNTsignthickness}{1pt}
+\newlength{\ABNTEXsignthickness}
+\setlength{\ABNTEXsignthickness}{1pt}
 % ammount of space left between previous text and th signature line
-\newlength{\ABNTsignskip}
-\setlength{\ABNTsignskip}{1cm}
+\newlength{\ABNTEXsignskip}
+\setlength{\ABNTEXsignskip}{1cm}
 % \assinatura{name} -> types a line with name under the line, centralized
 % \assinatura*{name} -> Creates the box with the line and name under
 %     it, but the box has no position assigned. However the line and the
 %     name are centralized with respect to each other.
 \makeatletter
-\newcommand{\assinatura}{\@ifstar{\ABNTsign}{\ABNTcsign}}
+\newcommand{\assinatura}{\@ifstar{\ABNTEXsign}{\ABNTEXcsign}}
 \makeatother
 % assinatura com estrela
-\newcommand{\ABNTsign}[1]{%
-  \parbox[t]{\ABNTsignwidth}{\singlespacing\vspace*{\ABNTsignskip}\centering%
-  \rule{\ABNTsignwidth}{\ABNTsignthickness}\\%
+\newcommand{\ABNTEXsign}[1]{%
+  \parbox[t]{\ABNTEXsignwidth}{\singlespacing\vspace*{\ABNTEXsignskip}\centering%
+  \rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
   \nopagebreak #1\par}%
 }
 % assinatura sem estrela
-\newcommand{\ABNTcsign}[1]%
-  {\begingroup\par\centering\ABNTsign{#1}\par\endgroup}  
+\newcommand{\ABNTEXcsign}[1]%
+  {\begingroup\par\centering\ABNTEXsign{#1}\par\endgroup}  
 % ---
