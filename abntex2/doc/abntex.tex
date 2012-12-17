@@ -38,7 +38,14 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 		urlcolor=black
 }
 
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+\changes{v1.0}{2013/02/01}{Versão inicial}
+
 \begin{document}
+
 \definecolor{blue}{RGB}{41,5,195}
 
 
@@ -466,7 +473,7 @@ As subseções seguintes descrevem como cada elemento pré-textual pode ser
 construído com \abnTeX2.
 
 % ---
-\subsection{Capa}
+\subsection{Capa (obrigatório)}
 % ---
 
 \DescribeMacro{\imprimircapa}\DescribeEnv{capa}
@@ -1380,6 +1387,10 @@ Para que as macros |\printindex| e |\index| funcionem, é preciso utilizar o
 compilador
 \textsf{MakeIndex}\footnote{\url{http://www.tex.ac.uk/ctan/indexing/makeindex/}}.
 
+
+% ------
+\StopEventually{\PrintIndex}
+% ------
 
 \StopEventually{\PrintIndex}
 \end{document}
