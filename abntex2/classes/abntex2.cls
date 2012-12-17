@@ -36,7 +36,7 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Pacotes e customizações gerais
+% Pacotes e customizações gerais do memoir
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -46,26 +46,11 @@
 % ---
 \RequirePackage[brazil]{babel}
 \addto\captionsbrazil{%
+  \renewcommand{\bibname}{Refer\^encias}
+  \renewcommand{\indexname}{\'Indice}
   \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
 }
 % ---   
-
-% ---
-% Margens - NBR 14724/2011 - 5.1 Formato
-% ---
-\setlrmarginsandblock{3cm}{2cm}{*}
-\setulmarginsandblock{3cm}{2cm}{*}
-\checkandfixthelayout
-% ---
-
-% ---
-% Espaçamento entre linhas - NBR 14724/2011 - 5.2 Espaçamento
-% ---
-%\DisemulatePackage{setspace}
-%\RequirePackage{setspace}
-%\onehalfspacing						% espaçamento de 1.5
-\OnehalfSpacing
-% ---
 
 % ---
 % Controla as referências internas do PDF
@@ -93,6 +78,19 @@
 \RequirePackage{calc}
 % ---
 
+% ---
+% Margens - NBR 14724/2011 - 5.1 Formato
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% ---
+% Espaçamento entre linhas - NBR 14724/2011 - 5.2 Espaçamento
+% ---
+\OnehalfSpacing
+% ---
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -120,7 +118,6 @@
 \newcommand{\orientadorname}{Orientador:}
 \newcommand{\coorientadorname}{Coorientador:}
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao} 
-
 % ---
 
 % ---
@@ -326,6 +323,7 @@
 % ---
 % Configura layout para elementos pós-textuais
 \newcommand{\postextual}{}
+\renewcommand{\backmatter}{\postextual}
 % -----
 
 % ------------------------------------------------------------------------
@@ -529,10 +527,10 @@
 \newlist{alineas}{enumerate}{2}
 \setlist[alineas,1]{label={\alph*)},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
 \setlist[alineas,2]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}
-\newlist{incisos}{enumerate}{1}
-\setlist[incisos,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
 \newlist{subalineas}{enumerate}{1}
 \setlist[subalineas,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+\newlist{incisos}{enumerate}{1}
+\setlist[incisos,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
 % ---
   
 % ---

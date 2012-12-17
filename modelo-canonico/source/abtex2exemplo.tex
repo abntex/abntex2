@@ -107,9 +107,10 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 		%bookmarks=true,         		% show bookmarks bar?
 		pdftitle={\imprimirtitulo}, 
 		pdfauthor={\imprimirautor},
-		pdfkeywords={PALAVRAS CHAVES EM PORTUGUES},
     	pdfsubject={\imprimirpreambulo},
+		pdfkeywords={PALAVRAS}{CHAVES}{EM}{PORTUGUES},
 	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+	    pdfcreator={\imprimirautor},
     	colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -287,7 +288,7 @@ contribuirão para a evolução do abn\TeX.
 % ---
 
 % ---
-% inserir lista de Abreviaturas e Siglas
+% inserir lista de abreviaturas e siglas
 % A lista de Abreviaturas e Siglas pode ser facilmente montada com o pacote 
 % nomencl. Abaixo segue um exemplo.
 % ---
@@ -298,7 +299,7 @@ contribuirão para a evolução do abn\TeX.
 \nomenclature{a}{primeira letra do alfabeto}
 \nomenclature{lauro}{este é meu nome} 
 
-\renewcommand{\nomname}{Lista de Abreviaturas e Siglas}
+\renewcommand{\nomname}{Lista de abreviaturas e siglas}
 \pdfbookmark[0]{\nomname}{las}
 \printnomenclature
 \cleardoublepage
@@ -332,7 +333,29 @@ contribuirão para a evolução do abn\TeX.
 \chapter*{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
 
-\lipsum[1-2]
+Este documento exemplifica o uso da classe \abnTeX. A expressão ``Modelo
+canônico'' é utilizada para indicar que \abnTeX não é modelo específico de
+trabalho acadêmico de nenhuma universidade ou instituição, mas que implementa
+tão somente os requisitos das normas da ABNT.
+
+Sinta-se convidado à participar do projeto \abnTeX! Acesse o site do projeto em
+\url{http://code.google.com/p/abntex2/}. Também fique livre para conhecer,
+estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+modificados tenham seus nomes alterados e que os créditos sejam dados aos
+autores originais, nos termos da ``The LaTeX Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+Encorajamos que sejam realizadas customizações específicas para universidades
+--- como capas, folha de aprovação, etc. Porém, recomendamos que ao invés de se
+alterar diretamente os arquivos do \abnTeX2, distribua-se aos estudantes
+arquivos com as respectivas customizações. Isso permite que futuras versões do
+\abnTeX2 não se tornem automaticamente incompatíveis com as customizações
+promovidas.
+
+Este texto deve ser utilizado como complemento do Manual do \abnTeX e do
+\textbf{memoir}, este disponível em
+\url{http://mirrors.ctan.org/macros/latex/contrib/memoir/memman.pdf}.
+
 
 % ----------------------------------------------------------
 % PARTE - preparação da pesquisa
@@ -366,7 +389,7 @@ título, esta deve ser subdividida em alíneas \cite[4.2]{NBR6024:2012}:
   
   \item o texto que antecede as alíneas termina em dois pontos;
   \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
-  seguida de parêntese.  Utilizam-se letras dobradas, quando esgotadas as
+  seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
   letras do alfabeto;
 
   \item as letras indicativas das alíneas devem apresentar recuso em relação à

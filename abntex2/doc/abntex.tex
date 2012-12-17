@@ -1,0 +1,1385 @@
+\documentclass[a4paper]{ltxdoc}
+
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\usepackage[brazil]{babel}		% idiomas
+\usepackage{hyperref}  			% controla a formação do índice
+\usepackage{parskip}
+
+
+% COMANDOS PROPRIOS
+\newcommand{\abnTeX}{abn\TeX}
+\newcommand{\abnTeXForum}{\url{http://groups.google.com/group/abntex2}}
+\newcommand{\abnTeXSite}{\url{http://code.google.com/p/abntex2/}}
+
+
+\title{\textbf{A classe \textsf{abntex2}}: \\\Large{Modelo canônico de trabalhos
+acadêmicos brasileiros conforme as normas ABNT}\thanks{Este documento
+  se referete ao \textsf{abntex2} versão \fileversion,
+  de \filedate.}}
+  
+\author{Equipe \abnTeX2\\\abnTeXSite 
+\and 
+Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
+
+\date{\today}
+
+\hypersetup{
+		pdftitle={A classe abntex2},
+		pdfauthor={Equipe abnTeX2},
+    	pdfsubject={Modelo canônico de trabalhos
+        acadêmicos brasileiros conforme as normas ABNT},
+		pdfkeywords={ABNT}{abntex}{abntex2}{trabalho acadêmico}{dissertação}{tese},
+	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+	    pdfcreator={Lauro César Araujo -- laurocesar@laurocesar.com},
+    	colorlinks=true,
+    	linkcolor=blue,
+    	citecolor=blue,
+		urlcolor=black
+}
+
+\begin{document}
+\definecolor{blue}{RGB}{41,5,195}
+
+
+\maketitle
+
+\begin{abstract}
+  \noindent Este é o manual de uso da classe \textsf{abntex2}. A classe é um
+  conjunto de customizações da classe \textsf{memoir} para elaboração de
+  trabalhos acadêmicos condizentes com as normas da Associação Brasileira de
+  Normas Técnicas (ABNT). Este manual não inclui abrange o pacotes
+  \textsf{abntex2-cite} ou demais componentes do \abnTeX2.
+\end{abstract}
+
+\tableofcontents
+
+% ------
+\section{Introdução}
+% ------
+
+Dentre as características de qualidade de trabalhos acadêmicos (teses,
+dissertações e outros), ao lado da pertinência do tema e dos aspectos relativos
+ao conteúdo abordado no trabalho, consta também o resultado da editoração final e
+as características de forma e de estruturação dos documentos acadêmicos. Desse
+modo, a existência de um modelo e de ferramentas que atendas às normas
+brasileiras de elaboração de trabalhos acadêmicos propostas pela Associação
+Brasileira de Normas Técnicas (ABNT) são recursos básicos para o aprimoramento
+da qualidade geral dos trabalhos acadêmicos brasileiros.
+
+É com esse intuito que o \abnTeX2 é apresentado à comunidade acadêmica
+brasileira: o de ser um instrumento de aperfeiçoamento da qualidade dos
+trabalhos acadêmicos. O \abnTeX2 surge para se somar ao já vasto universo de
+ferramentas \LaTeX, porém que é escasso em utilitários específicos para
+trabalhos brasileiros. Nesse sentido, \abnTeX2 é proposto como uma evolução do
+\abnTeX1 original\footnote{Ver \autoref{historico}, \nameref{historico}.} e como
+facilitador na elaboração de trabalhos acadêmicos condizentes com as normas ABNT.
+
+A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX2 não é 
+modelo específico de trabalho acadêmico de nenhuma universidade ou instituição,
+mas que implementa tão somente os requisitos das normas da ABNT.
+
+O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
+
+\begin{description}
+  \item[ABNT NBR 6023:2002] Informação e documentação -
+  Referência - Elaboração
+  \item[ABNT NBR 6024:2012] Informação e documentação - Numeração
+  progressiva das seções de um documento - Apresentação
+  \item[ABNT NBR 6027:2003] Informação e documentação - Sumário -
+  Apresentação
+  \item[ABNT NBR 6028:2003] Informação e documentação - Resumo -
+  Apresentação
+  \item[ABNT NBR 6034:2004] Informação e documentação - Éndice -
+  Apresentação
+  \item[ABNT NBR 10520:2002] Informação e documentação - Citações
+  \item[ABNT NBR 14724:2011] Informação e documentação - Trabalhos
+  acadêmicos - Apresentação
+\end{description}
+
+Sinta-se convidado à participar do projeto \abnTeX2! Acesse o site do projeto em
+\abnTeXSite. Também fique livre para conhecer, estudar, alterar e redistribuir o
+trabalho do \abnTeX2, desde que os arquivos modificados tenham seus nomes
+alterados e que os créditos sejam dados aos autores originais, nos termos da
+``The LaTeX Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+Encorajamos que sejam realizadas customizações específicas para universidades
+--- como capas, folha de aprovação, etc. Porém, recomendamos que ao invés de se
+alterar diretamente os arquivos do \abnTeX2, distribua-se aos estudantes
+arquivos com as respectivas customizações. Isso permite que futuras versões do
+\abnTeX2 não se tornem automaticamente incompatíveis com as customizações
+promovidas.
+
+Este manual de uso não foi escrito sob o modelo do \abnTeX2, nem segue os
+padrões da ABNT.
+
+Este texto deve ser utilizado como complemento do manual do \textbf{memoir},
+disponível em
+\url{http://mirrors.ctan.org/macros/latex/contrib/memoir/memman.pdf}.
+
+\subsection{Histórico do projeto}\label{historico}
+
+Entre 2001 e 2002 nascia o projeto \abnTeX~original, cujo objetivo era o de
+``prover um conjunto de macros para LaTeX para formação de trabalhos acadêmicos
+condizentes com as normas ABNT''. A última versão estável publicada pelos
+integrantes originais\footnote{Os integrantes originais do projeto são Miguel
+Frasson, Gerald Weber, Leslie H. Watter, Bruno Parente Lima, Flávio de
+Vasconcellos Corrêa, Otavio Real Salvador e Renato Machnievscz.} é a versão
+0.8.2 e data de 3.11.2004 (hospedada em
+\url{http://abntex.codigolivre.org.br/}). Em 2006 uma versão não estável foi
+publicada para testes, mas nunca foi evoluída.
+
+Em maio de 2009 Leandro Salvador fez uma chamada no fórum Tex-BR\footnote{A
+mensagem pode ser lida neste link:
+\url{http://marc.info/?l=tex-br\&m=124110883528962}} clamando por voluntários
+para a retomada do projeto\footnote{Atualmente o projeto de Salvador está
+hospedado em \url{https://sourceforge.net/projects/abntex/}.}, porém, nenhuma
+nova contribuição ao código do projeto foi realizada desde 2006 até dezembro de
+2012.
+No novo endereço há discussões um pouco mais recentes sobre o projeto, porém
+datam de 2009. Há, inclusive, uma sugestão de Gerald Weber, um dos criadores
+originais:
+
+\begin{quote}
+``A sugestão que eu daria seria substituir a classe que o Miguel Frasson
+desenvolveu por pacotes padrão do LaTeX. Há pacotes que implementam
+praticamente tudo que a ABNT requer, basta mexer nas opções. Assim teria algo
+muito mais simples de manter e atualizar no longo prazo.''
+(\url{https://sourceforge.net/projects/abntex/forums/forum/947854/topic/3265973})
+\end{quote}
+
+A ideia de Gerald e o software já construído do \abnTeX~original servem de
+ponto de partida para o surgimento deste novo projeto, o \abnTeX2.
+O novo projeto utiliza o menor conjunto possível de classes nativas do
+\LaTeX~de modo a implementar as exigências das normas ABNT. Para isso,
+escolheu-se como base a classe
+\textsf{memoir}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/}},
+por ser uma classe flexível, com excelente documentação e que
+constantemente recebe atualizações de novas funcionalidades e correção de
+eventuais problemas.
+
+% ------
+\section{Configurações gerais}
+% ------
+
+A classe \textsf{abntex2} foi criada como um conjunto de configurações da classe
+\textsf{memoir}. Desse modo, todas as opções do \textsf{memoir} estão
+disponíveis, como por exemplo, |12pt,openright,twoside,a4paper,artile|. Consulte
+o manual do \textbf{memoir} para outras opções.
+
+As opções mais comuns de inicialização do texto do trabalho são:
+
+\begin{verbatim}
+   \documentclass[12pt,openright,twoside,a4paper]{abntex2}
+\end{verbatim}
+
+É interessante observar que a ABNT NBR 14724:2011 (seção 5.1) recomenda que os
+trabalhos sejam impressos no anverso e no verso das folhas. Isso é obtido com a
+opção |twoside|.
+
+A opção |article| é útil para produção de artigos com \abnTeX2. Nesse caso, a
+maioria dos elementos pré-textuais descritos neste documento na
+\autoref{pretextuais} se tornam desnecessários.
+
+% ---
+\subsection{Espaçamentos, margens e outras configurações padrões}
+% ---
+
+\begin{itemize}
+  
+  \item O \emph{espaçamento} padrão é definido como |\OnehalfSpacing|, ou seja,
+  um espaço e meio. Os comando |\SingleSpacing|, |\DoubleSpacing| podem ser
+  utilizados para obter espaçamento simples e espaçamento duplo,
+  respectivamente. Também estão disponíveis ambientes do tipo |\begin{}\end{}|
+  com os mesmos nomes das macros. Observe que a classe \textsf{abntex2} utiliza
+  o sistema de espaçamento padrão do \textsf{memoir}. Nesse caso, o pacote
+  \textsf{setspace} não é necessário.
+
+  \item As \emph{margens} são configuradas conforme a NBR 14724/2011 seção 5.1
+  Formato e podem ser alteradas do seguinte modo:
+  \begin{verbatim}
+     \setlrmarginsandblock{3cm}{2cm}{*}
+     \setulmarginsandblock{3cm}{2cm}{*}
+     \checkandfixthelayout
+  \end{verbatim}
+
+  \item O texto ``Referências Bibliográficas'' do comando  |\bibname| do pacote
+  \textsf{babel}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/required/babel/}}
+  é renomeado para ``Referências'', conforme prescreve a ABNT NBR 14724:2011.
+  Se desejar outro comportamento, use:
+  \begin{verbatim}
+	 \addto\captionsbrazil{%
+	    \renewcommand{\bibname}{Refer\^encias}
+	 }
+  \end{verbatim} 
+
+  \item O texto ``Índice Remissivo'' do comando  |\indexname| do pacote
+  \textsf{babel} é renomeado para ``Índice'', conforme prescreve
+  a ABNT NBR 14724:2011. Se desejar outro comportamento, use:
+  \begin{verbatim}
+	 \addto\captionsbrazil{%
+	    \renewcommand{\indexname}{\'Indice}
+	 }
+  \end{verbatim} 
+
+  \item O texto ``Lista de Figuras'' do comando  |\listfigurename| do pacote
+  \textsf{babel} é renomeado para ``Lista de Ilustrações'', conforme prescreve
+  a ABNT NBR 14724:2011. Se desejar outro comportamento, use:
+  \begin{verbatim}
+	 \addto\captionsbrazil{%
+	    \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
+	 }
+  \end{verbatim} 
+  
+  \item O \emph{divisor dos rótulos} das figuras e tabelas padrão do \LaTeX são
+  os dois pontos (|:|). Já o padrão brasileiro é utilizar travessão, que é 
+  o utilizado pelo \abnTeX2. Porém, caso você deseje alterar esse comportamento,
+  use:
+  \begin{verbatim}
+    \captiondelim{\space--\space}
+  \end{verbatim}
+  
+  \item A \emph{numeração de figuras e tabelas} deve ser contínua em todo o
+  documento (ABNT NBR 14724:2011 seções 5.8 e 5.9). Porém, caso deseje alterar
+  esse comportamento para numeração por capítulos, use:
+  \begin{verbatim}
+    \counterwithout{figure}{section}
+    \counterwithout{table}{section}
+  \end{verbatim}
+\end{itemize}
+
+% ------
+\section{Macros de dados do trabalho}\label{macrosdados}
+% ------
+
+As macros descritas nas próximas subseções são utilizadas para armazenar
+dados do trabalho. Esses dados são utilizados na ``capa'', ``folha de rosto'',
+``folha de aprovação'', ``ficha catalográfica''. Recomenda-se que esses dados
+sejam preenchidos logo no preâmbulo do documento, de modo que possa ser útil
+para configurações do PDF final com a classe
+\textsf{hyperref}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/hyperref/}}, por exemplo.
+Veja a \autoref{dados_hyperref} para exemplo de configuração do pacote
+\textsf{hyperref}.
+
+% ---
+\subsection{Título}
+% ---
+
+\DescribeMacro{\titulo}\DescribeMacro{\imprimirtitulo} 
+A macro |\titulo|\marg{texto do título} é utilizada para armazenar o título do
+trabalho. O conteúdo armazenado é impresso por meio da macro |\imprimirtitulo|.
+
+% ---
+\subsection{Autor}
+% ---
+
+\DescribeMacro{\autor}\DescribeMacro{\imprimirautor} 
+A macro |\autor|\marg{nome do(s) autor(es)} é utilizada para armazenar os nomes
+dos autores do trabalho. O conteúdo armazenado é impresso por meio da macro
+|\imprimirautor|.
+
+% ---
+\subsection{Data}
+% ---
+
+\DescribeMacro{\data}\DescribeMacro{\imprimirdata} 
+A macro |\data|\marg{mês e ano ou data em português} é utilizada para armazenar
+o mês e ano ou a data do trabalho. O conteúdo armazenado é
+impresso por meio da macro |\imprimirdata|.
+
+Durante o desenvolvimento do trabalho, é possível utilizar |\data{\today}| para
+que seja armazenada a data atual.
+
+% ---
+\subsection{Instituição}
+% ---
+
+\DescribeMacro{\instituicao}\DescribeMacro{\imprimirinstituicao} 
+A macro |\instituicao|\marg{nome da instituição} é utilizada para armazenar
+o nome da instituição. O conteúdo armazenado é impresso por meio da macro
+|\imprimirinstituicao|.
+
+% ---
+\subsection{Localidade}
+% ---
+
+\DescribeMacro{\local}\DescribeMacro{\imprimirlocal} 
+A macro |\local|\marg{localidade de apresentação trabalho} é utilizada para
+armazenar a localidade de apresentação do trabalho, geralmente o nome da cidade
+e a unidade federativa. O conteúdo armazenado é impresso por meio da macro
+|\imprimirlocal|.
+
+% ---
+\subsection{Preâmbulo}
+% ---
+
+\DescribeMacro{\preambulo}\DescribeMacro{\imprimirpreambulo} 
+A macro |\preambulo|\marg{preâmbulo trabalho} é utilizada para
+armazenar o preâmbulo do trabalho. O preâmbulo é o texto impresso na Folha de
+rosto e na Folha de aprovação. Ele deve conter o tipo do trabalho, o objetivo, o
+nome da instituição e a área de concentração. O conteúdo armazenado é impresso
+por meio da macro |\imprimirpreambulo|.
+
+% ---
+\subsection{Tipo de trabalho}
+% ---
+
+\DescribeMacro{\tipotrabalho}\DescribeMacro{\imprimirtipotrabalho} 
+A macro |\tipotrabalho|\marg{tipo do trabalho} é utilizada para
+armazenar o tipo de trabalho. Geralmente os textos ``Tese (doutorado)'' ou
+``Dissertação (mestrado)'' são utilizados. O tipo de trabalho é utilizado na
+Ficha catalográfica (\autoref{fichacatalografica}). O conteúdo armazenado é impresso por meio
+da macro |\imprimirtipotrabalho|.
+
+% ---
+\subsection{Orientador}
+% ---
+
+\DescribeMacro{\orientador}\DescribeMacro{\imprimirorientador}\DescribeMacro{\imprimirorientadorRotulo}
+ A macro |\orientador|\oarg{rótulo}\marg{nome do(s) orientador(es)} é
+utilizada para armazenar o nome do(s) orientador(es). O parâmetro opcional
+indica o rótulo a ser utilizado. O valor padrão do rótulo é ``Orientador:''. O
+conteúdo armazenado é impresso por meio da macro |\imprimirorientador| e o rótulo pode
+ser impresso com o comando |\imprimirorientadorRotulo|.
+
+% ---
+\subsection{Coorientador}
+% ---
+
+\DescribeMacro{\coorientador}\DescribeMacro{\imprimircoorientador}\DescribeMacro{\imprimircoorientadorRotulo}
+A macro |\coorientador|\oarg{rótulo}\marg{nome do(s) coorientador(es)} é
+utilizada para armazenar o nome do(s) coorientador(es). O parâmetro opcional
+indica o rótulo a ser utilizado. O valor padrão do rótulo é ``Coorientador:''. O
+conteúdo armazenado é impresso por meio da macro |\imprimircoorientador| e o
+rótulo pode ser impresso com o comando |\imprimircoorientadorRotulo|.
+
+% ---
+\subsection{Exemplo de uso \textsf{hyperref} com dados do
+trabalho}\label{dados_hyperref}
+% ---
+
+O \textsf{hyperref} pode inserir informações dos dados do trabalho nos metadados
+do PDF final, conforme o exemplo, que também altera informações de cores dos
+links internos do documento final:
+
+\begin{verbatim}
+
+\usepackage{hyperref}  			% controla a formação do índice
+
+\titulo{Modelo Canônico de\\ Trabalhos Acadêmicos com \abnTeX}
+\autor{Equipe \abnTeX}
+\local{Brasil}
+\data{2012}
+\orientador{Lauro César Araujo}
+\coorientador{Equipe \abnTeX}
+\instituicao{%
+  Universidade do Brasil -- UBr
+  \par
+  Faculdade de Arquitetura da Informação
+  \par
+  Programa de Pós-Graduação}
+\tipotrabalho{Tese (Doutorado)}
+\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
+as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+
+\hypersetup{
+		pdftitle={\imprimirtitulo}, 
+		pdfauthor={\imprimirautor},
+    	pdfsubject={\imprimirpreambulo},
+		pdfkeywords={PALAVRAS}{CHAVES}{EM}{PORTUGUES},
+	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+	    pdfcreator={\imprimirautor},
+    	colorlinks=true,
+    	linkcolor=blue,
+    	citecolor=blue,
+		urlcolor=blue
+}
+\end{verbatim}
+
+% ------
+\section{Estrutura de trabalhos acadêmicos brasileiros}
+% ------
+
+A seção 4 da ABNT NBR 14724:2011 estabelece que a estrutura de trabalhos
+acadêmicos compreende duas partes: a externa e a interna, que aparecem no texto
+na seguinte ordem:
+
+\begin{description}
+  \item[Parte externa]\ \\ 
+       Capa (obrigatório) \\
+       Lombada (opcional) 
+  \item[Parte Interna]\ 
+		\begin{description} 
+		\item[Elementos pré-textuais]\ \\
+		  Folha de rosto (obrigatório) + \\
+		  \hspace*{0.2cm}Dados de catalogação-na-publicação\footnote{O documento
+		  ``Dados de catalogação-na-publicação'' é chamado apenas como ``Ficha
+		  catalográfica'' neste texto.} (opcional)\\
+		  Errata (opcional) \\
+		  Folha de aprovação (obrigatório) \\
+		  Dedicatória (opcional) \\
+		  Agradecimentos (opcional) \\
+		  Epígrafe (opcional) \\
+		  Resumo em língua vernácula (obrigatório) \\
+		  Resumo em língua estrangeira (obrigatório) \\
+		  Lista de ilustrações (opcional) \\
+		  Lista de tabelas (opcional) \\
+		  Lista de abreviaturas e siglas (opcional) \\
+		  Lista de símbolos (opcional) \\ 
+		  Sumário (obrigatório) \\
+		\item[Elementos textuais]\footnote{A nomenclatura dos títulos dos elementos
+		textuais é a critério do autor.}\
+		\\
+		  Introdução \\
+		  Desenvolvimento \\
+		  Conclusão 
+		\item[Elementos pós-textuais]\ \\
+		  Referências (obrigatório) \\
+		  Glossário (opcional) \\
+		  Apêndice (opcional) \\
+		  Anexo (opcional) \\
+		  Índice (opcional) 
+		\end{description}
+\end{description} 
+
+O \abnTeX2 apresenta instrumentos para produzir todas as partes do documento,
+exceto a Lombada, a Lista de Símbolos e o Glossário, que podem ser produzidos
+por outros pacotes adicionais. As seções seguintes descrevem como cada seção
+pode ser produzida.
+
+% ------
+\section{Elementos pré-textuais e Parte externa}\label{pretextuais}
+% ------
+
+\DescribeMacro{\pretextual}\DescribeMacro{\frontmatter}
+O comando |\pretextual| identifica o início dos elementos pré-textuais. Esses
+elementos não possuem numeração de páginas, nem em algarismos romanos, conforme
+estabelece a ABNT NBR 14724:2011. Porém, a contagem é iniciada logo após a capa.
+A classe \abnTeX2 não faz separação entre ``Parte externa'' e ``Parte interna'',
+por isso, a macro |\pretextual| é acionado por padrão no início de
+|\begin{document}| e você não precisa explicitamente incluída no seu documento.
+A título de coerência, a macro |\frontmatter|, padrão do \textsf{memoir}, é
+reescrita para que tenha o mesmo comportamento que |\pretextual|.
+
+As subseções seguintes descrevem como cada elemento pré-textual pode ser
+construído com \abnTeX2.
+
+% ---
+\subsection{Capa}
+% ---
+
+\DescribeMacro{\imprimircapa}\DescribeEnv{capa}
+A macro |\imprimircapa| imprime um modelo básico de capa que atende aos
+requisito da seção 4.1.1 da ABNT NBR 14724:2011. A capa é o único elemento
+``externo'' que \abnTeX2 é capaz de produzir.
+
+A capa não é incluída no \textbf{bookmark} do PDF.
+
+Para criar uma capa diferente, você pode reescrever a macro |\imprimircapa|
+com base no ambiente |capa|, conforme o exemplo:
+
+\begin{verbatim}
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \vspace*{1cm}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}
+    {\ABNTEXchapterfont\LARGE\imprimirtitulo}
+    \vspace*{\fill}
+    
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    
+    \vspace*{1cm}
+  \end{capa}
+}
+\end{verbatim}
+
+
+% ---
+\subsection{Folha de rosto (obrigatório)}\label{folhaderosto}
+% ---
+
+\DescribeMacro{\imprimirfolhaderosto}\DescribeMacro{\folhaderostoname}
+A macro |\imprimirfolhaderosto|\oarg{nome da folha de rosto} imprime um modelo
+básico de folha de rosto que atende aos requisito da seção 4.2.1.1 da ABNT NBR
+14724:2011. A folha de rosto é incluída automaticamente no \textsf{bookmark} do
+PDF com o nome dado pelo valor do argumento opcional. Caso ele não seja informado, o
+conteúdo de |\folhaderostoname| é utilizado. Consulte a \autoref{macrosdados}.
+
+\DescribeMacro{\imprimirfolhaderosto*}
+A variante |\imprimirfolhaderosto*|\oarg{nome da folha de rosto}
+deve ser utilizada quando se estiver utilizando a impressão frente e verso
+(|twoside|) e se desejar incluir a ``Ficha catalográfica'' (Dados de
+catalogação-na-publicação, \autoref{fichacatalografica}), que deve ser impressa
+no verso da Folha de rosto (opção |twoside|), conforme a seção 4.2.1.1.2 da
+mesma norma. Observe que o uso de |\imprimirfolhaderosto*| sem o uso da Ficha
+catalográfica poderá trazer comportamento não desejado à numeração das páginas.
+Fique atento.
+
+Você pode criar uma folha de rosto diferente sem se preocupar com as diferenças
+entre os comandos |\imprimirfolhaderosto| e |\imprimirfolhaderosto*|. Para isso,
+reescreva a macro |\folhaderostocontent|, conforme o exemplo:
+
+\begin{verbatim}
+\makeatletter
+\newcommand{\folhaderostocontent}{
+  \begin{center}
+
+    \vspace*{1cm}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    {\ABNTEXchapterfont\Large\imprimirtitulo}
+    \vspace*{\fill}
+
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+      	\SingleSpacing
+         \imprimirpreambulo
+       \end{minipage}%
+       \vspace*{\fill}
+    }%
+
+    {\large\imprimirorientadorRotulo~\imprimirorientador\par}
+    \abntex@ifnotempty{\imprimircoorientador}{%
+       {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+    }%
+    \vspace*{\fill}
+
+    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+
+  \end{center}
+}
+\makeatother
+\end{verbatim}
+
+% ---
+\subsection{Ficha Catalográfica (Dados de
+catalogação-na-publicação) (obrigatório)}\label{fichacatalografica}
+% ---
+
+\DescribeEnv{fichacatalografica}
+O ambiente |fichacatalografica| pode ser utilizado para impressão da Ficha
+catalográfica, ou ``Dados de catalogação-na-publicação'', conforme estabelece a
+seção 4.2.1.1.2 da ABNR NBR 14724:2011. 
+
+Caso a impressão frente e verso seja acionada (opção |twoside|), é necessário
+que a Folha de rosto (\autoref{folhaderosto}) seja impressa com a versão
+estrelada (*) da macro, ou seja, por meio de |\imprimirfolhaderosto*|.
+
+Um exemplo de uso do comando é:
+
+\begin{verbatim}
+\begin{fichacatalografica}
+	\vspace*{15cm}					% Posição vertical
+	\hrule							% Linha horizontal
+	\begin{center}					% Minipage Centralizado
+	\begin{minipage}[c]{12.5cm}		% Largura
+	
+	\imprimirautor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+	
+	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+	
+	\hspace{0.5cm} \imprimirorientadorRotulo \imprimirorientador\\
+	
+	\hspace{0.5cm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+	\imprimirdata.}\\
+	
+	\hspace{0.5cm}
+		1. Palavra-chave1.
+		2. Palavra-chave2.
+		I. Orientador.
+		II. Universidade xxx.
+		III. Faculdade de xxx.
+		IV. Título\\ 			
+	
+	\hspace{8.75cm} CDU 02:141:005.7\\
+	
+	\end{minipage}
+	\end{center}
+	\hrule
+\end{fichacatalografica}
+\end{verbatim}
+
+O exemplo apresentado necessita do pacote |lastpage| para
+que ele possa obter o número da última página do documento.
+Portanto, para usar o exemplo é preciso adicionar a linha
+abaixo no preâmbulo do documento:
+
+\begin{verbatim}
+   % usado por abntex2-fichacatalografica.tex
+   \usepackage{lastpage}
+\end{verbatim}
+
+A Ficha catalográfica não é incluída no \textbf{bookmark} do PDF.
+
+% ---
+\subsection{Errata (opcional)}
+% ---
+
+\DescribeEnv{errata}\DescribeMacro{\errataname}
+A Errata é um elemento opcional da ABNT NBR 14724:2011, seção 4.2.1.2, que pode
+ser criada por meio do ambiente |errata|\oarg{nome da errata}. O valor do
+parâmetro opcional é utilizado como entrada no \textsf{bookmark} do PDF. Caso o
+parâmetro não seja informado, o conteúdo de |\errataname| é utilizado.
+
+Um exemplo de uso do ambiente é:
+
+\begin{verbatim}
+\begin{errata}
+
+	FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+	reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+	rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+	cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+	Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+	
+	\begin{table}[htb]
+	\center
+	\footnotesize
+	\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+	  \hline
+	   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+	    \hline
+	    1 & 10 & auto-conclavo & autoconclavo\\
+	   \hline
+	\end{tabular}
+	\end{table}
+	
+\end{errata}
+\end{verbatim}
+
+% ---
+\subsection{Folha de aprovação (obrigatório)}
+% ---
+
+\DescribeEnv{folhadeaprovacao}\DescribeMacro{\folhadeaprovacaoname}\DescribeMacro{\includepdf}
+O ambiente |folhadeaprovacao|\oarg{nome da folha de aprovação} permite a criação
+de uma Folha de aprovação, elemento obrigatório da ABNR NBR 14724/2011 (seção
+4.2.1.3). O valor do parâmetro opcional é utilizado como entrada no
+\textsf{bookmark} do PDF. Caso o parâmetro não seja informado, o conteúdo de
+|\folhadeaprovacaoname| é utilizado.
+
+Um modelo de Folha de aprovação não é oferecido pelo \abnTeX2 porque
+ela varia largamente entre instituições. E, além disso, provavelmente você
+incluirá uma versão digitalizada com assinaturas dos membros da banca no final
+do trabalho, que pode ser incluída no documento com o comando:
+
+\begin{verbatim}
+   \includepdf{folhadeaprovacao_final.pdf}
+\end{verbatim}
+
+De todo modo, você pode utilizar o seguinte modelo de Folha de aprovação até a
+aprovação final do trabalho:
+
+\begin{verbatim}
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    \vspace*{1cm}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    {\ABNTEXchapterfont\Large\imprimirtitulo}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+    
+   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
+
+   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+   \assinatura{\textbf{Professor} \\ Convidado 1}
+   \assinatura{\textbf{Professor} \\ Convidado 2}
+%    \assinatura{\textbf{Professor} \\ Convidado 3}
+%    \assinatura{\textbf{Professor} \\ Convidado 4}
+      
+   \begin{center}
+    \vspace*{0.5cm}
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+  
+\end{folhadeaprovacao}
+\end{verbatim}
+
+\DescribeMacro{\assinatura}
+A macro |\assinatura|\marg{texto a ser impresso} é um utilitário para
+impressão de assinaturas da Folha de aprovação. Ela imprime o ``texto a ser
+impresso'' centralizado abaixo de uma linha. A versão |\assinatura*| imprime a
+mesma assinatura em uma |box| sem posição atribuída, o que é útil para impressão
+de assinaturas lado a lado.
+
+\DescribeMacro{\ABNTEXsignwidth}
+O comprimento da linha de assinatura é definido pela métrica |\ABNTEXsignwidth|.
+O valor padrão é definido como: |\setlength{\ABNTEXsignwidth}{8cm}|.
+
+\DescribeMacro{\ABNTEXsignthickness}
+A largura da linha de assinatura é definida pela métrica |\ABNTEXsignthickness|. O
+valor padrão é definido como: |\setlength{\ABNTEXsignthickness}{1pt}|.
+
+\DescribeMacro{\ABNTEXsignskip}
+O espaçamento entre um comando |\assinatura| e outro é definido pela métrica
+|\ABNTEXsignskip|. O valor padrão é definido como:
+|\setlength{\ABNTEXsignskip}{1cm}|.
+
+% ---
+\subsection{Dedicatória (opcional)}
+% ---
+
+\DescribeEnv{dedicatoria}\DescribeMacro{\dedicatorianame}
+A Dedicatória é um elemento opcional da ABNT NBR 14724:2011, seção 4.2.1.4, que
+pode ser criada por meio do ambiente |dedicatoria|\oarg{nome da dedicatória}.
+O valor do parâmetro opcional é utilizado como entrada no \textsf{bookmark} do
+PDF. Caso o parâmetro não seja informado, o conteúdo de |\dedicatorianame| é
+utilizado.
+
+Um exemplo de uso do ambiente é:
+
+\begin{verbatim}
+\begin{dedicatoria}
+
+   Este trabalho é dedicado...
+
+\end{dedicatoria}
+\end{verbatim}
+
+% ---
+\subsection{Agradecimentos (opcional)}
+% ---
+
+\DescribeEnv{agradecimentos}\DescribeMacro{\agradecimentosname}
+A seção Agradecimentos é um elemento opcional da ABNT NBR 14724:2011, 4.2.1.5,
+que pode ser criada por meio do ambiente |agradecimentos|\oarg{nome dos
+agradecimentos}. O valor do parâmetro opcional é utilizado como entrada no
+\textsf{bookmark} do PDF. Caso o parâmetro não seja informado, o conteúdo de
+|\agradecimentosname| é utilizado.
+
+Um exemplo de uso do ambiente é:
+
+\begin{verbatim}
+\begin{agradecimentos}
+
+   Os agradecimentos...
+
+\end{agradecimentos}
+\end{verbatim}
+
+% ---
+\subsection{Epígrafe (opcional)}
+% ---
+
+\DescribeEnv{epigrafe}\DescribeMacro{\epigraphname}
+A Epígrafe é um elemento opcional da ABNT NBR 14724:2011, seção 4.2.1.6, que
+pode ser criada por meio do ambiente |epigrafe|\oarg{nome da epígrafe}.
+O valor do parâmetro opcional é utilizado como entrada no \textsf{bookmark} do
+PDF e como título da epígrafe, que é escrita como um título de capítulo
+pré-textual, ou seja, não numerado e centralizado. Caso o parâmetro não seja
+informado, o conteúdo de |\epigraphname| é utilizado apenas para entrada do
+\textsf{bookmark} do PDF e a epígrafe é impressa sem título.
+
+Um exemplo de uso do ambiente é:
+
+\begin{verbatim}
+\begin{epigrafe}
+
+   \vspace*{\fill}
+   \begin{flushright}
+      \textit{``Não vos amoldeis às estruturas deste mundo, \\
+        mas transformai-vos pela renovação da mente, \\
+        a fim de distinguir qual é a vontade de Deus: \\
+        o que é bom, o que Lhe é agradável, o que é perfeito.\\
+        (Bíblia Sagrada, Romanos 12, 2)}
+    \end{flushright}
+	
+\end{epigrafe}
+\end{verbatim}
+
+% ---
+\subsection{Resumos em língua vernácula e estrangeira (obrigatório)}
+% ---
+
+\DescribeEnv{resumo}\DescribeMacro{\abstractname}
+Os resumos em língua vernácula e estrangeira são elementos obrigatórios da ABNT
+NBR 14724:2011, seção 4.2.1.7 e 4.2.1.8, e devem ser escritos conforme
+orientação da ABNT NBR 6028. Os elementos podem ser criados por meio do ambiente
+|resumo|\oarg{nome do resumo}.
+O valor do parâmetro opcional é utilizado como entrada no \textsf{bookmark} do
+PDF e como título do resumo. Caso o parâmetro não seja informado, o conteúdo de
+|\abstractname| do pacote \textsf{babel} é utilizado. O parâmetro opcional é
+útil para criação de resumos em diversos idiomas estrangeiros.
+
+Exemplos de uso do ambiente são:
+
+\begin{verbatim}
+% --- resumo em português ---
+\begin{resumo}
+  Resumo em português
+  \vspace{\onelineskip}
+  \noindent
+  \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+\end{resumo}
+
+% --- resumo em francês ---
+\begin{resumo}[Résumé]
+  Il s'agit d'un résumé en français.
+  \vspace{\onelineskip}
+  \noindent
+  \textbf{Mots-clés}: latex. abntex. publication de textes.
+\end{resumo}
+\end{verbatim}
+
+
+% ---
+\subsection{Lista de ilustrações (opcional)}
+% ---
+
+\DescribeMacro{\listoffigures}
+A Lista de ilustrações é um elemento opcional da ABNT NBR 14724:2011, seção
+4.2.1.9, que pode ser criada por meio da macro padrão |\listoffigures|.
+
+Nem a classe \textsf{memoir}, nem a classe \textsf{abntex2} incluem
+automaticamente o capítulo criado pela macro |\listoffigures| no
+\textsf{bookmark} do PDF. Caso deseje que o título do capítulo seja
+incluído no \textsf{bookmark}, utilize o exemplo abaixo:
+
+\begin{verbatim}
+   \pdfbookmark[0]{\listfigurename}{lof}
+   \listoffigures*
+   \cleardoublepage
+\end{verbatim}
+
+A seção 4.2.1.9 da norma ABNT NBR 14724:2011 recomenda que, quando necessário,
+seja produzido uma lista própria para cada tipo de ilustração, como
+desenhos, esquemas, fluxogramas, fotografias, gráficos, mapas, organogramas,
+plantas, quadros, retratos, e outros. Como essa necessidade é específica de
+cada trabalho, o \abnTeX2 não traz essa implementação automaticamente.
+Porém, diferentes tipos de lista podem ser obtida por meio de macros do próprio
+\textsf{memoir}. Para isso, consulte o capítulo 9 do manual do \textsf{memoir}.
+
+% ---
+\subsection{Lista de tabelas (opcional)}
+% ---
+
+\DescribeMacro{\listoftables}
+A Lista de tabelas é um elemento opcional da ABNT NBR 14724:2011, seção
+4.2.1.10, que pode ser criada por meio da macro padrão |\listoftables|.
+
+Nem a classe \textsf{memoir}, nem a classe \textsf{abntex2} incluem
+automaticamente o capítulo criado pela macro |\listoftables| no
+\textsf{bookmark} do PDF. Caso deseje que o título do capítulo seja
+incluído no \textsf{bookmark}, utilize o exemplo abaixo:
+
+\begin{verbatim}
+   \pdfbookmark[0]{\listtablename}{lot}
+   \listoftables*
+   \cleardoublepage
+\end{verbatim}
+
+% ---
+\subsection{Lista de abreviaturas e siglas (opcional)}
+% ---
+
+\DescribeMacro{\printnomenclature}
+O \abnTeX2 não traz uma implementação própria para a Lista de abreviaturas e
+siglas, elemento opcional da ABNT NBR 14724:2011, seção 4.2.1.11. Um dos motivos
+da não inclusão desse recurso é a existência de diversos pacotes que o fazem,
+cada um com uma característica diferente.
+
+Uma sugestão é usar o pacote
+\textsf{nomencl}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/nomencl/}},
+Com esse pacote, você pode criar a lista de abreviaturas e siglas seguindo o
+exemplo, que define algumas siglas, imprime um capítulo com o título ``Lista de
+abreviaturas e siglas'' e já o insere no \textsf{bookmark} do PDF:
+
+\begin{verbatim}
+   \nomenclature{Fig.}{Figura}
+   \nomenclature{$A_i$}{Area of the $i^{th}$ component} 
+   \nomenclature{456}{Isto é um número}
+   \nomenclature{123}{Isto é outro número}
+   \nomenclature{a}{primeira letra do alfabeto}
+   \nomenclature{lauro}{este é meu nome} 
+
+   \renewcommand{\nomname}{Lista de abreviaturas e siglas}
+   \pdfbookmark[0]{\nomname}{las}
+   \printnomenclature
+   \cleardoublepage
+\end{verbatim}
+
+% ---
+\subsection{Lista de símbolos (opcional)}\label{listadesimbolos}
+% ---
+
+Assim como o \abnTeX2 não traz uma implementação própria para a Lista de
+abreviaturas e siglas, uma implementação para Lísta de símbolos também não é
+oferecida. A lista de símbolos é um elemento opcional da ABNT NBR 14724:2011,
+seção 4.2.1.12.
+
+Um dos motivos da não inclusão desse recurso é a existência de diversos pacotes
+que o fazem, cada um com uma característica diferente.
+
+Como sugestão, consulte o pacote \textsf{glossaries}, que tanto pode construir a
+Lista de símbolos, como Glossários\footnote{Veja um tutorial de uso do pacote
+em
+\url{http://www.latex-community.org/know-how/latex/55-latex-general/263-glossaries-nomenclature-lists-of-symbols-and-acronyms}}.
+
+Se tiver uma sugestão que o \abnTeX2 possa incorporar, fique à vontade em
+discuti-la no fórum do projeto em \abnTeXForum.
+
+% ---
+\subsection{Sumário (obrigatório)}
+% ---
+
+\DescribeMacro{\tableofcontents}
+O Sumário é um elemento obrigatório da ABNT NBR 14724:2011, seção
+4.2.1.13, que pode ser criada por meio da macro padrão |\tableofcontents|.
+
+Nem a classe \textsf{memoir}, nem a classe \textsf{abntex2} incluem
+automaticamente o capítulo criado pela macro |\tableofcontents| no
+\textsf{bookmark} do PDF. Caso deseje que o título do capítulo seja
+incluído no \textsf{bookmark}, utilize o exemplo abaixo:
+
+\begin{verbatim}
+   \pdfbookmark[0]{\contentsname}{toc}
+   \tableofcontents*
+   \cleardoublepage
+\end{verbatim}
+
+\DescribeMacro{\settocdepth}
+Você pode customizar o nível de divisões que o sumário pode listar com os
+comandos |\settocdepth|\marg{nome da subdivisão}, sendo |nome da subdivisão| um
+dos valores: |chapter|, |part|, |section|, |subsection|, |subsubsection|.
+
+A configuração padrão do \abnTeX2 é |\settocdepth{subsubsection}|.
+
+\DescribeMacro{\setsecnumdepth}
+Também é possível customizar quando a numeração das divisões é exibida no
+sumário. Para isso use |\setsecnumdepth|\marg{nome da subdivisão}, sendo
+|nome da subdivisão| um dos mesmos valores utilizados em |\settocdepth|. 
+
+A configuração padrão do \abnTeX2 é |\setsecnumdepth{subsubsection}|.
+
+\DescribeMacro{\tocheadstart}
+É possível customizar a fonte das partes e dos capítulos no Sumário. Para isso,
+redefina a macro |\tocheadstart|. O \abnTeX2 a redefine por padrão para que a
+fonte utilizada no Sumário seja a mesma defina para o capítulo, da seguinte
+maneira:
+
+\begin{verbatim}
+   \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
+\end{verbatim}
+
+\DescribeMacro{\addcontentsline}
+O comando |\addcontentsline|\marg{sigla do sumario}\marg{nível da
+divisão}\marg{texto no sumário} pode ser usado para incluir uma linha no
+Sumário. Use o comando, por exemplo, após a criação de capítulo não numerado: 
+
+\begin{verbatim}
+   \chapter*{Introdução}
+   \addcontentsline{toc}{chapter}{Introdução}
+\end{verbatim}
+
+É importante destacar que nenhum elemento pré-textual deve estar presente no
+Sumário. Veja mais informações na \autoref{elementostextuais}.
+
+% ------
+\section{Elementos textuais}\label{elementostextuais}
+% ------
+
+\DescribeMacro{\textual}\DescribeMacro{\mainmatter}
+O comando |\textual| identifica o início dos elementos textuais. As páginas
+desses elementos são numeradas com algarismos arábicos no lado direito superior
+ou direito/esquerdo superior caso a impressão frente e verso seja acionada,
+conforme estabelece a ABNT NBR 14724:2011. Geralmente a ``Introdução'' é o
+primeiro capítulo textual. A título de coerência, a macro |\mainmatter|, padrão
+do \textsf{memoir}, é reescrita para que tenha o mesmo comportamento que
+|\textual|. Por isso, fique livre em escolher qualquer das macros. Porém, o uso
+de uma delas é obrigatória, para que os cabeçalhos sejam montados corretamente.
+
+Segundo a ABNT NBR 14724:2011, seção 4.2.2, ``o texto é composto de uma parte
+introdutória, que apresenta os objetivos do trabalho e as razões de sua
+elaboração; o desenvolvimento, que detalha a pesquisa ou estudo realizado; e uma
+parte conclusiva.'' Desse modo, o capítulo ``Introdução'' e o capítulo
+``Conclusão'' (ou ``Considerações finais'') geralmente não são numerados, embora
+a norma não exponha como deva ser a numeração desses capítulos. 
+
+\DescribeMacro{\chapter*}\DescribeMacro{\addcontentsline}
+Caso deseje incluir capítulos sem numeração, utilize a macro
+|\chapter*|\marg{Introdução}. Porém, capítulos com * não são incluídos
+automaticamente no Sumário nem no \textsf{bookmark} do PDF. Para incluí-los,
+utilize o comando:
+
+\begin{verbatim}
+   \chapter*{Introdução}
+   \addcontentsline{toc}{chapter}{Introdução}
+\end{verbatim}
+
+\DescribeMacro{\part}
+A macro |\part|{nome da parte} pode ser utilizada para se incluir uma
+página de divisão do trabalho. Uma sugestão é utilizar três partes:
+
+\begin{verbatim}
+   \part{Preparação da Pesquisa}
+   (...)
+   \part{Revisão de Literatura}
+   (...)
+   \part{Resultados}
+   (...)
+\end{verbatim}
+
+% ---
+\subsection{Formatação de partes, capítulos, seções, subseções e subsubseções}
+% ---
+
+\DescribeMacro{\ABNTEXchapterfont}\DescribeMacro{\ABNTEXchapterfontsize}
+O \textsf{memoir} possui uma vasta lista de opções de estilos de capítulos. A
+classe \abnTeX2 cria o estilo chamado |abnt|, que atende aos requisitos na ABNT
+NBR 14724:2011. O estilo |abnt| é carregado automaticamente e possui duas
+configurações adicionais: |\ABNTEXchapterfont| é a fonte utilizada nos
+capítulos e |\ABNTEXchapterfontsize| é o tamanho da fonte.
+
+Você pode customizar a fonte alterando os comandos como no exemplo a seguir,
+para que seja utilizada a fonte ``Computer Moderns'' com tamanho maior do que o
+utilizado por padrão:
+
+\begin{verbatim}
+   \renewcommand{\ABNTEXchapterfont}{\fontfamily{cmr}\fontseries{b}\selectfont}
+   \renewcommand{\ABNTEXchapterfontsize}{\HUGE}
+\end{verbatim}
+
+\DescribeMacro{\ABNTEXpartfont}\DescribeMacro{\ABNTEXpartfontsize}
+\DescribeMacro{\ABNTEXsectionfont}\DescribeMacro{\ABNTEXsectionfontsize}
+\DescribeMacro{\ABNTEXsubsectionfont}\DescribeMacro{\ABNTEXsubsectionfontsize}
+\DescribeMacro{\ABNTEXsubsubsectionfont}\DescribeMacro{\ABNTEXsubsubsectionfontsize}
+
+As fontes e o tamanho das fontes obtidas com as divisões |\part|\marg{nome da
+parte}, |\section|\marg{nome da seção}, |\subsection|\marg{nome da subseção} e
+|\subsubsection|\marg{nome da subsubseção} são definidas por padrão,
+respectivamente, conforme a \autoref{tab-divisoes}. Você pode alterá-las com o
+comando |\renewcommand|
+
+\begin{table}[htb]
+\caption{Macros de formatação de fonte e de tamanho de fonte de divisões do
+texto}
+\label{tab-divisoes}
+\centering
+\begin{tabular}{ l l l }
+   \textbf{Macro} & \textbf{Valor padrão} \\
+    \hline
+    \hline
+    |\ABNTEXpartfont| & |\ABNTEXchapterfont| \\
+    \hline
+    |\ABNTEXpartfontsize| & |\ABNTEXchapterfontsize| \\
+    \hline
+    
+    |\ABNTEXsectionfont| & |\ABNTEXchapterfont| \\
+    \hline
+    |\ABNTEXsectionfontsize| & |\Large| \\
+    \hline
+
+    |\ABNTEXsubsectionfont| & |\ABNTEXsectionfont| \\
+    \hline
+    |\ABNTEXsubsectionfontsize| & |\large| \\
+    \hline
+
+    |\ABNTEXsubsubsectionfont| & |\ABNTEXsubsectionfont| \\
+    \hline
+    |\ABNTEXsubsubsectionfontsize| & |\normalsize| \\
+    \hline
+    \hline
+
+\end{tabular}
+
+\end{table}
+
+% ---
+\subsubsection{Estilos adicionais de capítulos}
+% ---
+
+\DescribeMacro{\chapterstyle}
+O estilo de capítulo |abnt| provido pela classe \abnTeX2 pode ser substituído
+por outro estilo já fornecido pelo \textbf{memoir} ou mesmo por outro criado por
+você. Isso é útil especialmente se estiver interessado em publicar seu trabalho
+como livro ou não se importar em não seguir o padrão normativo. Para isso,
+utilize o comando:
+
+\begin{verbatim}
+   \chapterstyle{nome_do_estilo}
+\end{verbatim}
+
+Experimente |lyhne| ou |dash|. Você encontra alguns estilos no manual do
+\textbf{memoir} ou neste documento:
+\url{http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf}.
+
+% ---
+\subsection{Citações diretas com mais de três linhas}
+% ---
+
+\DescribeEnv{citacao}
+A ABNT NBR 10520:2002, seção 5.3, descreve que citações diretas com mais de três
+linhas devem ser destacadas com recuo de 4 cm da margem esquerda, com letra
+menor que a do texto utilizado e sem as aspas. Para inserir citações longas,
+utilize o ambiente |citacao|, conforme o exemplo:
+
+\begin{verbatim}
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas, devem ser
+destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
+utilizado e sem as aspas. No caso de documentos datilografados, deve-se
+observar apenas o recuo \cite[5.3]{NBR10520:2002}
+\end{citacao}
+\end{verbatim}
+
+% ---
+\subsection{Alíneas e Subalíneas}
+% ---
+
+\DescribeEnv{alineas}
+A ABNT NBR 6024:2012, seção 4.2, descreve o uso das alíneas, que podem ser
+compreendias como subdivisões não nomeadas de uma seção. 
+
+As alíneas são numeradas com letras minúsculas do alfabeto com recuo em relação
+à margem esquerda do documento. A norma prescreve que o texto que antecede as
+alíneas deve finalizar com dois pontos (:); as alíneas devem iniciar com letra
+minúscula e serem finalizadas com ponto e vírgula (;), exceto a última alínea,
+que deve ser finalizada com ponto final ou as alíneas que precederem uma
+subalínea, caso em que devem ser finalizadas com dois pontos (:); a segunda e as
+seguintes linhas do texto da alínea começa sob a primeira letra do texto da
+própria alínea. 
+
+Crie alíneas conforme o exemplo:
+
+\begin{verbatim}
+\begin{alineas}
+  \item linha 1;
+  \item linha 2;
+  \item linha 3.
+\end{alineas}   
+\end{verbatim}
+  
+\DescribeEnv{subalineas}\DescribeEnv{incisos}
+As alíneas podem ser aninhadas. Nesse caso, a numeração é substituída por um
+travessão. Você pode criar uma sub alínea de duas formas diferentes, todas
+equivalentes entre si: com outro ambiente |alineas|, com |subalineas| ou
+ainda com o ambiente |incisos|:
+
+\begin{verbatim}
+\begin{alineas}
+
+  \item linha 1:
+  \begin{alineas}
+    \item subalinea 1;
+    \item subalinea 2;
+  \end{alineas}   
+
+  \item linha 2:
+  \begin{subalineas}
+    \item subalinea 1;
+    \item subalinea 2;
+  \end{subalineas}
+
+  \item linha 3:   
+  \begin{incisos}
+    \item subalinea 1;
+    \item subalinea 2;
+  \end{incisos}
+
+  \item linha 4.
+\end{alineas}   
+\end{verbatim}
+
+% ---
+\subsection{Rótulos e legendas}
+% ---
+
+\DescribeMacro{\caption}\DescribeMacro{\legend}\DescribeMacro{\includegraphics}
+Rótulos e legendas de ilustrações, tabelas e qualquer outro ambiente do tipo
+|listing| podem ser definidos pelos comandos |\caption|\marg{rotulo} e
+|\legend|\marg{legenda}, respectivamente.
+
+Conforme a ABNT NBR 14724:2011, seção 5.8, o rótulo é atribuído acima do
+elemento e a legenda abaixo, conforme no exemplo:
+
+\begin{verbatim}
+\begin{figure}[htb]
+	\caption{\label{fig_circulo}A delimitação do espaço}
+	\begin{center}
+	    \includegraphics[scale=0.75]{myfig.pdf}
+	\end{center}
+	\legend{Fonte: os autores}
+\end{figure}
+\end{verbatim}
+
+Recomenda-se que imagens vetoriais, como imagens em PDF, sejam incorporados ao
+documento. Porém, formatos como PNG, BMP, JPG e outros são aceitos pelo \LaTeX.
+
+% ------
+\section{Elementos pós-textuais}
+% ------
+
+\DescribeMacro{\postextual}\DescribeMacro{\backmatter}
+O comando |\postextual| identifica o início dos elementos pós-textuais. Na
+prática não há nenhum comportamento específico desta macro, uma vez que as
+normas não prescrevem nenhum requisito para esses elementos. Porém, para
+compatibilidade futura, a macro |\postextual| já foi criada e recomenda-se que
+seja utilizada. A título de coerência, a macro |\backmatter|, padrão do
+\textsf{memoir}, é reescrita para que tenha o mesmo comportamento que
+|\postextual|.
+
+% ---
+\subsection{Referências (obrigatório)}
+% ---
+
+\DescribeMacro{\bibliography}
+A classe \textsf{abntex2} é responsável pela estruturação e o aspecto geral do
+trabalho. Mais precisamente, ela é focada em atender os requisitos apresentados
+pela norma ABNT NBR 14724:2011. As referências bibliográficas são normatizadas
+pela norma ABNT NBR 10520:2002 e os requisitos impostos pela norma são atendidos
+pelo pacote \textsf{abntex2cite}, integrante do \abnTex2.
+
+Para utilizá-lo, declare o pacote \textsf{abntex2cite} no preâmbulo do documento:
+
+\begin{verbatim}
+   \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\end{verbatim}
+
+A opção |alf| indica que as referências serão alfanuméricas, no padrão
+autor-ano. Ela se opõe à opção |num|, que indica que as referências serão
+numéricas. Consulte o manual do pacote \textsf{abntex2cite} para informações
+detalhadas.
+
+Depois, use a bibliografia:
+
+\begin{verbatim}
+   \bibliography{arquivo-de-referencias-bib}
+\end{verbatim}
+
+Você pode usar tanto a classe \textsf{abntex2} quanto o pacote de
+citações \textsf{abntex2cite} de forma independente. Isso é útil, por exemplo,
+quando se está escrevendo um documento baseado em outra classe
+fornecida por uma instituição, por exemplo. Nesse caso, altere a instrução
+|\documentclass| mas mantenha o pacote \textsf{abntex2cite}. No caso da
+produção de artigos, é possível usar a opção |article| na própria classe
+\textsf{abntex2} (no caso, da \textsf{memoir}).
+
+
+\DescribeEnv{backref}
+O \textsf{abntex2cite} é compatível com o pacote
+\textsf{backref}\footnote{\url{http://www.ctan.org/pkg/backref}}, que permite
+que a bibliografia indique quantas vezes e em quais páginas a citação ocorreu.
+Para isso, adicione ao preâmbulo:
+
+\begin{verbatim}
+   \usepackage[brazilian,hyperpageref]{backref}	 
+\end{verbatim}
+
+Ainda no preâmbulo, você pode configurar como o pacote \textsf{backref} deverá
+imprimir as referências:
+
+\begin{verbatim}
+   % Configurações do pacote backref
+   % Usado sem a opção hyperpageref de backref
+   \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+   
+   % Texto padrão antes do número das páginas
+   \renewcommand{\backref}{}
+   
+   % Define os textos da citação
+   \renewcommand*{\backrefalt}[4]{
+	   \ifcase #1 %
+		   Nenhuma citação no texto.%
+	   \or
+		   Citado na página #2.%
+	   \else
+	   	   Citado #1 vezes nas páginas #2.%
+	   \fi}%
+\end{verbatim}
+
+% ---
+\subsection{Glossário (opcional)}
+% ---
+
+O \abnTeX2 não traz uma implementação própria para o Glossário,
+elemento opcional estabelecido pela ABNT NBR 14724:2011. 
+
+Um dos motivos da não inclusão desse recurso é a existência de diversos pacotes
+que o fazem, cada um com uma característica diferente.
+
+De toda forma, consulte a \autoref{listadesimbolos} para sugestões de como é
+possível construir glossários em \LaTeX.
+
+% ---
+\subsection{Apêndices (opcional)}
+% ---
+
+\DescribeMacro{\apendices}\DescribeEnv{apendicesenv}
+O início dos apêndices, elementos opcionais da ABNT NBR 14724:2011, seção
+4.2.3.3, deve ser marcado com a macro |\apendices|, ou os apêndices devem estar
+contidos no ambiente |apendicesenv|. 
+
+\DescribeMacro{\apendicename}
+Os apêndices devem ser iniciados com a macro |\chapter|\marg{nome do apêndice},
+que imprime o nome do apêndice precedido do conteúdo da macro |\apendicename|. 
+
+\DescribeMacro{\apendicesname}\DescribeMacro{\appendixpage}
+No contexto dos apêndices, a macro |\appendixpage| imprime o conteúdo da macro
+|\apendicesname| como se fosse uma divisão de partes obtida com |\part| não
+numerada. A variante |\appendixpage*| não a inclui divisão no Sumário nem no
+\textsf{bookmark} do PDF.
+
+% ---
+\subsection{Anexos (opcional)}
+% ---
+
+\DescribeMacro{\anexos}\DescribeEnv{anexosenv}
+O início dos anexos, elementos opcionais da ABNT NBR 14724:2011, seção
+4.2.3.4, deve ser marcado com a macro |\anexos|, ou os anexos devem estar
+contidos no ambiente |anexosenv|. 
+
+\DescribeMacro{\anexoname}
+Os anexos devem ser iniciados com a macro |\chapter|\marg{nome do anexo},
+que imprime o nome do anexo precedido do conteúdo da macro |\anexoname|. 
+
+\DescribeMacro{\anexosname}\DescribeMacro{\appendixpage}
+No contexto dos anexos, a macro |\appendixpage| imprime o conteúdo da macro
+|\apendicesname| como se fosse uma divisão de partes obtida com |\part| não
+numerada. A variante |\appendixpage*| não inclui a divisão no Sumário nem no
+\textsf{bookmark} do PDF.
+
+% ---
+\subsection{Índice (opcional)}
+% ---
+
+\DescribeMacro{\printindex}\DescribeMacro{\index}
+O índice, elemento opcional da ABNT NBR 14724:2011, deve ser elabora conforme a
+ABNT NBR 6034 e pode ser produzido por meio da macro |\printindex|, que imprime
+as páginas nas quais as macros |\index|\marg{palavra a ser indexada} apareceram.
+
+Para que as macros |\printindex| e |\index| funcionem, é preciso utilizar o
+compilador
+\textsf{MakeIndex}\footnote{\url{http://www.tex.ac.uk/ctan/indexing/makeindex/}}.
+
+
+\StopEventually{\PrintIndex}
+\end{document}
