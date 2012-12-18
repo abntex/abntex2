@@ -48,7 +48,7 @@
 \addto\captionsbrazil{%
   \renewcommand{\bibname}{Refer\^encias}
   \renewcommand{\indexname}{\'Indice}
-  \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
+  \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
 }
 % ---   
 
@@ -415,8 +415,10 @@
 
 % ---
 % Dedicatória
-\newenvironment{dedicatoria}[1][\dedicatorianame]{%
-   \pretextualchapter{#1}
+\newenvironment{dedicatoria}[1][]{%
+   \ifthenelse{\equal{#1}{}}{%
+    \PRIVATEbookmarkthis{\dedicatorianame}
+    }{\pretextualchapter{#1}}
   }{\cleardoublepage}
 % ---
 
