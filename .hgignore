@@ -18,8 +18,6 @@ syntax: regexp
 syntax: regexp
 ^modelo-tese-abntex2/main\.ist$
 syntax: regexp
-^modelo-tese-abntex2/main\.pdf$
-syntax: regexp
 ^modelo-tese-abntex2/main\.synctex\.gz$
 syntax: regexp
 ^modelo-tese-abntex2/main\.idx$
@@ -61,3 +59,7 @@ syntax: regexp
 \.ilg$
 syntax: regexp
 \.toc$
+syntax: regexp
+\.glo$
+syntax: regexp
+\.brf$
