@@ -216,13 +216,13 @@ https://code.google.com/p/abntex2}{https://code.google.com/p/abntex2}}
 
 O objetivo deste manual é descrever os estilos bibliográficos
 \textsf{abntex-alf.bst} e \textsf{abntex-num.bst}, responsáveis pelos estilos
-\textsf{bibtex} compatíveis com a ABNT NBR 6023:20000. Este documento é parte
-integrante da suíte \abnTeX2  e é complementado pelo documento ``Manual de uso
-do pacote \textsf{abntex2cite}: tópicos específicos da ABNT NBR 10520:2002 e
-estilo bibliográfico alfabético (sistema autor-data)''.
+\textsf{bibtex} compatíveis com a ABNT NBR 6023:20000. 
 
-A classe \textsf{abntex2}, responsável pela aparência e estrutura de trabalhos
-acadêmicos, é detalhada em manual próprio.
+Este documento é parte integrante da suíte \abnTeX2 e é complementado pelo
+documento \citeonline{abntex2cite-alf}.
+
+Para referências à classe \textsf{abntex2}, responsável pela aparência e
+estrutura de trabalhos acadêmicos, consulte \citeonline{abntex2classe}.
 
 \section{Créditos aos autores originais}
 
@@ -436,6 +436,19 @@ mostraram que elétrons podem relaxar via
 interação elétron-fônon.
 \end{minipage}\vspace{5mm}\\
 
+\subsubsection{Conteúdo da referência bibliográfica}
+
+\DescribeMacro{\citetext}
+Você pode imprimir o conteúdo da referência bibliográfica de uma citação com a
+macro |\citetext|\marg{lista de keys}, como no exemplo:
+
+\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
+\citetext{Tsen86}
+\end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
+\citetext{Tsen86}
+\end{minipage}\vspace{5mm}\\
+
+
 %sub
 \subsubsection{Alteração do estilo de chamada {\tt [num]}}
 
@@ -491,7 +504,7 @@ O uso do estilo de formatação sem o uso do pacote de citação
 é adequado as suas necessidades.
 
 Mais informações sobre o uso do estilo bibliográfico autor-ano estão disponíveis
-no documento \citeonline{abnt-bibtex-alf-doc}.
+no documento \citeonline{abntex2cite-alf}.
 
 \subsection{Cuidados com a acentuação}
 
@@ -521,7 +534,7 @@ acento & \textsf{bibtex}\\
 
 \section{Utilização da citação por sistema autor-data {\tt [alf]}}
 
-Veja documento específico Ref.~\citeonline{abnt-bibtex-alf-doc}.
+Veja documento específico Ref.~\citeonline{abntex2cite-alf}.
 
 \section{Alteração dinâmica das opções do estilo {\tt [citeoption]}}
 
@@ -654,7 +667,8 @@ do que no estilo {\tt [num]}. Sugerimos ficar atento ao posicionamento
 usando a opção {\tt abnt-show-options=list} e remover essa opção quando o
 documento estiver na redação final.
 
-{\bf Veja também outras opções de alteração no documento~\citeonline{abnt-bibtex-alf-doc}.}
+{\bf Veja também outras opções de alteração no
+documento~\citeonline{abntex2cite-alf}.}
 
 \begin{table}[htbp]
 
@@ -704,12 +718,12 @@ na composição dos estilos bibliográficos.}
 \begin{tabular}{lrp{6cm}}\hline\hline
 campo & opções & descrição \\ \hline
 \emph{abnt-and-type} & & Opção específica do estilo {\tt [alf]} veja
-referência~\citeonline{abnt-bibtex-alf-doc}.
+referência~\citeonline{abntex2cite-alf}.
 \\ \hline
 \emph{abnt-dont-use-etal} &  & Opção obsoleta veja \emph{abnt-etal-cite}.
 \\ \hline
 \emph{abnt-etal-cite} &  & Opção específica do estilo {\tt [alf]} veja
-referência~\citeonline{abnt-bibtex-alf-doc}.
+referência~\citeonline{abntex2cite-alf}.
 \\ \hline
 \emph{abnt-etal-list} &  & controla como e quando os co-autores são
 substituídos por \emph{et al.} na lista bibliográfica. Segundo o ítem {\bf 8.1.12}\cite{NBR6023:2000}
@@ -1156,7 +1170,7 @@ abnt-options1,abnt-options2,abnt-options3,abnt-options4,abnt-options5}
 \DescribeEnv{@hidden}\DescribeMacro{\apud}\DescribeMacro{\apudeonline}
 {\tt @hidden} gera uma entrada que não aparece na lista de referências. Ela é
 útil para ser usada com os comandos \verb+\apud+ e \verb+\apudonline+. Veja a
-Ref.~\citeonline{abnt-bibtex-alf-doc} para mais detalhes. Os únicos campos
+Ref.~\citeonline{abntex2cite-alf} para mais detalhes. Os únicos campos
 considerados são de autoria ({\tt author}, ou {\tt editor}, ou {\tt
 organization}, ou {\tt title}) e de ano ({\tt year}). Esse tipo de entrada só
 tem sentido no estilo autor-data {\tt [alf]}.
