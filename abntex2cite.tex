@@ -1,14 +1,28 @@
-%% $Id: abnt-bibtex-doc.tex,v 1.44 2004/03/23 17:35:47 mvsfrasson Exp $
-%% name of this file abnt-bibtex-doc.tex
-%% Copyright 2001-2003 by the abnTeX group at http://codigolivre.org.br/projects/abntex
+%% abntex2cite.tex
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
-%% Mantained by: Gerald Weber <gweber@codigolivre.org.br>
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
 %%
-%% This file is distributed under the Free Document License (FDL) http://www.gnu.org/licenses/fdl.html
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
 %%
-%% $Log: abnt-bibtex-doc.tex,v $
-%% Revision 1.44  2004/03/23 17:35:47  mvsfrasson
+%% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
+%% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
+%%
+%% 2012/12/18 22h22 	laurocesar
+%%  Fork of the version v 1.44 2004/03/23 17:35:47 mvsfrasson Exp $
+%%  Alteração da classe do documento e reestruturação geral
+%%  Alteração do nome do documento de abnt-bibtex-doc.tex para abntex2cite.tex
 %%
 %% 2012/12/13 10h49 	laurocesar
 %%  Remoção da referência a abnt-options em \bibliography{}
@@ -40,14 +54,14 @@
 %%
 %%
 
-\documentclass[espacosimples]{abnt}
+\documentclass[a4paper]{ltxdoc}
 
 \ifx\pdfoutput\undefined
 \else
 %from /usr/share/texmf/doc/pdftex/base/pdftexman.pdf
 \pdfinfo{
   /Title        (Estilo bibtex compativel com a `norma' 6023 da ABNT)
-  /Author       (G. Weber - Grupo abnTeX)
+  /Author       (G. Weber - Grupo abnTeX, Lauro César Araujo - Grupo abnTeX2)
   /Subject      (referencias bibliograficas)
   /Keywords     (ABNT, bibliografia, 6023/2000, 6023/2002)}
 \fi
@@ -55,6 +69,7 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage{parskip}			% espaçamento entre os parágrafos
 
 \IfFileExists{html.sty}
 {\usepackage{html}}
@@ -85,10 +100,11 @@
  \long\def\latexhtml##1##2{##1}}
 
 % latex2html nao suporta \ifthenelse...
-\usepackage[num,abnt-verbatim-entry=yes]{abntcite}
+\usepackage[num,abnt-verbatim-entry=yes]{abntex2cite}
 \newcommand{\OKs}{173}
 \newcommand{\quaseOKs}{12}
 \newcommand{\nadaOK}{3}
+\newcommand{\abnTeX}{abn\TeX}
 \def\Versao$#1 #2${#2}
 \def\Data$#1 #2 #3${#2}
 %\newcommand{\bibtextitlecommand}[2]{``#2''}
@@ -168,51 +184,71 @@
 \nocite{ABNT-final}
 
 %begin{latexonly}
-\autor{G. Weber}
-\titulo{Estilo bibtex compatível com a `norma' 6023 da ABNT\\
+\author{Equipe abnTeX2}
+\title{Manual de uso dos estilos bibliográficos \textsf{abntex2-alf.bst} e
+\textsf{abntex2-num.bst}: estilos bibtex compatíveis com a ABNT NBR 6023:2000 \\
 Versão \Versao$Revision: 1.44 $}
-\comentario{Manual de uso dos estilos bibliográficos {\tt abnt-alf.bst} e
-{\tt abnt-num.bst}.
-Inclui comentários sobre a implementação desses estilos}
-\instituicao{Grupo \abnTeX}
-\local{abntex.codigolivre.org.br}
-\data{\Data$Date: 2004/03/23 17:35:47 $}
-\capa \folhaderosto
+\date{\toady}
 %end{latexonly}
 
 \begin{htmlonly}
-\title{Estilo bibtex compatível com a `norma' 6023 da ABNT}
-\author{G.Weber --- Grupo \abnTeX\\\htmladdnormallink{\tt abntex.codigolivre.org.br}{http://abntex.codigolivre.org.br}}
-\date{Versão \Versao}
+\title{Manual de uso dos estilos bibliográficos \textsf{abnt-alf.bst} e
+\textsf{abnt-num.bst}: estilos bibtex compatíveis com a ABNT NBR 6023:2000 \\
+Versão \Versao$Revision: 1.44 $}
+
+\author{Equipe \abnTeX2\\\htmladdnormallink{\tt
+https://code.google.com/p/abntex2}{https://code.google.com/p/abntex2}}
+\date{\today}
 \maketitle
 \end{htmlonly}
 
-\sumario
+\maketitle
+
+\tableofcontents
 \listoftables
 
-\chapter{Avisos}
+\section{Escopo}
 
-\section{Se puder, evite usar essa `norma'}
+O objetivo deste manual é descrever os estilos bibliográficos
+\textsf{abntex-alf.bst} e \textsf{abntex-num.bst}, responsáveis pelos estilos
+\textsf{bibtex} compatíveis com a ABNT NBR 6023:20000.
 
-Sim, estamos falando muito sério!
-A `norma' 6023/2000\cite{NBR6023:2000} da ABNT é uma droga.
-Se puder não use e não peça para ninguém usar.
-Se você faz parte de comitês, comissões etc. de qualquer nível, por favor
-ajude a combater essa bobagem.
+A classe \textsf{abntex2} é detalhada em manual próprio.
 
-Existem centenas de estilos bibliográficos muito legais
-por aí, use o próprio bibtex para experimentar. Se você quiser entender
-porque não se deveria usar, em nenhuma circunstância, a `norma' 6023
-então leia o restante do texto.
-Porém se você estiver sendo \emph{forçado}
-a usar a `norma' da ABNT então vá em frente e boa sorte!
+\section{Créditos aos autores originais}
+
+Este documento é derivado do documento \emph{Estilo bibtex compatível com a
+`norma' 6023 da ABNT - Versão $ 1.44 $} escrito por G. Weber e atualizado por M.
+V. Frasson no âmbito do projeto \abnTeX hospedado em
+\url{http://codigolivre.org.br/projects/abntex}\footnote{O documento original
+pode ser lido em
+\url{http://code.google.com/p/abntex2/downloads/detail?name=abnt-bibtex-doc.pdf}}.
+
+A equipe do projeto \abnTeX2, observando a \emph{LaTeX Project Public License},
+registra que os principais créditos deste manual são dos autores originais. Além
+disso, optamos por manter, ao menos em partes, o ``tom'' original do texto. 
+
+\section{Considerações iniciais}
+
+\subsection{Se puder, evite usar essa `norma'}
+
+Sim, estamos falando muito sério! A `norma' 6023/2000\cite{NBR6023:2000} da ABNT
+é uma droga. Se puder não use e não peça para ninguém usar. Se você faz parte de
+comitês, comissões etc. de qualquer nível, por favor ajude a combater essa
+bobagem.
+
+Existem centenas de estilos bibliográficos muito legais por aí, use o próprio
+bibtex para experimentar. Se você quiser entender porque não se deveria usar,
+em nenhuma circunstância, a `norma' 6023 então leia o restante do texto.
+Porém se você estiver sendo \emph{forçado} a usar a `norma' da ABNT então vá em
+frente e boa sorte!
 
 Porque então fizemos o estilo bibliográfico razoavelmente compatível
 com a `norma'? Nós queremos incentivar o uso do \LaTeX\  e queremos
 ajudar os pobres-coitados, alguns dos quais nós mesmos, que são ou
 serão forçados, por estupidez burocrática, a usar `normas' da ABNT.
 
-\section{Cuidado! Normas nebulosas!}
+\subsection{Cuidado! Normas nebulosas!}
 
 Nós elaboramos os estilos debruçados diretamente sobre os originais da ABNT
 e as seguimos escrupulosamente. Mas não se iluda! O que a sua coordenação
@@ -222,133 +258,128 @@ que ao usar os estilos do \abnTeX\ você esteja em conformidade com as normas
 da sua instituição ou empresa.
 
 Por que isso acontece? Em geral porque os originais das `normas' da ABNT não
-são publicamente disponíveis e as pessoas acabam se orientando na base do
+são gratuitas e as pessoas acabam se orientando na base do
 `ouvir falar', ou livros que supostamente se baseiam nessas `normas'.
 Acredite: nenhum material que encontramos (livros, roteiros de biblioteca,
 normas de pós-graduação, material encontrado na internet) implementa
 as `normas' da ABNT corretamente.
 
-Um exemplo clássico é o sistema de chamada numérico (citação numérica, usada neste
-documento). Embora \emph{todas} as `normas' da ABNT\cite{NBR6023:2000,NBR10520:1988,NBR10520:2001}
-`autorizem' seu uso a maioria das instituições, orientadores, membros de banca
-irão dizer que isso não é ABNT. Acredite se quiser.
+Um exemplo clássico é o sistema de chamada numérico (citação numérica, usada
+neste documento). Embora \emph{todas} as `normas' da
+ABNT\cite{NBR6023:2000,NBR10520:1988,NBR10520:2001} `autorizem' seu uso a
+maioria das instituições, orientadores, membros de banca irão dizer que isso
+não é ABNT. Acredite se quiser.
 
-As regras particulares de algumas instituições foram acomodadas em termos de subestilos.
-Consulte a tabela~\ref{tabela-subestilos} e avise-nos se houver regras
-particulares de sua instituição para que possam ser disponibilizadas para outras
-pessoas.
+As regras particulares de algumas instituições foram acomodadas em termos de
+subestilos. Consulte a tabela~\ref{tabela-subestilos} e avise-nos se houver
+regras particulares de sua instituição para que possam ser disponibilizadas
+para outras pessoas.
 
-\section{Até que ponto esse estilo bibtex cumpre a `norma' 6023?}
+\subsection{Até que ponto esse estilo bibtex cumpre a `norma' 6023?}
 
 O estilo ainda está em fase final de desenvolvimento. Praticamente
 todos os tipos de entrada funcionam bem.
 
-Tanto o estilo numérico ({\tt abnt-num.bst} ou {\tt [num]})
-quanto o alfabético ({\tt abnt-alf.bst} ou {\tt [alf]})
-funcionam razoavelmente bem e deve
-gerar uma lista bibliográfica bastante compatível.
-O uso deste estilo lhe dará um resultado muito superior
-a uma lista formatada à mão, principalmente se você não tiver acesso
-a `norma' original\cite{NBR6023:2000}.
+Tanto o estilo numérico (|abnt-num.bst| ou |[num]|) quanto o alfabético
+(|abnt-alf.bst| ou |[alf]|) funcionam razoavelmente bem e devem
+gerar uma lista bibliográfica bastante compatível. O uso deste estilo lhe dará
+um resultado muito superior a uma lista formatada à mão, principalmente se você
+não tiver acesso a `norma' original \cite{NBR6023:2000}.
 
-Fuja das `interpretações' dessa norma que proliferam na internet, nenhuma
-delas faz muito sentido. Mesmo os tais livros de ``Metodologia do Trabalho
-Científico''\footnote{Que, na minha opinião, deveriam se chamar ``Burocracia Científica''.}
-contém interpretações muito peculiares das `normas' da ABNT.
+Fuja das `interpretações' dessa norma que proliferam na Internet. Nenhuma delas
+faz muito sentido. Mesmo os tais livros de ``Metodologia do Trabalho
+Científico'' contém interpretações muito peculiares das `normas' da ABNT.
 Se você está para entregar sua tese, já tem uma base bibtex formada,
-esse estilo vai resolver seu problema, com toda certeza.
+o \textsf{abntex2cite} vai resolver seu problema, com toda certeza.
 
-Na `norma' 6023/2000\cite{NBR6023:2000} há 202 exemplos de referências
-bibliográficas de tudo que se possa imaginar. Isso inclui coisas que
-jamais classificariamos como objetos bibliográficos como estátuas
-por exemplo. Parece que os autores dessa `norma' pensam que se
-deve gerar entradas bibliográficas para tudo que possa ser colocado
-dentro das quatro paredes de uma biblioteca. Surpreende que não tenham
-colocado também a bibliotecária e a samambaia que decora a entrada
-da biblioteca!
+Até o momento \OKs\ exemplos estão sendo reproduzidos corretamente e \quaseOKs\
+parcialmente. Alguns (\nadaOK) não puderam ser reproduzidos por questões
+diversas. Todos os exemplos que tentamos reproduzir estão inseridos neste
+documento.
 
-Até o momento \OKs\ exemplos
-estão sendo reproduzidos corretamente e \quaseOKs\ parcialmente.
-Alguns (\nadaOK) não puderam ser reproduzidos por questões diversas.
-Todos os
-exemplos que tentamos reproduzir estão mostrados neste documento.
-Sempre que possível colocamos um comentário, em notas de roda-pé,
-explicando qual o problema dos exemplos que não conseguimos reproduzir 100\%.
+Sempre que possível colocamos um comentário em notas de rodapé com explicações
+do problema dos exemplos que não conseguimos reproduzir de forma completa.
 Alguns exemplos jamais serão reproduzidos corretamente ou por serem estranhos
-demais ou porque estão em desacordo com a própria `norma'.
-As teses são um exemplo notório desse último caso.
+demais ou porque estão em desacordo com a própria `norma'. As teses são um
+exemplo notório desse último caso.
 
 A `norma' 6023/2000\cite{NBR6023:2000} é complicada e cheia de inconsistências.
-Jamais será
-possível gerar um estilo bibtex 100\% consistente com a `norma', até
-porque nem `norma' é compatível com ela mesma. Um bom estilo bibliográfico
-deve ter uma linha lógica para formatação de referências.
-Assim, com alguns poucos exemplos qualquer pessoa poderia deduzir os casos
-omissos. Nesse sentido `norma' 6023 trafega pela contra-mão, é quase
-impossível deduzir a linha lógica dessa `norma'. O problema mais grave, no
-entanto, fica pela maneira de organizar nomes. A ABNT quebrou o sobrenome
-em duas partes. Normalmente se fala apenas em ``last name", agora temos
-o ``last last name" graças à ABNT. Isso não apenas é problemático,
-pelo menos do ponto de vista do bibtex, mas é também um desrespeito ao
-autor citado.
+Jamais será possível gerar um estilo bibtex 100\% consistente com a `norma', até
+porque nem a `norma' é compatível com ela mesma. Um bom estilo bibliográfico
+deve ter uma linha lógica para formatação de referências. Assim, com alguns
+poucos exemplos, qualquer pessoa poderia deduzir os casos omissos. Nesse
+sentido, a `norma' 6023 trafega pela contra-mão. É quase impossível deduzir sua
+linha lógica. O problema mais grave, no entanto, fica pela maneira de organizar
+nomes. A ABNT quebrou o sobrenome em duas partes. Normalmente se fala apenas em
+``\textit{last name}'', mas agora temos o ``\textit{last last name}'' graças à
+ABNT. Isso não apenas é problemático, pelo menos do ponto de vista do bibtex,
+mas é também um desrespeito ao autor citado.
 
-O que parece óbvio dessa coisa que a ABNT tem coragem de chamar de norma,
-é que não ocorreu aos seus autores que bibliografias possam
-ser geradas automaticamente a partir de bases de dados.
-E olhe que o bibtex já existe muito antes de sair a primeira versão
-da `norma' escrita em 1989 (à máquina, acredite se quiser!).
-A lógica dessa `norma' parece ser aquele em que se imagina o
-computador como um simulador de máquina de escrever, algo também
-conhecido com MS Word. Diversos exemplos de referências são
-sobre Windows e Word, o que aumenta as nossas suspeitas nesse
-sentido.
+% O que parece óbvio dessa coisa que a ABNT tem coragem de chamar de norma,
+% é que não ocorreu aos seus autores que bibliografias possam ser geradas
+% automaticamente a partir de bases de dados. E olhe que o bibtex já existe muito
+% antes de sair a primeira versão da `norma' escrita em 1989 (à máquina, acredite
+% se quiser!). A lógica dessa `norma' parece ser aquele em que se imagina o
+% computador como um simulador de máquina de escrever, algo também conhecido com
+% Microsoft Word. Diversos exemplos de referências são sobre Windows e Word, o que
+% aumenta as nossas suspeitas nesse sentido.
 
-\section{Em que ambiente foram desenvolvidos os estilos?}
+\subsection{Em que ambiente foram desenvolvidos os estilos?}
 
 Os estilos foram desenvolvidos em Conectiva Linux 8, e a implementação \TeX\ é
-o {\tt tetex} versão 1.0.7.
+o |tetex| versão 1.0.7.
 
-\chapter{Como usar}
+O \abnTeX2 foi desenvolvido em um Apple Mac OSX e estado em Linux Ubuntu
+versão 12.10 e em Windows XP SP 2.
 
-\section{Seleção dos estilos}
+\section{Uso de \textsf{abntex2cite}}
 
-\subsection{Citação numérica [{\tt num}]}
+\subsection{Seleção dos estilos}
 
-Diferente do que muita gente imagina, o sistema numérico é
-`permitido'  pela `norma'\cite{NBR6023:2000} em sua seção
-9.1.\footnote{Você não faz idéia do número de pessoas (especialmente
-funcionários de pós-graduação, orientadores e membros de banca) que simplesmente
-\emph{não acreditam} que o sistema numérico seja `permitido' pela `norma'.
-E não adianta `esfregar' o original da `norma' na cara deles.}
-Se você quiser usar este estilo de citação utilize o estilo {\tt [num]} (arquivo
-{\tt abnt-num.bst}).
-Selecione com o comando \verb+usepackage+ no preâmbulo:
+\subsubsection{Citação numérica \tt{[num]}}
+
+\DescribeMacro{\usepackage[num]{abntex2cite}}
+Diferente do que muita gente imagina, o sistema numérico é `permitido'  pela
+`norma'\cite{NBR6023:2000} em sua seção 9.1.\footnote{Você não faz idéia do
+número de pessoas (especialmente funcionários de pós-graduação, orientadores e
+membros de banca) que simplesmente \emph{não acreditam} que o sistema numérico
+seja `permitido' pela `norma'. E não adianta `esfregar' o original da `norma' na
+cara deles.} Se você quiser usar este estilo de citação utilize a opção |[num]|
+(arquivo |abnt-num.bst|). Selecione-o com o comando |usepackage| no preâmbulo:
+
 \begin{verbatim}
-\usepackage[num]{abntcite}
+   \usepackage[num]{abntex2cite}
 \end{verbatim}
-Com isso as chamadas no texto vão ser
-compatíveis com os exemplos 9.1 da `norma'\cite{NBR6023:2000}.
 
-Alternativamente, você pode não selecionar o pacote e só colocar
-o estilo bibliográfico
+Com isso as chamadas no texto serão compatíveis com os exemplos 9.1 da
+`norma'\cite{NBR6023:2000}.
+
+\DescribeMacro{\bibliographystyle}
+Alternativamente, você pode não selecionar o pacote e só colocar o estilo
+bibliográfico:
+
 \begin{verbatim}
-\bibliographystyle{abnt-num}
+    \bibliographystyle{abnt-num}
 \end{verbatim}
-assim as chamadas no texto vão seguir o padrão do \LaTeX.
 
-\subsubsection{A chamada no texto}
+Dessa forma, as citações no texto seguirão o padrão do \LaTeX, porém a
+bibliografia será formatada conforme o padrão brasileiro.
 
-No texto você deve chamar as citações com os comandos \verb+\cite+ e
+%sub
+\subsubsection{A citação no texto}
+
+\DescribeMacro{\cite}\DescribeMacro{\citeonline}
+No texto você deve inserir as citações com os comandos \verb+\cite+ e
 \verb+\citeonline+. Veja os exemplos abaixo.
 
-\noindent\begin{minipage}[t]{10cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
 Elétrons podem relaxar via interação
 elétron-fônon\cite{Tsen86}.
 \end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
 Elétrons podem relaxar via interação elétron-fônon\cite{Tsen86}.
 \end{minipage}\vspace{5mm}\\
 
-\noindent\begin{minipage}[t]{10cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
 Segundo a referência \citeonline{8.1.1.2}
 entende-se que \ldots\
 \end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
@@ -356,13 +387,14 @@ Segundo  a referência \citeonline{8.1.1.2}
 entende-se que \ldots\
 \end{minipage}\vspace{5mm}\\
 
-O estilo {\tt abntcite} ainda disponibiliza os comandos \verb+\citeyear+,
+\DescribeMacro{\citeyear}\DescribeMacro{\citeauthor}\DescribeMacro{\citeauthoronline}
+O estilo \textsf{abntcite} ainda disponibiliza os comandos \verb+\citeyear+,
 \verb+\citeauthor+ e \verb+citeauthoronline+.
 O uso de \verb+\citeyear+ e \verb+citeauthoronline+
 é igual ao do estilo autor-data ({\tt [alf]}) como mostrado nos seguintes
 exemplos:
 
-\noindent\begin{minipage}[t]{10cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{8cm}\latex{\small}\begin{verbatim}
 Em \citeyear{Tsen86} \citeauthoronline{Tsen86}
 mostraram que elétrons podem relaxar via 
 interação elétron-fônon\cite{Tsen86}.
@@ -375,7 +407,7 @@ interação elétron-fônon\cite{Tsen86}.
 O uso de \verb+citeauthor+ é modificado em relação ao estilo autor-data ({\tt [alf]})
 como se vê no exemplo:
 
-\noindent\begin{minipage}[t]{10cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
 Em \citeyear{Tsen86} \citeauthor{Tsen86}
 mostraram que elétrons podem relaxar via 
 interação elétron-fônon.
@@ -385,9 +417,11 @@ mostraram que elétrons podem relaxar via
 interação elétron-fônon.
 \end{minipage}\vspace{5mm}\\
 
+%sub
 \subsubsection{Alteração do estilo de chamada {\tt [num]}}
 
 A `norma'\cite{NBR6023:2000} aceita três estilos de chamada:
+
 \begin{enumerate}
 \item para que \latexhtml{$\ldots$}{...} à sociedade\latexhtml{$^{[10]}$
     $\ldots$}{\begin{rawhtml}<sup>[10]</sup>\end{rawhtml}...}
@@ -396,19 +430,22 @@ A `norma'\cite{NBR6023:2000} aceita três estilos de chamada:
 \item para que \latexhtml{$\ldots$}{...} à sociedade\latexhtml{$^{10}$
     $\ldots$}{\begin{rawhtml}<sup>10</sup>\end{rawhtml}...}
 \end{enumerate}
-Percebeu-se que o terceiro estilo entra em conflito com a
-numeração das notas de roda-pé.
-Portanto agora o estilo {\tt [num]} coloca colchetes, a primeira
-opção listada pela `norma'\cite{NBR6023:2000}, este comportamento
-pode ser alterado com os comandos \verb+\leftovercite+ e
-\verb+\rightovercite+.
-Por exemplo, para usar parênteses coloque no preâmbulo do seu texto use
+
+\DescribeMacro{\leftovercite}\DescribeMacro{\rightovercite}
+Percebe-se que o terceiro estilo entra em conflito com a numeração das notas de
+rodapé. Portanto agora o estilo {\tt [num]} coloca colchetes na primeira opção
+listada pela `norma'\cite{NBR6023:2000}. Este comportamento pode ser alterado
+com os comandos \verb+\leftovercite+ e \verb+\rightovercite+.
+
+Por exemplo, para usar parênteses coloque no preâmbulo do seu texto e use:
+
 \begin{verbatim}
-\renewcommand{\leftovercite}{(}
-\renewcommand{\rightovercite}{)}
+   \renewcommand{\leftovercite}{(}
+   \renewcommand{\rightovercite}{)}
 \end{verbatim}
 
-\subsection{Citação alfabética por autor-data [{\tt alf}]}
+% Achiles, parei aqui
+\subsubsection{Citação alfabética por autor-data [{\tt alf}]}
 
 Se você quiser usar o estilo de citação alfabético
 (seção 9.2 em 6023/2000\cite{NBR6023:2000})
@@ -425,7 +462,7 @@ você fizer questão, vá lá:
 
 Importante: veja documento específico Ref.~\citeonline{abnt-bibtex-alf-doc}.
 
-\section{Cuidados com a acentuação}
+\subsection{Cuidados com a acentuação}
 
 Normalmente não há problemas em usar carateres acentuados em arquivos
 bibliográficos. Porém os estilos aqui usado fazem uso quase abusivo da
@@ -451,25 +488,24 @@ acento & bibtex\\
 \end{table}
 
 
-\chapter{Utilização da citação por sistema autor-data {\tt [alf]}}
+\section{Utilização da citação por sistema autor-data {\tt [alf]}}
 
 Veja documento específico Ref.~\citeonline{abnt-bibtex-alf-doc}.
 
-\chapter{Alteração dinâmica das opções do estilo {\tt [citeoption]}}
+\section{Alteração dinâmica das opções do estilo {\tt [citeoption]}}
 \label{chapter-opcoes-estilo}
-Você pode alterar algumas maneiras do estilo bibliográfico
-sem ter de alterar o arquivo em si.\footnote{Até onde sabemos
-os estilos bibliográficos do \abnTeX\ são os únicos que podem
-alterar o comportamento do bibtex com comandos dentro do arquivo
-\LaTeX.}
-O método usado aqui permite até
-mesmo que se altere o estilo de uma citação para outra.
-Isso está sendo usado neste documento que você está lendo.
-Todas as opções estão apresentadas nas tabelas \ref{tabela-opcoes-formatacao}--\ref{tabela-opcoes-funcionamento}.
 
-\section{Como proceder}
+Você pode alterar algumas maneiras do estilo bibliográfico sem ter de alterar o
+arquivo em si\footnote{Até onde sabemos, os estilos bibliográficos do \abnTeX\
+são os únicos que podem alterar o comportamento do bibtex com comandos dentro do
+arquivo \LaTeX.}. O método usado aqui permite até mesmo que se altere o estilo
+de uma citação para outra. Isso está sendo usado neste documento que você está
+lendo. Todas as opções estão apresentadas nas tabelas
+\ref{tabela-opcoes-formatacao}--\ref{tabela-opcoes-funcionamento}.
 
-\subsection{Usando {\tt abntcite} e {\tt citeoption}}
+\subsection{Como proceder}
+
+\subsubsection{Usando {\tt abntcite} e {\tt citeoption}}
 
 Você deve utilizar o comando \verb+\citeoption+ e
 incluir a base {\tt abnt-options} no \verb+\bibliography+
@@ -484,7 +520,7 @@ por exemplo:
 \usepackage[num,abnt-full-initials=yes]{abntcite}
 \end{verbatim}
 
-\subsection{Sem usar {\tt abntcite} nem {\tt citeoption}}
+\subsubsection{Sem usar {\tt abntcite} nem {\tt citeoption}}
 
 Você pode se valer das opções aqui apresentadas sem usar o pacote {\tt abntcite}.
 Para isso você precisa usar o comando \verb+\nocite+ como no seguinte
@@ -497,7 +533,7 @@ de conviver constantemente com a mensagem de que a referência {\tt abnt-full-in
 não foi definida.
 
 
-\subsection{Como agrupar várias opções}
+\subsubsection{Como agrupar várias opções}
 
 Você pode agrupar opções criando uma entrada do tipo {\tt \@ABNT-options}
 em um arquivo de bibliografias (tipo {\tt .bib}), por exemplo:
@@ -514,7 +550,7 @@ você deve daí chamar suas opções assim \verb+\citeoption{minhasopcoes}+.
 
 A seção~\ref{section-quando-vale} explica a função do campo {\tt key}.
 
-\subsection{Modo de funcionamento do {\tt citeoption}}
+\subsubsection{Modo de funcionamento do {\tt citeoption}}
 
 O comando \verb+\citeoption+ força o \LaTeX\ a gerar
 uma entrada de citação no arquivo auxiliar (.aux) que vai ser processada
@@ -527,7 +563,7 @@ As opções disponíveis estão descritas nas
 tabelas~\ref{tabela-opcoes-formatacao}, \ref{tabela-opcoes-composicao} e
 \ref{tabela-opcoes-funcionamento}.
 
-\subsection{Cuidados a tomar}
+\subsubsection{Cuidados a tomar}
 
 Note que o bibtex
 somente processa cada entrada bibliográfica uma única vez. Não adianta usar
@@ -536,20 +572,20 @@ será processada de novo. Isso acontece porque o comando \verb+\citeoption+
 nada mais é do que um comando tipo \verb+\cite+ que vai ser processado
 pelo bibtex como uma simples entrada bibliográfica.
 
-\section{Quando começa a valer a opção?}
+\subsection{Quando começa a valer a opção?}
 \label{section-quando-vale}
 
 O momento a partir do qual a opção selecionada por \verb+\citeoption+
 depende do estilo bibliográfico que você está usando.
 
-\subsection{Sistema numérico [{\tt num}]}
+\subsubsection{Sistema numérico [{\tt num}]}
 As opções valem a partir
 do ponto do texto onde aparece o comando \verb+\citeoption+.
 Se você quiser que a opção esteja valendo para \emph{todas}
 as entradas então use \verb+\citeoption+ \emph{antes} de
 qualquer uso de \verb+\cite+ ou \verb+\citeonline+.
 
-\subsection{Sistema alfabético por autor-data [{\tt alf}]}
+\subsubsection{Sistema alfabético por autor-data [{\tt alf}]}
 As opções valem a partir do ponto onde a entrada aparece na ordem alfabética,
 \emph{independente do ponto no texto onde a citação foi feita}.
 Isso é controlado através do campo {\tt key}. Se você quiser que
@@ -775,9 +811,9 @@ Veja também a seção~\protect\ref{sec-url} para mais informações.}
 \label{tabela-opcoes-url}
 \end{table}
 
-\section{Comandos controlados por {\tt citeoption}}
+\subsection{Comandos controlados por {\tt citeoption}}
 
-\subsection{{\tt bibtextitlecommand}}
+\subsubsection{{\tt bibtextitlecommand}}
 \label{sec-titlecommand}
 
 Esse comando permite formatações adicionais bastantes sofisticadas.
@@ -801,7 +837,7 @@ esse comando poderia ficar da seguinte forma:
 \end{verbatim}
 
 \clearpage
-\section{Opções agrupadas}
+\subsection{Opções agrupadas}
 
 O arquivo {\tt abnt-options.bib} define opções que agrupam outras opções
 definidas nas tabelas \ref{tabela-opcoes-formatacao} a \ref{tabela-opcoes-funcionamento}.
@@ -843,7 +879,7 @@ Grupos de opções que caraterizam as versões das diversas `normas'.}
 
 
 \clearpage
-\chapter{Novos campos}
+\section{Novos campos}
 
 Para conseguir atender a todas as peculiaridades da `norma' 6023\cite{NBR6023:2000}
 foi necessário criar um grande número de campos bibliográficos específicos.
@@ -851,7 +887,7 @@ Esteja atento que outros estilos bibtex vão simplesmente ignorar esses campos.
 Se o campo for utilizado por outros estilos também, estaremos indicando esse
 fato (desde que seja do nosso conhecimento).
 
-\section{Endereços de internet (url)}\label{sec-url}
+\subsection{Endereços de internet (url)}\label{sec-url}
 
 O estilo bibliográfico junto com o pacote {\tt abntcite} trata corretamente
 endereços de internet, mais conhecidos como {\tt url}. Veja a tabela~\ref{tabela-url}.
@@ -1037,7 +1073,7 @@ campo & descrição \\ \hline
 \end{table}
 
 
-\chapter{Novas Entradas}
+\section{Novas Entradas}
 
 Algumas novas entradas tiveram de ser criadas. Entradas são
 objetos de citação bibliográficas como \verb+@book+ e \verb+@article+
@@ -1045,7 +1081,7 @@ que ficam no seu arquivo de bibliografias (arquivo {\tt .bib}).
 Note que outros estilos bibliográficos vão tratar essas entradas como
 sendo \verb+@misc+
 
-\section{{\tt @ABNT-option} --- Mudança no estilo ABNT}
+\subsection{{\tt @ABNT-option} --- Mudança no estilo ABNT}
 
 Com entrada {\tt @ABNT-option} você pode especificar as alterações
 no comportamento dos estilos bibliográficos.
@@ -1055,7 +1091,7 @@ Neste texto as alterações são mostradas na própria lista de referências:
 \citeonline{abnt-options0,ABNT-barcelos0,ABNT-barcelos1,7.9.3-2:begin,7.9.3-2:end,%
 abnt-options1,abnt-options2,abnt-options3,abnt-options4,abnt-options5}
 
-\section{{\tt @hidden} --- Entrada escondida }
+\subsection{{\tt @hidden} --- Entrada escondida }
 
 {\tt @hidden} gera uma entrada que não vai aparecer na lista de
 referências para ser usada com os comandos
@@ -1066,17 +1102,17 @@ ou {\tt organization}, ou {\tt title}) e de ano
 ({\tt year}). 
 Este tipo de entrada só tem sentido no estilo autor-data {\tt [alf]}.
 
-\section{{\tt @ISO-option} --- Mudança de estilo ISO}
+\subsection{{\tt @ISO-option} --- Mudança de estilo ISO}
 
 Tem a mesma função que entradas tipo {\tt @ABNT-option} só que altera
 opções específicas para `normas' ISO.
 
-\section{{\tt @journalpart} --- Partes de periódicos }
+\subsection{{\tt @journalpart} --- Partes de periódicos }
 
 Esta entrada formata partes de periódicos. Veja os exemplos
 \citeonline{7.4.2-1,7.4.2-2,7.4.2-3,8.2.4,8.2.5,8.6.6,8.6.7}.
 
-\section{{\tt @monography} --- Monografias}
+\subsection{{\tt @monography} --- Monografias}
 
 Além de teses de mestrado\footnote{O trabalho escrito de mestrado no Brasil
 é chamado de dissertação, dando a entender que se trata de um trabalho
@@ -1086,12 +1122,12 @@ costuma ser mais respeitado, é chamado de tese de mestrado mesmo.}
 Use exatamente da mesma maneira como {\tt @mastersthesis} e {\tt @phdthesis}.
 Exemplos: \citeonline{8.11.4-1,8.11.4-1b,8.11.4-1c}
 
-\section{{\tt @patent} --- Patentes}
+\subsection{{\tt @patent} --- Patentes}
 
 É uma entrada ainda bastante experimental para descrever patentes.
 Exemplo: \citeonline{7.6}
 
-\section{{\tt @thesis} --- Teses de modo geral}
+\subsection{{\tt @thesis} --- Teses de modo geral}
 
 Esta entrada funciona como {\tt @phdthesis} com a diferença que o 
 campo {\tt type} deve conter toda a informação sobre o tipo de tese. 
@@ -1103,13 +1139,20 @@ teremos como saída `Doutorado em física' e não
 `Tese (Doutorado em física)' como em {\tt @phdthesis}.
 
 
-\bibliography{abnt-nrj,abnt-bibtex-doc,abntex-doc,abnt-6023-2000,normas,abnt-test}
+\bibliography{
+references/abnt-nrj,
+references/abntex-doc,
+references/abnt-6023-2000,
+references/normas,
+references/abnt-test}
 
+%references/abnt-bibtex-doc,
 
-\apendice
-\chapter{Questões específicas da `norma' 6023 e sua implementação}
+\appendix
 
-\section{A `norma' em contradição com ela mesma}
+\section{Questões específicas da `norma' 6023 e sua implementação}
+
+\subsection{A `norma' em contradição com ela mesma}
 
 A `norma' diz que os exemplos que traz são normativos, ocorre
 que muitos exemplos não satisfazem a própria `norma'.
@@ -1125,7 +1168,7 @@ A solução para reproduzir isso foi formatar o {\tt author} assim:
  author  ={Dante{\space}Alighieri},
 \end{verbatim}
 
-\section{Elementos essenciais e complementares}
+\subsection{Elementos essenciais e complementares}
 
 Do ítem {\bf 7.1.3}\cite{NBR6023:2000}:
 \begin{quote}
@@ -1150,7 +1193,7 @@ Veja tabela~\ref{tabela-isbn} sobre a descrição e uso do campo {\tt isbn}.
 Veja comentário na seção \ref{sec-teses}, \latex{página
   \pageref{sec-teses},} sobre o posicionamento do ano em \citeonline{7.1.3-3}.
 
-\section{Partes de coletâneas [{\tt incollection}] e livros [{\tt inbook}]}
+\subsection{Partes de coletâneas [{\tt incollection}] e livros [{\tt inbook}]}
 
 Do ítem {\bf 7.2.2}\cite{NBR6023:2000}:
 \begin{quote}
@@ -1169,7 +1212,7 @@ ou outra forma de individualizar a parte referenciada.
 \item Formatar o tipo de editor em \cite{7.2.2-1}.
 \end{enumerate}
 
-\section{Eventos, Anais, Proceedings}
+\subsection{Eventos, Anais, Proceedings}
 
 Na seção 7.5.1\cite{NBR6023:2000} é discutido como se referencia artigos em
 proceedings e os proceedings em sí. É uma completa maluquice! Em nenhum
@@ -1213,7 +1256,8 @@ pequeno também.
 {\tt proceedings}\cite{7.5.1.2-1,7.5.1.2-2,7.5.1.2-3,7.5.3-1,8.1.2.1-3};
 {\tt inproceedings}\cite{7.5.2.2-1,7.5.2.2-2,7.5.2.2-3,7.5.3-2,7.5.3-3,7.5.3-4,7.5.3-5}
 
-\section{Nomes pessoais [{\tt author}]}
+\subsection{Nomes pessoais [{\tt author}]}
+
 \label{nome-pessoais}
 \begin{quote}
 {\bf 8.1.1.1}\cite{NBR6023:2000}
@@ -1224,7 +1268,7 @@ do(s) prenome(s) e \emph{outros sobrenomes} abreviado(s) ou não.
 \cite{8.1.1.1-1,8.1.1.1-2,8.1.1.1-3}
 \end{quote}
 
-\subsection{Comentário}
+\subsubsection{Comentário}
 A ABNT conseguiu quebrar o sobrenome em duas partes. Com isso ficou difícil
 gerar uma forma coerente de escrever nomes em bibtex.
 Bibtex assume que nomes sejam da forma "First von Last Jr.", a ABNT misturou
@@ -1243,7 +1287,7 @@ Pelos exemplos fica aparente que esses elementos são agregados ao sobrenome.
 Embora seja estranho, o estilo trata esses casos sem problema algum.
 Veja \citeonline{8.4.4,9.1-1,7.5.2.2-1,7.4.2.1-3,7.5.3-4}
 
-\section{Título ({\tt title}) e subtítulo ({\tt subtitle})}
+\subsection{Título ({\tt title}) e subtítulo ({\tt subtitle})}
 
 Do ítem {\bf 8.2.1}\cite{NBR6023:2000}:
 \begin{quote}
@@ -1259,7 +1303,7 @@ Exemplos:
 {\tt mastersthesis}\cite{8.11.4-2}
 {\tt misc}\cite{7.13.2-1}.
 
-\subsection{Comentário:}
+\subsubsection{Comentário:}
 O subtítulo foi implementado através dos novos campos {\tt subtitle}
 e {\tt booksubtitle} que
 estão disponível para todas as entradas bibliográficas.
@@ -1274,7 +1318,7 @@ Não fica muito claro o que vem a ser um subtítulo nem qual seria a sua
 serventia. Não conhecemos nenhum outro estilo bibliográfico que faça
 uso de subtítulos, daí não recomendamos o seu uso.
 
-\section{Ausência de local ({\tt address}) e editora ({\tt publisher})}
+\subsection{Ausência de local ({\tt address}) e editora ({\tt publisher})}
 
 Do ítem {\bf 8.4.5}\cite{NBR6023:2000}:
 \begin{quote}
@@ -1293,14 +1337,14 @@ identificados na publicação, utilizam-se ambas as expressões, abreviadas e
 entre colchetes [S.l.: s.n.]
 \end{quote}
 
-\subsection{Comentário}
+\subsubsection{Comentário}
 Quando o bibtex encontrar uma entrada {\tt book} sem campo {\tt publisher}
 será feita a substituição automática por [s.n.].
 \cite{8.5.3}
 Se encontrar sem {\tt address} será colocada [S.l.]. \cite{8.4.5-1,8.4.5-2}
 Se não tiver nenhuma das duas [S.l.: s.n.]. \cite{8.5.4}
 
-\section{Teses, Dissertações, Monografias}
+\subsection{Teses, Dissertações, Monografias}
 \label{sec-teses}
 
 Do ítem {\bf 8.11.4}\cite{NBR6023:2000}:
@@ -1313,7 +1357,7 @@ e a data [{\tt year}] da defesa, mencionada na folha de
 aprovação (se houver). \cite{8.11.4-1,8.11.4-2,8.11.4-1b,8.11.4-1c}
 \end{quote}
 
-\subsection{Comentário}
+\subsubsection{Comentário}
 Na `norma' os exemplos \citeonline{8.11.4-1,8.11.4-2} apresentam alguns
 problemas. Ambos repetem o ano \emph{duas} vezes, a primeira logo após o título
 e a segunda no final. O exemplo \citeonline{8.11.4-2} inclusive apresenta
@@ -1325,7 +1369,7 @@ apenas a data no final logo após o local.
 veja a tabela~\ref{tabela-opcoes-composicao} para mais detalhes.
 
 
-\chapter{Referências segundo o tipo de entrada bibtex}
+\section{Referências segundo o tipo de entrada bibtex}
 
 \begin{table}[htbp]
 \begin{center}
