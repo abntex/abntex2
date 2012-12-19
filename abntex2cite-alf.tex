@@ -679,22 +679,32 @@ Em \citeyear{10520:4.1-1} a ironia será assim uma \latexhtml{\ldots\ }{...} pro
 
 \section{Alteração do estilo alfabético {\tt [citeoption]}}
 
+\DescribeMacro{\citeoption}
 Com o comando \verb+\citeoption+ ou \verb+\usepackage+ você pode alterar alguns comportamentos
-do estilo bibliográfico. Na tabela \ref{tabela-opcoes} listamos as
-opções que são específicas do estilo {\tt abnt-alf}. 
-Por exemplo para desativar a substituição dos autores por `et al.'
-você chamar o seguinte comando
+do estilo bibliográfico. Na \autoref{tabela-opcoes}, listamos as opções que são
+específicas do estilo {\tt abnt-alf}.
+
+Por exemplo, para desativar a substituição dos autores por `et al.', você
+incluir o pacote com a seguinte opção:
+
 \begin{verbatim}
-\usepackage[alf,abnt-etal-cite=0]{abntcite}
+    \usepackage[alf,abnt-etal-cite=0]{abntcite}
 \end{verbatim}
-ou, em qualquer lugar do texto,
+
+ou, em qualquer ponto do texto,
+
 \begin{verbatim}
-\citeoption{abnt-etal-cite=0}
+    \citeoption{abnt-etal-cite=0}
 \end{verbatim}
-Para ver as demais
-opções e o modo de uso veja o documento~\cite{abnt-bibtex-doc}.
+
+Para ver as demais opções e o modo de uso veja o
+documento \cite{abnt-bibtex-doc}.
 
 \begin{table}[htbp]
+\caption[Opções de alteração dos estilos bibliográficos: composição]{
+Opções de alteração da composição dos estilos bibliográficos.}
+\label{tabela-opcoes}
+
 \begin{center}
 \begin{tabular}{lrp{8cm}}\hline\hline
 campo & opções & descrição \\ \hline
@@ -714,9 +724,6 @@ $\vdots$ & $\vdots$ & \\
 \\ \hline\hline
 \end{tabular}
 \end{center}
-\caption[Opções de alteração dos estilos bibliográficos: composição]{
-Opções de alteração da composição dos estilos bibliográficos.}
-\label{tabela-opcoes}
 \end{table}
 
 
@@ -724,52 +731,58 @@ Opções de alteração da composição dos estilos bibliográficos.}
 
 \subsection{Autores com mesmo sobrenome e nome diferente}
 
-A `norma' \cite{NBR10520:2001} no seu ítem 5.1.2 sugere que se coloque o nome por extenso quando
-o sobrenome+data forem iguais. Isto em geral não é possível pois raramente
-se conhece o primeiro nome de um autor. Em todo caso veja a seção~\ref{mult-abc}
-para ver como é resolvido o caso de autor-data igual.
+A `norma' \cite{NBR10520:2001}, no seu ítem 5.1.2, sugere que se coloque o nome
+por extenso quando o sobrenome+data forem iguais. Isso em geral não é possível
+pois raramente se conhece o primeiro nome de um autor. Em todo caso, veja a
+\autoref{mult-abc} para ver como é resolvido o caso de autor-data igual.
 
-\subsection{Referências em notas de roda-pé}
+\subsection{Referências em notas de rodapé}
 
-Não há intenção, a curto prazo, em implementar referências em notas de roda-pé
+Não há intenção, a curto prazo, em implementar referências em notas de rodapé
 conforme sugerido no ítem 6 da `norma' 10520.
 
 \section{Problemas com a `norma' 10520}
 
 Como já foi dito, a `norma' 10520 \cite{NBR10520:2001} é incompleta e
 inconsistente. Aqui apresentamos uma descrição dos principais problemas
-encontrados e como foram resolvidos (quando possível).
+encontrados e como foram resolvidos, quando foi possível.
 
 \subsection{Referências múltiplas}
 
-As referências a vários autores simultâneamente, ou várias obras de um
-mesmo autor são um verdadeiro mistério na ``norma'' \cite{NBR10520:2001}.
-No exemplo da seção 5.1.4 diz a ``norma'''
+As referências a vários autores simultaneamente, ou várias obras de um mesmo
+autor, são um verdadeiro mistério na ``norma'' \cite{NBR10520:2001}. No exemplo
+da seção 5.1.4, diz a ``norma'''
+
 \begin{quote}
 As citações de diversos documentos de um mesmo autor, publicados em anos diferentes
 e mencionados simultaneamente, têm as suas datas separadas por vírgula.\\
-Exemplo: (CRUZ; CORREA; COSTA; 1998, 1999, 2000)\footnote{Transcrição exata, esta
+Exemplo: (CRUZ; CORREA; COSTA; 1998, 1999, 2000)\footnote{Transcrição exata. Esta
 chamada não foi gerada automaticamente.}
 \end{quote}
+
 Podemos então entender que Cruz, Correa e Costa são os três autores e 1998, 1999
 e 2000 são os três anos de publicação referindo-se a três documentos separados?
+
 Antes de responder sim, veja o que diz a seção seguinte, 5.1.5:
+
 \begin{quote}
 As citações de diversos documentos de vários autores, mencionados simultaneamente,
 devem ser separadas por ponto e vírgula.\\
-Exemplo: (FONSECA; PAIVA; SILVA, 1997)\footnote{Transcrição exata, esta
+Exemplo: (FONSECA; PAIVA; SILVA, 1997)\footnote{Transcrição exata. Esta
 chamada não foi gerada automaticamente.}
 \end{quote}
+
 E agora? Trata-se de três autores separados, Fonseca, Paiva, Silva? Ou um
 autor Fonseca e outro documento com dois autores, Paiva e Silva? Ou um
 documento com dois autores Fonseca e Paiva seguido de um autor Silva?
-Quem não lê a descrição da seção 5.1.5 pode inclusive achar que se trata
-de um único documento. Ou o exemplo da seção 5.1.5 está errado:
-faltam datas aos outros autores, ou foi uma tentativa
-desastrada de agrupar três documentos com o mesmo ano de publicação.
-Já exemplo anterior, da seção 5.1.4,  tem problemas também
-há um ponto-e-vírgula após o COSTA quando deveria ter apenas uma vírgula.
-Veja na seção~\ref{mult-ref} como fica a nossa solução.
+Quem não lê a descrição da seção 5.1.5, pode-se inclusive achar que trata-se
+de um único documento. Ou o exemplo da seção 5.1.5 está errado: faltam datas aos
+outros autores, ou foi uma tentativa desastrada de agrupar três documentos com
+o mesmo ano de publicação. Já exemplo anterior, da seção 5.1.4, há problemas
+também com um ponto-e-vírgula após o COSTA, quando deveria haver apenas uma
+vírgula. 
+
+Veja na \autoref{mult-ref} como fica a nossa solução.
 
 Exemplo da seção 5.1.5:\\
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
@@ -799,25 +812,23 @@ ou, supondo que Fonseca e Paiva sejam co-autores,\\
 
 \subsection{et al.}
 
-A `norma' 10520 \cite{NBR10520:2001} nada diz sobre como
-devem ser tratadas as chamadas a referências com mais de
-três autores. Supondo que exista uma relação lógica entre as
-`normas' 10520 \cite{NBR10520:2001} e 6023 \cite{NBR6023:2000},
-então faz sentido pensar que deve-se usar `et al.'
-na chamada exatamente nos mesmos casos em que `et al.' é usado
-na lista bibliográfica. No caso a 6023 diz que se deve usar 
-`et al.' para \emph{mais de} três autores, ou seja, a partir de quatro
-autores.\footnote{Muitas pessoas entendem isso errado e pensam
+A `norma' 10520 \cite{NBR10520:2001} nada diz sobre como devem ser tratadas as
+chamadas a referências com mais de três autores. Supondo que exista uma relação
+lógica entre as `normas' 10520 \cite{NBR10520:2001} e 6023 \cite{NBR6023:2000},
+então faz sentido pensar que deve-se usar `et al.' na chamada exatamente nos
+mesmos casos em que `et al.' é usado na lista bibliográfica. No caso, a 6023 diz
+que se deve usar `et al.' para \emph{mais de} três autores, ou seja, a partir
+de quatro autores.\footnote{Muitas pessoas entendem isso errado e pensam
 que se usa `et al.' já com três autores}
 
-Parece lógico, não é mesmo? Então veja o seguinte caso. 
-Fomos informados que nas `normas'
-da UFLA (que \emph{supostamente} seguem as `normas' da ABNT) exige-se
-o uso de `et al.' na chamada já com três autores e não se use
-`et al.' na lista bibliográfica. E agora? Cadê a lógica?
+Parece lógico, não é mesmo? Então veja o seguinte caso. Fomos informados que
+nas `normas' da UFLA (que \emph{supostamente} seguem as `normas' da ABNT)
+exige-se o uso de `et al.' na chamada já com três autores e não se use `et al.'
+na lista bibliográfica. E agora? Cadê a lógica?
 
-Por isso insistimos que você sempre verifique a `lógica' da sua
-instituição \emph{bem antes} de entregar a sua tese.
+Por isso insistimos que você sempre verifique a `lógica' da sua instituição
+\emph{bem antes} de entregar a sua tese.
 
-\bibliography{abnt-10520-2001,abnt-10520-2002,abnt-6023-2000,normas,abnt-test,abntex-doc}
+\bibliography{references/abnt-10520-2001,references/abnt-10520-2002,references/abnt-6023-2000,references/normas,references/abnt-test,references/abntex-doc}
+
 \end{document}

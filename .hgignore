@@ -1,3 +1,11 @@
 
 syntax: regexp
 ^\.project$
+syntax: regexp
+^\.texlipse$
+syntax: regexp
+\.glo$
+syntax: regexp
+\.idx$
+syntax: regexp
+^\.settings$
