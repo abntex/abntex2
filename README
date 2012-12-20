@@ -14,7 +14,7 @@ INSTALLATION
 To install the abntex2 class and abntex2cite package you need:
   abntex2.cls
   abntex2cite.sty
-  abntex2-abrev.sty
+  abntex2abrev.sty
   abntex2-alf.bst
   abntex2-num.bst
   abntex2-options.bib
@@ -73,7 +73,7 @@ The abntex2 class and abntex2cite package consists of the following files:
   README       						Instructions on installation and documentation.
   abntex2.cls  						The abntex2 class file.
   abntex2cite.sty					The abntex2cite citation package file.
-  abntex2-abrev.sty					Extension of abntex2cite package. It contains abbreviations helpers macros.
+  abntex2abrev.sty					Extension of abntex2cite package. It contains abbreviations helpers macros.
   abntex2-alf.bst					Numeric citation style file.
   abntex2-num.bst					Alphanumeric (author-date) citation style file.
   abntex2-options.bib				Default citation options configurations.
