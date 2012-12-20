@@ -130,17 +130,25 @@ NBR 10520:2002 e o estilo bibliográfico alfabético (sistema autor-data)}
 \author{Equipe \abnTeX2}
 \date{\today}
 
-
 \maketitle
 
-\begin{htmlonly}
-\title{\titulo}
-\author{Equipe \abnTeX2}
-\date{\Data$Date: 2004/03/23 17:35:47 $}
-\maketitle
-\end{htmlonly}
+% \begin{htmlonly}
+% \title{\titulo}
+% \author{Equipe \abnTeX2}
+% \date{\Data$Date: 2004/03/23 17:35:47 $}
+% \maketitle
+% \end{htmlonly}
+
+\begin{abstract}
+Este manual é parte integrante da suíte \abnTeX2 e aborda tópicos específicos
+da ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema
+autor-data).
+\end{abstract}
+
 
 \tableofcontents
+
+\listoftables
 
 \section{Escopo}
 
@@ -829,6 +837,7 @@ na lista bibliográfica. E agora? Cadê a lógica?
 Por isso insistimos que você sempre verifique a `lógica' da sua instituição
 \emph{bem antes} de entregar a sua tese.
 
+\addcontentsline{toc}{section}{Referências}
 \bibliography{references/abnt-10520-2001,references/abnt-10520-2002,references/abnt-6023-2000,references/normas,references/abnt-test,references/abntex-doc}
 
 \end{document}

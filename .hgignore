@@ -9,3 +9,7 @@ syntax: regexp
 \.idx$
 syntax: regexp
 ^\.settings$
+syntax: regexp
+^abntex2-modelo\.nlo$
+syntax: regexp
+^abntex2-modelo\.nls$

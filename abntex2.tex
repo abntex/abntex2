@@ -81,11 +81,12 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
   \noindent Este é o manual de uso da classe \textsf{abntex2}. Trata-se de um
   conjunto de customizações da classe \textsf{memoir} para elaboração de
   trabalhos acadêmicos condizentes com as normas da Associação Brasileira de
-  Normas Técnicas (ABNT). Este manual não abrange o pacote
-  \textsf{abntex2-cite} ou demais componentes do \abnTeX2.
+  Normas Técnicas (ABNT).
 \end{abstract}
 
 \tableofcontents
+
+\listoftables
 
 % ------
 \section{Escopo}
@@ -97,8 +98,15 @@ especialmente aqueles definidos pela ABNT NBR 14724:2011 e pela ABNT NBR
 6024:2012.
 
 Este manual faz parte da suíte \abnTeX2. Para referências a pacote de citações
-\textsf{abntex2cite}, consulte \cite{abntex2cite} e \cite{abntex2cite-alf}.
+\textsf{abntex2cite}, consulte \citeonline{abntex2cite} e
+\citeonline{abntex2cite-alf}.
 
+Um exemplo de uso da classe descrita neste manual pode ser consultado em
+\citeonline{abntex2modelo}. O documento indicado trata-se de um ``Modelo
+Canônico'', ou seja, de um modelo de trabalho acadêmico que não é específico de nenhuma
+universidade ou instituição, mas que implementa os requisitos das normas da
+ABNT --- e apenas eles.
+ 
 % ------
 \section{Introdução}
 % ------
@@ -120,10 +128,6 @@ trabalhos brasileiros. Nesse sentido, \abnTeX2 é proposto como uma evolução d
 \abnTeX1 original\footnote{Ver \autoref{sec-historico},
 \nameref{sec-historico}.} e como facilitador na elaboração de trabalhos
 acadêmicos condizentes com as normas ABNT.
-
-A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX2 não é 
-modelo específico de trabalho acadêmico de nenhuma universidade ou instituição,
-mas que implementa tão somente os requisitos das normas da ABNT.
 
 O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
 
@@ -162,9 +166,9 @@ promovidas.
 Este manual de uso não foi escrito sob o modelo do \abnTeX2, nem segue os
 padrões da ABNT.
 
-Este texto deve ser utilizado como complemento do manual do \textsf{memoir},
-disponível em
-\url{http://mirrors.ctan.org/macros/latex/contrib/memoir/memman.pdf}.
+Este texto deve ser utilizado como complemento do manual do
+\textsf{memoir}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/}}
+\cite{memoir}.
 
 \subsection{Histórico do projeto}\label{sec-historico}
 
@@ -200,12 +204,47 @@ A ideia de Gerald e o software já construído do \abnTeX~original servem de pon
 de partida para o surgimento deste novo projeto, o \abnTeX2.
 O novo projeto utiliza o menor conjunto possível de classes nativas do \LaTeX~de
 modo a implementar as exigências das normas ABNT. Para isso, escolheu-se como
-base a classe
-\textsf{memoir}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/}},
-por ser uma classe flexível, com excelente documentação e que constantemente
-recebe atualizações de novas funcionalidades e correção de eventuais problemas.
-Este documento descreve o uso desta nova classe.
+base a classe \textsf{memoir}, por ser uma classe flexível, com excelente
+documentação e que constantemente recebe atualizações de novas funcionalidades e
+correção de eventuais problemas. Este documento descreve o uso desta nova
+classe.
 
+\subsection{O que o \abnTeX2 traz de novo em relação ao \abnTeX\ original?}
+
+A suíte \abnTeX2 é composta por três elementos principais: 
+
+\begin{itemize}
+  \item a classe de formação de trabalhos acadêmicos \textsf{abntex2}, descrita
+  neste manual;
+  \item o pacote de citações bibliográficas \textsf{abntex2cite}; e
+  \item as especificações de formatação de referências bibliográficas
+  |abntex2-num.bst| e |abntex2-alf.sty|.
+\end{itemize}
+
+Esta versão do \abnTeX2 fornece uma classe para produção de trabalhos acadêmicos
+completamente nova em relação à utilizada pelo projeto anterior. A classe
+anterior, chamada \textsf{abnt}, não está mais disponível e não é distribuída
+nesta versão.
+
+Já o pacote de citações bibliográficas e as especificações de formatação de
+referências bibliográficas são quase que uma cópia da versão anterior. Por
+enquanto apenas algumas novas funcionalidades foram incluídas, como a
+possibilidade de uso do pacote \textsf{backref} (\autoref{sec-referencias}) e
+outros pequenos aperfeiçoamentos. Para referências a pacote de citações
+\textsf{abntex2cite}, consulte \cite{abntex2cite} e \cite{abntex2cite-alf}.
+
+\subsection{Compatibilidade entre as versões 1 e 2 do \abnTeX}
+
+As duas versões do \abnTeX\ são compatíveis entre si, ou seja, não há
+incompatibilidade mútua entre as versões e você pode ter as duas versões do
+\abnTeX\ instaladas simultaneamente no mesmo computador. Desse modo, documentos
+escritos com a versão anterior do \abnTeX continuarão a serem compilados com a
+classe e os pacotes anteriores. Apenas documentos escritos conforme este manual
+utilizarão a nova classe e os novos pacotes de citação e formatação de
+referências bibliográficas.
+
+Com base nesse manual você provavelmente não terá dificuldades em converter os
+trabalhos escritos em \abnTeX\ original para o novo \abnTeX2.
 
 % ------
 \section{Estrutura de trabalhos acadêmicos brasileiros}
@@ -237,7 +276,7 @@ na seguinte ordem:
 		  Lista de tabelas (opcional) \\
 		  Lista de abreviaturas e siglas (opcional) \\
 		  Lista de símbolos (opcional) \\ 
-		  Sumário (obrigatório) \\
+		  Sumário (obrigatório) 
 		\item[Elementos textuais]\footnote{A nomenclatura dos títulos dos elementos
 		textuais é a critério do autor.}\
 		\\
@@ -1022,12 +1061,13 @@ O exemplo seguinte cria a Lista de ilustrações e já a adiciona ao
 \end{verbatim}
 
 A seção 4.2.1.9 da norma ABNT NBR 14724:2011 recomenda que, quando necessário,
-seja produzido uma lista própria para cada tipo de ilustração, como
-desenhos, esquemas, fluxogramas, fotografias, gráficos, mapas, organogramas,
-plantas, quadros, retratos, e outros. Como essa necessidade é específica de
-cada trabalho, o \abnTeX2 não traz essa implementação automaticamente.
-Porém, diferentes tipos de lista podem ser criadas por meio de macros do 
-\textsf{memoir}. Para isso, consulte o capítulo 9 do manual do \textsf{memoir}.
+seja produzido uma lista própria para cada tipo de ilustração, como desenhos,
+esquemas, fluxogramas, fotografias, gráficos, mapas, organogramas, plantas,
+quadros, retratos, e outros. Como essa necessidade é específica de cada
+trabalho, o \abnTeX2 não traz essa implementação automaticamente.
+Porém, diferentes tipos de lista podem ser criadas por meio de macros do
+\textsf{memoir}. Para isso, consulte o capítulo 9 do manual do \textsf{memoir}
+\cite{memoir}.
 
 % ---
 \subsection{Lista de tabelas (opcional)}\label{sec-listadetabelas}
@@ -1453,7 +1493,7 @@ coerência, a macro |\backmatter|, padrão do \textsf{memoir}, é reescrita para
 que tenha o mesmo comportamento que |\postextual|.
 
 % ---
-\subsection{Referências (obrigatório)}
+\subsection{Referências (obrigatório)}\label{sec-referencias}
 % ---
 
 \DescribeMacro{\bibliography}
@@ -1483,11 +1523,12 @@ Para indicar o local de impressão da bibliografia, utilize:
 \end{verbatim}
 
 Você pode usar tanto a classe \textsf{abntex2} quanto o pacote de citações
-\textsf{abntex2cite} de forma independente. Isso é útil, por exemplo, quando se
-está escrevendo um documento baseado em outra classe fornecida por uma
-instituição, por exemplo, mas se deseja manter o padrão de citações brasileiro,
-ou então, deseja-se utilizar as customizações da classe \textsf{abntex2} com
-outro padrão de referências bibliográficas.
+\textsf{abntex2cite} de forma independente. Ou seja, você pode usar a classe e
+não usar o pacote ou usar o pacote e não usar a classe. Isso é útil, por
+exemplo, quando se está escrevendo um documento baseado em outra classe
+fornecida por uma instituição, por exemplo, mas se deseja manter o padrão de
+citações brasileiro, ou então, deseja-se utilizar as customizações da classe
+\textsf{abntex2} com outro padrão de referências bibliográficas.
 
 \DescribeEnv{backref}
 O \textsf{abntex2cite} é compatível com o pacote
@@ -1609,6 +1650,7 @@ dúvidas e comentários no Fórum de discussão do \abnTeX2 em \abnTeXForum.
 
 
 % ------
+\addcontentsline{toc}{section}{Referências}
 \bibliography{references/abntex-doc}
 % ------
 
