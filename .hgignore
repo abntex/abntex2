@@ -13,3 +13,5 @@ syntax: regexp
 ^abntex2-modelo\.nlo$
 syntax: regexp
 ^abntex2-modelo\.nls$
+syntax: regexp
+\.brf$
