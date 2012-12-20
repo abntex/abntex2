@@ -75,6 +75,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{parskip}			% espaçamento entre os parágrafos
+\usepackage{nomencl} 			% Lista de simbolos
 
 \IfFileExists{html.sty}
 {\usepackage{html}}
@@ -196,18 +197,26 @@
 \author{Equipe abnTeX2}
 \title{\titulo}
 \date{\today}
+
 %end{latexonly}
 
-\begin{htmlonly}
-\title{\titulo}
+% \begin{htmlonly}
+% \title{\titulo}
+% 
+% \author{Equipe \abnTeX2\\\htmladdnormallink{\tt
+% https://code.google.com/p/abntex2}{https://code.google.com/p/abntex2}}
+% \date{\today}
+% \maketitle
+% \end{htmlonly}
 
-\author{Equipe \abnTeX2\\\htmladdnormallink{\tt
-https://code.google.com/p/abntex2}{https://code.google.com/p/abntex2}}
-\date{\today}
 \maketitle
-\end{htmlonly}
 
-\maketitle
+\begin{abstract}
+Este manual é parte integrante da suíte \abnTeX2 e descreve os estilos
+bibliográficos \textsf{abntex-alf.bst} e \textsf{abntex-num.bst}, responsáveis
+pelos estilos \textsf{bibtex} compatíveis com a ABNT NBR 6023:2000.
+\end{abstract}
+
 
 \tableofcontents
 \listoftables
@@ -216,7 +225,7 @@ https://code.google.com/p/abntex2}{https://code.google.com/p/abntex2}}
 
 O objetivo deste manual é descrever os estilos bibliográficos
 \textsf{abntex-alf.bst} e \textsf{abntex-num.bst}, responsáveis pelos estilos
-\textsf{bibtex} compatíveis com a ABNT NBR 6023:20000. 
+\textsf{bibtex} compatíveis com a ABNT NBR 6023:2000. 
 
 Este documento é parte integrante da suíte \abnTeX2 e é complementado pelo
 documento \citeonline{abntex2cite-alf}.
@@ -1219,7 +1228,7 @@ Por exemplo, se tivermos:
 teremos como saída `Doutorado em física' e não `Tese (Doutorado em física)' como
 em {\tt @phdthesis}.
 
-
+\addcontentsline{toc}{section}{Referências}
 \bibliography{references/abnt-bibtex-doc,references/abnt-nrj,references/abntex-doc,references/abnt-6023-2000,references/normas,references/abnt-test}
 
 
