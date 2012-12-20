@@ -78,10 +78,11 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 \maketitle
 
 \begin{abstract}
-  \noindent Este é o manual de uso da classe \textsf{abntex2}. Trata-se de um
-  conjunto de customizações da classe \textsf{memoir} para elaboração de
-  trabalhos acadêmicos condizentes com as normas da Associação Brasileira de
-  Normas Técnicas (ABNT).
+Este é o manual de uso da classe \textsf{abntex2}. Trata-se de um conjunto de
+customizações da classe \textsf{memoir} para elaboração de trabalhos acadêmicos
+condizentes com as normas da Associação Brasileira de Normas Técnicas,
+especialmente a ABNT NBR 14724:2011 e a ABNT NBR
+6024:2012.
 \end{abstract}
 
 \tableofcontents
@@ -95,9 +96,10 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 O objetivo deste manual é descrever a classe \textsf{abntex2}, responsável pelo
 \textit{layout} dos elementos de estruturação de documentos acadêmicos,
 especialmente aqueles definidos pela ABNT NBR 14724:2011 e pela ABNT NBR
-6024:2012.
+6024:2012. A \autoref{sec-introducao} contém a lista completa de normas
+observadas pela classe.
 
-Este manual faz parte da suíte \abnTeX2. Para referências a pacote de citações
+Este manual faz parte da suíte \abnTeX2. Para referências ao pacote de citações
 \textsf{abntex2cite}, consulte \citeonline{abntex2cite} e
 \citeonline{abntex2cite-alf}.
 
@@ -105,11 +107,13 @@ Um exemplo de uso da classe descrita neste manual pode ser consultado em
 \citeonline{abntex2modelo}. O documento indicado trata-se de um ``Modelo
 Canônico'', ou seja, de um modelo de trabalho acadêmico que não é específico de nenhuma
 universidade ou instituição, mas que implementa os requisitos das normas da
-ABNT --- e apenas eles.
+ABNT, e apenas eles.
  
 % ------
-\section{Introdução}
+\section{Considerações iniciais}
 % ------
+
+\subsection{Introdução}\label{sec-introducao}
 
 Dentre as características de qualidade de trabalhos acadêmicos (teses,
 dissertações e outros), ao lado da pertinência do tema e dos aspectos relativos
@@ -132,10 +136,12 @@ acadêmicos condizentes com as normas ABNT.
 O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
 
 \begin{description}
-  \item[ABNT NBR 6023:2000]\footnote{A versão corrente da ABNT NBR 6023 é a
-  6023:2002. Porém, até este momento, o \abnTeX2 traz os estilos compatíveis com a versão anterior da norma.
-A atualização dos estilos é uma das etapas posterioras do projeto.} Informação e documentação -
-  Referência - Elaboração
+  \item[ABNT NBR 6023:2000] Informação e documentação - Referência -
+  Elaboração\footnote{A versão corrente da ABNT NBR 6023 é a 6023:2002. Porém,
+  até este momento, o \abnTeX2 traz os estilos compatíveis com a versão
+  anterior da norma. A atualização dos estilos é uma das etapas posteriores do
+  projeto. Consulte \citeonline{abntex2cite} e \citeonline{abntex2cite-alf}
+  para mais informações.}
   \item[ABNT NBR 6024:2012] Informação e documentação - Numeração
   progressiva das seções de um documento - Apresentação
   \item[ABNT NBR 6027:2003] Informação e documentação - Sumário -
@@ -148,20 +154,6 @@ A atualização dos estilos é uma das etapas posterioras do projeto.} Informaç
   \item[ABNT NBR 14724:2011] Informação e documentação - Trabalhos
   acadêmicos - Apresentação
 \end{description}
-
-Sinta-se convidado a participar do projeto \abnTeX2! Acesse o site do projeto em
-\abnTeXSite. Também fique livre para conhecer, estudar, alterar e redistribuir o
-trabalho do \abnTeX2, desde que os arquivos modificados tenham seus nomes
-alterados, até mesmo no seu computador, e que os créditos sejam dados aos
-autores originais, nos termos da ``The LaTeX Project Public
-License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-Encorajamos que sejam realizadas customizações específicas para universidades
---- como capas, folha de aprovação, etc. Porém, recomendamos que ao invés de se
-alterar diretamente os arquivos do \abnTeX2, distribua-se aos estudantes
-arquivos com as respectivas customizações. Isso permite que futuras versões do
-\abnTeX2 não se tornem automaticamente incompatíveis com as customizações
-promovidas.
 
 Este manual de uso não foi escrito sob o modelo do \abnTeX2, nem segue os
 padrões da ABNT.
@@ -202,16 +194,24 @@ muito mais simples de manter e atualizar no longo prazo.''
 
 A ideia de Gerald e o software já construído do \abnTeX~original servem de ponto
 de partida para o surgimento deste novo projeto, o \abnTeX2.
-O novo projeto utiliza o menor conjunto possível de classes nativas do \LaTeX~de
-modo a implementar as exigências das normas ABNT. Para isso, escolheu-se como
-base a classe \textsf{memoir}, por ser uma classe flexível, com excelente
-documentação e que constantemente recebe atualizações de novas funcionalidades e
-correção de eventuais problemas. Este documento descreve o uso desta nova
-classe.
 
-\subsection{O que o \abnTeX2 traz de novo em relação ao \abnTeX\ original?}
+O novo projeto foi iniciado em maio de 2012 por iniciativa de Lauro César
+Araujo e apoiado pelos integrantes do grupo \abnTeXForum. A primeira versão do
+\abnTeX2 foi concluída em dezembro de 2012 e disponibilizada ao público em
+janeiro de 2013. O portal do projeto atual é \abnTeXSite.
 
-A suíte \abnTeX2 é composta por três elementos principais: 
+% O novo projeto utiliza o menor conjunto possível de classes nativas do \LaTeX~de
+% modo a implementar as exigências das normas ABNT. Para isso, escolheu-se como
+% base a classe \textsf{memoir}, por ser uma classe flexível, com excelente
+% documentação e que constantemente recebe atualizações de novas funcionalidades e
+% correção de eventuais problemas. Este documento descreve o uso desta nova
+% classe.
+
+\subsection{O que o \abnTeX2 traz de novo em relação ao \abnTeX1?}
+
+A suíte \abnTeX2 é composta por três elementos principais\footnote{Somam-se a
+esses elementos a documentação e o Modelo canônico de trabalho acadêmico, todos
+distribuídos de forma conjunta.}:
 
 \begin{itemize}
   \item a classe de formação de trabalhos acadêmicos \textsf{abntex2}, descrita
@@ -230,21 +230,39 @@ Já o pacote de citações bibliográficas e as especificações de formatação
 referências bibliográficas são quase que uma cópia da versão anterior. Por
 enquanto apenas algumas novas funcionalidades foram incluídas, como a
 possibilidade de uso do pacote \textsf{backref} (\autoref{sec-referencias}) e
-outros pequenos aperfeiçoamentos. Para referências a pacote de citações
-\textsf{abntex2cite}, consulte \cite{abntex2cite} e \cite{abntex2cite-alf}.
+outros pequenos aperfeiçoamentos. Para referências ao pacote de citações
+\textsf{abntex2cite}, inclusive sobre conformidade com as normas, consulte
+\citeonline{abntex2cite} e \citeonline{abntex2cite-alf}.
 
 \subsection{Compatibilidade entre as versões 1 e 2 do \abnTeX}
 
 As duas versões do \abnTeX\ são compatíveis entre si, ou seja, não há
-incompatibilidade mútua entre as versões e você pode ter as duas versões do
-\abnTeX\ instaladas simultaneamente no mesmo computador. Desse modo, documentos
-escritos com a versão anterior do \abnTeX continuarão a serem compilados com a
+incompatibilidade mútua entre elas de tal modo que você pode ter as duas
+versões do \abnTeX\ instaladas simultaneamente no mesmo computador. Desse modo, documentos
+escritos com a versão anterior do \abnTeX\ continuarão a serem compilados com a
 classe e os pacotes anteriores. Apenas documentos escritos conforme este manual
 utilizarão a nova classe e os novos pacotes de citação e formatação de
 referências bibliográficas.
 
-Com base nesse manual você provavelmente não terá dificuldades em converter os
-trabalhos escritos em \abnTeX\ original para o novo \abnTeX2.
+Com base neste manual você provavelmente não terá dificuldades em converter os
+trabalhos escritos em \abnTeX1 para o novo \abnTeX2.
+
+\subsection{Licença de uso e customizações para universidades e outras
+instituições}
+
+Sinta-se convidado a participar do projeto \abnTeX2! Acesse o site do projeto em
+\abnTeXSite. Também fique livre para conhecer, estudar, alterar e redistribuir o
+trabalho do \abnTeX2, desde que os arquivos modificados tenham seus nomes
+alterados, até mesmo no seu computador, e que os créditos sejam dados aos
+autores, nos termos da ``The LaTeX Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+Encorajamos que customizações específicas para universidades sejam realizadas
+--- como capas, folha de aprovação, etc. Porém, recomendamos que ao invés de se
+alterar diretamente os arquivos do \abnTeX2, distribua-se aos estudantes
+arquivos com as respectivas customizações. Isso permite que futuras versões do
+\abnTeX2 não se tornem automaticamente incompatíveis com as customizações
+promovidas.
 
 % ------
 \section{Estrutura de trabalhos acadêmicos brasileiros}
@@ -1651,7 +1669,7 @@ dúvidas e comentários no Fórum de discussão do \abnTeX2 em \abnTeXForum.
 
 % ------
 \addcontentsline{toc}{section}{Referências}
-\bibliography{references/abntex-doc}
+\bibliography{abntex2-doc}
 % ------
 
 
