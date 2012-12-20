@@ -23,6 +23,10 @@
 %% latex2html -split 0 -toc_depth 8 -noinfo -noaddress -nonavigation -show_section_numbers -html_version 4.0 abnt-bibtex-alf-doc.tex
 %%
 %%
+%% 2012/12/20 09h20 	laurocesar
+%%  Alteração do nome dos arquivos BIB de referências
+%%  Revisão da largura de algumas tabelas
+%%
 %% 2012/12/19 09h21 	laurocesar
 %%  Fork of the version v 1.29 2004/03/23 17:35:47   mvsfrasson
 %%  Alteração do nome do documento de abnt-bibtex-alf-doc.tex para
@@ -212,7 +216,7 @@ as referências bibliográficas produzidas pelo \abnTeX2 que sofreram alteraçõ
 entre a versão de 2000 e 2002 da norma.
 
 
-\subsection{Cuidado! Normas nebulosas!}
+\subsection{Cuidado: normas nebulosas!}
 
 Nós elaboramos os estilos debruçados diretamente sobre os originais da ABNT
 e as seguimos escrupulosamente. Mas não se iluda! O que a sua coordenação
@@ -685,7 +689,7 @@ será assim uma \ldots\  proposta por.
 Em \citeyear{10520:4.1-1} a ironia será assim uma \latexhtml{\ldots\ }{...} proposta por.
 \end{minipage}\vspace{5mm}\\
 
-\section{Alteração do estilo alfabético {\tt [citeoption]}}
+\section{Alteração do estilo alfabético {\tt citeoption}}
 
 \DescribeMacro{\citeoption}
 Com o comando \verb+\citeoption+ ou \verb+\usepackage+ você pode alterar alguns comportamentos
@@ -714,7 +718,7 @@ Opções de alteração da composição dos estilos bibliográficos.}
 \label{tabela-opcoes}
 
 \begin{center}
-\begin{tabular}{lrp{8cm}}\hline\hline
+\begin{tabular}{lrp{7cm}}\hline\hline
 campo & opções & descrição \\ \hline
 \emph{abnt-and-type} & & determina de que maneira é formatado o \emph{and}.\\
 {\tt abnt-and-type=e} & \underline{\tt e}& Usa `e' como em `Fonseca e Paiva'.\\
@@ -735,7 +739,7 @@ $\vdots$ & $\vdots$ & \\
 \end{table}
 
 
-\section{Ítens que ainda não foram implementados}
+\section{Requisitos ainda não implementados}
 
 \subsection{Autores com mesmo sobrenome e nome diferente}
 
@@ -838,6 +842,7 @@ Por isso insistimos que você sempre verifique a `lógica' da sua instituição
 \emph{bem antes} de entregar a sua tese.
 
 \addcontentsline{toc}{section}{Referências}
-\bibliography{references/abnt-10520-2001,references/abnt-10520-2002,references/abnt-6023-2000,references/normas,references/abnt-test,references/abntex-doc}
+\bibliography{abntex2-doc-abnt-10520-2001,abntex2-doc-abnt-10520-2002,abntex2-doc-abnt-6023-2000,abntex2-doc-normas,abntex2-doc-test,abntex2-doc}
+%\bibliography{references/abnt-10520-2001,references/abnt-10520-2002,references/abnt-6023-2000,references/normas,references/abnt-test,references/abntex-doc}
 
 \end{document}

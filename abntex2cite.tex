@@ -19,6 +19,10 @@
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
 %%
+%% 2012/12/20 08h40 	laurocesar
+%%  Alteração do nome dos arquivos BIB de referências
+%%  Revisão da largura de algumas tabelas
+%%
 %% 2012/12/18 22h22 	laurocesar
 %%  Fork of the version v 1.44 2004/03/23 17:35:47 mvsfrasson Exp $
 %%  Alteração do nome do documento de abnt-bibtex-doc.tex para abntex2cite.tex
@@ -265,7 +269,7 @@ com a `norma'? Nós queremos incentivar o uso do \LaTeX\  e queremos
 ajudar os pobres-coitados, alguns dos quais nós mesmos, que são ou
 serão forçados, por estupidez burocrática, a usar `normas' da ABNT.
 
-\subsection{Cuidado! Normas nebulosas!}
+\subsection{Cuidado: normas nebulosas!}
 
 Nós elaboramos os estilos debruçados diretamente sobre os originais da ABNT
 e as seguimos escrupulosamente. Mas não se iluda! O que a sua coordenação
@@ -341,7 +345,8 @@ ABNT. Isso não apenas é problemático, pelo menos do ponto de vista do
 % Microsoft Word. Diversos exemplos de referências são sobre Windows e Word, o que
 % aumenta as nossas suspeitas nesse sentido.
 
-\subsection{Existe compatibilidade com a ABNT NBR 6023:2002?}
+\subsection{O \textsf{abntex2cite} está em conformidade com a ABNT NBR
+6023:2002?}
 
 O projeto \abnTeX2 se inicia com os estilos bibliográficos e de citação do
 \abnTeX\ original, atualizado pela última vez em 2003 e construído com base na
@@ -350,15 +355,18 @@ REVISADOS ou ATUALIZADOS em relação à norma de 2002. Esse é um trabalho a se
 realizado em próximas etapas do projeto.
 
 Desse modo, considere INCONSISTENTES as referências bibliográficas produzidas
-pelo \abnTeX2 que sofreram alterações entre a versão de 2000 e 2002 da norma.
+pelo \abnTeX2 que sofreram alterações entre a versão de 2000 e 2002 da norma. De
+todo modo, temos informação de que apenas poucas alterações foram de fato
+inseridas na nova versão. Mesmo assim, é preciso você analise o resultado
+produzido e comunique-nos as sugestões de melhoria.
 
 \subsection{Em que ambiente foram desenvolvidos os estilos?}
 
 Os estilos foram desenvolvidos em Conectiva Linux 8, e a implementação \TeX\ é
 o |tetex| versão 1.0.7.
 
-O \abnTeX2 foi desenvolvido em um Apple Mac OSX e estado em Linux Ubuntu
-versão 12.10 e em Windows XP SP 2.
+O \abnTeX2 foi desenvolvido em um Mac OSX, testado em Linux Ubuntu versão 12.10
+e em Windows XP SP 2.
 
 \section{Uso de \textsf{abntex2cite}}
 
@@ -689,7 +697,7 @@ abntex2-options.bib}.}
 \label{tabela-opcoes-formatacao}
 
 \begin{center}
-\begin{tabular}{lrp{8cm}}\hline\hline
+\begin{tabular}{lrp{6cm}}\hline\hline
 campo & opções & descrição \\ \hline
 \emph{abnt-emphasize} & & Seleciona o estilo de fonte do grifo.
 Podem ser usadas quaisquer combinações de comandos de fonte, mas apenas
@@ -823,7 +831,7 @@ Opções de alteração do funcionamento dos estilos bibliográficos.
 \label{tabela-opcoes-funcionamento}
 
 \begin{center}
-\begin{tabular}{lrp{8cm}}\hline\hline
+\begin{tabular}{lrp{6cm}}\hline\hline
 campo & opções & descrição \\ \hline
 \emph{abnt-refinfo} & & Controla a utilização do comando
 \verb+\abntrefinfo+ usado pelo estilo \textsf{abntex2cite}\\
@@ -859,7 +867,7 @@ Veja também a seção~\protect\ref{sec-url} para mais informações.}
 \label{tabela-opcoes-url}
 
 \begin{center}
-\begin{tabular}{lrp{8cm}}\hline\hline
+\begin{tabular}{lrp{6cm}}\hline\hline
 campo & opções & descrição \\ \hline
 \emph{abnt-doi} & & Determina como são tratadas url's referentes a DOI
 (Digital Object Identifier)\cite{DOI}. Note que as opções seguintes
@@ -932,7 +940,7 @@ tem regras particulares que poderiam entrar aqui, por favor avise-nos.}
 \label{tabela-subestilos}
 
 \begin{center}
-\begin{tabular}{lp{9cm}}\hline\hline
+\begin{tabular}{lp{8cm}}\hline\hline
 opção  & descrição \\ \hline
 {\tt abnt-substyle=COPPE} & opções específicas para a COPPE/UFRJ.\\
 {\tt abnt-substyle=UFLA} & opções específicas para a UFLA.\\
@@ -950,7 +958,7 @@ Grupos de opções que caraterizam as versões das diversas `normas'.}
 \label{tabela-versao-normas}
 
 \begin{center}
-\begin{tabular}{lp{9cm}}\hline\hline
+\begin{tabular}{lp{8cm}}\hline\hline
 opção & descrição \\ \hline
 {\tt abnt-nbr10520=2001} & (\emph{padrão}) segue a `norma' 10520/2001\cite{NBR10520:2001}.\\
 {\tt abnt-nbr10520=1988} & segue a `norma' 10520/1988\cite{NBR10520:1988}.\\
@@ -1043,7 +1051,7 @@ Ex.~\citeonline{7.4.1.3-1,7.4.1.3-3}.
 \label{tabela-subtitle}
 
 \begin{center}
-\begin{tabular}{lp{4cm}p{8cm}}\hline\hline
+\begin{tabular}{lp{4cm}p{6cm}}\hline\hline
 campo & entradas & descrição \\ \hline
 {\tt subtitle} & todas & subtítulo relativo ao {\tt title}, não coloque os dois pontos que são gerados
                    automáticamente.
@@ -1064,7 +1072,7 @@ Ex.~\citeonline{7.4.2.1-1,7.4.2.1-3,7.7.1.2-2,7.7.1.2-4,7.7.1.2-6,7.7.2.2-1,7.7.
 \caption{Campos relativos a autoria.}
 \label{tabela-type}
 \begin{center}
-\begin{tabular}{lp{4cm}p{8cm}}\hline\hline
+\begin{tabular}{lp{4cm}p{6cm}}\hline\hline
 campo & entradas & descrição \\ \hline
 {\tt editortype} & todas onde cabe {\tt editor} & altera o tipo de editor (padrão ``Ed.'')
 para qualquer valor colocado no campo.
@@ -1093,7 +1101,7 @@ alfabético}.\\
 \caption{Campos relativos a descrição física do documento.}
 \label{tabela-fis}
 \begin{center}
-\begin{tabular}{lp{3cm}p{8cm}}\hline\hline
+\begin{tabular}{lp{3cm}p{6cm}}\hline\hline
 campo & entradas & descrição \\ \hline
 {\tt dimensions} & {\tt book} & texto que mostra as dimensões do documento.
 Isto atende ao ítem {\bf 8.9}\cite{NBR6023:2000}.
@@ -1229,8 +1237,14 @@ teremos como saída `Doutorado em física' e não `Tese (Doutorado em física)' 
 em {\tt @phdthesis}.
 
 \addcontentsline{toc}{section}{Referências}
-\bibliography{references/abnt-bibtex-doc,references/abnt-nrj,references/abntex-doc,references/abnt-6023-2000,references/normas,references/abnt-test}
+\bibliography{abntex2-doc-options,abntex2-doc,abntex2-doc-abnt-6023-2000,abntex2-doc-normas,abntex2-doc-test}
 
+% references/abnt-bibtex-doc,
+% references/abntex-doc,
+% references/abnt-6023-2000,
+% references/normas,
+% references/abnt-test}
+%references/abnt-nrj,
 
 \appendix
 
@@ -1460,7 +1474,7 @@ comportamento do estilo via o campo {\tt abnt-thesis-year}. Veja a
 tipo de entrada.}\label{table-entrada}
 
 \begin{center}
-\begin{tabular}{lp{2.5cm}p{8cm}}\hline\hline
+\begin{tabular}{lp{2.5cm}p{7cm}}\hline\hline
 entrada & contribuídas & da referência \citeonline{NBR6023:2000} \\ \hline
 {\tt article} & \citeonline{Sun99,Creci99,Subramaniam98,Deng00,Eiter99:HAA,%
 Inverno97:Formalisms,Tsen86}%,Schroter98}
