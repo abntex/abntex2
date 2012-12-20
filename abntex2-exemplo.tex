@@ -1,0 +1,676 @@
+%% abtex2exemplo.tex
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
+%%
+%% This work consists of the file abntex2exemplo.tex
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Modelo de Trabalho Acadêmico utilizando abnTeX2 
+% tese de doutorado, dissertação de mestrado e trabalhos monográficos em geral
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+%
+\documentclass[12pt,openright,twoside,a4paper]{abntex2}
+%\documentclass[12pt,oneside,a4paper]{abntex2}
+
+% ----------------------------------------------------------
+% PACOTES
+% ----------------------------------------------------------
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{makeidx}            % cria o indice
+\usepackage{hyperref}  			% controla a formação do índice
+\usepackage{lastpage}			% usado por abntex2-fichacatalografica.tex
+\usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+												
+% ---
+% PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{mychemistry}	    % Desenho de estruturas químicas
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Modelo Canônico de\\ Trabalhos Acadêmicos com \abnTeX}
+\autor{Equipe \abnTeX}
+\local{Brasil}
+\data{2012}
+\orientador{Lauro César Araujo}
+\coorientador{Equipe \abnTeX}
+\instituicao{%
+  Universidade do Brasil -- UBr
+  \par
+  Faculdade de Arquitetura da Informação
+  \par
+  Programa de Pós-Graduação}
+\tipotrabalho{Tese (Doutorado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
+as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\hypersetup{
+     	%backref=true,
+     	%pagebackref=true,
+		%bookmarks=true,         		% show bookmarks bar?
+		pdftitle={\imprimirtitulo}, 
+		pdfauthor={\imprimirautor},
+    	pdfsubject={\imprimirpreambulo},
+		pdfkeywords={PALAVRAS}{CHAVES}{EM}{PORTUGUES},
+	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+	    pdfcreator={\imprimirautor},
+    	colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Compila a lista de abreviaturas e siglas
+% ---
+\makenomenclature
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+\include{abntex2-exemplo-fichacatalografica}
+% ---
+
+% ---
+% Inserir errata
+% ---
+\include{abntex2-exemplo-errata}
+% ---
+
+% ---
+% Inserir folha de aprovação
+% ---
+\include{abntex2-exemplo-folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+\begin{dedicatoria}
+   \vspace*{\fill}
+\noindent\textit{Este trabalho é dedicado à criança de León Werth, por ter sido
+o maior amigo do mundo de Antoine de Saint-Exupery, pai de um pequeno príncipe que cativa muitas
+imaginações.}
+ \vspace*{\fill}
+\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+Os agradecimentos principais são direcionados à Miguel Frasson, Gerald Weber,
+Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+Salvador, Renato Machnievscz\footnote{Os nomes dos primeiros integrantes do
+projeto abn\TeX foram extraídos de
+\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+contribuíram para que a produção de trabalhos acadêmicos conforme
+as normas ABNT com \LaTeX~ fosse possível.
+
+Agradecimentos especiais são direcionados ao grupo de usuários
+\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+novos voluntários do grupo \emph{\abnTeX}
+\footnote{\url{http://groups.google.com/group/abntex2} e
+\url{https://code.google.com/p/abntex2/}}~que contribuíram e que ainda
+contribuirão para a evolução do abn\TeX.
+\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+		\textit{``Não vos amoldeis às estruturas deste mundo, \\
+		mas transformai-vos pela renovação da mente, \\
+		a fim de distinguir qual é a vontade de Deus: \\
+		o que é bom, o que Lhe é agradável, o que é perfeito.\\
+		(Bíblia Sagrada, Romanos 12, 2)}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\begin{resumo}
+ Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
+ objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
+ destes itens dependem do tipo de resumo (informativo ou indicativo) e do
+ tratamento que cada item recebe no documento original. O resumo deve ser
+ precedido da referência do documento, com exceção do resumo inserido no
+ próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
+ resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
+ ponto e finalizadas também por ponto.
+
+ \vspace{\onelineskip}
+    
+ \noindent
+ \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+ This is the english abstract.
+
+ \vspace{\onelineskip}
+ 
+ \noindent 
+ \textbf{Key-words}: latex. abntex. text editoration.
+\end{resumo}
+
+% resumo em francês 
+\begin{resumo}[Résumé]
+  Il s'agit d'un résumé en français.
+ 
+ \vspace{\onelineskip}
+ 
+ \noindent
+ \textbf{Mots-clés}: latex. abntex. publication de textes.
+\end{resumo}
+
+% resumo em espanhol
+\begin{resumo}[Resumen]
+  Este es el resumen de español.
+  
+ \vspace{\onelineskip}
+ 
+ \noindent
+ \textbf{Palabras clave}: latex. abntex. publicación de textos.
+\end{resumo}
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% A lista de Abreviaturas e Siglas pode ser facilmente montada com o pacote 
+% nomencl. Abaixo segue um exemplo.
+% ---
+\nomenclature{Fig.}{Figura}
+\nomenclature{$A_i$}{Area of the $i^{th}$ component} 
+\nomenclature{456}{Isto é um número}
+\nomenclature{123}{Isto é outro número}
+\nomenclature{a}{primeira letra do alfabeto}
+\nomenclature{lauro}{este é meu nome} 
+
+\renewcommand{\nomname}{Lista de abreviaturas e siglas}
+\pdfbookmark[0]{\nomname}{las}
+\printnomenclature
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+% O abnTeX2 não provê mecanismo para lista de símbolos.
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+% É possível usar \textual ou \mainmatter, que é a macro padrão do memoir.  
+\mainmatter
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter*{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+
+Este documento exemplifica o uso da classe \abnTeX. A expressão ``Modelo
+canônico'' é utilizada para indicar que \abnTeX~não é modelo específico de
+trabalho acadêmico de nenhuma universidade ou instituição, mas que implementa
+tão somente os requisitos das normas da ABNT.
+
+Sinta-se convidado à participar do projeto \abnTeX! Acesse o site do projeto em
+\url{http://code.google.com/p/abntex2/}. Também fique livre para conhecer,
+estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+modificados tenham seus nomes alterados e que os créditos sejam dados aos
+autores originais, nos termos da ``The LaTeX Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+Encorajamos que sejam realizadas customizações específicas para universidades
+--- como capas, folha de aprovação, etc. Porém, recomendamos que ao invés de se
+alterar diretamente os arquivos do \abnTeX, distribua-se aos estudantes
+arquivos com as respectivas customizações. Isso permite que futuras versões do
+\abnTeX~não se tornem automaticamente incompatíveis com as customizações
+promovidas.
+
+Este texto deve ser utilizado como complemento do Manual do \abnTeX~e do
+\textbf{memoir}, este disponível em
+\url{http://mirrors.ctan.org/macros/latex/contrib/memoir/memman.pdf}.
+
+
+% ----------------------------------------------------------
+% PARTE - preparação da pesquisa
+% ----------------------------------------------------------
+\part{Preparação da pesquisa}
+
+% ----------------------------------------------------------
+% Capitulo 1
+% ----------------------------------------------------------
+\chapter{Lorem ipsum dolor sit amet}
+
+\chapterprecis{Phasellus eu tellus sit amet tortor gravida placerat, lacus
+libero, pretium at, lobortis vitae, ultricies et, tellus cum sociis natoque
+penatibus et magnis dis parturient montes.}
+
+\section{Aliquam ullamcorper euismod nulla mollis enim vel tortor sodales placerat nunc
+tempus rutrum wisi accumsan gravida purus etiam facilisis dui eu sem semper}
+
+Quando for necessário enumerar os diversos assuntos de uma seção que não possua
+título, esta deve ser subdividida em alíneas \cite[4.2]{NBR6024:2012}:
+
+\begin{alineas}
+
+  \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
+  seção, devem ser subdivididos em alíneas\footnote{As notas devem ser digitadas ou datilografadas
+  dentro das margens, ficando separadas do texto por um espaço simples de entre as
+  linhas e por filete de 5 cm, a partir da margem esquerda. Devem ser
+  alinhadas, a partir da segunda linha da mesma nota, abaixo da primeira letra
+  da primeira palavra, de forma a destacar o expoente, sem espaço entre elas e
+  com fonte menor. \citeonline[5.2.1]{NBR14724:2011}}; 
+  
+  \item o texto que antecede as alíneas termina em dois pontos;
+  \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
+  seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
+  letras do alfabeto;
+
+  \item as letras indicativas das alíneas devem apresentar recuso em relação à
+  margem esquerda;
+
+  \item o texto da alínea deve começar por letra minúscula e terminar em
+  ponto-e-vírgula, exceto a última alínea que termina em ponto final;
+
+  \item o texto da alínea deve terminar em dois pontos, se houver subalínea;
+
+  \item a segunda e as seguintes linhas do texto da alínea começa sob a
+  primeira letra do texto da própria alínea;
+  
+  \item subalíneas \cite[4.3]{NBR6024:2012} deve ser conforme as alíneas a seguir:
+
+  \begin{alineas}
+     \item as subalíneas devem começar por travessão seguido de espaço;
+
+     \item as subalíneas devem apresentar recuo em relação à alínea;
+
+     \item o texto da subalínea deve começar por letra minúscula e terminar em
+     ponto-e-vírgula. A última subalínea deve terminar em ponto final, se não
+     houver alínea subsequente;
+
+     \item a segunda e as seguintes linhas do texto da subalínea começam sob a
+     primeira letra do texto da própria subalínea.
+  \end{alineas}
+  
+  \item estão disponíveis os ambientes ``incisos'' e ``subalineas'', que em sua
+  são o mesmo que se criar outro nível de ``alineas'':
+  
+  \begin{incisos}
+    \item \lipsum[52]
+  \end{incisos}
+  
+  \item \lipsum[60]
+  
+  \begin{subalineas}
+    \item \lipsum[53]
+  \end{subalineas}
+  
+  \item \lipsum[54]
+  
+\end{alineas}
+
+\lipsum[4]
+
+\begin{table}[htb]
+\footnotesize
+\caption[Níveis de investigação]{\footnotesize{Níveis de investigação.
+\cite{van86}}}
+\label{tab-nivinv}
+\begin{tabular}{p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}}
+  %\hline
+   \textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
+    \hline
+    Meta-nível & Filosofia\index{Filosofia} da Ciência  & Epistemologia &
+    Paradigma  \\
+    \hline
+    Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
+    Ciência  & Teorias e modelos \\
+    \hline
+    Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas  \\
+   % \hline
+\end{tabular}
+\end{table}
+
+\lipsum[5]
+
+\section{Aliquam consectetuer varius nulla}
+
+\lipsum[6-7]
+
+\subsection{Integer vitae justo}
+
+\lipsum[8]
+
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas, devem ser
+destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
+utilizado e sem as aspas. No caso de documentos datilografados, deve-se
+observar apenas o recuo \cite[5.3]{NBR10520:2002}
+\end{citacao}
+
+\lipsum[9]
+
+\subsubsection{Integer vitae extra justo}
+
+\lipsum[9-10]
+
+\subsubsection{Nulla vitae fringilla}
+
+\lipsum[11-12]
+
+\subsection{Mauris nibh leo}
+
+\lipsum[12-13]
+
+\section{Sed ante tellus}
+
+\lipsum[14-15]
+
+% ----------------------------------------------------------
+% Parte de revisãod e literatura
+% ----------------------------------------------------------
+\part{Revisão de Literatura}
+
+% ---
+% Capitulo de revisão de literatura
+% ---
+\chapter{Etiam eget ligula eu lectus lobortis condimentum}
+
+\section{Aliquam vestibulum fringilla lorem}
+
+\lipsum[1]
+
+\begin{figure}[htb]
+	\caption{\label{fig_circulo}A delimitação do espaço}
+	\begin{center}
+	    \setlength{\unitlength}{5cm}
+		\begin{picture}(1,1)
+		\put(0,0){\line(0,1){1}}
+		\put(0,0){\line(1,0){1}}
+		\put(0,0){\line(1,1){1}}
+		\put(0,0){\line(1,2){.5}}
+		\put(0,0){\line(1,3){.3333}}
+		\put(0,0){\line(1,4){.25}}
+		\put(0,0){\line(1,5){.2}}
+		\put(0,0){\line(1,6){.1667}}
+		\put(0,0){\line(2,1){1}}
+		\put(0,0){\line(2,3){.6667}}
+		\put(0,0){\line(2,5){.4}}
+		\put(0,0){\line(3,1){1}}
+		\put(0,0){\line(3,2){1}}
+		\put(0,0){\line(3,4){.75}}
+		\put(0,0){\line(3,5){.6}}
+		\put(0,0){\line(4,1){1}}
+		\put(0,0){\line(4,3){1}}
+		\put(0,0){\line(4,5){.8}}
+		\put(0,0){\line(5,1){1}}
+		\put(0,0){\line(5,2){1}}
+		\put(0,0){\line(5,3){1}}
+		\put(0,0){\line(5,4){1}}
+		\put(0,0){\line(5,6){.8333}}
+		\put(0,0){\line(6,1){1}}
+		\put(0,0){\line(6,5){1}}
+		\end{picture}
+	\end{center}
+	\legend{Fonte: os autores}
+	
+\end{figure}
+
+\lipsum[2-3]
+
+% ----------------------------------------------------------
+% Resultados
+% ----------------------------------------------------------
+\part{Resultados}
+
+% ---
+% primeiro capitulo de Resultados
+% ---
+\chapter{Lectus lobortis condimentum}
+
+\section{Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+posuere cubilia Curae}
+
+\lipsum[21-22]
+
+% ---
+% segundo capitulo de Resultados
+% ---
+\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
+elementum}
+
+\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
+
+\lipsum[24]
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ---
+% Conclusão
+% ---
+\chapter*{Conclusão}
+\addcontentsline{toc}{chapter}{Conclusão}
+
+\lipsum[31-33]
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{abntex2-exemplo-references}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Há diversas soluções prontas para glossário. Não é necessário nos preocuparmos
+% com isso agora.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+\appendixpage
+
+% ----------------------------------------------------------
+\chapter{Quisque libero justo}
+% ----------------------------------------------------------
+
+\lipsum[50]
+
+% ----------------------------------------------------------
+\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+% ----------------------------------------------------------
+\lipsum[55-57]
+
+\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+\cftinserthook{toc}{AAA}
+% ---
+% Inicia os anexos
+% ---
+%\anexos
+\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+\appendixpage
+
+% ---
+\chapter{Morbi ultrices rutrum lorem.}
+% ---
+\lipsum[30]
+
+% ---
+\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+parturient montes nascetur ridiculus mus}
+% ---
+
+\lipsum[31]
+
+% ---
+\chapter{Fusce facilisis lacinia dui}
+% ---
+
+\lipsum[32]
+
+\end{anexosenv}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+% \cleardoublepage
+% \phantomsection 
+\printindex
+
+\end{document}

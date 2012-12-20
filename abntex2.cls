@@ -1,0 +1,660 @@
+%% abntex2.cls
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
+%%
+%% This work consists of the file abntex2.cls.
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Declaração da classe abntex2 como uma extensão da classe report
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{abntex2}[2013/02/01 v1.0 abnTeX2]
+
+%
+% Repassa todos os parâmetros à report
+%
+\DeclareOption*{%
+  \PassOptionsToClass{\CurrentOption}{memoir}%
+}
+\ProcessOptions\relax
+\LoadClass{memoir}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Pacotes e customizações gerais do memoir
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Hifenação e caracteres especiais
+% português-brasil e inglês
+% ---
+\RequirePackage[brazil]{babel}
+\addto\captionsbrazil{%
+  \renewcommand{\bibname}{Refer\^encias}
+  \renewcommand{\indexname}{\'Indice}
+  \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+}
+% ---   
+
+% ---
+% Controla as referências internas do PDF
+\RequirePackage{hyperref}  			
+% ---
+
+% ---
+% Controla os bookmarks do PDF
+\RequirePackage{bookmark}   			
+% ---
+
+% ---
+% Customiza listas
+\RequirePackage{enumitem}
+% ---
+
+% ---
+% Pacote de if/them/else
+\RequirePackage{ifthen}
+\newcommand{\abntex@ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
+% ---
+
+% ---
+% Pacote que permite realizar operacoes matematicas no codigo TeX
+\RequirePackage{calc}
+% ---
+
+% ---
+% Margens - NBR 14724/2011 - 5.1 Formato
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% ---
+% Espaçamento entre linhas - NBR 14724/2011 - 5.2 Espaçamento
+% ---
+\OnehalfSpacing
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos públicos
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% ``Tamanho menor e uniforme'' ditada pela NBR 14724/2011 - 5.1
+% ---
+\newcommand{\ABNTEXfontereduzida}{\footnotesize}
+% ---
+
+% ---
+% Nomes constantes
+\newcommand{\folhaderostoname}{Folha de rosto}
+\newcommand{\epigraphname}{Ep\'igrafe}
+\newcommand{\dedicatorianame}{Dedicat\'oria}
+\newcommand{\errataname}{Errata}
+\newcommand{\agradecimentosname}{Agradecimentos}
+\newcommand{\anexoname}{ANEXO}
+\newcommand{\anexosname}{Anexos}
+\newcommand{\apendicename}{AP\^ENDICE}
+\newcommand{\apendicesname}{Ap\^endices}
+\newcommand{\orientadorname}{Orientador:}
+\newcommand{\coorientadorname}{Coorientador:}
+\newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao} 
+% ---
+
+% ---
+% abnTeX2 name
+\newcommand{\abnTeX}{abn\TeX2}
+% ---
+
+% ---
+% Fontes padrões de part, chapter, section, subsection e subsubsection
+\newcommand{\ABNTEXchapterfont}{\fontfamily{cmss}\fontseries{sbc}\selectfont}
+\newcommand{\ABNTEXchapterfontsize}{\Huge}
+
+\newcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
+\newcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
+
+\newcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
+\newcommand{\ABNTEXsectionfontsize}{\Large}
+
+\newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
+\newcommand{\ABNTEXsubsectionfontsize}{\large}
+
+\newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
+\newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos e variaveis privadas
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Comando para registro do bookmark interno
+\newcounter{abntex@bookmarkcounter}
+\setcounter{abntex@bookmarkcounter}{0}
+\newcommand{\PRIVATEbookmarkthis}[1]{%
+  \addtocounter{abntex@bookmarkcounter}{1}%
+  \phantomsection\pdfbookmark[0]{#1}{chapterb\arabic{abntex@bookmarkcounter}}
+}
+
+% ---
+% Comando que cria capítulos não numerados já com bookmark anotado
+% ---
+\newcommand{\pretextualchapter}[1]{%
+  \addtocounter{abntex@bookmarkcounter}{1}
+  \PRIVATEbookmarkthis{#1}
+  \chapter*{#1}
+  }
+\provideboolean{abntex@apendiceousecao}
+\setboolean{abntex@apendiceousecao}{false}
+% ---
+
+
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Configurações de layout
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Notas de rodapé - NBR 14724/2011 - 5.2.1 
+\makeatletter
+\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.2cm\@makefnmark#1}
+\makeatother
+% ---
+
+% ---
+% Numeração contínua das figuras
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+% ---
+
+% ---
+% Estilos de caption
+\captiondelim{\space--\space}
+% ---
+
+% -----
+% Configurações do TOC
+% -----
+% nível de profundidade
+\setsecnumdepth{subsubsection}
+\settocdepth{subsubsection}   %\maxtocdepth{subsubsection}
+
+% lista de ilustrações
+\renewcommand{\cftfigurename}{\figurename\space} 
+%\renewcommand{\cftfigureaftersnum}{\space--\space}
+ 
+% lista de tabelas  
+\renewcommand{\cfttablename}{\tablename\space}
+%\renewcommand{\cfttableaftersnum}{\space--\space}
+
+% espaços à esqueda para comportar os números romanos das partes
+\newcommand{\ABNTEXtocitemnumberhspace}{0.2cm}
+\addtolength\cftpartnumwidth{\ABNTEXtocitemnumberhspace}
+\addtolength\cftchapternumwidth{\ABNTEXtocitemnumberhspace}
+\addtolength\cftsectionindent{\ABNTEXtocitemnumberhspace}
+\addtolength\cftsubsectionindent{\ABNTEXtocitemnumberhspace}
+\addtolength\cftsubsubsectionindent{\ABNTEXtocitemnumberhspace}
+
+% fonte das partes e do captítulo do TOC
+\renewcommand{\tocheadstart}{\ABNTEXchapterfont}
+% -----
+
+% ---
+% Configuração dos títulos dos capítulos
+% Novo estido do memoir 
+% ABNT NBR 14724-2011 - 5.2.2-5.2.4; ABNT NBR 6024-2003 - 3.1-3.8
+\provideboolean{abntex@innonumchapter}
+\setboolean{abntex@innonumchapter}{true}
+\makechapterstyle{abnt}{%
+  \newlength{\chapternamenumlength}
+
+  % tamanhos de fontes de chapter e part	
+  \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}
+  \renewcommand{\chapnumfont}{\chaptitlefont}
+  \renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  \renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  \renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+  
+  % tamanhos de fontes de section, subsection e subsubsection
+  \setsecheadstyle{\ABNTEXchapterfont\ABNTEXsectionfontsize}
+  \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize}
+  \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize}
+  
+  % impressao do numero do capitulo
+  \renewcommand{\chapternamenum}{}
+  
+  % impressao do nome do capitulo
+  \renewcommand{\printchaptername}{%
+   \chaptitlefont
+   \ifthenelse{\boolean{abntex@apendiceousecao}}{\appendixname}{}%
+  }
+    
+  % impressao do titulo do capitulo
+  \def\printchaptertitle##1{%
+    \chaptitlefont%
+    \ifthenelse{\boolean{abntex@innonumchapter}}{\centering##1}{% else
+	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+	    \parbox[t]{\textwidth-\chapternamenumlength}{##1}%
+	}    
+  }
+       
+  % impressao do numero do capitulo     	
+  \renewcommand{\printchapternum}{%
+     \setboolean{abntex@innonumchapter}{false}
+     \chapnumfont%
+     \space\thechapter\space%
+     \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+       --\space%
+     }{} % else
+  }
+  \renewcommand{\afterchapternum}{}
+  \renewcommand{\beforechapskip}{0cm}
+  
+  % impressao do capitulo nao numerado
+  \renewcommand\printchapternonum{%
+     \setboolean{abntex@innonumchapter}{true}%
+    }
+}
+\chapterstyle{abnt}
+% ---
+
+% -----
+% Declarações de cabeçalhos e de rodapé
+% -----
+% Cabeçalho padrão
+\makepagestyle{abntheadings}
+\makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit\leftmark}
+\makeoddhead{abntheadings}{\ABNTEXfontereduzida\textit\rightmark}{}{\ABNTEXfontereduzida\thepage}
+\makeheadrule{abntheadings}{\textwidth}{\normalrulethickness}
+
+% Cabeçalho do início do capítulo
+\makepagestyle{abntchapfirst}
+\makeoddhead{abntchapfirst}{}{}{\ABNTEXfontereduzida\thepage}
+% ---
+
+% ---
+% Configura layout para elementos pré-textuais
+\newcommand{\pretextual}{%
+  \aliaspagestyle{chapter}{empty}% customizing chapter pagestyle
+  \pagestyle{empty}
+  \aliaspagestyle{cleared}{empty}
+  \aliaspagestyle{part}{empty}
+}
+\renewcommand{\frontmatter}{\pretextual} 
+
+% por default, inicializa o documento com elementos \pretextuais
+\AtBeginDocument{\frontmatter}
+% ---
+
+% ---
+% Configura layout para elementos textuais
+\newcommand{\textual}{%
+  \pagestyle{abntheadings}
+  \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+  \nouppercaseheads
+}
+\renewcommand{\mainmatter}{\textual}
+% ---
+
+% ---
+% Configura layout para elementos pós-textuais
+\newcommand{\postextual}{}
+\renewcommand{\backmatter}{\postextual}
+% -----
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos de dados para CAPA e FOLHA DE ROSTO 
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% Comandos de dados - título do documento
+\providecommand{\imprimirtitulo}{}
+\newcommand{\titulo}[1]{\renewcommand{\imprimirtitulo}{#1}}
+
+% Comandos de dados - autor (use \and para múltiplos autores)
+\providecommand{\imprimirautor}{}
+\newcommand{\autor}[1]{\renewcommand{\imprimirautor}{#1}}
+
+% Comandos de dados - data
+\providecommand{\imprimirdata}{}
+\newcommand{\data}[1]{\renewcommand{\imprimirdata}{#1}\date{#1}}
+
+% Comandos de dados - instituição
+\providecommand{\imprimirinstituicao}{}
+\newcommand{\instituicao}[1]{\renewcommand{\imprimirinstituicao}{#1}}
+
+% Comandos de dados - local
+\providecommand{\imprimirlocal}{}
+\newcommand{\local}[1]{\renewcommand{\imprimirlocal}{#1}}
+
+% Comandos de dados - preâmbulo
+\providecommand{\imprimirpreambulo}{}
+\newcommand{\preambulo}[1]{\renewcommand{\imprimirpreambulo}{#1}}
+
+% Comandos de dados - orientador
+\providecommand{\imprimirorientadorRotulo}{}
+\providecommand{\imprimirorientador}{}
+\newcommand{\orientador}[2][\orientadorname]%
+  {\renewcommand{\imprimirorientadorRotulo}{#1}%
+   \renewcommand{\imprimirorientador}{#2}}
+
+% Comandos de dados - coorientador
+\providecommand{\imprimircoorientadorRotulo}{}
+\providecommand{\imprimircoorientador}{}
+\newcommand{\coorientador}[2][\coorientadorname]%
+  {\renewcommand{\imprimircoorientadorRotulo}{#1}%
+   \renewcommand{\imprimircoorientador}{#2}}
+
+% Comandos de dados - tipo de trabalho
+\providecommand{\imprimirtipotrabalho}{}
+\newcommand{\tipotrabalho}[1]{\renewcommand{\imprimirtipotrabalho}{#1}}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos e ambientes de editoração PRÉ-TEXTUAIS
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Ambiente para definição da Capa
+\newenvironment{capa}{\begin{titlingpage}}{\end{titlingpage}\cleardoublepage}
+% ---
+
+% ---
+% Ficha catalográfica (Dados internacionais de
+% catalogação-na-publicação)
+\newenvironment{fichacatalografica}{%
+    \thispagestyle{empty}
+    \begin{SingleSpacing}
+      \ABNTEXfontereduzida
+}{%   
+    \end{SingleSpacing}%
+}%
+% ---
+
+% ---
+% Errata
+\newenvironment{errata}[1][\errataname]{%
+   \pretextualchapter{#1}
+  }{\cleardoublepage}
+% ---
+
+% ---
+% Folha de aprovação - NBR 14724/2011 - 4.2.1.3
+\newenvironment{folhadeaprovacao}[1][\folhadeaprovacaoname]{%
+   \clearpage%
+   \PRIVATEbookmarkthis{#1}%
+   \begin{Spacing}{1.0}
+}{\end{Spacing}\cleardoublepage}   
+% ---
+
+% ---
+% Dedicatória
+\newenvironment{dedicatoria}[1][]{%
+   \ifthenelse{\equal{#1}{}}{%
+    \PRIVATEbookmarkthis{\dedicatorianame}
+    }{\pretextualchapter{#1}}
+  }{\cleardoublepage}
+% ---
+
+% ---
+% Agradecimentos
+\newenvironment{agradecimentos}[1][\agradecimentosname]{%
+   \pretextualchapter{#1}
+  }{\cleardoublepage}
+% ---
+
+% ---
+% Epigrafe
+\newenvironment{epigrafe}[1][]{%
+   \ifthenelse{\equal{#1}{}}{%
+    \PRIVATEbookmarkthis{\epigraphname}
+    }{\pretextualchapter{#1}}
+  }{\cleardoublepage}
+% ---
+
+% ---
+% Resumo e abstracts em diferentes idiomas - NBR 14724/2011
+\newenvironment{resumo}[1][\abstractname]{%
+   \SingleSpacing
+   \pretextualchapter{#1}
+  }{\cleardoublepage}
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos e ambientes de editoração APENDICES e ANEXOS
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Definicoes compartilhadas entre Apendices e Anexos
+% ---
+\makeatletter
+\newcommand\@switch[1]{ \@writefile{toc}{\renewcommand*{\cftappendixname}{#1 \space}} }
+\newcommand{\switchchapname}[1]{ \protected@write \@auxout {}{\string\@switch{#1} }}
+\makeatother
+
+\newcommand{\PRIVATEapendiceconfig}[2]{%
+ \setboolean{abntex@apendiceousecao}{true}%
+ \renewcommand{\appendixname}{#1}
+ \renewcommand{\appendixpagename}{#2}
+ \renewcommand{\appendixtocname}{#2}
+ 
+ \switchchapname{#1}% Corrected from \switchapname -> \switchchapname
+ \renewcommand*{\cftappendixname}{#1 \space}
+}
+% ---
+
+% ---
+% Apendices - comando 
+\newcommand{\apendices}{%
+ \PRIVATEapendiceconfig{\apendicename}{\apendicesname}
+ \appendix
+}
+% Apendices - ambiente
+\newenvironment{apendicesenv}{%
+ \PRIVATEapendiceconfig{\apendicename}{\apendicesname}
+ \begin{appendix}
+}{
+ \end{appendix}
+ \setboolean{abntex@apendiceousecao}{false}
+}
+% ---
+
+% ---
+% Anexos - comando
+\newcommand{\anexos}{%
+ \PRIVATEapendiceconfig{\anexoname}{\anexosname}
+ \appendix
+ \renewcommand\theHchapter{anexochapback.\arabic{chapter}}
+}
+% Anexos - ambiente
+\newenvironment{anexosenv}{%
+ \PRIVATEapendiceconfig{\anexoname}{\anexosname}
+ \begin{appendix}
+ \renewcommand\theHchapter{anexochapback.\arabic{chapter}}
+}{
+ \end{appendix}
+ \setboolean{abntex@apendiceousecao}{false}
+}
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% Comandos e ambientes de editoração CITACAO, ALINEA, INCISO, ASSINATURA
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
+\newenvironment*{citacao}[1][]{%
+  \begin{SingleSpace}%
+  \ABNTEXfontereduzida% 
+  \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
+  \noindent%
+  }{%
+  \normalsize%
+  \end{SingleSpace}}
+% ---
+
+% ---
+% Ambiente para alineas e e subalineas (incisos)
+% ABNT NBR 6024/2012 - 4.2 e 4.3
+\newlist{alineas}{enumerate}{2}
+\setlist[alineas,1]{label={\alph*)},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
+\setlist[alineas,2]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}
+\newlist{subalineas}{enumerate}{1}
+\setlist[subalineas,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+\newlist{incisos}{enumerate}{1}
+\setlist[incisos,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+% ---
+  
+% ---
+% Comando \assinatura for signature
+   % width of the line and text under the line
+\newlength{\ABNTEXsignwidth}
+\setlength{\ABNTEXsignwidth}{8cm}
+   % thickness of the line
+\newlength{\ABNTEXsignthickness}
+\setlength{\ABNTEXsignthickness}{1pt}
+   % ammount of space left between previous text and th signature line
+\newlength{\ABNTEXsignskip}
+\setlength{\ABNTEXsignskip}{1cm}
+   % \assinatura{name} -> types a line with name under the line, centralized
+   % \assinatura*{name} -> Creates the box with the line and name under
+   %     it, but the box has no position assigned. However the line and the
+   %     name are centralized with respect to each other.
+\makeatletter
+\newcommand{\assinatura}{\@ifstar{\ABNTEXsign}{\ABNTEXcsign}}
+\makeatother
+   % assinatura com estrela
+\newcommand{\ABNTEXsign}[1]{%
+  \parbox[t]{\ABNTEXsignwidth}{\SingleSpacing\vspace*{\ABNTEXsignskip}\centering%
+  \rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
+  \nopagebreak #1\par}%
+}
+   % assinatura sem estrela
+\newcommand{\ABNTEXcsign}[1]%
+  {\begingroup\par\centering\ABNTEXsign{#1}\par\endgroup}  
+% ---
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% IMPRESSOES PADROES DE CAPA E FOLHA DE ROSTO
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% ---
+% Impressão da Capa
+\newcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \vspace*{1cm}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}
+    {\ABNTEXchapterfont\LARGE\imprimirtitulo}
+    \vspace*{\fill}
+    
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    
+    \vspace*{1cm}
+  \end{capa}
+}
+% ---
+
+
+% ---
+% Folha de rosto
+%   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
+%   página no caso de estar no modo twoside. Útil para imprimir a Ficha
+%   Bibliográfica. Porém, se estiver no modo oneside, a versão sem estrela
+%   é idêntica.
+\newenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
+\newenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
+
+% ---
+% Conteudo padrao da Folha de Rosto
+\makeatletter
+\newcommand{\folhaderostocontent}{
+  \begin{center}
+
+    \vspace*{1cm}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    {\ABNTEXchapterfont\Large\imprimirtitulo}
+    \vspace*{\fill}
+
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+      	\SingleSpacing
+         \imprimirpreambulo
+       \end{minipage}%
+       \vspace*{\fill}
+    }%
+
+    {\large\imprimirorientadorRotulo~\imprimirorientador\par}
+    \abntex@ifnotempty{\imprimircoorientador}{%
+       {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+    }%
+    \vspace*{\fill}
+
+    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+
+  \end{center}
+}
+\makeatother
+
+\newcommand{\imprimirfolhaderostostar}[1]{%
+  \begin{folhaderosto*}{#1}
+     \folhaderostocontent
+  \end{folhaderosto*}}
+
+\newcommand{\imprimirfolhaderostonostar}[1]{%
+  \begin{folhaderosto}{#1}
+     \folhaderostocontent
+  \end{folhaderosto}}
+
+\makeatletter
+\newcommand{\imprimirfolhaderosto}[1][\folhaderostoname]{%
+   \@ifstar
+     \imprimirfolhaderostostar  
+     \imprimirfolhaderostonostar
+}
+\makeatother
+% ---
