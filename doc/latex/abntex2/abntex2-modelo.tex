@@ -15,9 +15,13 @@
 %% by Lauro César Araujo. Further information are available on 
 %% http://code.google.com/p/abntex2/
 %%
-%% This work consists of the files abntex2-modelo.tex,
-% abntex2-modelo-errata.tex, abntex2-modelo-fichacatalografica.tex,
-% abntex2-modelo-folhadeaprovacao.tex and abntex2-modelo-references.bib
+%% This work consists of the files abntex2-modelo.tex and abntex2-modelo-references.bib
+%%
+%%
+%% 2012.12.21 08h37	lauro cesar
+%%  Removido o pacote mychemistry do preâmbulo;
+%%  Adicionado o pacote calc, necessário para \definecolor
+%%
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -26,30 +30,30 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 %
-\documentclass[12pt,openright,twoside,a4paper]{abntex2}
-%\documentclass[12pt,oneside,a4paper]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper]{abntex2}	% frente e verso
+%\documentclass[12pt,oneside,a4paper]{abntex2}			% apenas frente
 
-% ----------------------------------------------------------
+% ---
 % PACOTES
-% ----------------------------------------------------------
+% ---
 
 % ---
 % Pacotes fundamentais 
 % ---
 \usepackage{cmap}				% Mapear caracteres especiais no PDF
-\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
-\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
-\usepackage{makeidx}            % cria o indice
-\usepackage{hyperref}  			% controla a formação do índice
-\usepackage{lastpage}			% usado por abntex2-fichacatalografica.tex
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{makeidx}            % Cria o indice
+\usepackage{hyperref}  			% Controla a formação do índice
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
 \usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
 												
 % ---
 % PACOTES ADICIONAIS, APENAS PARA TESTE DE FUNCIONALIDADES
 % ---
 \usepackage{lipsum}				% para geração de dummy text
-\usepackage{mychemistry}	    % Desenho de estruturas químicas
 
 % ---
 % Pacotes de citações
