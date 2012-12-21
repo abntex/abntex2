@@ -4,9 +4,9 @@ license information at the end of this file.
 
 PURPOSE
 
-The abntex2 class and abntex2cite package are due to help writing thesis and 
-general academic documents based on ABNT (Associação Brasileira de Normas Técnicas)
-standards, like used in Brazil.
+The abntex2 class and the abntex2cite package are intended to assist the preparation 
+of theses and academic papers based on ABNT (Associação Brasileira de Normas Técnicas) 
+used in Brazil.
 
 
 INSTALLATION
