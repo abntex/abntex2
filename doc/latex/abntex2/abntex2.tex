@@ -16,6 +16,15 @@
 %% http://code.google.com/p/abntex2/
 %%
 %% This work consists of the file abntex2.tex
+%%
+%%
+%%
+%% 2013.1.3 09h08 laurocesar
+%%  Documentação de \title{} \author{} e \date{} nos equivalentes em portugues.
+%%
+%% 2012.12.2 09h38 laurocesar
+%%  Criação do arquivo 
+%%
 
 \documentclass[a4paper]{ltxdoc}
 
@@ -499,6 +508,8 @@ do pacote \textsf{hyperref}.
 \DescribeMacro{\titulo}\DescribeMacro{\imprimirtitulo} 
 A macro |\titulo|\marg{texto do título} é utilizada para armazenar o título do
 trabalho. O conteúdo armazenado é impresso por meio da macro |\imprimirtitulo|.
+Esta macro também executa a macro padrão |\title| com o mesmo conteúdo informado
+em |\titulo|.
 
 % ---
 \subsubsection{Autor}
@@ -507,7 +518,8 @@ trabalho. O conteúdo armazenado é impresso por meio da macro |\imprimirtitulo|
 \DescribeMacro{\autor}\DescribeMacro{\imprimirautor} 
 A macro |\autor|\marg{nome do(s) autor(es)} é utilizada para armazenar os nomes
 dos autores do trabalho. O conteúdo armazenado é impresso por meio da macro
-|\imprimirautor|.
+|\imprimirautor|. Esta macro também executa a macro padrão |\author| com o mesmo
+conteúdo informado em |\autor|.
 
 % ---
 \subsubsection{Data}
@@ -516,7 +528,8 @@ dos autores do trabalho. O conteúdo armazenado é impresso por meio da macro
 \DescribeMacro{\data}\DescribeMacro{\imprimirdata} 
 A macro |\data|\marg{mês e ano ou data em português} é utilizada para armazenar
 o mês e ano ou a data do trabalho. O conteúdo armazenado é
-impresso por meio da macro |\imprimirdata|.
+impresso por meio da macro |\imprimirdata|. Esta macro também executa a macro
+padrão |\date| com o mesmo conteúdo informado em |\data|.
 
 Durante o desenvolvimento do trabalho, é possível utilizar |\data{\today}| para
 que seja armazenada a data atual.
