@@ -16,6 +16,17 @@
 %% http://code.google.com/p/abntex2/
 %%
 %% This work consists of the file abntex2.cls.
+%%
+%%
+%%
+%% 2013.1.3 09h02 laurocesar
+%%  Correção do estilo de capítulo de \renewcommand{\beforechapskip}{0cm} para
+%%  setlength{\beforechapskip}{0cm}
+%%  Inclusão de \title{} \author{} e \date{} nos equivalentes em portugues
+%%
+%% 2012.12.2 09h38 laurocesar
+%%  Criação do arquivo 
+%%
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -272,7 +283,7 @@
      }{} % else
   }
   \renewcommand{\afterchapternum}{}
-  \renewcommand{\beforechapskip}{0cm}
+  \setlength{\beforechapskip}{0cm}
   
   % impressao do capitulo nao numerado
   \renewcommand\printchapternonum{%
@@ -334,15 +345,15 @@
 
 % Comandos de dados - título do documento
 \providecommand{\imprimirtitulo}{}
-\newcommand{\titulo}[1]{\renewcommand{\imprimirtitulo}{#1}}
+\newcommand{\titulo}[1]{\title{#1}\renewcommand{\imprimirtitulo}{#1}}
 
 % Comandos de dados - autor (use \and para múltiplos autores)
 \providecommand{\imprimirautor}{}
-\newcommand{\autor}[1]{\renewcommand{\imprimirautor}{#1}}
+\newcommand{\autor}[1]{\author{#1}\renewcommand{\imprimirautor}{#1}}
 
 % Comandos de dados - data
 \providecommand{\imprimirdata}{}
-\newcommand{\data}[1]{\renewcommand{\imprimirdata}{#1}\date{#1}}
+\newcommand{\data}[1]{\date{#1}\renewcommand{\imprimirdata}{#1}\date{#1}}
 
 % Comandos de dados - instituição
 \providecommand{\imprimirinstituicao}{}
