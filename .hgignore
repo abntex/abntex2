@@ -19,3 +19,5 @@ syntax: regexp
 \.nlo$
 syntax: regexp
 \.nls$
+syntax: regexp
+^target$
