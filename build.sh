@@ -4,7 +4,7 @@ echo --------------------------------------------------
 echo abnteX2 builder script: build zip files for deploy
 echo --------------------------------------------------
 
-# initializing: create clean and create directories
+# initializing: create clean directories
 rm -rf target
 mkdir -p target/abntex2/{tex,doc}
 
