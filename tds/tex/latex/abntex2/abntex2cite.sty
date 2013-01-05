@@ -1,4 +1,4 @@
-%% abntex2cite.sty, v 1.0 2013/01/01 laurocesar
+%% abntex2cite.sty, v 1.1 2013/01/05 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -28,6 +28,11 @@
 %% Changed referentes of abnt-options.bib to abntex2-options.bib
 %% 
 %% The original revision history is the following:
+%%
+%%
+%% 2013/01/05 14h35 laurocesar
+%% Corrige uma incompatibilidade com o Beamer: adiciona a verificação da 
+%% existência da length \bibindent antes de usá-la.
 %%
 %% 2012/04/26 20h20 	laurocesar
 %% Incluída as contribuições de compatibilização com o pacote backref de
@@ -254,6 +259,9 @@
 \ExecuteOptions{abnt-option-file}
 
 % recuo : compatibility with old norms
+\ifx \bibindent\undefined
+  \newlength{\bibindent}
+\fi  
 \setlength{\bibindent}{0em}
 \DeclareOption{recuo}{\setlength{\bibindent}{1.8em}}
 
