@@ -1,52 +1,61 @@
+-----------------------------------------------------------------
+abnTeX2: Type­set a Brazil­ian aca­demic the­sis based on ABNT rules
+-----------------------------------------------------------------
+
 This is the README file for the abntex2 class and abntex2cite package. Please read the
 license information at the end of this file.
-
-
-PURPOSE
 
 The abntex2 class and the abntex2cite package are intended to assist the preparation 
 of theses and academic papers based on ABNT (Associação Brasileira de Normas Técnicas) 
 used in Brazil.
 
+CHANGE HISTORY
+-----------------------------------------------------------------
+  2013/01/05 - v1.1
+     bug corrections
+     now \titulo, \autor and \data do the same as \title, \author and \date  
+      
+  2012/12/20 - v1.0 
+     initial release on CTAN 
 
 INSTALLATION
+-----------------------------------------------------------------
 
-To install the abntex2 class and abntex2cite package you need:
-  abntex2.cls
-  abntex2cite.sty
-  abntex2abrev.sty
-  abntex2-alf.bst
-  abntex2-num.bst
-  abntex2-options.bib
+In order to install the abntex2 class and abntex2cite package you need:
+
+  abntex2.cls						The abntex2 class file.
+  abntex2cite.sty					The abntex2cite citation package file.
+  abntex2abrev.sty					Extension of abntex2cite package. It contains abbreviations helpers macros.
+  abntex2-alf.bst					Numeric citation style file.
+  abntex2-num.bst					Alphanumeric (author-date) citation style file.
+  abntex2-options.bib				Default citation options configurations.
   
-Put those files somewhere LaTeX can find it. Read the documentation of 
+Put those files somewhere LaTeX can find them. Read the documentation of 
 your LaTeX system to find out where this might be. 
-
-If you're new to this, see
-http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages for more
+  
+If you're new to this, see http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages for more
 information on installing packages.
-
+  
 
 DOCUMENTATION
+-----------------------------------------------------------------
 
-To produce the abntex2 class documentation you need:
-  abntex2.tex						(the main class documentation)
-  abntex2-doc.bib
-  
-To produce the abntex2 class example usage you need:
-  abntex2-modelo.tex				(the usage example of the class)
-  abntex2-modelo-references.bib
+The abnTeX2 documentation consists of the following files:
 
-To produce the abntex2cite package documentation you need:
-  abntex2cite.tex					(abntex2cite package documentation)
-  abntex2cite-alf.tex				(additional alphanumeric, author-date, citation style documentation)
-  abntex2-doc.bib
-  abntex2-doc-abnt-10520-2001.bib
-  abntex2-doc-abnt-10520-2002.bib
-  abntex2-doc-abnt-6023-2000.bib
-  abntex2-doc-options.bib
-  abntex2-doc-test.bib
-  
+  README							Instructions on installation and documentation.
+  abntex2-modelo.tex				The usage example of the abntex2 class abntex2cite package
+  abntex2-modelo-references.bib		Bib references of the example 
+
+  abntex2.tex						The main class documentation
+  abntex2cite.tex					The abntex2cite package documentation
+  abntex2cite-alf.tex				Additional alphanumeric (author-date) citation style documentation
+  abntex2-doc.bib					Bib references used by documentation
+  abntex2-doc-abnt-10520-2001.bib	Specific ABNT NBR 10520:2001 bib references entries
+  abntex2-doc-abnt-10520-2002.bib	Specific ABNT NBR 10520:2002 bib references entries
+  abntex2-doc-abnt-6023-2000.bib	Specific ABNT NBR 6023:200 bib references entries
+  abntex2-doc-options.bib			Options configurations used by documentation
+  abntex2-doc-test.bib				General bib references used by accordance tests
+
 To produce any documentation above you also need:
   ltxdoc.cls   													(part of the standard LaTeX2e distribution)
   all installation files described in "INSTALLATION" section	(par of this bundle)
@@ -62,46 +71,30 @@ Compile the documentation as the example below. There are 4 PDF files of documen
   (the "FILE" entry is one of the .tex file listed above)
   
 
-
 COPYING AND MODIFICATION
+-----------------------------------------------------------------
 
 Copyright 2001-2003 abnTeX group at http://abntex.codigolivre.org.br
 Copyright 2012-2013 abntex2 team at https://code.google.com/p/abntex2/
 
-The abntex2 class and abntex2cite package consists of the following files:
-
-  README       						Instructions on installation and documentation.
-  abntex2.cls  						The abntex2 class file.
-  abntex2cite.sty					The abntex2cite citation package file.
-  abntex2abrev.sty					Extension of abntex2cite package. It contains abbreviations helpers macros.
-  abntex2-alf.bst					Numeric citation style file.
-  abntex2-num.bst					Alphanumeric (author-date) citation style file.
-  abntex2-options.bib				Default citation options configurations.
-
-  abntex2.tex						The main class documentation
-  abntex2-doc.bib					The main class bib references
-
-  abntex2-modelo.tex				The usage example of the class abntex2
-  abntex2-modelo-references.bib		Bib references of the example 
-  
-  abntex2cite.tex					The abntex2cite package documentation
-  abntex2cite-alf.tex				Additional alphanumeric (author-date) citation style documentation
-  abntex2-doc.bib					Bib references used by documentation
-  abntex2-doc-abnt-10520-2001.bib	Specific ABNT NBR 10520:2001 bib references entries
-  abntex2-doc-abnt-10520-2002.bib	Specific ABNT NBR 10520:2002 bib references entries
-  abntex2-doc-abnt-6023-2000.bib	Specific ABNT NBR 6023:200 bib references entries
-  abntex2-doc-options.bib			Options configurations used by documentation
-  abntex2-doc-test.bib				General bib references used by accordance tests
-  
-  
 This package can be redistributed and/or modified under the terms
 of the LaTeX Project Public License distributed from CTAN
 archives in the directory macros/latex/base/lppl.txt; either
 version 1.3 of the license, or (at your option) any later version.
 
-HELP
+Universities and other institutions are encouraged to customize front pages and
+others files and redistribute them to the users, but not to change the abnTeX2 files. 
+You may customize almost all abnTeX2 commands with \renewcommand or using memoir commands.
+It is better than changing the files themselves.
 
+HELP
+-----------------------------------------------------------------
+
+You can get help here:
+ 
 www   https://code.google.com/p/abntex2/
 group http://groups.google.com/group/abntex2
+
+We need your help too. Access the project's home page and contact us.
 
 Lauro César Araujo - laurocesar at laurocesar dot com
