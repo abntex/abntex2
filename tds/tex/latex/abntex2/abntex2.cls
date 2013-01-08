@@ -1,4 +1,4 @@
-%% abntex2.cls, v 1.1 2013/01/03 laurocesar
+%% abntex2.cls, v 1.2 2013/01/03 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -17,7 +17,12 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
-%%
+%% 2013.1.7 20h35 laurocesar
+%%  Uso da fonte de \ABNTEXfontereduzida em \caption, \legend e \footnote
+%%  Redefinição da implementaçao do ambiente resumo: agora ele usa abstract. 
+%%  Criação de \resumoname e do ambiente resumoumacoluna.
+%%  Tratamento especial dos capítulos e divisões pré-textuais no caso da option
+%% article estar habilitada.
 %%
 %% 2013.1.3 09h02 laurocesar
 %%  Correção do estilo de capítulo de \renewcommand{\beforechapskip}{0cm} para
@@ -37,8 +42,13 @@
 \ProvidesClass{abntex2}[2013/02/01 v1.0 abnTeX2]
 
 %
-% Repassa todos os parâmetros à report
+% Repassa todos os parâmetros à classe memoir, mas captura a option article
 %
+\providecommand{\ABNTEXisarticle}{false}
+\DeclareOption{article}{
+	\renewcommand{\ABNTEXisarticle}{true}
+	\PassOptionsToClass{article}{memoir}%}
+}	
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{memoir}%
 }
@@ -128,7 +138,9 @@
 \newcommand{\apendicesname}{Ap\^endices}
 \newcommand{\orientadorname}{Orientador:}
 \newcommand{\coorientadorname}{Coorientador:}
-\newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao} 
+\newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
+\newcommand{\resumoname}{Resumo} 
+
 % ---
 
 % ---
@@ -156,7 +168,7 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos e variaveis privadas
+% Comandos e variaveis privados
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -181,7 +193,16 @@
 \setboolean{abntex@apendiceousecao}{false}
 % ---
 
-
+% ---
+% cleardoublepage se este documento nao for article
+% ---
+\newcommand{\PRIVATEclearpageifneeded}{%
+  \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+    %
+  }{ % else
+    \cleardoublepage
+  }
+}  
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -194,17 +215,27 @@
 \makeatletter
 \renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.2cm\@makefnmark#1}
 \makeatother
+\renewcommand{\foottextfont}{\ABNTEXfontereduzida}
 % ---
 
 % ---
 % Numeração contínua das figuras
-\counterwithout{figure}{chapter}
-\counterwithout{table}{chapter}
+\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+  \counterwithout{section}{chapter}
+  \counterwithout{figure}{section}
+  \counterwithout{table}{section}
+}{%else
+  \counterwithout{section}{section}
+  \counterwithout{figure}{chapter}
+  \counterwithout{table}{chapter}
+}
 % ---
 
 % ---
 % Estilos de caption
 \captiondelim{\space--\space}
+\captionnamefont{\ABNTEXfontereduzida}
+\captiontitlefont{\ABNTEXfontereduzida}
 % ---
 
 % -----
@@ -244,7 +275,12 @@
   \newlength{\chapternamenumlength}
 
   % tamanhos de fontes de chapter e part	
-  \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}
+   \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+     \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}
+   }{%else
+     \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}
+   }
+  
   \renewcommand{\chapnumfont}{\chaptitlefont}
   \renewcommand{\parttitlefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
   \renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
@@ -269,7 +305,7 @@
     \chaptitlefont%
     \ifthenelse{\boolean{abntex@innonumchapter}}{\centering##1}{% else
 	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-	    \parbox[t]{\textwidth-\chapternamenumlength}{##1}%
+	    \parbox[t]{\columnwidth-\chapternamenumlength}{##1}%
 	}    
   }
        
@@ -294,7 +330,7 @@
 % ---
 
 % -----
-% Declarações de cabeçalhos e de rodapé
+% Declarações de cabeçalhos 
 % -----
 % Cabeçalho padrão
 \makepagestyle{abntheadings}
@@ -412,7 +448,7 @@
 % Errata
 \newenvironment{errata}[1][\errataname]{%
    \pretextualchapter{#1}
-  }{\cleardoublepage}
+  }{\PRIVATEclearpageifneeded}
 % ---
 
 % ---
@@ -421,7 +457,7 @@
    \clearpage%
    \PRIVATEbookmarkthis{#1}%
    \begin{Spacing}{1.0}
-}{\end{Spacing}\cleardoublepage}   
+}{\end{Spacing}\PRIVATEclearpageifneeded}   
 % ---
 
 % ---
@@ -430,14 +466,14 @@
    \ifthenelse{\equal{#1}{}}{%
     \PRIVATEbookmarkthis{\dedicatorianame}
     }{\pretextualchapter{#1}}
-  }{\cleardoublepage}
+  }{\PRIVATEclearpageifneeded}
 % ---
 
 % ---
 % Agradecimentos
 \newenvironment{agradecimentos}[1][\agradecimentosname]{%
    \pretextualchapter{#1}
-  }{\cleardoublepage}
+  }{\PRIVATEclearpageifneeded}
 % ---
 
 % ---
@@ -446,15 +482,27 @@
    \ifthenelse{\equal{#1}{}}{%
     \PRIVATEbookmarkthis{\epigraphname}
     }{\pretextualchapter{#1}}
-  }{\cleardoublepage}
+  }{\PRIVATEclearpageifneeded}
 % ---
 
 % ---
 % Resumo e abstracts em diferentes idiomas - NBR 14724/2011
-\newenvironment{resumo}[1][\abstractname]{%
+\newenvironment{resumo}[1][\resumoname]{%
+   \PRIVATEbookmarkthis{#1}
+   \renewcommand{\abstractnamefont}{\chaptitlefont}
+   \renewcommand{\abstractname}{#1}
+   \begin{abstract}
    \SingleSpacing
-   \pretextualchapter{#1}
-  }{\cleardoublepage}
+  }{\end{abstract}\PRIVATEclearpageifneeded}
+  
+\newenvironment{resumoumacoluna}[1][\resumoname]{%
+   \PRIVATEbookmarkthis{#1}
+   \renewcommand{\abstractnamefont}{\chaptitlefont}
+   \renewcommand{\abstractname}{#1}
+   \begin{onecolabstract}
+   \SingleSpacing
+}{\end{onecolabstract}\PRIVATEclearpageifneeded}
+  
 % ---
 
 % ------------------------------------------------------------------------

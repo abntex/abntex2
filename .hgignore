@@ -21,3 +21,5 @@ syntax: regexp
 \.nls$
 syntax: regexp
 ^target$
+syntax: regexp
+^test$
