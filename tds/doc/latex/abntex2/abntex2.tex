@@ -349,10 +349,26 @@ As opções mais comuns de inicialização do texto do trabalho são:
 trabalhos sejam impressos no anverso e no verso das folhas. Isso é obtido com a
 opção |twoside|. 
 
+\DescribeMacro{article}\DescribeMacro{\counterwithout}
 A opção |article| é útil para produção de artigos com \abnTeX2.
-Nesse caso, a maioria dos elementos pré-textuais descritos neste documento na
-\autoref{sec-pretextuais} se tornam desnecessários.
+Nesse caso, a maioria dos elementos pré-textuais descritos na
+\autoref{sec-pretextuais} se tornam desnecessários. Quando esta opção for
+utilizada, a classe \textsf{abntex2} não forçará quebra de página para os
+elementos pré-textuais e definirá a formatação do capítulo de forma idêntica à
+formatação das seções. Por padrão, quando a opção |article| estiver presente,
+você deve iniciar as divisões do trabalho com |\section|, e não |\chapter|, como
+é usual em trabalhos monográficos. Porém, caso queira iniciar as divisões com
+|\chapter| ao invés de |\section|, adicione as linhas abaixo no preâmbulo do
+documento para que a numeração dos capítulos, seções, figuras e tabelas sejam
+corretamente sequenciados:
 
+\begin{verbatim}
+  \counterwithout{section}{section}
+  \counterwithout{figure}{chapter}
+  \counterwithout{table}{chapter}
+\end{verbatim}
+
+A macro |\part| também é permitida em |article|
 
 \DescribeMacro{\ABNTEXfontereduzida}\DescribeMacro{\footnotesize}
 A seção 5.1 da ABNT NBR 14724:2011 também estabelece que o tamanho fonte seja 12
@@ -1042,16 +1058,15 @@ Um exemplo de uso do ambiente é:
 \subsection{Resumos em língua vernácula e estrangeira (obrigatório)}
 % ---
 
-\DescribeEnv{resumo}\DescribeMacro{\abstractname}
+\DescribeEnv{resumo}\DescribeEnv{resumo}\DescribeMacro{\resumoname}
 Os resumos em língua vernácula e estrangeira são elementos obrigatórios da ABNT
 NBR 14724:2011, seção 4.2.1.7 e 4.2.1.8, e devem ser escritos conforme
 orientação da ABNT NBR 6028. Os elementos podem ser criados por meio do ambiente
 |resumo|\oarg{nome do resumo}.
 O valor do parâmetro opcional é utilizado como entrada no \textsf{bookmark} do
 PDF (\autoref{sec-bookmark}) e como título do resumo. Caso o parâmetro não seja
-informado, o conteúdo de |\abstractname| do pacote \textsf{babel} é utilizado. 
-O parâmetro opcional é útil para criação de resumos em diversos idiomas
-estrangeiros.
+informado, o conteúdo de |\resumoname| é utilizado. O parâmetro opcional é útil
+para criação de resumos em diversos idiomas estrangeiros.
 
 Exemplos de uso do ambiente são:
 
@@ -1071,6 +1086,43 @@ Exemplos de uso do ambiente são:
   \noindent
   \textbf{Mots-clés}: latex. abntex. publication de textes.
 \end{resumo}
+\end{verbatim}
+
+\DescribeEnv{resumoumacoluna}\DescribeMacro{\resumoname}\DescribeMacro{\twocolumn}
+Em documentos que utilizam a opção |twocolumn| para produzir o texto em duas
+colunas --- geralmente utilizado conjuntamente com |article| ---, pode-se
+desejar imprimir o resumo em uma única coluna e o restante do documento em duas.
+Nesse caso, utilize o ambiente |resumoumacoluna|\oarg{nome do resumo}. 
+
+Embora o parâmetro opcional |nome do resumo| esteja disponível, o ambiente
+|resumoumacolumna| deve ser usado no contexto da macro |\twocolumn|, que por sua
+vez não permite que nenhum ambiente ou macro possua outros parâmetros. Desse
+modo, não é possível alterar o nome do resumo com o parâmetro opcional.
+Felizmente, é possível fazê-lo redefinindo a macro |\resumoname|, conforme os
+exemplos que seguem. A macro |\twocolumn| é usada para passar parâmetro à opção
+|twocolumn| da classe \textsf{abntex2}.
+
+Exemplos de uso do ambiente são:
+
+\begin{verbatim}
+\twocolumn[  % indica que inicia-se opção de twocolumn
+% --- resumo em português ---
+\begin{resumoumacoluna}
+  Resumo em português
+  \vspace{\onelineskip}
+  \noindent
+  \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+\end{resumo}
+
+% --- resumo em francês ---
+\renewcommand{\resumoname}{Résumé}
+\begin{resumoumacoluna}
+  Il s'agit d'un résumé en français.
+  \vspace{\onelineskip}
+  \noindent
+  \textbf{Mots-clés}: latex. abntex. publication de textes.
+\end{resumo}
+] fim de opção de twocolumn
 \end{verbatim}
 
 
