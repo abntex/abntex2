@@ -23,6 +23,8 @@
 %%  Criação de \resumoname e do ambiente resumoumacoluna.
 %%  Tratamento especial dos capítulos e divisões pré-textuais no caso da option
 %% article estar habilitada.
+%%  Altera a metrica usada para calcular o espaçamento dos capítulos abnt de 
+%% \textwidth para \columnwidth.
 %%
 %% 2013.1.3 09h02 laurocesar
 %%  Correção do estilo de capítulo de \renewcommand{\beforechapskip}{0cm} para
