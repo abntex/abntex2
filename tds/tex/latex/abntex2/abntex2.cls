@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.1.9 14h24 laurocesar
+%%  Altera o nome \listtablename para ``Lista de tabelas'' (com t minusculo)
+%%  Altera a implementação do ambiente citacao
+%%
 %% 2013.1.7 20h35 laurocesar
 %%  Uso da fonte de \ABNTEXfontereduzida em \caption, \legend e \footnote
 %%  Redefinição da implementaçao do ambiente resumo: agora ele usa abstract. 
@@ -72,6 +76,7 @@
   \renewcommand{\bibname}{Refer\^encias}
   \renewcommand{\indexname}{\'Indice}
   \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+  \renewcommand{\listtablename}{Lista de tabelas}
 }
 % ---   
 
@@ -575,13 +580,15 @@
 % ---
 % Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
 \newenvironment*{citacao}[1][]{%
+  {\list{}{%
   \begin{SingleSpace}%
   \ABNTEXfontereduzida% 
   \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
   \noindent%
   }{%
   \normalsize%
-  \end{SingleSpace}}
+  \end{SingleSpace}}%
+  }\item[]}{\endlist}
 % ---
 
 % ---
