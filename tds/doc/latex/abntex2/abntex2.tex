@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.1.9 21h44 laurocesar
+%%  Inclusão da norma ABNT NBR ABNT NBR 10719-2011 - Informação e
+%% documentação - Relatório técnico e-ou científico - Apresentação
+%%
 %% 2013.1.6 11h43 laurocesar
 %%  Inclusão da norma ABNT NBR 15287:2011: Informação e documentação - Projeto
 %% de pesquisa - Apresentação
@@ -92,8 +96,8 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 Este é o manual de uso da classe \textsf{abntex2}. Trata-se de um conjunto de
 customizações da classe \textsf{memoir} para elaboração de trabalhos acadêmicos
 condizentes com as normas da Associação Brasileira de Normas Técnicas,
-especialmente a ABNT NBR 14724:2011 e a ABNT NBR
-6024:2012.
+especialmente a ABNT NBR 14724:2011 e a ABNT NBR 6024:2012, além de outras
+referentes a ``Informação e documentação''.
 \end{abstract}
 
 \tableofcontents
@@ -162,6 +166,8 @@ O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
   \item[ABNT NBR 6034:2004] Informação e documentação - Índice -
   Apresentação
   \item[ABNT NBR 10520:2002] Informação e documentação - Citações
+  \item[ABNT NBR 10719-2011] Informação e documentação - Relatório técnico
+  e-ou científico - Apresentação
   \item[ABNT NBR 14724:2011] Informação e documentação - Trabalhos
   acadêmicos - Apresentação
   \item[ABNT NBR 15287:2011] Informação e documentação - Projeto de pesquisa -
@@ -327,6 +333,22 @@ O \abnTeX2 apresenta instrumentos para produzir todas as partes do documento,
 exceto a Lombada, a Lista de Símbolos e o Glossário, que podem ser produzidos
 por outros pacotes adicionais. As seções seguintes descrevem como cada seção
 pode ser produzida.
+
+A norma ABNT NBR 10719:2011 \emph{Informação e documentação - Relatório técnico
+e-ou científico - Apresentação} apresenta basicamente a mesma estrutura que a
+norma de trabalhos acadêmicos, exceto que nesta norma a Capa é opcional, não há
+Folha de aprovação, Dedicatória, Epígrafe nem Resumo em língua estrangeira e
+acrescenta-se opcionalmente um formulário de identificação como último elemento
+pós-textual. Apenas o modelo desse formulário não está incluído no \abnTeX2.
+Todos os demais elementos aparecem na mesma ordem e são regidos pelas mesmas
+regras.
+
+A norma ABNT NBR 15287:2011 \emph{Informação e documentação - Projeto de
+pesquisa - Apresentação} também apresenta a mesma estrutura básica da ABNT NBR
+14724:2011. Porém, na ABNT NBR 15287:2011 a Capa é opcional, não há Errata,
+Folha de aprovação, Dedicatória, Agradecimentos, Epígrafe nem Resumos. Todos os
+demais elementos aparecem na mesma ordem e, a exemplo da ABNT NBR 10719:2011,
+são regidos pelas mesmas regras.
 
 % ------
 \section{Configurações gerais}\label{sec-configgerais}
