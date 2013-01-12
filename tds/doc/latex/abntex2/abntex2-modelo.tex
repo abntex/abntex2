@@ -17,6 +17,9 @@
 %%
 %% This work consists of the files abntex2-modelo.tex and abntex2-modelo-references.bib
 %%
+%% 2013.1.12 21h14 laurocesar
+%%  Revisão do texto da introdução, alteração do ano e adição de exemplo.
+%%
 %% 2013.1.9 08h14 laurocesar
 %%  Adiciona \setlength{\parskip}{\onelineskip}%
 %%  Adiciona exemplo de \autoref
@@ -68,6 +71,7 @@
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
 \usepackage{lipsum}				% para geração de dummy text
+% ---
 
 % ---
 % Pacotes de citações
@@ -102,7 +106,7 @@
 \titulo{Modelo Canônico de\\ Trabalhos Acadêmicos com \abnTeX}
 \autor{Equipe \abnTeX}
 \local{Brasil}
-\data{2012}
+\data{2013}
 \orientador{Lauro César Araujo}
 \coorientador{Equipe \abnTeX}
 \instituicao{%
@@ -337,20 +341,23 @@ imaginações.}
 % Agradecimentos
 % ---
 \begin{agradecimentos}
-Os agradecimentos principais são direcionados à Miguel Frasson, Gerald Weber,
+Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
 Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz\footnote{Os nomes dos primeiros integrantes do
+Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
 projeto abn\TeX foram extraídos de
 \url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
 contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX~ fosse possível.
+as normas ABNT com \LaTeX\ fosse possível.
 
-Agradecimentos especiais são direcionados ao grupo de usuários
+Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+Brasília (CPAI), ao grupo de usuários
 \emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-novos voluntários do grupo \emph{\abnTeX}
-\footnote{\url{http://groups.google.com/group/abntex2} e
+novos voluntários do grupo
+\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
 \url{https://code.google.com/p/abntex2/}}~que contribuíram e que ainda
 contribuirão para a evolução do abn\TeX.
+
 \end{agradecimentos}
 % ---
 
@@ -483,10 +490,12 @@ contribuirão para a evolução do abn\TeX.
 \chapter*{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
 
-Este documento exemplifica o uso da classe \textsf{abntex2}. A expressão
-``Modelo canônico'' é utilizada para indicar que \abnTeX~não é modelo específico de
-trabalho acadêmico de nenhuma universidade ou instituição, mas que implementa
-tão somente os requisitos das normas da ABNT.
+Este documento e seu código-fonte devem ser utilizados como exemplo e como
+referência de uso da classe \textsf{abntex2} e do pacote \textsf{abntex2cite}.
+
+A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX~não é
+modelo específico de trabalho acadêmico de nenhuma universidade ou instituição,
+mas que implementa tão somente os requisitos das normas da ABNT.
 
 Sinta-se convidado à participar do projeto \abnTeX! Acesse o site do projeto em
 \url{http://code.google.com/p/abntex2/}. Também fique livre para conhecer,
@@ -495,19 +504,19 @@ modificados tenham seus nomes alterados e que os créditos sejam dados aos
 autores originais, nos termos da ``The LaTeX Project Public
 License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
 
-Encorajamos que sejam realizadas customizações específicas para universidades
---- como capas, folha de aprovação, etc. Porém, recomendamos que ao invés de se
-alterar diretamente os arquivos do \abnTeX, distribua-se aos estudantes
-arquivos com as respectivas customizações. Isso permite que futuras versões do
-\abnTeX~não se tornem automaticamente incompatíveis com as customizações
-promovidas.
+Encorajamos que sejam realizadas customizações específicas deste exemplo para
+universidades e outras instituições --- como capas, folha de aprovação, etc.
+Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+\abnTeX, distribua-se aos estudantes arquivos com as respectivas customizações.
+Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
+incompatíveis com as customizações promovidas.
 
-Este exemplo deve ser utilizado como complemento dos manuais do \abnTeX~e
-\cite{abntex2classe,abntex2cite,abntex2cite-alf}, da classe \textsf{memoir}
-\cite{memoir}. Leia também do código-fonte deste documento que está lendo agora.
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ e
+\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
+\cite{memoir}. 
 
-Esperamos, sinceramente, que a sua contribuição acadêmica tenha ainda mais
-qualidade com uso do \abnTeX.
+Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do seu trabalho, de
+modo que o principal esforço seja concentrado na sua contribuição científica.
 
 Equipe \abnTeX 
 
@@ -830,6 +839,13 @@ primeira palavra da primeira linha}
 
 Isso atende à norma ABNT NBR 14724-2011, seções de 5.2.2 a 5.2.4 e ABNT NBR
 6024-2003, seções de 3.1 a 3.8.
+
+% ---
+\section{Consulte o manual da classe \textsf{abntex2}}
+% ---
+
+Consulte o manual da classe \textsf{abntex2} \cite{abntex2classe} para uma
+referência completa das macros e ambientes disponíveis.
 
 
 % ----------------------------------------------------------
