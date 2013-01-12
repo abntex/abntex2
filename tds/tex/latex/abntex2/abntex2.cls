@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.1.12 21h44	laurocesar
+%%  Corrige numeração contínua de seções quando não está no modo article
+%%
 %% 2013.1.9 14h24 laurocesar
 %%  Altera o nome \listtablename para ``Lista de tabelas'' (com t minusculo)
 %%  Altera a implementação do ambiente citacao
@@ -232,7 +235,6 @@
   \counterwithout{figure}{section}
   \counterwithout{table}{section}
 }{%else
-  \counterwithout{section}{section}
   \counterwithout{figure}{chapter}
   \counterwithout{table}{chapter}
 }
@@ -283,8 +285,10 @@
 
   % tamanhos de fontes de chapter e part	
    \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+     \setlength\beforechapskip{\baselineskip}
      \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}
    }{%else
+     \setlength{\beforechapskip}{0pt}
      \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}
    }
   
@@ -326,7 +330,6 @@
      }{} % else
   }
   \renewcommand{\afterchapternum}{}
-  \setlength{\beforechapskip}{0cm}
   
   % impressao do capitulo nao numerado
   \renewcommand\printchapternonum{%
@@ -579,16 +582,15 @@
 
 % ---
 % Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
-\newenvironment*{citacao}[1][]{%
-  {\list{}{%
-  \begin{SingleSpace}%
-  \ABNTEXfontereduzida% 
-  \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
-  \noindent%
-  }{%
-  \normalsize%
-  \end{SingleSpace}}%
-  }\item[]}{\endlist}
+\newenvironment*{citacao}{%
+   \list{}%
+   \footnotesize%
+   \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
+   \item[]%
+   \begin{SingleSpace}%
+ }{%
+   \end{SingleSpace}%
+   \endlist}%
 % ---
 
 % ---
