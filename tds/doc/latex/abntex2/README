@@ -11,6 +11,13 @@ used in Brazil.
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2013/01/12 - v1.2
+     adding article support to abntex2.cls
+     adding new article example
+     refactoring canonical example: new commands, explanations and examples
+     bug corrections on abntex2.cls
+     review documentation 
+
   2013/01/05 - v1.1
      bug corrections
      now \titulo, \autor and \data do the same as \title, \author and \date  
