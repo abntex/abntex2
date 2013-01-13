@@ -11,6 +11,11 @@ used in Brazil.
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2013/01/13 - v1.2.1
+     adding length \ABNTEXcitacaorecuo, useful on articles
+     abntex2's twocolumn class option changes \ABNTEXcitacaorecuo to 1.8cm 
+     altering \ABNTEXcitacaorecuo explanation on abntex2.tex and on examples 
+     
   2013/01/12 - v1.2
      adding article support to abntex2.cls
      adding new article example
