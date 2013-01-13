@@ -24,7 +24,7 @@ function build(){
 	# setting names
 	ZIP_DOC=target/abntex2-doc$VERSAO.zip
 	ZIP_TDS=target/abntex2.tds$VERSAO.zip
-	ZIP_MODELO=target/abntex2-modelo$VERSAO.zip
+	ZIP_MODELO=target/abntex2-modelos$VERSAO.zip
 
 
 	# initializing: create clean directories
@@ -83,7 +83,7 @@ function deploy(){
 
 	echo
 	echo Deploying $ZIP_MODELO
-	./googlecode_upload.py -s \'"$PREFIX Modelo de trabalho acadêmico com abnTeX2"\' -p abntex2 -u $1 -w $2 -l $LABELS $ZIP_MODELO
+	./googlecode_upload.py -s \'"$PREFIX Modelos documentos com abnTeX2"\' -p abntex2 -u $1 -w $2 -l $LABELS $ZIP_MODELO
 }
 
 # ending information after build
