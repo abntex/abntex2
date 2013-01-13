@@ -16,7 +16,8 @@ CHANGE HISTORY
      adding new article example
      refactoring canonical example: new commands, explanations and examples
      bug corrections on abntex2.cls
-     review documentation 
+     review documentation
+     change abntex2-modelo.tex file nae to abntex2-modelo-trabalho-academico.tex 
      adding compatibility information to:
        ABNT NBR 10719:2011: Informação e documentação - Relatório técnico e/ou científico - Apresentação
        ABNT NBR 15287:2011: Informação e documentação - Projeto de pesquisa - Apresentação
@@ -54,19 +55,20 @@ DOCUMENTATION
 
 The abnTeX2 documentation consists of the following files:
 
-  README							Instructions on installation and documentation.
-  abntex2-modelo.tex				The usage example of the abntex2 class abntex2cite package
-  abntex2-modelo-references.bib		Bib references of the example 
+  README								Instructions on installation and documentation.
+  abntex2-modelo-trabalho-academico.tex	A usage example of abntex2 class and abntex2cite package producing a tesis
+  abntex2-modelo-artigo.tex				A usage example of abntex2 class and abntex2cite package producing an article
+  abntex2-modelo-references.bib			Bib references of the example 
 
-  abntex2.tex						The main class documentation
-  abntex2cite.tex					The abntex2cite package documentation
-  abntex2cite-alf.tex				Additional alphanumeric (author-date) citation style documentation
-  abntex2-doc.bib					Bib references used by documentation
-  abntex2-doc-abnt-10520-2001.bib	Specific ABNT NBR 10520:2001 bib references entries
-  abntex2-doc-abnt-10520-2002.bib	Specific ABNT NBR 10520:2002 bib references entries
-  abntex2-doc-abnt-6023-2000.bib	Specific ABNT NBR 6023:200 bib references entries
-  abntex2-doc-options.bib			Options configurations used by documentation
-  abntex2-doc-test.bib				General bib references used by accordance tests
+  abntex2.tex							The main class documentation
+  abntex2cite.tex						The abntex2cite package documentation
+  abntex2cite-alf.tex					Additional alphanumeric (author-date) citation style documentation
+  abntex2-doc.bib						Bib references used by documentation
+  abntex2-doc-abnt-10520-2001.bib		Specific ABNT NBR 10520:2001 bib references entries
+  abntex2-doc-abnt-10520-2002.bib		Specific ABNT NBR 10520:2002 bib references entries
+  abntex2-doc-abnt-6023-2000.bib		Specific ABNT NBR 6023:200 bib references entries
+  abntex2-doc-options.bib				Options configurations used by documentation
+  abntex2-doc-test.bib					General bib references used by accordance tests
 
 To produce any documentation above you also need:
   ltxdoc.cls   													(part of the standard LaTeX2e distribution)
