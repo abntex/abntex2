@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.1.13 09h23
+%%  Altera o ambiente citacao para que receba diferentes recuos no modo
+%% twocolumn
+%%
 %% 2013.1.12 21h44	laurocesar
 %%  Corrige numeração contínua de seções quando não está no modo article
 %%
@@ -51,13 +55,20 @@
 \ProvidesClass{abntex2}[2013/02/01 v1.0 abnTeX2]
 
 %
-% Repassa todos os parâmetros à classe memoir, mas captura a option article
+% Repassa todos os parâmetros à classe memoir, 
+% mas captura as options article e twocolumn
 %
 \providecommand{\ABNTEXisarticle}{false}
 \DeclareOption{article}{
 	\renewcommand{\ABNTEXisarticle}{true}
 	\PassOptionsToClass{article}{memoir}%}
-}	
+}
+\providecommand{\ABNTEXistwocolumn}{false}
+\DeclareOption{twocolumn}{
+	\renewcommand{\ABNTEXistwocolumn}{true}
+	\PassOptionsToClass{twocolumn}{memoir}%}
+}
+	
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{memoir}%
 }
@@ -582,10 +593,16 @@
 
 % ---
 % Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
+\newlength{\ABNTEXcitacaorecuo}% recuo de 4 cm da margem esquerda
+\ifthenelse{\equal{\ABNTEXistwocolumn}{true}}{%
+  \setlength{\ABNTEXcitacaorecuo}{1.8cm}
+}{% else
+  \setlength{\ABNTEXcitacaorecuo}{4cm}
+}
 \newenvironment*{citacao}{%
    \list{}%
    \footnotesize%
-   \addtolength{\leftskip}{4cm}% % recuo de 4 cm da margem esquerda
+   \addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
    \item[]%
    \begin{SingleSpace}%
  }{%

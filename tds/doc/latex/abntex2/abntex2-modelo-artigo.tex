@@ -1,4 +1,4 @@
-%% abtex2-modelo-artigo.tex, v 1.2 2013/01/09 laurocesar
+%% abtex2-modelo-artigo.tex, v 1.2.1 2013/01/13 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -18,6 +18,10 @@
 %% This work consists of the files abntex2-modelo-artigo.tex and
 %% abntex2-modelo-references.bib
 %%
+%%
+%% 2013.1.13 09h44	laurocesar
+%%  Adiciona seção de explicação do recuo do ambiente citacao
+%%  Revisa ortografia
 %%
 %% 2013.1.12 12h13	laurocesar
 %%  Conclusão do modelo
@@ -48,7 +52,7 @@
 \usepackage[utf8]{inputenc}		% Determina a codificação utiizada (conversão automática dos acentos)
 \usepackage{makeidx}            % Cria o indice
 \usepackage{hyperref}  			% Controla a formação do índice
-\usepackage{indentfirst}		% Identa o primeiro parágrafo de cada seção.
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{nomencl} 			% Lista de simbolos
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
@@ -89,7 +93,8 @@
 % ---
 \titulo{Modelo Canônico de\\ Artigos Acadêmicos com \abnTeX}
 \autor{Equipe \abnTeX\thanks{\url{http://code.google.com/p/abntex2/}} \\ Lauro
-César Araujo\thanks{laurocesar at laurocesar dot com}}
+César
+Araujo\thanks{laurocesar@laurocesar.com}}
 \local{Brasil}
 \data{2013}
 % ---
@@ -270,6 +275,19 @@ a opção \texttt{twocolumn} devem ser escritos no ambiente
    ]                        % FIM DE ARTIGO EM DUAS COLUNAS
 \end{verbatim}
 
+\section{Recuso do ambiente \texttt{citacao}}
+
+No produção de artigos (opção \texttt{article}), pode ser útil alterar o recuo
+do ambiente \texttt{citacao}. Nesse caso, utilize o comando:
+
+\begin{verbatim}
+   \setlength{\ABNTEXcitacaorecuo}{1.8cm}
+\end{verbatim}
+
+Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
+\textsf{abntex2} automaticamente altera o recuo padrão de 4 cm, definido pela
+ABNT NBR 10520:2002 seção 5.3, para 1.8cm.
+
 \subsection{Consulte o Modelo Canônico de Trabalhos Acadêmicos}
 
 Este modelo de artigo é limitado em número de exemplos de comandos. São
@@ -302,7 +320,13 @@ referência completa das macros e ambientes disponíveis.
 \section*{Conclusão}
 \addcontentsline{toc}{section}{Conclusão}
 
-\lipsum[1-3]
+\lipsum[1]
+
+\begin{citacao}
+\lipsum[2]
+\end{citacao}
+
+\lipsum[3]
 
 % ----------------------------------------------------------
 % Referências bibliográficas

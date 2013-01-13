@@ -1,4 +1,4 @@
-%% abtex2.tex, v 1.2 2013/01/06 laurocesar
+%% abtex2.tex, v 1.2.1 2013/01/13 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -16,6 +16,10 @@
 %% http://code.google.com/p/abntex2/
 %%
 %% This work consists of the file abntex2.tex
+%%
+%% 2013.1.13 09h46 laurocesar
+%%  Adiciona explicação do recuo do ambiente citacao
+%%  Adiciona explicação sobre espaçamentos entre parágrafos e linhas
 %%
 %% 2013.1.9 21h44 laurocesar
 %%  Inclusão da norma ABNT NBR ABNT NBR 10719-2011 - Informação e
@@ -410,15 +414,59 @@ dados internacionais de catalogação-na-pulicação é estabelecido pela macro
 \end{verbatim}
 
 % ---
-\subsection{Espaçamentos}
+\subsection{Espaçamentos entre parágrafos e linhas}
 % ---
 
-O espaçamento padrão é definido como |\OnehalfSpacing|, ou seja, um espaço e
-meio. Os comando |\SingleSpacing|, |\DoubleSpacing| podem ser utilizados para
-obter espaçamento simples e espaçamento duplo, respectivamente. Também estão
-disponíveis ambientes do tipo |\begin{}\end{}| com os mesmos nomes das macros.
+\subsubsection{Tamanho do parágrafo}
+
+O tamanho do parágrafo, espaço entre a margem e o início da frase do parágrafo,
+é definido por:
+
+\begin{verbatim}
+   \setlength{\parindent}{1.3cm}
+\end{verbatim}
+
+\subsubsection{Tamanho do primeiro parágrafo}
+
+Por padrão, não há espaçamento no primeiro parágrafo de cada início de divisão
+do documento. Porém, você pode definir que o primeiro
+parágrafo também seja indentado. Para isso, apenas inclua o pacote
+\textsf{indentfirst} no preâmbulo do documento:
+
+\begin{verbatim}
+   \usepackage{indentfirst}      % Indenta o primeiro parágrafo de cada seção.
+\end{verbatim}
+
+\subsubsection{Espaçamento entre parágrafos}
+
+O espaçamento entre um parágrafo e outro pode ser controlado por meio do
+comando:
+
+\begin{verbatim}
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\end{verbatim}
+
+\subsubsection{Espaçamento entre linhas}
+
+O espaçamento entre linhas padrão é definido como |\OnehalfSpacing|, ou seja, um
+espaço e meio, conforme estabelece a ABNT NBR 14724:2011. De todo modo, os
+comando |\SingleSpacing|, |\DoubleSpacing| podem ser utilizados para obter
+espaçamento simples e espaçamento duplo, respectivamente. Além dessas
+macros, estão disponíveis:
+
+\begin{verbatim}
+  \begin{SingleSpace} ...\end{SingleSpace}
+  \begin{Spacing}{hfactori} ... \end{Spacing}
+  \begin{OnehalfSpace} ... \end{OnehalfSpace}
+  \begin{OnehalfSpace*} ... \end{OnehalfSpace*}
+  \begin{DoubleSpace} ... \end{DoubleSpace}
+  \begin{DoubleSpace*} ... \end{DoubleSpace*} 
+\end{verbatim}
+
 Observe que a classe \textsf{abntex2} utiliza o sistema de espaçamento padrão
 do \textsf{memoir}. Nesse caso, o pacote \textsf{setspace} não é necessário.
+
+Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
 
 % ---
 \subsection{Margens}
@@ -1498,6 +1546,18 @@ observar apenas o recuo \cite[5.3]{NBR10520:2002}
 
 O tamanho da fonte utilizada no ambiente |citacao| é determinada pela macro
 |\ABNTEXfontereduzida|, descrita na \autoref{sec-configgerais}.
+
+\DescribeMacro{\ABNTEXcitacaorecuo}
+O recuo utilizado pelo ambiente |citacao| é definido pela métrica
+|\ABNTEXcitacaorecuo|, que pode ser alterado com:
+
+\begin{verbatim}
+   \setlength{\ABNTEXcitacaorecuo}{1.8cm}
+\end{verbatim}
+
+Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
+\textsf{abntex2} automaticamente altera o recuo padrão definido pela
+ABNT NBR 10520:2002 para 1.8cm. 
 
 % ---
 \subsection{Alíneas e Subalíneas}
