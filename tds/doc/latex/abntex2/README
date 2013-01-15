@@ -11,6 +11,24 @@ used in Brazil.
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2013/xx/xx - v1.3
+    adding a new model: abntex2-modelo-relatorio-tecnico.tex
+    adding an example of \include in abntex2-modelo-trabalho-academico.tex: 
+      now abntex2-modelo-trabalho-academico.tex and abntex2-modelo-relatorio-tecnico.tex
+      share a single file abntex2-modelo-include-comandos.tex
+    adding explanations about heading (not) created by \chapter* on abntex.tex
+    changing thesis model to add an example of \chapter*[heading title]{text title}
+    changing title of the article model from "Modelo Canônico de Artigos Acadêmicos" 
+      to "Modelo Canônico de Artigo Científico"
+    changing title of the thesis model from "Modelo Canônico de Trabalhos Acadêmicos" 
+      to "Modelo Canônico de Trabalho Acadêmico"
+    changing title of the abntex2 documentation from "A classe abntex2: Modelo canônico de
+      trabalhos acadêmicos brasileiros compatível com as normas ABNT NBR 14724:2011,
+      ABNT NBR 6024:2012 e outras" to "A classe abntex2: Documentos técnicos e científicos 
+      brasileiros compatíveis com as normas ABNT"   
+    fixing singlespace on references produced by abntex2cite.sty
+    fixing orthographic errors
+
   2013/01/13 - v1.2.1
      adding length \ABNTEXcitacaorecuo, useful on articles
      abntex2's twocolumn class option changes \ABNTEXcitacaorecuo to 1.8cm 
@@ -22,7 +40,7 @@ CHANGE HISTORY
      refactoring canonical example: new commands, explanations and examples
      bug corrections on abntex2.cls
      review documentation
-     change abntex2-modelo.tex file nae to abntex2-modelo-trabalho-academico.tex 
+     change abntex2-modelo.tex file name to abntex2-modelo-trabalho-academico.tex 
      adding compatibility information to:
        ABNT NBR 10719:2011: Informação e documentação - Relatório técnico e/ou científico - Apresentação
        ABNT NBR 15287:2011: Informação e documentação - Projeto de pesquisa - Apresentação
@@ -30,7 +48,7 @@ CHANGE HISTORY
 
 
   2013/01/05 - v1.1
-     bug corrections
+     bug fixes on abnex2cite.sty when using with Beamer 
      now \titulo, \autor and \data do the same as \title, \author and \date  
       
   2012/12/20 - v1.0 
