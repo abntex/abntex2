@@ -23,3 +23,7 @@ syntax: regexp
 ^target$
 syntax: regexp
 ^test$
+syntax: regexp
+^tds/doc/latex/abntex2/abntex2\.cls$
+syntax: regexp
+^tds/doc/latex/abntex2/abntex2cite\.sty$

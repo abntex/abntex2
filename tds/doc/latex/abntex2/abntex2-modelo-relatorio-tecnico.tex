@@ -1,4 +1,4 @@
-%% abtex2-modelo-trabalho-academico.tex, v 1.3 2013/01/14 laurocesar
+%% abtex2-modelo-relatorio-tecnico.tex, v 1.3 2013/01/13 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -15,49 +15,23 @@
 %% by Lauro César Araujo. Further information are available on 
 %% http://code.google.com/p/abntex2/
 %%
-%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% This work consists of the files abntex2-modelo-relatorio-tecnico.tex,
 %% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
 %%
 %% 2013.1.14 21h25 laurocesar
 %%  Modifica capítulos com * para corrigir o cabeçalho: \chapter*[]{}
 %%  Usa abntex2-modelo-include-comandos.tex
-%%  Revisa erros de ortografia 
-%%  Usa abntex2-modelo-include-comandos.tex
-%%  Modifica o nome do modelo de ``Modelo Canônico de Trabalhos Acadêmicos com
-%% \anbTeX2'' para ``Modelo Canônico de Trabalho Acadêmico com \anbTeX2'' 
+%%  Revisa erros de ortografia
 %%
-%% 2013.1.13 09h59 laurocesar
-%%  Revisão de ortografia
-%%
-%% 2013.1.12 21h14 laurocesar
-%%  Revisão do texto da introdução, alteração do ano e adição de exemplo.
-%%  Altera o nome do modelo para abntex2-modelo-trabalho-academico.tex
-%%
-%% 2013.1.9 08h14 laurocesar
-%%  Adiciona \setlength{\parskip}{\onelineskip}%
-%%  Adiciona exemplo de \autoref
-%%  Adiciona exemplo de expressões matemáticas e de \url.
-%%  Adiciona referências à bibliografia.
-%%  Adiciona exemplo de inclusão de imagem como PDF
-%%  Inclui texto relevante e outros exemplos de LaTeX no modelo. 
-%%  Inclusão de controles de espaçamentos.
-%%  Detalhamento do índice remissivo.
-%%
-%% 2013.1.3 09h02 laurocesar
-%%  Inclusão de \legend{} no exemplo da tabela
-%%  Corrige um espaçamento incorreto na Errata.
-%%
-%% 2012.12.21 08h37	laurocesar
-%%  Removido o pacote mychemistry do preâmbulo;
-%%  Adicionado o pacote calc, necessário para \definecolor
+%% 2013.1.13 11h29 laurocesar
+%%  Cria o modelo
 %%
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Modelo de Trabalho Acadêmico utilizando abnTeX2 
-% tese de doutorado, dissertação de mestrado e trabalhos monográficos em geral
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
+% Modelo de Relatório Técnico/Acadêmico utilizando abnTeX2, 
+% conforme ABNT NBR 10719:2011
+% ------------------------------------------------------------------------ ------------------------------------------------------------------------
 %
 \documentclass[12pt,openright,twoside,a4paper]{abntex2}	% frente e verso
 %\documentclass[12pt,oneside,a4paper]{abntex2}			% apenas frente
@@ -79,6 +53,13 @@
 \usepackage{nomencl} 			% Lista de simbolos
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
+
+% ---
+% Pacotes adicionais, usados no anexo do modelo de folha de identificação
+% ---
+\usepackage{multicol}
+\usepackage{multirow}
+%\usepackage{fourier}
 	
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -116,12 +97,10 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Modelo Canônico de\\ Trabalho Acadêmico com \abnTeX}
+\titulo{Modelo Canônico de\\ Relatório Técnico e/ou Científico com \abnTeX}
 \autor{Equipe \abnTeX}
 \local{Brasil}
 \data{2013}
-\orientador{Lauro César Araujo}
-\coorientador{Equipe \abnTeX}
 \instituicao{%
   Universidade do Brasil -- UBr
   \par
@@ -131,8 +110,8 @@
 \tipotrabalho{Tese (Doutorado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
-as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+\preambulo{Modelo canônico de Relatório Técnico e/ou Científico em conformidade
+com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
 
 % ---
@@ -214,156 +193,50 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
 
 % ---
-% Inserir a ficha bibliografica
+% Anverso da folhad e rosto:
 % ---
 
-% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
-% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
-% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
-% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
-% o conteúdo de implementação deste arquivo pelo comando abaixo:
-%
-% \begin{fichacatalografica}
-%     \includepdf{fig_ficha_catalografica.pdf}
-% \end{fichacatalografica}
-\begin{fichacatalografica}
-	\vspace*{\fill}					% Posição vertical
-	\hrule							% Linha horizontal
-	\begin{center}					% Minipage Centralizado
-	\begin{minipage}[c]{12.5cm}		% Largura
-	
-	\imprimirautor
-	
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
-	
-	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-	
-	\hspace{0.5cm} \imprimirorientadorRotulo \imprimirorientador\\
-	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
-	
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título\\ 			
-	
-	\hspace{8.75cm} CDU 02:141:005.7\\
-	
-	\end{minipage}
-	\end{center}
-	\hrule
-\end{fichacatalografica}
-% ---
+Conforme a ABNT NBR 10719:2011, seção 4.2.1.1.1, o anveso da folha de rosto deve
+conter:
 
-% ---
-% Inserir errata
-% ---
-\begin{errata}
-Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
 
-\vspace{\onelineskip}
+\begin{alineas}
+  \item nome do órgão ou entidade responsável que solicitou ou gerou o
+   relatório; 
+  \item título do projeto, programa ou plano que o relatório está relacionado;
+  \item título do relatório;
+  \item subtítulo, se houver, deve ser precedido de dois pontos, evidenciando a
+   sua subordinação ao título. O relatório em vários volumes deve ter um título
+   geral. Além deste, cada volume pode ter um título específico; 
+  \item número do volume, se houver mais de um, deve constar em cada folha de
+   rosto a especificação do respectivo volume, em algarismo arábico; 
+  \item código de identificação, se houver, recomenda-se que seja formado
+   pela sigla da instituição, indicação da categoria do relatório, data,
+   indicação do assunto e número sequencial do relatório na série; 
+  \item classificação de segurança. Todos os órgãos, privados ou públicos, que
+   desenvolvam pesquisa de interesse nacional de conteúdo sigiloso, devem
+    informar a classificação adequada, conforme a legislação em vigor; 
+  \item nome do autor ou autor-entidade. O título e a qualificação ou a função
+   do autor podem ser incluídos, pois servem para indicar sua autoridade no
+   assunto. Caso a instituição que solicitou o relatório seja a mesma que o
+   gerou, suprime-se o nome da instituição no campo de autoria; 
+  \item local (cidade) da instituição responsável e/ou solicitante; NOTA: No
+   caso de cidades homônimas, recomenda-se o acréscimo da sigla da unidade da
+   federação.
+  \item ano de publicação, de acordo com o calendário universal (gregoriano),
+  deve ser apresentado em algarismos arábicos.
+\end{alineas}
 
-FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-Zootecnia, Universidade de São Paulo, São Paulo, 2011.
-
-\begin{table}[htb]
-\center
-\footnotesize
-\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-  \hline
-   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-    \hline
-    1 & 10 & auto-conclavo & autoconclavo\\
-   \hline
-\end{tabular}
-\end{table}
-
-\end{errata}
-% ---
-
-% ---
-% Inserir folha de aprovação
-% ---
-
-% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
-% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
-% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
-% imagem da página assinada pela banca com o comando abaixo:
-%
-% \includepdf{folhadeaprovacao_final.pdf}
-%
-\begin{folhadeaprovacao}
-
-  \begin{center}
-    \vspace*{1cm}
-    {\ABNTEXchapterfont\large\imprimirautor}
-
-    \vspace*{\fill}\vspace*{\fill}
-    {\ABNTEXchapterfont\Large\imprimirtitulo}
-    \vspace*{\fill}
-    
-    \hspace{.45\textwidth}
-    \begin{minipage}{.5\textwidth}
-        \imprimirpreambulo
-    \end{minipage}%
-    \vspace*{\fill}
-   \end{center}
-    
-   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
-
-   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
-   \assinatura{\textbf{Professor} \\ Convidado 1}
-   \assinatura{\textbf{Professor} \\ Convidado 2}
-   %\assinatura{\textbf{Professor} \\ Convidado 3}
-   %\assinatura{\textbf{Professor} \\ Convidado 4}
-      
-   \begin{center}
-    \vspace*{0.5cm}
-    {\large\imprimirlocal}
-    \par
-    {\large\imprimirdata}
-    \vspace*{1cm}
-  \end{center}
-  
-\end{folhadeaprovacao}
-% ---
-
-% ---
-% Dedicatória
-% ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-\noindent\textit{Este trabalho é dedicado à criança de León Werth, por ter sido
-o maior amigo do mundo de Antoine de Saint-Exupery, pai de um pequeno príncipe que cativa muitas
-imaginações.}
- \vspace*{\fill}
-\end{dedicatoria}
-% ---
 
 % ---
 % Agradecimentos
 % ---
 \begin{agradecimentos}
-Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
-projeto abn\TeX foram extraídos de
-\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
-contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX\ fosse possível.
+O agradecimento principal é direcionado a Youssef Cherem, Exemplo de Formulário de Identificação (
+p. \pageref{anexonorma}).
 
-Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+Os agradecimentos especiais são direcionados ao Centro de Pesquisa em
+Arquitetura da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
 Brasília (CPAI), ao grupo de usuários
 \emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
 novos voluntários do grupo
@@ -375,25 +248,10 @@ contribuirão para a evolução do abn\TeX.
 % ---
 
 % ---
-% Epígrafe
-% ---
-\begin{epigrafe}
-    \vspace*{\fill}
-	\begin{flushright}
-		\textit{``Não vos amoldeis às estruturas deste mundo, \\
-		mas transformai-vos pela renovação da mente, \\
-		a fim de distinguir qual é a vontade de Deus: \\
-		o que é bom, o que Lhe é agradável, o que é perfeito.\\
-		(Bíblia Sagrada, Romanos 12, 2)}
-	\end{flushright}
-\end{epigrafe}
+% RESUMO
 % ---
 
-% ---
-% RESUMOS
-% ---
-
-% resumo em português
+% resumo na língua vernácula (obrigatório)
 \begin{resumo}
  Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
  objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
@@ -408,36 +266,6 @@ contribuirão para a evolução do abn\TeX.
     
  \noindent
  \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
-\end{resumo}
-
-% resumo em inglês
-\begin{resumo}[Abstract]
- This is the english abstract.
-
- \vspace{\onelineskip}
- 
- \noindent 
- \textbf{Key-words}: latex. abntex. text editoration.
-\end{resumo}
-
-% resumo em francês 
-\begin{resumo}[Résumé]
-  Il s'agit d'un résumé en français.
- 
- \vspace{\onelineskip}
- 
- \noindent
- \textbf{Mots-clés}: latex. abntex. publication de textes.
-\end{resumo}
-
-% resumo em espanhol
-\begin{resumo}[Resumen]
-  Este es el resumen de español.
-  
- \vspace{\onelineskip}
- 
- \noindent
- \textbf{Palabras clave}: latex. abntex. publicación de textos.
 \end{resumo}
 % ---
 
@@ -505,13 +333,14 @@ contribuirão para a evolução do abn\TeX.
 
 Este documento e seu código-fonte devem ser utilizados como exemplo de
 referência de uso da classe \textsf{abntex2} e do pacote \textsf{abntex2cite}.
-O documento também exemplifica a elaboração de trabalho acadêmico (tese,
-dissertação e outros do gênero) produzido conforme ABNT NBR 14724:2011
-\emph{Informação e documentação - Trabalhos acadêmicos - Apresentação}.
+O documento também exemplifica a elaboração de relatórios técnicos e/ou
+científicos produzidos conforme ABNT NBR 10719:2011 \emph{Informação e
+documentação - Relatório técnico e/ou científico - Apresentação}.
 
 A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX~não é
-modelo específico de trabalho acadêmico de nenhuma universidade ou instituição,
-mas que implementa tão somente os requisitos das normas da ABNT.
+modelo específico de trabalho relatório técnico e/ou científico de nenhuma
+universidade ou instituição, mas que implementa tão somente os requisitos das
+normas da ABNT.
 
 Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
 \url{http://code.google.com/p/abntex2/}. Também fique livre para conhecer,
@@ -521,7 +350,7 @@ autores originais, nos termos da ``The LaTeX Project Public
 License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
 
 Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folha de aprovação, etc.
+universidades e outras instituições --- como capas, folhas de rosto, etc.
 Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
 \abnTeX, distribua-se arquivos com as respectivas customizações.
 Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
@@ -531,9 +360,6 @@ Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
 \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
 \cite{memoir}. 
 
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do seu trabalho, de
-modo que o principal esforço seja concentrado na sua contribuição científica.
-
 Equipe \abnTeX 
 
 Lauro César Araujo
@@ -542,7 +368,7 @@ Lauro César Araujo
 % ----------------------------------------------------------
 % PARTE - preparação da pesquisa
 % ----------------------------------------------------------
-\part{Preparação da pesquisa}
+\part{Preparação do relatório}
 
 % ----------------------------------------------------------
 % Capitulo com exemplos de comandos inseridos de arquivo externo 
@@ -550,10 +376,11 @@ Lauro César Araujo
 
 \include{abntex2-modelo-include-comandos}
 
+
 % ----------------------------------------------------------
 % Parte de revisãod e literatura
 % ----------------------------------------------------------
-\part{Revisão de Literatura}
+\part{Resultados}
 
 % ---
 % Capitulo de revisão de literatura
@@ -567,33 +394,6 @@ Lauro César Araujo
 \lipsum[1]
 
 \lipsum[2-3]
-
-% ----------------------------------------------------------
-% Resultados
-% ----------------------------------------------------------
-\part{Resultados}
-
-% ---
-% primeiro capitulo de Resultados
-% ---
-\chapter{Lectus lobortis condimentum}
-
-% ---
-\section{Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-posuere cubilia Curae}
-% ---
-
-\lipsum[21-22]
-
-% ---
-% segundo capitulo de Resultados
-% ---
-\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
-elementum}
-
-\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
-
-\lipsum[24]
 
 % ---
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
@@ -696,5 +496,57 @@ parturient montes nascetur ridiculus mus}
 % \cleardoublepage
 % \phantomsection 
 \printindex
+
+%---------------------------------------------------------------------
+% Formulário de Identificação (opcional)
+%---------------------------------------------------------------------
+%\renewcommand{\thechapter}{}
+\chapter*[Formulário de Identificação]{Formulário de Identificação}
+\addcontentsline{toc}{chapter}{Exemplo de Formulário de Identificação}
+
+Exemplo de Formulário de Identificação, compatível com o Anexo A (informativo)
+da ABNT NBR 10719:2011. Este formulário não é um anexo. Conforme definido na
+forma, ele é o último elemento pós-textual do relatório.
+
+\bigskip
+
+\begin{tabular}{|p{9cm}|p{5cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{\large Dados do Relatório Técnico e/ou científico}}\\
+\hline
+\multirow{4}{10cm}[24pt]{Título e subtítulo}& Classificação de segurança\\
+                   & \\
+                   \cline{2-2}
+                   & No.\\
+                   & \\
+				
+\hline
+Tipo de relatório & Data\\
+\hline
+Título do projeto/programa/plano & No.\\
+\hline
+\multicolumn{2}{|l|}{Autor(es)} \\
+\hline
+\multicolumn{2}{|l|}{Instituição executora e endereço completo} \\
+\hline
+\multicolumn{2}{|l|}{Instituição patrocinadora e endereço completo} \\
+\hline
+\multicolumn{2}{|l|}{Resumo}\\[3cm]
+\hline
+\multicolumn{2}{|l|}{Palavras-chave/descritores}\\
+\hline
+\multicolumn{2}{|l|}{
+Edição \hfill No. de páginas \hfill No. do volume \hfill Nº de classificação \phantom{XXXX}} \\
+\hline
+\multicolumn{2}{|l|}{
+ISSN \hfill \hfill Tiragem \hfill Preço \phantom{XXXXXXXX}} \\
+\hline
+\multicolumn{2}{|l|}{Distribuidor} \\
+\hline
+\multicolumn{2}{|l|}{Observações/notas}\\[3cm]
+\hline
+\end{tabular}
+
+
 
 \end{document}

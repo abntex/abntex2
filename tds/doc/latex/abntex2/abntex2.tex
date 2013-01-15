@@ -1,4 +1,4 @@
-%% abtex2.tex, v 1.2.1 2013/01/13 laurocesar
+%% abtex2.tex, v 1.3 2013/01/14 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -16,6 +16,16 @@
 %% http://code.google.com/p/abntex2/
 %%
 %% This work consists of the file abntex2.tex
+%%
+%% 2013.1.14 21h03	laurocesar
+%%  Adiciona referência à norma ABNT NBR 6022:2003
+%%  Adiciona informação de cabeçalhos com o comando \chapter*
+%%  Revisa conteúdo e relacionamento entre as seções
+%%  Altera o nome do documento de ``A classe abntex2: Modelo canônico de
+%%   trabalhos acadêmicos brasileiros compatível com as normas ABNT NBR
+%%   14724:2011, ABNT NBR 6024:2012 e outras'' para ``A classe
+%%   abntex2: Documentos técnicos e científicos brasileiros compatíveis com as
+%%   normas ABNT''
 %%
 %% 2013.1.13 09h46 laurocesar
 %%  Adiciona explicação do recuo do ambiente citacao
@@ -52,9 +62,8 @@
 \newcommand{\abnTeXSite}{\url{http://code.google.com/p/abntex2/}}
 
 
-\title{\textbf{A classe \textsf{abntex2}}: \\ \Large{Modelo canônico de
-trabalhos acadêmicos brasileiros \\compatível com as normas ABNT NBR 14724:2011, 
-ABNT NBR 6024:2012 e outras}}
+\title{\textbf{A classe \textsf{abntex2}}: \\ \Large{Documentos
+técnicos e científicos brasileiros \\compatíveis com as normas ABNT}}
 
 %   \thanks{Este documento
 %   se referete ao \textsf{abntex2} versão \fileversion,
@@ -70,9 +79,9 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 \hypersetup{
 		pdftitle={A classe abntex2},
 		pdfauthor={Equipe abnTeX2},
-    	pdfsubject={Modelo canônico de trabalhos
-        acadêmicos brasileiros conforme as normas ABNT},
-		pdfkeywords={ABNT}{abntex}{abntex2}{trabalho
+    	pdfsubject={Documentos técnicos e científicos brasileiros compatíveis com
+    	as normas ABNT}, 
+    	pdfkeywords={ABNT}{abntex}{abntex2}{trabalho
 		acadêmico}{dissertação}{tese}{ABNT 14724}{ABNT 6024}, 
 		pdfproducer={LaTeX with abnTeX2}, 	%
 		% producer of the document
@@ -98,10 +107,11 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 
 \begin{abstract}
 Este é o manual de uso da classe \textsf{abntex2}. Trata-se de um conjunto de
-customizações da classe \textsf{memoir} para elaboração de trabalhos acadêmicos
-condizentes com as normas da Associação Brasileira de Normas Técnicas,
-especialmente a ABNT NBR 14724:2011 e a ABNT NBR 6024:2012, além de outras
-referentes a ``Informação e documentação''.
+customizações da classe \textsf{memoir} para elaboração de documentos técnicos e
+científicos condizentes com as normas da Associação Brasileira de Normas
+Técnicas, especialmente a ABNT NBR 6022:2003, ABNT NBR 10719:2011, ABNT NBR
+14724:2011 e a ABNT NBR 6024:2012, além de outras referentes a ``Informação e
+documentação''.
 \end{abstract}
 
 \tableofcontents
@@ -113,20 +123,28 @@ referentes a ``Informação e documentação''.
 % ------
 
 O objetivo deste manual é descrever a classe \textsf{abntex2}, responsável pelo
-\textit{layout} dos elementos de estruturação de documentos acadêmicos,
-especialmente aqueles definidos pela ABNT NBR 14724:2011 e pela ABNT NBR
-6024:2012. A \autoref{sec-introducao} contém a lista completa de normas
-observadas pela classe.
+\textit{layout} dos elementos de estruturação de documentos técnicos e
+científicos --- como trabalhos acadêmicos, artigos e relatórios técnicos ---,
+especialmente aqueles definidos pela ABNT NBR 6022:2003, ABNT NBR 10719:2011,
+ABNT NBR 14724:2011 e pela ABNT NBR 6024:2012. A \autoref{sec-introducao} contém
+a lista completa de normas observadas pela classe.
+
+Pelo fato de a norma ABNT NBR 14724:2011 e a ABNT NBR 6024:2012 englobarem os
+requisitos das demais normas, estas são utilizadas como base de referência para
+este manual. De todo modo, a \autoref{sec-estrutura} descreve as diferentes e
+similaridades entre elas e em que medida a classe \textsf{abntex2} atende a todas as normas
+listadas no parágrafo anterior.
 
 Este manual faz parte da suíte \abnTeX2. Para referências ao pacote de citações
 \textsf{abntex2cite}, consulte \citeonline{abntex2cite} e
 \citeonline{abntex2cite-alf}.
 
-Um exemplo de uso da classe descrita neste manual pode ser consultado em
-\citeonline{abntex2modelo}. O documento indicado trata-se de um ``Modelo
-Canônico'', ou seja, de um modelo de trabalho acadêmico que não é específico de nenhuma
-universidade ou instituição, mas que implementa os requisitos das normas da
-ABNT, e apenas eles.
+Exemplos de uso da classe descrita neste manual podem ser consultados em
+\citeonline{abntex2modelo,abntex2modelo-artigo,abntex2modelo-relatorio}. Os
+documentos indicados tratam-se de ``Modelos Canônicos'', ou seja, de modelos
+que não são específicos a nenhuma universidade ou instituição, mas que
+implementam exclusivamente os requisitos das normas da ABNT, Associação
+Brasileira de Normas Técnicas.
  
 % ------
 \section{Considerações iniciais}
@@ -135,13 +153,15 @@ ABNT, e apenas eles.
 \subsection{Introdução}\label{sec-introducao}
 
 Dentre as características de qualidade de trabalhos acadêmicos (teses,
-dissertações e outros), ao lado da pertinência do tema e dos aspectos relativos
-ao conteúdo abordado no trabalho, consta também o resultado da editoração final e
-as características de forma e de estruturação dos documentos. Desse
-modo, a existência de um modelo e de ferramentas que atendam às normas
-brasileiras de elaboração de trabalhos acadêmicos propostas pela Associação
-Brasileira de Normas Técnicas (ABNT) são recursos básicos para o aprimoramento
-da qualidade geral dos trabalhos acadêmicos nacionais.
+dissertações e outros do gênero), de artigos científicos e de relatórios
+técnicos, ao lado da pertinência do tema e dos aspectos relativos ao conteúdo
+abordado no trabalho, consta também o resultado da editoração final e as
+características de forma e de estruturação dos documentos.
+Desse modo, a existência de um modelo e de ferramentas que atendam às normas
+brasileiras de elaboração de trabalhos acadêmicos, artigos científicos e
+relatórios técnicos propostas pela Associação Brasileira de Normas Técnicas
+(ABNT) são recursos básicos para o aprimoramento da qualidade geral dos
+trabalhos acadêmicos nacionais.
 
 É com esse intuito que o \abnTeX2 é apresentado à comunidade acadêmica
 brasileira: o de ser um instrumento de aperfeiçoamento da qualidade dos
@@ -149,12 +169,14 @@ textos produzidos. O \abnTeX2 surge para se somar ao já vasto universo de
 ferramentas \LaTeX, porém que é escasso em utilitários específicos para
 trabalhos brasileiros. Nesse sentido, \abnTeX2 é proposto como uma evolução do
 \abnTeX1 original\footnote{Ver \autoref{sec-historico},
-\nameref{sec-historico}.} e como facilitador na elaboração de trabalhos
-acadêmicos condizentes com as normas ABNT.
+\nameref{sec-historico}.} e como facilitador na elaboração de documentos
+técnicos e científicos condizentes com as normas ABNT.
 
 O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
 
 \begin{description}
+  \item[ABNT NBR 6022:2003] Informação e documentação - Artigo em publicação
+  periódica científica impressa - Apresentação
   \item[ABNT NBR 6023:2000] Informação e documentação - Referência -
   Elaboração\footnote{A versão corrente da ABNT NBR 6023 é a 6023:2002. Porém,
   até este momento, o \abnTeX2 traz os estilos compatíveis com a versão
@@ -233,8 +255,9 @@ janeiro de 2013. O portal do projeto atual é \abnTeXSite.
 \subsection{O que o \abnTeX2 traz de novo em relação ao \abnTeX1?}
 
 A suíte \abnTeX2 é composta por três elementos principais\footnote{Somam-se a
-esses elementos a documentação e o Modelo canônico de trabalho acadêmico, todos
-distribuídos de forma conjunta.}:
+esses elementos a documentação e os Modelos canônicos 
+\cite{abntex2modelo,abntex2modelo-artigo,abntex2modelo-relatorio}, todos distribuídos de forma
+conjunta.}:
 
 \begin{itemize}
   \item a classe de formação de trabalhos acadêmicos \textsf{abntex2}, descrita
@@ -288,7 +311,7 @@ arquivos com as respectivas customizações. Isso permite que futuras versões d
 promovidas.
 
 % ------
-\section{Estrutura de trabalhos acadêmicos brasileiros}
+\section{Estrutura de trabalhos acadêmicos brasileiros}\label{sec-estrutura}
 % ------
 
 A seção 4 da ABNT NBR 14724:2011 estabelece que a estrutura de trabalhos
@@ -343,9 +366,9 @@ e-ou científico - Apresentação} apresenta basicamente a mesma estrutura que a
 norma de trabalhos acadêmicos, exceto que nesta norma a Capa é opcional, não há
 Folha de aprovação, Dedicatória, Epígrafe nem Resumo em língua estrangeira e
 acrescenta-se opcionalmente um formulário de identificação como último elemento
-pós-textual. Apenas o modelo desse formulário não está incluído no \abnTeX2.
-Todos os demais elementos aparecem na mesma ordem e são regidos pelas mesmas
-regras.
+pós-textual. Um modelo desse formulário está incluído no modelo
+\cite{abntex2modelo-relatorio}. Todos os demais elementos aparecem na mesma
+ordem e são regidos pelas mesmas regras nas duas normas.
 
 A norma ABNT NBR 15287:2011 \emph{Informação e documentação - Projeto de
 pesquisa - Apresentação} também apresenta a mesma estrutura básica da ABNT NBR
@@ -353,6 +376,15 @@ pesquisa - Apresentação} também apresenta a mesma estrutura básica da ABNT N
 Folha de aprovação, Dedicatória, Agradecimentos, Epígrafe nem Resumos. Todos os
 demais elementos aparecem na mesma ordem e, a exemplo da ABNT NBR 10719:2011,
 são regidos pelas mesmas regras.
+
+Dessa forma, a classe \textsf{abntex2} pode ser utilizada para gerar os
+documentos previstos tanto na ABNT NBR 10719:2011 quanto na ABNT NBR 15287:2011.
+
+Adicionalmente, a classe \textsf{abntex2} também é compatível com a norma ABNT
+NBR 6022:2003 \emph{Informação e documentação - Artigo em publicação periódica
+científica impressa - Apresentação}. Porém, nesse caso, a estrutura apresentada
+nesta seção não é aplicável. O modelo \cite{abntex2modelo-artigo} é um exemplo
+de artigo científico elaborado com a classe \textsf{abntex2}. 
 
 % ------
 \section{Configurações gerais}\label{sec-configgerais}
@@ -546,15 +578,20 @@ do PDF.
 
 \DescribeMacro{\pdfbookmark}
 A versão * dos comandos, como |\part*| e |\chapter*|, por exemplo, não inclui a
-divisão nem no Sumário nem no \textsf{bookmark} do PDF. Porém, você pode
-explicitamente incluí-las no \textsf{bookmark} com o comando
-|\pdfbookmark|\oarg{posição}\marg{Título no bookmark}\marg{texto de
-identificação única, sem espaços}:
+divisão no Sumário, nem no \textsf{bookmark} do PDF nem altera o cabeçalho da
+página no caso de capítulos. Porém, você pode explicitamente incluir as divisões
+no \textsf{bookmark} com o comando |\pdfbookmark|\oarg{posição}\marg{Título no
+bookmark}\marg{texto de identificação única, sem espaços}:
 
 \begin{verbatim}
    \pdfbookmark[0]{Capítulo fora do Sumário, mas presente no bookmark}{texto-qualquer} 
    \chapter*{Capítulo fora do Sumário, mas presente no bookmark}
 \end{verbatim}
+
+Para alterar o cabeçalho da página automaticamente com o comando
+|\chapter*|, consulte a \autoref{sec-formatacaocapitulos-starred}.
+
+Para inserir uma divisão com * no sumário, consulte \autoref{sec-sumario}.
 
 \DescribeMacro{\phantomsection}
 A macro |\phantomsection| pode ser útil imediatamente antes de |\pdfbookmark|
@@ -573,8 +610,8 @@ Veja a sugestão de uso do \textsf{bookmark} do PDF na
 \DescribeMacro{\pretextualchapter}
 A macro |\pretextualchapter|\marg{título do capítulo} pode ser utilizada para
 criar capítulos sem numeração, que não aparecem no Sumário, mas que são
-automaticamente adicionados ao \textsf{bookmark} do PDF. Consulte a
-\autoref{sec-formatacaocapitulos} para mais detalhes.
+automaticamente adicionados ao \textsf{bookmark} do PDF e alteram o cabeçalho
+da página. Consulte a \autoref{sec-formatacaocapitulos} para mais detalhes.
 
 % ---
 \subsection{Macros de dados do trabalho}\label{sec-macrosdados}
@@ -700,7 +737,7 @@ links internos do documento final:
 
 \usepackage{hyperref}  			% controla a formação do índice
 
-\titulo{Modelo Canônico de\\ Trabalhos Acadêmicos com \abnTeX}
+\titulo{Modelo Canônico de\\ Trabalho Acadêmico com \abnTeX}
 \autor{Equipe \abnTeX}
 \local{Brasil}
 \data{2012}
@@ -1404,16 +1441,22 @@ anexo(s) e índice(s) – devem ser centralizados''.}. Desse modo, sugere-se que
 siga o modo de numeração desses capítulos utilizado pela instituição que você
 apresentará o trabalho.
 
-\DescribeMacro{\chapter*}\DescribeMacro{\addcontentsline}
-Caso deseje incluir capítulos sem numeração (como Introdução e Conclusão),
-utilize a macro |\chapter*|\marg{Introdução}. Porém, capítulos com * não são
-incluídos automaticamente no Sumário nem no \textsf{bookmark} do PDF. Para
-incluí-los, utilize o comando:
+\DescribeMacro{\chapter*}
+Caso queira incluir capítulos sem numeração (como Introdução e Conclusão, por
+exemplo), utilize a macro |\chapter*|\marg{Introdução}. Porém, capítulos com *
+não são incluídos automaticamente no Sumário, nem no \textsf{bookmark} do PDF,
+nem alteram o cabeçalho das páginas. 
 
-\begin{verbatim}
-   \chapter*{Introdução}
-   \addcontentsline{toc}{chapter}{Introdução}
-\end{verbatim}
+Consulte a \autoref{sec-sumario} para ver como incluir divisões com * ao
+sumário.
+
+Consulte a \autoref{sec-formatacaocapitulos} para obter outras
+informações sobre formatação de capítulos e, especialmente, consulte a
+\autoref{sec-formatacaocapitulos-starred} para ver como alterar automaticamente
+os cabeçalhos das páginas com o comando |\chapter*|.
+
+Consulte a \autoref{sec-bookmark} para ver como controlar o \textsf{bookmark} do
+PDF.
 
 \DescribeMacro{\part}
 A macro |\part|\marg{nome da parte} pode ser utilizada para que uma
@@ -1434,8 +1477,8 @@ exemplo é o uso do trabalho dividido em três partes:
 \end{verbatim}
 
 % ---
-\subsection{Formatação de partes, capítulos, seções, subseções e
-subsubseções}\label{sec-formatacaocapitulos}
+\subsection{Formatação de partes, capítulos, seções, subseções e subsubseções}
+\label{sec-formatacaocapitulos}
 % ---
 
 \DescribeMacro{\ABNTEXchapterfont}\DescribeMacro{\ABNTEXchapterfontsize}
@@ -1524,6 +1567,23 @@ Experimente |lyhne| ou |dash|. Você encontra alguns estilos no manual do
 \textsf{memoir} e outros neste documento:
 \url{http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf}.
 Ambos mostram como criar um novo estilo.
+
+% ---
+\subsubsection{Cabeçalhos de capítulos com *}
+\label{sec-formatacaocapitulos-starred}
+% ---
+
+\DescribeMacro{\chapter*}
+Conforme descrito na \autoref{sec-bookmark}, os capítulos criados com
+|\chapter*| não alteram automaticamente o cabeçalho da página. Ou seja, o
+cabeçalho de um capítulo iniciado com o comando |\chapter*| é o mesmo do
+capítulo anterior, se houver.
+
+Para alterar esse comportamente, informe o parâmetro opcional:
+|\chapter*|\oarg{nome do capítulo do cabeçalho}\marg{nome do capítulo na
+página}.
+
+Para mais detalhes, consulte o \citeonline[p. 73]{memoir}.
 
 % ---
 \subsection{Citações diretas com mais de três linhas}
