@@ -27,3 +27,7 @@ syntax: regexp
 ^tds/doc/latex/abntex2/abntex2\.cls$
 syntax: regexp
 ^tds/doc/latex/abntex2/abntex2cite\.sty$
+syntax: regexp
+^doc/latex/abntex2/abntex2\.cls$
+syntax: regexp
+^doc/latex/abntex2/abntex2cite\.sty$

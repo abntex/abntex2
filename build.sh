@@ -32,21 +32,19 @@ function build(){
 	mkdir -p target/abntex2/{tex,doc}
 	
 	echo "$ZIP_DOC (only doc files):"
-	zip -j $ZIP_DOC tds/doc/latex/abntex2/* -i *README \*.tex \*.pdf \*.bib 
+	zip -j $ZIP_DOC doc/latex/abntex2/* -i *README \*.tex \*.pdf \*.bib 
 	
 	echo "$ZIP_TDS (tds directory structure):"
-	cd tds
-	zip -r ../$ZIP_TDS bibtex doc tex -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty 
-	cd ..
+	zip -r $ZIP_TDS bibtex doc tex -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty 
 	
 	echo "$ZIP_CTAN (tex and doc browsable content + abntex2-tds.zip + README):"
-	cp tds/doc/latex/abntex2/*.tex target/abntex2/doc/
-	cp tds/doc/latex/abntex2/*.pdf target/abntex2/doc/
-	cp tds/doc/latex/abntex2/*.bib target/abntex2/doc/
-	cp tds/tex/latex/abntex2/* target/abntex2/tex/
-	cp tds/bibtex/bib/abntex2/* target/abntex2/tex/
-	cp tds/bibtex/bst/abntex2/* target/abntex2/tex/
-	cp tds/doc/latex/abntex2/README target/abntex2/
+	cp doc/latex/abntex2/*.tex target/abntex2/doc/
+	cp doc/latex/abntex2/*.pdf target/abntex2/doc/
+	cp doc/latex/abntex2/*.bib target/abntex2/doc/
+	cp tex/latex/abntex2/* target/abntex2/tex/
+	cp bibtex/bib/abntex2/* target/abntex2/tex/
+	cp bibtex/bst/abntex2/* target/abntex2/tex/
+	cp doc/latex/abntex2/README target/abntex2/
 	cp $ZIP_TDS target/abntex2
 	cd target
 	zip -r ../$ZIP_CTAN abntex2 -x \.DS_Store \*.gz
@@ -54,9 +52,9 @@ function build(){
 	cd ..
 	
 	echo "$ZIP_MODELO (only example files):"
-	cd tds/doc/latex/abntex2
-	zip ../../../../$ZIP_MODELO abntex2-modelo* -i \*.pdf \*.tex \*.bib
-	cd ../../../../
+	cd doc/latex/abntex2
+	zip ../../../$ZIP_MODELO abntex2-modelo* -i \*.pdf \*.tex \*.bib
+	cd ../../../
 	
 }
 
