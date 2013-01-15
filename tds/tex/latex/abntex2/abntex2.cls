@@ -1,4 +1,4 @@
-%% abntex2.cls, v 1.2 2013/01/03 laurocesar
+%% abntex2.cls, v 1.3 2013/01/15 laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -17,9 +17,13 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
-%% 2013.1.13 09h23
+%% 2013.1.15 07h43	laurocesar
+%%  Altera \pretextualchapyer para que insira automaticamente a opção de alterar
+%%  o cabeçalho da página criada com \chapter*
+%%
+%% 2013.1.13 09h23	laurocesar
 %%  Altera o ambiente citacao para que receba diferentes recuos no modo
-%% twocolumn
+%%  twocolumn
 %%
 %% 2013.1.12 21h44	laurocesar
 %%  Corrige numeração contínua de seções quando não está no modo article
@@ -208,7 +212,7 @@
 \newcommand{\pretextualchapter}[1]{%
   \addtocounter{abntex@bookmarkcounter}{1}
   \PRIVATEbookmarkthis{#1}
-  \chapter*{#1}
+  \chapter*[#1]{#1}
   }
 \provideboolean{abntex@apendiceousecao}
 \setboolean{abntex@apendiceousecao}{false}

@@ -17,6 +17,7 @@ CHANGE HISTORY
       now abntex2-modelo-trabalho-academico.tex and abntex2-modelo-relatorio-tecnico.tex
       share a single file abntex2-modelo-include-comandos.tex
     adding explanations about heading (not) created by \chapter* on abntex.tex
+    changing \pretextualchapter to change headings with the chapter title
     changing thesis model to add an example of \chapter*[heading title]{text title}
     changing title of the article model from "Modelo Canônico de Artigos Acadêmicos" 
       to "Modelo Canônico de Artigo Científico"
