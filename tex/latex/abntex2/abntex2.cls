@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.1.16 18h46	laurocesar
+%%  Altera o \ABNTEXchapterfont para usar \ssfamily
+%%
 %% 2013.1.15 07h43	laurocesar
 %%  Altera \pretextualchapyer para que insira automaticamente a opção de alterar
 %%  o cabeçalho da página criada com \chapter*
@@ -175,7 +178,7 @@
 
 % ---
 % Fontes padrões de part, chapter, section, subsection e subsubsection
-\newcommand{\ABNTEXchapterfont}{\fontfamily{cmss}\fontseries{sbc}\selectfont}
+\newcommand{\ABNTEXchapterfont}{\ssfamily}
 \newcommand{\ABNTEXchapterfontsize}{\Huge}
 
 \newcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
