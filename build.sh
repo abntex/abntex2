@@ -60,7 +60,7 @@ function buildPdf(){
 	compileLaTeX abntex2-modelo-trabalho-academico
 	
 	echo "Compiling abntex2-modelo-modelo-artigo"
-	compileLaTeX abntex2/abntex2-modelo-artigo
+	compileLaTeX abntex2-modelo-artigo
 	
 	echo "Compiling abntex2"
 	compileLaTeX abntex2
@@ -119,9 +119,9 @@ function clean() {
 	rm -rf target/abntex2source
 }
 
-# replace version number in all files with _VERSION_ string
+# replace version number in all files with <VERSION> string
 function replaceVersion(){
-	find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README \) | xargs sed -i -e "s/_VERSION_/$VERSAO/g"   
+	find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"   
 }
 
 # build ZIP files
