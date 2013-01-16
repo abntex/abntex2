@@ -27,6 +27,9 @@
 %%   abntex2: Documentos técnicos e científicos brasileiros compatíveis com as
 %%   normas ABNT''
 %%
+%% 2013.1.18 19h18	laurocesar
+%%  Adiciona seção explicativa sobre as fontes.
+%%
 %% 2013.1.13 09h46 laurocesar
 %%  Adiciona explicação do recuo do ambiente citacao
 %%  Adiciona explicação sobre espaçamentos entre parágrafos e linhas
@@ -612,6 +615,89 @@ A macro |\pretextualchapter|\marg{título do capítulo} pode ser utilizada para
 criar capítulos sem numeração, que não aparecem no Sumário, mas que são
 automaticamente adicionados ao \textsf{bookmark} do PDF e alteram o cabeçalho
 da página. Consulte a \autoref{sec-formatacaocapitulos} para mais detalhes.
+
+% ---
+\subsection{Fontes de texto}
+% ---
+
+A ABNT NBR 14724:2011 não determina o uso de alguma fonte específica. Apenas o
+tamanho, que deve ser 12pt, é estabelecido. 
+
+Se nenhum pacote de fonte for encontrado, o \abnTeX2 utiliza a fonte padrão
+do \LaTeX, que é \emph{Computer
+Moderns}\footnote{\url{http://www.tug.dk/FontCatalogue/cmr/}}. Para os títulos
+das divisões, o \abnTeX2 utiliza uma versão sem serifa da fonte. Consulte a
+\autoref{sec-formatacaocapitulos} para mais informações sobre a formatação das divisões.
+
+Para  escolher uma fonte compilando o documento com \texttt{pdflatex}, utilize
+um dos pacotes de fontes nativos do \LaTeX: por exemplo,
+\verb+\usepackage{fourier}+, para Adobe Utopia; ou, como nos
+documentos de exemplo do \abnTeX2, use \verb+\usepackage{lmodern}+ para 
+a \emph{Latin Modern}, que é uma versão
+aprimorada da \emph{Computer Modern}\footnote{Veja mais informações em
+\url{http://www.tug.dk/FontCatalogue/lmodern/}.}. Há dezenas de outros pacotes
+de fontes. Muitos deles estão disponíveis na maioria das distribuições
+\LaTeX\footnote{Você pode encontrá-las em
+\url{http://www.tug.dk/FontCatalogue/}. Há muitas fontes interessantes, boas e
+legíveis, e todas elas podem ser utilizadas compilando o documento com o
+comando: \texttt{pdflatex (nome do documento).tex} (ou direto no seu editor de
+texto favorito). Por exemplo, temos as fontes: Charter, Palatino, Utopia,
+Century\ldots}.
+ 
+%Para selecionar uma fonte que não é a padrão (Computer Modern), você precisa
+% incluir um pacote de fontes nativo ou usar o pacote \texttt{fontspec} e
+% compilar com o comando \texttt{xelatex}.
+%
+%\begin{verbatim}
+% \usepackage[T1]{fontenc}
+% \usepackage{times}
+%\end{verbatim}
+% 
+% No caso, \texttt{times} é o pacote da fonte (Times, igual à Times New Roman). 
+
+\subsubsection{Fontes com Xe\LaTeX}
+
+Para utilizar as fontes de tipo \textsf{.ttf} ou \textsf{.otf} --- como as
+presentes em seu sistema operacional ou utilizadas por outros programas ---, o
+arquivo deve estar em codificação \textsf{utf8} e ser compilado com o comando
+\texttt{xelatex (nomedoarquivo.tex)}. Xe\TeX é um programa de diagramação
+derivado do \TeX que utiliza
+\href{http://pt.wikipedia.org/wiki/Unicode}{Unicode} e possibilita o emprego de
+fontes tipográficas modernas, como OpenType e AAT (Apple Advanced Typography).
+A classe \textsf{abntex2} implementa opções para Xe\LaTeX por meio dos pacotes
+\textsf{fontspec}\footnote{\url{http://ctan.org/pkg/fontspec}} e
+\textsf{polyglossia}\footnote{\url{http://ctan.org/pkg/polyglossia}}. 
+
+Para fonte serifada, sem serifa (geralmente usada para títulos) e monoespaçada,
+respectivamente:
+ 
+\begin{verbatim}
+   \setromanfont{Chaparral Pro}
+   \setsansfont{Chaparral Pro}
+   \setmonofont[Scale=MatchLowercase]{Consolas}
+\end{verbatim} 
+ 
+O usuário deve implementar esses comandos, substituindo o nome das fontes
+pelas que mais preferir. É importante destacar que, caso as fontes não sejam
+imbutidas no PDF, o software que lerá o PDF deverá ter disponível a fonte
+utilizada. Com o Adobe Acrobat Reader, por exemplo, as fontes gratuitas
+seguintes já estão disponíveis:
+Minion Pro e Myriad Pro\footnote{Para Linux, faça o download de:
+\url{http://www.adobe.com/support/downloads/detail.jsp?ftpID=4426}, extraia e
+instale. Para Windows, vá até a pasta onde instalou o Reader (Arquivos de
+Programas), procure as fontes e instale.}. Outra fonte de alta qualidade é
+\href{http://scripts.sil.org/cms/scripts/page.php?site\_id=nrsi\&id=Gentium\_download}{Gentium}.
+ 
+Para textos em outras línguas, deverão ser utilizados ambientes do pacote
+\textsf{polyglossia}. Por exemplo:
+ 
+\begin{verbatim}
+   \begin{english}
+     Text in English...
+   \end{english} 
+\end{verbatim}
+ 
+Para mais informações, consulte \url{http://www.xelatex.org/}.
 
 % ---
 \subsection{Macros de dados do trabalho}\label{sec-macrosdados}
@@ -1477,7 +1563,8 @@ exemplo é o uso do trabalho dividido em três partes:
 \end{verbatim}
 
 % ---
-\subsection{Formatação de partes, capítulos, seções, subseções e subsubseções}
+\subsection{Formatação dos títulos: partes, capítulos, seções, subseções e
+subsubseções}
 \label{sec-formatacaocapitulos}
 % ---
 
@@ -1490,9 +1577,11 @@ atende aos requisitos na ABNT NBR 14724:2011 e da ABNT NBR 6024:2012. O estilo
 |\ABNTEXchapterfont| é a fonte utilizada nos capítulos e
 |\ABNTEXchapterfontsize| é o tamanho da fonte. 
 
-Você pode customizar a fonte alterando os comandos como no exemplo a seguir,
-para que seja utilizada a fonte \emph{Computer Modern} com tamanho maior do
-que o utilizado por padrão:
+Por padrão, uma versão sem serifas da fonte corrente do documento é
+utilizada para os títulos das divisões. Você pode customizar a fonte dos
+títulos dos capítulos alterando os comandos como no exemplo a seguir, para que
+seja utilizada a fonte \emph{Computer Modern} com tamanho maior do que o
+utilizado por padrão:
 
 \begin{verbatim}
    \renewcommand{\ABNTEXchapterfont}{\fontfamily{cmr}\fontseries{b}\selectfont}
@@ -1508,7 +1597,7 @@ As fontes e o tamanho das fontes obtidas com as divisões |\part|\marg{nome da
 parte}, |\chapter|\marg{nome do capítulo}, |\section|\marg{nome da seção},
 |\subsection|\marg{nome da subseção} e |\subsubsection|\marg{nome da subsubseção} são definidas por padrão,
 respectivamente, conforme a \autoref{tab-divisoes}. Você pode alterá-las com o
-comando |\renewcommand|
+comando |\renewcommand|.
 
 \begin{table}[htb]
 \caption{Macros de formatação de fonte de divisões do texto}
@@ -1517,7 +1606,9 @@ comando |\renewcommand|
 \begin{tabular}{ l l l }
    \textbf{Macro} & \textbf{Valor padrão} \\
     \hline
-    |\ABNTEXchapterfont| & |\fontfamily{cmss}\fontseries{sbc}\selectfont| \\
+    |\ABNTEXchapterfont| & |\ssfamily|\footnote{Versão sem serifas da fonte
+    corrente.}
+    \\
     \hline
     |\ABNTEXchapterfontsize| & |\Huge| \\
     \hline
