@@ -17,6 +17,9 @@
 %%
 %% This work consists of the files abntex2-modelo-include-comandos.tex
 %%
+%% 2013.1.16 17h42 laurocesar
+%%  Adiciona explicação do comando \include
+%%
 %% 2013.1.14 21h25 laurocesar
 %%  Cria o documento
 %%
@@ -299,6 +302,19 @@ Para isso, também estão disponíveis os ambientes:
 \end{verbatim}
 
 Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
+
+% ---
+\section{Inclusção de outros arquivos}\label{sec-include}
+% ---
+
+É uma boa prática dividir o seu documento \LaTeX em diversos arquivos, e não
+apenas escrever tudo em um único documento. Para isso, utilize o comando:
+
+\begin{verbatim}
+   \include{documento-a-ser-incluido}      % sem a extensão .tex
+\end{verbatim}
+
+Isso foi utilizado neste documento.
 
 % ---
 \section{Divisões do documento: seção}\label{sec-divisoes}

@@ -20,6 +20,7 @@ CHANGE HISTORY
       share a single file abntex2-modelo-include-comandos.tex
     adding explanations about heading (not) created by \chapter* on abntex.tex
     adding explanations about font and XeLaTeX on abntex.tex
+    adding explanations about \include macro on abntex2-modelo-include-comandos.tex
     changing default font on examples to Latin Modern (lmodern)
     changing \pretextualchapter to change headings with the chapter title
     changing \ABNTEXchapterfont: now uses a font style without serif (\ssfamily)
