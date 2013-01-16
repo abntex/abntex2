@@ -31,3 +31,9 @@ syntax: regexp
 ^doc/latex/abntex2/abntex2\.cls$
 syntax: regexp
 ^doc/latex/abntex2/abntex2cite\.sty$
+syntax: regexp
+\.bst$
+syntax: regexp
+^doc/latex/abntex2/abntex2abrev\.sty$
+syntax: regexp
+^doc/latex/abntex2/abntex2-options\.bib$
