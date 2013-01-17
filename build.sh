@@ -150,7 +150,7 @@ function buildAll(){
 	buildZip
 	
 	# clean temp files
-	# clean
+	clean
 }
 
 # deploy with googlecode_upload.py script
