@@ -18,7 +18,7 @@
 %% This work consists of the file abntex2.cls.
 %%
 %% 2013.1.16 18h46	laurocesar
-%%  Altera o \ABNTEXchapterfont para usar \ssfamily
+%%  Altera o \ABNTEXchapterfont para usar \sffamily
 %%
 %% 2013.1.15 07h43	laurocesar
 %%  Altera \pretextualchapyer para que insira automaticamente a opção de alterar
@@ -178,7 +178,7 @@
 
 % ---
 % Fontes padrões de part, chapter, section, subsection e subsubsection
-\newcommand{\ABNTEXchapterfont}{\ssfamily}
+\newcommand{\ABNTEXchapterfont}{\sffamily}
 \newcommand{\ABNTEXchapterfontsize}{\Huge}
 
 \newcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
@@ -622,11 +622,11 @@
 % ABNT NBR 6024/2012 - 4.2 e 4.3
 \newlist{alineas}{enumerate}{2}
 \setlist[alineas,1]{label={\alph*)},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
-\setlist[alineas,2]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}
+\setlist[alineas,2]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}
 \newlist{subalineas}{enumerate}{1}
-\setlist[subalineas,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+\setlist[subalineas,1]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}%
 \newlist{incisos}{enumerate}{1}
-\setlist[incisos,1]{label={---},topsep=0pt,itemsep=0pt,leftmargin=*}%
+\setlist[incisos,1]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}%
 % ---
   
 % ---
@@ -673,7 +673,7 @@
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}
-    {\ABNTEXchapterfont\LARGE\imprimirtitulo}
+    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
     \vspace*{\fill}
     
     {\large\imprimirlocal}
@@ -705,7 +705,7 @@
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
-    {\ABNTEXchapterfont\Large\imprimirtitulo}
+    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
     \vspace*{\fill}
 
     \abntex@ifnotempty{\imprimirpreambulo}{%
