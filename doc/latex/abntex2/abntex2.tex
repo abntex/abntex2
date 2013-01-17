@@ -24,6 +24,7 @@
 %%  Adiciona explicação da alteração de \listtablename do pacote babel 
 %%  Revisões pontuais do texto
 %%  Adiciona informações no histórico
+%%  Inclui revisão de Youssef Cherem
 %%
 %% 2013.1.14 21h03	laurocesar
 %%  Adiciona referência à norma ABNT NBR 6022:2003
@@ -681,11 +682,11 @@ Century\ldots}.
 Para utilizar as fontes de tipo \textsf{.ttf} ou \textsf{.otf} --- como as
 presentes em seu sistema operacional ou utilizadas por outros programas ---, o
 arquivo deve estar em codificação \textsf{utf8} e ser compilado com o comando
-\texttt{xelatex (nomedoarquivo.tex)}. Xe\TeX é um programa de diagramação
-derivado do \TeX que utiliza
+\texttt{xelatex (nomedoarquivo.tex)}. Xe\TeX{} é um programa de diagramação
+derivado do \TeX{} que utiliza
 \href{http://pt.wikipedia.org/wiki/Unicode}{Unicode} e possibilita o emprego de
 fontes tipográficas modernas, como OpenType e AAT (Apple Advanced Typography).
-A classe \textsf{abntex2} implementa opções para Xe\LaTeX por meio dos pacotes
+A classe \textsf{abntex2} implementa opções para Xe\LaTeX{} por meio dos pacotes
 \textsf{fontspec}\footnote{\url{http://ctan.org/pkg/fontspec}} e
 \textsf{polyglossia}\footnote{\url{http://ctan.org/pkg/polyglossia}}. 
 
@@ -693,21 +694,26 @@ Para fonte serifada, sem serifa (geralmente usada para títulos) e monoespaçada
 respectivamente:
  
 \begin{verbatim}
-   \setromanfont{Chaparral Pro}
-   \setsansfont{Chaparral Pro}
+   \setromanfont{Minion Pro}
+   \setsansfont{Myriad Pro}
    \setmonofont[Scale=MatchLowercase]{Consolas}
 \end{verbatim} 
  
 O usuário deve implementar esses comandos, substituindo o nome das fontes
-pelas que mais preferir. É importante destacar que, caso as fontes não sejam
-imbutidas no PDF, o software que lerá o PDF deverá ter disponível a fonte
+pelas que preferir. É importante destacar que, caso as fontes não sejam
+embutidas no PDF\footnote{As fontes devem ser embutidas do PDF quando, 
+por exemplo, deseja-se produzir documentos em conformidade com o padrão PDF/A
+normatizado pela série ISO 19005. Para geração de PDF/A em \LaTeX\, 
+consulte 
+\url{http://support.river-valley.com/wiki/index.php?title=Generating_PDF/A_compliant_PDFs_from_pdftex}.},
+ o software que lerá o PDF deverá ter disponível a fonte
 utilizada. Com o Adobe Acrobat Reader, por exemplo, as fontes gratuitas
 seguintes já estão disponíveis:
 Minion Pro e Myriad Pro\footnote{Para Linux, faça o download de:
 \url{http://www.adobe.com/support/downloads/detail.jsp?ftpID=4426}, extraia e
 instale. Para Windows, vá até a pasta onde instalou o Reader (Arquivos de
 Programas), procure as fontes e instale.}. Outra fonte de alta qualidade é
-\href{http://scripts.sil.org/cms/scripts/page.php?site\_id=nrsi\&id=Gentium\_download}{Gentium}.
+Gentium\footnote{\url{http://scripts.sil.org/cms/scripts/page.php?site\_id=nrsi\&id=Gentium\_download}.}.
  
 Para textos em outras línguas, deverão ser utilizados ambientes do pacote
 \textsf{polyglossia}. Por exemplo:
