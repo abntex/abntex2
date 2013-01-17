@@ -17,6 +17,12 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.1.17 19h18	laurocesar
+%%  Adiciona seção explicativa sobre as fontes.
+%%  Adiciona \bfseries nos exemplos de capa, folha de rosto e folha de aprovacao
+%%  Altera a definicao de \ABNTEXchapterfont 
+%%  Revisões pontuais do texto
+%%
 %% 2013.1.14 21h03	laurocesar
 %%  Adiciona referência à norma ABNT NBR 6022:2003
 %%  Adiciona informação de cabeçalhos com o comando \chapter*
@@ -26,9 +32,6 @@
 %%   14724:2011, ABNT NBR 6024:2012 e outras'' para ``A classe
 %%   abntex2: Documentos técnicos e científicos brasileiros compatíveis com as
 %%   normas ABNT''
-%%
-%% 2013.1.18 19h18	laurocesar
-%%  Adiciona seção explicativa sobre as fontes.
 %%
 %% 2013.1.13 09h46 laurocesar
 %%  Adiciona explicação do recuo do ambiente citacao
@@ -507,7 +510,7 @@ Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
 \subsection{Margens}
 % ---
 
-As \emph{margens} são configuradas conforme a NBR 14724/2011, seção 5.1, 
+As \emph{margens} são configuradas conforme a NBR 14724:2011, seção 5.1, 
 e podem ser alteradas do seguinte modo:
 
   \begin{verbatim}
@@ -903,7 +906,7 @@ com base no ambiente |capa|, conforme o exemplo:
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}
-    {\ABNTEXchapterfont\LARGE\imprimirtitulo}
+    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
     \vspace*{\fill}
     
     {\large\imprimirlocal}
@@ -951,7 +954,7 @@ reescreva a macro |\folhaderostocontent|, conforme o exemplo:
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
-    {\ABNTEXchapterfont\Large\imprimirtitulo}
+    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
     \vspace*{\fill}
 
     \abntex@ifnotempty{\imprimirpreambulo}{%
@@ -1090,7 +1093,7 @@ Um exemplo de uso do ambiente é:
 
 \DescribeEnv{folhadeaprovacao}\DescribeMacro{\folhadeaprovacaoname}
 O ambiente |folhadeaprovacao|\oarg{nome da folha de aprovação} permite a criação
-de uma Folha de aprovação, elemento obrigatório da ABNT NBR 14724/2011
+de uma Folha de aprovação, elemento obrigatório da ABNT NBR 14724:2011
 descrita na seção 4.2.1.3 da norma. O valor do parâmetro opcional é utilizado
 como entrada no \textsf{bookmark} do PDF (\autoref{sec-bookmark}). Caso o parâmetro
 não seja informado, o conteúdo de |\folhadeaprovacaoname| é utilizado
@@ -1119,7 +1122,7 @@ aprovação final do trabalho:
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
-    {\ABNTEXchapterfont\Large\imprimirtitulo}
+    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
     \vspace*{\fill}
     
     \hspace{.45\textwidth}
@@ -1523,8 +1526,8 @@ textuais\footnote{Embora a seção 5.2.3 da ABNT NBR 14724:2011 seja clara a
 respeito dos capítulos pré-textuais: ``Os títulos, sem indicativo numérico ---
 errata, agradecimentos, lista de ilustrações, lista de abreviaturas e siglas,
 lista de símbolos, resumos, sumário, referências, glossário, apêndice(s),
-anexo(s) e índice(s) – devem ser centralizados''.}. Desse modo, sugere-se que se
-siga o modo de numeração desses capítulos utilizado pela instituição que você
+anexo(s) e índice(s) –-- devem ser centralizados''.}. Desse modo, sugere-se que
+se siga o modo de numeração desses capítulos utilizado pela instituição que você
 apresentará o trabalho.
 
 \DescribeMacro{\chapter*}
@@ -1606,7 +1609,7 @@ comando |\renewcommand|.
 \begin{tabular}{ l l l }
    \textbf{Macro} & \textbf{Valor padrão} \\
     \hline
-    |\ABNTEXchapterfont| & |\ssfamily|\footnote{Versão sem serifas da fonte
+    |\ABNTEXchapterfont| & |\sffamily|\footnote{Versão sem serifas da fonte
     corrente.}
     \\
     \hline
