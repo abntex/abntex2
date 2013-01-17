@@ -20,8 +20,10 @@
 %% 2013.1.17 19h18	laurocesar
 %%  Adiciona seção explicativa sobre as fontes.
 %%  Adiciona \bfseries nos exemplos de capa, folha de rosto e folha de aprovacao
-%%  Altera a definicao de \ABNTEXchapterfont 
+%%  Altera a definicao de \ABNTEXchapterfont
+%%  Adiciona explicação da alteração de \listtablename do pacote babel 
 %%  Revisões pontuais do texto
+%%  Adiciona informações no histórico
 %%
 %% 2013.1.14 21h03	laurocesar
 %%  Adiciona referência à norma ABNT NBR 6022:2003
@@ -216,7 +218,7 @@ Este texto deve ser utilizado como complemento do manual do
 \subsection{Histórico do projeto}\label{sec-historico}
 
 Entre 2001 e 2002 nascia o projeto \abnTeX~original, cujo objetivo era o de
-``prover um conjunto de macros para LaTeX para formação de trabalhos acadêmicos
+``prover um conjunto de macros para \LaTeX para formação de trabalhos acadêmicos
 condizentes com as normas ABNT''. A última versão estável publicada pelos
 integrantes originais\footnote{Os integrantes originais do projeto são Miguel
 Frasson, Gerald Weber, Leslie H. Watter, Bruno Parente Lima, Flávio de
@@ -237,19 +239,33 @@ endereço há discussões um pouco mais recentes sobre o projeto, porém datam d
 
 \begin{quote}
 ``A sugestão que eu daria seria substituir a classe que o Miguel Frasson
-desenvolveu por pacotes padrão do LaTeX. Há pacotes que implementam
+desenvolveu por pacotes padrão do \LaTeX. Há pacotes que implementam
 praticamente tudo que a ABNT requer, basta mexer nas opções. Assim teria algo
 muito mais simples de manter e atualizar no longo prazo.''
 (\url{https://sourceforge.net/projects/abntex/forums/forum/947854/topic/3265973})
 \end{quote}
 
-A ideia de Gerald e o software já construído do \abnTeX~original servem de ponto
-de partida para o surgimento deste novo projeto, o \abnTeX2.
+No início de 2012 Lauro César Araujo havia concluído sua dissertação de mestrado
+escrita em \LaTeX com o \abnTeX\ original. Nessa época ele foi convidado pelo
+diretor do Centro de Pesquisa em Arquitetura da Informação
+(CPAI/UnB)\footnote{\url{http://www.cpai.unb.br}.}, Mamede Lima-Marques, para
+realizar um \textit{workshop} de \LaTeX no âmbito do Terceiro Colóquio de
+Arquitetura da Informação promovido pelo CPAI. Durante as apresentações, os
+problemas com instalação e distribuição do \abnTeX\ original e as falhas
+normativas em relação às normas vigentes da ABNT foram motivadores adicionais
+para que o novo projeto \abnTeX2 se tornasse urgente.
+O novo projeto, então, foi iniciado oficialmente em maio de 2012 por iniciativa
+de Lauro César Araujo, apoiado pelos integrantes do grupo \abnTeXForum e pelo
+CPAI. A ideia de Gerald e o software já construído do \abnTeX~original serviriam
+de ponto de partida para o \abnTeX2.
 
-O novo projeto foi iniciado em maio de 2012 por iniciativa de Lauro César
-Araujo e apoiado pelos integrantes do grupo \abnTeXForum. A primeira versão do
-\abnTeX2 foi concluída em dezembro de 2012 e disponibilizada ao público em
-janeiro de 2013. O portal do projeto atual é \abnTeXSite.
+
+A primeira versão do \abnTeX2 foi concluída em dezembro de 2012 e
+disponibilizada ao público em janeiro de 2013. O portal do projeto atual é
+\abnTeXSite.
+
+O software é mantido desde então pela comunidade de indivíduos e de
+organizações que adotam e/ou investem em software livre.
 
 % O novo projeto utiliza o menor conjunto possível de classes nativas do \LaTeX~de
 % modo a implementar as exigências das normas ABNT. Para isso, escolheu-se como
@@ -306,7 +322,7 @@ Sinta-se convidado a participar do projeto \abnTeX2! Acesse o site do projeto em
 \abnTeXSite. Também fique livre para conhecer, estudar, alterar e redistribuir o
 trabalho do \abnTeX2, desde que os arquivos modificados tenham seus nomes
 alterados, até mesmo no seu computador, e que os créditos sejam dados aos
-autores, nos termos da ``The LaTeX Project Public
+autores, nos termos da ``The \LaTeX Project Public
 License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
 
 Encorajamos que customizações específicas para universidades sejam realizadas
@@ -540,6 +556,8 @@ para atender a requisitos da ABNT NBR 14724:2011, conforme \autoref{tab-babel}.
     |\indexname| & ``Índice Remissivo'' & ``Índice'' \\
     \hline
     |\listfigurename| & ``Lista de Figuras'' & ``Lista de ilustrações'' \\
+    \hline
+    |\listtablename| & ``Lista de Tabelas'' & ``Lista de tabelas'' \\
     \hline
     \hline
 \end{tabular}
