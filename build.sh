@@ -62,6 +62,9 @@ function buildPdf(){
 	echo "Compiling abntex2-modelo-modelo-artigo"
 	compileLaTeX abntex2-modelo-artigo
 	
+	echo "Compiling abntex2-modelo-projeto-pesquisa"
+	compileLaTeX abntex2-modelo-projeto-pesquisa
+	
 	echo "Compiling abntex2"
 	compileLaTeX abntex2
 	

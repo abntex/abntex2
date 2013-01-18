@@ -19,6 +19,9 @@
 %% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
 %%
 %%
+%% 2013.1.17 22h43	laurocesar
+%%  Nova dedicatória
+%%
 %% 2013.1.16 19h21	laurocesar
 %%  Usa fonte Latin Modern
 %%
@@ -349,10 +352,10 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 % ---
 \begin{dedicatoria}
    \vspace*{\fill}
-\noindent\textit{Este trabalho é dedicado à criança de León Werth, por ter sido
-o maior amigo do mundo de Antoine de Saint-Exupery, pai de um pequeno príncipe que cativa muitas
-imaginações.}
- \vspace*{\fill}
+   \centering
+   \noindent
+   \textit{ Este trabalho é dedicado às crianças adultas que,\\
+   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
 \end{dedicatoria}
 % ---
 
@@ -512,7 +515,7 @@ contribuirão para a evolução do abn\TeX.
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
 exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-gênero) produzido conforme ABNT NBR 14724:2011 \emph{Informação e documentação
+gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
 - Trabalhos acadêmicos - Apresentação}.
 
 A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX~não é
@@ -537,8 +540,9 @@ Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
 \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
 \cite{memoir}. 
 
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do seu trabalho, de
-modo que o principal esforço seja concentrado na sua contribuição científica.
+Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
+você produzirá, de modo que o principal esforço seja concentrado no principal:
+na contribuição científica.
 
 Equipe \abnTeX 
 
@@ -607,11 +611,6 @@ elementum}
 \bookmarksetup{startatroot}% 
 % ---
 
-% ----------------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS
-% ----------------------------------------------------------
-\postextual
-
 % ---
 % Conclusão
 % ---
@@ -619,6 +618,12 @@ elementum}
 \addcontentsline{toc}{chapter}{Conclusão}
 
 \lipsum[31-33]
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
 
 % ----------------------------------------------------------
 % Referências bibliográficas
@@ -629,8 +634,7 @@ elementum}
 % Glossário
 % ----------------------------------------------------------
 %
-% Há diversas soluções prontas para glossário. Não é necessário nos preocuparmos
-% com isso agora.
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
 %
 %\glossary
 

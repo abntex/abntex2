@@ -14,7 +14,8 @@ The latest version of abnTeX2 is _VERSION_.
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.3
-    adding a new model: abntex2-modelo-relatorio-tecnico.tex
+    adding two new model: 
+      abntex2-modelo-relatorio-tecnico.tex and abntex2-modelo-projeto-pesquisa.tex
     adding an example of \include in abntex2-modelo-trabalho-academico.tex: 
       now abntex2-modelo-trabalho-academico.tex and abntex2-modelo-relatorio-tecnico.tex
       share a single file abntex2-modelo-include-comandos.tex
