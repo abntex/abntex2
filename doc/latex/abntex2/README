@@ -9,7 +9,7 @@ The abntex2 class and the abntex2cite package are intended to assist the prepara
 of theses and academic papers based on ABNT (Associação Brasileira de Normas Técnicas) 
 used in Brazil.
 
-The latest version of abnTeX2 is _VERSION_.
+The latest version of abnTeX2 is v<VERSION>.
 
 CHANGE HISTORY
 -----------------------------------------------------------------
@@ -58,7 +58,6 @@ CHANGE HISTORY
        . ABNT NBR 15287:2011: Informação e documentação - Projeto de pesquisa - Apresentação
        . ABNT NBR 6022-2003 - Informação e documentação - Artigo em publicação periódica científica impressa - Apresentação
 
-
   2013/01/05 - v1.1
      bug fixes on abnex2cite.sty when using with Beamer 
      changed \titulo, \autor and \data to do the same as \title, \author and \date  
@@ -91,8 +90,12 @@ DOCUMENTATION
 The abnTeX2 documentation consists of the following files:
 
   README								Instructions on installation and documentation.
-  abntex2-modelo-trabalho-academico.tex	A usage example of abntex2 class and abntex2cite package producing a tesis
-  abntex2-modelo-artigo.tex				A usage example of abntex2 class and abntex2cite package producing an article
+  abntex2-modelo-trabalho-academico.tex	An usage example of abntex2 class and abntex2cite package producing a thesis
+  abntex2-modelo-relatorio-tecnico.tex	An usage example of abntex2 class and abntex2cite package producing a technical report
+  abntex2-modelo-projeto-pesquisa.tex	An usage example of abntex2 class and abntex2cite package producing a research project
+  abntex2-modelo-artigo.tex				An usage example of abntex2 class and abntex2cite package producing an article
+  abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files 
+  abntex2-img-grafico.pdf				Image used as example
   abntex2-modelo-references.bib			Bib references of the example 
 
   abntex2.tex							The main class documentation
