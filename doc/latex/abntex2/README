@@ -15,14 +15,11 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.3
     added two new model: 
-      abntex2-modelo-relatorio-tecnico.tex 
-      abntex2-modelo-projeto-pesquisa.tex
-    added an example of \include in all examples except in article: 
-      now all examples share a single file abntex2-modelo-include-comandos.tex
-    added explanations about heading (not) created by \chapter* on abntex.tex
-    added explanations about font and XeLaTeX on abntex.tex
-    added explanations about \include and \input macros on abntex2-modelo-include-comandos.tex
-    added explanations about compiling LaTeX documents on abntex2-modelo-include-comandos.tex
+      . abntex2-modelo-relatorio-tecnico.tex: Technical report in compliance to ABNT NBR 10719:2011
+      . abntex2-modelo-projeto-pesquisa.tex: Research project in compliance to ABNT NBR 15287:2011
+    added on abntex.tex:
+      . explanations about heading (not) created by \chapter* 
+      . explanations about font and XeLaTeX
     added versions numbers in all files, documents and examples with a new build.sh script
     changed default font on examples and documentations to Latin Modern (lmodern)
     changed \pretextualchapter to change headings with the value of chapter title
@@ -36,6 +33,11 @@ CHANGE HISTORY
       trabalhos acadêmicos brasileiros compatível com as normas ABNT NBR 14724:2011,
       ABNT NBR 6024:2012 e outras" to "A classe abntex2: Documentos técnicos e científicos 
       brasileiros compatíveis com as normas ABNT"   
+    as an example of \include, now all example documents share a single file 
+      named abntex2-modelo-include-comandos.tex, that has the content from
+      abntex2-modelo-trabalho-academico.tex and:
+       . explanations about \include and \input macros
+       . explanations about compiling LaTeX documents
     bug fix: singlespace on references produced by abntex2cite.sty
     bug fix: general orthographic errors
 
@@ -52,9 +54,9 @@ CHANGE HISTORY
      updated documentation 
      bug fixes on abntex2.cls
      added compatibility information to:
-       ABNT NBR 10719:2011: Informação e documentação - Relatório técnico e/ou científico - Apresentação
-       ABNT NBR 15287:2011: Informação e documentação - Projeto de pesquisa - Apresentação
-       ABNT NBR 6022-2003 - Informação e documentação - Artigo em publicação periódica científica impressa - Apresentação
+       . ABNT NBR 10719:2011: Informação e documentação - Relatório técnico e/ou científico - Apresentação
+       . ABNT NBR 15287:2011: Informação e documentação - Projeto de pesquisa - Apresentação
+       . ABNT NBR 6022-2003 - Informação e documentação - Artigo em publicação periódica científica impressa - Apresentação
 
 
   2013/01/05 - v1.1
