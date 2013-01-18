@@ -17,6 +17,10 @@
 %%
 %% This work consists of the files abntex2-modelo-include-comandos.tex
 %%
+%% 2013.1.18 08h46 laurocesar
+%%  Adiciona informações de compilação do documento LaTex
+%%  Altera texto do \input e \adiciona include
+%%
 %% 2013.1.17 23h14 laurocesar
 %%  Revisão geral
 %%  Inclui \input
@@ -315,18 +319,42 @@ Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
 % ---
 
 É uma boa prática dividir o seu documento em diversos arquivos, e não
-apenas escrever tudo em um único. Para isso, utilize o comando:
+apenas escrever tudo em um único. Esse recurso foi utilizado neste
+documento. Para incluir diferentes arquivos em um arquivo principal,
+de modo que cada arquivo incluído fique em uma página diferente, utilize o
+comando:
 
 \begin{verbatim}
    \include{documento-a-ser-incluido}      % sem a extensão .tex
 \end{verbatim}
 
-Esse recurso foi utilizado neste documento.
-
-Caso deseje que o arquivo a ser inserido inicie em uma nova página, utilize:
+Para incluir documentos sem quebra de páginas, utilize:
 
 \begin{verbatim}
    \input{documento-a-ser-incluido}      % sem a extensão .tex
+\end{verbatim}
+
+% ---
+\section{Compilar o documento \LaTeX}
+% ---
+
+Geralmente os editores \LaTeX, como o
+TeXlipse\footnote{\url{http://texlipse.sourceforge.net/}}, o
+Texmaker\footnote{\url{http://www.xm1math.net/texmaker/}}, entre outros,
+compilam os documentos automaticamente, de modo que você não precisa se
+preocupar com isso.
+
+No entanto, você pode compilar os documentos \LaTeX usando os seguintes
+comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
+\emph{Terminal} do Mac ou do Linux:
+
+\begin{verbatim}
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   bibtex ARQUIVO_PRINCIPAL.aux
+   makeindex ARQUIVO_PRINCIPAL.idx 
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   pdflatex ARQUIVO_PRINCIPAL.tex
 \end{verbatim}
 
 % ---
@@ -363,6 +391,7 @@ primeira palavra da primeira linha}
 
 Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
  e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
+
 
 % ---
 \section{Consulte o manual da classe \textsf{abntex2}}
