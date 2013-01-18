@@ -19,6 +19,9 @@
 %% abntex2-modelo-references.bib
 %%
 %%
+%% 2013.1.17 22h57	laurocesar
+%%  Revisão geral
+%%
 %% 2013.1.16 19h21	laurocesar
 %%  Usa fonte Latin Modern
 %%
@@ -100,7 +103,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Modelo Canônico de\\ Artigo Científico com \abnTeX}
+\titulo{Modelo Canônico de\\ Artigo científico com \abnTeX}
 \autor{Equipe \abnTeX\thanks{\url{http://code.google.com/p/abntex2/}} \\ Lauro
 César
 Araujo\thanks{laurocesar@laurocesar.com}}
@@ -122,7 +125,7 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 		pdftitle={\imprimirtitulo}, 
 		pdfauthor={\imprimirautor},
     	pdfsubject={\imprimirpreambulo},
-		pdfkeywords={PALAVRAS}{CHAVES}{EM}{PORTUGUES},
+		pdfkeywords={PALAVRAS}{CHAVES}{abnt}{abntex}{abntex2},
 	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
 	    pdfcreator={\imprimirautor},
     	colorlinks=true,       		% false: boxed links; true: colored links
@@ -207,20 +210,22 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 % ----------------------------------------------------------
 \section*{Introdução}
 
-Este documento exemplifica o uso da classe \textsf{abntex2} para elaboração de
-artigos em publicação periódica científica impressa produzidos conforme a ABNT
+Este documento e seu código-fonte são exemplos de referência de uso da classe
+\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento exemplifica a
+elaboração de publicação periódica científica impressa produzida conforme a ABNT
 NBR 6022:2003 \emph{Informação e documentação - Artigo em publicação periódica
 científica impressa - Apresentação}.
 
-A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX~não é
-modelo específico de trabalho acadêmico de nenhuma universidade ou instituição,
-mas que implementa tão somente os requisitos das normas da ABNT.
+A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX\ não é
+modelo específico de nenhuma universidade ou instituição, mas que implementa tão
+somente os requisitos das normas da ABNT. Uma lista completa das normas
+observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
 
 Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
 \url{http://code.google.com/p/abntex2/}. Também fique livre para conhecer,
 estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
 modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The LaTeX Project Public
+autores originais, nos termos da ``The \LaTeX\ Project Public
 License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
 
 Encorajamos que sejam realizadas customizações específicas deste documento.
@@ -243,7 +248,7 @@ exemplos e informações adicionais de uso de \abnTeX\ e de \LaTeX.
 \subsection{Margens}
 
 A norma ABNT NBR 6022:2003 não estabelece uma margem específica a ser utilizada
-no artigo científico. Dessa maneira, caso desej alterar as margens, utilize os
+no artigo científico. Dessa maneira, caso deseje alterar as margens, utilize os
 comandos abaixo:
 
 \begin{verbatim}
@@ -284,9 +289,9 @@ a opção \texttt{twocolumn} devem ser escritos no ambiente
    ]                        % FIM DE ARTIGO EM DUAS COLUNAS
 \end{verbatim}
 
-\section{Recuso do ambiente \texttt{citacao}}
+\section{Recuo do ambiente \texttt{citacao}}
 
-No produção de artigos (opção \texttt{article}), pode ser útil alterar o recuo
+Na produção de artigos (opção \texttt{article}), pode ser útil alterar o recuo
 do ambiente \texttt{citacao}. Nesse caso, utilize o comando:
 
 \begin{verbatim}
@@ -295,17 +300,17 @@ do ambiente \texttt{citacao}. Nesse caso, utilize o comando:
 
 Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
 \textsf{abntex2} automaticamente altera o recuo padrão de 4 cm, definido pela
-ABNT NBR 10520:2002 seção 5.3, para 1.8cm.
+ABNT NBR 10520:2002 seção 5.3, para 1.8 cm.
 
 \subsection{Consulte o Modelo Canônico de Trabalhos Acadêmicos}
 
-Este modelo de artigo é limitado em número de exemplos de comandos. São
-apresentados exclusivamente comandos diretamente relacionados com a produção de
-artigos.
+Este modelo de artigo é limitado em número de exemplos de comandos. Neste
+exemplo são apresentados exclusivamente comandos diretamente relacionados com a
+produção de artigos.
 
-Para exemplos adicionais de \abnTeX2 e \LaTeX, como inclusão de figuras,
-fórmulas matemáticas, citações, e outros, consulte o documento ``Modelo Canônico
-de Trabalhos Acadêmicos com abnTeX2'' \cite{abntex2modelo}.
+Para exemplos adicionais de \abnTeX e \LaTeX, como inclusão de figuras,
+fórmulas matemáticas, citações, e outros, consulte o documento
+\citeonline{abntex2modelo}.
 
 \subsection{Consulte o manual da classe \textsf{abntex2}}
 

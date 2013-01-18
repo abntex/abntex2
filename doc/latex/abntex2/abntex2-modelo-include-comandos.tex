@@ -17,6 +17,10 @@
 %%
 %% This work consists of the files abntex2-modelo-include-comandos.tex
 %%
+%% 2013.1.17 23h14 laurocesar
+%%  Revisão geral
+%%  Inclui \input
+%%
 %% 2013.1.16 17h42 laurocesar
 %%  Adiciona explicação do comando \include
 %%
@@ -31,7 +35,7 @@
  
 \chapter{Resultados de comandos}\label{cap_exemplos}
 
-\chapterprecis{Isto é uma sinopse do capítulo. A ABNT não traz nenhuma
+\chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma
 normatização a respeito desse tipo de resumo, que é mais comum em romances 
 e livros técnicos.}\index{sinopse de capítulo}
 
@@ -39,7 +43,7 @@ e livros técnicos.}\index{sinopse de capítulo}
 \section{Citações}
 % ---
 
-\index{citações!diretas}Utilize o ambiente \textsf{citacao} para incluir
+\index{citações!diretas}Utilize o ambiente \texttt{citacao} para incluir
 citações diretas com mais de três linhas:
 
 \begin{citacao}
@@ -68,7 +72,8 @@ número do capítulo indicado é
 \section{Tabelas}
 % ---
 
-\index{tabelas}A \autoref{tab-nivinv} é um exemplo de tabela.
+\index{tabelas}A \autoref{tab-nivinv} é um exemplo de tabela construída em
+\LaTeX.
 
 \begin{table}[htb]
 \footnotesize
@@ -94,7 +99,7 @@ número do capítulo indicado é
 \section{Expressões matemáticas}
 % ---
 
-\index{expressões matemáticas}Use o ambiente \textsf{equation} para escrever
+\index{expressões matemáticas}Use o ambiente \texttt{equation} para escrever
 expressões matemáticas numeradas:
 
 \begin{equation}
@@ -104,7 +109,7 @@ expressões matemáticas numeradas:
 Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
 \exp(-x) = 0 $, para que fiquem na mesma linha.
 
-Também é possível usar um colchetes para indicar o iníco de uma expressão
+Também é possível usar colchetes para indicar o início de uma expressão
 matemática que não é numerada.
 
 \[
@@ -158,7 +163,7 @@ como o exemplo da \autoref{fig_circulo}.
 \end{figure}
 
 Ou então figuras podem ser incorporadas de arquivos externos, como é o caso da
-\autoref{fig_grafico}. Se figura que ser incluída se tratar de um diagrama, um
+\autoref{fig_grafico}. Se a figura que ser incluída se tratar de um diagrama, um
 gráfico ou uma ilustração que você mesmo produza, priorize o uso de imagens
 vetoriais no formato PDF. Com isso, o tamanho do arquivo final do trabalho será
 menor, e as imagens terão uma apresentação melhor, principalmente quando
@@ -208,7 +213,7 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
   seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
   letras do alfabeto;
 
-  \item as letras indicativas das alíneas devem apresentar recuso em relação à
+  \item as letras indicativas das alíneas devem apresentar recuo em relação à
   margem esquerda;
 
   \item o texto da alínea deve começar por letra minúscula e terminar em
@@ -219,7 +224,8 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
   \item a segunda e as seguintes linhas do texto da alínea começa sob a
   primeira letra do texto da própria alínea;
   
-  \item subalíneas \cite[4.3]{NBR6024:2012} deve ser conforme as alíneas a seguir:
+  \item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas a
+  seguir:
 
   \begin{alineas}
      \item as subalíneas devem começar por travessão seguido de espaço;
@@ -234,8 +240,9 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
      primeira letra do texto da própria subalínea.
   \end{alineas}
   
-  \item estão disponíveis os ambientes \textsf{incisos} e \textsf{subalineas}, que
-  em sua são o mesmo que se criar outro nível de \textsf{alineas}:
+  \item no \abnTeX\ estão disponíveis os ambientes \texttt{incisos} e
+  \texttt{subalineas}, que em suma são o mesmo que se criar outro nível de
+  \texttt{alineas}, como nos exemplos à seguir:
   
   \begin{incisos}
     \item \textit{Um novo inciso em itálico};
@@ -307,14 +314,20 @@ Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
 \section{Inclução de outros arquivos}\label{sec-include}
 % ---
 
-É uma boa prática dividir o seu documento \LaTeX em diversos arquivos, e não
-apenas escrever tudo em um único documento. Para isso, utilize o comando:
+É uma boa prática dividir o seu documento em diversos arquivos, e não
+apenas escrever tudo em um único. Para isso, utilize o comando:
 
 \begin{verbatim}
    \include{documento-a-ser-incluido}      % sem a extensão .tex
 \end{verbatim}
 
 Esse recurso foi utilizado neste documento.
+
+Caso deseje que o arquivo a ser inserido inicie em uma nova página, utilize:
+
+\begin{verbatim}
+   \input{documento-a-ser-incluido}      % sem a extensão .tex
+\end{verbatim}
 
 % ---
 \section{Divisões do documento: seção}\label{sec-divisoes}
@@ -348,8 +361,8 @@ alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
 primeira palavra da primeira linha}
 % ---
 
-Isso atende à norma ABNT NBR 14724-2011, seções de 5.2.2 a 5.2.4 e ABNT NBR
-6024-2003, seções de 3.1 a 3.8.
+Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
+ e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
 
 % ---
 \section{Consulte o manual da classe \textsf{abntex2}}
