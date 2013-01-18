@@ -1,0 +1,152 @@
+-----------------------------------------------------------------
+abnTeX2: Type­set a Brazil­ian aca­demic the­sis based on ABNT rules
+-----------------------------------------------------------------
+
+This is the README file for the abntex2 class and abntex2cite package. Please read the
+license information at the end of this file.
+
+The abntex2 class and the abntex2cite package are intended to assist the preparation 
+of theses and academic papers based on ABNT (Associação Brasileira de Normas Técnicas) 
+used in Brazil.
+
+The latest version of abnTeX2 is v<VERSION>.
+
+CHANGE HISTORY
+-----------------------------------------------------------------
+  2013/xx/xx - v1.3
+    added two new model: 
+      . abntex2-modelo-relatorio-tecnico.tex: Technical report in compliance to ABNT NBR 10719:2011
+      . abntex2-modelo-projeto-pesquisa.tex: Research project in compliance to ABNT NBR 15287:2011
+    added on abntex.tex:
+      . explanations about heading (not) created by \chapter* 
+      . explanations about font and XeLaTeX
+    added versions numbers in all files, documents and examples with a new build.sh script
+    changed default font on examples and documentations to Latin Modern (lmodern)
+    changed \pretextualchapter to change headings with the value of chapter title
+    changed \ABNTEXchapterfont: now it uses a font style without serif (\sffamily)
+    changed thesis model to add examples of \chapter*[heading title]{text title}
+    changed title of the article model from "Modelo Canônico de Artigos Acadêmicos" 
+      to "Modelo Canônico de Artigo Científico"
+    changed title of the thesis model from "Modelo Canônico de Trabalhos Acadêmicos" 
+      to "Modelo Canônico de Trabalho Acadêmico"
+    changed title of abntex2 documentation from "A classe abntex2: Modelo canônico de
+      trabalhos acadêmicos brasileiros compatível com as normas ABNT NBR 14724:2011,
+      ABNT NBR 6024:2012 e outras" to "A classe abntex2: Documentos técnicos e científicos 
+      brasileiros compatíveis com as normas ABNT"   
+    as an example of \include, now all example documents share a single file 
+      named abntex2-modelo-include-comandos.tex, that has the content from
+      abntex2-modelo-trabalho-academico.tex and:
+       . explanations about \include and \input macros
+       . explanations about compiling LaTeX documents
+    bug fix: singlespace on references produced by abntex2cite.sty
+    bug fix: general orthographic errors
+
+  2013/01/13 - v1.2.1
+     added length \ABNTEXcitacaorecuo, useful on articles
+     abntex2's twocolumn class option changes \ABNTEXcitacaorecuo to 1.8cm 
+     changed \ABNTEXcitacaorecuo explanation on abntex2.tex and on examples 
+     
+  2013/01/12 - v1.2
+     added article support to abntex2.cls
+     added new article example
+     changed canonical example: new commands, explanations and examples
+     changed abntex2-modelo.tex file name to abntex2-modelo-trabalho-academico.tex 
+     updated documentation 
+     bug fixes on abntex2.cls
+     added compatibility information to:
+       . ABNT NBR 10719:2011: Informação e documentação - Relatório técnico e/ou científico - Apresentação
+       . ABNT NBR 15287:2011: Informação e documentação - Projeto de pesquisa - Apresentação
+       . ABNT NBR 6022-2003 - Informação e documentação - Artigo em publicação periódica científica impressa - Apresentação
+
+  2013/01/05 - v1.1
+     bug fixes on abnex2cite.sty when using with Beamer 
+     changed \titulo, \autor and \data to do the same as \title, \author and \date  
+      
+  2012/12/20 - v1.0 
+     initial release on CTAN 
+
+INSTALLATION
+-----------------------------------------------------------------
+
+In order to install the abntex2 class and abntex2cite package you need:
+
+  abntex2.cls						The abntex2 class file.
+  abntex2cite.sty					The abntex2cite citation package file.
+  abntex2abrev.sty					Extension of abntex2cite package. It contains abbreviations helpers macros.
+  abntex2-alf.bst					Numeric citation style file.
+  abntex2-num.bst					Alphanumeric (author-date) citation style file.
+  abntex2-options.bib				Default citation options configurations.
+  
+Put those files somewhere LaTeX can find them. Read the documentation of 
+your LaTeX system to find out where this might be. 
+  
+If you're new to this, see http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages for more
+information on installing packages.
+  
+
+DOCUMENTATION
+-----------------------------------------------------------------
+
+The abnTeX2 documentation consists of the following files:
+
+  README								Instructions on installation and documentation.
+  abntex2-modelo-trabalho-academico.tex	An usage example of abntex2 class and abntex2cite package producing a thesis
+  abntex2-modelo-relatorio-tecnico.tex	An usage example of abntex2 class and abntex2cite package producing a technical report
+  abntex2-modelo-projeto-pesquisa.tex	An usage example of abntex2 class and abntex2cite package producing a research project
+  abntex2-modelo-artigo.tex				An usage example of abntex2 class and abntex2cite package producing an article
+  abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files 
+  abntex2-img-grafico.pdf				Image used as example
+  abntex2-modelo-references.bib			Bib references of the example 
+
+  abntex2.tex							The main class documentation
+  abntex2cite.tex						The abntex2cite package documentation
+  abntex2cite-alf.tex					Additional alphanumeric (author-date) citation style documentation
+  abntex2-doc.bib						Bib references used by documentation
+  abntex2-doc-abnt-10520-2001.bib		Specific ABNT NBR 10520:2001 bib references entries
+  abntex2-doc-abnt-10520-2002.bib		Specific ABNT NBR 10520:2002 bib references entries
+  abntex2-doc-abnt-6023-2000.bib		Specific ABNT NBR 6023:200 bib references entries
+  abntex2-doc-options.bib				Options configurations used by documentation
+  abntex2-doc-test.bib					General bib references used by accordance tests
+
+To produce any documentation above you also need:
+  ltxdoc.cls   													(part of the standard LaTeX2e distribution)
+  all installation files described in "INSTALLATION" section	(par of this bundle)
+
+Compile the documentation as the example below. There are 4 PDF files of documentation.
+  
+  pdflatex FILE.tex
+  bibtex FILE.aux
+  makeindex FILE
+  latex2pdf FILE.tex
+  latex2pdf FILE.tex
+  
+  (the "FILE" entry is one of the .tex file listed above)
+  
+
+COPYING AND MODIFICATION
+-----------------------------------------------------------------
+
+Copyright 2001-2003 abnTeX group at http://abntex.codigolivre.org.br
+Copyright 2012-2013 abntex2 team at https://code.google.com/p/abntex2/
+
+This package can be redistributed and/or modified under the terms
+of the LaTeX Project Public License distributed from CTAN
+archives in the directory macros/latex/base/lppl.txt; either
+version 1.3 of the license, or (at your option) any later version.
+
+Universities and other institutions are encouraged to customize front pages and
+others files and redistribute them to the users, but not to change the abnTeX2 files. 
+You may customize almost all abnTeX2 commands with \renewcommand or using memoir commands.
+It is better than changing the files themselves.
+
+HELP
+-----------------------------------------------------------------
+
+You can get help here:
+ 
+www   https://code.google.com/p/abntex2/
+group http://groups.google.com/group/abntex2
+
+We need your help too. Access the project's home page and contact us.
+
+Lauro César Araujo - laurocesar at laurocesar dot com

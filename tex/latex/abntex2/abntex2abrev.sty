@@ -1,0 +1,151 @@
+%% abntex2abrev.sty, v<VERSION> laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
+%%
+%% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
+%% Copyright 2003 by the abnTeX group at http://abntex.codigolivre.org.br
+%% 
+%%
+%% Revision history:
+%%
+%% 2012/12/12 22h22 laurocesar
+%% Fork of the version v 1.3 2003/10/13 09:41:21 gweber created by gweber
+%% Change file name to from abntex-abrev.sty to abntex2abrev.sty
+%% Removed CVS revision automation
+%% Incorporating file nbr10522-1988.def from abntex1 (the NBR 10522:1988 was
+%% canceled in 2003)
+%%
+%% The original revision history is the following:
+%% 
+%% $Log: abntex-abrev.sty,v $
+%% Revision 1.3  2003/10/13 09:41:21  gweber
+%% Passa a usar cvs-id.def para gerar informações sobre data e versão.
+%%
+%% Revision 1.2  2003/10/10 10:08:09  gweber
+%% Passa a usar cvs-id.def para gerar informações sobre data e versão.
+%%
+%% Revision 1.1  2003/06/27 13:49:21  gweber
+%% Estilo principal que implementa abreviações para o projeto abntex.
+%% O arquivo pode ser usado sozinho ou em conjunto com classes e estilos bibliográficos.
+%% Ele carrega um aquivo com traduções portugês-inglês abntex-abrev-pt_BR.def e um arquivo
+%% com as definições da norma 10522/1988.
+%%
+
+
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{ifthen}
+
+\newcommand{\NoAbrevending}{\let\Abrevending\@empty}
+
+% Incorporating file nbr10522-1988.def from abntex1
+\newcommand{\@NBR@A@abril}{abr}
+\newcommand{\@NBR@A@acompanhamento}{acomp}
+\newcommand{\@NBR@A@adaptacao}{adapt}
+\newcommand{\@NBR@A@adaptado}{adapt}
+\newcommand{\@NBR@A@adaptada}{adapt}
+\newcommand{\@NBR@A@adaptador}{adapt}
+\newcommand{\@NBR@A@adaptadora}{adapt}
+\newcommand{\@NBR@A@agosto}{ago}
+\newcommand{\@NBR@A@ampliado}{ampl}
+\newcommand{\@NBR@A@ampliada}{ampl}
+\newcommand{\@NBR@A@capitulo}{cap}
+\newcommand{\@NBR@A@capitulos}{cap}
+\newcommand{\@NBR@A@citacao}{cit}
+\newcommand{\@NBR@A@edicao}{ed}
+\newcommand{\@NBR@A@editado}{ed}
+\newcommand{\@NBR@A@editada}{ed}
+\newcommand{\@NBR@A@editor}{ed}
+\newcommand{\@NBR@A@editora}{ed}
+\newcommand{\@NBR@A@fevereiro}{fev}
+\newcommand{\@NBR@A@dezembro}{dez}
+\newcommand{\@NBR@A@ilustracao}{il}
+\newcommand{\@NBR@A@ilustrado}{il}
+\newcommand{\@NBR@A@ilustrada}{il}
+\newcommand{\@NBR@A@ilustrador}{il}
+\newcommand{\@NBR@A@ilustradora}{il}
+\newcommand{\@NBR@A@janeiro}{jan}
+\newcommand{\@NBR@A@junho}{jun}
+\newcommand{\@NBR@A@julho}{jul}
+\newcommand{\@NBR@A@marco}{mar}
+\newcommand{\@NBR@A@maio}{maio\NoAbrevending}
+\newcommand{\@NBR@A@novembro}{nov}
+\newcommand{\@NBR@A@outubro}{out}
+\newcommand{\@NBR@A@oeste}{O\NoAbrevending}
+\newcommand{\@NBR@A@setembro}{set}
+\newcommand{\@NBR@A@pagina}{p}
+% end of nbr10522-1988.def
+
+\newcommand{\@NBR}{@NBR@A@}
+\newcommand{\@PREF@}[1]{\csname \@NBR#1\endcsname}
+
+% Incorporating file abntex-abrev-pt_BR.def from abntex1
+\providecommand{\@PREF@}{}
+\newcommand{\@TR@adaptation}{\@PREF@{adaptacao}}
+\newcommand{\@TR@adapted}{\@PREF@{adaptado}}
+\newcommand{\@TR@adapter}{\@PREF@{adaptador}}
+\newcommand{\@TR@april}{\@PREF@{abril}}
+\newcommand{\@TR@august}{\@PREF@{agosto}}
+\newcommand{\@TR@chapter}{\@PREF@{capitulo}}
+\newcommand{\@TR@chapters}{\@PREF@{capitulos}}
+\newcommand{\@TR@citation}{\@PREF@{citacao}}
+\newcommand{\@TR@extended}{\@PREF@{ampliado}}
+\newcommand{\@TR@edited}{\@PREF@{editado}}
+\newcommand{\@TR@edition}{\@PREF@{edicao}}
+\newcommand{\@TR@editor}{\@PREF@{editor}}
+\newcommand{\@TR@february}{\@PREF@{fevereiro}}
+\newcommand{\@TR@december}{\@PREF@{dezembro}}
+\newcommand{\@TR@illustrated}{\@PREF@{ilustrado}}
+\newcommand{\@TR@illustration}{\@PREF@{ilustracao}}
+\newcommand{\@TR@illustrator}{\@PREF@{ilustrador}}
+\newcommand{\@TR@january}{\@PREF@{janeiro}}
+\newcommand{\@TR@june}{\@PREF@{junho}}
+\newcommand{\@TR@jule}{\@PREF@{julho}}
+\newcommand{\@TR@march}{\@PREF@{marco}}
+\newcommand{\@TR@may}{\@PREF@{maio}}
+\newcommand{\@TR@november}{\@PREF@{novembro}}
+\newcommand{\@TR@october}{\@PREF@{outubro}}
+\newcommand{\@TR@september}{\@PREF@{setembro}}
+\newcommand{\@TR@west}{\@PREF@{oeste}}
+\newcommand{\@TR@page}{\@PREF@{pagina}}
+% end of abntex-abrev-pt_BR.def
+
+
+\ProcessOptions
+
+\newcommand{\@TR@}{@TR@}
+\newcommand{\Capitalize}[1]{\uppercase{#1}}
+
+%para testar, coloca os resultados em forma mais explícita
+\newcommand{\TESTabrev}[1]{%
+\@ifundefined{@TR@#1}{pt(#1):\csname \@NBR#1\endcsname}{en(#1):\csname \@TR@#1\endcsname}}
+
+%controla como termina a abreviação
+\newcommand{\abrevending}{.}
+\newcommand{\Abrevending}{}
+%comando para usuários, pode ser portugês ou inglês
+\newcommand{\abrev}[1]{\let\Abrevending\abrevending%
+\@ifundefined{@TR@#1}{\csname \@NBR#1\endcsname\Abrevending}{\csname \@TR@#1\endcsname\Abrevending}}
+
+%comando para usuários, pode ser portugês ou inglês
+\newcommand{\Abrev}[1]{\expandafter\Capitalize\abrev{#1}}
+
+%comando para desenvolvedores, só inglês sem finalização, ou seja sem ponto
+\newcommand{\ABNTEXabrev}[1]{\@ifundefined{@TR@#1}{#1}{\csname \@TR@#1\endcsname}}
+
+%comando para desenvolvedores, só inglês com finalização, ou seja com ponto
+\newcommand{\ABNTEXabrevp}[1]{\let\Abrevending\abrevending
+\ABNTEXabrev{#1}\Abrevending}
