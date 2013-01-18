@@ -57,6 +57,7 @@
 
 \documentclass[a4paper]{ltxdoc}
 
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage[brazil]{babel}		% idiomas
@@ -1428,6 +1429,17 @@ exemplo abaixo, que define algumas siglas, imprime um capítulo com o título
    \printnomenclature
    \cleardoublepage
 \end{verbatim}
+
+Para usar o pacote \textsf{nomencl}, é necessário compilar o documento \LaTeX\
+com \textsf{makeindex}:
+
+\begin{verbatim}
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+\end{verbatim}
+
+Após essa compilação com \textsf{makeindex}, compile normalmente o documento.
+
+Geralmente os editores possuem formas de automatizar essa compilação. 
 
 % ---
 \subsection{Lista de símbolos (opcional)}\label{sec-listadesimbolos}

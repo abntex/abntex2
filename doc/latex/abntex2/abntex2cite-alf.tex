@@ -22,7 +22,10 @@
 %% command line for latex2html :
 %% latex2html -split 0 -toc_depth 8 -noinfo -noaddress -nonavigation -show_section_numbers -html_version 4.0 abnt-bibtex-alf-doc.tex
 %%
-%% 2012/01/12 21h21	laurocesar
+%% 2013/01/18 21h21	laurocesar
+%%  Include fonte lmodern
+%%
+%% 2013/01/12 21h21	laurocesar
 %%  Revisão do documento
 %%
 %% 2012/12/20 09h20 	laurocesar
@@ -43,10 +46,8 @@
 %%  Remoção da referência a abnt-options em \bibliography{}
 %%  Alteração da codificação de \usepackage[latin1]{inputenc} para utf8
 %%
-%%
 %% $Log: abnt-bibtex-alf-doc.tex,v $
 %% Revision 1.29  2004/03/23 17:35:47  mvsfrasson
-%%
 %%
 %% Arquivos atualizados para nao necessitarem pacote html
 %%
@@ -68,8 +69,10 @@
 %%
 
 \documentclass[a4paper]{ltxdoc}
-\usepackage[brazil]{babel}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
 \usepackage{hyperref}
 \usepackage{parskip}			% espaçamento entre os parágrafos
 

@@ -18,7 +18,10 @@
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
-%% 2012/01/12 21h21	laurocesar
+%% 2013/01/18 21h21	laurocesar
+%%  Include fonte lmodern
+%%
+%% 2013/01/12 21h21	laurocesar
 %%  Revisão do documento
 %%
 %% 2012/12/20 08h40 	laurocesar
@@ -77,8 +80,10 @@
   /Keywords     (ABNT, bibliografia, 6023:2000, 6023:2002)}
 \fi
 
-\usepackage[brazil]{babel}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
 \usepackage{hyperref}
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{nomencl} 			% Lista de simbolos
