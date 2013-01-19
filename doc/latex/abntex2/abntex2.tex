@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.1.19 08h03	laurocesar
+%%  Revisão do documento
+%%
 %% 2013.1.17 19h18	laurocesar
 %%  Adiciona seção explicativa sobre as fontes.
 %%  Adiciona \bfseries nos exemplos de capa, folha de rosto e folha de aprovacao
@@ -254,17 +257,21 @@ diretor do Centro de Pesquisa em Arquitetura da Informação
 realizar um \textit{workshop} de \LaTeX\ no âmbito do Terceiro Colóquio de
 Arquitetura da Informação promovido pelo CPAI. Durante as apresentações, os
 problemas com instalação e distribuição do \abnTeX\ original e as falhas
-normativas em relação às normas vigentes da ABNT foram motivadores adicionais
-para que o novo projeto \abnTeX2 se tornasse urgente.
-Coordenado por Lauro César, o novo projeto, foi iniciado oficialmente em maio de
-2012, com o apoio dos integrantes do grupo \abnTeXForum\ e pelo CPAI. A ideia
-de Gerald e o software já construído do \abnTeX\ original serviriam de ponto de
-partida para o \abnTeX2.
-
+normativas em relação às normas vigentes da ABNT -- uma vez que tinham se
+passado quase 10 anos desde a criação do \abnTeX -- foram motivadores adicionais
+para que o novo projeto \abnTeX2 se tornasse urgente. Então, coordenado por
+Lauro César, o novo projeto, foi iniciado oficialmente em maio de 2012, com o
+apoio dos integrantes do grupo \abnTeXForum\ e pelo CPAI. A ideia de Gerald e o
+software já construído do \abnTeX\ original serviriam de ponto de partida para
+o \abnTeX2.
 
 A primeira versão do \abnTeX2 foi concluída em dezembro de 2012 e
 disponibilizada ao público em janeiro de 2013. O portal do projeto atual é
-\abnTeXSite.
+\abnTeXSite. O \abnTeX2 foi disponibilizado ao CTAN, \emph{The Comprehensive TEX
+Archive Network}, em 2 de janeiro de 2013 e pode ser consultado em
+\url{http://www.ctan.org/pkg/abntex2}. As principais distribuições
+\LaTeX\footnote{Como TeX Live, MiKTeX, MacTeX e proTeXt} são construídas à
+partir de pacotes e classes do CTAN.
 
 O software é mantido desde então pela comunidade de indivíduos e de
 organizações que adotam e/ou investem em software livre.
@@ -280,8 +287,8 @@ organizações que adotam e/ou investem em software livre.
 
 A suíte \abnTeX2 é composta por três elementos principais\footnote{Somam-se a
 esses elementos a documentação e os Modelos canônicos 
-\cite{abntex2modelo,abntex2modelo-artigo,abntex2modelo-relatorio}, todos distribuídos de forma
-conjunta.}:
+\cite{abntex2modelo,abntex2modelo-artigo,abntex2modelo-relatorio,abntex2modelo-projeto-pesquisa},
+todos distribuídos de forma conjunta.}:
 
 \begin{itemize}
   \item a classe de formação de trabalhos acadêmicos \textsf{abntex2}, descrita
@@ -291,28 +298,31 @@ conjunta.}:
   |abntex2-num.bst| e |abntex2-alf.sty|.
 \end{itemize}
 
-Esta versão do \abnTeX2 fornece uma classe para produção de trabalhos acadêmicos
-completamente nova em relação à utilizada pelo projeto anterior. A classe
-anterior, chamada \textsf{abnt}, não está mais disponível e não é distribuída
-nesta versão.
+Esta versão do \abnTeX2 fornece uma classe para produção de um vasto número de
+documentos técnicos e científicos, como trabalhos acadêmicos, artigos científicos,
+relatórios técnicos, projetos de pesquisa e outros do gênero. A classe utilizada
+por este projeto é completamente nova em relação à utilizada pelo projeto
+anterior, que não tinha a intenção de produzir um número menor de documentos.
+A classe anterior, chamada \textsf{abnt}, não está mais disponível e não é
+distribuída nesta versão.
 
 Já o pacote de citações bibliográficas e as especificações de formatação de
 referências bibliográficas são quase que uma cópia da versão anterior. Por
 enquanto apenas algumas novas funcionalidades foram incluídas, como a
 possibilidade de uso do pacote \textsf{backref} (\autoref{sec-referencias}) e
-outros pequenos aperfeiçoamentos. Para referências ao pacote de citações
-\textsf{abntex2cite}, inclusive sobre conformidade com as normas, consulte
+outros aperfeiçoamentos e correções de erros. Para referência ao pacote de
+citações \textsf{abntex2cite}, inclusive sobre conformidade com as normas, consulte
 \citeonline{abntex2cite} e \citeonline{abntex2cite-alf}.
 
 \subsection{Compatibilidade entre as versões 1 e 2 do \abnTeX}
 
 As duas versões do \abnTeX\ são compatíveis entre si, ou seja, não há
-incompatibilidade mútua entre elas de tal modo que você pode ter as duas
-versões do \abnTeX\ instaladas simultaneamente no mesmo computador. Desse modo, documentos
-escritos com a versão anterior do \abnTeX\ continuarão a serem compilados com a
-classe e os pacotes anteriores. Apenas documentos escritos conforme este manual
-utilizarão a nova classe e os novos pacotes de citação e formatação de
-referências bibliográficas.
+incompatibilidade mútua entre elas de tal modo que você pode ter as duas versões
+do \abnTeX\ instaladas simultaneamente no mesmo computador. Desse modo,
+documentos escritos com a versão anterior do \abnTeX\ continuarão a serem
+compilados com a classe e os pacotes anteriores. Apenas documentos escritos
+conforme este manual utilizarão a nova classe e os novos pacotes de citação e
+formatação de referências bibliográficas.
 
 Com base neste manual você provavelmente não terá dificuldades em converter os
 trabalhos escritos em \abnTeX1 para o novo \abnTeX2.
@@ -329,10 +339,9 @@ License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
 
 Encorajamos que customizações específicas para universidades sejam realizadas
 --- como capas, folha de aprovação, etc. Porém, recomendamos que ao invés de se
-alterar diretamente os arquivos do \abnTeX2, distribua-se aos estudantes
-arquivos com as respectivas customizações. Isso permite que futuras versões do
-\abnTeX2 não se tornem automaticamente incompatíveis com as customizações
-promovidas.
+alterar diretamente os arquivos do \abnTeX2, distribua-se arquivos com as
+respectivas customizações. Isso permite que futuras versões do \abnTeX2 não se
+tornem automaticamente incompatíveis com as customizações promovidas.
 
 % ------
 \section{Estrutura de trabalhos acadêmicos brasileiros}\label{sec-estrutura}
