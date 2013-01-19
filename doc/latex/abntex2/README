@@ -14,6 +14,10 @@ The latest version of abnTeX2 is _VERSION_.
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.3
+    changed README file
+    updated abntex2.tex documentation
+  
+  2013/01/18 - v1.3
     added two new model: 
       . abntex2-modelo-relatorio-tecnico.tex: Technical report in compliance to ABNT NBR 10719:2011
       . abntex2-modelo-projeto-pesquisa.tex: Research project in compliance to ABNT NBR 15287:2011
