@@ -191,14 +191,17 @@ function printEndingInformation(){
 	echo $ZIP_MODELO
 	echo $ZIP_CTAN
 	echo 
-	echo Remember: you need upload $ZIP_CTAN on CTAN
-	echo at http://www.ctan.org/upload
+	echo Remember: 
+	echo "1) you have to upload $ZIP_CTAN to CTAN: http://www.ctan.org/upload"
+	echo "2) you have to update Wikipedia: http://pt.wikipedia.org/wiki/AbnTeX2
 	echo
 	echo If you need change any information on CTAN, contact:
 	echo rainer@dante.de - Rainer Schöpf,
 	echo robin.fairbairns@cl.cam.ac.uk - Robin Fairbairns,
 	echo gene@gerd-neugebauer.de - Gerd Neugebauer and 
 	echo ctan@dante.de.
+	echo
+	echo If you need help, contact us: http://groups.google.com/group/abntex2
 	echo --------------------------------------------------
 }
 
