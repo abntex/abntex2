@@ -18,6 +18,9 @@
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
+%% 2013/01/22 19:00     machnievscz
+%%  Minor document revision
+%%
 %% 2013/01/18 21h21	laurocesar
 %%  Include fonte lmodern
 %%
@@ -533,7 +536,7 @@ no documento \citeonline{abntex2cite-alf}.
 \subsection{Cuidados com a acentuação}
 
 Normalmente não há problemas em usar caracteres acentuados em arquivos
-bibliográficos. Porém os estilos aqui usados fazem uso quase abusivo da
+bibliográficos (\texttt{*.bib}). Porém os estilos aqui usados fazem uso quase abusivo da
 conversão para letras maiúsculas. Neste caso é preciso ter algum cuidado.
 Na tabela~\ref{tabela-acentos} você encontra alguns exemplos das conversões
 mais importantes. Preste atenção especial para `ç' e `í' que devem estar
@@ -651,7 +654,7 @@ processado pelo \textsf{bibtex} como uma simples entrada bibliográfica.
 O momento a partir do qual a opção selecionada por \verb+\citeoption+
 começa a funcionar depende do estilo bibliográfico usado. A
 \autoref{section-quando-vale-num} descreve o uso no sistema numérico e a
-\autoref{]section-quando-vale-alf}, no sistema alfa-numérico.
+\autoref{section-quando-vale-alf}, no sistema alfa-numérico.
 
 \subsubsection{Sistema numérico [{\tt num}]}\label{section-quando-vale-num}
 
@@ -903,7 +906,7 @@ efeito}\\
 
 \DescribeMacro{\bibtextitlecommand}
 \label{sec-titlecommand}
-O comando |\bibtextitlecommand|\marg{tipode entrada}\marg{campo a ser formatado}
+O comando |\bibtextitlecommand|\marg{tipo de entrada}\marg{campo a ser formatado}
 permite que formatações adicionais da bibliografia sejam introduzidas. Veja o
 resultado para a referência \citeonline{7.2.2-2}:
 
@@ -1017,7 +1020,7 @@ campo & entradas & descrição \\ \hline
 {\tt url}   & todas    & {\bf u}niversal {\bf r}esource {\bf l}ocator, ou endereço
 de internet. \emph{A url deve ser dada exatamente como seria usada num browser.
 O estilo bibliográfico se encarrega de adaptar a url para que possa ser formatada
-pelo \LaTeX e para que possa servir como hiperligação em documentos que usam o
+pelo \LaTeX~e para que possa servir como hiperligação em documentos que usam o
 pacote \textsf{hyperref} ou \textsf{pdflatex}.}
 \\ \hline
 {\tt urlaccessdate} & todas & data em que foi acessado a url.
@@ -1097,7 +1100,7 @@ Ex.~\citeonline{7.1.3-5,7.3.2-1,7.7.1.2-7,8.1.1.4-4,8.1.1.7-1,8.1.1.7-2,%
 8.1.1.7-3,8.2.2,8.4.3,8.8-3,8.8-4,8.10-5,8.11.1,8.11.2-1,8.11.2-2}\\  \hline
 {\tt org-short} & todas & este campo permite colocar uma abreviatura
 ou sigla para o nome de uma organização (ex. ABNT). Isso permite que
-a chamada na citação use a forma abreviada. \emph{somente para o estilo
+a chamada na citação use a forma abreviada. \emph{Somente para o estilo
 alfabético}.\\
 \hline\hline
 \end{tabular}
@@ -1145,7 +1148,7 @@ Ex.~\citeonline{7.1.3-3,8.4.5-1,8.7.2-2,7.9.3-8}
 \begin{tabular}{lp{8cm}}\hline\hline
 campo & descrição \\ \hline
 {\tt conference-number} & número da conferência, adiciona
-um ponto automaticamente, isto é, `13' vira `13.'.
+um ponto automaticamente, isto é, `13' torna-se `13.'.
 \\ \hline
 {\tt conference-year} & ano em que foi realizada
 a conferência.
