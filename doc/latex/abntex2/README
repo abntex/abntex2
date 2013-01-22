@@ -15,7 +15,9 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.4
     changed README file
-    updated abntex2.tex documentation
+    updated abntex2.tex documentation:
+     . added enumitem's reference in "Alíneas e subalíneas" section 
+     . general review
   
   2013/01/18 - v1.3
     added two new model: 
