@@ -1,0 +1,401 @@
+%% abtex2-modelo-include-comandos.tex, v<VERSION> laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
+%%
+%% This work consists of the files abntex2-modelo-include-comandos.tex
+%%
+%% 2013.1.18 08h46 laurocesar
+%%  Adiciona informações de compilação do documento LaTex
+%%  Altera texto do \input e \adiciona include
+%%
+%% 2013.1.17 23h14 laurocesar
+%%  Revisão geral
+%%  Inclui \input
+%%
+%% 2013.1.16 17h42 laurocesar
+%%  Adiciona explicação do comando \include
+%%
+%% 2013.1.14 21h25 laurocesar
+%%  Cria o documento
+%%
+
+% ---
+% Deste capítulo, utilizado por diferentes exemplos do abnTeX2, ilustra o uso de
+% comandos do abnTeX2 e de LaTeX.
+% ---
+ 
+\chapter{Resultados de comandos}\label{cap_exemplos}
+
+\chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma
+normatização a respeito desse tipo de resumo, que é mais comum em romances 
+e livros técnicos.}\index{sinopse de capítulo}
+
+% ---
+\section{Citações}
+% ---
+
+\index{citações!diretas}Utilize o ambiente \texttt{citacao} para incluir
+citações diretas com mais de três linhas:
+
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas, devem ser
+destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
+utilizado e sem as aspas. No caso de documentos datilografados, deve-se
+observar apenas o recuo \cite[5.3]{NBR10520:2002}
+\end{citacao}
+
+\index{citações!simples}Citações simples, com até três linhas, devem ser
+incluídas com aspas. Observe que em \LaTeX as aspas iniciais são diferentes das finais: ``Amor é fogo que
+arde sem se ver''.
+
+
+% ---
+\section{Remissões internas}
+% ---
+
+Ao nomear a \autoref{tab-nivinv}, apresentamos um exemplo de remissão interna,
+que também pode ser feita quando indicamos o \autoref{cap_exemplos}\footnote{O
+número do capítulo indicado é
+\ref{cap_exemplos}, que se inicia à página \pageref{cap_exemplos}.}
+(\nameref{cap_exemplos}, \autopageref{cap_exemplos}), por exemplo.
+
+% ---
+\section{Tabelas}
+% ---
+
+\index{tabelas}A \autoref{tab-nivinv} é um exemplo de tabela construída em
+\LaTeX.
+
+\begin{table}[htb]
+\footnotesize
+\caption[Níveis de investigação]{Níveis de investigação.}
+\label{tab-nivinv}
+\begin{tabular}{p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}}
+  %\hline
+   \textbf{Nível de Investigação} & \textbf{Insumos}  & \textbf{Sistemas de Investigação}  & \textbf{Produtos}  \\
+    \hline
+    Meta-nível & Filosofia\index{filosofia} da Ciência  & Epistemologia &
+    Paradigma  \\
+    \hline
+    Nível do objeto & Paradigmas do metanível e evidências do nível inferior &
+    Ciência  & Teorias e modelos \\
+    \hline
+    Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas  \\
+   % \hline
+\end{tabular}
+\legend{Fonte: \citeonline{van86}}
+\end{table}
+
+% ---
+\section{Expressões matemáticas}
+% ---
+
+\index{expressões matemáticas}Use o ambiente \texttt{equation} para escrever
+expressões matemáticas numeradas:
+
+\begin{equation}
+  \forall x \in X, \quad \exists y \leq \epsilon
+\end{equation}
+
+Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
+\exp(-x) = 0 $, para que fiquem na mesma linha.
+
+Também é possível usar colchetes para indicar o início de uma expressão
+matemática que não é numerada.
+
+\[
+\left|\sum_{i=1}^n a_ib_i\right|
+\le
+\left(\sum_{i=1}^n a_i^2\right)^{1/2}
+\left(\sum_{i=1}^n b_i^2\right)^{1/2}
+\]
+
+Consulte mais informações sobre expressões matemáticas em
+\url{http://code.google.com/p/abntex2/w/edit/Referencias}.
+
+\section{Figuras}
+
+\index{figuras}Figuras podem ser criadas diretamente em \LaTeX,
+como o exemplo da \autoref{fig_circulo}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_circulo}A delimitação do espaço}
+	\begin{center}
+	    \setlength{\unitlength}{5cm}
+		\begin{picture}(1,1)
+		\put(0,0){\line(0,1){1}}
+		\put(0,0){\line(1,0){1}}
+		\put(0,0){\line(1,1){1}}
+		\put(0,0){\line(1,2){.5}}
+		\put(0,0){\line(1,3){.3333}}
+		\put(0,0){\line(1,4){.25}}
+		\put(0,0){\line(1,5){.2}}
+		\put(0,0){\line(1,6){.1667}}
+		\put(0,0){\line(2,1){1}}
+		\put(0,0){\line(2,3){.6667}}
+		\put(0,0){\line(2,5){.4}}
+		\put(0,0){\line(3,1){1}}
+		\put(0,0){\line(3,2){1}}
+		\put(0,0){\line(3,4){.75}}
+		\put(0,0){\line(3,5){.6}}
+		\put(0,0){\line(4,1){1}}
+		\put(0,0){\line(4,3){1}}
+		\put(0,0){\line(4,5){.8}}
+		\put(0,0){\line(5,1){1}}
+		\put(0,0){\line(5,2){1}}
+		\put(0,0){\line(5,3){1}}
+		\put(0,0){\line(5,4){1}}
+		\put(0,0){\line(5,6){.8333}}
+		\put(0,0){\line(6,1){1}}
+		\put(0,0){\line(6,5){1}}
+		\end{picture}
+	\end{center}
+	\legend{Fonte: os autores}
+\end{figure}
+
+Ou então figuras podem ser incorporadas de arquivos externos, como é o caso da
+\autoref{fig_grafico}. Se a figura que ser incluída se tratar de um diagrama, um
+gráfico ou uma ilustração que você mesmo produza, priorize o uso de imagens
+vetoriais no formato PDF. Com isso, o tamanho do arquivo final do trabalho será
+menor, e as imagens terão uma apresentação melhor, principalmente quando
+impressas, uma vez que imagens vetorias são perfeitamente escaláveis para
+qualquer dimensão. Nesse caso, se for utilizar o Microsoft Excel para produzir
+gráficos, ou o Microsoft Word para produzir ilustrações, exporte-os como PDF e
+os incorpore ao documento conforme o exemplo abaixo. No entanto, para manter a
+coerência no uso de software livre (já que você está usando \LaTeX e \abnTeX),
+teste a ferramenta \textsf{InkScape}\index{InkScape}
+(\url{http://inkscape.org/}). Ela é uma excelente opção de código-livre para
+produzir ilustrações vetoriais, similar ao CorelDraw\index{CorelDraw} ou ao Adobe
+Illustrator\index{Adobe Illustrator}. De todo modo, caso não seja possível
+utilizar arquivos de imagens como PDF, utilize qualquer outro formato, como
+JPEG, GIF, BMP, etc. Nesse caso, você pode tentar aprimorar as imagens
+incorporadas com o software livre \textsf{Gimp}\index{Gimp}
+(\url{http://www.gimp.org/}). Ele é uma alternativa livre ao Adobe
+Photoshop\index{Adobe Photoshop}.
+
+\begin{figure}[htb]
+	\caption{\label{fig_grafico}Gráfico produzido em Excel e salvo como PDF}
+	\begin{center}
+	    \includegraphics[scale=0.5]{abntex2-modelo-img-grafico.pdf}
+	\end{center}
+	\legend{Fonte: \citeonline[p. 24]{araujo2012}}
+\end{figure}
+
+% ---
+\section{Enumerações: alíneas e subalíneas}
+% ---
+
+\index{alíneas}\index{subalíneas}\index{incisos}Quando for necessário enumerar
+os diversos assuntos de uma seção que não possua título, esta deve ser
+subdividida em alíneas \cite[4.2]{NBR6024:2012}:
+
+\begin{alineas}
+
+  \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
+  seção, devem ser subdivididos em alíneas\footnote{As notas devem ser digitadas ou datilografadas
+  dentro das margens, ficando separadas do texto por um espaço simples de entre as
+  linhas e por filete de 5 cm, a partir da margem esquerda. Devem ser
+  alinhadas, a partir da segunda linha da mesma nota, abaixo da primeira letra
+  da primeira palavra, de forma a destacar o expoente, sem espaço entre elas e
+  com fonte menor. \citeonline[5.2.1]{NBR14724:2011}}; 
+  
+  \item o texto que antecede as alíneas termina em dois pontos;
+  \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
+  seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
+  letras do alfabeto;
+
+  \item as letras indicativas das alíneas devem apresentar recuo em relação à
+  margem esquerda;
+
+  \item o texto da alínea deve começar por letra minúscula e terminar em
+  ponto-e-vírgula, exceto a última alínea que termina em ponto final;
+
+  \item o texto da alínea deve terminar em dois pontos, se houver subalínea;
+
+  \item a segunda e as seguintes linhas do texto da alínea começa sob a
+  primeira letra do texto da própria alínea;
+  
+  \item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas a
+  seguir:
+
+  \begin{alineas}
+     \item as subalíneas devem começar por travessão seguido de espaço;
+
+     \item as subalíneas devem apresentar recuo em relação à alínea;
+
+     \item o texto da subalínea deve começar por letra minúscula e terminar em
+     ponto-e-vírgula. A última subalínea deve terminar em ponto final, se não
+     houver alínea subsequente;
+
+     \item a segunda e as seguintes linhas do texto da subalínea começam sob a
+     primeira letra do texto da própria subalínea.
+  \end{alineas}
+  
+  \item no \abnTeX\ estão disponíveis os ambientes \texttt{incisos} e
+  \texttt{subalineas}, que em suma são o mesmo que se criar outro nível de
+  \texttt{alineas}, como nos exemplos à seguir:
+  
+  \begin{incisos}
+    \item \textit{Um novo inciso em itálico};
+  \end{incisos}
+  
+  \item Alínea em \textbf{negrito}:
+  
+  \begin{subalineas}
+    \item \textit{Uma subalínea em itálico};
+    \item \underline{\textit{Uma subalínea em itálico e sublinhado}}; 
+  \end{subalineas}
+  
+  \item Última alínea com \emph{ênfase}.
+  
+\end{alineas}
+
+
+% ---
+\section{Espaçamento entre parágrafos e linhas}
+% ---
+
+\index{espaçamento!dos parágrafos}O tamanho do parágrafo, espaço entre a margem
+e o início da frase do parágrafo, é definido por:
+
+\begin{verbatim}
+   \setlength{\parindent}{1.3cm}
+\end{verbatim}
+
+\index{espaçamento!do primeiro parágrafo}Por padrão, não há espaçamento no
+primeiro parágrafo de cada início de divisão do documento
+(\autoref{sec-divisoes}). Porém, você pode definir que o primeiro parágrafo
+também seja indentado, como é o caso deste documento. Para isso, apenas inclua o
+pacote \textsf{indentfirst} no preâmbulo do documento:
+
+\begin{verbatim}
+   \usepackage{indentfirst}      % Indenta o primeiro parágrafo de cada seção.
+\end{verbatim}
+
+\index{espaçamento!entre os parágrafos}O espaçamento entre um parágrafo e outro
+pode ser controlado por meio do comando:
+
+\begin{verbatim}
+  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\end{verbatim}
+
+\index{espaçamento!entre as linhas}O controle do espaçamento entre linhas é
+definido por:
+
+\begin{verbatim}
+  \OnehalfSpacing       % espaçamento um e meio (padrão); 
+  \DoubleSpacing        % espaçamento duplo
+  \SingleSpacing        % espaçamento simples	
+\end{verbatim}
+
+Para isso, também estão disponíveis os ambientes:
+
+\begin{verbatim}
+  \begin{SingleSpace} ...\end{SingleSpace}
+  \begin{Spacing}{hfactori} ... \end{Spacing}
+  \begin{OnehalfSpace} ... \end{OnehalfSpace}
+  \begin{OnehalfSpace*} ... \end{OnehalfSpace*}
+  \begin{DoubleSpace} ... \end{DoubleSpace}
+  \begin{DoubleSpace*} ... \end{DoubleSpace*} 
+\end{verbatim}
+
+Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
+
+% ---
+\section{Inclução de outros arquivos}\label{sec-include}
+% ---
+
+É uma boa prática dividir o seu documento em diversos arquivos, e não
+apenas escrever tudo em um único. Esse recurso foi utilizado neste
+documento. Para incluir diferentes arquivos em um arquivo principal,
+de modo que cada arquivo incluído fique em uma página diferente, utilize o
+comando:
+
+\begin{verbatim}
+   \include{documento-a-ser-incluido}      % sem a extensão .tex
+\end{verbatim}
+
+Para incluir documentos sem quebra de páginas, utilize:
+
+\begin{verbatim}
+   \input{documento-a-ser-incluido}      % sem a extensão .tex
+\end{verbatim}
+
+% ---
+\section{Compilar o documento \LaTeX}
+% ---
+
+Geralmente os editores \LaTeX, como o
+TeXlipse\footnote{\url{http://texlipse.sourceforge.net/}}, o
+Texmaker\footnote{\url{http://www.xm1math.net/texmaker/}}, entre outros,
+compilam os documentos automaticamente, de modo que você não precisa se
+preocupar com isso.
+
+No entanto, você pode compilar os documentos \LaTeX usando os seguintes
+comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
+\emph{Terminal} do Mac ou do Linux:
+
+\begin{verbatim}
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   bibtex ARQUIVO_PRINCIPAL.aux
+   makeindex ARQUIVO_PRINCIPAL.idx 
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   pdflatex ARQUIVO_PRINCIPAL.tex
+\end{verbatim}
+
+% ---
+\section{Divisões do documento: seção}\label{sec-divisoes}
+% ---
+
+Esta seção testa o uso de divisões de documentos. Isto é uma seção.
+
+\subsection{Divisões do documento: subseção}
+
+Isto é uma subseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é uma subsubseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é outra subsubseção.
+
+\subsection{Divisões do documento: subseção}\label{sec-exemplo-subsec}
+
+Isto é uma subseção.
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
+
+% ---
+\section{Este é um exemplo de nome de seção longo. Ele deve estar
+alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
+primeira palavra da primeira linha}
+% ---
+
+Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
+ e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
+
+
+% ---
+\section{Consulte o manual da classe \textsf{abntex2}}
+% ---
+
+Consulte o manual da classe \textsf{abntex2} \cite{abntex2classe} para uma
+referência completa das macros e ambientes disponíveis.
