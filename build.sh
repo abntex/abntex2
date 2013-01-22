@@ -50,7 +50,6 @@ function buildPdf(){
 	cp -rf target/abntex2source/tex/latex/abntex2/* target/abntex2source/doc/latex/abntex2
 	cp -rf target/abntex2source/bibtex/bib/abntex2/* target/abntex2source/doc/latex/abntex2
 	cp -rf target/abntex2source/bibtex/bst/abntex2/* target/abntex2source/doc/latex/abntex2
-	cp -rf target/abntex2source/doc/latex/abntex2/* target/abntex2source/doc/latex/abntex2
 
 	cd target/abntex2source/doc/latex/abntex2/	
 	echo "Compiling abntex2-modelo-relatorio-tecnico"
@@ -193,7 +192,7 @@ function printEndingInformation(){
 	echo 
 	echo Remember: 
 	echo "1) you have to upload $ZIP_CTAN to CTAN: http://www.ctan.org/upload"
-	echo "2) you have to update Wikipedia: http://pt.wikipedia.org/wiki/AbnTeX2
+	echo "2) you have to update Wikipedia: http://pt.wikipedia.org/wiki/AbnTeX"
 	echo
 	echo If you need change any information on CTAN, contact:
 	echo rainer@dante.de - Rainer Schöpf,
@@ -215,6 +214,9 @@ function printUsage(){
 	echo "  password : Password on Google Code for project abntex2"
 	echo "  --help : Show this help message"
 	echo 
+	echo "IMPORTANT: Don't put your user and password, unless you really want to "
+	echo " release a new version to CTAN."
+	echo
 }
 
 
