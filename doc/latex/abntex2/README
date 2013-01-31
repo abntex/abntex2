@@ -13,11 +13,13 @@ The latest version of abnTeX2 is v<VERSION>.
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.4
-    changed README file
+  2013/xx/xx - v1.3.1
+    bug fix on abntex2cite.sty: incorrect use of setspace
+    general review of all examples
     updated abntex2.tex documentation:
      . added enumitem's reference in "Alíneas e subalíneas" section 
      . general review
+    changed README file structure
   
   2013/01/18 - v1.3
     added two new model: 

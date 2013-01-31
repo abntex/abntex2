@@ -21,6 +21,9 @@
 %%
 %% Revision history:
 %%
+%% 2013/01/31 08h20	laurocesar
+%%  Corrige uso de \singlespacing para evitar incompatibilidade com beamer.
+%%
 %% 2013/01/14 22h46	laurocesar
 %%  Add \SingleSpacing before and \OnehalfSpacing after \bibliography command or
 %%  \singlespacing and \onehalfspacing from setspace.sty if memoir is not loaded 
@@ -408,31 +411,28 @@
 %       no changes to \bibliography
 
 \def\bibliography#1{% ****
-  \ifx \SingleSpacing\undefined
-    \singlespacing
-  \else
-    \SingleSpacing   
-  \fi  
-  %
-  \ifthenelse{\boolean{ABCIciteoptionwasused}
-               \and\boolean{ABCIauto-abntoptions}}
-   {
-   % this system of checking is not good...
-    \IfSubStringInString{abntex2-options}{#1}
-      {\if@filesw\immediate\write\@auxout{\string\bibdata{#1}}\fi}
-      {\if@filesw\immediate\write\@auxout{\string\bibdata{abntex2-options,#1}}\fi}
-      }
-   {
-    \if@filesw
-       \immediate\write\@auxout{\string\bibdata{#1}}%
-    \fi
-   }
- \@input@{\jobname.bbl}
-  \ifx \OnehalfSpacing\undefined
-    \onehalfspacing
-  \else
-    \OnehalfSpacing   
-  \fi  
+  {
+	  \ifx \SingleSpacing\undefined
+	    \singlespacing
+	  \else
+	    \SingleSpacing   
+	  \fi  
+	  %
+	  \ifthenelse{\boolean{ABCIciteoptionwasused}
+	               \and\boolean{ABCIauto-abntoptions}}
+	   {
+	   % this system of checking is not good...
+	    \IfSubStringInString{abntex2-options}{#1}
+	      {\if@filesw\immediate\write\@auxout{\string\bibdata{#1}}\fi}
+	      {\if@filesw\immediate\write\@auxout{\string\bibdata{abntex2-options,#1}}\fi}
+	      }
+	   {
+	    \if@filesw
+	       \immediate\write\@auxout{\string\bibdata{#1}}%
+	    \fi
+	   }
+	 \@input@{\jobname.bbl}
+  }
  }
 
 
