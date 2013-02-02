@@ -16,8 +16,12 @@ CHANGE HISTORY
   2013/xx/xx - v1.3.1
     bug fix on abntex2cite.sty: incorrect use of setspace
     general review of all examples
+    updated abntex2-modelo-include-comandos:
+     . added section about UTF-8
     updated abntex2.tex documentation:
-     . added enumitem's reference in "Alíneas e subalíneas" section 
+     . added enumitem's reference in "Alíneas e subalíneas" section
+     . added section about UTF-8
+     . added sections about the main options of the class
      . general review
     changed README file structure
   
