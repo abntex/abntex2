@@ -18,6 +18,9 @@
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
+%% 2013/2/2 15:07	laurocesar
+%%  Padroniza o cabeçalho com os demais manuais
+%%
 %% 2013/01/22 19:00     machnievscz
 %%  Minor document revision
 %%
@@ -124,7 +127,7 @@
 \newcommand{\OKs}{173}
 \newcommand{\quaseOKs}{12}
 \newcommand{\nadaOK}{3}
-\newcommand{\abnTeX}{abn\TeX}
+
 \def\Versao$#1 #2${#2}
 \def\Data$#1 #2 #3${#2}
 %\newcommand{\bibtextitlecommand}[2]{``#2''}
@@ -206,10 +209,14 @@
 \newcommand{\titulo}{Manual de uso dos estilos bibliográficos do pacote
 \textsf{abntex2cite}: estilos \textsf{bibtex} compatíveis com a ABNT NBR
 6023:2000}
+\newcommand{\abnTeX}{abn\TeX}
+\newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
 
 %begin{latexonly}
-\author{Equipe abnTeX2\\Lauro César Araujo}
 \title{\titulo}
+\author{Equipe \abnTeX2\\\abnTeXSite 
+\and 
+Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 \date{\today, v<VERSION>}
 
 %end{latexonly}

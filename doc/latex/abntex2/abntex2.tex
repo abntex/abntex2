@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.2.2 15h0	laurocesar
+%%  Adiciona subseções referentes às opções de documentclass.
+%%  Adiciona seção referente à codificação UTF8 do documento. 
+%%
 %% 2013.1.22 08h31	laurocesar
 %%  Adiciona referências a enumitem em Alíneas e Sunalineas
 %%
@@ -75,7 +79,7 @@
 % COMANDOS PROPRIOS
 \newcommand{\abnTeX}{abn\TeX}
 \newcommand{\abnTeXForum}{\url{http://groups.google.com/group/abntex2}}
-\newcommand{\abnTeXSite}{\url{http://code.google.com/p/abntex2/}}
+\newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
 
 
 \title{\textbf{A classe \textsf{abntex2}}: \\ \Large{Documentos
@@ -429,12 +433,24 @@ de artigo científico elaborado com a classe \textsf{abntex2}.
 \section{Configurações gerais}\label{sec-configgerais}
 % ------
 
+% ---
+\subsection{Codificação dos arquivos: UTF8}
+% ---
+
+A codificação de todos os arquivos do \abnTeX2 é \texttt{UTF8}. É necessário que
+você utilize a mesma codificação nos documentos que escrever, inclusive nos
+arquivos de base bibliográficas |.bib|.
+
+% ---
+\subsection{A classe \textsf{abntex} como extensão de \textsf{memoir}}
+% ---
+
 \DescribeMacro{\documentclass}
 A classe \textsf{abntex2} foi criada como um conjunto de configurações da classe
-\textsf{memoir}\footnote{A versão anterior do \abnTeX~era baseada na
-classe \textsf{report}.}. Desse modo, todas as opções do \textsf{memoir} estão
-disponíveis, como por exemplo, |12pt,openright,twoside,a4paper,artile|. Consulte
-o manual do \textsf{memoir} para outras opções.
+\textsf{memoir}\footnote{A versão anterior do \abnTeX~era baseada na classe
+\textsf{report}.} \cite{memoir}. Desse modo, todas as opções do \textsf{memoir}
+estão disponíveis, como por exemplo, |12pt,openright,twoside,a4paper,artile|.
+Consulte o manual do \textsf{memoir} para outras opções.
 
 As opções mais comuns de inicialização do texto do trabalho são:
 
@@ -442,9 +458,26 @@ As opções mais comuns de inicialização do texto do trabalho são:
    \documentclass[12pt,openright,twoside,a4paper]{abntex2}
 \end{verbatim}
 
+% ---
+\subsubsection{O tamanho do papel}
+% ---
+
+O tamanho do papel pode ser alterado modificando a opção |a4paper| para
+|a5paper|, por exemplo. Porém, o tamanho definido pela ABNT NBR 14724:2011 é A4.
+A lista completa de opções disponíveis pode ser consultada em
+\citeonline[p.~1]{memoir}.
+
+% ---
+\subsubsection{Impressão em anverso e verso}
+% ---
+
 É interessante observar que a ABNT NBR 14724:2011 (seção 5.1) recomenda que os
 trabalhos sejam impressos no anverso e no verso das folhas. Isso é obtido com a
 opção |twoside|. 
+
+% ---
+\subsubsection{Opção \texttt{article}}
+% ---
 
 \DescribeMacro{article}\DescribeMacro{\counterwithout}
 A opção |article| é útil para produção de artigos com \abnTeX2.
@@ -465,24 +498,31 @@ corretamente sequenciados:
   \counterwithout{table}{chapter}
 \end{verbatim}
 
-A macro |\part| também é permitida em |article|
+A macro |\part| também é permitida em |article|.
 
-\DescribeMacro{\ABNTEXfontereduzida}\DescribeMacro{\footnotesize}
+% ---
+\subsubsection{As opções de tamanho de fonte e o tamanho ``menor e uniforme''}
+% ---
+
+\DescribeMacro{\ABNTEXfontereduzida}\DescribeMacro{\footnotesize}\DescribeEnv{12pt}
 A seção 5.1 da ABNT NBR 14724:2011 também estabelece que o tamanho fonte seja 12
 para todo o trabalho (obtida com a opção |12pt|), ``inclusive capa,
 excetuando-se citações com mais de três linhas, notas de rodapé, paginação,
 dados internacionais de catalogação-na-publicação, legendas e fontes das
-ilustrações e das tabelas, que devem ser em tamanho menor e uniforme''. O
-tamanho ``menor e uniforme'' para citações com mais de três linhas, paginação e
-dados internacionais de catalogação-na-pulicação é estabelecido pela macro
-|\ABNTEXfontereduzida| e o valor padrão utilizado é o mesmo da macro
-|\footnotesize|. Os demais elementos são controlados diretamente pela macro
-|\footnotesize|. Você pode alterar o valor de |\ABNTEXfontereduzida| para
-|\small|, por exemplo, com o seguinte comando:
+ilustrações e das tabelas, que devem ser em tamanho menor e uniforme''.  O
+tamanho ``menor e uniforme'' é estabelecido pela macro |\ABNTEXfontereduzida| e
+o valor padrão utilizado é o mesmo da macro |\footnotesize|. Você pode alterar o
+valor de |\ABNTEXfontereduzida| para |\small|, por exemplo, com o seguinte
+comando:
 
 \begin{verbatim}
    \renewcommand{\footnotesize}{\small}
 \end{verbatim}
+
+Caso deseje utilizar outro tamanho de fonte para o documento, substitua a opção
+|12pt| pelo tamanho desejado, como por exemplo, |10pt|, ou |14pt|. A lista
+completa de opções disponíveis pode ser consultada em
+\citeonline[p.~2-3]{memoir}.
 
 % ---
 \subsection{Espaçamentos entre parágrafos e linhas}
