@@ -357,12 +357,15 @@ respectivas customizações. Isso permite que futuras versões do \abnTeX2 não 
 tornem automaticamente incompatíveis com as customizações promovidas.
 
 % ------
-\section{Estrutura de trabalhos acadêmicos brasileiros}\label{sec-estrutura}
+\section{Estrutura geral de documentos técnicos e científicos brasileiros}\label{sec-estrutura}
 % ------
 
 A seção 4 da ABNT NBR 14724:2011 estabelece que a estrutura de trabalhos
 acadêmicos compreende duas partes: a externa e a interna, que aparecem no texto
-na seguinte ordem:
+na ordem que segue. Essa norma pode ser considerada uma norma geral de estrutura
+de documentos técnicos e científicos porque compartilha com as demais uma
+estrutura comum. Os demais parágrafos desta seção descrevem as semelhanças e
+diferenças entre as outras normas.
 
 \begin{description}
   \item[Parte externa]\ \\ 
@@ -452,7 +455,7 @@ arquivos de base bibliográficas |.bib|.
 A classe \textsf{abntex2} foi criada como um conjunto de configurações da classe
 \textsf{memoir}\footnote{A versão anterior do \abnTeX~era baseada na classe
 \textsf{report}.} \cite{memoir}. Desse modo, todas as opções do \textsf{memoir}
-estão disponíveis, como por exemplo, |12pt,openright,twoside,a4paper,artile|.
+estão disponíveis, como por exemplo, |12pt,openright,twoside,a4paper,article|.
 Consulte o manual do \textsf{memoir} para outras opções.
 
 As opções mais comuns de inicialização do texto do trabalho são:
@@ -649,7 +652,7 @@ para numeração por capítulos, por exemplo, use:
 \subsection{Índice do PDF com pacote \textsf{bookmark}}\label{sec-bookmark}
 % ---
 
-O índice da estrutura do documento é automaticamente inserida no PDF final do
+O índice da estrutura do documento é automaticamente inserido no PDF final do
 documento por meio do pacote
 \textsf{bookmark}\footnote{\url{http://www.ctan.org/pkg/bookmark}}. Neste
 documento este índice será identificado como ``\textsf{bookmark} do PDF''.

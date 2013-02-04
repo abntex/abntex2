@@ -1,5 +1,5 @@
 %% abntex2.cls, v<VERSION> laurocesar
-%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -13,7 +13,7 @@
 %% 
 %% The Current Maintainer of this work is the abnTeX2 team, led
 %% by Lauro César Araujo. Further information are available on 
-%% http://code.google.com/p/abntex2/
+%% http://abntex2.googlecode.com/
 %%
 %% This work consists of the file abntex2.cls.
 %%

@@ -3,7 +3,7 @@
 echo
 echo --------------------------------------------------
 echo abnTeX2 BUILDER SCRIPT
-echo http://code.google.com/p/abntex2/
+echo http://abntex2.googlecode.com/
 echo build zip files and deploy them on Google Code   
 echo --------------------------------------------------
 
