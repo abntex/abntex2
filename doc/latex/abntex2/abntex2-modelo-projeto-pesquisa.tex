@@ -18,9 +18,6 @@
 %% This work consists of the files abntex2-modelo-projeto-pesquisa.tex
 %% and abntex2-modelo-references.bib
 %%
-%% 2013.1.17 22h01 laurocesar
-%%  Cria o modelo
-%%
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -358,7 +355,7 @@ observadas pelo \abnTeX, é apresentada em \citeonline{abntex2classe}.
 \begin{apendicesenv}
 
 % Imprime uma página indicando o início dos apêndices
-\appendixpage
+\partapendices
 
 % ----------------------------------------------------------
 \chapter{Quisque libero justo}
@@ -379,15 +376,14 @@ ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------
-\cftinserthook{toc}{AAA}
+
 % ---
 % Inicia os anexos
 % ---
-%\anexos
 \begin{anexosenv}
 
 % Imprime uma página indicando o início dos anexos
-\appendixpage
+\partanexos
 
 % ---
 \chapter{Morbi ultrices rutrum lorem.}

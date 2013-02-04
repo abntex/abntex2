@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.2.3 22h10	laurocesar
+%%  Adiciona \partpage, \partanexos e \partapendices
+%%  Modifica comandos de anexos para incluir automaticamente \cftinserthook{toc}{AAA}
+%%
 %% 2013.1.16 18h46	laurocesar
 %%  Altera o \ABNTEXchapterfont para usar \sffamily
 %%
@@ -571,26 +575,50 @@
 }{
  \end{appendix}
  \setboolean{abntex@apendiceousecao}{false}
+ \bookmarksetup{startatroot}
 }
 % ---
 
 % ---
 % Anexos - comando
 \newcommand{\anexos}{%
+ \cftinserthook{toc}{AAA}
+ 
  \PRIVATEapendiceconfig{\anexoname}{\anexosname}
  \appendix
  \renewcommand\theHchapter{anexochapback.\arabic{chapter}}
 }
 % Anexos - ambiente
 \newenvironment{anexosenv}{%
+ \cftinserthook{toc}{AAA}
+ 
  \PRIVATEapendiceconfig{\anexoname}{\anexosname}
  \begin{appendix}
  \renewcommand\theHchapter{anexochapback.\arabic{chapter}}
 }{
  \end{appendix}
  \setboolean{abntex@apendiceousecao}{false}
+ \bookmarksetup{startatroot}
 }
 % ---
+
+% ---
+% Imprime uma página de divisão no estilo parte
+\newcommand{\partpage}{%
+  \cleardoublepage
+  \phantomsection
+  \addcontentsline{toc}{part}{\appendixpagename}
+  \appendixpage*
+}
+
+% atalhos para \partpage ou \appendixpage* 
+\makeatletter
+\newcommand{\partapendices}{\@ifstar{\appendixpage*}{\partpage}}
+
+\newcommand{\partanexos}{\@ifstar{\appendixpage*}{\partpage}}
+\makeatother
+% ---
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------

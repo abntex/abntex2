@@ -13,22 +13,12 @@
 %% 
 %% The Current Maintainer of this work is the abnTeX2 team, led
 %% by Lauro César Araujo. Further information are available on 
-%% http://code.google.com/p/abntex2/
+%% http://abntex2.googlecode.com/
 %%
 %% This work consists of the files abntex2-modelo-relatorio-tecnico.tex,
 %% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
 %%
-%% 2013.1.16 19h21	laurocesar
-%%  Usa fonte Latin Modern
-%%
-%% 2013.1.14 21h25 laurocesar
-%%  Modifica capítulos com * para corrigir o cabeçalho: \chapter*[]{}
-%%  Usa abntex2-modelo-include-comandos.tex
-%%  Revisa erros de ortografia
-%%
-%% 2013.1.13 11h29 laurocesar
-%%  Cria o modelo
-%%
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -442,7 +432,7 @@ Lauro César Araujo
 \begin{apendicesenv}
 
 % Imprime uma página indicando o início dos apêndices
-\appendixpage
+\partapendices
 
 % ----------------------------------------------------------
 \chapter{Quisque libero justo}
@@ -463,15 +453,14 @@ ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------
-\cftinserthook{toc}{AAA}
+
 % ---
 % Inicia os anexos
 % ---
-%\anexos
 \begin{anexosenv}
 
 % Imprime uma página indicando o início dos anexos
-\appendixpage
+\partanexos
 
 % ---
 \chapter{Morbi ultrices rutrum lorem.}
@@ -510,7 +499,7 @@ parturient montes nascetur ridiculus mus}
 
 Exemplo de Formulário de Identificação, compatível com o Anexo A (informativo)
 da ABNT NBR 10719:2011. Este formulário não é um anexo. Conforme definido na
-norma, ele é o último elemento pós-textual do relatório.
+norma, ele é o último elemento pós-textual e opcional do relatório.
 
 \bigskip
 
