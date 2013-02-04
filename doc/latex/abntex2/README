@@ -2,18 +2,30 @@
 abnTeX2: Type­set a Brazil­ian aca­demic the­sis based on ABNT rules
 -----------------------------------------------------------------
 
-This is the README file for the abntex2 class and abntex2cite package. Please read the
+This is the README file for abntex2 class and abntex2cite package. Please read the
 license information at the end of this file.
 
 The abntex2 class and the abntex2cite package are intended to assist the preparation 
-of theses and academic papers based on ABNT (Associação Brasileira de Normas Técnicas) 
-used in Brazil.
+of technical and scientific documents (like thesis, articles, research projects and 
+other academic papers) based on ABNT (Associação Brasileira de Normas Técnicas) 
+rules used in Brazil.
 
 The latest version of abnTeX2 is v<VERSION>.
 
+SUMMARY
+-----------------------------------------------------------------
+
+  This file consists of the following sections:
+  
+  . Change history
+  . Installation
+  . Documentation
+  . Copying and modification
+  . Help
+
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.4
+  2013/02/04 - v1.4
     added \partanexos and \partapendices macros as a replacement to \appendixpage
     changed all models to use new  \partanexos and \partapendices macros
     bug fix on abntex2cite.sty: incorrect use of setspace
@@ -26,6 +38,7 @@ CHANGE HISTORY
      . added sections about the main options of the class
      . added  \partanexos and \partapendices explanations
      . general review
+    removed change logs from example files 
     changed README file structure
   
   2013/01/18 - v1.3
@@ -95,7 +108,8 @@ In order to install the abntex2 class and abntex2cite package you need:
 Put those files somewhere LaTeX can find them. Read the documentation of 
 your LaTeX system to find out where this might be. 
   
-If you're new to this, see http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages for more
+If you're new to this, see https://code.google.com/p/abntex2/wiki/Instalacao (portuguese)
+or http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages (english) for more
 information on installing packages.
   
 
@@ -110,8 +124,8 @@ The abnTeX2 documentation consists of the following files:
   abntex2-modelo-projeto-pesquisa.tex	An usage example of abntex2 class and abntex2cite package producing a research project
   abntex2-modelo-artigo.tex				An usage example of abntex2 class and abntex2cite package producing an article
   abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files 
-  abntex2-img-grafico.pdf				Image used as example
-  abntex2-modelo-references.bib			Bib references of the example 
+  abntex2-img-grafico.pdf				Image used as an example
+  abntex2-modelo-references.bib			Bib references of examples above
 
   abntex2.tex							The main class documentation
   abntex2cite.tex						The abntex2cite package documentation
@@ -127,7 +141,7 @@ To produce any documentation above you also need:
   ltxdoc.cls   													(part of the standard LaTeX2e distribution)
   all installation files described in "INSTALLATION" section	(par of this bundle)
 
-Compile the documentation as the example below. There are 4 PDF files of documentation.
+Compile the documentation as the example below. There are 3 PDF files of documentation and 4 of examples.
   
   pdflatex FILE.tex
   bibtex FILE.aux
@@ -142,7 +156,7 @@ COPYING AND MODIFICATION
 -----------------------------------------------------------------
 
 Copyright 2001-2003 abnTeX group at http://abntex.codigolivre.org.br
-Copyright 2012-2013 abntex2 team at https://code.google.com/p/abntex2/
+Copyright 2012-2013 abntex2 team at https://abntex2.googlecode.com/
 
 This package can be redistributed and/or modified under the terms
 of the LaTeX Project Public License distributed from CTAN
@@ -151,15 +165,15 @@ version 1.3 of the license, or (at your option) any later version.
 
 Universities and other institutions are encouraged to customize front pages and
 others files and redistribute them to the users, but not to change the abnTeX2 files. 
-You may customize almost all abnTeX2 commands with \renewcommand or using memoir commands.
-It is better than changing the files themselves.
+You may customize almost all abnTeX2 commands with \renewcommand or using commands 
+from memoir class. It is better than changing the files themselves.
 
 HELP
 -----------------------------------------------------------------
 
 You can get help here:
  
-www   https://code.google.com/p/abntex2/
+www   https://abntex2.googlecode.com/
 group http://groups.google.com/group/abntex2
 
 We need your help too. Access the project's home page and contact us.
