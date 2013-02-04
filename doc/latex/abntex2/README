@@ -13,7 +13,9 @@ The latest version of abnTeX2 is v<VERSION>.
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.3.1
+  2013/xx/xx - v1.4
+    added \partanexos and \partapendices macros as a replacement to \appendixpage
+    changed all models to use new  \partanexos and \partapendices macros
     bug fix on abntex2cite.sty: incorrect use of setspace
     general review of all examples
     updated abntex2-modelo-include-comandos:
@@ -22,6 +24,7 @@ CHANGE HISTORY
      . added enumitem's reference in "Alíneas e subalíneas" section
      . added section about UTF-8
      . added sections about the main options of the class
+     . added  \partanexos and \partapendices explanations
      . general review
     changed README file structure
   

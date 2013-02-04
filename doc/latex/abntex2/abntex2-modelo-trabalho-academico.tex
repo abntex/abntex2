@@ -13,52 +13,10 @@
 %% 
 %% The Current Maintainer of this work is the abnTeX2 team, led
 %% by Lauro César Araujo. Further information are available on 
-%% http://code.google.com/p/abntex2/
+%% http://abntex2.googlecode.com/
 %%
 %% This work consists of the files abntex2-modelo-trabalho-academico.tex,
 %% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
-%%
-%% 2013.1.22 19h00      machnievscz
-%%  Revisão texto
-%%
-%% 2013.1.17 22h43	laurocesar
-%%  Nova dedicatória
-%%
-%% 2013.1.16 19h21	laurocesar
-%%  Usa fonte Latin Modern
-%%
-%% 2013.1.14 21h25 laurocesar
-%%  Modifica capítulos com * para corrigir o cabeçalho: \chapter*[]{}
-%%  Usa abntex2-modelo-include-comandos.tex
-%%  Revisa erros de ortografia 
-%%  Usa abntex2-modelo-include-comandos.tex
-%%  Modifica o nome do modelo de ``Modelo Canônico de Trabalhos Acadêmicos com
-%% \anbTeX2'' para ``Modelo Canônico de Trabalho Acadêmico com \anbTeX2'' 
-%%
-%% 2013.1.13 09h59 laurocesar
-%%  Revisão de ortografia
-%%
-%% 2013.1.12 21h14 laurocesar
-%%  Revisão do texto da introdução, alteração do ano e adição de exemplo.
-%%  Altera o nome do modelo para abntex2-modelo-trabalho-academico.tex
-%%
-%% 2013.1.9 08h14 laurocesar
-%%  Adiciona \setlength{\parskip}{\onelineskip}%
-%%  Adiciona exemplo de \autoref
-%%  Adiciona exemplo de expressões matemáticas e de \url.
-%%  Adiciona referências à bibliografia.
-%%  Adiciona exemplo de inclusão de imagem como PDF
-%%  Inclui texto relevante e outros exemplos de LaTeX no modelo. 
-%%  Inclusão de controles de espaçamentos.
-%%  Detalhamento do índice remissivo.
-%%
-%% 2013.1.3 09h02 laurocesar
-%%  Inclusão de \legend{} no exemplo da tabela
-%%  Corrige um espaçamento incorreto na Errata.
-%%
-%% 2012.12.21 08h37	laurocesar
-%%  Removido o pacote mychemistry do preâmbulo;
-%%  Adicionado o pacote calc, necessário para \definecolor
 %%
 
 % ------------------------------------------------------------------------
@@ -651,7 +609,7 @@ elementum}
 \begin{apendicesenv}
 
 % Imprime uma página indicando o início dos apêndices
-\appendixpage
+\partapendices
 
 % ----------------------------------------------------------
 \chapter{Quisque libero justo}
@@ -672,15 +630,14 @@ ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------
-\cftinserthook{toc}{AAA}
+
 % ---
 % Inicia os anexos
 % ---
-%\anexos
 \begin{anexosenv}
 
 % Imprime uma página indicando o início dos anexos
-\appendixpage
+\partanexos
 
 % ---
 \chapter{Morbi ultrices rutrum lorem.}
