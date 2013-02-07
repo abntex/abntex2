@@ -17,6 +17,11 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.2.6 22h35	laurocesar
+%%  Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e
+%%  informação de que os manuais do cite estão desatualizados.
+%%  Corrige erro na instrução referente \partanexos* (estava \partname*)
+%%
 %% 2013.2.2 15h0	laurocesar
 %%  Adiciona subseções referentes às macros \partanexos e \partapendices
 %%
@@ -200,12 +205,14 @@ O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
 \begin{description}
   \item[ABNT NBR 6022:2003] Informação e documentação - Artigo em publicação
   periódica científica impressa - Apresentação
-  \item[ABNT NBR 6023:2000] Informação e documentação - Referência -
-  Elaboração\footnote{A versão corrente da ABNT NBR 6023 é a 6023:2002. Porém,
-  até este momento, o \abnTeX2 traz os estilos compatíveis com a versão
-  anterior da norma. A atualização dos estilos é uma das etapas posteriores do
-  projeto. Consulte \citeonline{abntex2cite} e \citeonline{abntex2cite-alf}
-  para mais informações.}
+  \item[ABNT NBR 6023:2002] Informação e documentação - Referência -
+  Elaboração\footnote{ O abnTeX2 é compatível com a versão corrente da norma
+  ABNT NBR 6023:2002. Porém, até este momento, os manuais
+  \citeonline{abntex2cite} e \citeonline{abntex2cite-alf} estão atualizados com
+  informações referentes à versão anterior da referida norma, ou seja, com
+  informações sobre a versão 2000. A atualização do manual é uma das atividades
+  em execução do projeto. Consulte
+  \url{https://code.google.com/p/abntex2/issues/list} para outras informações.}
   \item[ABNT NBR 6024:2012] Informação e documentação - Numeração
   progressiva das seções de um documento - Apresentação
   \item[ABNT NBR 6027:2003] Informação e documentação - Sumário -
@@ -317,12 +324,14 @@ A classe anterior, chamada \textsf{abnt}, não está mais disponível e não é
 distribuída nesta versão.
 
 Já o pacote de citações bibliográficas e as especificações de formatação de
-referências bibliográficas são quase que uma cópia da versão anterior. Por
-enquanto apenas algumas novas funcionalidades foram incluídas, como a
-possibilidade de uso do pacote \textsf{backref} (\autoref{sec-referencias}) e
-outros aperfeiçoamentos e correções de erros. Para referência ao pacote de
-citações \textsf{abntex2cite}, inclusive sobre conformidade com as normas, consulte
-\citeonline{abntex2cite} e \citeonline{abntex2cite-alf}.
+referências bibliográficas são uma evolução da versão anterior. Novas
+funcionalidades foram incluídas, como a possibilidade de uso do pacote
+\textsf{backref} (\autoref{sec-referencias}), compatibilidade com o
+\textsf{beamer}\footnote{\url{http://www.ctan.org/pkg/beamer}}, entre outros
+aperfeiçoamentos e ajustes de conformidade com a versão 2002 da ABNT NBR 6023.
+Para referência ao pacote de citações \textsf{abntex2cite}, inclusive sobre
+conformidade com as normas, consulte \citeonline{abntex2cite} e
+\citeonline{abntex2cite-alf}.
 
 Os modelos canônicos não estavam presentes no abnTeX original. Eles são exemplos
 de uso do \abnTeX2 e são distribuídos junto com a instalação padrão. 
@@ -2052,7 +2061,7 @@ conteúdo padrão é |ANEXO|.
 \DescribeMacro{\anexosname}\DescribeMacro{\partpage}\DescribeMacro{\partanexos}
 No contexto dos anexos, a macro |\partpage| e seu sinônimo |\partanexos|
 imprimem o conteúdo da macro |\anexosname| como se fosse uma divisão de partes
-obtida com |\part| não numerada. A variante |\anexosname*| não inclui a divisão
+obtida com |\part| não numerada. A variante |\partanexos*| não inclui a divisão
 no Sumário nem no \textsf{bookmark} do PDF.
 
 % ---
