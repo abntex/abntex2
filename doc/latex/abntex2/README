@@ -29,6 +29,12 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2013/xx/xx - v1.4.1 (a traduzir)
+    abntex2.tex:
+      Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e
+      informação de que os manuais do cite estão desatualizados.
+      Corrige erro na instrução referente \partanexos* (estava \partname*)
+
   2013/02/04 - v1.4
     added \partanexos and \partapendices macros as a replacement to \appendixpage
     changed all models to use new  \partanexos and \partapendices macros
