@@ -21,6 +21,8 @@
 %%  Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e
 %%  informação de que os manuais do cite estão desatualizados.
 %%  Corrige erro na instrução referente \partanexos* (estava \partname*)
+%%  Remove \vspace*{1cm} na parte superior dos exemplos de capa, folha de
+%%  rosto e folha de aprovação
 %%
 %% 2013.2.2 15h0	laurocesar
 %%  Adiciona subseções referentes às macros \partanexos e \partapendices
@@ -1000,7 +1002,6 @@ com base no ambiente |capa|, conforme o exemplo:
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
     \center
-    \vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}
@@ -1048,7 +1049,6 @@ reescreva a macro |\folhaderostocontent|, conforme o exemplo:
 \newcommand{\folhaderostocontent}{
   \begin{center}
 
-    \vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
@@ -1216,7 +1216,6 @@ aprovação final do trabalho:
 \begin{folhadeaprovacao}
 
   \begin{center}
-    \vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}

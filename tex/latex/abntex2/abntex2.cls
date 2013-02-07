@@ -17,6 +17,11 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.2.6 22h41	laurocesar
+%%  Remove \vspace*{1cm} no início da capa e da folha de rosto: como a margem
+%% padrão é 3cm superior e 2cm inferior, colocar um espaço de mais 1cm superior
+%% deixava o documento com aspecto ruim.
+%%
 %% 2013.2.3 22h10	laurocesar
 %%  Adiciona \partpage, \partanexos e \partapendices
 %%  Modifica comandos de anexos para incluir automaticamente \cftinserthook{toc}{AAA}
@@ -697,7 +702,7 @@
 \newcommand{\imprimircapa}{%
   \begin{capa}%
     \center
-    \vspace*{1cm}
+    %\vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}
@@ -729,7 +734,7 @@
 \newcommand{\folhaderostocontent}{
   \begin{center}
 
-    \vspace*{1cm}
+    %\vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
