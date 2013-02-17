@@ -18,7 +18,8 @@
 %% This work consists of the file abntex2.tex
 %%
 %% 2013.2.17 11h09	laurocesar
-%%  Inclui informações sobre hifenização em diferentes idiomas.
+%%  Inclui informações sobre hifenização em diferentes idiomas na seção sobre
+%%  o pacote babel e na seção referente aos resumos.
 %%
 %% 2013.2.6 22h35	laurocesar
 %%  Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e
@@ -614,6 +615,7 @@ e podem ser alteradas do seguinte modo:
 
 % ---
 \subsection{Hifenização e alterações no pacote \textsf{babel}}
+\label{babel}
 % ---
 
 Para usar as diferentes hifenizações, inclua nas opções do documento o nome dos
@@ -1396,7 +1398,7 @@ orientação da ABNT NBR 6028. Os elementos podem ser criados por meio do ambien
 O valor do parâmetro opcional é utilizado como entrada no \textsf{bookmark} do
 PDF (\autoref{sec-bookmark}) e como título do resumo. Caso o parâmetro não seja
 informado, o conteúdo de |\resumoname| é utilizado. O parâmetro opcional é útil
-para criação de resumos em diversos idiomas estrangeiros.
+para criação de resumos em diversos idiomas estrangeiros. 
 
 Exemplos de uso do ambiente são:
 
@@ -1411,10 +1413,12 @@ Exemplos de uso do ambiente são:
 
 % --- resumo em francês ---
 \begin{resumo}[Résumé]
-  Il s'agit d'un résumé en français.
-  \vspace{\onelineskip}
-  \noindent
-  \textbf{Mots-clés}: latex. abntex. publication de textes.
+ \begin{otherlanguage*}{french}
+    Il s'agit d'un résumé en français.
+    \vspace{\onelineskip}
+    \noindent
+    \textbf{Mots-clés}: latex. abntex. publication de textes.
+ \end{otherlanguage*}
 \end{resumo}
 \end{verbatim}
 
@@ -1442,19 +1446,23 @@ Exemplos de uso do ambiente são:
   \vspace{\onelineskip}
   \noindent
   \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
-\end{resumo}
+\end{resumoumacoluna}
 
 % --- resumo em francês ---
 \renewcommand{\resumoname}{Résumé}
 \begin{resumoumacoluna}
-  Il s'agit d'un résumé en français.
-  \vspace{\onelineskip}
-  \noindent
-  \textbf{Mots-clés}: latex. abntex. publication de textes.
-\end{resumo}
+  \begin{otherlanguage*}{french}
+    Il s'agit d'un résumé en français.
+    \vspace{\onelineskip}
+    \noindent
+    \textbf{Mots-clés}: latex. abntex. publication de textes.
+  \end{otherlanguage*}  
+\end{resumoumacoluna}
 ] fim de opção de twocolumn
 \end{verbatim}
 
+A \autoref{babel} aborda a macro |otherlanguage*|, responsável pela hifenização
+em diferentes idiomas.
 
 % ---
 \subsection{Lista de ilustrações (opcional)}\label{sec-listadeilustracoes}
