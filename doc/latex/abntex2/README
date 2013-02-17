@@ -43,6 +43,13 @@ CHANGE HISTORY
     
     abntex2-modelo-trabalho-academico.tex
       Remove \vspace*{1cm} na parte superior da folha de aprovação
+      
+    abntex2-modelo-artigo.tex:
+      Adiciona exemplo e texto sobre margens idênticas para páginas ímpares e pares.
+
+A última linha define margens idênticas para páginas ímpares e pares no caso de
+uso da opção \texttt{twoside}.
+        
 
   2013/02/04 - v1.4
     added \partanexos and \partapendices macros as a replacement to \appendixpage
