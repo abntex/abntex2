@@ -29,7 +29,7 @@
 
 % oneside = apenas frente
 % twocolumn = artigo em duas colunas
-\documentclass[article,11pt,oneside,a4paper]{abntex2}	
+\documentclass[article,11pt,oneside,a4paper,english]{abntex2}	
 
 % ---
 % PACOTES
@@ -388,13 +388,15 @@ parturient montes nascetur ridiculus mus}
 % resumo em português
 \renewcommand{\resumoname}{Abstract}
 \begin{resumoumacoluna}
- According to ABNT NBR 6022:2003, an abstract in foreign language is a back
- matter mandatory element.
+ \begin{otherlanguage*}{english}
+   According to ABNT NBR 6022:2003, an abstract in foreign language is a back
+   matter mandatory element.
 
- \vspace{\onelineskip}
+   \vspace{\onelineskip}
  
- \noindent
- \textbf{Key-words}: latex. abntex.
+   \noindent
+   \textbf{Key-words}: latex. abntex.
+ \end{otherlanguage*}  
 \end{resumoumacoluna}
 
 % ]  				% FIM DE ARTIGO EM DUAS COLUNAS

@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.2.17 11h09	laurocesar
+%%  Inclui informações sobre hifenização em diferentes idiomas.
+%%
 %% 2013.2.6 22h35	laurocesar
 %%  Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e
 %%  informação de que os manuais do cite estão desatualizados.
@@ -610,13 +613,47 @@ e podem ser alteradas do seguinte modo:
   \end{verbatim}
 
 % ---
-\subsection{Alterações no pacote \textsf{babel}}
+\subsection{Hifenização e alterações no pacote \textsf{babel}}
 % ---
 
-Algumas alterações foram realizadas nos nomes padronizados pelo pacote
-\textsf{babel}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/required/babel/}}
-para atender a requisitos da ABNT NBR 14724:2011, conforme \autoref{tab-babel}.
+Para usar as diferentes hifenizações, inclua nas opções do documento o nome dos
+idiomas que o texto contém. Por exemplo:
 
+\begin{verbatim}
+   \documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
+\end{verbatim}
+
+O idioma português-brasileiro (\texttt{brazil}) é incluído por padrão pela
+classe \textsf{abntex2} e não precisa ser informado.
+
+A lista completa de idiomas suportados, bem como outras opções de hifenização,
+estão disponíveis na documentação do pacote
+\textsf{babel}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/required/babel/}} \citeonline[p.~5-6]{babel}.
+
+\DescribeMacro{\foreignlanguage}
+A macro |\foreignlanguage|\marg{idioma}\marg{texto a ser inserido} insere um
+texto com a hifenização do idioma informado em \marg{idioma}.
+
+\DescribeEnv{otherlanguage}\DescribeEnv{otherlanguage*}
+O ambiente |otherlanguage*|\marg{idioma} pode ser usado para o mesmo propósito
+da macro |\foreignlanguage|. A versão com * indica que apenas o esquema de hifenização do
+idioma selecionado deve ser utilizado. Nesse caso, as demais configurações de
+idiomas, como nome da Lista de figuras, rótulos das seções, entre outros, não
+são alterados. Exemplo de uso:
+
+\begin{verbatim}
+  \begin{otherlanguage*}{french}
+    Texte en français.
+  \end{otherlanguage*}
+\end{verbatim}
+
+\DescribeMacro{\selectlanguage}
+A macro |\selectlanguage|\marg{idioma} altera o idioma padrão do documento a
+partir do ponto em que é informado.
+
+Algumas alterações foram realizadas nos nomes padronizados pelo pacote
+\textsf{babel} para atender a requisitos da ABNT NBR 14724:2011, conforme
+\autoref{tab-babel}.
 
 \begin{table}[htb]
 \caption{Alterações no pacote \textsf{babel}}

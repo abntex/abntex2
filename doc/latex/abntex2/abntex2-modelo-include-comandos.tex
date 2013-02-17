@@ -52,8 +52,8 @@ observar apenas o recuo \cite[5.3]{NBR10520:2002}
 \end{citacao}
 
 \index{citações!simples}Citações simples, com até três linhas, devem ser
-incluídas com aspas. Observe que em \LaTeX as aspas iniciais são diferentes das finais: ``Amor é fogo que
-arde sem se ver''.
+incluídas com aspas. Observe que em \LaTeX as aspas iniciais são diferentes das
+finais: ``Amor é fogo que arde sem se ver''.
 
 
 % ---
@@ -390,27 +390,53 @@ Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011}
 \section{Hifenizações em diferentes idiomas}
 % ---
 
-\begin{otherlanguage}{english}
-Text in language B. This environment switches all language-related definitions,
-like the language specific names for figures, tables etc. to the other
+Para usar as diferentes hifenizações, inclua nas opções do documento o nome dos
+idiomas que o seu texto contém. Por exemplo:
+
+\begin{verbatim}
+   \documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
+\end{verbatim}
+
+O idioma português-brasileiro (\texttt{brazil}) é incluído por padrão pela
+classe \textsf{abntex2} e não precisa ser informado.
+
+A lista completa de idiomas suportados, bem como outras opções de hifenização,
+estão disponíveis em \citeonline[p.~5-6]{babel}.
+
+Exemplo de hifenização em inglês\footnote{Extraído de:
+\url{http://en.wikibooks.org/wiki/LaTeX/Internationalization}}:
+
+\begin{otherlanguage*}{english}
+\textit{Text in English language. This environment switches all language-related
+definitions, like the language specific names for figures, tables etc. to the other
 language. The starred version of this environment typesets the main text
 according to the rules of the other language, but keeps the language specific
 string for ancillary things like figures, in the main language of the document.
 The environment hyphenrules switches only the hyphenation patterns used; it can
 also be used to disallow hyphenation by using the language name
-'nohyphenation'.
-\end{otherlanguage}
+`nohyphenation'.}
+\end{otherlanguage*}
 
-Text in language B. This environment switches all language-related definitions,
-like the language specific names for figures, tables etc. to the other
-language. The starred version of this environment typesets the main text
-according to the rules of the other language, but keeps the language specific
-string for ancillary things like figures, in the main language of the document.
-The environment hyphenrules switches only the hyphenation patterns used; it can
-also be used to disallow hyphenation by using the language name
-'nohyphenation'.
+Exemplo de hifenização em francês\footnote{Extraído de:
+\url{http://bigbrowser.blog.lemonde.fr/2013/02/17/tu-ne-tweeteras-point-le-vatican-interdit-aux-cardinaux-de-tweeter-pendant-le-conclave/}}:
 
+\begin{otherlanguage*}{french}
+\textit{Texte en français. Pas question que Twitter ne vienne faire une
+concurrence déloyale à la traditionnelle fumée blanche qui marque l'élection
+d'un nouveau pape. Pour éviter toute fuite précoce, le Vatican a donc pris un
+peu d'avance, et a déjà interdit aux cardinaux qui prendront part au vote
+d'utiliser le réseau social, selon Catholic News Service. Une mesure valable
+surtout pour les neuf cardinaux – sur les 117 du conclave – pratiquants très
+actifs de Twitter, qui auront interdiction pendant toute la période de se
+connecter à leur compte.}
+\end{otherlanguage*}
 
+Pequeno texto em espanhol\footnote{Extraído de:
+\url{http://internacional.elpais.com/internacional/2013/02/17/actualidad/1361102009_913423.html}}:
+
+\foreignlanguage{spanish}{\textit{Decenas de miles de personas ovacionan al pontífice en su
+penúltimo ángelus dominical, el primero desde que anunciase su renuncia. El Papa se
+centra en la crítica al materialismo}}.
 
 % ---
 \section{Consulte o manual da classe \textsf{abntex2}}

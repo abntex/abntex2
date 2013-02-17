@@ -40,12 +40,15 @@ CHANGE HISTORY
         informação de que os manuais do cite estão desatualizados.
       Corrige erro na instrução referente \partanexos* (estava \partname*)
       Remove \vspace*{1cm} na parte superior dos exemplos de capa, folha de rosto e folha de aprovação
+      Adiciona informações sobre hifenização.
     
     abntex2-modelo-trabalho-academico.tex
       Remove \vspace*{1cm} na parte superior da folha de aprovação
       
     abntex2-modelo-artigo.tex:
       Adiciona exemplo e texto sobre margens idênticas para páginas ímpares e pares.
+      
+     Adiciona exemplos de hifenização em diferentes idiomas em todos os modelos 
 
 A última linha define margens idênticas para páginas ímpares e pares no caso de
 uso da opção \texttt{twoside}.

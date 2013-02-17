@@ -28,8 +28,12 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
-\documentclass[12pt,openright,twoside,a4paper]{abntex2}	% frente e verso
-%\documentclass[12pt,oneside,a4paper]{abntex2}			% apenas frente
+% verso e anverso:
+\documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
+
+% apenas verso:	
+% \documentclass[12pt,oneside,a4paper,english,french,spanish]{abntex2} 
+
 
 % ---
 % PACOTES
@@ -386,32 +390,38 @@ contribuirão para a evolução do \abnTeX.
 
 % resumo em inglês
 \begin{resumo}[Abstract]
- This is the english abstract.
+ \begin{otherlanguage*}{english}
+   This is the english abstract.
 
- \vspace{\onelineskip}
+   \vspace{\onelineskip}
  
- \noindent 
- \textbf{Key-words}: latex. abntex. text editoration.
+   \noindent 
+   \textbf{Key-words}: latex. abntex. text editoration.
+ \end{otherlanguage*}
 \end{resumo}
 
 % resumo em francês 
 \begin{resumo}[Résumé]
-  Il s'agit d'un résumé en français.
+ \begin{otherlanguage*}{french}
+    Il s'agit d'un résumé en français.
  
- \vspace{\onelineskip}
+   \vspace{\onelineskip}
  
- \noindent
- \textbf{Mots-clés}: latex. abntex. publication de textes.
+   \noindent
+   \textbf{Mots-clés}: latex. abntex. publication de textes.
+ \end{otherlanguage*}
 \end{resumo}
 
 % resumo em espanhol
 \begin{resumo}[Resumen]
-  Este es el resumen en español.
+ \begin{otherlanguage*}{spanish}
+   Este es el resumen en español.
   
- \vspace{\onelineskip}
+   \vspace{\onelineskip}
  
- \noindent
- \textbf{Palabras clave}: latex. abntex. publicación de textos.
+   \noindent
+   \textbf{Palabras clave}: latex. abntex. publicación de textos.
+ \end{otherlanguage*}
 \end{resumo}
 % ---
 
