@@ -34,6 +34,7 @@ CHANGE HISTORY
       Remove \vspace*{1cm} no início da capa e da folha de rosto: como a margem
       padrão é 3cm superior e 2cm inferior, colocar um espaço de mais 1cm superior
      deixava o documento com aspecto ruim.
+     Adiciona \bookmarksetup{startatroot} á \textual e \postextual
      
     abntex2.tex:
       Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e

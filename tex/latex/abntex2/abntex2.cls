@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.6.18 09h38	laurocesar
+%%  Adiciona \bookmarksetup{startatroot} á \textual e \postextual
+%%
 %% 2013.2.6 22h41	laurocesar
 %%  Remove \vspace*{1cm} no início da capa e da folha de rosto: como a margem
 %% padrão é 3cm superior e 2cm inferior, colocar um espaço de mais 1cm superior
@@ -397,16 +400,19 @@
 % ---
 % Configura layout para elementos textuais
 \newcommand{\textual}{%
-  \pagestyle{abntheadings}
+  \pagestyle{abntheadings}%
   \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
-  \nouppercaseheads
+  \nouppercaseheads%
+  \bookmarksetup{startatroot}% 
 }
 \renewcommand{\mainmatter}{\textual}
 % ---
 
 % ---
 % Configura layout para elementos pós-textuais
-\newcommand{\postextual}{}
+\newcommand{\postextual}{%
+ \bookmarksetup{startatroot}%
+}
 \renewcommand{\backmatter}{\postextual}
 % -----
 
