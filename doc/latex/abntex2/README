@@ -48,6 +48,7 @@ CHANGE HISTORY
       
     abntex2-modelo-artigo.tex:
       Adiciona exemplo e texto sobre margens idênticas para páginas ímpares e pares.
+      Adiciona espaçamento simples como padrão
       
      Adiciona exemplos de hifenização em diferentes idiomas em todos os modelos 
 
