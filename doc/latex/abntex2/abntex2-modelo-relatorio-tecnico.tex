@@ -1,0 +1,555 @@
+%% abtex2-modelo-relatorio-tecnico.tex, v<VERSION> laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-relatorio-tecnico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Relatório Técnico/Acadêmico em conformidade com 
+% ABNT NBR 10719:2011 Informação e documentação - Relatório técnico e/ou
+% científico - Apresentação
+% ------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------
+
+% verso e anverso:
+\documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}	
+
+% apenas verso: 
+%\documentclass[12pt,oneside,a4paper,english,french,spanish]{abntex2}
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{makeidx}            % Cria o indice
+\usepackage{hyperref}  			% Controla a formação do índice
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+% ---
+
+% ---
+% Pacotes adicionais, usados no anexo do modelo de folha de identificação
+% ---
+\usepackage{multicol}
+\usepackage{multirow}
+% ---
+	
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Modelo Canônico de\\ Relatório Técnico e/ou Científico com \abnTeX}
+\autor{Equipe \abnTeX}
+\local{Brasil}
+\data{2013, v<VERSION>}
+\instituicao{%
+  Universidade do Brasil -- UBr
+  \par
+  Faculdade de Arquitetura da Informação
+  \par
+  Programa de Pós-Graduação}
+\tipotrabalho{Tese (Doutorado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Modelo canônico de Relatório Técnico e/ou Científico em conformidade
+com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\hypersetup{
+     	%backref=true,
+     	%pagebackref=true,
+		%bookmarks=true,         		% show bookmarks bar?
+		pdftitle={\imprimirtitulo}, 
+		pdfauthor={\imprimirautor},
+    	pdfsubject={\imprimirpreambulo},
+		pdfkeywords={PALAVRAS}{CHAVES}{abnt}{abntex}{abntex2},
+	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+	    pdfcreator={\imprimirautor},
+    	colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Controles do espaçamento entre linhas:
+%\OnehalfSpacing	% espaçamento um e meio (padrão); 
+%\DoubleSpacing		% espaçamento duplo
+%\SingleSpacing		% espaçamento simples	
+% --- 
+	
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Compila a lista de abreviaturas e siglas
+% ---
+\makenomenclature
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Anverso da folha de rosto:
+% ---
+
+{
+\ABNTEXchapterfont
+
+\vspace*{\fill}
+
+Conforme a ABNT NBR 10719:2011, seção 4.2.1.1.1, o anverso da folha de rosto
+deve conter:
+
+\begin{alineas}
+  \item nome do órgão ou entidade responsável que solicitou ou gerou o
+   relatório; 
+  \item título do projeto, programa ou plano que o relatório está relacionado;
+  \item título do relatório;
+  \item subtítulo, se houver, deve ser precedido de dois pontos, evidenciando a
+   sua subordinação ao título. O relatório em vários volumes deve ter um título
+   geral. Além deste, cada volume pode ter um título específico; 
+  \item número do volume, se houver mais de um, deve constar em cada folha de
+   rosto a especificação do respectivo volume, em algarismo arábico; 
+  \item código de identificação, se houver, recomenda-se que seja formado
+   pela sigla da instituição, indicação da categoria do relatório, data,
+   indicação do assunto e número sequencial do relatório na série; 
+  \item classificação de segurança. Todos os órgãos, privados ou públicos, que
+   desenvolvam pesquisa de interesse nacional de conteúdo sigiloso, devem
+    informar a classificação adequada, conforme a legislação em vigor; 
+  \item nome do autor ou autor-entidade. O título e a qualificação ou a função
+   do autor podem ser incluídos, pois servem para indicar sua autoridade no
+   assunto. Caso a instituição que solicitou o relatório seja a mesma que o
+   gerou, suprime-se o nome da instituição no campo de autoria; 
+  \item local (cidade) da instituição responsável e/ou solicitante; NOTA: No
+   caso de cidades homônimas, recomenda-se o acréscimo da sigla da unidade da
+   federação.
+  \item ano de publicação, de acordo com o calendário universal (gregoriano),
+  deve ser apresentado em algarismos arábicos.
+\end{alineas}
+
+\vspace*{\fill}
+}
+
+% ---
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+O agradecimento principal é direcionado a Youssef Cherem, autor do
+\nameref{formulado-identificacao} (\autopageref{formulado-identificacao}).
+
+Os agradecimentos especiais são direcionados ao Centro de Pesquisa em
+Arquitetura da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+Brasília (CPAI), ao grupo de usuários
+\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+novos voluntários do grupo
+\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+\url{http://abntex2.googlecode.com/}}~que contribuíram e que ainda
+contribuirão para a evolução do abn\TeX.
+
+\end{agradecimentos}
+% ---
+
+% ---
+% RESUMO
+% ---
+
+% resumo na língua vernácula (obrigatório)
+\begin{resumo}
+ Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
+ objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
+ destes itens dependem do tipo de resumo (informativo ou indicativo) e do
+ tratamento que cada item recebe no documento original. O resumo deve ser
+ precedido da referência do documento, com exceção do resumo inserido no
+ próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
+ resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
+ ponto e finalizadas também por ponto.
+
+ \vspace{\onelineskip}
+    
+ \noindent
+ \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+\end{resumo}
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% A lista de Abreviaturas e Siglas pode ser facilmente montada com o pacote 
+% nomencl. Abaixo segue um exemplo.
+% ---
+\nomenclature{Fig.}{Figura}
+\nomenclature{$A_i$}{Area of the $i^{th}$ component} 
+\nomenclature{456}{Isto é um número}
+\nomenclature{123}{Isto é outro número}
+\nomenclature{a}{primeira letra do alfabeto}
+\nomenclature{lauro}{este é meu nome} 
+
+\renewcommand{\nomname}{Lista de abreviaturas e siglas}
+\pdfbookmark[0]{\nomname}{las}
+\printnomenclature
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+% O abnTeX2 não provê mecanismo para lista de símbolos.
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+% É possível usar \textual ou \mainmatter, que é a macro padrão do memoir.  
+\mainmatter
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter*[Introdução]{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+
+Este documento e seu código-fonte são exemplos de referência de uso da classe
+\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
+exemplifica a elaboração de relatórios técnicos e/ou científicos produzidos
+conforme a ABNT NBR 10719:2011 \emph{Informação e documentação - Relatório
+técnico e/ou científico - Apresentação}.
+
+A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX\ não é
+modelo específico de nenhuma universidade ou instituição, mas que implementa tão
+somente os requisitos das normas da ABNT. Uma lista completa das normas
+observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
+
+Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
+\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
+estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+modificados tenham seus nomes alterados e que os créditos sejam dados aos
+autores originais, nos termos da ``The \LaTeX\ Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+Encorajamos que sejam realizadas customizações específicas deste exemplo para
+universidades e outras instituições --- como capas, folhas de rosto, etc.
+Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+\abnTeX, distribua-se arquivos com as respectivas customizações.
+Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
+incompatíveis com as customizações promovidas.
+
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
+\cite{memoir}. 
+
+Equipe \abnTeX 
+
+Lauro César Araujo
+
+
+% ----------------------------------------------------------
+% PARTE - preparação da pesquisa
+% ----------------------------------------------------------
+\part{Preparação do relatório}
+
+% ----------------------------------------------------------
+% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% ----------------------------------------------------------
+
+\include{abntex2-modelo-include-comandos}
+
+
+% ----------------------------------------------------------
+% Parte de revisãod e literatura
+% ----------------------------------------------------------
+\part{Resultados}
+
+% ---
+% Capitulo de revisão de literatura
+% ---
+\chapter{Lorem ipsum dolor sit amet}
+
+% ---
+\section{Aliquam vestibulum fringilla lorem}
+% ---
+
+\lipsum[1]
+
+\lipsum[2-3]
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ---
+% Conclusão
+% ---
+\chapter*[Conclusão]{Conclusão}
+\addcontentsline{toc}{chapter}{Conclusão}
+
+\lipsum[31-33]
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+\partapendices
+
+% ----------------------------------------------------------
+\chapter{Quisque libero justo}
+% ----------------------------------------------------------
+
+\lipsum[50]
+
+% ----------------------------------------------------------
+\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+% ----------------------------------------------------------
+\lipsum[55-57]
+
+\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+\partanexos
+
+% ---
+\chapter{Morbi ultrices rutrum lorem.}
+% ---
+\lipsum[30]
+
+% ---
+\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+parturient montes nascetur ridiculus mus}
+% ---
+
+\lipsum[31]
+
+% ---
+\chapter{Fusce facilisis lacinia dui}
+% ---
+
+\lipsum[32]
+
+\end{anexosenv}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+% \cleardoublepage
+% \phantomsection 
+\printindex
+
+%---------------------------------------------------------------------
+% Formulário de Identificação (opcional)
+%---------------------------------------------------------------------
+\chapter*[Formulário de Identificação]{Formulário de Identificação}
+\addcontentsline{toc}{chapter}{Exemplo de Formulário de Identificação}
+\label{formulado-identificacao}
+
+Exemplo de Formulário de Identificação, compatível com o Anexo A (informativo)
+da ABNT NBR 10719:2011. Este formulário não é um anexo. Conforme definido na
+norma, ele é o último elemento pós-textual e opcional do relatório.
+
+\bigskip
+
+\begin{tabular}{|p{9cm}|p{5cm}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{\large Dados do Relatório Técnico e/ou científico}}\\
+\hline
+\multirow{4}{10cm}[24pt]{Título e subtítulo}& Classificação de segurança\\
+                   & \\
+                   \cline{2-2}
+                   & No.\\
+                   & \\
+				
+\hline
+Tipo de relatório & Data\\
+\hline
+Título do projeto/programa/plano & No.\\
+\hline
+\multicolumn{2}{|l|}{Autor(es)} \\
+\hline
+\multicolumn{2}{|l|}{Instituição executora e endereço completo} \\
+\hline
+\multicolumn{2}{|l|}{Instituição patrocinadora e endereço completo} \\
+\hline
+\multicolumn{2}{|l|}{Resumo}\\[3cm]
+\hline
+\multicolumn{2}{|l|}{Palavras-chave/descritores}\\
+\hline
+\multicolumn{2}{|l|}{
+Edição \hfill No. de páginas \hfill No. do volume \hfill Nº de classificação \phantom{XXXX}} \\
+\hline
+\multicolumn{2}{|l|}{
+ISSN \hfill \hfill Tiragem \hfill Preço \phantom{XXXXXXXX}} \\
+\hline
+\multicolumn{2}{|l|}{Distribuidor} \\
+\hline
+\multicolumn{2}{|l|}{Observações/notas}\\[3cm]
+\hline
+\end{tabular}
+
+
+
+\end{document}
