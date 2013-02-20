@@ -51,6 +51,7 @@ CHANGE HISTORY
       Adiciona espaçamento simples como padrão
       
      Adiciona exemplos de hifenização em diferentes idiomas em todos os modelos 
+     Adiciona \frenchspacing para tratar espaço entre frases em todos os modelos
 
 A última linha define margens idênticas para páginas ímpares e pares no caso de
 uso da opção \texttt{twoside}.
