@@ -50,6 +50,9 @@ CHANGE HISTORY
       Adiciona exemplo e texto sobre margens idênticas para páginas ímpares e pares.
       Adiciona espaçamento simples como padrão
       
+    abntex2-alf.bst and abntex2-num.bst:
+     Fix iso-690-1987 option: year was placed twice
+      
      Adiciona exemplos de hifenização em diferentes idiomas em todos os modelos 
      Adiciona \frenchspacing para tratar espaço entre frases em todos os modelos
 
