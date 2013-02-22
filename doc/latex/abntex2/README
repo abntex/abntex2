@@ -29,44 +29,31 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.4.1 (a traduzir)
+  2013/xx/xx - v1.5
     abntex2.cls:
-      Remove \vspace*{1cm} no início da capa e da folha de rosto: como a margem
-      padrão é 3cm superior e 2cm inferior, colocar um espaço de mais 1cm superior
-     deixava o documento com aspecto ruim.
-     Adiciona \bookmarksetup{startatroot} á \textual e \postextual
-     
-    abntex2.tex:
-      Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e
-        informação de que os manuais do cite estão desatualizados.
-      Corrige erro na instrução referente \partanexos* (estava \partname*)
-      Remove \vspace*{1cm} na parte superior dos exemplos de capa, folha de rosto e folha de aprovação
-      Adiciona informações sobre hifenização.
-    
+      . removed \vspace*{1cm} on beginning of cover and titles pages
+      . added \bookmarksetup{startatroot} in \textual and \postextual
     abntex2-modelo-trabalho-academico.tex
-      Remove \vspace*{1cm} na parte superior da folha de aprovação
-      
+      . removed \vspace*{1cm} on beginning of aprovation page
     abntex2-modelo-artigo.tex:
-      Adiciona exemplo e texto sobre margens idênticas para páginas ímpares e pares.
-      Adiciona espaçamento simples como padrão
-      
+      . added simple spacing as a default option
     abntex2-alf.bst and abntex2-num.bst:
-     Fix iso-690-1987 option: year was placed twice
-     
+      . fix iso-690-1987 option: year was placed twice
     abntex2cite.sty:
-     Changed default style for author names in citations from smallcaps to uppercase
-     Added versalete option to use author names in smallcaps style at citations 
-     
+      . changed default style for author names in citations from small caps to upper case
+      . added "versalete" option to use author names in small caps style on citations 
     abntex2cite-alf.tex:
-     Added explanations about versalete option
-     Added explanations about \authorcapstyle, \authorstyle and \yearstyle 
-      
-     Adiciona exemplos de hifenização em diferentes idiomas em todos os modelos 
-     Adiciona \frenchspacing para tratar espaço entre frases em todos os modelos
-
-A última linha define margens idênticas para páginas ímpares e pares no caso de
-uso da opção \texttt{twoside}.
-        
+      . added explanations about versalete option
+      . added explanations about \authorcapstyle, \authorstyle and \yearstyle
+    abntex2.tex:
+      . added section about hyphenation
+      . added ABNTEX NBR 6023 version 2002 compatibility information and information
+        about the work in progress of updating manuals.
+      . fix error about \partanexos* information (it was \partname*)
+      . removed \vspace*{1cm} on beginning of cover and titles pages
+    changed all models:
+      . added hyphenation examples
+      . added \frenchspacing as a default option to deal with space between phrases
 
   2013/02/04 - v1.4
     added \partanexos and \partapendices macros as a replacement to \appendixpage
