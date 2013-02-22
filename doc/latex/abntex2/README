@@ -52,6 +52,14 @@ CHANGE HISTORY
       
     abntex2-alf.bst and abntex2-num.bst:
      Fix iso-690-1987 option: year was placed twice
+     
+    abntex2cite.sty:
+     Changed default style for author names in citations from smallcaps to uppercase
+     Added versalete option to use author names in smallcaps style at citations 
+     
+    abntex2cite-alf.tex:
+     Added explanations about versalete option
+     Added explanations about \authorcapstyle, \authorstyle and \yearstyle 
       
      Adiciona exemplos de hifenização em diferentes idiomas em todos os modelos 
      Adiciona \frenchspacing para tratar espaço entre frases em todos os modelos

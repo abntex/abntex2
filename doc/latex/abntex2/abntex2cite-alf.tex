@@ -246,12 +246,12 @@ dirão que isso não é ABNT. Acredite se quiser.
 
 \subsection{Como chamar os pacotes e estilos}
 
-\DescribeMacro{\usepackage[alf]{abntcite}}
+\DescribeMacro{\usepackage[alf]{abntex2cite}}
 Para usar o estilo de citação alfabético (seção 9.2 em
 6023/2000~\cite{NBR6023:2000}) utilize no preâmbulo:
 
 \begin{verbatim}
-    \usepackage[alf]{abntcite}
+    \usepackage[alf]{abntex2cite}
 \end{verbatim}
 
 \DescribeMacro{\bibliographystyle}
@@ -700,6 +700,39 @@ será assim uma \ldots\  proposta por.
 Em \citeyear{10520:4.1-1} a ironia será assim uma \latexhtml{\ldots\ }{...} proposta por.
 \end{minipage}\vspace{5mm}\\
 
+\section{Formações do estilo alfabético}
+
+\DescribeEnv{versalete}
+A opção \texttt{versalete} imprime os nomes dos autores das citações em
+versalete (\textit{small caps}, ou seja, letras maiúsculas com corpo do tamanho
+das minúsculas), ao invés de maiúscula. Usar versalete era o comportamento
+padrão do abnTeX e do abnTeX2 até a versão 1.4. Porém, os exemplos da norma ABNT
+NBR 10520 são em letras maiúsculas. Por isso, à partir da versão 1.5, o abnTeX2
+traz como padrão as citações em letras maiúsculas e a opção versalete como
+compatibilidade com as versões anteriores. Para usar o modelo antigo, ou
+seja, em versalete, use:
+
+\begin{verbatim}
+    \usepackage[alf,versalete]{abntex2cite}
+\end{verbatim}
+
+\DescribeMacro{\authorcapstyle}\DescribeMacro{\authorstyle}
+O estilo usado na impressão dos nomes dos autores nas citações pode ser alterado
+com:
+
+\begin{verbatim}
+    \renewcommand{\authorcapstyle}{\small}
+    \newcommand{\authorstyle}{\relax}
+\end{verbatim}
+
+\DescribeMacro{\yearstyle}
+O estilo usado na impressão do ano nas citações pode ser
+alterado com:
+
+\begin{verbatim}
+    \renewcommand{\yearstyle}{\bf}
+\end{verbatim}
+
 \section{Alteração do estilo alfabético {\tt citeoption}}
 
 \DescribeMacro{\citeoption}
@@ -711,7 +744,7 @@ Por exemplo, para desativar a substituição dos autores por `et al.', você
 incluir o pacote com a seguinte opção:
 
 \begin{verbatim}
-    \usepackage[alf,abnt-etal-cite=0]{abntcite}
+    \usepackage[alf,abnt-etal-cite=0]{abntex2cite}
 \end{verbatim}
 
 ou, em qualquer ponto do texto,

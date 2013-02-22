@@ -106,6 +106,7 @@
 %     recuo (then makes bibitem indent 1.8em) (default: NO indentation)
 %     recuo=<length> (sets custom indentation)
 %     indent   is an alias for recuo (indent or indent=<length>)
+%     versalete  author in alf mode as with smallcaps
 %     other options are considered "\citeoption's" (mechanism includes a
 %       list that stores non defined options, and in \AtBeginDocument,
 %       \citeoption acts over this list)
@@ -283,6 +284,10 @@
 \DeclareOption{overcite}{\setboolean{ABNTovercite}{true}}
 \DeclareOption{inlinecite}{\setboolean{ABNTovercite}{false}}
 
+% \authorcapstyle em versalete (smallcaps) como opcional
+\newboolean{ABNTversalete}
+\setboolean{ABNTversalete}{false}
+\DeclareOption{versalete}{\setboolean{ABNTversalete}{true}}
 
 % 10520:2002 does not allow (XX) or [XX] for superscript cites
 \newboolean{ABNTstrictnumformat}
@@ -471,7 +476,7 @@
 
 
 
-\newcommand{\authorcapstyle}{\smaller}
+\newcommand{\authorcapstyle}{\ifthenelse{\boolean{ABNTversalete}}{\smaller}{}}
 \newcommand{\authorstyle}{\relax}
 \newcommand{\yearstyle}{\relax}
 \newcommand{\optionaltextstyle}{\relax}
