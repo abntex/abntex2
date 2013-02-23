@@ -33,6 +33,7 @@ CHANGE HISTORY
     abntex2.cls:
       . removed \vspace*{1cm} on beginning of cover and titles pages
       . added \bookmarksetup{startatroot} in \textual and \postextual
+      . changed article headings to \pagestyle{plain}
     abntex2-modelo-trabalho-academico.tex
       . removed \vspace*{1cm} on beginning of aprovation page
     abntex2-modelo-artigo.tex:

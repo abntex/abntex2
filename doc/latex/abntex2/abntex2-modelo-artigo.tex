@@ -62,7 +62,6 @@
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 % ---
-		%\citeoption{versalete}
 
 % ---
 % Configurações do pacote backref
@@ -100,9 +99,7 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 
 % informações do PDF
 \hypersetup{
-     	%backref=true,
      	%pagebackref=true,
-		%bookmarks=true,         		% show bookmarks bar?
 		pdftitle={\imprimirtitulo}, 
 		pdfauthor={\imprimirautor},
     	pdfsubject={\imprimirpreambulo},
@@ -145,12 +142,14 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 % Espaçamento simples
 \SingleSpacing
 
+
 % ----
 % Início do documento
 % ----
 \begin{document}
 
-\frenchspacing %retira espaço extra obsoleto entre as frases.
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -337,8 +336,8 @@ referência completa das macros e ambientes disponíveis.
 % Glossário
 % ----------------------------------------------------------
 %
-% Há diversas soluções prontas para glossário. Não é necessário nos preocuparmos
-% com isso agora.
+% Há diversas soluções prontas para glossário em LaTeX. 
+% Consulte o manual do abnTeX2 para obter sugestões.
 %
 %\glossary
 
