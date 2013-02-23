@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.2.23 13h48	laurocesar
+%%  Adiciona lista de siglas e abreviaturas e lista de símbolos
+%%
 %% 2013.2.17 11h09	laurocesar
 %%  Inclui informações sobre hifenização em diferentes idiomas na seção sobre
 %%  o pacote babel e na seção referente aos resumos.
@@ -421,9 +424,8 @@ diferenças entre as outras normas.
 \end{description} 
 
 O \abnTeX2 apresenta instrumentos para produzir todas as partes do documento,
-exceto a Lombada, a Lista de Símbolos e o Glossário, que podem ser produzidos
-por outros pacotes adicionais. As seções seguintes descrevem como cada seção
-pode ser produzida.
+exceto a Lombada e o Glossário, que podem ser produzidos por outros pacotes
+adicionais. As seções seguintes descrevem como cada seção pode ser produzida.
 
 A norma ABNT NBR 10719:2011 \emph{Informação e documentação - Relatório técnico
 e-ou científico - Apresentação} apresenta basicamente a mesma estrutura que a
@@ -1520,18 +1522,35 @@ O exemplo seguinte cria a Lista de tabelas e já a adiciona ao
 \label{sec-listadeabreviaturas}
 % ---
 
-\DescribeMacro{\printnomenclature}
-O \abnTeX2 não traz uma implementação própria para a Lista de abreviaturas e
-siglas, elemento opcional da ABNT NBR 14724:2011, seção 4.2.1.11. Um dos motivos
-da não inclusão desse recurso é a existência de diversos pacotes que o fazem,
-cada um com uma característica diferente.
+\DescribeEnv{siglas}
+A Lista de abreviaturas e siglas é um elemento opcional da ABNT NBR 14724:2011,
+seção 4.2.1.11 e pode ser criada com o ambiente |siglas|:
 
-Uma sugestão é usar o pacote
-\textsf{nomencl}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/nomencl/}}.
-Com esse pacote, você pode criar a lista de abreviaturas e siglas seguindo o
-exemplo abaixo, que define algumas siglas, imprime um capítulo com o título
-``Lista de abreviaturas e siglas'' e já o insere no \textsf{bookmark} do PDF
-(\autoref{sec-bookmark}):
+\begin{verbatim}
+  \begin{siglas}
+    \item[Fig.] Area of the $i^{th}$ component
+    \item[456] Isto é um número
+    \item[123] Isto é outro número
+    \item[lauro cesar] este é o meu nome
+  \end{siglas}
+\end{verbatim} 
+
+\DescribeMacro{\printnomenclature}
+Opcionalmente é possível usar o pacote
+\textsf{nomencl}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/nomencl/}},
+que oferece recursos adicionais na composição de lista de siglas, símbolos e até
+glossários. Com esse pacote crie a lista de abreviaturas e siglas
+seguindo o exemplo:
+
+No preâmbulo:
+
+\begin{verbatim}
+   \usepackage{nomencl}
+   
+   \makenomenclature
+\end{verbatim}
+
+No corpo do documento:
 
 \begin{verbatim}
    \nomenclature{Fig.}{Figura}
@@ -1541,11 +1560,14 @@ exemplo abaixo, que define algumas siglas, imprime um capítulo com o título
    \nomenclature{a}{primeira letra do alfabeto}
    \nomenclature{lauro}{este é meu nome} 
 
-   \renewcommand{\nomname}{Lista de abreviaturas e siglas}
+   \renewcommand{\nomname}{\listadesiglasname}
    \pdfbookmark[0]{\nomname}{las}
    \printnomenclature
    \cleardoublepage
 \end{verbatim}
+
+\DescribeMacro{\listadesiglasname}
+A macro |\listadesiglasname| contém o nome da lista de abreviaturas e siglas. 
 
 Para usar o pacote \textsf{nomencl}, é necessário compilar o documento \LaTeX\
 com \textsf{makeindex}:
@@ -1554,25 +1576,37 @@ com \textsf{makeindex}:
    makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
 \end{verbatim}
 
-Após essa compilação com \textsf{makeindex}, compile normalmente o documento.
+Após a compilação com \textsf{makeindex}, compile normalmente o documento com
+|pdflatex|.
 
-Geralmente os editores possuem formas de automatizar essa compilação. 
+Geralmente os editores de documentos \LaTeX\ possuem formas de automatizar essa
+compilação. Porém, caso você opte por usar o ambiente |siglas|, nenhuma
+compilação adicional é necessária.
 
 % ---
 \subsection{Lista de símbolos (opcional)}\label{sec-listadesimbolos}
 % ---
 
-Assim como o \abnTeX2 não traz uma implementação própria para a Lista de
-abreviaturas e siglas, uma implementação para Lísta de símbolos também não é
-oferecida. A lista de símbolos é um elemento opcional da ABNT NBR 14724:2011,
-seção 4.2.1.12.
+\DescribeEnv{simbolos}
+A lista de símbolos é um elemento opcional da ABNT NBR 14724:2011,
+seção 4.2.1.12 e pode ser criada com o ambiente |simbolos|:
 
-Um dos motivos da não inclusão desse recurso é a existência de diversos pacotes
-que o fazem, cada um com uma característica diferente.
+\begin{verbatim}
+  \begin{simbolos}
+    \item[$ \Gamma $] Letra grega Gama
+    \item[$ \Lambda $] Lambda
+    \item[$ \zeta $] Letra grega minúscula zeta
+    \item[$ \in $] Pertence
+  \end{simbolos}
+\end{verbatim}
 
-Como sugestão, consulte o pacote \textsf{glossaries}, que tanto pode construir a
-Lista de símbolos, como Glossários. A \autoref{sec-glossarios} aborda esse
-tema. 
+\DescribeMacro{\listadesimbolosname}
+A macro |\listadesimbolosname| o nome da lista de símbolos.
+
+Opcionalmente, use o pacote \textsf{nomencl} ou \textsf{glossaries}, que tanto
+podem construir a Lista de símbolos, como Glossários. Consulte 
+\autoref{sec-listadeabreviaturas} e a \autoref{sec-glossarios} para outras
+informações.
 
 % ---
 \subsection{Sumário (obrigatório)}\label{sec-sumario}
