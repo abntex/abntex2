@@ -29,7 +29,7 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.5
+  2013/02/23 - v1.5
     abntex2.cls:
       . added \bookmarksetup{startatroot} in \textual and \postextual
       . added "siglas" and "simbolos" environments in order to 
