@@ -19,6 +19,7 @@
 %%
 %% 2013.2.23 11h24	laurocesar
 %%  Altera o estilo dos cabeçalhos dos artigos para \pagestyle{plain}
+%%  Adiciona lista de siglas e abreviaturas e lista de símbolos 
 %%
 %% 2013.2.18 09h38	laurocesar
 %%  Adiciona \bookmarksetup{startatroot} á \textual e \postextual
@@ -183,6 +184,8 @@
 \newcommand{\coorientadorname}{Coorientador:}
 \newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
 \newcommand{\resumoname}{Resumo} 
+\newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
+\newcommand{\listadesimbolosname}{Lista de s\'imbolos}
 
 % ---
 
@@ -228,9 +231,9 @@
 % Comando que cria capítulos não numerados já com bookmark anotado
 % ---
 \newcommand{\pretextualchapter}[1]{%
-  \addtocounter{abntex@bookmarkcounter}{1}
-  \PRIVATEbookmarkthis{#1}
-  \chapter*[#1]{#1}
+  \addtocounter{abntex@bookmarkcounter}{1}%
+  \PRIVATEbookmarkthis{#1}%
+  \chapter*[#1]{#1}%
   }
 \provideboolean{abntex@apendiceousecao}
 \setboolean{abntex@apendiceousecao}{false}
@@ -552,8 +555,31 @@
    \begin{onecolabstract}
    \SingleSpacing
 }{\end{onecolabstract}\PRIVATEclearpageifneeded}
-  
 % ---
+
+% ---
+% Lista de abreviaturas e siglas
+\newenvironment{siglas}{%
+  \pretextualchapter{\listadesiglasname}
+  \begin{symbols}
+}{%
+  \end{symbols}
+  \cleardoublepage
+}
+% ---
+
+% ---
+% Lista de símbolos
+\newenvironment{simbolos}{%
+  \pretextualchapter{\listadesimbolosname}
+  \begin{symbols}
+}{%
+  \end{symbols}
+  \cleardoublepage
+}
+% ---
+
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------

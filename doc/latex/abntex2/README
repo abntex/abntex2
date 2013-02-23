@@ -31,13 +31,24 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.5
     abntex2.cls:
-      . removed \vspace*{1cm} on beginning of cover and titles pages
       . added \bookmarksetup{startatroot} in \textual and \postextual
+      . added "siglas" and "simbolos" environments in order to 
+        create "list of abbreviations and acronyms" and "list of symbols"
       . changed article headings to \pagestyle{plain}
+      . removed \vspace*{1cm} on beginning of cover and titles pages
     abntex2-modelo-trabalho-academico.tex
       . removed \vspace*{1cm} on beginning of aprovation page
+      . changed to use "siglas" and "simbolos" environments
+      . minor changes
+    abntex2-modelo-relatorio-tecnico.tex  
+      . changed to use "siglas" and "simbolos" environments
+      . minor changes
+    abntex2-modelo-projeto-pesquisa.tex  
+      . changed to use "siglas" and "simbolos" environments
+      . minor changes
     abntex2-modelo-artigo.tex:
       . added simple spacing as a default option
+      . minor changes
     abntex2-alf.bst and abntex2-num.bst:
       . fix iso-690-1987 option: year was placed twice
     abntex2cite.sty:
@@ -49,6 +60,7 @@ CHANGE HISTORY
     abntex2.tex:
       . added section about hyphenation
       . added ABNTEX NBR 6023 version 2002 compatibility information and information
+      . added explanations about "siglas" and "simbolos" environments
         about the work in progress of updating manuals.
       . fix error about \partanexos* information (it was \partname*)
       . removed \vspace*{1cm} on beginning of cover and titles pages

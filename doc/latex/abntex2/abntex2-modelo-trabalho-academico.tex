@@ -50,7 +50,6 @@
 \usepackage{hyperref}  			% Controla a formação do índice
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{nomencl} 			% Lista de simbolos
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 % ---
@@ -88,6 +87,7 @@
 	\fi}%
 % ---
 
+
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
@@ -109,9 +109,6 @@
 \preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
 as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
-
-
-
 
 
 % ---
@@ -148,23 +145,10 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
-% Controles do espaçamento entre linhas:
-%\OnehalfSpacing	% espaçamento um e meio (padrão); 
-%\DoubleSpacing		% espaçamento duplo
-%\SingleSpacing		% espaçamento simples	
-% --- 
-	
-
 % ---
 % compila o indice
 % ---
 \makeindex
-% ---
-
-% ---
-% Compila a lista de abreviaturas e siglas
-% ---
-\makenomenclature
 % ---
 
 % ----
@@ -444,26 +428,24 @@ contribuirão para a evolução do \abnTeX.
 
 % ---
 % inserir lista de abreviaturas e siglas
-% A lista de Abreviaturas e Siglas pode ser facilmente montada com o pacote 
-% nomencl. Abaixo segue um exemplo.
 % ---
-\nomenclature{Fig.}{Figura}
-\nomenclature{$A_i$}{Area of the $i^{th}$ component} 
-\nomenclature{456}{Isto é um número}
-\nomenclature{123}{Isto é outro número}
-\nomenclature{a}{primeira letra do alfabeto}
-\nomenclature{lauro}{este é meu nome} 
-
-\renewcommand{\nomname}{Lista de abreviaturas e siglas}
-\pdfbookmark[0]{\nomname}{las}
-\printnomenclature
-\cleardoublepage
+\begin{siglas}
+  \item[Fig.] Area of the $i^{th}$ component
+  \item[456] Isto é um número
+  \item[123] Isto é outro número
+  \item[lauro cesar] este é o meu nome
+\end{siglas}
 % ---
 
 % ---
 % inserir lista de símbolos
 % ---
-% O abnTeX2 não provê mecanismo para lista de símbolos.
+\begin{simbolos}
+  \item[$ \Gamma $] Letra grega Gama
+  \item[$ \Lambda $] Lambda
+  \item[$ \zeta $] Letra grega minúscula zeta
+  \item[$ \in $] Pertence
+\end{simbolos}
 % ---
 
 % ---
@@ -679,8 +661,6 @@ parturient montes nascetur ridiculus mus}
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
 
-% \cleardoublepage
-% \phantomsection 
 \printindex
 
 \end{document}
