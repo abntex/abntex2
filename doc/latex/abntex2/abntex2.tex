@@ -1535,8 +1535,11 @@ seção 4.2.1.11 e pode ser criada com o ambiente |siglas|:
   \end{siglas}
 \end{verbatim} 
 
+\DescribeMacro{\listadesiglasname}
+A macro |\listadesiglasname| contém o nome da lista de abreviaturas e siglas. 
+
 \DescribeMacro{\printnomenclature}
-Opcionalmente é possível usar o pacote
+Opcionalmente, é possível usar o pacote
 \textsf{nomencl}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/nomencl/}},
 que oferece recursos adicionais na composição de lista de siglas, símbolos e até
 glossários. Com esse pacote crie a lista de abreviaturas e siglas
@@ -1565,9 +1568,6 @@ No corpo do documento:
    \printnomenclature
    \cleardoublepage
 \end{verbatim}
-
-\DescribeMacro{\listadesiglasname}
-A macro |\listadesiglasname| contém o nome da lista de abreviaturas e siglas. 
 
 Para usar o pacote \textsf{nomencl}, é necessário compilar o documento \LaTeX\
 com \textsf{makeindex}:
