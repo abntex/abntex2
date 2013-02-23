@@ -17,7 +17,10 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
-%% 2013.6.18 09h38	laurocesar
+%% 2013.2.23 11h24	laurocesar
+%%  Altera o estilo dos cabeçalhos dos artigos para \pagestyle{plain}
+%%
+%% 2013.2.18 09h38	laurocesar
 %%  Adiciona \bookmarksetup{startatroot} á \textual e \postextual
 %%
 %% 2013.2.6 22h41	laurocesar
@@ -400,8 +403,12 @@
 % ---
 % Configura layout para elementos textuais
 \newcommand{\textual}{%
-  \pagestyle{abntheadings}%
-  \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+  \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+    \pagestyle{plain}%
+  }{%else  
+    \pagestyle{abntheadings}%
+    \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+  }  
   \nouppercaseheads%
   \bookmarksetup{startatroot}% 
 }
