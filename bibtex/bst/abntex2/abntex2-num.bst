@@ -1735,7 +1735,9 @@ FUNCTION {booklet}
   format.edition output new.sentence
   address "address" bibinfo.check output
   format.bvolume output
-  format.date output  new.sentence
+  %format.date output  new.sentence
+  iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
+                 {format.year output} if$
   format.book.pages output new.sentence
   format.volume.number.series output new.sentence
   format.note output
@@ -1818,7 +1820,9 @@ FUNCTION {journalpart}
   format.publisher.address output
   format.volume output
   format.number output
-  format.date output new.sentence
+  %format.date output new.sentence
+  iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
+                 {format.year output} if$
   format.book.pages output
   format.illustrated
   format.dimensions  new.sentence
@@ -1837,7 +1841,9 @@ FUNCTION {manual}
   format.furtherresp new.sentence
   format.edition output new.sentence
   format.address output
-  format.date output new.sentence
+  %format.date output new.sentence
+  iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
+                 {format.year output} if$
   format.bvolume.if.no.series output
   format.book.pages output new.sentence
   format.volume.number.series output new.sentence
@@ -1854,7 +1860,9 @@ FUNCTION {misc}
   format.btitle output new.sentence
   format.furtherresp new.sentence
   format.publisher.address.relax output
-  format.date output  new.block
+  %format.date output  new.block
+  iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
+                 {format.year output} if$
   format.book.pages output new.sentence
   format.illustrated
   format.dimensions  new.sentence
@@ -1873,7 +1881,9 @@ FUNCTION {patent}
   format.authors.plain  output new.sentence
   format.btitle output new.sentence
   format.furtherresp new.sentence
-  format.date output  new.block
+  %format.date output  new.block
+  iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
+                 {format.year output} if$
   format.patent.number output
   format.howpublished output  new.block
   format.note output  new.block
@@ -1969,7 +1979,9 @@ FUNCTION {unpublished}
   iso.year.label
   format.title "title" output.check  new.sentence
   format.note "note" output.check  new.sentence
-  format.date output new.sentence
+  %format.date output new.sentence
+  iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
+                 {format.year output} if$
   format.url
   fin.entry
 }
