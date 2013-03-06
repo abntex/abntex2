@@ -25,6 +25,10 @@
 %%
 %% Revision history:
 %%
+%% 2013/02/28 caduarte7@gmail.com 
+%%  Complete Fix iso-690-1987 option: year was placed for 
+%%  twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished
+%%
 %% 2013/02/21 21h52 caduarte7@gmail.com (revision by laurocesar)
 %%  Fix iso-690-1987 option: year was placed twice
 %%

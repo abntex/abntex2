@@ -29,6 +29,13 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2013/xx/xx - v1.5.1
+   . Complete Fix iso-690-1987 option: year was placed for 
+     twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished
+   . Removed unnecessary package "makeidx" and "hyperref" from all examples
+   . Removed unnecessary package "lastpage" from:
+      abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
+    
   2013/02/23 - v1.5
     abntex2.cls:
       . added \bookmarksetup{startatroot} in \textual and \postextual
