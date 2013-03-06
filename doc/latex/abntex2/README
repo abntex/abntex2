@@ -35,6 +35,7 @@ CHANGE HISTORY
    . Removed unnecessary package "makeidx" and "hyperref" from all examples
    . Removed unnecessary package "lastpage" from:
       abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
+   . abntex2-modelo-include.tex: added how you can contribute to the abnTeX2  
     
   2013/02/23 - v1.5
     abntex2.cls:
