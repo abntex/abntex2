@@ -116,6 +116,19 @@
   \renewcommand{\listtablename}{Lista de tabelas}
 }
 % ---   
+% Codificação utf8, fontes T1, uso do pacote fontspec para seleção de fontes em xelatex.
+
+\usepackage{ifxetex}
+\ifxetex
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures={TeX}}
+
+\else
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\fi
+
+
 
 % ---
 % Controla as referências internas do PDF
