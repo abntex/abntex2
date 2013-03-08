@@ -1,4 +1,3 @@
-
                             abnTeX2  
                 Type­set technical and scientific 
              Brazilian documents based on ABNT rules
@@ -35,7 +34,11 @@ CHANGE HISTORY
    . Removed unnecessary package "makeidx" and "hyperref" from all examples
    . Removed unnecessary package "lastpage" from:
       abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
-   . abntex2-modelo-include.tex: added how you can contribute to the abnTeX2  
+   . abntex2-modelo-include.tex: added how you can contribute to the abnTeX2
+   . Added packages inputenc and fontenc to abntex2.cls
+   . Removed packages inputenc and fontenc from: 
+   abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico, 
+   abntex2-modelo-trabalho-academico and abntex2-modelo-artigo
     
   2013/02/23 - v1.5
     abntex2.cls:
