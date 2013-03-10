@@ -29,16 +29,16 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.5.1
-   . Complete Fix iso-690-1987 option: year was placed for 
-     twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished
-   . Removed unnecessary package "makeidx" and "hyperref" from all examples
-   . Removed unnecessary package "lastpage" from:
-      abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
-   . abntex2-modelo-include.tex: added how you can contribute to the abnTeX2
-   . Added packages inputenc and fontenc to abntex2.cls
-   . Removed packages inputenc and fontenc from: 
-   abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico, 
-   abntex2-modelo-trabalho-academico and abntex2-modelo-artigo
+   . added packages inputenc, fontenc and xelatex macros to abntex2.cls;
+   . removed packages inputenc and fontenc and unnecessary packages makeidx and hyperref from all examples; 
+   . removed unnecessary package "lastpage" from:
+     abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
+   . added xelatex and inputenc and fontenc information on abntex2.tex class manual; 
+   . added how you can contribute to the abnTeX2 on abntex2-modelo-include.tex
+   . complete fix iso-690-1987 option: year was placed for 
+     twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished on abntex2cite.sty
+   . fix creation of macros \su@ExpandTwoArgs, \IfSubStringInString and \su@IfSubStringInString 
+     imported from substr.sty on abntex2cite.sty
     
   2013/02/23 - v1.5
     abntex2.cls:

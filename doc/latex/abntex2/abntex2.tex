@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.3.10 10h36	laurocesar
+%%  Adiciona informações sobre pacotes inputenc e fontenc incorporados por
+%% padrão quando xelatex não é usado.
+%%
 %% 2013.2.23 13h48	laurocesar
 %%  Adiciona lista de siglas e abreviaturas e lista de símbolos
 %%
@@ -458,11 +462,27 @@ de artigo científico elaborado com a classe \textsf{abntex2}.
 
 % ---
 \subsection{Codificação dos arquivos: UTF8}
+\label{sec-utf8}
 % ---
 
 A codificação de todos os arquivos do \abnTeX2 é \texttt{UTF8}. É necessário que
 você utilize a mesma codificação nos documentos que escrever, inclusive nos
 arquivos de base bibliográficas |.bib|.
+
+A classe \textsf{abntex2.cls} incorpora automaticamente os pacotes
+\textsf{inputenc}\footnote{O pacote \textsf{inputenc} é usado para que seja
+possível escrever textos acentuados em determinado padrão de codificação. No
+caso, \abnTeX2 utiliza a codificação UTF8. Consulte detalhes do pacote em
+\url{http://www.ctan.org/pkg/inputenc}. } (com a opção |[utf8]{inputenc}|) e
+\textsf{fontenc}\footnote{O pacote \textsf{fontenc} controla a codificação das
+fontes usadas para impressão do documento. Consulte detalhes do pacote em
+\url{http://www.ctan.org/pkg/fontenc}.} (com a opção |[T1]{fontenc}|) sempre que
+|xetex| ou |xelatex| não são usados para compilar o documento, ou seja, os
+pacotes são incorporados automaticamente quando se utiliza |pdflatex|, por
+exemplo. Isso significa que você não precisa incorporar os pacotes nos seus
+modelos, uma vez que já são incluídos automaticamente.
+
+Veja detalhes sobre fontes com Xe\LaTeX\ na \autoref{sec-xelatex}. 
 
 % ---
 \subsection{A classe \textsf{abntex} como extensão de \textsf{memoir}}
@@ -795,6 +815,7 @@ Century\ldots}.
 % No caso, \texttt{times} é o pacote da fonte (Times, igual à Times New Roman). 
 
 \subsubsection{Fontes com Xe\LaTeX}
+\label{sec-xelatex}
 
 Para utilizar as fontes de tipo \textsf{.ttf} ou \textsf{.otf} --- como as
 presentes em seu sistema operacional ou utilizadas por outros programas ---, o
@@ -806,6 +827,11 @@ fontes tipográficas modernas, como OpenType e AAT (Apple Advanced Typography).
 A classe \textsf{abntex2} implementa opções para Xe\LaTeX{} por meio dos pacotes
 \textsf{fontspec}\footnote{\url{http://ctan.org/pkg/fontspec}} e
 \textsf{polyglossia}\footnote{\url{http://ctan.org/pkg/polyglossia}}. 
+
+Sempre que um documento construído com a classe \textsf{abntex2} é compilado com
+\texttt{xelatex}, os pacotes \textsf{inputenc} e \textsf{fontenc} não são
+incluídos automaticamente. Veja a \autoref{sec-utf8} para outras informações a
+respeito da codificação padrão dos documentos.
 
 Para fonte serifada, sem serifa (geralmente usada para títulos) e monoespaçada,
 respectivamente:

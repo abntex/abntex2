@@ -21,12 +21,20 @@
 %%
 %% Revision history:
 %%
+%% 2013/03/08 07h00 laurocesar
+%%  Corrige criaçao das macros \su@ExpandTwoArgs, \IfSubStringInString e \su@IfSubStringInString 
+%%  importados de substr.sty: apenas criá-las se já não existirem 
+%%
 %% 2013/01/31 08h20	laurocesar
 %%  Corrige uso de \singlespacing para evitar incompatibilidade com beamer.
 %%
 %% 2013/01/14 22h46	laurocesar
 %%  Add \SingleSpacing before and \OnehalfSpacing after \bibliography command or
 %%  \singlespacing and \onehalfspacing from setspace.sty if memoir is not loaded 
+%%
+%% 2013/01/05 14h35 laurocesar
+%% Corrige uma incompatibilidade com o Beamer: adiciona a verificação da 
+%% existência da length \bibindent antes de usá-la.
 %%
 %% 2012/12/13 22h31 laurocesar
 %% Fork of the version v 1.26 2003/10/13 09:40:41 gweber created by gweber
@@ -35,11 +43,6 @@
 %% Changed referentes of abnt-options.bib to abntex2-options.bib
 %% 
 %% The original revision history is the following:
-%%
-%%
-%% 2013/01/05 14h35 laurocesar
-%% Corrige uma incompatibilidade com o Beamer: adiciona a verificação da 
-%% existência da length \bibindent antes de usá-la.
 %%
 %% 2012/04/26 20h20 	laurocesar
 %% Incluída as contribuições de compatibilização com o pacote backref de
@@ -191,31 +194,37 @@
 
 % expands the first and second argument with
 % \protected@edef and calls #3 with them:
-\newcommand{\su@ExpandTwoArgs}[3]{%
-  \protected@edef\su@SubString{#1}%
-  \protected@edef\su@String{#2}%
-  \expandafter\expandafter\expandafter#3%
-  \expandafter\expandafter\expandafter{%
-    \expandafter\su@SubString\expandafter
-  }\expandafter{\su@String}%
-}
+\ifx \su@ExpandTwoArgs\undefined 
+   \newcommand{\su@ExpandTwoArgs}[3]{%
+     \protected@edef\su@SubString{#1}%
+     \protected@edef\su@String{#2}%
+     \expandafter\expandafter\expandafter#3%
+     \expandafter\expandafter\expandafter{%
+       \expandafter\su@SubString\expandafter
+     }\expandafter{\su@String}%
+   }
+\fi   
 %%
 %% tests if #1 in #2. If yes execute #3, else #4
-\newcommand*{\IfSubStringInString}[2]{%
-  \su@ExpandTwoArgs{#1}{#2}\su@IfSubStringInString
-}
+\ifx \IfSubStringInString\undefined 
+  \newcommand*{\IfSubStringInString}[2]{%
+     \su@ExpandTwoArgs{#1}{#2}\su@IfSubStringInString
+  }
+\fi
 %%
-\newcommand*{\su@IfSubStringInString}[2]{%
-  \def\su@compare##1#1##2\@nil{%
-    \def\su@param{##2}%
-    \ifx\su@param\@empty
-      \expandafter\@secondoftwo
-    \else
-      \expandafter\@firstoftwo
-    \fi
-  }%
-  \su@compare#2#1\@nil
-}
+\ifx \su@IfSubStringInString\undefined 
+   \newcommand*{\su@IfSubStringInString}[2]{%
+     \def\su@compare##1#1##2\@nil{%
+       \def\su@param{##2}%
+       \ifx\su@param\@empty
+         \expandafter\@secondoftwo
+       \else
+         \expandafter\@firstoftwo
+       \fi
+     }%
+     \su@compare#2#1\@nil
+   }
+\fi
 
 %----------------------------------------------------------------
 
