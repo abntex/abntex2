@@ -17,6 +17,13 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.3.10 10h15	laurocesar
+%%  Altera usepackage por RequirePackage na seleção de fontes em xelatex.
+%%
+%% 2013.3.8 12h29	ycherem
+%%  Inclui codificação utf8, fontes T1, uso do pacote fontspec para seleção de
+%%  fontes em xelatex.
+%%
 %% 2013.2.23 11h24	laurocesar
 %%  Altera o estilo dos cabeçalhos dos artigos para \pagestyle{plain}
 %%  Adiciona lista de siglas e abreviaturas e lista de símbolos 
@@ -115,20 +122,19 @@
   \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
   \renewcommand{\listtablename}{Lista de tabelas}
 }
+
 % ---   
 % Codificação utf8, fontes T1, uso do pacote fontspec para seleção de fontes em xelatex.
-
+% ---   
 \usepackage{ifxetex}
 \ifxetex
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures={TeX}}
-
+  \RequirePackage{fontspec}
+  \defaultfontfeatures{Ligatures={TeX}}
 \else
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage[T1]{fontenc}
 \fi
-
-
+% ---   
 
 % ---
 % Controla as referências internas do PDF
