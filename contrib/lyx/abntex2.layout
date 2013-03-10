@@ -1,0 +1,371 @@
+#% Não apague a linha abaixo. a configuração depende disto
+#  \DeclareLaTeXClass[abntex2]{abntex2}
+
+#############################################
+# Definição da classe padrão abntex2
+# Autor: Silvio Cesar Garcia Granja <sggranja@gmail.com>
+#
+# Versão: Alpha 0.1 r 1
+# Última revisão em 28/02/2013
+#
+#
+#############################################
+
+###############################
+# Parametros globais da classe
+# Original ao memoir.layout
+###############################
+
+Format 35
+Columns            1
+Sides              2
+SecNumDepth        1
+TocDepth           1
+DefaultStyle       Standard
+PageStyle          Headings
+Provides makeidx   1
+Provides framed    1
+Provides subscript 1
+# Memoir has support for line spacing, but uses different names from
+# what setspace.sty does.  
+Provides SetSpace  1
+
+
+ClassOptions
+	FontSize             9|10|11|12|14|17
+	PageStyle            empty|plain|headings|myheadings|ruled|Ruled|companion
+	Other                oldfontcommands
+End
+
+DefaultFont
+  Family		Roman
+  Series		Medium
+  Shape			Up
+  Size			Normal
+  Color			None
+EndFont
+
+Style Standard
+	Margin                Static
+	LatexType             Paragraph
+	LatexName             dummy
+	ParIndent             MM
+	ParSkip               0.4
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	LabelType             No_Label
+End
+
+#####################################
+# Elementos comuns a layouts do LyX
+#####################################
+
+Input stdclass.inc
+Input numreport.inc
+
+NoStyle Title
+NoStyle Date
+NoStyle Author
+NoStyle Address
+NoStyle Right_Address
+
+
+
+####################################
+# Espacamentos
+####################################
+
+Style Espaco_Simples
+	Category	ABNTEspacos
+	LatexType	Environment
+	LatexName	SingleSpace
+	Spacing		single
+	ParSkip		1
+	ParSep		1.2
+	BottomSep	1.3
+End
+
+Style Espaco_1_1/2
+	Category	ABNTEspacos
+	LatexType	Environment
+	LatexName	OnehalfSpace
+	Spacing		onehalf
+	ParSkip		1.35
+	ParSep		1.2
+	BottomSep	1.3
+End
+
+Style Espaco_Duplo
+	Category	ABNTEspacos
+	LatexType	Environment
+	LatexName	DoubleSpace
+	Spacing		double
+	ParSkip		1.7
+	ParSep		1.2
+	BottomSep	1.3
+End
+
+#########################################
+# Citacoes
+#########################################
+
+Style Citacao
+	Category	ABNTCitacao
+	LatexType	Environment
+	LatexName	citacao
+#	LeftMargin	MMMMMMMMMMMMMMM
+	Align		Right
+	AlignPossible	Block, Right
+	BottomSep	2
+	TopSep		2
+	Font
+		Size	Small
+	EndFont
+End
+
+
+###################################################
+# Comandos pré-textuais
+###################################################
+
+Style Titulo
+	Category	ABNTPreTextual
+	LatexType	Command
+	LatexName	titulo
+	Margin		Dynamic
+	Font
+		Series	Bold
+		Size	Large
+	EndFont
+	Align		Center
+	AlignPossible	Center
+	BottomSep	1.4
+End
+
+Style Autor
+	Category	ABNTPreTextual
+	LatexType	Command
+	LatexName	autor
+	Margin		Static
+	Font
+		Series	Bold
+		# Color	Blue
+	EndFont
+	Align		Left
+	AlignPossible	Left
+	BottomSep	1.4
+	LabelType	Top_Environment
+	LabelString	"Autor :"
+End
+
+Style Orientador
+	Category	ABNTPreTextual
+LatexType	Command
+	LatexName	orientador
+	Margin		Static
+	Font
+		Series	Bold
+	EndFont
+	Align		Left
+	AlignPossible	Left
+	BottomSep	1.4
+	LabelType	Top_Environment
+	LabelString	"Orientador :"
+	LabelBottomSep   0.3
+	LabelFont
+		Series	Bold
+	EndFont
+End
+
+
+Style Orientadora
+	Category	ABNTPreTextual
+	CopyStyle	Orientador
+	LatexParam	[Orientadora]
+	LabelString	"Orientadora :"
+End
+
+Style Orientadores
+	Category	ABNTPreTextual
+	CopyStyle	Orientador
+	LatexParam	[Orientadores]
+	LabelString	"Orientadores :"
+End
+
+Style Co-Orientador
+	Category	ABNTPreTextual
+	CopyStyle	Orientador
+	LatexName	coorientador
+	LabelString	"Co-orientador :"
+End
+
+Style Co-Orientadora
+	Category	ABNTPreTextual
+	CopyStyle	Co-Orientador
+	LatexParam	[Co-Orientadora]
+	LabelString	"Co-orientadora :"
+End
+
+Style Co-Orientadores
+	Category	ABNTPreTextual
+	CopyStyle	Co-Orientador
+	LatexParam	[Co-Orientadores]
+	LabelString	"Co-orientadores :"
+End
+
+Style Tipo-trabalho
+	Category	ABNTPreTextual
+	CopyStyle	Co-Orientador
+	LatexName	tipotrabalho
+	LabelString	"Tipo de Trabalho :"
+End
+
+Style Preambulo
+	Category	ABNTPreTextual
+	LatexType	Command
+	LatexName	preambulo
+	Margin		Dynamic
+	LeftMargin	MMM
+	RightMargin	MMM
+	#Align		Block
+	#AlignPossible	Block
+   Align		Right
+	AlignPossible	RightLeft
+   BottomSep	1.4
+	LabelString	"Preambulo :"
+	LabelType	Centered_Top_Environment
+	Font
+		Size	Small
+		#Color	Red
+	EndFont
+End
+
+Style Instituicao
+	Category	ABNTPreTextual
+	LatexType	Command
+	LatexName	instituicao
+	Align		Left
+	AlignPossible	Left
+	Font
+		Series	Bold
+	EndFont
+	BottomSep	1.4
+	LabelString	"Instituicao :"
+	LabelType	Top_Environment
+End
+
+Style Local
+	Category	ABNTPreTextual
+	LatexType	Command
+	LatexName	local
+	Align		Center
+	AlignPossible	Center
+	Font
+		Series	Bold
+	EndFont
+	BottomSep	1.4
+	LabelString	"Local :"
+	LabelType	Top_Environment
+End
+
+Style Data
+	Category	ABNTPreTextual
+	LatexType	Command
+	LatexName	data
+	Align		Center
+	AlignPossible	Center
+	Font
+		Series	Bold
+	EndFont
+	BottomSep	1.4
+	LabelString	"Data :"
+	LabelType	Top_Environment
+End
+
+Style Folha_de_Aprovacao
+	Category	ABNTPreTextual
+	LatexType	Environment
+	LatexName	folhadeaprovacao
+End
+
+Style Assinatura
+	Category	ABNTPreTextual
+	LatexType	Command
+	LatexName	assinatura*
+	Margin		Static
+	Align		Center
+	AlignPossible	Left, Center
+	LabelFont
+		Series	Bold
+	EndFont
+	LabelString	"Assinatura : "
+	LabelType	Static
+End
+
+Style Capitulo_Pre-Textual
+	Category	ABNTPreTextual
+	Margin		Dynamic
+	LatexType	Command
+	LatexName	pretextualchapter
+	NeedProtect	1
+	NextNoIndent	0
+	LabelSep	xxx
+	ParSkip		0.4
+	TopSep		1.3
+	BottomSep	0.7
+	ParSep		0.7
+	Align		Block
+	AlignPossible	Block, Left
+	LabelType	Static
+	LabelString	"Pré-textual capítulo: "
+
+	LabelFont
+		Series	Bold
+	EndFont
+End
+
+
+#####################################################
+# Resumo e Abstract
+#####################################################
+
+Style Resumo
+	CopyStyle	Abstract
+	LabelString	"Resumo"
+	LatexName	"resumo"
+End
+
+#####################################################
+# Alineas, Subalineas, Incisos, siglas, simbolos
+#####################################################
+Style Alineas
+	CopyStyle	Enumerate
+	LabelString	"alineas"
+	LatexName	"alineas"
+End
+
+Style Subalineas
+	CopyStyle	Enumerate
+	LabelString	"subalineas"
+	LatexName	"subalineas"
+End
+
+Style Incisos
+	CopyStyle	Enumerate
+	LabelString	"incisos"
+	LatexName	"incisos"
+End
+
+Style Siglas
+	CopyStyle	Itemize
+	LabelString	"siglas"
+	LatexName	"siglas"
+End
+
+Style Simbolos
+	CopyStyle	Itemize
+	LabelString	"simbolos"
+	LatexName	"simbolos"
+End
+
+
