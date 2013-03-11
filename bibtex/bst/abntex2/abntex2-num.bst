@@ -2203,7 +2203,7 @@ FUNCTION {end.bib}
 EXECUTE {end.bib}
 FUNCTION {apresentacao}
 { "+---------------------------------------------------------+"
-  "| http://abntex.codigolivre.org.br                        |"
+  "| http://abntex2.googlecode.com                           |"
   "| Em caso de dúvidas ou problemas com este estilo procure |"
   abnt.alf
  {"| Estilo bibliográfico abnt-alf.bst versão " abnt.bst.revision * "          |" *}
