@@ -29,6 +29,7 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.5.1
+   . added new example: glossary with abnTeX2
    . added packages inputenc, fontenc and xelatex macros to abntex2.cls;
    . removed packages inputenc and fontenc and unnecessary packages makeidx and hyperref from all examples; 
    . removed unnecessary package "lastpage" from:

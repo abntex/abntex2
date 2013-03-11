@@ -16,12 +16,13 @@ ZIP_CTAN=target/abntex2.zip
 # compile LaTeX
 # $1 main latex file without extension
 function compileLaTeX(){
-	pdflatex -interaction=nonstopmode $1.tex
-	bibtex $1.aux
+	pdflatex -interaction=nonstopmode $1
+	bibtex $1
 	makeindex $1.idx 
 	makeindex $1.nlo -s nomencl.ist -o $1.nls
-	pdflatex -interaction=nonstopmode $1.tex
-	pdflatex -interaction=nonstopmode $1.tex
+    makeglossaries $1
+	pdflatex -interaction=nonstopmode $1
+	pdflatex -interaction=nonstopmode $1
 }
 
 # initialize directories
@@ -57,6 +58,9 @@ function buildPdf(){
 	
 	echo "Compiling abntex2-modelo-trabalho-academico"
 	compileLaTeX abntex2-modelo-trabalho-academico
+	
+	echo "Compiling abntex2-modelo-glossarios"
+	compileLaTeX abntex2-modelo-glossarios
 	
 	echo "Compiling abntex2-modelo-modelo-artigo"
 	compileLaTeX abntex2-modelo-artigo
