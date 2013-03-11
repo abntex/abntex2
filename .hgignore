@@ -37,3 +37,19 @@ syntax: regexp
 ^doc/latex/abntex2/abntex2abrev\.sty$
 syntax: regexp
 ^doc/latex/abntex2/abntex2-options\.bib$
+syntax: regexp
+\.glg$
+syntax: regexp
+\.gls$
+syntax: regexp
+\.ilg$
+syntax: regexp
+\.ind$
+syntax: regexp
+\.ist$
+syntax: regexp
+^doc/latex/abntex2/abntex2-modelo-glossarios\.pdf$
+syntax: regexp
+\.toc$
+syntax: regexp
+\.aux$
