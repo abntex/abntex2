@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.3.11 10h42	laurocesar
+%%  Inclui referências ao novo exemplo de glossários
+%%
 %% 2013.3.10 10h36	laurocesar
 %%  Adiciona informações sobre pacotes inputenc e fontenc incorporados por
 %% padrão quando xelatex não é usado.
@@ -181,8 +184,8 @@ Este manual faz parte da suíte \abnTeX2. Para referências ao pacote de citaç�
 \citeonline{abntex2cite-alf}.
 
 Exemplos de uso da classe descrita neste manual podem ser consultados em
-\citeonline{abntex2modelo,abntex2modelo-artigo,abntex2modelo-relatorio}. Os
-documentos indicados tratam-se de ``Modelos Canônicos'', ou seja, de modelos
+\citeonline{abntex2modelo,abntex2modelo-artigo,abntex2modelo-relatorio,abntex2modelo-glossario}.
+Os documentos indicados tratam-se de ``Modelos Canônicos'', ou seja, de modelos
 que não são específicos a nenhuma universidade ou instituição, mas que
 implementam exclusivamente os requisitos das normas da ABNT, Associação
 Brasileira de Normas Técnicas.
@@ -2106,11 +2109,10 @@ imprimir as referências:
 \subsection{Glossário (opcional)}\label{sec-glossarios}
 % ---
 
-O \abnTeX2 não traz uma implementação própria para o Glossário,
-elemento opcional estabelecido pela ABNT NBR 14724:2011. 
-
-Um dos motivos da não inclusão desse recurso é a existência de diversos pacotes
-que o fazem, cada um com uma característica diferente.
+O \abnTeX2 não traz uma implementação própria para o Glossário, elemento
+opcional estabelecido pela ABNT NBR 14724:2011. Um dos motivos da não inclusão
+desse recurso é a existência de diversos pacotes que o fazem, cada um com uma
+característica diferente.
 
 Como sugestão, consulte o pacote
 \textsf{glossaries}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/contrib/glossaries}},
@@ -2124,7 +2126,16 @@ e também um excelente
 artigo\footnote{\url{http://www.latex-community.org/know-how/456-glossary-without-makeindex}}
 que mostra como criar um pacote próprio de gerenciamento de glossários que não
 necessita de nenhum utilitário externo, uma vez que \textsf{glossaries} requer
-os aplicativos \textsf{makeindex} e \textsf{makeglossaries}.
+os aplicativos \textsf{makeindex} e \textsf{makeglossaries}, este último escrito
+e dependente do Perl\footnote{\url{http://www.perl.org/}}. Já o livro 
+``LaTeX''\footnote{\url{http://en.wikibooks.org/wiki/LaTeX/Glossary}} da
+WikiBooks possui um capítulo dedicado à construção de glossários com
+\textsf{glossaries}.
+
+Como exemplo de uso do pacote \textsf{glossaries}, a partir da versão 1.6 o
+\abnTeX2 inclui o documento ``Exemplo de uso de glossário com abnTeX2''
+\cite{abntex2modelo-glossario}, que pode ser usado como referência para criação
+desse elemento pós textual.
 
 % ---
 \subsection{Apêndices (opcional)}
