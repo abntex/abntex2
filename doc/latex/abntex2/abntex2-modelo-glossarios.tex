@@ -41,11 +41,16 @@
 % ---
 \usepackage{cmap}				% Mapear caracteres especiais no PDF
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\usepackage[subentrycounter,seeautonumberlist]{glossaries}% Glossario
+
+% ---
+% Pacotes glossaries
+% ---
+\usepackage[subentrycounter,seeautonumberlist]{glossaries}
 % ---
                
 % ---
@@ -53,7 +58,6 @@
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
- 
  
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -261,21 +265,27 @@ sobre inclusão de arquivos na \autoref{sec-include}.
 
 No decorrer do texto, use os termos do glossário como na frase:
 
-``Esta frase usa a palavra \gls{componente} e o plural de \glspl{filho}, ambas
+\begin{citacao}
+Esta frase usa a palavra \gls{componente} e o plural de \glspl{filho}, ambas
 definidas no glossário como filhas da entrada \gls{pai}. \Gls{equilibrio}
-exemplifica o uso de um termo no início da frase. \Gls{abntex2} é escrito em
-\gls{latex}.''
+exemplifica o uso de um termo no início da frase. O software \gls{abntex2} é
+escrito em \gls{latex}, que é definido no glossário como
+\emph{`\glsdesc*{latex}'}.
+\end{citacao}
+
 
 A frase acima foi produzida com:
 
 \begin{verbatim}
-``Esta frase usa a palavra \gls{componente} e o plural de \glspl{filho}, ambas
+Esta frase usa a palavra \gls{componente} e o plural de \glspl{filho}, ambas
 definidas no glossário como filhas da entrada \gls{pai}. \Gls{equilibrio}
-exemplifica o uso de um termo no início da frase. \Gls{abntex2} é escrito em
-\gls{latex}.''
+exemplifica o uso de um termo no início da frase. O software \gls{abntex2} é
+escrito em \gls{latex}, que é definido no glossário como
+\emph{`\glsdesc*{latex}'}.
 \end{verbatim}
 
-Opcionalmente, incorpore todas as palavras de uma única vez com o comando:
+Opcionalmente, incorpore todas as palavras do glossário de uma única vez ao
+documento com o comando:
 
 \begin{verbatim}
    \glsaddall

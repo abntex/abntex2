@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.3.12 08h04	laurocesar
+%%  Altera a posição da instituição na forma de rosto
+%%
 %% 2013.3.11 10h42	laurocesar
 %%  Inclui referências ao novo exemplo de glossários
 %%
@@ -472,7 +475,7 @@ A codificação de todos os arquivos do \abnTeX2 é \texttt{UTF8}. É necessári
 você utilize a mesma codificação nos documentos que escrever, inclusive nos
 arquivos de base bibliográficas |.bib|.
 
-A classe \textsf{abntex2.cls} incorpora automaticamente os pacotes
+No preâmbulo do seu documento você geralmente usará os pacotes
 \textsf{inputenc}\footnote{O pacote \textsf{inputenc} é usado para que seja
 possível escrever textos acentuados em determinado padrão de codificação. No
 caso, \abnTeX2 utiliza a codificação UTF8. Consulte detalhes do pacote em
@@ -481,9 +484,22 @@ caso, \abnTeX2 utiliza a codificação UTF8. Consulte detalhes do pacote em
 fontes usadas para impressão do documento. Consulte detalhes do pacote em
 \url{http://www.ctan.org/pkg/fontenc}.} (com a opção |[T1]{fontenc}|) sempre que
 |xetex| ou |xelatex| não são usados para compilar o documento, ou seja, os
-pacotes são incorporados automaticamente quando se utiliza |pdflatex|, por
-exemplo. Isso significa que você não precisa incorporar os pacotes nos seus
-modelos, uma vez que já são incluídos automaticamente.
+pacotes geralmente devem ser incorporados ao seu documento quando se utiliza
+|pdflatex|, por exemplo. Porém, a classe \textsf{abntex2} não incorpora os
+pacotes automaticamente.
+
+% A classe \textsf{abntex2.cls} incorpora automaticamente os pacotes
+% \textsf{inputenc}\footnote{O pacote \textsf{inputenc} é usado para que seja
+% possível escrever textos acentuados em determinado padrão de codificação. No
+% caso, \abnTeX2 utiliza a codificação UTF8. Consulte detalhes do pacote em
+% \url{http://www.ctan.org/pkg/inputenc}. } (com a opção |[utf8]{inputenc}|) e
+% \textsf{fontenc}\footnote{O pacote \textsf{fontenc} controla a codificação das
+% fontes usadas para impressão do documento. Consulte detalhes do pacote em
+% \url{http://www.ctan.org/pkg/fontenc}.} (com a opção |[T1]{fontenc}|) sempre que
+% |xetex| ou |xelatex| não são usados para compilar o documento, ou seja, os
+% pacotes são incorporados automaticamente quando se utiliza |pdflatex|, por
+% exemplo. Isso significa que você não precisa incorporar os pacotes nos seus
+% modelos, uma vez que já são incluídos automaticamente.
 
 Veja detalhes sobre fontes com Xe\LaTeX\ na \autoref{sec-xelatex}. 
 
@@ -822,7 +838,7 @@ Century\ldots}.
 
 Para utilizar as fontes de tipo \textsf{.ttf} ou \textsf{.otf} --- como as
 presentes em seu sistema operacional ou utilizadas por outros programas ---, o
-arquivo deve estar em codificação \textsf{utf8} e ser compilado com o comando
+arquivo deve estar em codificação \textsf{UTF8} e ser compilado com o comando
 \texttt{xelatex (nomedoarquivo.tex)}. Xe\TeX{} é um programa de diagramação
 derivado do \TeX{} que utiliza
 \href{http://pt.wikipedia.org/wiki/Unicode}{Unicode} e possibilita o emprego de
@@ -831,10 +847,29 @@ A classe \textsf{abntex2} implementa opções para Xe\LaTeX{} por meio dos pacot
 \textsf{fontspec}\footnote{\url{http://ctan.org/pkg/fontspec}} e
 \textsf{polyglossia}\footnote{\url{http://ctan.org/pkg/polyglossia}}. 
 
-Sempre que um documento construído com a classe \textsf{abntex2} é compilado com
-\texttt{xelatex}, os pacotes \textsf{inputenc} e \textsf{fontenc} não são
-incluídos automaticamente. Veja a \autoref{sec-utf8} para outras informações a
-respeito da codificação padrão dos documentos.
+Quando um documento é compilado com \texttt{xelatex}, os pacotes
+\textsf{inputenc} e \textsf{fontenc}, descritos na \autoref{sec-utf8},
+geralmente não devem ser incluídos ao preâmbulo do documento. Ao invés desses
+pacotes, geralmente \textsf{fontspec} é usado. O seguinte exemplo de preâmbulo
+torna flexível a compilação do documento, que pode tanto ser realizada da forma
+tradicional com \texttt{pdflatex} quanto com \texttt{xelatex}, uma vez que
+inclui seletivamente os pacotes adequados para cada compilador:
+
+\begin{verbatim}
+   \usepackage{ifxetex}
+   \ifxetex
+     \usepackage{fontspec}
+     \defaultfontfeatures{Ligatures={TeX}}
+   \else
+     \usepackage[utf8]{inputenc}
+     \usepackage[T1]{fontenc}
+   \fi
+\end{verbatim}
+
+% Sempre que um documento construído com a classe \textsf{abntex2} é compilado com
+% \texttt{xelatex}, os pacotes \textsf{inputenc} e \textsf{fontenc} não são
+% incluídos automaticamente. Veja a \autoref{sec-utf8} para outras informações a
+% respeito da codificação padrão dos documentos.
 
 Para fonte serifada, sem serifa (geralmente usada para títulos) e monoespaçada,
 respectivamente:
@@ -1134,13 +1169,13 @@ reescreva a macro |\folhaderostocontent|, conforme o exemplo:
        \vspace*{\fill}
     }%
 
+    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
     {\large\imprimirorientadorRotulo~\imprimirorientador\par}
     \abntex@ifnotempty{\imprimircoorientador}{%
        {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
     }%
     \vspace*{\fill}
-
-    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
 
     {\large\imprimirlocal}
     \par
