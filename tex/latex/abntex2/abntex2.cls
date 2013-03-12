@@ -17,23 +17,27 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.3.12 08h52	laurocesar
+%%  Revisa a classe, remove acentos dos comentarios e orientacoes especificas de
+%%  xelatex. Ajusta o espaçamento das notas de rodape.
+%%
 %% 2013.3.10 10h15	laurocesar
-%%  Altera usepackage por RequirePackage na seleção de fontes em xelatex.
+%%  Altera usepackage por RequirePackage na selecao de fontes em xelatex.
 %%
 %% 2013.3.8 12h29	ycherem
-%%  Inclui codificação utf8, fontes T1, uso do pacote fontspec para seleção de
+%%  Inclui codificacao utf8, fontes T1, uso do pacote fontspec para selecao de
 %%  fontes em xelatex.
 %%
 %% 2013.2.23 11h24	laurocesar
-%%  Altera o estilo dos cabeçalhos dos artigos para \pagestyle{plain}
-%%  Adiciona lista de siglas e abreviaturas e lista de símbolos 
+%%  Altera o estilo dos cabecalhos dos artigos para \pagestyle{plain}
+%%  Adiciona lista de siglas e abreviaturas e lista de simbolos 
 %%
 %% 2013.2.18 09h38	laurocesar
-%%  Adiciona \bookmarksetup{startatroot} á \textual e \postextual
+%%  Adiciona \bookmarksetup{startatroot} a \textual e \postextual
 %%
 %% 2013.2.6 22h41	laurocesar
-%%  Remove \vspace*{1cm} no início da capa e da folha de rosto: como a margem
-%% padrão é 3cm superior e 2cm inferior, colocar um espaço de mais 1cm superior
+%%  Remove \vspace*{1cm} no inicio da capa e da folha de rosto: como a margem
+%% padrao e 3cm superior e 2cm inferior, colocar um espaco de mais 1cm superior
 %% deixava o documento com aspecto ruim.
 %%
 %% 2013.2.3 22h10	laurocesar
@@ -45,47 +49,47 @@
 %%
 %% 2013.1.15 07h43	laurocesar
 %%  Altera \pretextualchapyer para que insira automaticamente a opção de alterar
-%%  o cabeçalho da página criada com \chapter*
+%%  o cabecalho da pagina criada com \chapter*
 %%
 %% 2013.1.13 09h23	laurocesar
 %%  Altera o ambiente citacao para que receba diferentes recuos no modo
 %%  twocolumn
 %%
 %% 2013.1.12 21h44	laurocesar
-%%  Corrige numeração contínua de seções quando não está no modo article
+%%  Corrige numeracao continua de seções quando nao esta no modo article
 %%
 %% 2013.1.9 14h24 laurocesar
 %%  Altera o nome \listtablename para ``Lista de tabelas'' (com t minusculo)
-%%  Altera a implementação do ambiente citacao
+%%  Altera a implementacao do ambiente citacao
 %%
 %% 2013.1.7 20h35 laurocesar
 %%  Uso da fonte de \ABNTEXfontereduzida em \caption, \legend e \footnote
-%%  Redefinição da implementaçao do ambiente resumo: agora ele usa abstract. 
-%%  Criação de \resumoname e do ambiente resumoumacoluna.
-%%  Tratamento especial dos capítulos e divisões pré-textuais no caso da option
+%%  Redefinicao da implementacao do ambiente resumo: agora ele usa abstract. 
+%%  Criacao de \resumoname e do ambiente resumoumacoluna.
+%%  Tratamento especial dos capitulos e divisoes pre-textuais no caso da option
 %% article estar habilitada.
-%%  Altera a metrica usada para calcular o espaçamento dos capítulos abnt de 
+%%  Altera a metrica usada para calcular o espacamento dos capitulos abnt de 
 %% \textwidth para \columnwidth.
 %%
 %% 2013.1.3 09h02 laurocesar
-%%  Correção do estilo de capítulo de \renewcommand{\beforechapskip}{0cm} para
+%%  Correção do estilo de capitulo de \renewcommand{\beforechapskip}{0cm} para
 %%  setlength{\beforechapskip}{0cm}
 %%  Inclusão de \title{} \author{} e \date{} nos equivalentes em portugues
 %%
 %% 2012.12.2 09h38 laurocesar
-%%  Criação do arquivo 
+%%  Criacao do arquivo 
 %%
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Declaração da classe abntex2 como uma extensão da classe report
+% Declaracao da classe abntex2 como uma extensao da classe memoir
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2013/02/01 v1.0 abnTeX2]
+\ProvidesClass{abntex2}[2013/04/01 v1.6 abnTeX2]
 
 %
-% Repassa todos os parâmetros à classe memoir, 
+% Repassa todos os parametros a classe memoir, 
 % mas captura as options article e twocolumn
 %
 \providecommand{\ABNTEXisarticle}{false}
@@ -107,13 +111,12 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Pacotes e customizações gerais do memoir
+% Pacotes e customizacoes gerais do memoir
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
-% Hifenação e caracteres especiais
-% português-brasil e inglês
+% Hifenizacao e caracteres especiais portugues-brasil por padrao
 % ---
 \RequirePackage[brazil]{babel}
 \addto\captionsbrazil{%
@@ -123,21 +126,8 @@
   \renewcommand{\listtablename}{Lista de tabelas}
 }
 
-% ---   
-% Codificação utf8, fontes T1, uso do pacote fontspec para seleção de fontes em xelatex.
-% ---   
-\usepackage{ifxetex}
-\ifxetex
-  \RequirePackage{fontspec}
-  \defaultfontfeatures{Ligatures={TeX}}
-\else
-  \RequirePackage[utf8]{inputenc}
-  \RequirePackage[T1]{fontenc}
-\fi
-% ---   
-
 % ---
-% Controla as referências internas do PDF
+% Controla as referencias internas do PDF
 \RequirePackage{hyperref}  			
 % ---
 
@@ -171,14 +161,14 @@
 % ---
 
 % ---
-% Espaçamento entre linhas - NBR 14724/2011 - 5.2 Espaçamento
+% Espacamento entre linhas - NBR 14724/2011 - 5.2 Espacamento
 % ---
 \OnehalfSpacing
 % ---
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos públicos
+% Comandos publicos
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -214,7 +204,7 @@
 % ---
 
 % ---
-% Fontes padrões de part, chapter, section, subsection e subsubsection
+% Fontes padroes de part, chapter, section, subsection e subsubsection
 \newcommand{\ABNTEXchapterfont}{\sffamily}
 \newcommand{\ABNTEXchapterfontsize}{\Huge}
 
@@ -239,15 +229,17 @@
 
 % ---
 % Comando para registro do bookmark interno
+% ---
 \newcounter{abntex@bookmarkcounter}
 \setcounter{abntex@bookmarkcounter}{0}
 \newcommand{\PRIVATEbookmarkthis}[1]{%
   \addtocounter{abntex@bookmarkcounter}{1}%
   \phantomsection\pdfbookmark[0]{#1}{chapterb\arabic{abntex@bookmarkcounter}}
 }
+% ---
 
 % ---
-% Comando que cria capítulos não numerados já com bookmark anotado
+% Comando que cria capitulos nao numerados ja com bookmark anotado
 % ---
 \newcommand{\pretextualchapter}[1]{%
   \addtocounter{abntex@bookmarkcounter}{1}%
@@ -265,26 +257,26 @@
   \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
     %
   }{ % else
-    \cleardoublepage
+    \cleardoublepage%
   }
 }  
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Configurações de layout
+% Configuracoes de layout
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
-% Notas de rodapé - NBR 14724/2011 - 5.2.1 
+% Notas de rodape - NBR 14724/2011 - 5.2.1 
 \makeatletter
-\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.2cm\@makefnmark#1}
+\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.15cm\@makefnmark#1}
 \makeatother
 \renewcommand{\foottextfont}{\ABNTEXfontereduzida}
 % ---
 
 % ---
-% Numeração contínua das figuras
+% Numeracao continua das figuras
 \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
   \counterwithout{section}{chapter}
   \counterwithout{figure}{section}
@@ -303,13 +295,13 @@
 % ---
 
 % -----
-% Configurações do TOC
+% Configuracoes do TOC
 % -----
-% nível de profundidade
+% nivel de profundidade
 \setsecnumdepth{subsubsection}
 \settocdepth{subsubsection}   %\maxtocdepth{subsubsection}
 
-% lista de ilustrações
+% lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
 %\renewcommand{\cftfigureaftersnum}{\space--\space}
  
@@ -317,7 +309,7 @@
 \renewcommand{\cfttablename}{\tablename\space}
 %\renewcommand{\cfttableaftersnum}{\space--\space}
 
-% espaços à esqueda para comportar os números romanos das partes
+% espacos a esqueda para comportar os numeros romanos das partes
 \newcommand{\ABNTEXtocitemnumberhspace}{0.2cm}
 \addtolength\cftpartnumwidth{\ABNTEXtocitemnumberhspace}
 \addtolength\cftchapternumwidth{\ABNTEXtocitemnumberhspace}
@@ -325,12 +317,12 @@
 \addtolength\cftsubsectionindent{\ABNTEXtocitemnumberhspace}
 \addtolength\cftsubsubsectionindent{\ABNTEXtocitemnumberhspace}
 
-% fonte das partes e do captítulo do TOC
+% fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
 % -----
 
 % ---
-% Configuração dos títulos dos capítulos
+% Configuracao dos titulos dos capitulos
 % Novo estido do memoir 
 % ABNT NBR 14724-2011 - 5.2.2-5.2.4; ABNT NBR 6024-2003 - 3.1-3.8
 \provideboolean{abntex@innonumchapter}
@@ -395,21 +387,21 @@
 % ---
 
 % -----
-% Declarações de cabeçalhos 
+% Declaracoes de cabecalhos 
 % -----
-% Cabeçalho padrão
+% Cabecalho padrao
 \makepagestyle{abntheadings}
 \makeevenhead{abntheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit\leftmark}
 \makeoddhead{abntheadings}{\ABNTEXfontereduzida\textit\rightmark}{}{\ABNTEXfontereduzida\thepage}
 \makeheadrule{abntheadings}{\textwidth}{\normalrulethickness}
 
-% Cabeçalho do início do capítulo
+% Cabecalho do inicio do capitulo
 \makepagestyle{abntchapfirst}
 \makeoddhead{abntchapfirst}{}{}{\ABNTEXfontereduzida\thepage}
 % ---
 
 % ---
-% Configura layout para elementos pré-textuais
+% Configura layout para elementos pre-textuais
 \newcommand{\pretextual}{%
   \aliaspagestyle{chapter}{empty}% customizing chapter pagestyle
   \pagestyle{empty}
@@ -438,7 +430,7 @@
 % ---
 
 % ---
-% Configura layout para elementos pós-textuais
+% Configura layout para elementos pos-textuais
 \newcommand{\postextual}{%
  \bookmarksetup{startatroot}%
 }
@@ -451,11 +443,11 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
-% Comandos de dados - título do documento
+% Comandos de dados - titulo do documento
 \providecommand{\imprimirtitulo}{}
 \newcommand{\titulo}[1]{\title{#1}\renewcommand{\imprimirtitulo}{#1}}
 
-% Comandos de dados - autor (use \and para múltiplos autores)
+% Comandos de dados - autor (use \and para multiplos autores)
 \providecommand{\imprimirautor}{}
 \newcommand{\autor}[1]{\author{#1}\renewcommand{\imprimirautor}{#1}}
 
@@ -463,7 +455,7 @@
 \providecommand{\imprimirdata}{}
 \newcommand{\data}[1]{\date{#1}\renewcommand{\imprimirdata}{#1}\date{#1}}
 
-% Comandos de dados - instituição
+% Comandos de dados - instituicao
 \providecommand{\imprimirinstituicao}{}
 \newcommand{\instituicao}[1]{\renewcommand{\imprimirinstituicao}{#1}}
 
@@ -471,7 +463,7 @@
 \providecommand{\imprimirlocal}{}
 \newcommand{\local}[1]{\renewcommand{\imprimirlocal}{#1}}
 
-% Comandos de dados - preâmbulo
+% Comandos de dados - preambulo
 \providecommand{\imprimirpreambulo}{}
 \newcommand{\preambulo}[1]{\renewcommand{\imprimirpreambulo}{#1}}
 
@@ -495,18 +487,18 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos e ambientes de editoração PRÉ-TEXTUAIS
+% Comandos e ambientes de editoracao PRE-TEXTUAIS
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
-% Ambiente para definição da Capa
+% Ambiente para definicao da Capa
 \newenvironment{capa}{\begin{titlingpage}}{\end{titlingpage}\cleardoublepage}
 % ---
 
 % ---
-% Ficha catalográfica (Dados internacionais de
-% catalogação-na-publicação)
+% Ficha catalografica (Dados internacionais de
+% catalogação-na-publicacao)
 \newenvironment{fichacatalografica}{%
     \thispagestyle{empty}
     \begin{SingleSpacing}
@@ -524,7 +516,7 @@
 % ---
 
 % ---
-% Folha de aprovação - NBR 14724/2011 - 4.2.1.3
+% Folha de aprovacao - NBR 14724/2011 - 4.2.1.3
 \newenvironment{folhadeaprovacao}[1][\folhadeaprovacaoname]{%
    \clearpage%
    \PRIVATEbookmarkthis{#1}%
@@ -533,7 +525,7 @@
 % ---
 
 % ---
-% Dedicatória
+% Dedicatoria
 \newenvironment{dedicatoria}[1][]{%
    \ifthenelse{\equal{#1}{}}{%
     \PRIVATEbookmarkthis{\dedicatorianame}
@@ -588,7 +580,7 @@
 % ---
 
 % ---
-% Lista de símbolos
+% Lista de sembolos
 \newenvironment{simbolos}{%
   \pretextualchapter{\listadesimbolosname}
   \begin{symbols}
@@ -602,7 +594,7 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos e ambientes de editoração APENDICES e ANEXOS
+% Comandos e ambientes de editoracao APENDICES e ANEXOS
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -666,7 +658,7 @@
 % ---
 
 % ---
-% Imprime uma página de divisão no estilo parte
+% Imprime uma pagina de divisao no estilo parte
 \newcommand{\partpage}{%
   \cleardoublepage
   \phantomsection
@@ -685,7 +677,7 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Comandos e ambientes de editoração CITACAO, ALINEA, INCISO, ASSINATURA
+% Comandos e ambientes de editoracao CITACAO, ALINEA, INCISO, ASSINATURA
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -780,9 +772,9 @@
 % ---
 % Folha de rosto
 %   usar \imprimirfolhaderosto* casodeseje imprimir algo no verso da
-%   página no caso de estar no modo twoside. Útil para imprimir a Ficha
-%   Bibliográfica. Porém, se estiver no modo oneside, a versão sem estrela
-%   é idêntica.
+%   página no caso de estar no modo twoside. Util para imprimir a Ficha
+%   Bibliografica. Porem, se estiver no modo oneside, a versao sem estrela
+%   é identica.
 \newenvironment{folhaderosto}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\cleardoublepage}
 \newenvironment{folhaderosto*}[1][\folhaderostoname]{\clearpage\PRIVATEbookmarkthis{#1}}{\newpage}%
 
@@ -808,13 +800,13 @@
        \vspace*{\fill}
     }%
 
+    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
     {\large\imprimirorientadorRotulo~\imprimirorientador\par}
     \abntex@ifnotempty{\imprimircoorientador}{%
        {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
     }%
     \vspace*{\fill}
-
-    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
 
     {\large\imprimirlocal}
     \par
