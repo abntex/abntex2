@@ -18,6 +18,9 @@
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
+%% 2013/3/13 10h53	laurocesar
+%%  Adiciona seção ``Siglas e letras maiúsculas nos títulos das referências''
+%%
 %% 2013/2/23 16h00	laurocesar
 %%  Altera as informações de atualização do manual
 %%
@@ -567,6 +570,22 @@ acento & \textsf{bibtex}\\
 \end{tabular}
 \end{center}
 \end{table}
+
+\subsection{Siglas e letras maiúsculas nos títulos das referências}
+
+A norma ABNT NBR 6023:2002 não traz como opção imprimir os títulos das
+referências em letras maiúsculas. Porém, pode ser o caso que alguma referência
+tenha uma sigla que precisa necessariamente ficar em letras maiúsculas. Nesse
+caso, use a sigla entre chaves, como no exemplo:
+
+\begin{verbatim}
+   @ARTICLE{FerraoKaizoAll2001,
+   ...
+   title = {O {SAEB} - Sistema de Avaliação da Educação Básica: objetivos,
+   características e contribuições na investigação da escola eficaz},
+   ...
+   }
+\end{verbatim}
 
 
 \section{Utilização da citação por sistema autor-data {\tt [alf]}}
