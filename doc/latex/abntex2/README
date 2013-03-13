@@ -29,6 +29,9 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.6
+   . enhancements in footnotes: 
+     now there is a comma between sequential footnotes and 
+     more spacing between index and text; 
    . added new example: glossary with abnTeX2
    . removed unnecessary packages makeidx and hyperref from all examples; 
    . removed unnecessary package "lastpage" from:
