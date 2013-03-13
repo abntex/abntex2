@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.3.13 07h33	laurocesar
+%%  Aprimoramentos nas notas de rodapé propostas por gilsonolegario
+%%
 %% 2013.3.12 08h52	laurocesar
 %%  Revisa a classe, remove acentos dos comentarios e orientacoes especificas de
 %%  xelatex. Ajusta o espaçamento das notas de rodape.
@@ -270,9 +273,18 @@
 % ---
 % Notas de rodape - NBR 14724/2011 - 5.2.1 
 \makeatletter
-\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.15cm\@makefnmark#1}
+\renewcommand\@makefntext[1]{\hangindent=1.2em\leftskip=0.4em\hskip-0.4em\@makefnmark\hskip1.2em\relax#1}
+%\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.15cm\@makefnmark#1}
 \makeatother
 \renewcommand{\foottextfont}{\ABNTEXfontereduzida}
+
+% Virgula em footnote consecutiva
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+\renewcommand\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi}
 % ---
 
 % ---
