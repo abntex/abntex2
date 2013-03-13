@@ -44,6 +44,7 @@ CHANGE HISTORY
      imported from substr.sty on abntex2cite.sty
    . changed position of institutio's name at title page
    . fixed foot notes spacing  
+   . added enhancements to abntex2cite.tex and abntex2.tex about bibliographies 
     
   2013/02/23 - v1.5
     abntex2.cls:
