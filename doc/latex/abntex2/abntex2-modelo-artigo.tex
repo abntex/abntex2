@@ -96,21 +96,22 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 \definecolor{blue}{RGB}{41,5,195}
 
 % informações do PDF
+\makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\imprimirtitulo}, 
-		pdfauthor={\imprimirautor},
-    	pdfsubject={\imprimirpreambulo},
-		pdfkeywords={PALAVRAS}{CHAVES}{abnt}{abntex}{abntex2},
-	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
-	    pdfcreator={\imprimirautor},
-    	colorlinks=true,       		% false: boxed links; true: colored links
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de artigo científico com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
     	filecolor=magenta,      		% color of file links
 		urlcolor=blue,
 		bookmarksdepth=4
 }
+\makeatother
 % --- 
 
 % ---
