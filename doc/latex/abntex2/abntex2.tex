@@ -17,6 +17,11 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.3.17 11h42	laurocesar
+%%  Adiciona comentários sobre as macros \and e \\ na descrição da macro \autor.
+%%  Adiciona informação de que \titulo, \autor e \data são traduções de \title,
+%% \autor e \date.
+%%
 %% 2013.3.14 10h53	laurocesar
 %%  Revisa a seção Referências bibliográficas
 %%
@@ -925,8 +930,15 @@ para configurações do PDF final com a classe
 por exemplo. A \autoref{sec-dados_hyperref} ilustra um exemplo de configuração
 do pacote \textsf{hyperref}.
 
+As macros |\titulo|, |\autor|, |\data| e seus pares |\imprimirtitulo|,
+|\imprimirautor| e |\imprimirdata| (\autoref{sec-macro-titulo},
+\autoref{sec-macro-autor}, \autoref{sec-macro-data}) são meras traduções das
+macros padrões |\title|, |\author|, |\date|, |\thetitle|, |\theauthor| e
+|\thedate|, respectivamente. As traduções servem para abstrair o uso do
+\textsf{memoir} e para simplificar futuras adaptações para outras classes bases.
+
 % ---
-\subsubsection{Título}
+\subsubsection{Título}\label{sec-macro-titulo}
 % ---
 
 \DescribeMacro{\titulo}\DescribeMacro{\imprimirtitulo} 
@@ -936,7 +948,7 @@ Esta macro também executa a macro padrão |\title| com o mesmo conteúdo inform
 em |\titulo|.
 
 % ---
-\subsubsection{Autor}
+\subsubsection{Autor}\label{sec-macro-autor}
 % ---
 
 \DescribeMacro{\autor}\DescribeMacro{\imprimirautor} 
@@ -945,8 +957,16 @@ dos autores do trabalho. O conteúdo armazenado é impresso por meio da macro
 |\imprimirautor|. Esta macro também executa a macro padrão |\author| com o mesmo
 conteúdo informado em |\autor|.
 
+\DescribeMacro{\and} \DescribeMacro{\\}
+Para inserir múltiplos autores, use |\and| para que uma vírgula separe os
+autores no caso de a opção \texttt{article} não estar ativada, ou use |\\| para
+que uma quebra de linha seja inserida entre os autores.
+
+No caso de a opção \texttt{article} estar ativada, |\and| imprime um espaço
+adicional entre os nomes, de modo que fiquem visualmente em colunas separadas.
+
 % ---
-\subsubsection{Data}
+\subsubsection{Data}\label{sec-macro-data}
 % ---
 
 \DescribeMacro{\data}\DescribeMacro{\imprimirdata} 

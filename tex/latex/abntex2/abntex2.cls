@@ -17,6 +17,11 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.3.17 11h26	laurocesar
+%%  Altera a implementação de \titulo, \autor, \data e seus pares
+%%   \imprimirtitulo, \imprimirautor e \imprimirdata para serem meras traducoes
+%%  \title, \author, \date, \thetitle, \theauthor e \thedate, respectivamente.
+%%
 %% 2013.3.13 07h33	laurocesar
 %%  Aprimoramentos nas notas de rodapé propostas por gilsonolegario
 %%
@@ -131,7 +136,8 @@
 
 % ---
 % Controla as referencias internas do PDF
-\RequirePackage{hyperref}  			
+\RequirePackage{hyperref}
+\pdfstringdefDisableCommands{\def\\{, }\def\and{; }}
 % ---
 
 % ---
@@ -456,16 +462,16 @@
 % ------------------------------------------------------------------------
 
 % Comandos de dados - titulo do documento
-\providecommand{\imprimirtitulo}{}
-\newcommand{\titulo}[1]{\title{#1}\renewcommand{\imprimirtitulo}{#1}}
+\newcommand{\titulo}[1]{\title{#1}}
+\newcommand{\imprimirtitulo}{\thetitle}
 
 % Comandos de dados - autor (use \and para multiplos autores)
-\providecommand{\imprimirautor}{}
-\newcommand{\autor}[1]{\author{#1}\renewcommand{\imprimirautor}{#1}}
+\newcommand{\autor}[1]{\author{#1}}
+\newcommand{\imprimirautor}{\theauthor}
 
 % Comandos de dados - data
-\providecommand{\imprimirdata}{}
-\newcommand{\data}[1]{\date{#1}\renewcommand{\imprimirdata}{#1}\date{#1}}
+\newcommand{\data}[1]{\date{#1}}
+\newcommand{\imprimirdata}{\thedate}
 
 % Comandos de dados - instituicao
 \providecommand{\imprimirinstituicao}{}

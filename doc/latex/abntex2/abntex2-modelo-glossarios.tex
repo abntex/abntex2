@@ -89,21 +89,23 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \definecolor{blue}{RGB}{41,5,195}
  
 % informações do PDF
+\makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\imprimirtitulo}, 
-		pdfauthor={\imprimirautor},
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
-		pdfkeywords={PALAVRAS}{CHAVES}{abnt}{abntex}{abntex2},
-	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
-	    pdfcreator={\imprimirautor},
-    	colorlinks=true,       		% false: boxed links; true: colored links
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{glossários}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
     	filecolor=magenta,      		% color of file links
 		urlcolor=blue,
 		bookmarksdepth=4
 }
+\makeatother
+
 % ---
  
 % ---
