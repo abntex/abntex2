@@ -18,9 +18,11 @@
 %% This work consists of the file abntex2.cls.
 %%
 %% 2013.3.17 11h26	laurocesar
-%%  Altera a implementação de \titulo, \autor, \data e seus pares
+%%  Altera a implementacao de \titulo, \autor, \data e seus pares
 %%   \imprimirtitulo, \imprimirautor e \imprimirdata para serem meras traducoes
 %%  \title, \author, \date, \thetitle, \theauthor e \thedate, respectivamente.
+%%  Adiciona o comando \renewcommand*{\cftchapterdotsep}{\cftdotsep} para que os
+%% capitulos tambem tenham leaders.
 %%
 %% 2013.3.13 07h33	laurocesar
 %%  Aprimoramentos nas notas de rodapé propostas por gilsonolegario
@@ -337,6 +339,9 @@
 
 % fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
+
+% leaders para os capitulos
+\renewcommand*{\cftchapterdotsep}{\cftdotsep}
 % -----
 
 % ---

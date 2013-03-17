@@ -21,6 +21,7 @@
 %%  Adiciona comentários sobre as macros \and e \\ na descrição da macro \autor.
 %%  Adiciona informação de que \titulo, \autor e \data são traduções de \title,
 %% \autor e \date.
+%%  Revisa a seção referente ao \hypersetup
 %%
 %% 2013.3.14 10h53	laurocesar
 %%  Revisa a seção Referências bibliográficas
@@ -333,8 +334,8 @@ A suíte \abnTeX2 é composta por quatro elementos principais\footnote{Somam-se 
 esses elementos a documentação da classe e do pacote citação.}:
 
 \begin{itemize}
-  \item a classe de formação de trabalhos acadêmicos \textsf{abntex2}, descrita
-  neste manual;
+  \item a classe de formação de documentos técnicos e científicos
+  \textsf{abntex2}, descrita neste manual;
   \item o pacote de citações bibliográficas \textsf{abntex2cite}; e
   \item as especificações de formatação de referências bibliográficas
   |abntex2-num.bst| e |abntex2-alf.sty|;
@@ -522,7 +523,7 @@ A classe \textsf{abntex2} foi criada como um conjunto de configurações da clas
 estão disponíveis, como por exemplo, |12pt,openright,twoside,a4paper,article|.
 Consulte o manual do \textsf{memoir} para outras opções.
 
-As opções mais comuns de inicialização do texto do trabalho são:
+As opções mais comuns de inicialização do texto do documento são:
 
 \begin{verbatim}
    \documentclass[12pt,openright,twoside,a4paper]{abntex2}
@@ -542,7 +543,7 @@ A lista completa de opções disponíveis pode ser consultada em
 % ---
 
 É interessante observar que a ABNT NBR 14724:2011 (seção 5.1) recomenda que os
-trabalhos sejam impressos no anverso e no verso das folhas. Isso é obtido com a
+documentos sejam impressos no anverso e no verso das folhas. Isso é obtido com a
 opção |twoside|. 
 
 % ---
@@ -556,8 +557,8 @@ Nesse caso, a maioria dos elementos pré-textuais descritos na
 utilizada, a classe \textsf{abntex2} não forçará quebra de página para os
 elementos pré-textuais e definirá a formatação do capítulo de forma idêntica à
 formatação das seções. Por padrão, quando a opção |article| estiver presente,
-você deve iniciar as divisões do trabalho com |\section|, e não |\chapter|, como
-é usual em trabalhos monográficos. Porém, caso queira iniciar as divisões com
+você deve iniciar as divisões do documento com |\section|, e não |\chapter|,
+como é usual em trabalhos monográficos. Porém, caso queira iniciar as divisões com
 |\chapter| ao invés de |\section|, adicione as linhas abaixo no preâmbulo do
 documento para que a numeração dos capítulos, seções, figuras e tabelas sejam
 corretamente sequenciados:
@@ -576,7 +577,7 @@ A macro |\part| também é permitida em |article|.
 
 \DescribeMacro{\ABNTEXfontereduzida}\DescribeMacro{\footnotesize}\DescribeEnv{12pt}
 A seção 5.1 da ABNT NBR 14724:2011 também estabelece que o tamanho fonte seja 12
-para todo o trabalho (obtida com a opção |12pt|), ``inclusive capa,
+para todo o documento (obtida com a opção |12pt|), ``inclusive capa,
 excetuando-se citações com mais de três linhas, notas de rodapé, paginação,
 dados internacionais de catalogação-na-publicação, legendas e fontes das
 ilustrações e das tabelas, que devem ser em tamanho menor e uniforme''.  O
@@ -916,11 +917,11 @@ Para textos em outras línguas, deverão ser utilizados ambientes do pacote
 Para mais informações, consulte \url{http://www.xelatex.org/}.
 
 % ---
-\subsection{Macros de dados do trabalho}\label{sec-macrosdados}
+\subsection{Macros de dados do documento}\label{sec-macrosdados}
 % ---
 
 As macros descritas nas próximas subseções são utilizadas para armazenar dados
-do trabalho. Esses dados são utilizados na Capa (\autoref{sec-capa}), Folha de
+do documento. Esses dados são utilizados na Capa (\autoref{sec-capa}), Folha de
 rosto (\autoref{sec-folhaderosto}), Folha de aprovação
 (\autoref{sec-folhadeaprovacao}) e Ficha catalográfica
 (\autoref{sec-fichacatalografica}). Recomenda-se que esses dados sejam
@@ -943,7 +944,7 @@ macros padrões |\title|, |\author|, |\date|, |\thetitle|, |\theauthor| e
 
 \DescribeMacro{\titulo}\DescribeMacro{\imprimirtitulo} 
 A macro |\titulo|\marg{texto do título} é utilizada para armazenar o título do
-trabalho. O conteúdo armazenado é impresso por meio da macro |\imprimirtitulo|.
+documento. O conteúdo armazenado é impresso por meio da macro |\imprimirtitulo|.
 Esta macro também executa a macro padrão |\title| com o mesmo conteúdo informado
 em |\titulo|.
 
@@ -953,7 +954,7 @@ em |\titulo|.
 
 \DescribeMacro{\autor}\DescribeMacro{\imprimirautor} 
 A macro |\autor|\marg{nome do(s) autor(es)} é utilizada para armazenar os nomes
-dos autores do trabalho. O conteúdo armazenado é impresso por meio da macro
+dos autores do documento. O conteúdo armazenado é impresso por meio da macro
 |\imprimirautor|. Esta macro também executa a macro padrão |\author| com o mesmo
 conteúdo informado em |\autor|.
 
@@ -971,11 +972,11 @@ adicional entre os nomes, de modo que fiquem visualmente em colunas separadas.
 
 \DescribeMacro{\data}\DescribeMacro{\imprimirdata} 
 A macro |\data|\marg{mês e ano ou data em português} é utilizada para armazenar
-o mês e ano ou a data do trabalho. O conteúdo armazenado é
+o mês e ano ou a data do documento. O conteúdo armazenado é
 impresso por meio da macro |\imprimirdata|. Esta macro também executa a macro
 padrão |\date| com o mesmo conteúdo informado em |\data|.
 
-Durante o desenvolvimento do trabalho, é possível utilizar |\data{\today}| para
+Durante o desenvolvimento do documento, é possível utilizar |\data{\today}| para
 que seja armazenada a data atual.
 
 % ---
@@ -992,8 +993,8 @@ o nome da instituição. O conteúdo armazenado é impresso por meio da macro
 % ---
 
 \DescribeMacro{\local}\DescribeMacro{\imprimirlocal} 
-A macro |\local|\marg{localidade de apresentação trabalho} é utilizada para
-armazenar a localidade de apresentação do trabalho, geralmente o nome da cidade
+A macro |\local|\marg{localidade de apresentação do documento} é utilizada para
+armazenar a localidade de apresentação do documento, geralmente o nome da cidade
 e a unidade federativa. O conteúdo armazenado é impresso por meio da macro
 |\imprimirlocal|.
 
@@ -1002,9 +1003,9 @@ e a unidade federativa. O conteúdo armazenado é impresso por meio da macro
 % ---
 
 \DescribeMacro{\preambulo}\DescribeMacro{\imprimirpreambulo} 
-A macro |\preambulo|\marg{preâmbulo trabalho} é utilizada para
-armazenar o preâmbulo do trabalho. O preâmbulo é o texto impresso na Folha de
-rosto e na Folha de aprovação. Ele deve conter o tipo do trabalho, o objetivo, o
+A macro |\preambulo|\marg{preâmbulo do documento} é utilizada para
+armazenar o preâmbulo do documento. O preâmbulo é o texto impresso na Folha de
+rosto e na Folha de aprovação. Ele deve conter o tipo do documento, o objetivo, o
 nome da instituição e a área de concentração. O conteúdo armazenado é impresso
 por meio da macro |\imprimirpreambulo|.
 
@@ -1042,12 +1043,13 @@ conteúdo armazenado é impresso por meio da macro |\imprimircoorientador| e o
 rótulo pode ser impresso com o comando |\imprimircoorientadorRotulo|.
 
 % ---
-\subsubsection{Exemplo de uso \textsf{hyperref} com dados do
-trabalho}\label{sec-dados_hyperref}
+\subsubsection{Exemplo de uso \textsf{hyperref} com dados do documento}
+\label{sec-dados_hyperref}
 % ---
 
-O \textsf{hyperref} pode inserir informações dos dados do trabalho nos metadados
-do PDF final, conforme o exemplo, que também altera informações de cores dos
+\DescribeMacro{\hypersetup}
+O \textsf{hyperref} pode inserir informações dos dados do documento nos
+metadados do PDF final, conforme o exemplo, que também altera informações de cores dos
 links internos do documento final:
 
 \begin{verbatim}
@@ -1070,20 +1072,33 @@ links internos do documento final:
 \preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
 as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 
+\makeatletter
 \hypersetup{
-		pdftitle={\imprimirtitulo}, 
-		pdfauthor={\imprimirautor},
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 		pdfkeywords={PALAVRAS}{CHAVES}{EM}{PORTUGUES},
-	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
-	    pdfcreator={\imprimirautor},
+	    pdfcreator={LaTeX with abnTeX2},
     	colorlinks=true,
     	linkcolor=blue,
     	citecolor=blue,
 		urlcolor=blue
 }
+\makeatother
 \end{verbatim}
 
+As macros |\imprimirtitulo|, e |\imprimirautor| não devem ser usadas no âmbito
+da configuração de |\hypersetup|. Ao invés delas, use as macros internas
+|\@title| e |\@author|, conforme o exemplo anterior.
+
+\DescribeMacro{\pdfstringdefDisableCommands}
+Na configuração dos metadados do PDF, o \abnTeX2 altera as macros |\and| e |\\|,
+geralmente usadas nos campos de título e autor, para |,| e |;|, respectivamente.
+Porém, isso pode ser alterado como no exemplo seguinte:
+
+\begin{verbatim}
+\pdfstringdefDisableCommands{\def\\{, }\def\and{; }}
+\end{verbatim}
 
 % ------
 \section{Elementos pré-textuais e Parte externa}\label{sec-pretextuais}
