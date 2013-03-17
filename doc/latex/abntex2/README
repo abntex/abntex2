@@ -48,7 +48,8 @@ CHANGE HISTORY
    . changed implementation of \titulo, \autor, \data and
      \imprimirtitulo, \imprimirautor e \imprimirdata to be translations of
      \title, \author, \date, \thetitle, \theauthor e \thedate, respectively.
-   . added information about \and and \\ on description of macro \autor in abntex2.tex  
+   . added information about \and and \\ on description of macro \autor in abntex2.tex 
+   . added leaders to chapters in TOC 
     
   2013/02/23 - v1.5
     abntex2.cls:
