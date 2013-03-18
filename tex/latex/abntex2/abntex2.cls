@@ -126,35 +126,33 @@
 % ------------------------------------------------------------------------
 
 % ---
-% Hifenizacao e caracteres especiais portugues-brasil por padrao
-% ---
-\RequirePackage[brazil]{babel}
-\addto\captionsbrazil{%
-  \renewcommand{\bibname}{Refer\^encias}
-  \renewcommand{\indexname}{\'Indice}
-  \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
-  \renewcommand{\listtablename}{Lista de tabelas}
-}
-
-% ---
 % Controla as referencias internas do PDF
 \RequirePackage{hyperref}
 \pdfstringdefDisableCommands{\def\\{, }\def\and{; }}
-
-% ajusta nomes usados com a macro \autoref
-\AtBeginDocument{
-  \renewcommand{\pageautorefname}{p\'agina}
-  \renewcommand{\sectionautorefname}{se{\c c}\~ao}
-  \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
-  \renewcommand{\paragraphautorefname}{par\'agrafo}
-  \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
-}
 % ---
 
 % ---
 % Controla os bookmarks do PDF
 \RequirePackage{bookmark}   			
 % ---
+
+% ---
+% Hifenizacao e caracteres especiais portugues-brasil por padrao
+% ---
+\RequirePackage[brazil]{babel}
+\addto\captionsbrazil{%
+  % ajusta nomes padroes do babel
+  \renewcommand{\bibname}{Refer\^encias}
+  \renewcommand{\indexname}{\'Indice}
+  \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+  \renewcommand{\listtablename}{Lista de tabelas}
+  % ajusta nomes usados com a macro \autoref
+  \renewcommand{\pageautorefname}{p\'agina}
+  \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+  \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+  \renewcommand{\paragraphautorefname}{par\'agrafo}
+  \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+}
 
 % ---
 % Customiza listas
