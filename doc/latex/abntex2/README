@@ -36,7 +36,9 @@ CHANGE HISTORY
    . removed unnecessary packages makeidx and hyperref from all examples; 
    . removed unnecessary package "lastpage" from:
      abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
-   . added xelatex, inputenc and fontenc information on abntex2.tex class manual; 
+   . added xelatex, inputenc and fontenc information on abntex2.tex class manual;
+   . added translations for section, subsection, subsubsection, paragraph and page in \autoref 
+   . added section about \autoref configurations on abntex2.tex class manual; 
    . added how you can contribute to the abnTeX2 and minipage examples on abntex2-modelo-include.tex
    . complete fix iso-690-1987 option: year was placed for 
      twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished on abntex2cite.sty

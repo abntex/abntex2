@@ -140,6 +140,15 @@
 % Controla as referencias internas do PDF
 \RequirePackage{hyperref}
 \pdfstringdefDisableCommands{\def\\{, }\def\and{; }}
+
+% ajusta nomes usados com a macro \autoref
+\AtBeginDocument{
+  \renewcommand{\pageautorefname}{p\'agina}
+  \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+  \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+  \renewcommand{\paragraphautorefname}{par\'agrafo}
+  \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+}
 % ---
 
 % ---
@@ -206,7 +215,6 @@
 \newcommand{\resumoname}{Resumo} 
 \newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
 \newcommand{\listadesimbolosname}{Lista de s\'imbolos}
-
 % ---
 
 % ---
