@@ -1127,13 +1127,11 @@ seções e parágrafos com letras minúsculas. Isso foi ajustado no abnTeX2 com 
 seguinte configuração:
 
 \begin{verbatim}
-  \AtBeginDocument{
-    \renewcommand{\pageautorefname}{p\'agina}
-    \renewcommand{\sectionautorefname}{se{\c c}\~ao}
-    \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
-    \renewcommand{\paragraphautorefname}{par\'agrafo}
-    \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao} 
-  }
+  \renewcommand{\pageautorefname}{p\'agina}
+  \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+  \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+  \renewcommand{\paragraphautorefname}{par\'agrafo}
+  \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao} 
 \end{verbatim}
 
 As remissões internas a capítulo, parte, figura, tabela e demais não foram
