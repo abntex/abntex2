@@ -48,23 +48,21 @@ citações diretas com mais de três linhas:
 As citações diretas, no texto, com mais de três linhas, devem ser
 destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
 utilizado e sem as aspas. No caso de documentos datilografados, deve-se
-observar apenas o recuo \cite[5.3]{NBR10520:2002}
+observar apenas o recuo \cite[5.3]{NBR10520:2002}.
 \end{citacao}
+
+Use o ambiente assim:
+
+\begin{verbatim}
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas [...] deve-se observar
+apenas o recuo \cite[5.3]{NBR10520:2002}.
+\end{citacao}
+\end{verbatim}
 
 \index{citações!simples}Citações simples, com até três linhas, devem ser
 incluídas com aspas. Observe que em \LaTeX as aspas iniciais são diferentes das
 finais: ``Amor é fogo que arde sem se ver''.
-
-
-% ---
-\section{Remissões internas}
-% ---
-
-Ao nomear a \autoref{tab-nivinv}, apresentamos um exemplo de remissão interna,
-que também pode ser feita quando indicamos o \autoref{cap_exemplos}\footnote{O
-número do capítulo indicado é
-\ref{cap_exemplos}, que se inicia à página \pageref{cap_exemplos}.}
-(\nameref{cap_exemplos}, \autopageref{cap_exemplos}), por exemplo.
 
 % ---
 \section{Notas de rodapé}
@@ -80,7 +78,7 @@ o expoente, sem espaço entre elas e com fonte menor
 criadas sequencialmente, o \abnTeX\ instrui o \LaTeX\ para que uma vírgula seja
 colocada após cada número do expoente que indica a nota de rodapé no corpo do
 texto.}\footnote{Verifique se os números do expoente possuem uma vírgula para
-dividi-los no corpo do texto.}.
+dividi-los no corpo do texto.}. 
 
 
 % ---
@@ -407,16 +405,48 @@ comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
 \end{verbatim}
 
 % ---
+\section{Remissões internas}
+% ---
+
+Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo}, apresentamos um
+exemplo de remissão interna, que também pode ser feita quando indicamos o
+\autoref{cap_exemplos}, que tem o nome \emph{\nameref{cap_exemplos}}. O número
+do capítulo indicado é \ref{cap_exemplos}, que se inicia à
+\autopageref{cap_exemplos}\footnote{O número da página de uma remissão pode ser
+obtida também assim:
+\pageref{cap_exemplos}.}.
+Veja a \autoref{sec-divisoes} para outros exemplos de remissões internas entre
+seções, subseções e subsubseções.
+
+O código usado para produzir o texto desta seção é:
+
+\begin{verbatim}
+Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo}, apresentamos um
+exemplo de remissão interna, que também pode ser feita quando indicamos o
+\autoref{cap_exemplos}, que tem o nome \emph{\nameref{cap_exemplos}}. O número
+do capítulo indicado é \ref{cap_exemplos}, que se inicia à
+\autopageref{cap_exemplos}\footnote{O número da página de uma remissão pode ser
+obtida também assim:
+\pageref{cap_exemplos}.}.
+Veja a \autoref{sec-divisoes} para outros exemplos de remissões internas entre
+seções, subseções e subsubseções.
+\end{verbatim}
+
+% ---
 \section{Divisões do documento: seção}\label{sec-divisoes}
 % ---
 
-Esta seção testa o uso de divisões de documentos. Isto é uma seção.
+Esta seção testa o uso de divisões de documentos. Esta é a
+\autoref{sec-divisoes}. Veja a \autoref{sec-divisoes-subsection}.
 
-\subsection{Divisões do documento: subseção}
+\subsection{Divisões do documento: subseção}\label{sec-divisoes-subsection}
 
-Isto é uma subseção.
+Isto é uma subseção. Veja a \autoref{sec-divisoes-subsubsection}, que é uma
+\texttt{subsubsection} do \LaTeX, mas é impressa chamada de ``subseção'' porque
+no Português não temos a palavra ``subsubseção''.
 
 \subsubsection{Divisões do documento: subsubseção}
+\label{sec-divisoes-subsubsection}
 
 Isto é uma subsubseção.
 
@@ -431,6 +461,17 @@ Isto é uma subseção.
 \subsubsection{Divisões do documento: subsubseção}
 
 Isto é mais uma subsubseção da \autoref{sec-exemplo-subsec}.
+
+
+\paragraph{Isto é um parágrafo rotulado}\label{sec-exemplo-paragrafo}
+
+Este é um parágrafo na \autoref{sec-exemplo-paragrafo}. 
+
+\paragraph{Isto é outro parágrafo rotulado}\label{sec-exemplo-paragrafo-outro}
+
+Este é outro parágrafo na \autoref{sec-exemplo-paragrafo-outro}. 
+
+
 
 % ---
 \section{Este é um exemplo de nome de seção longo. Ele deve estar

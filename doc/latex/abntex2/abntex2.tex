@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.3.18 10h42	laurocesar
+%%  Adiciona a seção ``Configurações para remissões internas com \texttt{autoref}''
+%%
 %% 2013.3.17 11h42	laurocesar
 %%  Adiciona comentários sobre as macros \and e \\ na descrição da macro \autor.
 %%  Adiciona informação de que \titulo, \autor e \data são traduções de \title,
@@ -1047,6 +1050,9 @@ rótulo pode ser impresso com o comando |\imprimircoorientadorRotulo|.
 \label{sec-dados_hyperref}
 % ---
 
+O \textsf{hyperref}\footnote{\url{http://www.ctan.org/pkg/hyperref}.} é um
+pacote usado para construir remissões internas e hyper documento.
+
 \DescribeMacro{\hypersetup}
 O \textsf{hyperref} pode inserir informações dos dados do documento nos
 metadados do PDF final, conforme o exemplo, que também altera informações de cores dos
@@ -1099,6 +1105,39 @@ Porém, isso pode ser alterado como no exemplo seguinte:
 \begin{verbatim}
 \pdfstringdefDisableCommands{\def\\{, }\def\and{; }}
 \end{verbatim}
+
+% ---
+\subsection{Configurações para remissões internas com \texttt{autoref}}
+% ---
+
+\DescribeMacro{\autoref}
+A macro |\autoref|\marg{label} do pacote
+\textsf{hyperref}\footnote{\url{http://www.ctan.org/pkg/hyperref}.} é usada para
+realizar remissões internas que, além do número do elemento, apresentam também o
+rótulo. Por exemplo, se |label| é refere-se a uma figura, |\autoref{label}|
+imprime ``Figura X'', sendo ``X'' o número sequencial da figura.
+
+Isso é especialmente útil ao se nomear divisões do documento, como capítulos,
+seções, subseções, subsubseções, etc. Ocorre que em português não temos a
+palavra ``subsubseção''. Por isso o \abnTeX2 traduz a referência a subsubseções
+para ``subseção''. Além disso, o padrão de nomeação em português provida pelo
+pacote \textsf{hyperref} desses elementos é colocá-los com letras maiúsculas.
+Porém, a \citeonline[p.~4]{NBR6024:2012} apresenta exemplos de remissões internas entre
+seções e parágrafos com letras minúsculas. Isso foi ajustado no abnTeX2 com a
+seguinte configuração:
+
+\begin{verbatim}
+  \AtBeginDocument{
+    \renewcommand{\pageautorefname}{p\'agina}
+    \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+    \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+    \renewcommand{\paragraphautorefname}{par\'agrafo}
+    \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao} 
+  }
+\end{verbatim}
+
+As remissões internas a capítulo, parte, figura, tabela e demais não foram
+alteradas, e serão impressas com letras maiúsculas.
 
 % ------
 \section{Elementos pré-textuais e Parte externa}\label{sec-pretextuais}
