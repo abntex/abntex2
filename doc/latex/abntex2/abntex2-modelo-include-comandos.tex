@@ -67,6 +67,23 @@ número do capítulo indicado é
 (\nameref{cap_exemplos}, \autopageref{cap_exemplos}), por exemplo.
 
 % ---
+\section{Notas de rodapé}
+% ---
+
+As notas de rodapé são detalhadas pela NBR 14724:2011 na seção 5.2.1\footnote{As
+notas devem ser digitadas ou datilografadas dentro das margens, ficando
+separadas do texto por um espaço simples de entre as linhas e por filete de 5
+cm, a partir da margem esquerda. Devem ser alinhadas, a partir da segunda linha
+da mesma nota, abaixo da primeira letra da primeira palavra, de forma a destacar
+o expoente, sem espaço entre elas e com fonte menor
+\citeonline[5.2.1]{NBR14724:2011}.}\footnote{Caso uma série de notas sejam
+criadas sequencialmente, o \abnTeX\ instrui o \LaTeX\ para que uma vírgula seja
+colocada após cada número do expoente que indica a nota de rodapé no corpo do
+texto.}\footnote{Verifique se os números do expoente possuem uma vírgula para
+dividi-los no corpo do texto.}.
+
+
+% ---
 \section{Tabelas}
 % ---
 
@@ -94,33 +111,8 @@ número do capítulo indicado é
 \end{table}
 
 % ---
-\section{Expressões matemáticas}
-% ---
-
-\index{expressões matemáticas}Use o ambiente \texttt{equation} para escrever
-expressões matemáticas numeradas:
-
-\begin{equation}
-  \forall x \in X, \quad \exists \: y \leq \epsilon
-\end{equation}
-
-Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
-\exp(-x) = 0 $, para que fiquem na mesma linha.
-
-Também é possível usar colchetes para indicar o início de uma expressão
-matemática que não é numerada.
-
-\[
-\left|\sum_{i=1}^n a_ib_i\right|
-\le
-\left(\sum_{i=1}^n a_i^2\right)^{1/2}
-\left(\sum_{i=1}^n b_i^2\right)^{1/2}
-\]
-
-Consulte mais informações sobre expressões matemáticas em
-\url{http://code.google.com/p/abntex2/w/edit/Referencias}.
-
 \section{Figuras}
+% ---
 
 \index{figuras}Figuras podem ser criadas diretamente em \LaTeX,
 como o exemplo da \autoref{fig_circulo}.
@@ -189,20 +181,73 @@ Photoshop\index{Adobe Photoshop}.
 \end{figure}
 
 % ---
-\section{Notas de rodapé}
+\subsection{Figuras em \emph{minipages}}
 % ---
 
-As notas de rodapé são detalhadas pela NBR 14724:2011 na seção 5.2.1\footnote{As
-notas devem ser digitadas ou datilografadas dentro das margens, ficando
-separadas do texto por um espaço simples de entre as linhas e por filete de 5
-cm, a partir da margem esquerda. Devem ser alinhadas, a partir da segunda linha
-da mesma nota, abaixo da primeira letra da primeira palavra, de forma a destacar
-o expoente, sem espaço entre elas e com fonte menor
-\citeonline[5.2.1]{NBR14724:2011}.}\footnote{Caso uma série de notas sejam
-criadas sequencialmente, o \abnTeX\ instrui o \LaTeX\ para que uma vírgula seja
-colocada após cada número do expoente que indica a nota de rodapé no corpo do
-texto.}\footnote{Verifique se os números do expoente possuem uma vírgula para
-dividi-los no corpo do texto.}.
+\emph{Minipages} são usadas para inserir textos ou outros elementos em quadros
+com tamanhos e posições controladas. Veja o exemplo da
+\autoref{fig_minipage_grafico1} e da \autoref{fig_minipage_grafico2}.
+
+\begin{figure}[htb]
+ \label{teste}
+ \centering
+  \begin{minipage}{0.4\textwidth}
+    \centering
+    \caption{Grafico 1 da minipage} \label{fig_minipage_grafico1}
+    \includegraphics[scale=0.2]{abntex2-modelo-img-grafico.pdf}
+    \legend{Fonte: \citeonline[p. 24]{araujo2012}}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.4\textwidth}
+    \centering
+    \caption{Grafico 2 da minipage} \label{fig_minipage_grafico2}
+    \includegraphics[scale=0.2]{abntex2-modelo-img-grafico.pdf}
+    \legend{Fonte: \citeonline[p. 24]{araujo2012}}
+  \end{minipage}
+\end{figure}
+
+Observe que, segundo a \citeonline[seções 4.2.1.10 e 5.8]{NBR14724:2011}, as
+ilustrações devem sempre ter numeração contínua e única em todo o documento:
+
+\begin{citacao}
+Qualquer que seja o tipo de ilustração, sua identificação aparece na parte
+superior, precedida da palavra designativa (desenho, esquema, fluxograma,
+fotografia, gráfico, mapa, organograma, planta, quadro, retrato, figura,
+imagem, entre outros), seguida de seu número de ordem de ocorrência no texto,
+em algarismos arábicos, travessão e do respectivo título. Após a ilustração, na
+parte inferior, indicar a fonte consultada (elemento obrigatório, mesmo que
+seja produção do próprio autor), legenda, notas e outras informações
+necessárias à sua compreensão (se houver). A ilustração deve ser citada no
+texto e inserida o mais próximo possível do trecho a que se
+refere. \cite[seções 5.8]{NBR14724:2011}
+\end{citacao}
+
+% ---
+\section{Expressões matemáticas}
+% ---
+
+\index{expressões matemáticas}Use o ambiente \texttt{equation} para escrever
+expressões matemáticas numeradas:
+
+\begin{equation}
+  \forall x \in X, \quad \exists \: y \leq \epsilon
+\end{equation}
+
+Escreva expressões matemáticas entre \$ e \$, como em $ \lim_{x \to \infty}
+\exp(-x) = 0 $, para que fiquem na mesma linha.
+
+Também é possível usar colchetes para indicar o início de uma expressão
+matemática que não é numerada.
+
+\[
+\left|\sum_{i=1}^n a_ib_i\right|
+\le
+\left(\sum_{i=1}^n a_i^2\right)^{1/2}
+\left(\sum_{i=1}^n b_i^2\right)^{1/2}
+\]
+
+Consulte mais informações sobre expressões matemáticas em
+\url{http://code.google.com/p/abntex2/w/edit/Referencias}.
 
 % ---
 \section{Enumerações: alíneas e subalíneas}
@@ -460,6 +505,9 @@ possui informações adicionais sobre as normas ABNT observadas pelo \abnTeX.
 \section{Precisa de ajuda?}
 % ---
 
+Consulte a FAQ com perguntas frequentes e comuns no portal do \abnTeX:
+\url{https://code.google.com/p/abntex2/wiki/FAQ}.
+
 Inscreva-se no grupo de usuários \LaTeX:
 \url{http://groups.google.com/group/latex-br}, tire suas dúvidas e ajude
 outros usuários.
@@ -475,4 +523,12 @@ ferramenta.
 Sua contribuição é muito importante! Você pode ajudar na divulgação, no
 desenvolvimento e de várias outras formas. Veja como contribuir com o \abnTeX\
 em \url{https://code.google.com/p/abntex2/wiki/ComoContribuir}.
+
+% ---
+\section{Quer customizar os modelos do \abnTeX\ para sua instituição ou
+universidade?}
+% ---
+
+Veja como customizar o \abnTeX\ em:
+\url{https://code.google.com/p/abntex2/wiki/ComoCustomizar}.
 
