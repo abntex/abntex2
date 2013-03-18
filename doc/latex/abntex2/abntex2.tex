@@ -18,7 +18,7 @@
 %% This work consists of the file abntex2.tex
 %%
 %% 2013.3.18 10h42	laurocesar
-%%  Adiciona a seção ``Configurações para remissões internas com \texttt{autoref}''
+%%  Adiciona traduções à seção do babel
 %%
 %% 2013.3.17 11h42	laurocesar
 %%  Adiciona comentários sobre as macros \and e \\ na descrição da macro \autor.
@@ -109,9 +109,25 @@
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
-\usepackage[brazil]{babel}		% idiomas
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
+
+% Babel e ajustes
+\usepackage[brazil]{babel}		% idiomas
+\addto\captionsbrazil{
+    %% ajusta nomes padroes do babel
+    \renewcommand{\bibname}{Refer\^encias}
+    \renewcommand{\indexname}{\'Indice}
+    \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+    \renewcommand{\listtablename}{Lista de tabelas}
+    %% ajusta nomes usados com a macro \autoref
+    \renewcommand{\pageautorefname}{p\'agina}
+    \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+    \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+    \renewcommand{\paragraphautorefname}{par\'agrafo}
+    \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+}  
+
 \usepackage[alf]{abntex2cite}	% citacoes
 
 
@@ -119,7 +135,6 @@
 \newcommand{\abnTeX}{abn\TeX}
 \newcommand{\abnTeXForum}{\url{http://groups.google.com/group/abntex2}}
 \newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
-
 
 \title{\textbf{A classe \textsf{abntex2}}: \\ \Large{Documentos
 técnicos e científicos brasileiros \\compatíveis com as normas ABNT}}
@@ -706,9 +721,12 @@ são alterados. Exemplo de uso:
 A macro |\selectlanguage|\marg{idioma} altera o idioma padrão do documento a
 partir do ponto em que é informado.
 
+\subsubsection{Traduções de nomes padronizados}
+\label{sec-babel-traducoes}
+
 Algumas alterações foram realizadas nos nomes padronizados pelo pacote
-\textsf{babel} para atender a requisitos da ABNT NBR 14724:2011, conforme
-\autoref{tab-babel}.
+\textsf{babel} para atender a requisitos da \citeonline{NBR14724:2011} e
+\citeonline{NBR6024:2012}, conforme \autoref{tab-babel}.
 
 \begin{table}[htb]
 \caption{Alterações no pacote \textsf{babel}}
@@ -725,17 +743,39 @@ Algumas alterações foram realizadas nos nomes padronizados pelo pacote
     \hline
     |\listtablename| & ``Lista de Tabelas'' & ``Lista de tabelas'' \\
     \hline
+    |\pageautorefname| & ``Página'' & ``página'' \\
+    \hline
+    |\sectionautorefname| & ``Seção'' & ``seção'' \\
+    \hline
+    |\subsectionautorefname| & ``Subseção'' & ``subseção'' \\
+    \hline
+    |\subsubsectionautorefname| & ``Subsubseção'' & ``subseção'' \\
+    \hline
+    |\paragraphautorefname| & ``Parágrafo'' & ``parágrafo'' \\
+    \hline
     \hline
 \end{tabular}
 \end{table}
 
 Se desejar outro comportamento, use:
-  \begin{verbatim}
-	 \addto\captionsbrazil{%
-	    \renewcommand{\bibname}{Refer\^encias}
-	    \renewcommand{\indexname}{\'Indice}
-	    \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es} }
-  \end{verbatim} 
+\begin{verbatim}
+  \addto\captionsbrazil{
+    %% ajusta nomes padroes do babel
+    \renewcommand{\bibname}{Refer\^encias}
+    \renewcommand{\indexname}{\'Indice}
+    \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+    \renewcommand{\listtablename}{Lista de tabelas}
+    %% ajusta nomes usados com a macro \autoref
+    \renewcommand{\pageautorefname}{p\'agina}
+    \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+    \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+    \renewcommand{\paragraphautorefname}{par\'agrafo}
+    \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+  }  
+\end{verbatim} 
+
+Veja observações sobre as alterações referentes à página, seção, subseção,
+subsubseção e parágrafo na \autoref{sec-autoref}.
 
 % ---
 \subsection{Numeração contínua de figuras e tabelas}
@@ -1108,6 +1148,7 @@ Porém, isso pode ser alterado como no exemplo seguinte:
 
 % ---
 \subsection{Configurações para remissões internas com \texttt{autoref}}
+\label{sec-autoref}
 % ---
 
 \DescribeMacro{\autoref}
@@ -1122,20 +1163,11 @@ seções, subseções, subsubseções, etc. Ocorre que em português não temos 
 palavra ``subsubseção''. Por isso o \abnTeX2 traduz a referência a subsubseções
 para ``subseção''. Além disso, o padrão de nomeação em português provida pelo
 pacote \textsf{hyperref} desses elementos é colocá-los com letras maiúsculas.
-Porém, a \citeonline[p.~4]{NBR6024:2012} apresenta exemplos de remissões internas entre
-seções e parágrafos com letras minúsculas. Isso foi ajustado no abnTeX2 com a
-seguinte configuração:
-
-\begin{verbatim}
-  \renewcommand{\pageautorefname}{p\'agina}
-  \renewcommand{\sectionautorefname}{se{\c c}\~ao}
-  \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
-  \renewcommand{\paragraphautorefname}{par\'agrafo}
-  \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao} 
-\end{verbatim}
-
-As remissões internas a capítulo, parte, figura, tabela e demais não foram
-alteradas, e serão impressas com letras maiúsculas.
+Porém, a \citeonline[p.~4]{NBR6024:2012} apresenta exemplos de remissões
+internas entre seções e parágrafos com letras minúsculas. Veja a lista completa
+de alterações realizadas na \autoref{sec-babel-traducoes}. As remissões internas
+a capítulo, parte, figura, tabela e demais não foram alteradas, e serão
+impressas com letras maiúsculas.
 
 % ------
 \section{Elementos pré-textuais e Parte externa}\label{sec-pretextuais}
