@@ -17,10 +17,15 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.3.19 09h32	laurocesar
+%%  Incorpora as macros de nomes a configuracao do babel e prove traducoes
+%%   dessas macros para ingles, de modo que a classe abntex2 ja fique
+%%   internacionalizavel.
+%%
 %% 2013.3.17 11h26	laurocesar
 %%  Altera a implementacao de \titulo, \autor, \data e seus pares
 %%   \imprimirtitulo, \imprimirautor e \imprimirdata para serem meras traducoes
-%%  \title, \author, \date, \thetitle, \theauthor e \thedate, respectivamente.
+%%   \title, \author, \date, \thetitle, \theauthor e \thedate, respectivamente.
 %%  Adiciona o comando \renewcommand*{\cftchapterdotsep}{\cftdotsep} para que os
 %% capitulos tambem tenham leaders.
 %%
@@ -137,22 +142,66 @@
 % ---
 
 % ---
+% Nomes constantes do abnTeX2 em portugues (definicoes padroes)
+\newcommand{\folhaderostoname}{Folha de rosto}
+\newcommand{\epigraphname}{Ep\'igrafe}
+\newcommand{\dedicatorianame}{Dedicat\'oria}
+\newcommand{\errataname}{Errata}
+\newcommand{\agradecimentosname}{Agradecimentos}
+\newcommand{\anexoname}{ANEXO}
+\newcommand{\anexosname}{Anexos}
+\newcommand{\apendicename}{AP\^ENDICE}
+\newcommand{\apendicesname}{Ap\^endices}
+\newcommand{\orientadorname}{Orientador:}
+\newcommand{\coorientadorname}{Coorientador:}
+\newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
+\newcommand{\resumoname}{Resumo} 
+\newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
+\newcommand{\listadesimbolosname}{Lista de s\'imbolos}
+% ---
+
+% ---
 % Hifenizacao e caracteres especiais portugues-brasil por padrao
 % ---
 \RequirePackage[brazil]{babel}
-\addto\captionsbrazil{%
-  % ajusta nomes padroes do babel
+\addto\captionsbrazil{% portugues-brasil
+  %% ajusta nomes padroes do babel
   \renewcommand{\bibname}{Refer\^encias}
   \renewcommand{\indexname}{\'Indice}
   \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
   \renewcommand{\listtablename}{Lista de tabelas}
-  % ajusta nomes usados com a macro \autoref
+  %% ajusta nomes usados com a macro \autoref
   \renewcommand{\pageautorefname}{p\'agina}
   \renewcommand{\sectionautorefname}{se{\c c}\~ao}
   \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
-  \renewcommand{\paragraphautorefname}{par\'agrafo}
   \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+  \renewcommand{\paragraphautorefname}{par\'agrafo}
 }
+\addto\captionsenglish{% ingles
+  %% adjusts names from abnTeX2
+  \renewcommand{\folhaderostoname}{Title page}
+  \renewcommand{\epigraphname}{Epigraph}
+  \renewcommand{\dedicatorianame}{Dedication}
+  \renewcommand{\errataname}{Erratum}
+  \renewcommand{\agradecimentosname}{Acknowledgements}
+  \renewcommand{\anexoname}{ANNEX}
+  \renewcommand{\anexosname}{Annex}
+  \renewcommand{\apendicename}{APPENDIX}
+  \renewcommand{\apendicesname}{Appendix}
+  \renewcommand{\orientadorname}{Leader:}
+  \renewcommand{\coorientadorname}{Coleader:}
+  \renewcommand{\folhadeaprovacaoname}{Sheet adoption}
+  \renewcommand{\resumoname}{Abstract} 
+  \renewcommand{\listadesiglasname}{List of abbreviations and acronyms}
+  \renewcommand{\listadesimbolosname}{List of symbols}
+   %% adjusts names used by \autoref
+  \renewcommand{\pageautorefname}{page}
+  \renewcommand{\sectionautorefname}{section}
+  \renewcommand{\subsectionautorefname}{subsection}
+  \renewcommand{\subsubsectionautorefname}{subsubsection}
+  \renewcommand{\paragraphautorefname}{paragraph}
+}
+% ---
 
 % ---
 % Customiza listas
@@ -194,25 +243,6 @@
 % ``Tamanho menor e uniforme'' ditada pela NBR 14724/2011 - 5.1
 % ---
 \newcommand{\ABNTEXfontereduzida}{\footnotesize}
-% ---
-
-% ---
-% Nomes constantes
-\newcommand{\folhaderostoname}{Folha de rosto}
-\newcommand{\epigraphname}{Ep\'igrafe}
-\newcommand{\dedicatorianame}{Dedicat\'oria}
-\newcommand{\errataname}{Errata}
-\newcommand{\agradecimentosname}{Agradecimentos}
-\newcommand{\anexoname}{ANEXO}
-\newcommand{\anexosname}{Anexos}
-\newcommand{\apendicename}{AP\^ENDICE}
-\newcommand{\apendicesname}{Ap\^endices}
-\newcommand{\orientadorname}{Orientador:}
-\newcommand{\coorientadorname}{Coorientador:}
-\newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
-\newcommand{\resumoname}{Resumo} 
-\newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
-\newcommand{\listadesimbolosname}{Lista de s\'imbolos}
 % ---
 
 % ---
