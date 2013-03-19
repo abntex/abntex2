@@ -483,11 +483,11 @@ Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011}
  e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
 
 % ---
-\section{Hifenizações em diferentes idiomas}
+\section{Diferentes idiomas e hifenizações}
 % ---
 
-Para usar as diferentes hifenizações, inclua nas opções do documento o nome dos
-idiomas que o seu texto contém. Por exemplo:
+Para usar hifenizações de diferentes idiomas, inclua nas opções do documento o
+nome dos idiomas que o seu texto contém. Por exemplo:
 
 \begin{verbatim}
    \documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
@@ -533,6 +533,17 @@ Pequeno texto em espanhol\footnote{Extraído de:
 \foreignlanguage{spanish}{\textit{Decenas de miles de personas ovacionan al pontífice en su
 penúltimo ángelus dominical, el primero desde que anunciase su renuncia. El Papa se
 centra en la crítica al materialismo}}.
+
+O idioma geral do texto por ser alterado como no exemplo seguinte:
+
+\begin{verbatim}
+  \selectlanguage{english}
+\end{verbatim}
+
+Isso altera automaticamente a hifenização e todos os nomes constantes de
+referências do documento para o idioma inglês. Consulte o manual da classe
+\cite{abntex2classe} para obter orientações adicionais sobre internacionalização de
+documentos produzidos com \abnTeX.
 
 % ---
 \section{Consulte o manual da classe \textsf{abntex2}}

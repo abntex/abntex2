@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.3.19 09h32	laurocesar
+%%  Adiciona orientações sobre a produção de documentos em outros idiomas.
+%%
 %% 2013.3.18 10h42	laurocesar
 %%  Adiciona traduções à seção do babel
 %%
@@ -682,105 +685,8 @@ e podem ser alteradas do seguinte modo:
   \end{verbatim}
 
 % ---
-\subsection{Hifenização e alterações no pacote \textsf{babel}}
-\label{babel}
-% ---
-
-Para usar as diferentes hifenizações, inclua nas opções do documento o nome dos
-idiomas que o texto contém. Por exemplo:
-
-\begin{verbatim}
-   \documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
-\end{verbatim}
-
-O idioma português-brasileiro (\texttt{brazil}) é incluído por padrão pela
-classe \textsf{abntex2} e não precisa ser informado.
-
-A lista completa de idiomas suportados, bem como outras opções de hifenização,
-estão disponíveis na documentação do pacote
-\textsf{babel}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/required/babel/}} \citeonline[p.~5-6]{babel}.
-
-\DescribeMacro{\foreignlanguage}
-A macro |\foreignlanguage|\marg{idioma}\marg{texto a ser inserido} insere um
-texto com a hifenização do idioma informado em \marg{idioma}.
-
-\DescribeEnv{otherlanguage}\DescribeEnv{otherlanguage*}
-O ambiente |otherlanguage*|\marg{idioma} pode ser usado para o mesmo propósito
-da macro |\foreignlanguage|. A versão com * indica que apenas o esquema de hifenização do
-idioma selecionado deve ser utilizado. Nesse caso, as demais configurações de
-idiomas, como nome da Lista de figuras, rótulos das seções, entre outros, não
-são alterados. Exemplo de uso:
-
-\begin{verbatim}
-  \begin{otherlanguage*}{french}
-    Texte en français.
-  \end{otherlanguage*}
-\end{verbatim}
-
-\DescribeMacro{\selectlanguage}
-A macro |\selectlanguage|\marg{idioma} altera o idioma padrão do documento a
-partir do ponto em que é informado.
-
-\subsubsection{Traduções de nomes padronizados}
-\label{sec-babel-traducoes}
-
-Algumas alterações foram realizadas nos nomes padronizados pelo pacote
-\textsf{babel} para atender a requisitos da \citeonline{NBR14724:2011} e
-\citeonline{NBR6024:2012}, conforme \autoref{tab-babel}.
-
-\begin{table}[htb]
-\caption{Alterações no pacote \textsf{babel}}
-\label{tab-babel}
-\centering
-\begin{tabular}{ l l l }
-   \textbf{Macro} & \textbf{Valor original} & \textbf{Novo valor} \\
-    \hline
-    |\bibname| & ``Referências Bibliográficas'' &  ``Referências'' \\
-    \hline
-    |\indexname| & ``Índice Remissivo'' & ``Índice'' \\
-    \hline
-    |\listfigurename| & ``Lista de Figuras'' & ``Lista de ilustrações'' \\
-    \hline
-    |\listtablename| & ``Lista de Tabelas'' & ``Lista de tabelas'' \\
-    \hline
-    |\pageautorefname| & ``Página'' & ``página'' \\
-    \hline
-    |\sectionautorefname| & ``Seção'' & ``seção'' \\
-    \hline
-    |\subsectionautorefname| & ``Subseção'' & ``subseção'' \\
-    \hline
-    |\subsubsectionautorefname| & ``Subsubseção'' & ``subseção'' \\
-    \hline
-    |\paragraphautorefname| & ``Parágrafo'' & ``parágrafo'' \\
-    \hline
-    \hline
-\end{tabular}
-\end{table}
-
-Se desejar outro comportamento, use:
-\begin{verbatim}
-  \addto\captionsbrazil{
-    %% ajusta nomes padroes do babel
-    \renewcommand{\bibname}{Refer\^encias}
-    \renewcommand{\indexname}{\'Indice}
-    \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
-    \renewcommand{\listtablename}{Lista de tabelas}
-    %% ajusta nomes usados com a macro \autoref
-    \renewcommand{\pageautorefname}{p\'agina}
-    \renewcommand{\sectionautorefname}{se{\c c}\~ao}
-    \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
-    \renewcommand{\paragraphautorefname}{par\'agrafo}
-    \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
-  }  
-\end{verbatim} 
-
-Veja observações sobre as alterações referentes à página, seção, subseção,
-subsubseção e parágrafo na \autoref{sec-autoref}.
-
-% ---
 \subsection{Numeração contínua de figuras e tabelas}
 % ---
-
   
 A numeração de figuras e tabelas deve ser contínua em todo o documento (ABNT
 NBR 14724:2011 seções 5.8 e 5.9). Porém, caso deseje alterar esse comportamento
@@ -960,7 +866,161 @@ Para textos em outras línguas, deverão ser utilizados ambientes do pacote
 Para mais informações, consulte \url{http://www.xelatex.org/}.
 
 % ---
-\subsection{Macros de dados do documento}\label{sec-macrosdados}
+\subsection{Internacionalização}
+\label{sec-internacional}
+% ---
+
+%---
+\subsubsection{Hifenização e diferentes idiomas}
+\label{sec-internacional-hifen}
+
+Para usar as diferentes hifenizações de cada idioma, inclua nas opções do
+documento o nome dos idiomas usados no texto. Por exemplo:
+
+\begin{verbatim}
+   \documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
+\end{verbatim}
+
+O idioma português-brasileiro (\texttt{brazil}) é incluído por padrão pela
+classe \textsf{abntex2} e não precisa ser informado.
+
+A lista completa de idiomas suportados, bem como outras opções de hifenização,
+estão disponíveis na documentação do pacote
+\textsf{babel}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/required/babel/}} \citeonline[p.~5-6]{babel}.
+
+\DescribeMacro{\foreignlanguage}
+A macro |\foreignlanguage|\marg{idioma}\marg{texto a ser inserido} insere um
+texto com a hifenização do idioma informado em \marg{idioma}.
+
+\DescribeEnv{otherlanguage}\DescribeEnv{otherlanguage*}
+O ambiente |otherlanguage*|\marg{idioma} pode ser usado para o mesmo propósito
+da macro |\foreignlanguage|. A versão com * indica que apenas o esquema de hifenização do
+idioma selecionado deve ser utilizado. Nesse caso, as demais configurações de
+idiomas, como nome da Lista de figuras, rótulos das seções, entre outros, não
+são alterados. Exemplo de uso:
+
+\begin{verbatim}
+  \begin{otherlanguage*}{french}
+    Texte en français.
+  \end{otherlanguage*}
+\end{verbatim}
+
+\DescribeMacro{\selectlanguage}
+A macro |\selectlanguage|\marg{idioma} altera o idioma padrão do documento a
+partir do ponto em que é informado.
+
+Consulte a \autoref{sec-interncional-traducao} para obter detalhes sobre o uso
+de diferentes idiomas no documento.
+
+%---
+\subsubsection{Alterações de nomes padronizados por \textsf{babel}}
+\label{sec-internacional-babel-alteracoes}
+
+Algumas alterações foram realizadas nos nomes padronizados pelo pacote
+\textsf{babel} para atender a requisitos da \citeonline{NBR14724:2011} e da
+\citeonline{NBR6024:2012}, conforme \autoref{tab-babel}.
+
+\begin{table}[htb]
+\caption{Alterações no pacote \textsf{babel}}
+\label{tab-babel}
+\centering
+\begin{tabular}{ l l l }
+   \textbf{Macro} & \textbf{Valor original} & \textbf{Novo valor} \\
+    \hline
+    |\bibname| & ``Referências Bibliográficas'' &  ``Referências'' \\
+    \hline
+    |\indexname| & ``Índice Remissivo'' & ``Índice'' \\
+    \hline
+    |\listfigurename| & ``Lista de Figuras'' & ``Lista de ilustrações'' \\
+    \hline
+    |\listtablename| & ``Lista de Tabelas'' & ``Lista de tabelas'' \\
+    \hline
+    |\pageautorefname| & ``Página'' & ``página'' \\
+    \hline
+    |\sectionautorefname| & ``Seção'' & ``seção'' \\
+    \hline
+    |\subsectionautorefname| & ``Subseção'' & ``subseção'' \\
+    \hline
+    |\subsubsectionautorefname| & ``Subsubseção'' & ``subseção'' \\
+    \hline
+    |\paragraphautorefname| & ``Parágrafo'' & ``parágrafo'' \\
+    \hline
+    \hline
+\end{tabular}
+\end{table}
+
+Se desejar outro comportamento, use:
+\begin{verbatim}
+  \addto\captionsbrazil{
+    %% ajusta nomes padroes do babel
+    \renewcommand{\bibname}{Refer\^encias}
+    \renewcommand{\indexname}{\'Indice}
+    \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+    \renewcommand{\listtablename}{Lista de tabelas}
+    %% ajusta nomes usados com a macro \autoref
+    \renewcommand{\pageautorefname}{p\'agina}
+    \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+    \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+    \renewcommand{\paragraphautorefname}{par\'agrafo}
+    \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+  }  
+\end{verbatim} 
+
+Veja observações sobre as alterações referentes à página, seção, subseção,
+subsubseção e parágrafo na \autoref{sec-autoref}.
+
+% ---
+\subsubsection{Documentos em diferentes idiomas}
+\label{sec-interncional-traducao}
+
+\DescribeMacro{\selectlanguage}
+Conforme descrito na \autoref{sec-internacional-hifen}, o \abnTeX2 já está
+adequado para produzir documentos técnicos e científicos em português-brasil
+(padrão) e em inglês. Para alterar o idioma padrão do documento use:
+
+\begin{verbatim}
+   \selectlanguage{english}
+\end{verbatim}
+
+A macro |\selectlanguage{english}| altera os valores padrões listados na
+\autoref{tab-babel}, bem como o conteúdo de todas as macros de dados listadas na
+\autoref{sec-macrosdados} para o idioma inglês.
+
+Para prover a tradução para outros idiomas, faça como no exemplo, sendo que
+|captionsenglish| deve ser alterado para o idioma em questão, conforme descrito
+no mamual do pacote \textsf{babel} \cite{babel}:
+
+\begin{verbatim}
+\addto\captionsenglish{% ingles
+  %% adjusts names from abnTeX2
+  \renewcommand{\folhaderostoname}{Title page}
+  \renewcommand{\epigraphname}{Epigraph}
+  \renewcommand{\dedicatorianame}{Dedication}
+  \renewcommand{\errataname}{Erratum}
+  \renewcommand{\agradecimentosname}{Acknowledgements}
+  \renewcommand{\anexoname}{ANNEX}
+  \renewcommand{\anexosname}{Annex}
+  \renewcommand{\apendicename}{APPENDIX}
+  \renewcommand{\apendicesname}{Appendix}
+  \renewcommand{\orientadorname}{Leader:}
+  \renewcommand{\coorientadorname}{Coleader:}
+  \renewcommand{\folhadeaprovacaoname}{Sheet adoption}
+  \renewcommand{\resumoname}{Abstract} 
+  \renewcommand{\listadesiglasname}{List of abbreviations and acronyms}
+  \renewcommand{\listadesimbolosname}{List of symbols}
+   %% adjusts names used by \autoref
+  \renewcommand{\pageautorefname}{page}
+  \renewcommand{\sectionautorefname}{section}
+  \renewcommand{\subsectionautorefname}{subsection}
+  \renewcommand{\subsubsectionautorefname}{subsubsection}
+  \renewcommand{\paragraphautorefname}{paragraph}
+}
+\end{verbatim}
+
+
+% ---
+\subsection{Macros de dados do documento}
+\label{sec-macrosdados}
 % ---
 
 As macros descritas nas próximas subseções são utilizadas para armazenar dados
@@ -980,6 +1040,9 @@ As macros |\titulo|, |\autor|, |\data| e seus pares |\imprimirtitulo|,
 macros padrões |\title|, |\author|, |\date|, |\thetitle|, |\theauthor| e
 |\thedate|, respectivamente. As traduções servem para abstrair o uso do
 \textsf{memoir} e para simplificar futuras adaptações para outras classes bases.
+
+A \autoref{sec-interncional-traducao} descreve como prover traduções para
+outros idiomas dos nomes descritos nas subseções seguintes.
 
 % ---
 \subsubsection{Título}\label{sec-macro-titulo}
@@ -1165,7 +1228,7 @@ para ``subseção''. Além disso, o padrão de nomeação em português provida 
 pacote \textsf{hyperref} desses elementos é colocá-los com letras maiúsculas.
 Porém, a \citeonline[p.~4]{NBR6024:2012} apresenta exemplos de remissões
 internas entre seções e parágrafos com letras minúsculas. Veja a lista completa
-de alterações realizadas na \autoref{sec-babel-traducoes}. As remissões internas
+de alterações realizadas na \autoref{sec-internacional-babel-alteracoes}. As remissões internas
 a capítulo, parte, figura, tabela e demais não foram alteradas, e serão
 impressas com letras maiúsculas.
 
@@ -1634,8 +1697,8 @@ Exemplos de uso do ambiente são:
 ] fim de opção de twocolumn
 \end{verbatim}
 
-A \autoref{babel} aborda a macro |otherlanguage*|, responsável pela hifenização
-em diferentes idiomas.
+A \autoref{sec-internacional-hifen} aborda a macro |otherlanguage*|,
+responsável pela hifenização em diferentes idiomas.
 
 % ---
 \subsection{Lista de ilustrações (opcional)}\label{sec-listadeilustracoes}
