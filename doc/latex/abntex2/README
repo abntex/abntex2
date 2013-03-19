@@ -29,30 +29,31 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.6
+   . added support for typeset documents in different languages
    . enhancements in footnotes: 
      now there is a comma between sequential footnotes and 
      more spacing between index and text; 
    . added new example: glossary with abnTeX2
-   . removed unnecessary packages makeidx and hyperref from all examples; 
-   . removed unnecessary package "lastpage" from:
-     abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
    . added xelatex, inputenc and fontenc information on abntex2.tex class manual;
    . added translations for section, subsection, subsubsection, paragraph and page in \autoref 
      in order to reach compliance to ABNT NBR 6024:2012
-   . added section about \autoref configurations on abntex2.tex class manual; 
+   . added translations to english of all macros from abnTeX2
+   . added leaders to chapters in TOC 
+   . changed implementation of \titulo, \autor, \data and
+     \imprimirtitulo, \imprimirautor e \imprimirdata to be translations of
+     \title, \author, \date, \thetitle, \theauthor e \thedate, respectively.
    . added how you can contribute to the abnTeX2 and minipage examples on abntex2-modelo-include.tex
    . complete fix iso-690-1987 option: year was placed for 
      twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished on abntex2cite.sty
    . fix creation of macros \su@ExpandTwoArgs, \IfSubStringInString and \su@IfSubStringInString 
      imported from substr.sty on abntex2cite.sty
    . changed position of institutio's name at title page
-   . fixed foot notes spacing  
-   . added enhancements to abntex2cite.tex and abntex2.tex about bibliographies 
-   . changed implementation of \titulo, \autor, \data and
-     \imprimirtitulo, \imprimirautor e \imprimirdata to be translations of
-     \title, \author, \date, \thetitle, \theauthor e \thedate, respectively.
+   . removed unnecessary packages makeidx and hyperref from all examples; 
+   . removed unnecessary package "lastpage" from:
+     abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
+   . added sections about internacionalization and about \autoref configurations on abntex2.tex class manual; 
    . added information about \and and \\ on description of macro \autor in abntex2.tex 
-   . added leaders to chapters in TOC 
+   . added enhancements to abntex2cite.tex and abntex2.tex about bibliographies 
     
   2013/02/23 - v1.5
     abntex2.cls:
