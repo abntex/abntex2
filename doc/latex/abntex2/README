@@ -37,6 +37,7 @@ CHANGE HISTORY
    . added xelatex, inputenc and fontenc information on abntex2.tex class manual;
    . added translations for section, subsection, subsubsection, paragraph and page in \autoref 
      in order to reach compliance to ABNT NBR 6024:2012
+   . added information of compliance to ABNT NBR 6027:2012  
    . added translations to english of all macros from abnTeX2
    . added leaders to chapters in TOC 
    . changed implementation of \titulo, \autor, \data and
