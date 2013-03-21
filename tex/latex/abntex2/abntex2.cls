@@ -359,12 +359,12 @@
 
 % lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
-%\renewcommand{\cftfigureaftersnum}{\space--\space}
+ \renewcommand*{\cftfigureaftersnum}{~~--}	
  
 % lista de tabelas  
 \renewcommand{\cfttablename}{\tablename\space}
-%\renewcommand{\cfttableaftersnum}{\space--\space}
-
+\renewcommand*{\cfttableaftersnum}{~~--}	
+ 
 % fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
 
@@ -462,7 +462,7 @@
 \renewcommand{\frontmatter}{\pretextual} 
 
 % por default, inicializa o documento com elementos \pretextuais
-\AtBeginDocument{\frontmatter}
+\AtBeginDocument{\pretextual}
 % ---
 
 % ---
