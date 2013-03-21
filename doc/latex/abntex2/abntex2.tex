@@ -264,7 +264,7 @@ O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
   \url{https://code.google.com/p/abntex2/issues/list} para outras informações.}
   \item[ABNT NBR 6024:2012] Informação e documentação - Numeração
   progressiva das seções de um documento - Apresentação
-  \item[ABNT NBR 6027:2003] Informação e documentação - Sumário -
+  \item[ABNT NBR 6027:2012] Informação e documentação - Sumário -
   Apresentação
   \item[ABNT NBR 6028:2003] Informação e documentação - Resumo -
   Apresentação
@@ -1849,7 +1849,8 @@ informações.
 
 \DescribeMacro{\tableofcontents}
 O Sumário é um elemento obrigatório da ABNT NBR 14724:2011, seção
-4.2.1.13, que pode ser criada por meio da macro padrão |\tableofcontents|.
+4.2.1.13, que pode ser criada por meio da macro padrão |\tableofcontents|. O
+sumário deve ser construído conforme a ABNT NBR 6027:2012.
 
 Nem a classe \textsf{memoir}, nem a classe \textsf{abntex2} incluem
 automaticamente o capítulo criado pela macro |\tableofcontents| no
@@ -1917,6 +1918,9 @@ Use a macro como no exemplo:
       \section{Nem esta seção}
    \end{KeepFromToc}
 \end{verbatim}
+
+O capítulo 9 do mamual do memoir detalha como o sumário pode ser customizado
+\cite{memoir}.
 
 % ------
 \section{Elementos textuais}\label{sec-elementostextuais}
