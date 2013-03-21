@@ -365,14 +365,6 @@
 \renewcommand{\cfttablename}{\tablename\space}
 %\renewcommand{\cfttableaftersnum}{\space--\space}
 
-% espacos a esqueda para comportar os numeros romanos das partes
-\newcommand{\ABNTEXtocitemnumberhspace}{0.2cm}
-\addtolength\cftpartnumwidth{\ABNTEXtocitemnumberhspace}
-\addtolength\cftchapternumwidth{\ABNTEXtocitemnumberhspace}
-\addtolength\cftsectionindent{\ABNTEXtocitemnumberhspace}
-\addtolength\cftsubsectionindent{\ABNTEXtocitemnumberhspace}
-\addtolength\cftsubsubsectionindent{\ABNTEXtocitemnumberhspace}
-
 % fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
 
