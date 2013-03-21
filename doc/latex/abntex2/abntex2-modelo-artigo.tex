@@ -293,7 +293,9 @@ Um estilo próprio de cabeçalhos e rodapés pode ser diferente para páginas pa
 e ímpares. Observe que a diferenciação entre páginas pares e ímpares só é
 utilizada se a opção \texttt{twoside} da classe \textsf{abntex2} for utilizado.
 Caso contrário, apenas o cabeçalho padrão da página par (\emph{even}) é usado.
-Veja o exemplo:
+
+Veja o exemplo abaixo cria um estilo chamado \texttt{meuestilo}. O código deve
+ser inserido no preâmbulo do documento.
 
 \begin{verbatim}
 %%criar um novo estilo de cabeçalhos e rodapés
@@ -320,18 +322,26 @@ Veja o exemplo:
 \end{verbatim}
 
 Para usar o estilo criado, use o comando abaixo imediatamente após um dos
-comandos de divisão do documento:
+comandos de divisão do documento. Por exemplo:
 
 \begin{verbatim}
-   %%usar o estilo criado na primeira página do artigo:
-   \pretextual
-   \pagestyle{meuestilo}
-   
-   %%usar o estilo criado nas páginas textuais
-   \textual
-   \pagestyle{meuestilo}
+   \begin{document}
+     %%usar o estilo criado na primeira página do artigo:
+     \pretextual
+     \pagestyle{meuestilo}
+     
+     \maketitle
+     ...
+     
+     %%usar o estilo criado nas páginas textuais
+     \textual
+     \pagestyle{meuestilo}
+     
+     \chapter{Novo capítulo}
+     ...
+   \end{document}  
 \end{verbatim}
-
+   
 Outras informações sobre cabeçalhos e rodapés estão disponíveis na seção 7.3 do
 manual do \textsf{memoir} \cite{memoir}.
 
