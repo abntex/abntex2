@@ -141,7 +141,6 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 % Espaçamento simples
 \SingleSpacing
 
-
 % ----
 % Início do documento
 % ----
@@ -186,8 +185,7 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
-% É possível usar \textual ou \mainmatter, que é a macro padrão do memoir.  
-\mainmatter
+\textual
 
 % ----------------------------------------------------------
 % Introdução
@@ -286,7 +284,58 @@ Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
 \textsf{abntex2} automaticamente altera o recuo padrão de 4 cm, definido pela
 ABNT NBR 10520:2002 seção 5.3, para 1.8 cm.
 
-\section{Consulte o Modelo Canônico de Trabalhos Acadêmicos}
+\section{Cabeçalhos e rodapés customizados}
+
+Diferentes estilos de cabeçalhos e rodapés podem ser criados usando os
+recursos padrões do \textsf{memoir}.
+
+Um estilo próprio de cabeçalhos e rodapés pode ser diferente para páginas pares
+e ímpares. Observe que a diferenciação entre páginas pares e ímpares só é
+utilizada se a opção \texttt{twoside} da classe \textsf{abntex2} for utilizado.
+Caso contrário, apenas o cabeçalho padrão da página par (\emph{even}) é usado.
+Veja o exemplo:
+
+\begin{verbatim}
+%%criar um novo estilo de cabeçalhos e rodapés
+\makepagestyle{meuestilo}
+  %%cabeçalhos
+  \makeevenhead{meuestilo} %%pagina par
+     {topo par à esquerda}
+     {centro \thepage}
+     {direita}
+  \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
+     {topo ímpar/oneside à esquerda}
+     {centro\thepage}
+     {direita}
+  \makeheadrule{meuestilo}{\textwidth}{\normalrulethickness} %linha
+  %% rodapé
+  \makeevenfoot{meuestilo}
+     {rodapé par à esquerda} %%pagina par
+     {centro \thepage}
+     {direita} 
+  \makeoddfoot{meuestilo} %%pagina ímpar ou com oneside
+     {rodapé ímpar/onside à esquerda}
+     {centro \thepage}
+     {direita}
+\end{verbatim}
+
+Para usar o estilo criado, use o comando abaixo imediatamente após um dos
+comandos de divisão do documento:
+
+\begin{verbatim}
+   %%usar o estilo criado na primeira página do artigo:
+   \pretextual
+   \pagestyle{meuestilo}
+   
+   %%usar o estilo criado nas páginas textuais
+   \textual
+   \pagestyle{meuestilo}
+\end{verbatim}
+
+Outras informações sobre cabeçalhos e rodapés estão disponíveis na seção 7.3 do
+manual do \textsf{memoir} \cite{memoir}.
+
+\section{Mais exemplos no Modelo Canônico de Trabalhos Acadêmicos}
 
 Este modelo de artigo é limitado em número de exemplos de comandos, pois são
 apresentados exclusivamente comandos diretamente relacionados com a produção de

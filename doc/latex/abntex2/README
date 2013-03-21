@@ -54,7 +54,8 @@ CHANGE HISTORY
      abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
    . added sections about internacionalization and about \autoref configurations on abntex2.tex class manual; 
    . added information about \and and \\ on description of macro \autor in abntex2.tex 
-   . added enhancements to abntex2cite.tex and abntex2.tex about bibliographies 
+   . added enhancements to abntex2cite.tex and abntex2.tex about bibliographies
+   . added examples of HEADERS and FOOTERS on abntex2-modelo-artigo.tex 
     
   2013/02/23 - v1.5
     abntex2.cls:
