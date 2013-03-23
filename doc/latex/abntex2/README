@@ -28,7 +28,7 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.6
+  2013/03/23 - v1.6
    . added support for typeset documents in different languages
    . enhancements in footnotes: 
      now there is a comma between sequential footnotes and 
