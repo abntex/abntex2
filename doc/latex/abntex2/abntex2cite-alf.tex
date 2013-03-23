@@ -22,6 +22,9 @@
 %% command line for latex2html :
 %% latex2html -split 0 -toc_depth 8 -noinfo -noaddress -nonavigation -show_section_numbers -html_version 4.0 abnt-bibtex-alf-doc.tex
 %%
+%% 2013/3/23 18h23	laurocesar
+%%  Adiciona cor nos links internos.
+%%
 %% 2013/2/2 15:07	laurocesar
 %%  Padroniza o cabeçalho com os demais manuais
 %%
@@ -79,6 +82,13 @@
 \usepackage{hyperref}
 \usepackage{parskip}			% espaçamento entre os parágrafos
 
+\hypersetup{
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue}
+
 \IfFileExists{html.sty}
 {\usepackage{html}}
 {\usepackage{comment}
@@ -127,6 +137,9 @@
 \newcommand{\VerbL}{0.54\textwidth}
 \newcommand{\LatL}{0.45\textwidth}
 \begin{document}
+
+\definecolor{blue}{RGB}{41,5,195}
+
 %se for usar citeoption não esqueça de comentar o \nocite{*} no final
 \nocite{7.2.2-2}
 \nocite{7.3.2-3} %para testar format.author.or.organization
@@ -173,8 +186,7 @@ o estilo bibliográfico alfabético (sistema autor-data).
 Este documento é parte integrante da suíte \abnTeX2 e é um complemento do
 documento \citeonline{abntex2cite}.
 
-Para referências à classe \textsf{abntex2}, responsável pela aparência e
-estrutura de trabalhos acadêmicos, consulte \citeonline{abntex2classe}.
+Para referências à classe \textsf{abntex2}, consulte \citeonline{abntex2classe}.
 
 \section{Créditos aos autores originais}
 
@@ -236,11 +248,11 @@ pode não ter qualquer vínculo com a realidade. Por isso \emph{não garantimos}
 que ao usar os estilos do \abnTeX\ você esteja em conformidade com as normas
 da sua instituição ou empresa.
 
-Um exemplo clássico é o sistema de chamada numérico (citação numérica, usada em
-\cite{abntex2cite}). Embora \emph{todas} as `normas' da ABNT
-\cite{NBR10520:1988,NBR6023:2000,NBR6023:2002,NBR10520:2001,NBR10520:2002}
-`autorizem' seu uso a maioria das instituições, orientadores, membros de banca
-dirão que isso não é ABNT. Acredite se quiser.
+Um exemplo clássico é o sistema de chamada numérico\footnote{Descrito em
+\citeonline{abntex2cite}.}. Embora \emph{todas} as `normas' da ABNT
+\cite{NBR10520:1988,NBR6023:2000,NBR6023:2002,NBR6023:2002,NBR10520:2001,NBR10520:2002}
+`autorizem' seu uso, a maioria das instituições, orientadores, membros de banca,
+revisores de artigo\ldots dirão que isso não é ABNT. Acredite se quiser.
 
 \section{Como usar a citação alfabética (sistema autor-data)}
 

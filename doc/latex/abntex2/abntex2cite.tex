@@ -18,6 +18,11 @@
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
+%% 2013/3/23 18h23	laurocesar
+%%  Revisa considerações iniciais. 
+%%  Adiciona cor nos links internos.
+%%  Retira o ano da norma 6023 do título do documento.
+%%
 %% 2013/3/13 10h53	laurocesar
 %%  Adiciona seção ``Siglas e letras maiúsculas nos títulos das referências''
 %%
@@ -86,7 +91,7 @@
 %from /usr/share/texmf/doc/pdftex/base/pdftexman.pdf
 \pdfinfo{
   /Title        (Manual de uso dos estilos bibliográficos do pacote abntex2:
-  estilos bibtex compatíveis com a ABNT NBR 6023:2000) 
+  estilos bibtex compatíveis com a ABNT NBR 6023) 
   /Author       (G. Weber - Grupo abnTeX - Grupo abnTeX, abnTeX2)
   /Subject      (referencias bibliograficas)
   /Keywords     (ABNT, bibliografia, 6023:2000, 6023:2002)}
@@ -99,6 +104,13 @@
 \usepackage{hyperref}
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{nomencl} 			% Lista de simbolos
+
+\hypersetup{
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue}
 
 \IfFileExists{html.sty}
 {\usepackage{html}}
@@ -138,6 +150,9 @@
 \def\Data$#1 #2 #3${#2}
 %\newcommand{\bibtextitlecommand}[2]{``#2''}
 \begin{document}
+
+\definecolor{blue}{RGB}{41,5,195}
+
 \citeoption{abnt-options0}
 \nocite{NBR6023:2000,NBR10520:1988,NBR10520:2001,abnt-bibtex-alf-doc}
 \nocite{7.1.3-1,7.1.3-2}
@@ -213,8 +228,7 @@
 \nocite{ABNT-final}
 
 \newcommand{\titulo}{Manual de uso dos estilos bibliográficos do pacote
-\textsf{abntex2cite}: estilos \textsf{bibtex} compatíveis com a ABNT NBR
-6023:2000}
+\textsf{abntex2cite}: estilos \textsf{bibtex} compatíveis com a ABNT NBR 6023}
 \newcommand{\abnTeX}{abn\TeX}
 \newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
 
@@ -241,7 +255,7 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 \begin{abstract}
 Este manual é parte integrante da suíte \abnTeX2 e descreve os estilos
 bibliográficos \textsf{abntex-alf.bst} e \textsf{abntex-num.bst}, responsáveis
-pelos estilos \textsf{bibtex} compatíveis com a ABNT NBR 6023:2000.
+pelos estilos \textsf{bibtex} compatíveis com a ABNT NBR 6023.
 \end{abstract}
 
 
@@ -252,13 +266,12 @@ pelos estilos \textsf{bibtex} compatíveis com a ABNT NBR 6023:2000.
 
 O objetivo deste manual é descrever os estilos bibliográficos
 \textsf{abntex-alf.bst} e \textsf{abntex-num.bst}, responsáveis pelos estilos
-\textsf{bibtex} compatíveis com a ABNT NBR 6023:2000. 
+\textsf{bibtex} compatíveis com a ABNT NBR 6023. 
 
 Este documento é parte integrante da suíte \abnTeX2 e é complementado pelo
 documento \citeonline{abntex2cite-alf}.
 
-Para referências à classe \textsf{abntex2}, responsável pela aparência e
-estrutura de trabalhos acadêmicos, consulte \citeonline{abntex2classe}.
+Para referências à classe \textsf{abntex2}, consulte \citeonline{abntex2classe}.
 
 
 \section{Créditos aos autores originais}
@@ -275,23 +288,29 @@ registra que os créditos deste manual são dos autores originais.
 
 \section{Considerações iniciais}
 
-\subsection{Se puder, evite usar essa `norma'}
+\subsection{Se puder, evite a `norma' ANBT NBR 6023}
 
-Sim, estamos falando muito sério! A `norma' 6023/2000\cite{NBR6023:2000} da ABNT
-é uma droga. Se puder não use e não peça para ninguém usar. Se você faz parte de
-comitês, comissões etc. de qualquer nível, por favor ajude a combater essa
-bobagem.
+A primeira equipe do abnTeX usou a ABNT NBR 6023:2000 e outras normas da ABNT
+vigentes, em média, até 2004. Naquela época as normas eram confusas,
+inconsistentes e repletas de exemplos incoerentes. Atualmente a situação não é
+muito diferente. Porém, percebe-se que houve uma tentativa mínima dos comitês da
+ABNT em tornar o labor de interpretar as normas menos árduo. De toda forma,
+acompanhamos os autores originais do abnTeX e recomendamos: ``Se puder não use e
+não peça para ninguém usar.''
 
-Existem centenas de estilos bibliográficos muito legais por aí, use o próprio
+Existem centenas de estilos bibliográficos mundo a fora. Use o próprio
 \textsf{bibtex} para experimentar. Se você quiser entender porque não se deveria
-usar, em nenhuma circunstância, a `norma' 6023 então leia o restante do texto.
+usar, em nenhuma circunstância, a `norma' 6023, então leia o restante do texto.
 Porém se você estiver sendo \emph{forçado} a usar a `norma' da ABNT então vá em
 frente e boa sorte!
 
-Porque então fizemos o estilo bibliográfico razoavelmente compatível
-com a `norma'? Nós queremos incentivar o uso do \LaTeX\  e queremos
-ajudar os pobres-coitados, alguns dos quais nós mesmos, que são ou
-serão forçados, por estupidez burocrática, a usar `normas' da ABNT.
+Porque então fizemos o estilo bibliográfico razoavelmente compatível com a
+`norma'? Nós queremos incentivar o uso do \LaTeX\  e queremos ajudar os
+pobres-coitados, alguns dos quais nós mesmos, que são ou serão forçados, por
+estupidez burocrática, a usar `normas' da ABNT.
+
+A \autoref{sec-intro-compatibidade-6023-2002} descreve a compatibilidade do
+\abnTeX2 com as normas mais recentes e vigentes da ABNT.
 
 \subsection{Cuidado: normas nebulosas!}
 
@@ -311,12 +330,12 @@ as `normas' da ABNT corretamente.
 
 Um exemplo clássico é o sistema de chamada numérico (citação numérica, usada
 neste documento). Embora \emph{todas} as `normas' da
-ABNT\cite{NBR6023:2000,NBR10520:1988,NBR10520:2001} `autorizem' seu uso a
-maioria das instituições, orientadores, membros de banca irão dizer que isso
-não é ABNT. Acredite se quiser.
+ABNT\cite{NBR6023:2000,NBR6023:2002,NBR10520:1988,NBR10520:2001} `autorizem' seu
+uso a maioria das instituições, orientadores, membros de banca, revisores do seu
+artigo\ldots irão dizer que isso não é ABNT. Acredite se quiser.
 
 As regras particulares de algumas instituições foram acomodadas em termos de
-subestilos. Consulte a tabela~\ref{tabela-subestilos} e avise-nos se houver
+subestilos. Consulte a \autoref{tabela-subestilos} e avise-nos se houver
 regras particulares de sua instituição para que possam ser disponibilizadas
 para outras pessoas.
 
@@ -348,7 +367,7 @@ Alguns exemplos jamais serão reproduzidos corretamente ou por serem estranhos
 demais ou porque estão em desacordo com a própria `norma'. As teses são um
 exemplo notório desse último caso.
 
-A `norma' 6023/2000\cite{NBR6023:2000} é complicada e cheia de inconsistências.
+A `norma' 6023:2000 \cite{NBR6023:2000} é complicada e cheia de inconsistências.
 Jamais será possível gerar um estilo \textsf{bibtex} totalmente consistente com
 a `norma', até porque nem a `norma' é compatível com ela mesma. Um bom estilo bibliográfico
 deve ter uma linha lógica para formatação de referências. Assim, com alguns
@@ -371,6 +390,7 @@ ABNT. Isso não apenas é problemático, pelo menos do ponto de vista do
 
 \subsection{O \textsf{abntex2cite} está em conformidade com a ABNT NBR
 6023:2002?}
+\label{sec-intro-compatibidade-6023-2002}
 
 Esta versão do manual dos estilos bibliográficos do \abnTeX2 contém os exemplos
 da versão anterior da norma ABNT NBR 6023, ou seja, da versão 2000. A norma
@@ -551,7 +571,7 @@ no documento \citeonline{abntex2cite-alf}.
 Normalmente não há problemas em usar caracteres acentuados em arquivos
 bibliográficos (\texttt{*.bib}). Porém os estilos aqui usados fazem uso quase abusivo da
 conversão para letras maiúsculas. Neste caso é preciso ter algum cuidado.
-Na tabela~\ref{tabela-acentos} você encontra alguns exemplos das conversões
+Na ~\autoref{tabela-acentos} você encontra alguns exemplos das conversões
 mais importantes. Preste atenção especial para `ç' e `í' que devem estar
 envoltos em chaves. A regra geral é sempre usar a acentuação neste modo quando
 houver conversão para letras maiúsculas.
