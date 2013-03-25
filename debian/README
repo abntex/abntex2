@@ -1,0 +1,28 @@
+Este repositório tem o propósito de disponibilizar uma maneira mais fácil para instalação do abnTeX2 em desktops Debian e derivados, enquanto o mesmo não estiver disponível nos repositórios oficiais, além de fazer as adaptações necessárias para que o mesmo esteja de acordo com as políticas Debian e a DFSG.
+
+Uma vez que os pacotes deste repositório são assinados digitalmente, para realizar o processo de instalação será necessário adicionar a nossa chave pública gnupg ao banco de dados de chaves do APT da seguinte forma, via terminal:
+
+$ gpg --recv-keys 89C55467 && gpg --export --armor 89C55467|sudo apt-key add -
+
+
+Para instalar o abnTeX2 em seu computador, é necessário adicionar a seguinte linha ao arquivo /etc/apt/sources.list:
+
+deb http://abntex2.googlecode.com/hg/debian testing main
+
+
+Após isso, instale o abntex2 digitanto o seguinte em um terminal:
+
+$ sudo apt-get update && sudo apt-get install abntex2
+
+Dessa forma, o pacote serão baixado e instalado em seu computador.
+
+
+*OBS: Você pode utilizar qualquer outro gerenciador para fazer a instalação dos pacotes, como por exemplo o synaptic. 
+
+
+Para atualizar uma instalação já existente você só precisa digita isto em um terminal:
+
+$ sudo apt-get update && sudo apt-get upgrade
+
+
+Qualquer dúvida, basta entrar em contato através da lista de discussão do abnTeX2 em http://groups.google.com/group/abntex2
