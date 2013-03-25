@@ -1,0 +1,20 @@
+Package: abntex2
+Version: 1.6.0-1
+Architecture: all
+Maintainer: Marcelo Santana <marcelo@msantana.eng.br>
+Installed-Size: 4567
+Depends: dpkg (>= 1.14.18), tex-common (>= 3), texlive-latex-recommended, texlive-lang-portuguese, texlive-latex-extra, texlive-fonts-recommended
+Homepage: http://abntex2.googlecode.com
+Priority: optional
+Section: tex
+Filename: pool/main/a/abntex2/abntex2_1.6.0-1_all.deb
+Size: 4432220
+SHA256: 7768e1e1c7c70da2f004b0b0e7975f7876616edcd17b17971ee819f3fd7c25a0
+SHA1: 61e7dee8dbd9f273e22134db4507a6434ab519e8
+MD5sum: 2f4c1c6d02e916587c621b8cc9f62137
+Description: LaTeX class for writing documents in ABNT standard
+ abnTeX2 is a fork of abnTeX class for writing documents in ABNT standard.
+ The Brazilian Technical Standards Association (ABNT) is responsible for
+ the national standardization and certification procedures. The package
+ also includes support to BibTeX in the ABNT standard.
+
