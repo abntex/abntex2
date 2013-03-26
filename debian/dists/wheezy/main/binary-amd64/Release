@@ -1,6 +1,0 @@
-Archive: testing
-Component: main
-Origin: http://abntex2.googlecode.com
-Label: abnTeX2
-Architecture: amd64
-Description: Unofficial abnTeX2 Debian package.
