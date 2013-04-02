@@ -16,6 +16,8 @@
 %% http://code.google.com/p/abntex2/
 %%
 %% This work consists of the file abntex2.tex
+%% 2013.4.01 21:00	gilsonolegario
+%% Melhorias visuais da documentação
 %%
 %% 2013.3.19 09h32	laurocesar
 %%  Adiciona orientações sobre a produção de documentos em outros idiomas.
@@ -107,13 +109,15 @@
 %%  Criação do arquivo 
 %%
 
-\documentclass[a4paper]{ltxdoc}
-
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
-\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\documentclass{ltxdoc}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures={TeX}}
+\setmainfont{Latin Modern Roman} 
+\setsansfont{Latin Modern Sans}
+\setmonofont[Scale=MatchLowercase]{Latin Modern Mono}
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
+
 
 % Babel e ajustes
 \usepackage[brazil]{babel}		% idiomas
@@ -130,6 +134,53 @@
     \renewcommand{\paragraphautorefname}{par\'agrafo}
     \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
 }  
+
+\usepackage{color}
+\definecolor{thered}  {rgb}{0.65,0.04,0.07}
+\definecolor{thegreen}{rgb}{0.06,0.44,0.08}
+\definecolor{thegrey} {gray}{0.8}
+\definecolor{theshade}{rgb}{1,1,0.97}
+\definecolor{theframe}{gray}{0.6}
+\IfFileExists{listings.sty}{
+  \usepackage{listings}
+  \lstset{
+    % gobble=1,
+    columns=flexible,
+    keepspaces,
+    basicstyle=\MacroFont,
+    keywords=[0]{\selectlanguage,\foreignlanguage,\defineshorthand,
+     \babelhyphen,\babelhyphenation,\spanishhyphenmins,\addto,
+     \StartBabelCommands,\SetString,\EndBabelCommands,\shorthandoff,
+     \languageshorthands,\useshorthands,resumo,\SetStringLoop,
+     \SetCase,\AfterBabelLanguage},
+    keywordstyle=[0]\color{thered},
+    keywords=[1]{openright,12pt,twoside,a4paper,french,english,spanish,
+     french},
+    keywordstyle=[1]\color{thegreen},
+    comment=[l]\%,
+    commentstyle=\color{thegrey}\itshape,
+    alsoother={0123456789_},
+    frame=single,
+    backgroundcolor=\color{theshade},
+    rulecolor=\color{theframe},
+    framerule=\fboxrule,
+  }
+  \let\verbatim\relax
+  \lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+}{}
+\def\PrintDescribeMacro#1{%
+  \strut\MacroFont\color{thered}\normalsize\string#1}
+\def\Describe#1{%
+  \par\penalty-500\vskip3ex\noindent
+  \DescribeMacro{#1}\args}
+\def\DescribeOther{\vskip-4ex\Describe}
+\makeatletter
+\def\args#1{%
+  \def\bbl@tempa{#1}%
+  \ifx\bbl@tempa\@empty\else#1\vskip1ex\fi\ignorespaces}
+\makeatother
+
+
 
 \usepackage[alf]{abntex2cite}	% citacoes
 
@@ -433,7 +484,7 @@ diferenças entre as outras normas.
 		\begin{description} 
 		\item[Elementos pré-textuais]\ \\
 		  Folha de rosto (obrigatório) + \\
-		  \hspace*{0.2cm}Dados de catalogação-na-publicação\footnote{O documento
+		  Dados de catalogação-na-publicação\footnote{O documento
 		  ``Dados de catalogação-na-publicação'' é chamado apenas como ``Ficha
 		  catalográfica'' neste texto.} (opcional)\\
 		  Errata (opcional) \\
@@ -547,7 +598,7 @@ Consulte o manual do \textsf{memoir} para outras opções.
 As opções mais comuns de inicialização do texto do documento são:
 
 \begin{verbatim}
-   \documentclass[12pt,openright,twoside,a4paper]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper]{abntex2}
 \end{verbatim}
 
 % ---
@@ -585,9 +636,9 @@ documento para que a numeração dos capítulos, seções, figuras e tabelas sej
 corretamente sequenciados:
 
 \begin{verbatim}
-  \counterwithout{section}{section}
-  \counterwithout{figure}{chapter}
-  \counterwithout{table}{chapter}
+\counterwithout{section}{section}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
 \end{verbatim}
 
 A macro |\part| também é permitida em |article|.
@@ -608,7 +659,7 @@ valor de |\ABNTEXfontereduzida| para |\small|, por exemplo, com o seguinte
 comando:
 
 \begin{verbatim}
-   \renewcommand{\footnotesize}{\small}
+\renewcommand{\footnotesize}{\small}
 \end{verbatim}
 
 Caso deseje utilizar outro tamanho de fonte para o documento, substitua a opção
@@ -626,7 +677,7 @@ O tamanho do parágrafo, espaço entre a margem e o início da frase do parágra
 é definido por:
 
 \begin{verbatim}
-   \setlength{\parindent}{1.3cm}
+\setlength{\parindent}{1.3cm}
 \end{verbatim}
 
 \subsubsection{Tamanho do primeiro parágrafo}
@@ -637,7 +688,7 @@ parágrafo também seja indentado. Para isso, apenas inclua o pacote
 \textsf{indentfirst} no preâmbulo do documento:
 
 \begin{verbatim}
-   \usepackage{indentfirst}      % Indenta o primeiro parágrafo de cada seção.
+\usepackage{indentfirst}	% Indenta o primeiro parágrafo de cada seção.
 \end{verbatim}
 
 \subsubsection{Espaçamento entre parágrafos}
@@ -646,7 +697,7 @@ O espaçamento entre um parágrafo e outro pode ser controlado por meio do
 comando:
 
 \begin{verbatim}
-  \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\setlength{\parskip}{0.2cm}	% tente também \onelineskip
 \end{verbatim}
 
 \subsubsection{Espaçamento entre linhas}
@@ -658,12 +709,12 @@ espaçamento simples e espaçamento duplo, respectivamente. Além dessas
 macros, estão disponíveis:
 
 \begin{verbatim}
-  \begin{SingleSpace} ...\end{SingleSpace}
-  \begin{Spacing}{hfactori} ... \end{Spacing}
-  \begin{OnehalfSpace} ... \end{OnehalfSpace}
-  \begin{OnehalfSpace*} ... \end{OnehalfSpace*}
-  \begin{DoubleSpace} ... \end{DoubleSpace}
-  \begin{DoubleSpace*} ... \end{DoubleSpace*} 
+\begin{SingleSpace} ...\end{SingleSpace}
+\begin{Spacing}{hfactori} ... \end{Spacing}
+\begin{OnehalfSpace} ... \end{OnehalfSpace}
+\begin{OnehalfSpace*} ... \end{OnehalfSpace*}
+\begin{DoubleSpace} ... \end{DoubleSpace}
+\begin{DoubleSpace*} ... \end{DoubleSpace*} 
 \end{verbatim}
 
 Observe que a classe \textsf{abntex2} utiliza o sistema de espaçamento padrão
@@ -678,11 +729,11 @@ Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
 As \emph{margens} são configuradas conforme a NBR 14724:2011, seção 5.1, 
 e podem ser alteradas do seguinte modo:
 
-  \begin{verbatim}
-     \setlrmarginsandblock{3cm}{2cm}{*}
-     \setulmarginsandblock{3cm}{2cm}{*}
-     \checkandfixthelayout
-  \end{verbatim}
+\begin{verbatim}
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+\end{verbatim}
 
 % ---
 \subsection{Numeração contínua de figuras e tabelas}
@@ -691,10 +742,10 @@ e podem ser alteradas do seguinte modo:
 A numeração de figuras e tabelas deve ser contínua em todo o documento (ABNT
 NBR 14724:2011 seções 5.8 e 5.9). Porém, caso deseje alterar esse comportamento
 para numeração por capítulos, por exemplo, use:
-  \begin{verbatim}
-    \counterwithout{figure}{section}
-    \counterwithout{table}{section}
-  \end{verbatim}
+\begin{verbatim}
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+\end{verbatim}
 
 
 % ---
@@ -720,8 +771,9 @@ no \textsf{bookmark} com o comando |\pdfbookmark|\oarg{posição}\marg{Título n
 bookmark}\marg{texto de identificação única, sem espaços}:
 
 \begin{verbatim}
-   \pdfbookmark[0]{Capítulo fora do Sumário, mas presente no bookmark}{texto-qualquer} 
-   \chapter*{Capítulo fora do Sumário, mas presente no bookmark}
+\pdfbookmark[0]{Capítulo fora do Sumário, mas presente no
+ bookmark}{texto-qualquer} 
+\chapter*{Capítulo fora do Sumário, mas presente no bookmark}
 \end{verbatim}
 
 Para alterar o cabeçalho da página automaticamente com o comando
@@ -735,8 +787,8 @@ quando o texto adicionado ao bookmark não estiver próxima a uma divisão do
 documento. Nesse caso, o comando fica assim:
 
 \begin{verbatim}
-   \phantomsection\pdfbookmark[0]{Capítulo}{texto-qualquer2} 
-   \chapter*{Capítulo}
+\phantomsection\pdfbookmark[0]{Capítulo}{texto-qualquer2} 
+\chapter*{Capítulo}
 \end{verbatim}
 
 Veja a sugestão de uso do \textsf{bookmark} do PDF na
@@ -814,14 +866,14 @@ tradicional com \texttt{pdflatex} quanto com \texttt{xelatex}, uma vez que
 inclui seletivamente os pacotes adequados para cada compilador:
 
 \begin{verbatim}
-   \usepackage{ifxetex}
-   \ifxetex
-     \usepackage{fontspec}
-     \defaultfontfeatures{Ligatures={TeX}}
-   \else
-     \usepackage[utf8]{inputenc}
-     \usepackage[T1]{fontenc}
-   \fi
+\usepackage{ifxetex}
+ \ifxetex
+   \usepackage{fontspec}
+   \defaultfontfeatures{Ligatures={TeX}}
+  \else
+   \usepackage[utf8]{inputenc}
+   \usepackage[T1]{fontenc}
+  \fi
 \end{verbatim}
 
 % Sempre que um documento construído com a classe \textsf{abntex2} é compilado com
@@ -833,9 +885,9 @@ Para fonte serifada, sem serifa (geralmente usada para títulos) e monoespaçada
 respectivamente:
  
 \begin{verbatim}
-   \setromanfont{Minion Pro}
-   \setsansfont{Myriad Pro}
-   \setmonofont[Scale=MatchLowercase]{Consolas}
+\setromanfont{Minion Pro}
+\setsansfont{Myriad Pro}
+\setmonofont[Scale=MatchLowercase]{Consolas}
 \end{verbatim} 
  
 O usuário deve implementar esses comandos, substituindo o nome das fontes
@@ -858,9 +910,9 @@ Para textos em outras línguas, deverão ser utilizados ambientes do pacote
 \textsf{polyglossia}. Por exemplo:
  
 \begin{verbatim}
-   \begin{english}
-     Text in English...
-   \end{english} 
+\begin{english}
+ Text in English...
+\end{english} 
 \end{verbatim}
  
 Para mais informações, consulte \url{http://www.xelatex.org/}.
@@ -878,7 +930,8 @@ Para usar as diferentes hifenizações de cada idioma, inclua nas opções do
 documento o nome dos idiomas usados no texto. Por exemplo:
 
 \begin{verbatim}
-   \documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper,english,french,
+spanish]{abntex2}
 \end{verbatim}
 
 O idioma português-brasileiro (\texttt{brazil}) é incluído por padrão pela
@@ -900,9 +953,9 @@ idiomas, como nome da Lista de figuras, rótulos das seções, entre outros, nã
 são alterados. Exemplo de uso:
 
 \begin{verbatim}
-  \begin{otherlanguage*}{french}
-    Texte en français.
-  \end{otherlanguage*}
+\begin{otherlanguage*}{french}
+ Texte en français.
+\end{otherlanguage*}
 \end{verbatim}
 
 \DescribeMacro{\selectlanguage}
@@ -951,19 +1004,19 @@ Algumas alterações foram realizadas nos nomes padronizados pelo pacote
 
 Se desejar outro comportamento, use:
 \begin{verbatim}
-  \addto\captionsbrazil{
-    %% ajusta nomes padroes do babel
-    \renewcommand{\bibname}{Refer\^encias}
-    \renewcommand{\indexname}{\'Indice}
-    \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
-    \renewcommand{\listtablename}{Lista de tabelas}
-    %% ajusta nomes usados com a macro \autoref
-    \renewcommand{\pageautorefname}{p\'agina}
-    \renewcommand{\sectionautorefname}{se{\c c}\~ao}
-    \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
-    \renewcommand{\paragraphautorefname}{par\'agrafo}
-    \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
-  }  
+\addto\captionsbrazil{
+  %% ajusta nomes padroes do babel
+  \renewcommand{\bibname}{Refer\^encias}
+  \renewcommand{\indexname}{\'Indice}
+  \renewcommand{\listfigurename}{Lista de ilustra\c{c}\~{o}es}
+  \renewcommand{\listtablename}{Lista de tabelas}
+  %% ajusta nomes usados com a macro \autoref
+  \renewcommand{\pageautorefname}{p\'agina}
+  \renewcommand{\sectionautorefname}{se{\c c}\~ao}
+  \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
+  \renewcommand{\paragraphautorefname}{par\'agrafo}
+  \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+}  
 \end{verbatim} 
 
 Veja observações sobre as alterações referentes à página, seção, subseção,
@@ -979,7 +1032,7 @@ adequado para produzir documentos técnicos e científicos em português-brasil
 (padrão) e em inglês. Para alterar o idioma padrão do documento use:
 
 \begin{verbatim}
-   \selectlanguage{english}
+\selectlanguage{english}
 \end{verbatim}
 
 A macro |\selectlanguage{english}| altera os valores padrões listados na
@@ -1162,8 +1215,7 @@ metadados do PDF final, conforme o exemplo, que também altera informações de 
 links internos do documento final:
 
 \begin{verbatim}
-
-\usepackage{hyperref}  			% controla a formação do índice
+\usepackage{hyperref}		% controla a formação do índice
 
 \titulo{Modelo Canônico de\\ Trabalho Acadêmico com \abnTeX}
 \autor{Equipe \abnTeX}
@@ -1178,19 +1230,19 @@ links internos do documento final:
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Tese (Doutorado)}
-\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
-as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+\preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade
+com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 
 \makeatletter
 \hypersetup{
 		pdftitle={\@title}, 
 		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
+		pdfsubject={\imprimirpreambulo},
 		pdfkeywords={PALAVRAS}{CHAVES}{EM}{PORTUGUES},
-	    pdfcreator={LaTeX with abnTeX2},
-    	colorlinks=true,
-    	linkcolor=blue,
-    	citecolor=blue,
+		pdfcreator={LaTeX with abnTeX2},
+		colorlinks=true,
+		linkcolor=blue,
+		citecolor=blue,
 		urlcolor=blue
 }
 \makeatother
@@ -1339,7 +1391,8 @@ reescreva a macro |\folhaderostocontent|, conforme o exemplo:
        \vspace*{\fill}
     }%
 
-    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+  {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao
+\vspace*{\fill}}}
 
     {\large\imprimirorientadorRotulo~\imprimirorientador\par}
     \abntex@ifnotempty{\imprimircoorientador}{%
@@ -1376,23 +1429,23 @@ Um exemplo de uso do comando é:
 
 \begin{verbatim}
 \begin{fichacatalografica}
-	\vspace*{15cm}					% Posição vertical
-	\hrule							% Linha horizontal
-	\begin{center}					% Minipage Centralizado
-	\begin{minipage}[c]{12.5cm}		% Largura
+	\vspace*{15cm}			% Posição vertical
+	\hrule				% Linha horizontal
+	\begin{center}			% Minipage Centralizado
+	\begin{minipage}[c]{12.5cm}	% Largura
 	
 	\imprimirautor
 	
 	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
 	\imprimirlocal, \imprimirdata-
 	
-	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-	
+	\hspace{0.5cm} \pageref{LastPage} p. : il.(alguma color.); 30 cm.\\
+		
 	\hspace{0.5cm} \imprimirorientadorRotulo \imprimirorientador\\
 	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
+\hspace{0.5cm}
+\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+\imprimirdata.}\\
 	
 	\hspace{0.5cm}
 		1. Palavra-chave1.
@@ -1416,8 +1469,8 @@ Portanto, para usar o exemplo é preciso adicionar a linha
 abaixo ao preâmbulo do documento:
 
 \begin{verbatim}
-   % usado por abntex2-fichacatalografica.tex
-   \usepackage{lastpage}
+% usado por abntex2-fichacatalografica.tex
+\usepackage{lastpage}
 \end{verbatim}
 
 A Ficha catalográfica não é incluída no \textsf{bookmark} do PDF
@@ -1439,24 +1492,24 @@ Um exemplo de uso do ambiente é:
 \begin{verbatim}
 \begin{errata}
 
-	FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-	reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-	rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-	cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-	Zootecnia, Universidade de São Paulo, São Paulo, 2011.
-	
-	\begin{table}[htb]
-	\center
-	\footnotesize
-	\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-	  \hline
-	   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-	    \hline
-	    1 & 10 & auto-conclavo & autoconclavo\\
-	   \hline
-	\end{tabular}
-	\end{table}
-	
+FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária 
+e Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+\begin{table}[htb]
+\center
+\footnotesize
+\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+  \hline
+  \textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} & \textbf{Leia-se}\\
+  \hline
+  1 & 10 & auto-conclavo & autoconclavo\\
+  \hline
+\end{tabular}
+\end{table}
+
 \end{errata}
 \end{verbatim}
 
@@ -1481,7 +1534,7 @@ apresentação do trabalho. Uma página digitalizada pode ser incluída no
 documento com o comando:
 
 \begin{verbatim}
-   \includepdf{folhadeaprovacao_final.pdf}
+\includepdf{folhadeaprovacao_final.pdf}
 \end{verbatim}
 
 De todo modo, você pode utilizar o seguinte modelo de Folha de aprovação até a
@@ -1613,10 +1666,10 @@ Um exemplo de uso do ambiente é:
    \vspace*{\fill}
    \begin{flushright}
       \textit{``Não vos amoldeis às estruturas deste mundo, \\
-        mas transformai-vos pela renovação da mente, \\
-        a fim de distinguir qual é a vontade de Deus: \\
-        o que é bom, o que Lhe é agradável, o que é perfeito.\\
-        (Bíblia Sagrada, Romanos 12, 2)}
+      mas transformai-vos pela renovação da mente, \\
+      a fim de distinguir qual é a vontade de Deus: \\
+      o que é bom, o que Lhe é agradável, o que é perfeito.\\
+      (Bíblia Sagrada, Romanos 12, 2)}
     \end{flushright}
 	
 \end{epigrafe}
@@ -1716,9 +1769,9 @@ O exemplo seguinte cria a Lista de ilustrações e já a adiciona ao
 \textsf{bookmark}:
 
 \begin{verbatim}
-   \pdfbookmark[0]{\listfigurename}{lof}
-   \listoffigures*
-   \cleardoublepage
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
 \end{verbatim}
 
 A seção 4.2.1.9 da norma ABNT NBR 14724:2011 recomenda que, quando necessário,
@@ -1746,9 +1799,9 @@ O exemplo seguinte cria a Lista de tabelas e já a adiciona ao
 \textsf{bookmark}:
 
 \begin{verbatim}
-   \pdfbookmark[0]{\listtablename}{lot}
-   \listoftables*
-   \cleardoublepage
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
 \end{verbatim}
 
 % ---
@@ -1782,32 +1835,32 @@ seguindo o exemplo:
 No preâmbulo:
 
 \begin{verbatim}
-   \usepackage{nomencl}
+\usepackage{nomencl}
    
-   \makenomenclature
+\makenomenclature
 \end{verbatim}
 
 No corpo do documento:
 
 \begin{verbatim}
-   \nomenclature{Fig.}{Figura}
-   \nomenclature{$A_i$}{Area of the $i^{th}$ component} 
-   \nomenclature{456}{Isto é um número}
-   \nomenclature{123}{Isto é outro número}
-   \nomenclature{a}{primeira letra do alfabeto}
-   \nomenclature{lauro}{este é meu nome} 
+\nomenclature{Fig.}{Figura}
+\nomenclature{$A_i$}{Area of the $i^{th}$ component} 
+\nomenclature{456}{Isto é um número}
+\nomenclature{123}{Isto é outro número}
+\nomenclature{a}{primeira letra do alfabeto}
+\nomenclature{lauro}{este é meu nome} 
 
-   \renewcommand{\nomname}{\listadesiglasname}
-   \pdfbookmark[0]{\nomname}{las}
-   \printnomenclature
-   \cleardoublepage
+\renewcommand{\nomname}{\listadesiglasname}
+\pdfbookmark[0]{\nomname}{las}
+\printnomenclature
+\cleardoublepage
 \end{verbatim}
 
 Para usar o pacote \textsf{nomencl}, é necessário compilar o documento \LaTeX\
 com \textsf{makeindex}:
 
 \begin{verbatim}
-   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
 \end{verbatim}
 
 Após a compilação com \textsf{makeindex}, compile normalmente o documento com
@@ -1826,12 +1879,12 @@ A lista de símbolos é um elemento opcional da ABNT NBR 14724:2011,
 seção 4.2.1.12 e pode ser criada com o ambiente |simbolos|:
 
 \begin{verbatim}
-  \begin{simbolos}
-    \item[$ \Gamma $] Letra grega Gama
-    \item[$ \Lambda $] Lambda
-    \item[$ \zeta $] Letra grega minúscula zeta
-    \item[$ \in $] Pertence
-  \end{simbolos}
+\begin{simbolos}
+  \item[$ \Gamma $] Letra grega Gama
+  \item[$ \Lambda $] Lambda
+  \item[$ \zeta $] Letra grega minúscula zeta
+  \item[$ \in $] Pertence
+\end{simbolos}
 \end{verbatim}
 
 \DescribeMacro{\listadesimbolosname}
@@ -1858,9 +1911,9 @@ incluído no \textsf{bookmark} (\autoref{sec-bookmark}), utilize o exemplo
 abaixo:
 
 \begin{verbatim}
-   \pdfbookmark[0]{\contentsname}{toc}
-   \tableofcontents*
-   \cleardoublepage
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
 \end{verbatim}
 
 \DescribeMacro{\settocdepth}
@@ -1884,7 +1937,7 @@ fonte utilizada no Sumário seja a mesma defina para o capítulo, da seguinte
 maneira:
 
 \begin{verbatim}
-   \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
+\renewcommand{\tocheadstart}{\ABNTEXchapterfont}
 \end{verbatim}
 
 \DescribeMacro{\addcontentsline}
@@ -1893,8 +1946,8 @@ divisão}\marg{texto no sumário} pode ser usado para incluir uma linha no
 Sumário. Use o comando, por exemplo, após a criação de capítulo não numerado: 
 
 \begin{verbatim}
-   \chapter*{Introdução}
-   \addcontentsline{toc}{chapter}{Introdução}
+\chapter*{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
 \end{verbatim}
 
 É importante destacar que nenhum elemento pré-textual deve estar presente no
@@ -1912,10 +1965,10 @@ versão.
 Use a macro como no exemplo:
 
 \begin{verbatim}
-   \begin{KeepFromToc}
-      \chapter{Este capítulo não aparece no sumário}
-      \section{Nem esta seção}
-   \end{KeepFromToc}
+\begin{KeepFromToc}
+   \chapter{Este capítulo não aparece no sumário}
+   \section{Nem esta seção}
+\end{KeepFromToc}
 \end{verbatim}
 
 O capítulo 9 do mamual do \textsf{memoir} detalha como o sumário pode ser
@@ -1978,16 +2031,16 @@ página de divisão do trabalho seja incluída. A parte agrupa capítulos. Um
 exemplo é o uso do trabalho dividido em três partes:
 
 \begin{verbatim}
-   \part{Preparação da Pesquisa}
-     (...)
-     \chapter{Metodologia}
-     (...)
-   \part{Revisão de Literatura}
-     (...)
-     \chapter{O trabalho de Charles Darwin}
-     (...)
-   \part{Resultados}
-     (...)
+\part{Preparação da Pesquisa}
+   (...)
+   \chapter{Metodologia}
+   (...)
+\part{Revisão de Literatura}
+   (...)
+   \chapter{O trabalho de Charles Darwin}
+   (...)
+\part{Resultados}
+   (...)
 \end{verbatim}
 
 % ---
@@ -2012,8 +2065,8 @@ seja utilizada a fonte \emph{Computer Modern} com tamanho maior do que o
 utilizado por padrão:
 
 \begin{verbatim}
-   \renewcommand{\ABNTEXchapterfont}{\fontfamily{cmr}\fontseries{b}\selectfont}
-   \renewcommand{\ABNTEXchapterfontsize}{\HUGE}
+\renewcommand{\ABNTEXchapterfont}{\fontfamily{cmr}\fontseries{b}\selectfont}
+\renewcommand{\ABNTEXchapterfontsize}{\HUGE}
 \end{verbatim}
 
 \DescribeMacro{\ABNTEXpartfont}\DescribeMacro{\ABNTEXpartfontsize}
@@ -2079,7 +2132,7 @@ como livro ou não se importar em não seguir o padrão normativo. Para isso,
 utilize o comando:
 
 \begin{verbatim}
-   \chapterstyle{nome_do_estilo}
+\chapterstyle{nome_do_estilo}
 \end{verbatim}
 
 Experimente |lyhne| ou |dash|. Você encontra alguns estilos no manual do
@@ -2117,9 +2170,9 @@ utilize o ambiente |citacao|, conforme o exemplo:
 \begin{verbatim}
 \begin{citacao}
 As citações diretas, no texto, com mais de três linhas, devem ser
-destacadas com recuo de 4 cm da margem esquerda, com letra menor que a do texto
-utilizado e sem as aspas. No caso de documentos datilografados, deve-se
-observar apenas o recuo \cite[5.3]{NBR10520:2002}
+destacadas com recuo de 4 cm da margem esquerda, com letra menor que
+a do texto utilizado e sem as aspas. No caso de documentos datilografados,
+deve-se observar apenas o recuo \cite[5.3]{NBR10520:2002}
 \end{citacao}
 \end{verbatim}
 
@@ -2127,11 +2180,10 @@ O tamanho da fonte utilizada no ambiente |citacao| é determinada pela macro
 |\ABNTEXfontereduzida|, descrita na \autoref{sec-configgerais}.
 
 \DescribeMacro{\ABNTEXcitacaorecuo}
-O recuo utilizado pelo ambiente |citacao| é definido pela métrica
-|\ABNTEXcitacaorecuo|, que pode ser alterado com:
+O recuo utilizado pelo ambiente |citacao| é definido pela métrica\\ |\ABNTEXcitacaorecuo|, que pode ser alterado com:
 
 \begin{verbatim}
-   \setlength{\ABNTEXcitacaorecuo}{1.8cm}
+\setlength{\ABNTEXcitacaorecuo}{1.8cm}
 \end{verbatim}
 
 Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
@@ -2217,7 +2269,7 @@ elemento e a legenda abaixo, conforme no exemplo:
 \begin{figure}[htb]
 	\caption{\label{fig_circulo}A delimitação do espaço}
 	\begin{center}
-	    \includegraphics[scale=0.75]{myfig.pdf}
+	  \includegraphics[scale=0.75]{myfig.pdf}
 	\end{center}
 	\legend{Fonte: os autores}
 \end{figure}
@@ -2264,7 +2316,7 @@ Para utilizar o padrão de bibliografias brasileiro implementado pelo pacote
 \textsf{abntex2cite}, declare no preâmbulo do documento:
 
 \begin{verbatim}
-   \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 \end{verbatim}
 
 A opção |alf| indica que as referências serão alfanuméricas, no padrão
@@ -2275,7 +2327,7 @@ detalhadas.
 Para indicar o local de impressão da bibliografia, utilize:
 
 \begin{verbatim}
-   \bibliography{arquivo-de-referencias-bib}
+\bibliography{arquivo-de-referencias-bib}
 \end{verbatim}
 
 Você pode usar tanto a classe \textsf{abntex2} quanto o pacote de citações
@@ -2293,29 +2345,29 @@ que a bibliografia indique quantas vezes e em quais páginas a citação ocorreu
 Para isso, adicione ao preâmbulo:
 
 \begin{verbatim}
-   \usepackage[brazilian,hyperpageref]{backref}	 
+\usepackage[brazilian,hyperpageref]{backref}	 
 \end{verbatim}
 
 Ainda no preâmbulo, você pode configurar como o pacote \textsf{backref} deverá
 imprimir as referências:
 
 \begin{verbatim}
-   % Configurações do pacote backref
-   % Usado sem a opção hyperpageref de backref
-   \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-   
-   % Texto padrão antes do número das páginas
-   \renewcommand{\backref}{}
-   
-   % Define os textos da citação
-   \renewcommand*{\backrefalt}[4]{
-	   \ifcase #1 %
-		   Nenhuma citação no texto.%
-	   \or
-		   Citado na página #2.%
-	   \else
-	   	   Citado #1 vezes nas páginas #2.%
-	   \fi}%
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	  \ifcase #1 %
+		 Nenhuma citação no texto.%
+	  \or
+		 Citado na página #2.%
+	  \else
+		 Citado #1 vezes nas páginas #2.%
+	  \fi}%
 \end{verbatim}
 
 % ---
