@@ -113,11 +113,11 @@
 %%
 
 \documentclass{ltxdoc}
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures={TeX}}
-\setmainfont{Latin Modern Roman} 
-\setsansfont{Latin Modern Sans}
-\setmonofont[Scale=MatchLowercase]{Latin Modern Mono}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{hyperref}  			% controla a formação do índice
+\usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
 
@@ -144,40 +144,35 @@
 \definecolor{thegrey}{gray}{0.5}
 \definecolor{theshade}{rgb}{1,1,0.97}
 \definecolor{theframe}{gray}{0.6}
+\definecolor{blue}{RGB}{41,5,195}
+
 \IfFileExists{listings.sty}{
   \usepackage{listings}
-  \lstset{
-    % gobble=1,
-    columns=flexible,
-    keepspaces,
-    basicstyle=\MacroFont,
-    keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
-    keywordstyle=[0]\color{thered},
-    keywords=[1]{},
-    keywordstyle=[1]\color{thegreen},
-    comment=[l]\%,
-    commentstyle=\color{thegrey}\itshape,
-    alsoother={0123456789_},
-    frame=single,
-    backgroundcolor=\color{theshade},
-    rulecolor=\color{theframe},
-    framerule=\fboxrule,
-  }
-  \let\verbatim\relax
-  \lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
-}{}
-\def\PrintDescribeMacro#1{%
-  \strut\MacroFont\color{thered}\small\string#1}
-\def\Describe#1{%
-  \par\penalty-500\vskip3ex\noindent
-  \DescribeMacro{#1}\args}
-\def\DescribeOther{\vskip-4ex\Describe}
-\makeatletter
-\def\args#1{%
-  \def\bbl@tempa{#1}%
-  \ifx\bbl@tempa\@empty\else#1\vskip1ex\fi\ignorespaces}
-\makeatother
-
+\lstset{%
+	language=[LaTeX]TeX,
+	columns=flexible,
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{theshade},
+	frame=single,
+	tabsize=2,
+	rulecolor=\color{theframe},
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	breaklines=true,
+	commentstyle=\color{thegrey},
+	keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
+	keywordstyle=[0]\color{thered},
+	keywords=[1]{},
+	keywordstyle=[1]\color{thegreen},
+	breakatwhitespace=true,
+	alsoother={0123456789_},
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
+}
+\let\verbatim\relax
+ 	\lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+}
 
 
 \usepackage[alf]{abntex2cite}	% citacoes
@@ -224,8 +219,6 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 \changes{v1.0}{2013/02/01}{Versão inicial}
 
 \begin{document}
-
-\definecolor{blue}{RGB}{41,5,195}
 
 
 \maketitle

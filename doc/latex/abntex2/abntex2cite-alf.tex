@@ -1,6 +1,4 @@
-%!TEX TS-program = xelatex
-%!TEX encoding = UTF-8 Unicode
-%% abntex2cite-alf.tex, v laurocesar
+%% abntex2cite-alf.tex, v<VERSION> laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -80,14 +78,13 @@
 %%
 
 \documentclass[a4paper]{ltxdoc}
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures={TeX}}
-\setmainfont{Latin Modern Roman} 
-\setsansfont{Latin Modern Sans}
-\setmonofont[Scale=MatchLowercase]{Latin Modern Mono}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
-
+\usepackage{hyperref}  			% controla a formação do índice
+\usepackage{parskip}			% espaçamento entre os parágrafos
 \hypersetup{
 		colorlinks=true,       		% false: boxed links; true: colored links
     		linkcolor=blue,          		% color of internal links
@@ -147,47 +144,38 @@
 \usepackage{color}
 \definecolor{thered}{rgb}{0.65,0.04,0.07}
 \definecolor{thegreen}{rgb}{0.06,0.44,0.08}
-\definecolor{thegrey}{gray}{0.8}
+\definecolor{thegrey}{gray}{0.5}
 \definecolor{theshade}{rgb}{1,1,0.97}
 \definecolor{theframe}{gray}{0.6}
+\definecolor{blue}{RGB}{41,5,195}
+
 \IfFileExists{listings.sty}{
   \usepackage{listings}
-  \lstset{
-    % gobble=1,
-    columns=flexible,
-    keepspaces,
-    basicstyle=\MacroFont,
-    keywords=[0]{\selectlanguage,\foreignlanguage,\defineshorthand,
-     \babelhyphen,\babelhyphenation,\spanishhyphenmins,\addto,
-     \StartBabelCommands,\SetString,\EndBabelCommands,\shorthandoff,
-     \languageshorthands,\useshorthands,resumo,\SetStringLoop,
-     \SetCase,\AfterBabelLanguage},
-    keywordstyle=[0]\color{thered},
-    keywords=[1]{openright,12pt,twoside,a4paper,french,english,spanish,
-     french},
-    keywordstyle=[1]\color{thegreen},
-    comment=[l]\%,
-    commentstyle=\color{thegrey}\itshape,
-    alsoother={0123456789_},
-    frame=single,
-    backgroundcolor=\color{theshade},
-    rulecolor=\color{theframe},
-    framerule=\fboxrule,
-  }
-  \let\verbatim\relax
-  \lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
-}{}
-\def\PrintDescribeMacro#1{%
-  \strut\MacroFont\color{thered}\small\string#1}
-\def\Describe#1{%
-  \par\penalty-500\vskip3ex\noindent
-  \DescribeMacro{#1}\args}
-\def\DescribeOther{\vskip-4ex\Describe}
-\makeatletter
-\def\args#1{%
-  \def\bbl@tempa{#1}%
-  \ifx\bbl@tempa\@empty\else#1\vskip1ex\fi\ignorespaces}
-\makeatother
+\lstset{%
+	language=[LaTeX]TeX,
+	columns=flexible,
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{theshade},
+	frame=single,
+	tabsize=2,
+	rulecolor=\color{theframe},
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	breaklines=true,
+	commentstyle=\color{thegrey},
+	keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
+	keywordstyle=[0]\color{thered},
+	keywords=[1]{},
+	keywordstyle=[1]\color{thegreen},
+	breakatwhitespace=true,
+	alsoother={0123456789_},
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
+}
+\let\verbatim\relax
+ 	\lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+}
 
 
 \addtolength{\textwidth}{.3in}
@@ -195,8 +183,6 @@
 
 
 \begin{document}
-
-\definecolor{blue}{RGB}{41,5,195}
 
 %se for usar citeoption não esqueça de comentar o \nocite{*} no final
 \nocite{7.2.2-2}
@@ -368,7 +354,7 @@ Exemplos apresentadas em \citeonline{NBR10520:2001}:
 A ironia será assim uma \ldots\ proposta
 por \citeonline{10520:4.1-1}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 A ironia será assim uma \ldots\ proposta 
 por \citeonline{10520:4.1-1}.
 \end{minipage}\\
@@ -377,7 +363,7 @@ por \citeonline{10520:4.1-1}.
 \citeonline[p.~146]{10520:4.2-2}
 dizem que \ldots\ 
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline[p.~146]{10520:4.2-2} dizem que \latexhtml{\ldots\ }{...}
 \end{minipage}\\
 
@@ -385,7 +371,7 @@ dizem que \ldots\
 Segundo \citeonline[p.~27]{10520:4.2-3}
 \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Segundo \citeonline[p.~27]{10520:4.2-3}  \latexhtml{\ldots\ }{...}
 \end{minipage}\\
 
@@ -394,7 +380,7 @@ Aqui vai um texto qualquer só para\\
 poder citar alguém
 \cite[p.~225]{10520-2002:6.3-1}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Aqui vai um texto qualquer só para poder
 citar alguém
 \cite[p.~225]{10520-2002:6.3-1}.
@@ -405,7 +391,7 @@ citar alguém
 apresenta uma série
 de coisas incompreensíveis.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline[p.~35]{10520-2002:6.3-2}
 apresenta uma série
 de coisas incompreensíveis.
@@ -416,7 +402,7 @@ Mais um exemplo articifial
 mas necessário de citação
 \cite[p.~3]{10520-2002:6.3-3}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Mais um exemplo articifial
 mas necessário de citação
 \cite[p.~3]{10520-2002:6.3-3}.
@@ -427,7 +413,7 @@ mas necessário de citação
 são mais um exemplo de citação
 bem bacana.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline{10520-2002:6.3-4}
 são mais um exemplo de citação
 bem bacana.
@@ -438,7 +424,7 @@ Exemplo que mostra alguma
 coisa também
 \cite[p.~34]{10520-2002:6.3-5}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Exemplo que mostra alguma
 coisa também
 \cite[p.~34]{10520-2002:6.3-5}.
@@ -461,7 +447,7 @@ Exemplo que mostra alguma
 coisa também
 \cite[p.~34]{10520-2002:6.3-5}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Exemplo que mostra alguma
 coisa também
 \cite[p.~34]{10520-2002:6.3-5}.
@@ -478,7 +464,7 @@ Já neste exemplo:
 E a pátria não poderia faltar
 \cite{10520-2002:6.3-6}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 E a pátria não poderia faltar
 \cite{10520-2002:6.3-6}.
 \end{minipage}\\
@@ -489,7 +475,7 @@ E a pátria não poderia faltar
 Uma lei anônima
 \cite[p.~55]{10520-2002:6.3-7}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Uma lei anônima
 \cite[p.~55]{10520-2002:6.3-7}.
 \end{minipage}\\
@@ -498,7 +484,7 @@ Uma lei anônima
 Uma artigo anônimo
 \cite[p.~4]{10520-2002:6.3-8}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Uma artigo anônimo
 \cite[p.~4]{10520-2002:6.3-8}.
 \end{minipage}\\
@@ -507,7 +493,7 @@ Uma artigo anônimo
 Outro artigo anônimo
 \cite[p.~12]{10520-2002:6.3-9}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Outro artigo anônimo
 \cite[p.~12]{10520-2002:6.3-9}.
 \end{minipage}\\
@@ -525,7 +511,7 @@ para que \ldots\  à sociedade
 \cite[p.~46, grifo nosso]{10520:4.8}  
 \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 para que \ldots\ à sociedade 
 \cite[p.~46, grifo nosso]{10520:4.8}
 \ldots\
@@ -536,7 +522,7 @@ b) desejo de \ldots\  passado colonial
 \cite[v.~2, p.~12, grifo do autor]%
 {10520:4.8.1} \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 b) desejo de \ldots\  passado colonial
 \cite[v.~2, p.~12, grifo do autor]%
 {10520:4.8.1} \ldots\
@@ -546,7 +532,7 @@ b) desejo de \ldots\  passado colonial
 ``Apesar das \ldots\  da filosofia''
 \cite[p.~293]{10520:4.1-2}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 ``Apesar das \latexhtml{\ldots\ }{...} da filosofia'' \cite[p.~293]{10520:4.1-2}.
 \end{minipage}\\
 
@@ -554,7 +540,7 @@ b) desejo de \ldots\  passado colonial
 Depois, \ldots\  que prefiro
 \cite[p.~101--114]{10520:4.1-3}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Depois, \latexhtml{\ldots\ }{...} que prefiro \cite[p.~101--114]{10520:4.1-3}.
 \end{minipage}\\
 
@@ -562,7 +548,7 @@ Depois, \latexhtml{\ldots\ }{...} que prefiro \cite[p.~101--114]{10520:4.1-3}.
 A produção de \ldots\  em 1928
 \cite[p.~513]{10520:4.2-1} .
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 A produção de \latexhtml{\ldots\ }{...} em 1928 \cite[p.~513]{10520:4.2-1} .
 \end{minipage}\\
 
@@ -576,14 +562,14 @@ usar as macros \verb+\apud+ e \verb+\apudonline+, como nos exemplos abaixo.
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \apud[p.~2--3]{Sage}{Evans}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \apud[p.~2--3]{Sage}{Evans}
 \end{minipage}
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 Segundo \apudonline[p.~2]{Silva}{Abreu}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Segundo \apudonline[p.~2]{Silva}{Abreu}
 \end{minipage}
 
@@ -603,7 +589,7 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \Idem[p.~2]{NBR6023:2000}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \Idem[p.~2]{NBR6023:2000}
 \end{minipage}
 
@@ -611,7 +597,7 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \Ibidem[p.~2]{NBR6023:2000}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \Ibidem[p.~2]{NBR6023:2000}
 \end{minipage}
 
@@ -619,7 +605,7 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \opcit[p.~2]{NBR6023:2000}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \opcit[p.~2]{NBR6023:2000}
 \end{minipage}
 
@@ -627,7 +613,7 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \passim{NBR6023:2000}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \passim{NBR6023:2000}
 \end{minipage}
 
@@ -635,7 +621,7 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \loccit{NBR6023:2000}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \loccit{NBR6023:2000}
 \end{minipage}
 
@@ -643,7 +629,7 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \cfcite[p.~2]{NBR6023:2000}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \cfcite[p.~2]{NBR6023:2000}
 \end{minipage}
 
@@ -651,7 +637,7 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \etseq[p.~2]{NBR6023:2000}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \etseq[p.~2]{NBR6023:2000}
 \end{minipage}
 
@@ -674,7 +660,7 @@ sem espaços e sem mudança de linha.
 \cite{10520:5.1.4-98,10520:5.1.4-99,%
 10520:5.1.4-00}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \cite{10520:5.1.4-98,10520:5.1.4-99,10520:5.1.4-00}
 \end{minipage}\\
 
@@ -682,7 +668,7 @@ sem espaços e sem mudança de linha.
 \citeonline{10520:5.1.4-98,%
 10520:5.1.4-99,10520:5.1.4-00}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline{10520:5.1.4-98,10520:5.1.4-99,10520:5.1.4-00}
 \end{minipage}\\
 
@@ -690,7 +676,7 @@ sem espaços e sem mudança de linha.
 \cite{NBR10520:1988,NBR6023:2000,%
 NBR10520:2001}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \cite{NBR10520:1988,NBR6023:2000,%
 NBR10520:2001}
 \end{minipage}\\
@@ -699,7 +685,7 @@ NBR10520:2001}
 \citeonline{NBR10520:1988,NBR6023:2000,%
 NBR10520:2001}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline{NBR10520:1988,NBR6023:2000,NBR10520:2001}
 \end{minipage}\\
 
@@ -712,14 +698,14 @@ gera automaticamente um `a', `b', etc., adicional. Isto atende ao ítem
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \cite{10520:5.1.3a,10520:5.1.3b}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \cite{10520:5.1.3a,10520:5.1.3b}
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \citeonline{10520:5.1.3a,10520:5.1.3b}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline{10520:5.1.3a,10520:5.1.3b}
 \end{minipage}\\
 
@@ -733,7 +719,7 @@ mais de três autores. Mesmo entre os 204 exemplos da `norma'
 Segundo \citeonline{8.1.1.2}
 entende-se que \ldots\ 
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Segundo \citeonline{8.1.1.2}
 entende-se que \latexhtml{\ldots\ }{...}
 \end{minipage}\\
@@ -743,7 +729,7 @@ Em recente estudo \cite{Deng00}
 foram investigados estados em 
 fios quânticos.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Em recente estudo \cite{Deng00}
 foram investigados estados em 
 fios quânticos.
@@ -771,7 +757,7 @@ A produção de \ldots\ em 1928
 mencionada por
 \citeauthoronline{10520:4.2-1}.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 A produção de \ldots\ em 1928  
 mencionada por
 \citeauthoronline{10520:4.2-1}.
@@ -787,7 +773,7 @@ apenas o autor de forma implícita:
 A produção de \ldots\  em 1928
 (\citeauthor{10520:4.2-1} 1928).
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 A produção de \latexhtml{\ldots\ }{...} em 1928
 (\citeauthor{10520:4.2-1} 1928).
 \end{minipage}\\
@@ -804,7 +790,7 @@ apenas o ano da publicação:
 Em \citeyear{10520:4.1-1} a ironia
 será assim uma \ldots\  proposta por.
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Em \citeyear{10520:4.1-1} a ironia será assim uma \latexhtml{\ldots\ }{...} proposta por.
 \end{minipage}\\
 
@@ -953,28 +939,28 @@ Exemplo da seção 5.1.5:\\
 \cite{10520:5.1.5a,10520:5.1.5b,%
 10520:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \cite{10520:5.1.5a,10520:5.1.5b,10520:5.1.5c}
 \end{minipage}\\
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \citeonline{10520:5.1.5a,10520:5.1.5b,%
 10520:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline{10520:5.1.5a,10520:5.1.5b,10520:5.1.5c}
 \end{minipage}\\
 
 ou, supondo que Fonseca e Paiva sejam co-autores,\\
-\noindent\vspace{0pt}\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\noindent\vspace{12pt}\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \cite{10520:5.1.5ab,10520:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \cite{10520:5.1.5ab,10520:5.1.5c}
 \end{minipage}\\
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \citeonline{10520:5.1.5ab,10520:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
-\begin{minipage}[t]{\LatL}\latex{\small}\vspace{0pt}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline{10520:5.1.5ab,10520:5.1.5c}
 \end{minipage}\\
 
