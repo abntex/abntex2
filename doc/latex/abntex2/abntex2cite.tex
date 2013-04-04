@@ -1,4 +1,6 @@
-%% abntex2cite.tex, v<VERSION> laurocesar
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%% abntex2cite.tex, v laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -17,6 +19,9 @@
 %%
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% 2013.4.04 12:09	gilsonolegario
+%% Melhorias visuais da documentação
 %%
 %% 2013/3/23 18h23	laurocesar
 %%  Revisa considerações iniciais. 
@@ -97,19 +102,20 @@
   /Keywords     (ABNT, bibliografia, 6023:2000, 6023:2002)}
 \fi
 
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
-\usepackage[utf8]{inputenc}
-\usepackage[brazil]{babel}
-\usepackage{hyperref}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures={TeX}}
+\setmainfont{Latin Modern Roman} 
+\setsansfont{Latin Modern Sans}
+\setmonofont[Scale=MatchLowercase]{Latin Modern Mono}
+\usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{nomencl} 			% Lista de simbolos
 
 \hypersetup{
 		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
+    		linkcolor=blue,          		% color of internal links
+    		citecolor=blue,        		% color of links to bibliography
+    		filecolor=magenta,      		% color of file links
 		urlcolor=blue}
 
 \IfFileExists{html.sty}
@@ -149,6 +155,57 @@
 \def\Versao$#1 #2${#2}
 \def\Data$#1 #2 #3${#2}
 %\newcommand{\bibtextitlecommand}[2]{``#2''}
+
+\usepackage{color}
+\definecolor{thered}{rgb}{0.65,0.04,0.07}
+\definecolor{thegreen}{rgb}{0.06,0.44,0.08}
+\definecolor{thegrey}{gray}{0.8}
+\definecolor{theshade}{rgb}{1,1,0.97}
+\definecolor{theframe}{gray}{0.6}
+\IfFileExists{listings.sty}{
+  \usepackage{listings}
+  \lstset{
+    % gobble=1,
+    columns=flexible,
+    keepspaces,
+    basicstyle=\MacroFont,
+    keywords=[0]{\selectlanguage,\foreignlanguage,\defineshorthand,
+     \babelhyphen,\babelhyphenation,\spanishhyphenmins,\addto,
+     \StartBabelCommands,\SetString,\EndBabelCommands,\shorthandoff,
+     \languageshorthands,\useshorthands,resumo,\SetStringLoop,
+     \SetCase,\AfterBabelLanguage},
+    keywordstyle=[0]\color{thered},
+    keywords=[1]{openright,12pt,twoside,a4paper,french,english,spanish,
+     french},
+    keywordstyle=[1]\color{thegreen},
+    comment=[l]\%,
+    commentstyle=\color{thegrey}\itshape,
+    alsoother={0123456789_},
+    frame=single,
+    backgroundcolor=\color{theshade},
+    rulecolor=\color{theframe},
+    framerule=\fboxrule,
+  }
+  \let\verbatim\relax
+  \lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+}{}
+\def\PrintDescribeMacro#1{%
+  \strut\MacroFont\color{thered}\small\string#1}
+\def\Describe#1{%
+  \par\penalty-500\vskip3ex\noindent
+  \DescribeMacro{#1}\args}
+\def\DescribeOther{\vskip-4ex\Describe}
+\makeatletter
+\def\args#1{%
+  \def\bbl@tempa{#1}%
+  \ifx\bbl@tempa\@empty\else#1\vskip1ex\fi\ignorespaces}
+\makeatother
+
+
+\addtolength{\textwidth}{.3in}
+\addtolength{\oddsidemargin}{1em}
+
+
 \begin{document}
 
 \definecolor{blue}{RGB}{41,5,195}
@@ -237,7 +294,7 @@
 \author{Equipe \abnTeX2\\\abnTeXSite 
 \and 
 Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
-\date{\today, v<VERSION>}
+\date{\today, v}
 
 %end{latexonly}
 
@@ -427,7 +484,7 @@ cara deles.} Se você quiser usar este estilo de citação utilize a opção |[n
 (arquivo |abnt-num.bst|). Selecione-o com o comando |usepackage| no preâmbulo:
 
 \begin{verbatim}
-   \usepackage[num]{abntex2cite}
+\usepackage[num]{abntex2cite}
 \end{verbatim}
 
 Com isso as chamadas no texto serão compatíveis com os exemplos 9.1 da
@@ -438,7 +495,7 @@ Alternativamente, você pode não selecionar o pacote e só colocar o estilo
 bibliográfico:
 
 \begin{verbatim}
-    \bibliographystyle{abnt-num}
+\bibliographystyle{abnt-num}
 \end{verbatim}
 
 Dessa forma, as citações no texto seguirão o padrão do \LaTeX, porém a
@@ -451,20 +508,22 @@ bibliografia será formatada conforme o padrão brasileiro.
 No texto você deve inserir as citações com os comandos \verb+\cite+ e
 \verb+\citeonline+. Veja os exemplos abaixo.
 
-\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{7cm}\latex{\small}\vspace{0pt}\begin{verbatim}
 Elétrons podem relaxar via interação
 elétron-fônon\cite{Tsen86}.
-\end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{5.5cm}\latex{\small}\vspace{0pt}
 Elétrons podem relaxar via interação elétron-fônon\cite{Tsen86}.
-\end{minipage}\vspace{5mm}\\
+\end{minipage}\\
 
-\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{7cm}\latex{\small}\vspace{0pt}\begin{verbatim}
 Segundo a referência \citeonline{8.1.1.2}
 entende-se que \ldots\
-\end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{5.5cm}\latex{\small}\vspace{0pt}
 Segundo  a referência \citeonline{8.1.1.2}
 entende-se que \ldots\
-\end{minipage}\vspace{5mm}\\
+\end{minipage}\\
 
 \DescribeMacro{\citeyear}\DescribeMacro{\citeauthor}\DescribeMacro{\citeauthoronline}
 O estilo \textsf{abntex2cite} ainda disponibiliza os comandos \verb+\citeyear+,
@@ -473,28 +532,30 @@ O uso de \verb+\citeyear+ e \verb+citeauthoronline+
 é igual ao do estilo autor-data ({\tt [alf]}) como mostrado nos seguintes
 exemplos:
 
-\noindent\begin{minipage}[t]{8cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{8cm}\latex{\small}\vspace{0pt}\begin{verbatim}
 Em \citeyear{Tsen86} \citeauthoronline{Tsen86}
 mostraram que elétrons podem relaxar via 
 interação elétron-fônon\cite{Tsen86}.
-\end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{4.5cm}\latex{\small}\vspace{0pt}
 Em \citeyear{Tsen86} \citeauthoronline{Tsen86}
 mostraram que elétrons podem relaxar via
 interação elétron-fônon\cite{Tsen86}.
-\end{minipage}\vspace{5mm}\\
+\end{minipage}\\
 
 O uso de \verb+citeauthor+ é modificado em relação ao estilo autor-data ({\tt [alf]})
 como se vê no exemplo:
 
-\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{7cm}\latex{\small}\vspace{0pt}\begin{verbatim}
 Em \citeyear{Tsen86} \citeauthor{Tsen86}
 mostraram que elétrons podem relaxar via 
 interação elétron-fônon.
-\end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{5.5cm}\latex{\small}\vspace{0pt}
 Em \citeyear{Tsen86} \citeauthor{Tsen86}
 mostraram que elétrons podem relaxar via
 interação elétron-fônon.
-\end{minipage}\vspace{5mm}\\
+\end{minipage}\\
 
 \subsubsection{Conteúdo da referência bibliográfica}
 
@@ -502,11 +563,12 @@ interação elétron-fônon.
 Você pode imprimir o conteúdo da referência bibliográfica de uma citação com a
 macro |\citetext|\marg{lista de keys}, como no exemplo:
 
-\noindent\begin{minipage}[t]{7.5cm}\latex{\small}\begin{verbatim}
+\noindent\begin{minipage}[t]{3cm}\latex{\small}\vspace{0pt}\begin{verbatim}
 \citetext{Tsen86}
-\end{verbatim}\end{minipage}\begin{minipage}[t]{7cm}\latex{\small}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{10cm}\latex{\small}\vspace{0pt}
 \citetext{Tsen86}
-\end{minipage}\vspace{5mm}\\
+\end{minipage}\\
 
 
 %sub
@@ -532,8 +594,8 @@ com os comandos \verb+\leftovercite+ e \verb+\rightovercite+.
 Por exemplo, para usar parênteses coloque no preâmbulo do seu texto e use:
 
 \begin{verbatim}
-   \renewcommand{\leftovercite}{(}
-   \renewcommand{\rightovercite}{)}
+\renewcommand{\leftovercite}{(}
+\renewcommand{\rightovercite}{)}
 \end{verbatim}
 
 
@@ -545,7 +607,7 @@ Se você quiser usar o estilo de citação alfabético
 utilize {\tt [alf]} (que utilizará o arquivo {\tt abnt-alf.bst}).
 
 \begin{verbatim}
-    \usepackage[alf]{abntex2cite}
+\usepackage[alf]{abntex2cite}
 \end{verbatim}
 
 É possível utilizar o estilo de formatação de bibliografias sem, no entanto,
@@ -555,8 +617,8 @@ imediatamente antes do comando
 |\bibliography|\marg{arquivo-de-referencias-bib}:
 
 \begin{verbatim}
-    \bibliographystyle{abnt-alf}
-    \bibliography{arquivo-de-referencias-bib}
+\bibliographystyle{abnt-alf}
+\bibliography{arquivo-de-referencias-bib}
 \end{verbatim}
 
 O uso do estilo de formatação sem o uso do pacote de citação
@@ -599,12 +661,12 @@ tenha uma sigla que precisa necessariamente ficar em letras maiúsculas. Nesse
 caso, use a sigla entre chaves, como no exemplo:
 
 \begin{verbatim}
-   @ARTICLE{FerraoKaizoAll2001,
-   ...
-   title = {O {SAEB} - Sistema de Avaliação da Educação Básica: objetivos,
-   características e contribuições na investigação da escola eficaz},
-   ...
-   }
+@ARTICLE{FerraoKaizoAll2001,
+...
+title = {O {SAEB} - Sistema de Avaliação da Educação Básica: objetivos,
+características e contribuições na investigação da escola eficaz},
+...
+}
 \end{verbatim}
 
 
@@ -634,14 +696,14 @@ abnt-options} em \verb+\bibliography+, como no exemplo, que ativa a opção de
 usar primeiro o nome completo do autor:
 
 \begin{verbatim}
-    \citeoption{abnt-full-initials=yes}
+\citeoption{abnt-full-initials=yes}
 \end{verbatim}
 
 Você também pode definir suas opções logo no carregamento do estilo, por
 exemplo:
 
 \begin{verbatim}
-    \usepackage[num,abnt-full-initials=yes]{abntex2cite}
+\usepackage[num,abnt-full-initials=yes]{abntex2cite}
 \end{verbatim}
 
 \subsubsection{Sem usar \textsf{abntex2cite} nem {\tt citeoption}}
@@ -652,7 +714,7 @@ Você pode se valer das opções aqui apresentadas sem usar o pacote
 no seguinte exemplo:
 
 \begin{verbatim}
-    \nocite{abnt-full-initials=yes}
+\nocite{abnt-full-initials=yes}
 \end{verbatim}
 
 O único inconveniente desse método (que funciona bem) é que você vai ter de
@@ -666,12 +728,12 @@ Você pode agrupar opções criando uma entrada do tipo {\tt \@ABNT-options}
 em um arquivo de bibliografias (tipo {\tt .bib}), por exemplo:
 
 \begin{verbatim}
-    @ABNT-options{minhasopcoes,
-         abnt-emphasize="\emph",
-         abnt-full-initials="no",
-         abnt-show-options="warn",
-         abnt-thesis-year="final",
-         key="x"}
+@ABNT-options{minhasopcoes,
+	abnt-emphasize="\emph",
+	abnt-full-initials="no",
+	abnt-show-options="warn",
+	abnt-thesis-year="final",
+	key="x"}
 \end{verbatim}
 
 Desse modo, deve deve chamar suas opções assim \verb+\citeoption{minhasopcoes}+.
@@ -960,22 +1022,22 @@ permite que formatações adicionais da bibliografia sejam introduzidas. Veja o
 resultado para a referência \citeonline{7.2.2-2}:
 
 \begin{verbatim}
-    \bibtextitlecommand{inbook}{A coloniza{\c c}\~ao da terra do {T}ucuj\'us}
+\bibtextitlecommand{inbook}{A coloniza{\c c}\~ao da terra do {T}ucuj\'us}
 \end{verbatim}
 
 Por exemplo, para que todas as ocorrências de títulos sejam colocadas entre
 aspas, voce pode usar o comando seguinte ainda no preâmbulo:
 
 \begin{verbatim}
-    \newcommand{\bibtextitlecommand}[2]{``#2''}
+\newcommand{\bibtextitlecommand}[2]{``#2''}
 \end{verbatim}
 
 Você pode restringir esse comando apenas a entradas do tipo {\tt
 article}, por exemplo. Nesse caso, comando seria o seguinte:
 
 \begin{verbatim}
-    \newcommand{\bibtextitlecommand}[2]{%
-      \ifthenelse{\equal{#1}{article}}{``#2''}{}}
+\newcommand{\bibtextitlecommand}[2]{%
+	\ifthenelse{\equal{#1}{article}}{``#2''}{}}
 \end{verbatim}
 
 %\clearpage
@@ -1289,7 +1351,7 @@ type} deve conter toda a informação sobre o tipo de tese.
 Por exemplo, se tivermos:
 
 \begin{verbatim}
-    type={Doutorado em f\'\i sica}
+type={Doutorado em f\'\i sica}
 \end{verbatim}
 
 teremos como saída `Doutorado em física' e não `Tese (Doutorado em física)' como
@@ -1322,7 +1384,7 @@ abreviar o ``Dante'' mas não é isso o que é feito no exemplo da `norma'
 author} do seguinte modo:
 
 \begin{verbatim}
-    author  ={Dante{\space}Alighieri},
+author  ={Dante{\space}Alighieri},
 \end{verbatim}
 
 \subsection{Elementos essenciais e complementares}
