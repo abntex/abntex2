@@ -22,6 +22,10 @@
 %% command line for latex2html :
 %% latex2html -split 0 -toc_depth 8 -noinfo -noaddress -nonavigation -show_section_numbers -html_version 4.0 abnt-bibtex-alf-doc.tex
 %%
+%% 2013.4.5 08h04	laurocesar
+%%  Revisa alterações de gilsonolegario.
+%%  Altera o nome do manual.
+%%
 %% 2013.4.04 12:09	gilsonolegario
 %% Melhorias visuais da documentação
 %%
@@ -81,8 +85,7 @@
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
-\usepackage{hyperref}  			% controla a formação do índice
-\usepackage{parskip}			% espaçamento entre os parágrafos
+\usepackage[brazil]{babel}
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \hypersetup{
@@ -122,15 +125,14 @@
 
 %\usepackage{showtags}
 \usepackage[alf,abnt-repeated-title-omit=yes,abnt-show-options=warn,abnt-verbatim-entry=yes]{abntex2cite}
-\def\Versao$#1 #2${#2}
-\def\Data$#1 #2 #3${#2}
+% \def\Versao$#1 #2${#2}
+% \def\Data$#1 #2 #3${#2}
 
 \ifx\pdfoutput\undefined
 \else
 %from /usr/share/texmf/doc/pdftex/base/pdftexman.pdf
 \pdfinfo{
-  /Title        (Manual de uso do pacote abntex2cite: tópicos específicos da ABNT
-                 NBR 10520:2002 e o estilo bibliográfico alfabético (sistema
+  /Title        (O pacote abntex2cite: Tópicos específicos da ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema
                  autor-data))
   /Author       (G. Weber - Grupo abnTeX - Grupo abnTeX2) 
   /Subject      (referencias bibliograficas) 
@@ -190,8 +192,9 @@
 \nocite{7.5.1.2-1}
 \nocite{8.11.3-1} %para testar reprinted-from
 
-\newcommand{\titulo}{Manual de uso do pacote \textsf{abntex2cite}: tópicos específicos da ABNT
-NBR 10520:2002 e o estilo bibliográfico alfabético (sistema autor-data)}
+\newcommand{\titulo}{\textbf{O pacote \textsf{abntex2cite}}:\\ \Large{Tópicos
+específicos da ABNT NBR 10520:2002 e o \\ estilo bibliográfico alfabético
+(sistema autor-data)}}
 
 \newcommand{\abnTeX}{abn\TeX}
 \newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
