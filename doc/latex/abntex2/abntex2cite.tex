@@ -18,6 +18,9 @@
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
+%% 2013.4.5 08h04	laurocesar
+%%  Revisa alterações de gilsonolegario
+%%
 %% 2013.4.04 12:09	gilsonolegario
 %% Melhorias visuais da documentação
 %%
@@ -93,8 +96,7 @@
 \else
 %from /usr/share/texmf/doc/pdftex/base/pdftexman.pdf
 \pdfinfo{
-  /Title        (Manual de uso dos estilos bibliográficos do pacote abntex2:
-  estilos bibtex compatíveis com a ABNT NBR 6023) 
+  /Title        (O pacote abntex2cite: Estilos bibliográficos compatíveis com a ABNT NBR 6023) 
   /Author       (G. Weber - Grupo abnTeX - Grupo abnTeX, abnTeX2)
   /Subject      (referencias bibliograficas)
   /Keywords     (ABNT, bibliografia, 6023:2000, 6023:2002)}
@@ -103,8 +105,7 @@
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
-\usepackage{hyperref}  			% controla a formação do índice
-\usepackage{parskip}			% espaçamento entre os parágrafos
+\usepackage[brazil]{babel}
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{nomencl} 			% Lista de simbolos
@@ -272,8 +273,8 @@
 
 \nocite{ABNT-final}
 
-\newcommand{\titulo}{Manual de uso dos estilos bibliográficos do pacote
-\textsf{abntex2cite}: estilos \textsf{bibtex} compatíveis com a ABNT NBR 6023}
+\newcommand{\titulo}{\textbf{O pacote \textsf{abntex2cite}}:\\
+\Large{Estilos bibliográficos compatíveis com a ABNT NBR 6023}}
 \newcommand{\abnTeX}{abn\TeX}
 \newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
 
