@@ -29,6 +29,8 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.6.1
+   . fixed use of different languages on example and documentation 
+     files: option "brazil" must be on documentclass
    . added visual enhancements on documentation files
    . changed the name of documentation files:
      from: "Manual de uso dos estilos bibliográficos do pacote abntex2cite: 

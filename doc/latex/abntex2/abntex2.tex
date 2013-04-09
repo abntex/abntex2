@@ -590,7 +590,7 @@ Consulte o manual do \textsf{memoir} para outras opções.
 As opções mais comuns de inicialização do texto do documento são:
 
 \begin{verbatim}
-\documentclass[12pt,openright,twoside,a4paper]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper,brazil]{abntex2}
 \end{verbatim}
 
 % ---
@@ -923,15 +923,24 @@ documento o nome dos idiomas usados no texto. Por exemplo:
 
 \begin{verbatim}
 \documentclass[12pt,openright,twoside,a4paper,english,french,
-spanish]{abntex2}
+spanish,brazil]{abntex2}
 \end{verbatim}
 
-O idioma português-brasileiro (\texttt{brazil}) é incluído por padrão pela
-classe \textsf{abntex2} e não precisa ser informado.
+O idioma português-brasileiro (\texttt{brazil}) é incluído automaticamente pela
+classe \textsf{abntex2}. Porém, mesmo assim a opção \texttt{brazil} deve ser
+informada como a última opção da classe para que todos os pacotes reconheçam o
+idioma. Vale ressaltar que a última opção de idioma é a utilizada por padrão no
+documento. Desse modo, caso deseje escrever um texto em inglês que tenha
+citações em português e em francês, você deveria usar o preâmbulo como abaixo:
+
+\begin{verbatim}
+\documentclass[12pt,openright,twoside,a4paper,french,brazil,english]{abntex2}
+\end{verbatim}
 
 A lista completa de idiomas suportados, bem como outras opções de hifenização,
 estão disponíveis na documentação do pacote
-\textsf{babel}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/required/babel/}} \citeonline[p.~5-6]{babel}.
+\textsf{babel}\footnote{\url{http://www.ctan.org/tex-archive/macros/latex/required/babel/}}
+\citeonline[p.~5-6]{babel}.
 
 \DescribeMacro{\foreignlanguage}
 A macro |\foreignlanguage|\marg{idioma}\marg{texto a ser inserido} insere um
