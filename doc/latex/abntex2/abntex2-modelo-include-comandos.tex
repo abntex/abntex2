@@ -490,11 +490,19 @@ Para usar hifenizações de diferentes idiomas, inclua nas opções do documento
 nome dos idiomas que o seu texto contém. Por exemplo:
 
 \begin{verbatim}
-   \documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
 \end{verbatim}
 
-O idioma português-brasileiro (\texttt{brazil}) é incluído por padrão pela
-classe \textsf{abntex2} e não precisa ser informado.
+O idioma português-brasileiro (\texttt{brazil}) é incluído automaticamente pela
+classe \textsf{abntex2}. Porém, mesmo assim a opção \texttt{brazil} deve ser
+informada como a última opção da classe para que todos os pacotes reconheçam o
+idioma. Vale ressaltar que a última opção de idioma é a utilizada por padrão no
+documento. Desse modo, caso deseje escrever um texto em inglês que tenha
+citações em português e em francês, você deveria usar o preâmbulo como abaixo:
+
+\begin{verbatim}
+\documentclass[12pt,openright,twoside,a4paper,french,brazil,english]{abntex2}
+\end{verbatim}
 
 A lista completa de idiomas suportados, bem como outras opções de hifenização,
 estão disponíveis em \citeonline[p.~5-6]{babel}.
