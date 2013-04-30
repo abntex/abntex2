@@ -38,7 +38,7 @@ você utilize a mesma codificação nos documentos que escrever, inclusive nos
 arquivos de base bibliográficas |.bib|.
 
 % ---
-\section{Citações}
+\section{Citações diretas}
 % ---
 
 \index{citações!diretas}Utilize o ambiente \texttt{citacao} para incluir
@@ -560,6 +560,43 @@ documentos produzidos com \abnTeX.
 Consulte o manual da classe \textsf{abntex2} \cite{abntex2classe} para uma
 referência completa das macros e ambientes disponíveis. Além disso, o manual
 possui informações adicionais sobre as normas ABNT observadas pelo \abnTeX.
+
+% ---
+\section{Referências bibliográficas}
+% ---
+
+A formatação das referências bibliográficas conforme as regras da ABNT são um
+dos principais objetivos do \abnTeX. Consulte os manuais
+\citeonline{abntex2cite} e \citeonline{abntex2cite-alf} para obter informações
+sobre como utilizar as referências bibliográficas.
+
+%-
+\subsection{Acentuação de referências bibliográficas}
+%-
+
+Normalmente não há problemas em usar caracteres acentuados em arquivos
+bibliográficos (\texttt{*.bib}). Porém, como as regras da ABNT fazem uso quase
+abusivo da conversão para letras maiúsculas, é preciso observar o modo como se
+escreve os nomes dos autores. Na ~\autoref{tabela-acentos} você encontra alguns
+exemplos das conversões mais importantes. Preste atenção especial para `ç' e `í'
+que devem estar envoltos em chaves. A regra geral é sempre usar a acentuação
+neste modo quando houver conversão para letras maiúsculas.
+
+\begin{table}[htbp]
+\caption{Tabela de conversão de acentuação.}
+\label{tabela-acentos}
+
+\begin{center}
+\begin{tabular}{ll}\hline\hline
+acento & \textsf{bibtex}\\
+à á ã & \verb+\`a+ \verb+\'a+ \verb+\~a+\\
+í & \verb+{\'\i}+\\
+ç & \verb+{\c c}+\\
+\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 
 % ---
 \section{Precisa de ajuda?}
