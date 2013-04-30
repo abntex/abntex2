@@ -39,7 +39,8 @@ CHANGE HISTORY
      from: "Manual de uso do pacote abntex2cite: tópicos específicos da 
             ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema autor-data)"
        to: "O pacote abntex2cite: Tópicos específicos da ABNT NBR 10520:2002 e o 
-            estilo bibliográfico alfabético (sistema autor-data)"     
+            estilo bibliográfico alfabético (sistema autor-data)"
+   . added information about bibliographies on examples.              
   
   2013/03/23 - v1.6
    . added support for typeset documents in different languages
