@@ -28,7 +28,7 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.6.1
+  2013/04/30 - v1.6.1
    . fixed use of different languages on example and documentation 
      files: option "brazil" must be on documentclass
    . added visual enhancements on documentation files
