@@ -120,7 +120,7 @@ function buildCompressed(){
 
 	echo "$TAR_FILE (tds directory structure):"
 	cd target/abntex2source
-	tar cfvz ../../$TAR_FILE --exclude=*.{aux,bbl,blg,brf,glg,glo,gls,idx,ilg,ind,ist,lof,log,lot,toc,out} bibtex doc tex 
+	tar cfvz ../../$TAR_FILE --exclude=*.{aux,bbl,blg,brf,g*,i*,l*,toc,out} bibtex doc tex 
 	cd ../..
 
 }
