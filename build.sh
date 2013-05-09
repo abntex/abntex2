@@ -1,17 +1,18 @@
 #!/bin/bash
 
 echo
-echo --------------------------------------------------
+echo -----------------------------------------------------
 echo abnTeX2 BUILDER SCRIPT
 echo http://abntex2.googlecode.com/
-echo build zip files and deploy them on Google Code   
-echo --------------------------------------------------
+echo build compressed files and deploy them on Google Code   
+echo -----------------------------------------------------
 
 VERSAO=""
 ZIP_DOC=""
 ZIP_TDS=""
 ZIP_MODELO=""
 ZIP_CTAN=target/abntex2.zip
+TAR_FILE=""
 
 # compile LaTeX
 # $1 main latex file without extension
@@ -86,8 +87,8 @@ function buildPdf(){
 	rm -rf target/abntex2source/doc/latex/abntex2/abntex2-options.bib
 }
 
-# generete zip files
-function buildZip(){
+# generate compressed files
+function buildCompressed(){
 
 	echo "$ZIP_DOC (only doc files):"
 	cp target/abntex2source/doc/latex/abntex2/* target/doc
@@ -116,6 +117,12 @@ function buildZip(){
 	cd target/abntex2source/doc/latex/abntex2
 	zip ../../../../../$ZIP_MODELO abntex2-modelo* -i \*.pdf \*.tex \*.bib
 	cd ../../../../..
+
+	echo "$TAR_FILE (tds directory structure):"
+	cd target/abntex2source
+	tar cfvz ../../$TAR_FILE --exclude=*.{aux,bbl,blg,brf,glg,glo,gls,idx,ilg,ind,ist,lof,log,lot,toc,out} bibtex doc tex 
+	cd ../..
+
 }
 
 # clean temp files
@@ -130,18 +137,19 @@ function replaceVersion(){
 	find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"   
 }
 
-# build ZIP files
+# build compressed files
 function buildAll(){
 
 	# setting versions numbers
 	echo 
-	echo Building zip files version: $VERSAO
+	echo Building compressed files version: $VERSAO
 	echo
 
 	# setting names
 	ZIP_DOC=target/abntex2-doc$VERSAO.zip
 	ZIP_TDS=target/abntex2.tds$VERSAO.zip
 	ZIP_MODELO=target/abntex2-modelos$VERSAO.zip
+	TAR_FILE=target/abntex2$VERSAO.tar.gz
 
 	# initializing files
 	initialize
@@ -152,8 +160,8 @@ function buildAll(){
 	# compile latex
 	buildPdf
 	
-	# building zip files
-	buildZip
+	# building compressed files
+	buildCompressed
 	
 	# clean temp files
 	clean
@@ -172,8 +180,12 @@ function deploy(){
 	PREFIX="abnTeX2 $VERSAO -"
 
 	echo
+	echo Deploying $TAR_FILE
+	./googlecode_upload.py -s \'"$PREFIX Arquivos de instalação em formato TAR.GZ"\' -p abntex2 -u $1 -w $2 -l $LABELS $TAR_FILE
+
+	echo
 	echo Deploying $ZIP_TDS
-	./googlecode_upload.py -s \'"$PREFIX Arquivos de instalação"\' -p abntex2 -u $1 -w $2 -l $LABELS $ZIP_TDS
+	./googlecode_upload.py -s \'"$PREFIX Arquivos de instalação em formato ZIP"\' -p abntex2 -u $1 -w $2 -l $LABELS $ZIP_TDS
 
 	echo 
 	echo Deploying $ZIP_DOC
@@ -182,6 +194,7 @@ function deploy(){
 	echo
 	echo Deploying $ZIP_MODELO
 	./googlecode_upload.py -s \'"$PREFIX Modelos de documentos"\' -p abntex2 -u $1 -w $2 -l $LABELS $ZIP_MODELO
+
 }
 
 # ending information after build
@@ -193,16 +206,10 @@ function printEndingInformation(){
 	echo $ZIP_TDS
 	echo $ZIP_MODELO
 	echo $ZIP_CTAN
+	echo $TAR_FILE
 	echo 
-	echo Remember: 
-	echo "1) you have to upload $ZIP_CTAN to CTAN: http://www.ctan.org/upload"
-	echo "2) you have to update Wikipedia: http://pt.wikipedia.org/wiki/AbnTeX"
-	echo
-	echo If you need change any information on CTAN, contact:
-	echo rainer@dante.de - Rainer Schöpf,
-	echo robin.fairbairns@cl.cam.ac.uk - Robin Fairbairns,
-	echo gene@gerd-neugebauer.de - Gerd Neugebauer and 
-	echo ctan@dante.de.
+	echo Remember: You should follow the steps in:
+	echo https://code.google.com/p/abntex2/wiki/DisponibilizarNovoRelease
 	echo
 	echo If you need help, contact us: http://groups.google.com/group/abntex2
 	echo --------------------------------------------------
@@ -213,7 +220,7 @@ function printUsage(){
 	echo
 	echo "Usage: ./build.sh ([version] [(user password)]) | [--help]"
 	echo 
-	echo "  version : Build zip file with version number"
+	echo "  version : Build compressed file with version number"
 	echo "  user : User name on Google Code for project abntex2"
 	echo "  password : Password on Google Code for project abntex2"
 	echo "  --help : Show this help message"
