@@ -1,0 +1,450 @@
+%% abtex2-modelo-glossarios.tex, v<VERSION> laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abtex2-modelo-glossarios.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+       
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Exemplo de glossários com o pacote glossaries e abntex2
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+ 
+% verso e anverso:
+\documentclass[12pt,openright,twoside,a4paper,brazil]{abntex2}
+   
+% apenas verso:             
+% \documentclass[12pt,oneside,a4paper,english,french,spanish,brazil]{abntex2}
+ 
+ 
+% ---
+% PACOTES
+% ---
+ 
+% ---
+% Pacotes fundamentais
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+
+% ---
+% Pacotes glossaries
+% ---
+\usepackage[subentrycounter,seeautonumberlist]{glossaries}
+% ---
+               
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+ 
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Exemplo de uso de glossário com \abnTeX}
+\autor{Equipe \abnTeX}
+\local{Brasil}
+\data{2013, v<VERSION>}
+\orientador{Lauro César Araujo}
+\coorientador{Equipe \abnTeX}
+\instituicao{%
+  Universidade do Brasil -- UBr
+  \par
+  Faculdade de Arquitetura da Informação
+  \par
+  Programa de Pós-Graduação}
+\tipotrabalho{Tese (Doutorado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
+\preambulo{Modelo de texto com glossário conforme as
+as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+% ---
+ 
+ 
+% ---
+% Configurações de aparência do PDF final
+ 
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+ 
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{glossários}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+% ---
+ 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+ 
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+ 
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+ 
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+ 
+% ---
+% GLOSSARIO
+% ---
+\makeglossaries
+ 
+% ---
+% entradas do glossario
+% ---
+ \newglossaryentry{pai}{
+                name={pai},
+                plural={pai},
+                description={este é uma entrada pai, que possui outras
+                subentradas.} }
+
+ \newglossaryentry{componente}{
+                name={componente},
+                plural={componentes},
+                parent=pai,
+                description={descriação da entrada componente.} }
+ 
+ \newglossaryentry{filho}{
+                name={filho},
+                plural={filhos},
+                parent=pai,
+                description={isto é uma entrada filha da entrada de nome
+                \gls{pai}. Trata-se de uma entrada irmã da entrada
+                \gls{componente}.} }
+ 
+\newglossaryentry{equilibrio}{
+                name={equilíbrio da configuração},
+                see=[veja também]{componente},
+                description={consistência entre os \glspl{componente}}
+                }
+
+\newglossaryentry{latex}{
+                name={LaTeX},
+                description={ferramenta de computador para autoria de
+                documentos criada por D. E. Knuth} }
+
+\newglossaryentry{abntex2}{
+                name={abnTeX2},
+                see=latex,
+                description={suíte para LaTeX que atende os requisitos das
+                normas da ABNT para elaboração de documentos técnicos e científicos brasileiros} }
+% ---
+
+% ---
+% Exemplo de configurações do glossairo
+\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1}  
+ \glsseelist{#2}}
+% ---
+              
+                
+% ----
+% Início do documento
+% ----
+\begin{document}
+ 
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+ 
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+ 
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+ 
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+  
+ 
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+ 
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter*[Introdução]{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+ 
+Este documento e seu código-fonte são exemplos de referência de uso da classe
+\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento não se trata de
+um modelo específico baseado em alguma norma da ABNT, mas exemplifica a
+elaboração do elemento ``Glossário'' previsto nas normas ABNT NBR
+10719:2011, ABNT NBR 14724:2011 e ABNT NBR 15287:2011, por exemplo. Este
+documento deve ser utilizado como complemento aos demais exemplos de uso de
+\abnTeX.
+
+A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
+modelo específico de nenhuma universidade ou instituição, mas que implementa tão
+somente os requisitos das normas da ABNT. Uma lista completa das normas
+observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
+ 
+Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
+\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
+estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+modificados tenham seus nomes alterados e que os créditos sejam dados aos
+autores originais, nos termos da ``The \LaTeX\ Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+ 
+Encorajamos que sejam realizadas customizações específicas deste exemplo para
+universidades e outras instituições --- como capas, folha de aprovação, etc.
+Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+\abnTeX, distribua-se arquivos com as respectivas customizações.
+Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
+incompatíveis com as customizações promovidas. Consulte
+\citeonline{abntex2-wiki-como-customizar} par mais informações.
+ 
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
+\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
+\cite{memoir}.
+ 
+Equipe \abnTeX
+  
+Lauro César Araujo
+ 
+ 
+% ---
+% Capitulo que faz uso de elementos do glossario
+% ---
+\chapter{Orientações a respeito de glossários}
+ 
+% ---
+\section{Usar o glossário no texto}
+% ---
+ 
+Você pode definir as entradas do glossário no início do texto. Recomenda-se o
+uso de um arquivo separado a ser inserido ainda no preâmbulo. Veja orientações
+sobre inclusão de arquivos na \autoref{sec-include}.
+
+No decorrer do texto, use os termos do glossário como na frase:
+
+\begin{citacao}
+Esta frase usa a palavra \gls{componente} e o plural de \glspl{filho}, ambas
+definidas no glossário como filhas da entrada \gls{pai}. \Gls{equilibrio}
+exemplifica o uso de um termo no início da frase. O software \gls{abntex2} é
+escrito em \gls{latex}, que é definido no glossário como
+\emph{`\glsdesc*{latex}'}.
+\end{citacao}
+
+
+A frase acima foi produzida com:
+
+\begin{verbatim}
+Esta frase usa a palavra \gls{componente} e o plural de \glspl{filho}, ambas
+definidas no glossário como filhas da entrada \gls{pai}. \Gls{equilibrio}
+exemplifica o uso de um termo no início da frase. O software \gls{abntex2} é
+escrito em \gls{latex}, que é definido no glossário como
+\emph{`\glsdesc*{latex}'}.
+\end{verbatim}
+
+Opcionalmente, incorpore todas as palavras do glossário de uma única vez ao
+documento com o comando:
+
+\begin{verbatim}
+   \glsaddall
+\end{verbatim}
+ 
+A impressão efetiva do glossário é dada com:
+
+\begin{verbatim}
+   \printglossaries
+\end{verbatim}
+
+A impressão do glossário incorpora o número das páginas em que as entradas foram
+citadas. Isso pode ser removido adicionando-se a opção \texttt{nonumberlist} em:
+
+\begin{verbatim}
+\usepackage[nonumberlist,style=index]{glossaries}%
+\end{verbatim}
+
+% ---
+\section{Compilar um documento com glossário}
+% ---
+ 
+Para compilar um documento \LaTeX\ com glossário use:
+
+\begin{verbatim}
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   bibtex ARQUIVO_PRINCIPAL.aux
+   makeindex ARQUIVO_PRINCIPAL.idx 
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+   makeglossaries ARQUIVO_PRINCIPAL.aux
+   pdflatex ARQUIVO_PRINCIPAL.tex
+   pdflatex ARQUIVO_PRINCIPAL.tex
+\end{verbatim}
+ 
+O comando \texttt{makeglossaries} é um aplicativo Perl instalado
+automaticamente pelas distribuições MacTeX, TeX Live e MiKTeX. Geralmente
+usuários de Linux e de Mac OS X já possuem o interpretador Perl\footnote{O Perl
+é uma linguagem de programação de scripts muito utilizada pela comunidade de
+software livre. Veja o site do projeto em \url{http://www.perl.org/}.} instalado
+e configurado e nenhuma configuração adicional é necessária.
+
+Usuários de Windows, por outro lado, precisam instalar a ferramenta Perl para
+que seja possível usar \texttt{makeglossaries}. Por sorte isso é simples. Para
+obter a instalação do Perl para seu sistema operacional visite \url{http://www.perl.org/get.html}.
+
+Alternativamente ao aplicativo Perl \texttt{makeglossaries}, é possível usar o
+aplicativo \texttt{makeglossariesgui}\footnote{O título do aplicativo no CTAN
+é \textit{Java GUI alternative to makeglossarires script}.}, que possui uma
+interface gráfica baseada em Java. Para isso, consulte
+\url{http://www.ctan.org/pkg/makeglossariesgui}. Funciona em Windows,
+Linux e Mac OS X.
+
+% ---
+\section{Configuração de glossários}
+% ---
+
+O pacote \textsf{glossaries}, usado na produção dos glossários deste exemplo,
+possui diversas configurações. É possível alterar o estilo da impressão do
+glossário, criar campos adicionais, usar diversos glossários em
+arquivos separados. Para isso e outras informações, consulte a documentação do
+pacote \textsf{glossaries}: \url{http://www.ctan.org/pkg/glossaries}.
+
+Consulte também o livro da WikiBooks sobre a produção de glossários:
+\url{http://en.wikibooks.org/wiki/LaTeX/Glossary}.
+ 
+
+\subsection{Estilos do glossário}
+
+O pacote \textsf{glossaries} traz dezenas de estilos pré-definidos de
+glossários. Eles estão disponíveis no capítulo 15 do manual do pacote
+\cite{talbot2012}. O capítulo 16 contém instruções sobre como criar um estilo
+personalizado.
+
+Os estilos podem ser alterados com:
+
+\begin{verbatim}
+   \glossarystyle{altlisthypergroup}
+\end{verbatim}
+
+O estilo \texttt{index} é ideal para construção de glossários com diversos
+níveis hierárquicos do tipo pai-filho. Já o modelo \texttt{altlisthypergroup} é
+mais adequado para glossários sem hierarquias. Teste também o modelo
+\texttt{tree}.
+
+Se desejar um único estilo de glossário padrão no documento, alternativamente
+inclua a opção \texttt{style} nas opções da classe, do
+seguinte modo:
+
+\begin{verbatim}
+   \usepackage[style=index]{glossaries}
+\end{verbatim}
+
+
+% ----------------------------------------------------------
+% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% ----------------------------------------------------------
+
+\include{abntex2-modelo-include-comandos}
+ 
+ 
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+ 
+ 
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+ 
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+
+% ---
+% Define nome e preâmbulo do glossário
+% ---
+\renewcommand{\glossaryname}{Glossário}
+\renewcommand{\glossarypreamble}{Esta é a descrição do glossário.\\ \\}
+
+% ---
+% Traduções para o ambiente glossaries
+% ---
+\providetranslation{Glossary}{Glossário}
+\providetranslation{Acronyms}{Siglas}
+\providetranslation{Notation (glossaries)}{Notação}
+\providetranslation{Description (glossaries)}{Descrição}
+\providetranslation{Symbol (glossaries)}{Símbolo}
+\providetranslation{Page List (glossaries)}{Lista de Páginas}
+\providetranslation{Symbols (glossaries)}{Símbolos}
+\providetranslation{Numbers (glossaries)}{Números} 
+% ---
+
+% ---
+% Imprime o glossário
+% ---
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\glossaryname}
+% \glossarystyle{index}
+% \glossarystyle{altlisthypergroup}
+ \glossarystyle{tree}
+\printglossaries
+% ---
+  
+ 
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+ 
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+ 
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+ 
+\end{document}

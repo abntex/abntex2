@@ -1,0 +1,469 @@
+%% abtex2-modelo-artigo.tex, v<VERSION> laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-artigo.tex and
+%% abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Artigo Acadêmico em conformidade com
+% ABNT NBR 6022:2003: Informação e documentação - Artigo em publicação 
+% periódica científica impressa - Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% oneside = apenas frente
+% twocolumn = artigo em duas colunas
+\documentclass[article,11pt,oneside,a4paper,english,brazil]{abntex2}	
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Modelo Canônico de\\ Artigo científico com \abnTeX}
+\autor{Equipe \abnTeX\thanks{\url{http://abntex2.googlecode.com/}} \and Lauro
+César
+Araujo\thanks{laurocesar@laurocesar.com}}
+\local{Brasil}
+\data{2013, v<VERSION>}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de artigo científico com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{4cm}{4cm}{*}
+\setulmarginsandblock{4cm}{4cm}{*}
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+%---
+%
+% Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
+% e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
+% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+%
+%---
+% página de titulo
+\maketitle
+
+% resumo em português
+\begin{resumoumacoluna}
+ Conforme a ABNT NBR 6022:2003, o resumo é elemento obrigatório, constituído de
+ uma sequência de frases concisas e objetivas e não de uma simples enumeração
+ de tópicos, não ultrapassando 250 palavras, seguido, logo abaixo, das palavras
+ representativas do conteúdo do trabalho, isto é, palavras-chave e/ou
+ descritores, conforme a NBR 6028. (\ldots) As palavras-chave devem figurar logo
+ abaixo do resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
+ ponto e finalizadas também por ponto.
+ 
+ \vspace{\onelineskip}
+ 
+ \noindent
+ \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+\end{resumoumacoluna}
+
+% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\section*{Introdução}
+
+Este documento e seu código-fonte são exemplos de referência de uso da classe
+\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento exemplifica a
+elaboração de publicação periódica científica impressa produzida conforme a ABNT
+NBR 6022:2003 \emph{Informação e documentação - Artigo em publicação periódica
+científica impressa - Apresentação}.
+
+A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX\ não é
+modelo específico de nenhuma universidade ou instituição, mas que implementa tão
+somente os requisitos das normas da ABNT. Uma lista completa das normas
+observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
+
+Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
+\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
+estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
+modificados tenham seus nomes alterados e que os créditos sejam dados aos
+autores originais, nos termos da ``The \LaTeX\ Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+Encorajamos que sejam realizadas customizações específicas deste documento.
+Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+\abnTeX, distribua-se arquivos com as respectivas customizações. Isso permite
+que futuras versões do \abnTeX~não se tornem automaticamente incompatíveis com
+as customizações promovidas. Consulte \citeonline{abntex2-wiki-como-customizar}
+par mais informações.
+
+Este exemplo deve ser utilizado como complemento do manual da classe
+\textsf{abntex2} \cite{abntex2classe}, dos manuais do pacote
+\textsf{abntex2cite} \cite{abntex2cite,abntex2cite-alf} e do manual da classe
+\textsf{memoir} \cite{memoir}. Consulte o \citeonline{abntex2modelo} para obter
+exemplos e informações adicionais de uso de \abnTeX\ e de \LaTeX.
+
+% ----------------------------------------------------------
+% Seção de explicações
+% ----------------------------------------------------------
+\section{Exemplos de comandos}
+
+\subsection{Margens}
+
+A norma ABNT NBR 6022:2003 não estabelece uma margem específica a ser utilizada
+no artigo científico. Dessa maneira, caso deseje alterar as margens, utilize os
+comandos abaixo:
+
+\begin{verbatim}
+   \setlrmarginsandblock{4cm}{4cm}{*}
+   \setulmarginsandblock{4cm}{4cm}{*}
+   \checkandfixthelayout
+\end{verbatim}
+
+\subsection{Duas colunas}
+
+É comum que artigos científicos sejam escritos em duas colunas. Para isso,
+adicione a opção \texttt{twocolumn} à classe do documento, como no exemplo:
+
+\begin{verbatim}
+   \documentclass[article,11pt,oneside,a4paper,twocolumn]{abntex2}
+\end{verbatim}
+
+É possível indicar pontos do texto que se deseja manter em apenas uma coluna,
+geralmente o título e os resumos. Os resumos em única coluna em documentos com
+a opção \texttt{twocolumn} devem ser escritos no ambiente
+\texttt{resumoumacoluna}:
+
+\begin{verbatim}
+   \twocolumn[              % INICIO DE ARTIGO EM DUAS COLUNAS
+
+     \maketitle             % pagina de titulo
+
+     \renewcommand{\resumoname}{Nome do resumo}
+     \begin{resumoumacoluna}
+        Texto do resumo.
+      
+        \vspace{\onelineskip}
+ 
+        \noindent
+        \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+     \end{resumoumacoluna}
+   
+   ]                        % FIM DE ARTIGO EM DUAS COLUNAS
+\end{verbatim}
+
+\subsection{Recuo do ambiente \texttt{citacao}}
+
+Na produção de artigos (opção \texttt{article}), pode ser útil alterar o recuo
+do ambiente \texttt{citacao}. Nesse caso, utilize o comando:
+
+\begin{verbatim}
+   \setlength{\ABNTEXcitacaorecuo}{1.8cm}
+\end{verbatim}
+
+Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
+\textsf{abntex2} automaticamente altera o recuo padrão de 4 cm, definido pela
+ABNT NBR 10520:2002 seção 5.3, para 1.8 cm.
+
+\section{Cabeçalhos e rodapés customizados}
+
+Diferentes estilos de cabeçalhos e rodapés podem ser criados usando os
+recursos padrões do \textsf{memoir}.
+
+Um estilo próprio de cabeçalhos e rodapés pode ser diferente para páginas pares
+e ímpares. Observe que a diferenciação entre páginas pares e ímpares só é
+utilizada se a opção \texttt{twoside} da classe \textsf{abntex2} for utilizado.
+Caso contrário, apenas o cabeçalho padrão da página par (\emph{even}) é usado.
+
+Veja o exemplo abaixo cria um estilo chamado \texttt{meuestilo}. O código deve
+ser inserido no preâmbulo do documento.
+
+\begin{verbatim}
+%%criar um novo estilo de cabeçalhos e rodapés
+\makepagestyle{meuestilo}
+  %%cabeçalhos
+  \makeevenhead{meuestilo} %%pagina par
+     {topo par à esquerda}
+     {centro \thepage}
+     {direita}
+  \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
+     {topo ímpar/oneside à esquerda}
+     {centro\thepage}
+     {direita}
+  \makeheadrule{meuestilo}{\textwidth}{\normalrulethickness} %linha
+  %% rodapé
+  \makeevenfoot{meuestilo}
+     {rodapé par à esquerda} %%pagina par
+     {centro \thepage}
+     {direita} 
+  \makeoddfoot{meuestilo} %%pagina ímpar ou com oneside
+     {rodapé ímpar/onside à esquerda}
+     {centro \thepage}
+     {direita}
+\end{verbatim}
+
+Para usar o estilo criado, use o comando abaixo imediatamente após um dos
+comandos de divisão do documento. Por exemplo:
+
+\begin{verbatim}
+   \begin{document}
+     %%usar o estilo criado na primeira página do artigo:
+     \pretextual
+     \pagestyle{meuestilo}
+     
+     \maketitle
+     ...
+     
+     %%usar o estilo criado nas páginas textuais
+     \textual
+     \pagestyle{meuestilo}
+     
+     \chapter{Novo capítulo}
+     ...
+   \end{document}  
+\end{verbatim}
+   
+Outras informações sobre cabeçalhos e rodapés estão disponíveis na seção 7.3 do
+manual do \textsf{memoir} \cite{memoir}.
+
+\section{Mais exemplos no Modelo Canônico de Trabalhos Acadêmicos}
+
+Este modelo de artigo é limitado em número de exemplos de comandos, pois são
+apresentados exclusivamente comandos diretamente relacionados com a produção de
+artigos.
+
+Para exemplos adicionais de \abnTeX\ e \LaTeX, como inclusão de figuras,
+fórmulas matemáticas, citações, e outros, consulte o documento
+\citeonline{abntex2modelo}.
+
+\section{Consulte o manual da classe \textsf{abntex2}}
+
+Consulte o manual da classe \textsf{abntex2} \cite{abntex2classe} para uma
+referência completa das macros e ambientes disponíveis.
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ---
+% Conclusão
+% ---
+\section*{Considerações finais}
+\addcontentsline{toc}{section}{Considerações finais}
+
+\lipsum[1]
+
+\begin{citacao}
+\lipsum[2]
+\end{citacao}
+
+\lipsum[3]
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Há diversas soluções prontas para glossário em LaTeX. 
+% Consulte o manual do abnTeX2 para obter sugestões.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+\begin{apendicesenv}
+
+% ----------------------------------------------------------
+\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+% ----------------------------------------------------------
+\lipsum[55-57]
+
+\end{apendicesenv}
+% ---
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+\cftinserthook{toc}{AAA}
+% ---
+% Inicia os anexos
+% ---
+%\anexos
+\begin{anexosenv}
+
+% ---
+\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+parturient montes nascetur ridiculus mus}
+% ---
+
+\lipsum[31]
+
+\end{anexosenv}
+
+
+% ---
+% Título e resumo em língua estrangeira
+% ---
+
+% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+
+% titulo em inglês
+\titulo{Canonical academic article model with \abnTeX}
+\emptythanks
+\maketitle
+
+% resumo em português
+\renewcommand{\resumoname}{Abstract}
+\begin{resumoumacoluna}
+ \begin{otherlanguage*}{english}
+   According to ABNT NBR 6022:2003, an abstract in foreign language is a back
+   matter mandatory element.
+
+   \vspace{\onelineskip}
+ 
+   \noindent
+   \textbf{Key-words}: latex. abntex.
+ \end{otherlanguage*}  
+\end{resumoumacoluna}
+
+% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
+% ---
+
+\end{document}
