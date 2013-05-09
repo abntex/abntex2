@@ -149,7 +149,7 @@ function buildAll(){
 	ZIP_DOC=target/abntex2-doc$VERSAO.zip
 	ZIP_TDS=target/abntex2.tds$VERSAO.zip
 	ZIP_MODELO=target/abntex2-modelos$VERSAO.zip
-	TAR_FILE=target/abntex2$VERSAO.tar.gz
+	TAR_FILE=target/abntex2.tds$VERSAO.tar.gz
 
 	# initializing files
 	initialize
