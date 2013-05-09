@@ -1,0 +1,993 @@
+%% abntex2cite-alf.tex, v<VERSION> laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://code.google.com/p/abntex2/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://code.google.com/p/abntex2/
+%%
+%% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
+%% Copyright 2001-2003 by the abnTeX group at http://codigolivre.org.br/projects/abntex
+%%
+%%
+%% command line for latex2html :
+%% latex2html -split 0 -toc_depth 8 -noinfo -noaddress -nonavigation -show_section_numbers -html_version 4.0 abnt-bibtex-alf-doc.tex
+%%
+%% 2013.4.5 08h04	laurocesar
+%%  Revisa alterações de gilsonolegario.
+%%  Altera o nome do manual.
+%%
+%% 2013.4.04 12:09	gilsonolegario
+%% Melhorias visuais da documentação
+%%
+%% 2013/3/23 18h23	laurocesar
+%%  Adiciona cor nos links internos.
+%%
+%% 2013/2/2 15:07	laurocesar
+%%  Padroniza o cabeçalho com os demais manuais
+%%
+%% 2013/01/18 21h21	laurocesar
+%%  Inclui fonte lmodern
+%%
+%% 2013/01/12 21h21	laurocesar
+%%  Revisão do documento
+%%
+%% 2012/12/20 09h20 	laurocesar
+%%  Alteração do nome dos arquivos BIB de referências
+%%  Revisão da largura de algumas tabelas
+%%
+%% 2012/12/19 09h21 	laurocesar
+%%  Fork of the version v 1.29 2004/03/23 17:35:47   mvsfrasson
+%%  Alteração do nome do documento de abnt-bibtex-alf-doc.tex para
+% % abntex2cite-alf.tex
+%%  Alteração da classe do documento de abnt para ltxdoc
+%%  Revisão dos captions das tabelas
+%%  Revisão do documento, inclusão das seções ``Escopo'' e ``Créditos aos
+%%  autores originais''
+%%  Substituição das referências abntcite para abntex2cite
+%%
+%% 2012/12/13 10h49 	laurocesar
+%%  Remoção da referência a abnt-options em \bibliography{}
+%%  Alteração da codificação de \usepackage[latin1]{inputenc} para utf8
+%%
+%% $Log: abnt-bibtex-alf-doc.tex,v $
+%% Revision 1.29  2004/03/23 17:35:47  mvsfrasson
+%%
+%% Arquivos atualizados para nao necessitarem pacote html
+%%
+%% Revision 1.28  2003/06/30 14:42:50  gweber
+%% Pequenas modificações, início da adaptação para 10522/2002.
+%%
+%% Revision 1.27  2003/06/19 09:32:18  gweber
+%% Inicio da adaptação para 10520/2002.
+%%
+%% Revision 1.26  2003/04/08 00:40:44  gweber
+%% novos comandos \apud e entrada @hidden
+%%
+%% Revision 1.25  2003/03/28 20:54:20  gweber
+%% ajustes nas citações às normas
+%%
+%% Revision 1.24  2003/03/25 14:17:35  gweber
+%% alterações nos arquivos bib
+%%
+%%
+
+\documentclass[a4paper]{ltxdoc}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\usepackage[brazil]{babel}
+\usepackage{hyperref}  			% controla a formação do índice
+\usepackage{parskip}			% espaçamento entre os parágrafos
+\hypersetup{
+		colorlinks=true,       		% false: boxed links; true: colored links
+    		linkcolor=blue,          		% color of internal links
+    		citecolor=blue,        		% color of links to bibliography
+    		filecolor=magenta,      		% color of file links
+		urlcolor=blue}
+
+\IfFileExists{html.sty}
+{\usepackage{html}}
+{\usepackage{comment}
+ \excludecomment{htmlonly}
+ \excludecomment{rawhtml}
+ \includecomment{latexonly}
+ \newcommand{\html}[1]{}
+ \newcommand{\latex}[1]{##1}
+ \ifx\undefined\hyperref
+  \ifx\pdfoutput\undefined \let\pdfunknown\relax
+   \let\htmlATnew=\newcommand
+  \else
+   \ifx\pdfoutput\relax \let\pdfunknown\relax
+    \usepackage{hyperref}\let\htmlATnew=\renewcommand
+   \else
+    \usepackage{hyperref}\let\htmlATnew=\newcommand
+   \fi
+  \fi
+ \else
+  \let\htmlATnew=\renewcommand
+ \fi
+ \ifx\pdfunknown\relax
+  \htmlATnew{\htmladdnormallink}[2]{##1}
+ \else
+  \def\htmladdnormallink##1##2{\href{##2}{##1}}
+ \fi
+ \long\def\latexhtml##1##2{##1}}
+
+%\usepackage{showtags}
+\usepackage[alf,abnt-repeated-title-omit=yes,abnt-show-options=warn,abnt-verbatim-entry=yes]{abntex2cite}
+% \def\Versao$#1 #2${#2}
+% \def\Data$#1 #2 #3${#2}
+
+\ifx\pdfoutput\undefined
+\else
+%from /usr/share/texmf/doc/pdftex/base/pdftexman.pdf
+\pdfinfo{
+  /Title        (O pacote abntex2cite: Tópicos específicos da ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema
+                 autor-data))
+  /Author       (G. Weber - Grupo abnTeX - Grupo abnTeX2) 
+  /Subject      (referencias bibliograficas) 
+  /Keywords     (ABNT, bibliografia, 6023:2000, 6023:2002, 10520:1988, 10520:2001, 10520:2002)}
+\fi
+
+\newcommand{\VerbL}{0.54\textwidth}
+\newcommand{\LatL}{0.42\textwidth}
+
+
+\usepackage{color}
+\definecolor{thered}{rgb}{0.65,0.04,0.07}
+\definecolor{thegreen}{rgb}{0.06,0.44,0.08}
+\definecolor{thegrey}{gray}{0.5}
+\definecolor{theshade}{rgb}{1,1,0.97}
+\definecolor{theframe}{gray}{0.6}
+\definecolor{blue}{RGB}{41,5,195}
+
+\IfFileExists{listings.sty}{
+  \usepackage{listings}
+\lstset{%
+	language=[LaTeX]TeX,
+	columns=flexible,
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{theshade},
+	frame=single,
+	tabsize=2,
+	rulecolor=\color{theframe},
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	breaklines=true,
+	commentstyle=\color{thegrey},
+	keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
+	keywordstyle=[0]\color{thered},
+	keywords=[1]{},
+	keywordstyle=[1]\color{thegreen},
+	breakatwhitespace=true,
+	alsoother={0123456789_},
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
+}
+\let\verbatim\relax
+ 	\lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+}
+
+
+\addtolength{\textwidth}{.3in}
+\addtolength{\oddsidemargin}{1em}
+
+
+\begin{document}
+
+%se for usar citeoption não esqueça de comentar o \nocite{*} no final
+\nocite{7.2.2-2}
+\nocite{7.3.2-3} %para testar format.author.or.organization
+\nocite{7.5.1.2-1}
+\nocite{8.11.3-1} %para testar reprinted-from
+
+\newcommand{\titulo}{\textbf{O pacote \textsf{abntex2cite}}:\\ \Large{Tópicos
+específicos da ABNT NBR 10520:2002 e o \\ estilo bibliográfico alfabético
+(sistema autor-data)}}
+
+\newcommand{\abnTeX}{abn\TeX}
+\newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
+
+\title{\titulo}
+\author{Equipe \abnTeX2\\\abnTeXSite 
+\and 
+Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
+\date{\today, v<VERSION>}
+
+\maketitle
+
+% \begin{htmlonly}
+% \title{\titulo}
+% \author{Equipe \abnTeX2}
+% \date{\Data$Date: 2004/03/23 17:35:47 $}
+% \maketitle
+% \end{htmlonly}
+
+\begin{abstract}
+Este manual é parte integrante da suíte \abnTeX2 e aborda tópicos específicos
+da ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema
+autor-data).
+\end{abstract}
+
+
+\tableofcontents
+
+\listoftables
+
+\section{Escopo}
+
+O objetivo deste manual é abordar tópicos específicos da ABNT NBR 10520:2002 e
+o estilo bibliográfico alfabético (sistema autor-data). 
+
+Este documento é parte integrante da suíte \abnTeX2 e é um complemento do
+documento \citeonline{abntex2cite}.
+
+Para referências à classe \textsf{abntex2}, consulte \citeonline{abntex2classe}.
+
+\section{Créditos aos autores originais}
+
+Este documento é derivado do documento \emph{Estilo bibtex compatível com a
+`norma' 6023 da ABNT: Questões específicas da `norma' 10520}, versão $ 1.29
+$, escrito por G. Weber e atualizado por Miguel V. S. Frasson em 23 de março de
+2004 no âmbito do projeto \abnTeX\ hospedado em
+\url{http://codigolivre.org.br/projects/abntex}\footnote{O documento original pode ser lido em
+\url{http://code.google.com/p/abntex2/downloads/detail?name=abnt-bibtex-doc.pdf}}.
+
+A equipe do projeto \abnTeX2, observando a \emph{LaTeX Project Public License},
+registra que os créditos deste manual são dos autores originais.
+
+
+\section{Considerações iniciais}
+
+\subsection{Prefira o sistema numérico, se possível}
+
+Se você está usando \LaTeX\, assumimos que está usando um computador. Nesse
+caso, a citação no esquema autor-data é uma coisa tão arcaica e desnecessária
+quanto uma régua-de-cálculo. A leitura de um texto com chamadas no sistema
+autor-data é desajeitada, especialmente quando muitas referências são chamadas
+de uma só vez. Você não tem absolutamente nenhum motivo para usar o sistema
+autor-data já que a ABNT ``autorizou'' o uso do sistema citação numérico
+por um cochilo qualquer.
+
+Por outro lado, há aqueles que se dão ao trabalho de te dar trabalho, de seguir
+regras esdrúxulas na hora de escrever teses. Estes podem estar exigindo que você
+use o arcaico sistema autor-data. Também pode acontecer que os examinadores da
+banca, seja por que não leram a sua tese ou porque não entenderam nada
+realmente (ou ambos), acabem se enroscando em picuinhas.
+
+Aí mandam você colocar todas as suas referências numéricas em formato
+autor-data. Comentamos isso porque tudo isso já aconteceu e continua acontecendo 
+com outras pessoas. Portanto, \emph{esteja preparado}. 
+
+Antes de começar a escrever recomendamos verificar quais são as regras \emph{de
+fato} da sua universidade ou instituição.
+
+\subsection{Cuidado: estilo em fase de acabamento!}
+
+O estilo \LaTeX\ {\tt abntex2cite.sty} está em fase final de desenvolvimento.
+Embora já apresente alguma maturidade sua implementação pode mudar entre uma
+versão e outra e é possível que seu texto necessite de algumas pequenas
+adaptações futuramente.
+
+Além disso, o estilo foi desenvolvido com base na ABNT NBR 6023:2000, e a versão
+corrente da norma é a ABNT NBR 6023:2002. Desse modo, considere inconsistentes
+as referências bibliográficas produzidas pelo \abnTeX2 que sofreram alterações
+entre a versão de 2000 e 2002 da norma.
+
+
+\subsection{Cuidado: normas nebulosas!}
+
+Nós elaboramos os estilos debruçados diretamente sobre os originais da ABNT
+e as seguimos escrupulosamente. Mas não se iluda! O que a sua coordenação
+de pós-graduação, ou orientador, ou chefe etc., entendem por `normas ABNT'
+pode não ter qualquer vínculo com a realidade. Por isso \emph{não garantimos}
+que ao usar os estilos do \abnTeX\ você esteja em conformidade com as normas
+da sua instituição ou empresa.
+
+Um exemplo clássico é o sistema de chamada numérico\footnote{Descrito em
+\citeonline{abntex2cite}.}. Embora \emph{todas} as `normas' da ABNT
+\cite{NBR10520:1988,NBR6023:2000,NBR6023:2002,NBR6023:2002,NBR10520:2001,NBR10520:2002}
+`autorizem' seu uso, a maioria das instituições, orientadores, membros de banca,
+revisores de artigo\ldots dirão que isso não é ABNT. Acredite se quiser.
+
+\section{Como usar a citação alfabética (sistema autor-data)}
+
+\subsection{Como chamar os pacotes e estilos}
+
+\DescribeMacro{\usepackage[alf]{abntex2cite}}
+Para usar o estilo de citação alfabético (seção 9.2 em
+6023/2000~\cite{NBR6023:2000}) utilize no preâmbulo:
+
+\begin{verbatim}
+\usepackage[alf]{abntex2cite}
+\end{verbatim}
+
+\DescribeMacro{\bibliographystyle}
+Você \emph{não precisa} selecionar o comando \verb+\bibliographystyle+, porque
+isso é realizado automaticamente. Do mesmo modo, a base bibliográfica
+\verb+abntex2-options.bib+ também estará automaticamente incluída.
+
+Se você quiser usar apenas o estilo bibliográfico, e não utilizar o esquema de
+citações, selecione com o comando:
+
+\begin{verbatim}
+\bibliographystyle{abnt-alf}
+\end{verbatim}
+
+mas esteja avisado que nesse caso as chamadas no texto \emph{não estarão}
+em conformidade com a `norma'.
+
+Dessa forma, as citações no texto não estarão em conformidade com as normas
+brasileiras, porém a bibliografia será formatada corretamente.
+
+\subsection{Como usar a citação no sistema autor-data}
+
+Este sistema de citação é descrito em \citeonline{NBR10520:2002}. Note que
+essa `norma' entrou em vigor em agosto de 2002, apenas um ano depois da
+\citeonline{NBR10520:2001}.
+
+Esse sistema aceita basicamente duas formatações para a citação, dependendo da
+maneira como ocorre a citação no texto.
+
+\subsubsection{Referências explícitas ({\tt citeonline}) }
+
+\DescribeMacro{\citeonline}
+É o caso em que você menciona \emph{explicitamente} o autor da referência na sentença. Algo
+como ``Fulano (1900)". Para isso use o comando \verb+\citeonline+.
+
+Exemplos apresentadas em \citeonline{NBR10520:2001}:
+
+%\def\Exemplo#1#2{\noindent\begin{minipage}[t]{8cm}\small#1%
+%\end{minipage}\begin{minipage}[t]{9cm}\small#2%
+%\end{minipage}\vspace{5mm}}
+
+\vspace{3mm}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+A ironia será assim uma \ldots\ proposta
+por \citeonline{10520:4.1-1}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+A ironia será assim uma \ldots\ proposta 
+por \citeonline{10520:4.1-1}.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline[p.~146]{10520:4.2-2}
+dizem que \ldots\ 
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline[p.~146]{10520:4.2-2} dizem que \latexhtml{\ldots\ }{...}
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Segundo \citeonline[p.~27]{10520:4.2-3}
+\ldots\
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Segundo \citeonline[p.~27]{10520:4.2-3}  \latexhtml{\ldots\ }{...}
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Aqui vai um texto qualquer só para\\
+poder citar alguém
+\cite[p.~225]{10520-2002:6.3-1}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Aqui vai um texto qualquer só para poder
+citar alguém
+\cite[p.~225]{10520-2002:6.3-1}.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline[p.~35]{10520-2002:6.3-2}
+apresenta uma série
+de coisas incompreensíveis.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline[p.~35]{10520-2002:6.3-2}
+apresenta uma série
+de coisas incompreensíveis.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Mais um exemplo articifial
+mas necessário de citação
+\cite[p.~3]{10520-2002:6.3-3}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Mais um exemplo articifial
+mas necessário de citação
+\cite[p.~3]{10520-2002:6.3-3}.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline{10520-2002:6.3-4}
+são mais um exemplo de citação
+bem bacana.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline{10520-2002:6.3-4}
+são mais um exemplo de citação
+bem bacana.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Exemplo que mostra alguma
+coisa também
+\cite[p.~34]{10520-2002:6.3-5}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Exemplo que mostra alguma
+coisa também
+\cite[p.~34]{10520-2002:6.3-5}.
+\end{minipage}\\
+
+\subsubsection{Referências a {\tt organization}}
+
+\DescribeEnv{organization}
+Se a autoria do texto for do tipo {\tt organization}, você pode usar as citações
+normalmente. No entanto, é recomendado que, para organizações com descrição
+longa, você controle o que aparece no texto com o campo {\tt org-short} do
+arquivo {\tt .bib}. No exemplo seguinte temos:
+
+\begin{verbatim}
+organization={Comiss\~ao das Comunidades Europ\'eias},
+\end{verbatim}
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Exemplo que mostra alguma
+coisa também
+\cite[p.~34]{10520-2002:6.3-5}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Exemplo que mostra alguma
+coisa também
+\cite[p.~34]{10520-2002:6.3-5}.
+\end{minipage}\\
+
+Já neste exemplo:
+\begin{verbatim}
+ organization={Brasil. {Ministério da Administração Federal
+ e da Reforma do Estado}},
+ org-short   ={Brasil},
+\end{verbatim}
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+E a pátria não poderia faltar
+\cite{10520-2002:6.3-6}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+E a pátria não poderia faltar
+\cite{10520-2002:6.3-6}.
+\end{minipage}\\
+
+\subsubsection{Citações com autoria dada pelo título}
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Uma lei anônima
+\cite[p.~55]{10520-2002:6.3-7}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Uma lei anônima
+\cite[p.~55]{10520-2002:6.3-7}.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Uma artigo anônimo
+\cite[p.~4]{10520-2002:6.3-8}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Uma artigo anônimo
+\cite[p.~4]{10520-2002:6.3-8}.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Outro artigo anônimo
+\cite[p.~12]{10520-2002:6.3-9}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Outro artigo anônimo
+\cite[p.~12]{10520-2002:6.3-9}.
+\end{minipage}\\
+
+\subsubsection{Referências implícitas ({\tt cite})}
+
+\DescribeMacro{\cite}
+São aquelas referências que não fazem parte do texto. Use com \verb+\cite+.
+
+Exemplos:
+
+\vspace{5mm}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+para que \ldots\  à sociedade
+\cite[p.~46, grifo nosso]{10520:4.8}  
+\ldots\
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+para que \ldots\ à sociedade 
+\cite[p.~46, grifo nosso]{10520:4.8}
+\ldots\
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+b) desejo de \ldots\  passado colonial
+\cite[v.~2, p.~12, grifo do autor]%
+{10520:4.8.1} \ldots\
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+b) desejo de \ldots\  passado colonial
+\cite[v.~2, p.~12, grifo do autor]%
+{10520:4.8.1} \ldots\
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+``Apesar das \ldots\  da filosofia''
+\cite[p.~293]{10520:4.1-2}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+``Apesar das \latexhtml{\ldots\ }{...} da filosofia'' \cite[p.~293]{10520:4.1-2}.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Depois, \ldots\  que prefiro
+\cite[p.~101--114]{10520:4.1-3}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Depois, \latexhtml{\ldots\ }{...} que prefiro \cite[p.~101--114]{10520:4.1-3}.
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+A produção de \ldots\  em 1928
+\cite[p.~513]{10520:4.2-1} .
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+A produção de \latexhtml{\ldots\ }{...} em 1928 \cite[p.~513]{10520:4.2-1} .
+\end{minipage}\\
+
+
+\subsubsection{Referências citadas por outra referência ({\tt apud})}
+
+\DescribeMacro{\apud}\DescribeMacro{\apudeonline}
+Para citar uma referência que é citada dentro de outra referência, pode-se
+usar as macros \verb+\apud+ e \verb+\apudonline+, como nos exemplos abaixo.
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\apud[p.~2--3]{Sage}{Evans}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\apud[p.~2--3]{Sage}{Evans}
+\end{minipage}
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Segundo \apudonline[p.~2]{Silva}{Abreu}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Segundo \apudonline[p.~2]{Silva}{Abreu}
+\end{minipage}
+
+Nesses casos, todas as referências aparecerão na lista de referências, exceto
+aquelas definidas como entrada {\tt @hidden}. Ou seja, se você não quiser
+que uma entrada apareça na lista de referências, você deve defini-la como
+{\tt @hidden} na sua base bibliográfica.
+
+\subsubsection{Uso de idem, ibidem, opus citatum e outros}
+
+Implementamos comandos específicos para \emph{idem} (mesmo autor),
+\emph{ibidem} (mesma obra), \emph{opus citatum} (obra citada), \emph{passim}
+(aqui e alí), \emph{loco citato} (no lugar citado), \emph{confira e et
+sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abaixo.
+
+\DescribeMacro{\Idem}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\Idem[p.~2]{NBR6023:2000}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\Idem[p.~2]{NBR6023:2000}
+\end{minipage}
+
+\DescribeMacro{\Ibidem}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\Ibidem[p.~2]{NBR6023:2000}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\Ibidem[p.~2]{NBR6023:2000}
+\end{minipage}
+
+\DescribeMacro{\opcit}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\opcit[p.~2]{NBR6023:2000}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\opcit[p.~2]{NBR6023:2000}
+\end{minipage}
+
+\DescribeMacro{\passim}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\passim{NBR6023:2000}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\passim{NBR6023:2000}
+\end{minipage}
+
+\DescribeMacro{\loccit}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\loccit{NBR6023:2000}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\loccit{NBR6023:2000}
+\end{minipage}
+
+\DescribeMacro{\cfcite}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\cfcite[p.~2]{NBR6023:2000}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\cfcite[p.~2]{NBR6023:2000}
+\end{minipage}
+
+\DescribeMacro{\etseq}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\etseq[p.~2]{NBR6023:2000}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\etseq[p.~2]{NBR6023:2000}
+\end{minipage}
+
+Note que esses comandos só fazem sentido para citações a uma única referência
+por vez. Segundo o ítem 6.1.3 da `norma' \cite{NBR10520:2001}, essas expressões
+só devem ser usadas em notas, não no texto. Apenas a expressão \emph{apud}
+poderia ser usada no texto.
+
+\subsubsection{Referências múltiplas}
+\label{mult-ref}
+
+\DescribeMacro{\cite}\DescribeMacro{\citeonline}
+Frequentemente queremos citar diversas referências de uma vez. Para isso, use
+|\cite|\marg{key1,key2,\ldots,keyN} ou
+|\citeonline|\marg{key1,key2,\ldots,keyN}, separando cada chave por uma vírgula
+sem espaços e sem mudança de linha.
+
+\vspace{5mm}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\cite{10520:5.1.4-98,10520:5.1.4-99,%
+10520:5.1.4-00}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\cite{10520:5.1.4-98,10520:5.1.4-99,10520:5.1.4-00}
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline{10520:5.1.4-98,%
+10520:5.1.4-99,10520:5.1.4-00}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline{10520:5.1.4-98,10520:5.1.4-99,10520:5.1.4-00}
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\cite{NBR10520:1988,NBR6023:2000,%
+NBR10520:2001}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\cite{NBR10520:1988,NBR6023:2000,%
+NBR10520:2001}
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline{NBR10520:1988,NBR6023:2000,%
+NBR10520:2001}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline{NBR10520:1988,NBR6023:2000,NBR10520:2001}
+\end{minipage}\\
+
+\subsubsection{Múltiplas referências com mesmo autor-data}
+\label{mult-abc}
+Quando há várias referências com o mesmo autor-data, {\tt abnt-alf.sty}
+gera automaticamente um `a', `b', etc., adicional. Isto atende ao ítem
+5.1.3 da `norma' \cite{NBR10520:2001}.
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\cite{10520:5.1.3a,10520:5.1.3b}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\cite{10520:5.1.3a,10520:5.1.3b}
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline{10520:5.1.3a,10520:5.1.3b}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline{10520:5.1.3a,10520:5.1.3b}
+\end{minipage}\\
+
+\subsubsection{Mais de três autores e o uso de et al.}
+
+A `norma' \cite{NBR10520:2001} é omissa sobre o caso de chamadas a obras com
+mais de três autores. Mesmo entre os 204 exemplos da `norma'
+\cite{NBR6023:2000}, ocorre apenas um único caso, usado nos exemplos a seguir.
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Segundo \citeonline{8.1.1.2}
+entende-se que \ldots\ 
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Segundo \citeonline{8.1.1.2}
+entende-se que \latexhtml{\ldots\ }{...}
+\end{minipage}\\
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Em recente estudo \cite{Deng00}
+foram investigados estados em 
+fios quânticos.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Em recente estudo \cite{Deng00}
+foram investigados estados em 
+fios quânticos.
+\end{minipage}\\
+
+Você pode altera esse comportamento usando as opções {\tt abnt-etal-cite},
+{\tt abnt-etal-list} e {\tt abnt-etal-text}.
+Veja mais informacões na \autoref{tabela-opcoes} e em \cite{abntex2cite}.
+
+\subsubsection{Citações de partes da referência}
+
+Às vezes pode ser necessário citar apenas uma parte da referência, como apenas o
+autor ou apenas o ano. Para isso, foram implementados os comandos
+|\citeauthoronline|, |\citeauthor| e |\citeyear|, exemplificados do seguinte
+modo:
+
+% subsubsubsection
+%\subsubsection{Apenas o autor ({\tt citeauthoronline}), forma explícita}
+\DescribeMacro{\citeauthoronline}
+A macro |\citeauthoronline| deve ser utilizada para citar
+apenas o autor de forma explícita:
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+A produção de \ldots\ em 1928
+mencionada por
+\citeauthoronline{10520:4.2-1}.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+A produção de \ldots\ em 1928  
+mencionada por
+\citeauthoronline{10520:4.2-1}.
+\end{minipage}\\
+
+% subsubsubsection
+%\subsubsection{Apenas o autor ({\tt citeauthor}), forma implícita}
+\DescribeMacro{\citeauthor}
+A macro |\citeauthor| deve ser utilizada para citar
+apenas o autor de forma implícita:
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+A produção de \ldots\  em 1928
+(\citeauthor{10520:4.2-1} 1928).
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+A produção de \latexhtml{\ldots\ }{...} em 1928
+(\citeauthor{10520:4.2-1} 1928).
+\end{minipage}\\
+
+% subsubsubsection
+%\subsubsection{Apenas o ano ({\tt citeyear})}
+
+\DescribeMacro{\citeyear}
+A macro |\citeyear| deve ser utilizada para citar
+apenas o ano da publicação:
+
+%\vspace{3mm}
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+Em \citeyear{10520:4.1-1} a ironia
+será assim uma \ldots\  proposta por.
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+Em \citeyear{10520:4.1-1} a ironia será assim uma \latexhtml{\ldots\ }{...} proposta por.
+\end{minipage}\\
+
+\section{Formações do estilo alfabético}
+
+\DescribeEnv{versalete}
+A opção \texttt{versalete} imprime os nomes dos autores das citações em
+versalete (\textit{small caps}, ou seja, letras maiúsculas com corpo do tamanho
+das minúsculas), ao invés de maiúscula. Usar versalete era o comportamento
+padrão do abnTeX e do abnTeX2 até a versão 1.4. Porém, os exemplos da norma ABNT
+NBR 10520 são em letras maiúsculas. Por isso, à partir da versão 1.5, o abnTeX2
+traz como padrão as citações em letras maiúsculas e a opção versalete como
+compatibilidade com as versões anteriores. Para usar o modelo antigo, ou
+seja, em versalete, use:
+
+\begin{verbatim}
+\usepackage[alf,versalete]{abntex2cite}
+\end{verbatim}
+
+\DescribeMacro{\authorcapstyle}\DescribeMacro{\authorstyle}
+O estilo usado na impressão dos nomes dos autores nas citações pode ser alterado
+com:
+
+\begin{verbatim}
+\renewcommand{\authorcapstyle}{\small}
+\newcommand{\authorstyle}{\relax}
+\end{verbatim}
+
+\DescribeMacro{\yearstyle}
+O estilo usado na impressão do ano nas citações pode ser
+alterado com:
+
+\begin{verbatim}
+\renewcommand{\yearstyle}{\bf}
+\end{verbatim}
+
+\section{Alteração do estilo alfabético {\tt citeoption}}
+
+\DescribeMacro{\citeoption}
+Com o comando \verb+\citeoption+ ou \verb+\usepackage+ você pode alterar alguns comportamentos
+do estilo bibliográfico. Na \autoref{tabela-opcoes}, listamos as opções que são
+específicas do estilo {\tt abnt-alf}.
+
+Por exemplo, para desativar a substituição dos autores por `et al.', você
+incluir o pacote com a seguinte opção:
+
+\begin{verbatim}
+\usepackage[alf,abnt-etal-cite=0]{abntex2cite}
+\end{verbatim}
+
+ou, em qualquer ponto do texto,
+
+\begin{verbatim}
+\citeoption{abnt-etal-cite=0}
+\end{verbatim}
+
+Para ver as demais opções e o modo de uso veja o
+documento \cite{abntex2cite}.
+
+\begin{table}[htbp]
+\caption[Opções de alteração dos estilos bibliográficos: composição]{
+Opções de alteração da composição dos estilos bibliográficos.}
+\label{tabela-opcoes}
+
+\begin{center}
+\begin{tabular}{lrp{7cm}}\hline\hline
+campo & opções & descrição \\ \hline
+\emph{abnt-and-type} & & determina de que maneira é formatado o \emph{and}.\\
+{\tt abnt-and-type=e} & \underline{\tt e}& Usa `e' como em `Fonseca e Paiva'.\\
+{\tt abnt-and-type=\&} & {\tt \&} & Usa `\&' como em `Fonseca \& Paiva'.
+\\ \hline
+\emph{abnt-etal-cite} &  & controla como e quando os co-autores são
+substituídos por \emph{et al.}.  Note que a substituição
+por \emph{et al.} continua ocorrendo \emph{sempre} se os co-autores tiverem sido indicados
+como {\tt others}.\\
+{\tt abnt-etal-cite=0}&{\tt 0}& não abrevia a lista de autores.\\
+{\tt abnt-etal-cite=2}& {\tt 2} & abrevia com mais de 2 autores.\\
+{\tt abnt-etal-cite=3}& \underline{\tt 3} & abrevia com mais de 2 autores.\\
+$\vdots$ & $\vdots$ & \\
+{\tt abnt-etal-cite=5}& {\tt 5} & abrevia com mais de 5 autores.
+\\ \hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Requisitos ainda não implementados}
+
+\subsection{Autores com mesmo sobrenome e nome diferente}
+
+A `norma' \cite{NBR10520:2001}, no seu ítem 5.1.2, sugere que se coloque o nome
+por extenso quando o sobrenome+data forem iguais. Isso em geral não é possível
+pois raramente se conhece o primeiro nome de um autor. Em todo caso, veja a
+\autoref{mult-abc} para ver como é resolvido o caso de autor-data igual.
+
+\subsection{Referências em notas de rodapé}
+
+Não há intenção, a curto prazo, em implementar referências em notas de rodapé
+conforme sugerido no ítem 6 da `norma' 10520.
+
+\section{Problemas com a `norma' 10520}
+
+Como já foi dito, a `norma' 10520 \cite{NBR10520:2001} é incompleta e
+inconsistente. Aqui apresentamos uma descrição dos principais problemas
+encontrados e como foram resolvidos, quando foi possível.
+
+\subsection{Referências múltiplas}
+
+As referências a vários autores simultaneamente, ou várias obras de um mesmo
+autor, são um verdadeiro mistério na ``norma'' \cite{NBR10520:2001}. No exemplo
+da seção 5.1.4, diz a ``norma'''
+
+\begin{quote}
+As citações de diversos documentos de um mesmo autor, publicados em anos diferentes
+e mencionados simultaneamente, têm as suas datas separadas por vírgula.\\
+Exemplo: (CRUZ; CORREA; COSTA; 1998, 1999, 2000)\footnote{Transcrição exata. Esta
+chamada não foi gerada automaticamente.}
+\end{quote}
+
+Podemos então entender que Cruz, Correa e Costa são os três autores e 1998, 1999
+e 2000 são os três anos de publicação referindo-se a três documentos separados?
+
+Antes de responder sim, veja o que diz a seção seguinte, 5.1.5:
+
+\begin{quote}
+As citações de diversos documentos de vários autores, mencionados simultaneamente,
+devem ser separadas por ponto e vírgula.\\
+Exemplo: (FONSECA; PAIVA; SILVA, 1997)\footnote{Transcrição exata. Esta
+chamada não foi gerada automaticamente.}
+\end{quote}
+
+E agora? Trata-se de três autores separados, Fonseca, Paiva, Silva? Ou um
+autor Fonseca e outro documento com dois autores, Paiva e Silva? Ou um
+documento com dois autores Fonseca e Paiva seguido de um autor Silva?
+Quem não lê a descrição da seção 5.1.5, pode-se inclusive achar que trata-se
+de um único documento. Ou o exemplo da seção 5.1.5 está errado: faltam datas aos
+outros autores, ou foi uma tentativa desastrada de agrupar três documentos com
+o mesmo ano de publicação. Já exemplo anterior, da seção 5.1.4, há problemas
+também com um ponto-e-vírgula após o COSTA, quando deveria haver apenas uma
+vírgula. 
+
+Veja na \autoref{mult-ref} como fica a nossa solução.
+
+Exemplo da seção 5.1.5:\\
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\cite{10520:5.1.5a,10520:5.1.5b,%
+10520:5.1.5c}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\cite{10520:5.1.5a,10520:5.1.5b,10520:5.1.5c}
+\end{minipage}\\
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline{10520:5.1.5a,10520:5.1.5b,%
+10520:5.1.5c}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline{10520:5.1.5a,10520:5.1.5b,10520:5.1.5c}
+\end{minipage}\\
+
+ou, supondo que Fonseca e Paiva sejam co-autores,\\
+\noindent\vspace{12pt}\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\cite{10520:5.1.5ab,10520:5.1.5c}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\cite{10520:5.1.5ab,10520:5.1.5c}
+\end{minipage}\\
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+\citeonline{10520:5.1.5ab,10520:5.1.5c}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
+\citeonline{10520:5.1.5ab,10520:5.1.5c}
+\end{minipage}\\
+
+\subsection{et al.}
+
+A `norma' 10520 \cite{NBR10520:2001} nada diz sobre como devem ser tratadas as
+chamadas a referências com mais de três autores. Supondo que exista uma relação
+lógica entre as `normas' 10520 \cite{NBR10520:2001} e 6023 \cite{NBR6023:2000},
+então faz sentido pensar que deve-se usar `et al.' na chamada exatamente nos
+mesmos casos em que `et al.' é usado na lista bibliográfica. No caso, a 6023 diz
+que se deve usar `et al.' para \emph{mais de} três autores, ou seja, a partir
+de quatro autores.\footnote{Muitas pessoas entendem isso errado e pensam
+que se usa `et al.' já com três autores}
+
+Parece lógico, não é mesmo? Então veja o seguinte caso. Fomos informados que
+nas `normas' da UFLA (que \emph{supostamente} seguem as `normas' da ABNT)
+exige-se o uso de `et al.' na chamada já com três autores e não se use `et al.'
+na lista bibliográfica. E agora? Cadê a lógica?
+
+Por isso insistimos que você sempre verifique a `lógica' da sua instituição
+\emph{bem antes} de entregar a sua tese.
+
+\addcontentsline{toc}{section}{Referências}
+\bibliography{abntex2-doc-abnt-10520-2001,abntex2-doc-abnt-10520-2002,abntex2-doc-abnt-6023-2000,abntex2-doc-test,abntex2-doc}
+%\bibliography{references/abnt-10520-2001,references/abnt-10520-2002,references/abnt-6023-2000,references/normas,references/abnt-test,references/abntex-doc}
+
+\end{document}
