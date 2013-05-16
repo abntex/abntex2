@@ -17,6 +17,14 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.5.16 09h15	sggranja / laurocesar
+%%  Adiciona as opções chapter=Title, chapter=TITLE, section=Title,
+%%  section=TITLE, subsection=TITLE, subsection=Title,
+%%  subsubsection=TITLE, subsubsection=Title
+%%  que alterna os títulos de divisoes do tipo capitulo entre
+%%  caixa baixa e caixa alta. Porem, apenas a implementacao de chapter esta
+%%  completa.
+%%
 %% 2013.3.19 09h32	laurocesar
 %%  Incorpora as macros de nomes a configuracao do babel e prove traducoes
 %%   dessas macros para ingles, de modo que a classe abntex2 ja fique
@@ -102,10 +110,9 @@
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{abntex2}[2013/04/01 v1.6 abnTeX2]
-
+\RequirePackage{ifthen}
 %
-% Repassa todos os parametros a classe memoir, 
-% mas captura as options article e twocolumn
+% Captura as options article e twocolumn
 %
 \providecommand{\ABNTEXisarticle}{false}
 \DeclareOption{article}{
@@ -117,7 +124,26 @@
 	\renewcommand{\ABNTEXistwocolumn}{true}
 	\PassOptionsToClass{twocolumn}{memoir}%}
 }
-	
+%	
+% Opcoes chapter=TITLE, section=TITLE, subsection=TITLE e
+% subsubsection=TITLE: titulos em letras maiusculas
+% 
+\newboolean{ABNTEXupperchapter}     %true=titles of chapter/appendix in uppercase
+\newboolean{ABNTEXuppersection}     %true=titles of sections in uppercase
+\newboolean{ABNTEXuppersubsection}  %true=titles of subsections in uppercase
+\newboolean{ABNTEXuppersubsubsection}  %true=titles of subsubsections in uppercase
+\DeclareOption{chapter=TITLE}{\setboolean{ABNTEXupperchapter}{true}}
+\DeclareOption{chapter=Title}{\setboolean{ABNTEXupperchapter}{false}}
+\DeclareOption{section=TITLE}{\setboolean{ABNTEXuppersection}{true}}
+\DeclareOption{section=Title}{\setboolean{ABNTEXuppersection}{false}}	
+\DeclareOption{subsection=TITLE}{\setboolean{ABNTEXuppersubsection}{true}}
+\DeclareOption{subsection=Title}{\setboolean{ABNTEXuppersubsection}{false}}	
+\DeclareOption{subsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsection}{true}}
+\DeclareOption{subsubsection=Title}{\setboolean{ABNTEXuppersubsubsection}{false}}
+
+%
+% Repassa demais opcoes a memoir	
+%
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{memoir}%
 }
@@ -126,9 +152,39 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
+% Comandos para tratamento de opcoes proprias
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+% Crias as opcoes e 'capchap' e 'capsec': 
+%   titles of chapters or sections in capital letters
+% 
+
+
+\newcommand{\ABNTEXchapterupperifneeded}[1]{\ifthenelse{\boolean{ABNTEXupperchapter}}{\MakeUppercase{#1}}{#1}}
+\newcommand{\ABNTEXsectionupperifneeded}{%%
+%% O comando abaixo nao funciona:
+%%\ifthenelse{\boolean{ABNTEXuppersection}}{\MakeUppercase}%%
+}
+\newcommand{\ABNTEXsubsectionupperifneeded}{%%
+%% O comando abaixo nao funciona:
+%%\ifthenelse{\boolean{ABNTEXuppersubsection}}{\MakeUppercase}%%
+}
+\newcommand{\ABNTEXsubsubsectionupperifneeded}{%%
+%% O comando abaixo nao funciona:
+%%\ifthenelse{\boolean{ABNTEXuppersubsubsection}}{\MakeUppercase}%%
+}
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
 % Pacotes e customizacoes gerais do memoir
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
+
+% ---
+% Pacote de if/them/else
+\newcommand{\abntex@ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
+% ---
 
 % ---
 % Controla as referencias internas do PDF
@@ -142,6 +198,10 @@
 % ---
 
 % ---
+% Hifenizacao e caracteres especiais portugues-brasil por padrao
+% ---
+\RequirePackage[brazil]{babel}
+%
 % Nomes constantes do abnTeX2 em portugues (definicoes padroes)
 \newcommand{\folhaderostoname}{Folha de rosto}
 \newcommand{\epigraphname}{Ep\'igrafe}
@@ -158,12 +218,7 @@
 \newcommand{\resumoname}{Resumo} 
 \newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
 \newcommand{\listadesimbolosname}{Lista de s\'imbolos}
-% ---
-
-% ---
-% Hifenizacao e caracteres especiais portugues-brasil por padrao
-% ---
-\RequirePackage[brazil]{babel}
+%
 \addto\captionsbrazil{% portugues-brasil
   %% ajusta nomes padroes do babel
   \renewcommand{\bibname}{Refer\^encias}
@@ -206,12 +261,6 @@
 % ---
 % Customiza listas
 \RequirePackage{enumitem}
-% ---
-
-% ---
-% Pacote de if/them/else
-\RequirePackage{ifthen}
-\newcommand{\abntex@ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 % ---
 
 % ---
@@ -258,14 +307,14 @@
 \newcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
 \newcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
 
-\newcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
-\newcommand{\ABNTEXsectionfontsize}{\Large}
+\newcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont\ABNTEXsectionupperifneeded}
+\newcommand{\ABNTEXsectionfontsize}{\Large\ABNTEXsectionupperifneeded}
 
-\newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
-\newcommand{\ABNTEXsubsectionfontsize}{\large}
+\newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont\ABNTEXsubsectionupperifneeded}
+\newcommand{\ABNTEXsubsectionfontsize}{\large\ABNTEXsubsectionupperifneeded}
 
-\newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
-\newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+\newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont\ABNTEXsubsubsectionupperifneeded}
+\newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize\ABNTEXsubsubsectionupperifneeded}
 % ---
 
 % ------------------------------------------------------------------------
@@ -359,7 +408,7 @@
 
 % lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
- \renewcommand*{\cftfigureaftersnum}{~~--}	
+\renewcommand*{\cftfigureaftersnum}{~~--}
  
 % lista de tabelas  
 \renewcommand{\cfttablename}{\tablename\space}
@@ -412,9 +461,10 @@
   % impressao do titulo do capitulo
   \def\printchaptertitle##1{%
     \chaptitlefont%
-    \ifthenelse{\boolean{abntex@innonumchapter}}{\centering##1}{% else
+    \ifthenelse{\boolean{abntex@innonumchapter}}{\centering\ABNTEXchapterupperifneeded{##1}}{%
+    % else
 	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-	    \parbox[t]{\columnwidth-\chapternamenumlength}{##1}%
+	    \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}%
 	}    
   }
        
@@ -605,7 +655,7 @@
 \newenvironment{resumo}[1][\resumoname]{%
    \PRIVATEbookmarkthis{#1}
    \renewcommand{\abstractnamefont}{\chaptitlefont}
-   \renewcommand{\abstractname}{#1}
+   \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
    \begin{abstract}
    \SingleSpacing
   }{\end{abstract}\PRIVATEclearpageifneeded}
@@ -613,7 +663,7 @@
 \newenvironment{resumoumacoluna}[1][\resumoname]{%
    \PRIVATEbookmarkthis{#1}
    \renewcommand{\abstractnamefont}{\chaptitlefont}
-   \renewcommand{\abstractname}{#1}
+   \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
    \begin{onecolabstract}
    \SingleSpacing
 }{\end{onecolabstract}\PRIVATEclearpageifneeded}
