@@ -156,9 +156,9 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
-% Crias as opcoes e 'capchap' e 'capsec': 
-%   titles of chapters or sections in capital letters
-% 
+% ---
+% Comandos para controlar as opcoes de titulos com letras maiusculas 
+% ---
 \newcommand{\ABNTEXchapterupperifneeded}[1]{\ifthenelse{\boolean{ABNTEXupperchapter}}{\MakeUppercase{#1}}{#1}}
 \newcommand{\ABNTEXsectionupperifneeded}{%%
 %% O comando abaixo nao funciona:
@@ -172,6 +172,7 @@
 %% O comando abaixo nao funciona:
 %%\ifthenelse{\boolean{ABNTEXuppersubsubsection}}{\MakeUppercase}%%
 }
+% ---
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
