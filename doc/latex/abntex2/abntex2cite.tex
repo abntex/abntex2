@@ -905,12 +905,12 @@ Para uma discussão sobre esse aspecto veja \autoref{nome-pessoais}.\\
 {\tt abnt-last-names=bibtex}& {\tt bibtex} & Segue o modo usual do
 \textsf{bibtex}.
 \\ \hline
-\emph{abnt-last-names} && Determina de que maneira devem ser tratados os
-sobrenomes.\\
-{\tt abnt-missing-year=void} & \underline{\tt void} & deixa em branco, é o padrão.\\
-{\tt abnt-missing-year=sd} & {\tt sd} & coloca a expressão ``[s.d.]'' (sem data).
-Note que a `norma'\cite{NBR6023:2000} não usa isso.
-\\ \hline
+% \emph{abnt-last-names} && Determina de que maneira devem ser tratados os
+% sobrenomes.\\
+% {\tt abnt-missing-year=void} & \underline{\tt void} & deixa em branco, é o padrão.\\
+% {\tt abnt-missing-year=sd} & {\tt sd} & coloca a expressão ``[s.d.]'' (sem data).
+% Note que a `norma'\cite{NBR6023:2000} não usa isso.
+% \\ \hline
 \emph{abnt-missing-year} && Determina de que maneira deve ser tratado
 um ano (campo {\tt year}) ausente.\\
 {\tt abnt-missing-year=void} & \underline{\tt void} & deixa em branco, é o padrão.\\
@@ -1177,7 +1177,7 @@ campo & entradas & descrição \\ \hline
 {\tt subtitle} & todas & subtítulo relativo ao {\tt title}, não coloque os dois pontos que são gerados
                    automáticamente.
 Ex.~\citeonline{NBR6023:2000,houaiss1996,secretaria1989,museu1997,moreira1997,torelly1991,ribeiro1998,quimica1997,michalany1981,%
-geografico1986birds1998,passos1995,albergaria1994,brasileira1988,pastro1993,golsalves1971,franco1993,araujo1986}
+geografico1986,birds1998,passos1995,albergaria1994,brasileira1988,pastro1993,golsalves1971,franco1993,araujo1986}
 \\ \hline
 {\tt booksubtitle} & todas que tem o campo {\tt booktitle}& subtítulo relatívo ao {\tt booktitle}.
 Ex.~\citeonline{romano1996,krzyzanowski1996}
@@ -1237,7 +1237,7 @@ Senão será colocado o que estiver neste campo.
 \emph{É responsabilidade
 do usuário usar os formatos corretos: ``il. color.'', ``principalmente il. color.'',
 ``somente il.'' etc.}
-Ex.~\citeonline{7.1.3-6,8.5.1-1,8.8-1,8.8-2,8.8-3,8.8-4,8.10-1,8.11.2-1,8.11.5-6}
+Ex.~\citeonline{folha1995,daghalian1995,cesar1994,azevedo1994,batista1992,chueire1994,arbex1993,saadi1994,holanda1994}
 \\ \hline
 {\tt pagename} & todas  & define novo nome para página, alterando o
 padrão ``p.''. Note que a única variação é usar ``f.'', para designar folhas
@@ -1358,7 +1358,7 @@ teremos como saída `Doutorado em física' e não `Tese (Doutorado em física)' 
 em {\tt @phdthesis}.
 
 \addcontentsline{toc}{section}{Referências}
-\bibliography{abntex2-doc-options,abntex2-doc,abntex2-doc-abnt-6023-2000,abntex2-doc-test}
+\bibliography{abntex2-doc-options,abntex2-doc,abntex2-doc-abnt-6023,abntex2-doc-test}
 
 % references/abnt-bibtex-doc,
 % references/abntex-doc,
@@ -1614,7 +1614,7 @@ alighieri1983,gomes1995,albergaria1994,pastro1993,golsalves1971,pedrosa1995,fran
 zani1995,swokowski1994,lazzarini1994,libris1981,krieger1992,daghalian1995,maia1995,lima1985,figueiredo1990,franco1993,alves1993,%
 leite1994,cipolla1993,florenzano1993,biblica1970,ruch1926,lucci1994,felipe1994,lellis1994,piaget1980,tabak1993,tourinho1994,silva1996,marques1993,tamandare1993,%
 cesar1994,azevedo1994,batista1992,chueire1994,arbex1993,carvalho1994,miglori1993,amaral1994,rodrigues1994,carruth1993,saadi1994,mandino1994,%
-laurenti1978,holanda1994,pelosi1993,tringali1994,8.11.5-11,cretella1992,freyre1943,freyre1936,freyreg1936,freyre1938}
+laurenti1978,holanda1994,pelosi1993,tringali1994,cardim1984,cretella1992,freyre1943,freyre1936,freyreg1936,freyre1938}
 \\ \hline
 {\tt booklet} && \citeonline{IBICT1993,boletime1965} \\ \hline
 {\tt inbook} && \citeonline{santos1994,priberam1998,brasil1994,alcionet1988,simonej1977} \\ \hline
