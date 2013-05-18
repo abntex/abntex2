@@ -50,9 +50,11 @@
 % ---
 % Pacotes glossaries
 % ---
-\usepackage[subentrycounter,seeautonumberlist]{glossaries}
+\usepackage[subentrycounter,seeautonumberlist,nonumberlist=true]{glossaries}
+% para usar o xindy ao invés do makeindex:
+%\usepackage[xindy={language=portuguese},subentrycounter,seeautonumberlist,nonumberlist=true]{glossaries}
 % ---
-               
+
 % ---
 % Pacotes de citações
 % ---
@@ -308,6 +310,7 @@ citadas. Isso pode ser removido adicionando-se a opção \texttt{nonumberlist} e
 
 % ---
 \section{Compilar um documento com glossário}
+\label{sec-compilar-glossario}
 % ---
  
 Para compilar um documento \LaTeX\ com glossário use:
@@ -380,6 +383,42 @@ seguinte modo:
    \usepackage[style=index]{glossaries}
 \end{verbatim}
 
+% ---
+\section{Problemas com a ordem das palavras?}
+% ---
+
+Este exemplo do \abnTeX\ utiliza a ferramenta \texttt{makeindex} -- padrão das
+distribuições \LaTeX\ mais comuns -- para ordenar as entradas do glossário.
+Porém, essa ferramenta não possui opções de \textit{collation} e não funciona
+bem para palavras escritas em idiomas que não sejam inglês.
+Por isso, pode acontecer que letras acentuadas e outros caracteres
+internacionais sejam ordenados de forma incorreta, como no exemplo (palavras não
+necessariamente presentes na língua portuguesa):
+
+\begin{alineas}
+ \item Amor: ...
+ \item Aviar: ...
+ \item Avião: ...
+ \item Aço: ...
+\end{alineas}
+
+Por sorte, é possível substituir o uso do \texttt{makeindex}
+pelo \texttt{xindy}\footnote{\url{http://www.xindy.org/}}. Para isso, faça o
+seguinte:
+
+\begin{alineas}
+  \item Certifique-se de que o Xindy esteja instalado. Em um terminal, digite:
+  \texttt{xindy --version}\footnote{Caso o Xindy não esteja presente no sistema, é necessário
+    instalá-lo. Usuários Linux Debian/Ubuntu podem usar: \texttt{sudo
+    apt-get install xindy}. Usuários Windows e Mac podem acessar a página do
+    Xindy, baixá-lo e instalá-lo.};
+  \item No código LaTeX, ainda no preâmbulo, inclua a seguinte opção ao pacote glossaries:
+  \begin{verbatim}
+  \usepackage[xindy={language=portuguese},nonumberlist=true]{glossaries}
+  \end{verbatim}
+  \item Compile o glossário normalmente, conforme a
+  \autoref{sec-compilar-glossario}.
+\end{alineas}
 
 % ----------------------------------------------------------
 % Capitulo com exemplos de comandos inseridos de arquivo externo 
@@ -407,7 +446,10 @@ seguinte modo:
 % Define nome e preâmbulo do glossário
 % ---
 \renewcommand{\glossaryname}{Glossário}
-\renewcommand{\glossarypreamble}{Esta é a descrição do glossário.\\ \\}
+\renewcommand{\glossarypreamble}{Esta é a descrição do glossário. Experimente
+visualizar outros estilos de glossários, como o \texttt{altlisthypergroup},
+por exemplo.\\
+\\}
 
 % ---
 % Traduções para o ambiente glossaries
@@ -423,14 +465,19 @@ seguinte modo:
 % ---
 
 % ---
+% Estilo de glossário
+% ---
+% \glossarystyle{index}
+% \glossarystyle{altlisthypergroup}
+ \glossarystyle{tree}
+
+
+% ---
 % Imprime o glossário
 % ---
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{\glossaryname}
-% \glossarystyle{index}
-% \glossarystyle{altlisthypergroup}
- \glossarystyle{tree}
 \printglossaries
 % ---
   
