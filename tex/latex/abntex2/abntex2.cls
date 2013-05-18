@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.5.18 09h35	sggranja / laurocesar
+%%  Conclui implementação das opções chapter=TITLE, section=TITLE,
+%% subsection=TITLE, subsubsection=TITLE.
+%%
 %% 2013.5.16 09h15	sggranja / laurocesar
 %%  Adiciona as opções chapter=Title, chapter=TITLE, section=Title,
 %%  section=TITLE, subsection=TITLE, subsection=Title,
@@ -132,14 +136,14 @@
 \newboolean{ABNTEXuppersection}     %true=titles of sections in uppercase
 \newboolean{ABNTEXuppersubsection}  %true=titles of subsections in uppercase
 \newboolean{ABNTEXuppersubsubsection}  %true=titles of subsubsections in uppercase
+\setboolean{ABNTEXupperchapter}{false}
+\setboolean{ABNTEXuppersection}{false}
+\setboolean{ABNTEXuppersubsection}{false}
+\setboolean{ABNTEXuppersubsubsection}{false}
 \DeclareOption{chapter=TITLE}{\setboolean{ABNTEXupperchapter}{true}}
-\DeclareOption{chapter=Title}{\setboolean{ABNTEXupperchapter}{false}}
 \DeclareOption{section=TITLE}{\setboolean{ABNTEXuppersection}{true}}
-\DeclareOption{section=Title}{\setboolean{ABNTEXuppersection}{false}}	
 \DeclareOption{subsection=TITLE}{\setboolean{ABNTEXuppersubsection}{true}}
-\DeclareOption{subsection=Title}{\setboolean{ABNTEXuppersubsection}{false}}	
 \DeclareOption{subsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsection}{true}}
-\DeclareOption{subsubsection=Title}{\setboolean{ABNTEXuppersubsubsection}{false}}
 
 %
 % Repassa demais opcoes a memoir	
@@ -159,29 +163,24 @@
 % ---
 % Comandos para controlar as opcoes de titulos com letras maiusculas 
 % ---
-\newcommand{\ABNTEXchapterupperifneeded}[1]{\ifthenelse{\boolean{ABNTEXupperchapter}}{\MakeUppercase{#1}}{#1}}
-\newcommand{\ABNTEXsectionupperifneeded}{%%
-%% O comando abaixo nao funciona:
-%%\ifthenelse{\boolean{ABNTEXuppersection}}{\MakeUppercase}%%
-}
-\newcommand{\ABNTEXsubsectionupperifneeded}{%%
-%% O comando abaixo nao funciona:
-%%\ifthenelse{\boolean{ABNTEXuppersubsection}}{\MakeUppercase}%%
-}
-\newcommand{\ABNTEXsubsubsectionupperifneeded}{%%
-%% O comando abaixo nao funciona:
-%%\ifthenelse{\boolean{ABNTEXuppersubsubsection}}{\MakeUppercase}%%
-}
+
+% pacote que prove \MakeTextUppercase
+\RequirePackage{textcase}
+
+\newcommand{\ABNTEXchapterupperifneeded}[1]{\ifthenelse{\boolean{ABNTEXupperchapter}}{\MakeTextUppercase{#1}}{#1}}
+\newcommand{\ABNTEXsectionupperifneeded}{\ifthenelse{\boolean{ABNTEXuppersection}}{\MakeTextUppercase}{}}
+\newcommand{\ABNTEXsubsectionupperifneeded}{\ifthenelse{\boolean{ABNTEXuppersubsection}}{\MakeTextUppercase}{}}
+\newcommand{\ABNTEXsubsubsectionupperifneeded}{\ifthenelse{\boolean{ABNTEXuppersubsubsection}}{\MakeTextUppercase}{}}
 % ---
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% Pacotes e customizacoes gerais do memoir
+% Pacotes adicionais e customizacoes gerais do memoir
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 % ---
-% Pacote de if/them/else
+% Do pacote de if/them/else
 \newcommand{\abntex@ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
 % ---
 
@@ -306,14 +305,14 @@
 \newcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
 \newcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
 
-\newcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont\ABNTEXsectionupperifneeded}
-\newcommand{\ABNTEXsectionfontsize}{\Large\ABNTEXsectionupperifneeded}
+\newcommand{\ABNTEXsectionfont}{\ABNTEXchapterfont}
+\newcommand{\ABNTEXsectionfontsize}{\Large}
 
-\newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont\ABNTEXsubsectionupperifneeded}
-\newcommand{\ABNTEXsubsectionfontsize}{\large\ABNTEXsubsectionupperifneeded}
+\newcommand{\ABNTEXsubsectionfont}{\ABNTEXsectionfont}
+\newcommand{\ABNTEXsubsectionfontsize}{\large}
 
-\newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont\ABNTEXsubsubsectionupperifneeded}
-\newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize\ABNTEXsubsubsectionupperifneeded}
+\newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
+\newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
 % ---
 
 % ------------------------------------------------------------------------
@@ -444,9 +443,9 @@
   \renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
   
   % tamanhos de fontes de section, subsection e subsubsection
-  \setsecheadstyle{\ABNTEXchapterfont\ABNTEXsectionfontsize}
-  \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize}
-  \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize}
+  \setsecheadstyle{\ABNTEXchapterfont\ABNTEXsectionfontsize\ABNTEXsectionupperifneeded}
+  \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize\ABNTEXsubsectionupperifneeded}
+  \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize\ABNTEXsubsubsectionupperifneeded}
   
   % impressao do numero do capitulo
   \renewcommand{\chapternamenum}{}
