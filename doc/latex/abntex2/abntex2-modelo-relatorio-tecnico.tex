@@ -27,11 +27,24 @@
 % ------------------------------------------------------------------------ 
 % ------------------------------------------------------------------------
 
-% verso e anverso:
-\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}	
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. Experimente a5paper
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
 
-% apenas verso: 
-%\documentclass[12pt,oneside,a4paper,english,french,spanish,brazil]{abntex2}
 
 % ---
 % PACOTES
