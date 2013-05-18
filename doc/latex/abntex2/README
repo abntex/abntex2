@@ -37,6 +37,8 @@ CHANGE HISTORY
    . the file abntex2-doc-abnt-6023-2000.bib was replaced by abntex2-doc-abnt-6023.bib:
      the new file replaces numerical bibkeys by keys composed by author name and year. 
      This aims to turn the document's updates easier;
+   . the files abntex2-doc-abnt-10520-2001.bib and abntex2-doc-abnt-10520-2002.bib were
+     merged into abntex2-doc-abnt-10520.bib    
    . added xindy instructions on glossary model.
 
   2013/04/30 - v1.6.1
@@ -219,6 +221,7 @@ The abnTeX2 documentation consists of the following files:
   abntex2-modelo-relatorio-tecnico.tex	An usage example of abntex2 class and abntex2cite package producing a technical report
   abntex2-modelo-projeto-pesquisa.tex	An usage example of abntex2 class and abntex2cite package producing a research project
   abntex2-modelo-artigo.tex				An usage example of abntex2 class and abntex2cite package producing an article
+  abntex2-modelo-glossarios.tex			An usage example of abntex2 class and abntex2cite package producing an glossary
   abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files 
   abntex2-img-grafico.pdf				Image used as an example
   abntex2-modelo-references.bib			Bib references of examples above
@@ -227,9 +230,8 @@ The abnTeX2 documentation consists of the following files:
   abntex2cite.tex						The abntex2cite package documentation
   abntex2cite-alf.tex					Additional alphanumeric (author-date) citation style documentation
   abntex2-doc.bib						Bib references used by documentation
-  abntex2-doc-abnt-10520-2001.bib		Specific ABNT NBR 10520:2001 bib references entries
-  abntex2-doc-abnt-10520-2002.bib		Specific ABNT NBR 10520:2002 bib references entries
-  abntex2-doc-abnt-6023-2000.bib		Specific ABNT NBR 6023:200 bib references entries
+  abntex2-doc-abnt-10520.bib			Specific ABNT NBR 10520:2001 and ABNT NBR 10520:2002 bib references entries
+  abntex2-doc-abnt-6023.bib				Specific ABNT NBR 6023:2000 and ABNT NBR 6023:2002 bib references entries
   abntex2-doc-options.bib				Options configurations used by documentation
   abntex2-doc-test.bib					General bib references used by accordance tests
 
