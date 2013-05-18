@@ -187,10 +187,10 @@
 \begin{document}
 
 %se for usar citeoption não esqueça de comentar o \nocite{*} no final
-\nocite{7.2.2-2}
-\nocite{7.3.2-3} %para testar format.author.or.organization
-\nocite{7.5.1.2-1}
-\nocite{8.11.3-1} %para testar reprinted-from
+\nocite{santos1994}
+\nocite{secretaria1999} %para testar format.author.or.organization
+\nocite{redes1995}
+\nocite{makau1962} %para testar reprinted-from
 
 \newcommand{\titulo}{\textbf{O pacote \textsf{abntex2cite}}:\\ \Large{Tópicos
 específicos da ABNT NBR 10520:2002 e o \\ estilo bibliográfico alfabético
@@ -273,19 +273,6 @@ com outras pessoas. Portanto, \emph{esteja preparado}.
 Antes de começar a escrever recomendamos verificar quais são as regras \emph{de
 fato} da sua universidade ou instituição.
 
-\subsection{Cuidado: estilo em fase de acabamento!}
-
-O estilo \LaTeX\ {\tt abntex2cite.sty} está em fase final de desenvolvimento.
-Embora já apresente alguma maturidade sua implementação pode mudar entre uma
-versão e outra e é possível que seu texto necessite de algumas pequenas
-adaptações futuramente.
-
-Além disso, o estilo foi desenvolvido com base na ABNT NBR 6023:2000, e a versão
-corrente da norma é a ABNT NBR 6023:2002. Desse modo, considere inconsistentes
-as referências bibliográficas produzidas pelo \abnTeX2 que sofreram alterações
-entre a versão de 2000 e 2002 da norma.
-
-
 \subsection{Cuidado: normas nebulosas!}
 
 Nós elaboramos os estilos debruçados diretamente sobre os originais da ABNT
@@ -355,27 +342,27 @@ Exemplos apresentadas em \citeonline{NBR10520:2001}:
 \vspace{3mm}
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 A ironia será assim uma \ldots\ proposta
-por \citeonline{10520:4.1-1}.
+por \citeonline{10520:2000:4.1-1}.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 A ironia será assim uma \ldots\ proposta 
-por \citeonline{10520:4.1-1}.
+por \citeonline{10520:2000:4.1-1}.
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\citeonline[p.~146]{10520:4.2-2}
+\citeonline[p.~146]{10520:2000:4.2-2}
 dizem que \ldots\ 
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\citeonline[p.~146]{10520:4.2-2} dizem que \latexhtml{\ldots\ }{...}
+\citeonline[p.~146]{10520:2000:4.2-2} dizem que \latexhtml{\ldots\ }{...}
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-Segundo \citeonline[p.~27]{10520:4.2-3}
+Segundo \citeonline[p.~27]{10520:2000:4.2-3}
 \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-Segundo \citeonline[p.~27]{10520:4.2-3}  \latexhtml{\ldots\ }{...}
+Segundo \citeonline[p.~27]{10520:2000:4.2-3}  \latexhtml{\ldots\ }{...}
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
@@ -511,48 +498,48 @@ Exemplos:
 \vspace{5mm}
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 para que \ldots\  à sociedade
-\cite[p.~46, grifo nosso]{10520:4.8}  
+\cite[p.~46, grifo nosso]{10520:2000:4.8}  
 \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 para que \ldots\ à sociedade 
-\cite[p.~46, grifo nosso]{10520:4.8}
+\cite[p.~46, grifo nosso]{10520:2000:4.8}
 \ldots\
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 b) desejo de \ldots\  passado colonial
 \cite[v.~2, p.~12, grifo do autor]%
-{10520:4.8.1} \ldots\
+{10520:2000:4.8.1} \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 b) desejo de \ldots\  passado colonial
 \cite[v.~2, p.~12, grifo do autor]%
-{10520:4.8.1} \ldots\
+{10520:2000:4.8.1} \ldots\
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 ``Apesar das \ldots\  da filosofia''
-\cite[p.~293]{10520:4.1-2}.
+\cite[p.~293]{10520:2000:4.1-2}.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-``Apesar das \latexhtml{\ldots\ }{...} da filosofia'' \cite[p.~293]{10520:4.1-2}.
+``Apesar das \latexhtml{\ldots\ }{...} da filosofia'' \cite[p.~293]{10520:2000:4.1-2}.
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 Depois, \ldots\  que prefiro
-\cite[p.~101--114]{10520:4.1-3}.
+\cite[p.~101--114]{10520:2000:4.1-3}.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-Depois, \latexhtml{\ldots\ }{...} que prefiro \cite[p.~101--114]{10520:4.1-3}.
+Depois, \latexhtml{\ldots\ }{...} que prefiro \cite[p.~101--114]{10520:2000:4.1-3}.
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 A produção de \ldots\  em 1928
-\cite[p.~513]{10520:4.2-1} .
+\cite[p.~513]{10520:2000:4.2-1} .
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-A produção de \latexhtml{\ldots\ }{...} em 1928 \cite[p.~513]{10520:4.2-1} .
+A produção de \latexhtml{\ldots\ }{...} em 1928 \cite[p.~513]{10520:2000:4.2-1} .
 \end{minipage}\\
 
 
@@ -563,17 +550,17 @@ Para citar uma referência que é citada dentro de outra referência, pode-se
 usar as macros \verb+\apud+ e \verb+\apudonline+, como nos exemplos abaixo.
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\apud[p.~2--3]{Sage}{Evans}
+\apud[p.~2--3]{Sage1992}{Evans1987}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\apud[p.~2--3]{Sage}{Evans}
+\apud[p.~2--3]{Sage1992}{Evans1987}
 \end{minipage}
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-Segundo \apudonline[p.~2]{Silva}{Abreu}
+Segundo \apudonline[p.~2]{Silva1992}{Abreu1999}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-Segundo \apudonline[p.~2]{Silva}{Abreu}
+Segundo \apudonline[p.~2]{Silva1992}{Abreu1999}
 \end{minipage}
 
 Nesses casos, todas as referências aparecerão na lista de referências, exceto
@@ -660,19 +647,19 @@ sem espaços e sem mudança de linha.
 
 \vspace{5mm}
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\cite{10520:5.1.4-98,10520:5.1.4-99,%
-10520:5.1.4-00}
+\cite{10520:2000:5.1.4-98,10520:2000:5.1.4-99,%
+10520:2000:5.1.4-00}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\cite{10520:5.1.4-98,10520:5.1.4-99,10520:5.1.4-00}
+\cite{10520:2000:5.1.4-98,10520:2000:5.1.4-99,10520:2000:5.1.4-00}
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\citeonline{10520:5.1.4-98,%
-10520:5.1.4-99,10520:5.1.4-00}
+\citeonline{10520:2000:5.1.4-98,%
+10520:2000:5.1.4-99,10520:2000:5.1.4-00}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\citeonline{10520:5.1.4-98,10520:5.1.4-99,10520:5.1.4-00}
+\citeonline{10520:2000:5.1.4-98,10520:2000:5.1.4-99,10520:2000:5.1.4-00}
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
@@ -699,17 +686,17 @@ gera automaticamente um `a', `b', etc., adicional. Isto atende ao ítem
 5.1.3 da `norma' \cite{NBR10520:2001}.
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\cite{10520:5.1.3a,10520:5.1.3b}
+\cite{10520:2000:5.1.3a,10520:2000:5.1.3b}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\cite{10520:5.1.3a,10520:5.1.3b}
+\cite{10520:2000:5.1.3a,10520:2000:5.1.3b}
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\citeonline{10520:5.1.3a,10520:5.1.3b}
+\citeonline{10520:2000:5.1.3a,10520:2000:5.1.3b}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\citeonline{10520:5.1.3a,10520:5.1.3b}
+\citeonline{10520:2000:5.1.3a,10520:2000:5.1.3b}
 \end{minipage}\\
 
 \subsubsection{Mais de três autores e o uso de et al.}
@@ -719,11 +706,11 @@ mais de três autores. Mesmo entre os 204 exemplos da `norma'
 \cite{NBR6023:2000}, ocorre apenas um único caso, usado nos exemplos a seguir.
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-Segundo \citeonline{8.1.1.2}
+Segundo \citeonline{urani1994}
 entende-se que \ldots\ 
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-Segundo \citeonline{8.1.1.2}
+Segundo \citeonline{urani1994}
 entende-se que \latexhtml{\ldots\ }{...}
 \end{minipage}\\
 
@@ -758,12 +745,12 @@ apenas o autor de forma explícita:
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 A produção de \ldots\ em 1928
 mencionada por
-\citeauthoronline{10520:4.2-1}.
+\citeauthoronline{10520:2000:4.2-1}.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 A produção de \ldots\ em 1928  
 mencionada por
-\citeauthoronline{10520:4.2-1}.
+\citeauthoronline{10520:2000:4.2-1}.
 \end{minipage}\\
 
 % subsubsubsection
@@ -774,11 +761,11 @@ apenas o autor de forma implícita:
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 A produção de \ldots\  em 1928
-(\citeauthor{10520:4.2-1} 1928).
+(\citeauthor{10520:2000:4.2-1} 1928).
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 A produção de \latexhtml{\ldots\ }{...} em 1928
-(\citeauthor{10520:4.2-1} 1928).
+(\citeauthor{10520:2000:4.2-1} 1928).
 \end{minipage}\\
 
 % subsubsubsection
@@ -790,11 +777,11 @@ apenas o ano da publicação:
 
 %\vspace{3mm}
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-Em \citeyear{10520:4.1-1} a ironia
+Em \citeyear{10520:2000:4.1-1} a ironia
 será assim uma \ldots\  proposta por.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-Em \citeyear{10520:4.1-1} a ironia será assim uma \latexhtml{\ldots\ }{...} proposta por.
+Em \citeyear{10520:2000:4.1-1} a ironia será assim uma \latexhtml{\ldots\ }{...} proposta por.
 \end{minipage}\\
 
 \section{Formações do estilo alfabético}
@@ -939,32 +926,32 @@ Veja na \autoref{mult-ref} como fica a nossa solução.
 
 Exemplo da seção 5.1.5:\\
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\cite{10520:5.1.5a,10520:5.1.5b,%
-10520:5.1.5c}
+\cite{10520:2000:5.1.5a,10520:2000:5.1.5b,%
+10520:2000:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\cite{10520:5.1.5a,10520:5.1.5b,10520:5.1.5c}
+\cite{10520:2000:5.1.5a,10520:2000:5.1.5b,10520:2000:5.1.5c}
 \end{minipage}\\
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\citeonline{10520:5.1.5a,10520:5.1.5b,%
-10520:5.1.5c}
+\citeonline{10520:2000:5.1.5a,10520:2000:5.1.5b,%
+10520:2000:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\citeonline{10520:5.1.5a,10520:5.1.5b,10520:5.1.5c}
+\citeonline{10520:2000:5.1.5a,10520:2000:5.1.5b,10520:2000:5.1.5c}
 \end{minipage}\\
 
 ou, supondo que Fonseca e Paiva sejam co-autores,\\
 \noindent\vspace{12pt}\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\cite{10520:5.1.5ab,10520:5.1.5c}
+\cite{10520:2000:5.1.5ab,10520:2000:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\cite{10520:5.1.5ab,10520:5.1.5c}
+\cite{10520:2000:5.1.5ab,10520:2000:5.1.5c}
 \end{minipage}\\
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
-\citeonline{10520:5.1.5ab,10520:5.1.5c}
+\citeonline{10520:2000:5.1.5ab,10520:2000:5.1.5c}
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-\citeonline{10520:5.1.5ab,10520:5.1.5c}
+\citeonline{10520:2000:5.1.5ab,10520:2000:5.1.5c}
 \end{minipage}\\
 
 \subsection{et al.}
@@ -987,7 +974,6 @@ Por isso insistimos que você sempre verifique a `lógica' da sua instituição
 \emph{bem antes} de entregar a sua tese.
 
 \addcontentsline{toc}{section}{Referências}
-\bibliography{abntex2-doc-abnt-10520-2001,abntex2-doc-abnt-10520-2002,abntex2-doc-abnt-6023-2000,abntex2-doc-test,abntex2-doc}
-%\bibliography{references/abnt-10520-2001,references/abnt-10520-2002,references/abnt-6023-2000,references/normas,references/abnt-test,references/abntex-doc}
+\bibliography{abntex2-doc-abnt-10520,abntex2-doc-abnt-6023,abntex2-doc-test,abntex2-doc}
 
 \end{document}
