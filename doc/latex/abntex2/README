@@ -29,6 +29,9 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.7
+   . added new options chapter=TITLE, section=TITLE, subsection=TITLE and
+     subsubsection=TITLE to the abntex2.cls class. These options change
+     the sections and chapter titles to upper case.
    . fixed abntex2cite's table 4: there was a line written twice;
    . the file abntex2-doc-abnt-6023-2000.bib was replaced by abntex2-doc-abnt-6023.bib:
      the new file replaces numerical bibkeys by keys composed by author name and year. 

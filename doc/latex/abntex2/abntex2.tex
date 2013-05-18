@@ -19,6 +19,10 @@
 %% 2013.4.01 21:00	gilsonolegario
 %% Melhorias visuais da documentação
 %%
+%% 2013.5.18 09h51	sggranja / laurocesar
+%%  Adiciona seção referente às opções chapter=TITLE, section=TITLE,
+%% subsection=TITLE e subsubsection=TITLE.
+%%
 %% 2013.4.5 08h04	laurocesar
 %%  Revisa alterações de gilsonolegario
 %%
@@ -577,7 +581,7 @@ pacotes automaticamente.
 Veja detalhes sobre fontes com Xe\LaTeX\ na \autoref{sec-xelatex}. 
 
 % ---
-\subsection{A classe \textsf{abntex} como extensão de \textsf{memoir}}
+\subsection{A classe \textsf{abntex2} como extensão de \textsf{memoir}}
 % ---
 
 \DescribeMacro{\documentclass}
@@ -658,6 +662,40 @@ Caso deseje utilizar outro tamanho de fonte para o documento, substitua a opçã
 |12pt| pelo tamanho desejado, como por exemplo, |10pt|, ou |14pt|. A lista
 completa de opções disponíveis pode ser consultada em
 \citeonline[p.~2-3]{memoir}.
+
+% ---
+\subsubsection{Opções específicas da classe \textsf{abntex2}: títulos de
+divisões em letras maiúsculas}
+% ---
+
+\begin{description}
+\item {\texttt{chapter=TITLE}}
+
+Altera para caixa alta (letras maiúsculas) os \emph{títulos} dos
+capítulos e o títulos de todos os elementos pré e pós textuais escritos com o
+mesmo nível que capítulos.
+
+\item {\texttt{section=TITLE}, \texttt{section=TITLE},
+\texttt{subsubsection=TITLE}}
+
+Altera para caixa alta (letras maiúsculas) os \emph{títulos} das seções,
+subseções, subsubseções, respectivamente.
+\end{description}
+
+Essas opções \emph{não controlam o formato dos items} no sumário, lista de
+ilustrações, tabelas, etc., \emph{nem controlam o formato dos cabeçalhos} de
+páginas que incluem informações de capítulos ou de secionamento.
+
+Exemplo de uso:
+
+\begin{verbatim}
+\documentclass[12pt,openright,twoside,a4paper,
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	subsubsection=TITLE, % títulos de subsubseções em letras maiúsculas
+	english,french,spanish,brazil]{abntex2}
+\end{verbatim}
 
 % ---
 \subsection{Espaçamentos entre parágrafos e linhas}
