@@ -28,6 +28,13 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2013/xx/xx - v1.7
+   . fixed abntex2cite's table 4: there was a line written twice;
+   . the file abntex2-doc-abnt-6023-2000.bib was replaced by abntex2-doc-abnt-6023.bib:
+     the new file replaces numerical bibkeys by keys composed by author name and year. 
+     This aims to turn the document's updates easier;
+   . added xindy instructions on glossary model.
+
   2013/04/30 - v1.6.1
    . fixed use of different languages on example and documentation 
      files: option "brazil" must be on documentclass
