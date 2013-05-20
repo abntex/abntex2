@@ -40,6 +40,8 @@ CHANGE HISTORY
    . the files abntex2-doc-abnt-10520-2001.bib and abntex2-doc-abnt-10520-2002.bib were
      merged into abntex2-doc-abnt-10520.bib    
    . added xindy instructions on glossary model.
+   . fixed wrong \setsecheadstyle implementation that prevented font section be 
+     changed as expected.
 
   2013/04/30 - v1.6.1
    . fixed use of different languages on example and documentation 

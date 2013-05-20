@@ -443,7 +443,7 @@
   \renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
   
   % tamanhos de fontes de section, subsection e subsubsection
-  \setsecheadstyle{\ABNTEXchapterfont\ABNTEXsectionfontsize\ABNTEXsectionupperifneeded}
+  \setsecheadstyle{\ABNTEXsectionfont\ABNTEXsectionfontsize\ABNTEXsectionupperifneeded}
   \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize\ABNTEXsubsectionupperifneeded}
   \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize\ABNTEXsubsubsectionupperifneeded}
   
