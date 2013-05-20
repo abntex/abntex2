@@ -1695,7 +1695,7 @@ FUNCTION {article}
   format.journal output
 %  iso.date.place {format.date output} 'skip$ if$
 	iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
-                 {format.year output new.sentence} if$
+%                 {format.year output new.sentence} if$
   section "section" bibinfo.check output.dash
   publisher "publisher" bibinfo.check output
   address "address" bibinfo.check output
@@ -1826,7 +1826,7 @@ FUNCTION {journalpart}
   format.number output
   %format.date output new.sentence
   iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
-                 {format.year output new.sentence} if$
+                 {format.date output new.sentence} if$
   format.book.pages output
   format.illustrated
   format.dimensions  new.sentence
