@@ -39,7 +39,7 @@ CHANGE HISTORY
      changed as expected.
    . fixed bibliography style for @article and @journalpart caused by wrong
      implementation of iso-690-1987 option   
-   . replaced abntex2-doc-abnt-6023-2000.bib fileby abntex2-doc-abnt-6023.bib:
+   . replaced abntex2-doc-abnt-6023-2000.bib file by abntex2-doc-abnt-6023.bib:
      the new file replaces numerical bibkeys by keys composed by author name and year. 
      This aims to turn the document's updates easier;
    . merged abntex2-doc-abnt-10520-2001.bib and abntex2-doc-abnt-10520-2002.bib files
