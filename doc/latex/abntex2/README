@@ -38,7 +38,9 @@ CHANGE HISTORY
    . fixed wrong \setsecheadstyle implementation that prevented font section be 
      changed as expected.
    . fixed bibliography style for @article and @journalpart caused by wrong
-     implementation of iso-690-1987 option   
+     implementation of iso-690-1987 option 
+   . fixed \apudonline compliance with section 7.1.3 from ABNT NBR 10520:2002: 
+     the publication year of the main author now is printed. 
    . replaced abntex2-doc-abnt-6023-2000.bib file by abntex2-doc-abnt-6023.bib:
      the new file replaces numerical bibkeys by keys composed by author name and year. 
      This aims to turn the document's updates easier;
