@@ -32,15 +32,17 @@ CHANGE HISTORY
    . added new options chapter=TITLE, section=TITLE, subsection=TITLE and
      subsubsection=TITLE to the abntex2.cls class. These options change
      the sections and chapter titles to upper case;
-   . added xindy instructions in glossary model.
+   . added xindy instructions in glossary model;
    . fixed abntex2cite's table 4: there was a line written twice;
    . changed class options declaration in all examples;   
    . fixed wrong \setsecheadstyle implementation that prevented font section be 
-     changed as expected.
+     changed as expected;
    . fixed bibliography style for @article and @journalpart caused by wrong
-     implementation of iso-690-1987 option 
+     implementation of iso-690-1987 option; 
    . fixed \apudonline compliance with section 7.1.3 from ABNT NBR 10520:2002: 
-     the publication year of the main author now is printed. 
+     the publication year of the main author now is printed;
+   . fixed single spacing before chapters;
+   . review text of documentations;   
    . replaced abntex2-doc-abnt-6023-2000.bib file by abntex2-doc-abnt-6023.bib:
      the new file replaces numerical bibkeys by keys composed by author name and year. 
      This aims to turn the document's updates easier;
