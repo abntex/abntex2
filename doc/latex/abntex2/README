@@ -32,6 +32,8 @@ CHANGE HISTORY
    . added new options chapter=TITLE, section=TITLE, subsection=TITLE and
      subsubsection=TITLE to the abntex2.cls class. These options change
      the sections and chapter titles to upper case;
+   . added macro \footciteref to abntex2cite that prints a bibliography reference
+     as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.  
    . added xindy instructions in glossary model;
    . fixed abntex2cite's table 4: there was a line written twice;
    . changed class options declaration in all examples;   
