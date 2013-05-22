@@ -21,6 +21,9 @@
 %%
 %% Revision history:
 %%
+%% 2013/05/22 07h05	laurocesar
+%%  Adiciona a macro \footciteref para referências em notas de rodapé.
+%%
 %% 2013/03/08 07h00 laurocesar
 %%  Corrige criaçao das macros \su@ExpandTwoArgs, \IfSubStringInString e \su@IfSubStringInString 
 %%  importados de substr.sty: apenas criá-las se já não existirem 
@@ -1358,6 +1361,10 @@
 \newcommand{\loccitname}{loc.\ cit.}
 \newcommand{\cfcitename}{Cf.}
 \newcommand{\etseqname}{et seq.}
+
+\DeclareRobustCommand{\footciteref}[1]{%
+\footnote{\citetext{#1}}
+}
 
 \newcommand{\apud}[3][]{(\citeauthor{#2}, \citeyear{#2} \apudname\ %
 \citeauthor{#3}, \citeyear{#3}%
