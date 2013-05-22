@@ -17,6 +17,11 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.5.21 22h17	ycherem
+%%  Resolve o problema de diferentes espaçamentos superiores entre
+%%  diferentes tipos de seções primárias (resumos, sumários, elementos
+%%  pré-textuais, etc.)
+%%
 %% 2013.5.18 09h35	sggranja / laurocesar
 %%  Conclui implementação das opções chapter=TITLE, section=TITLE,
 %% subsection=TITLE, subsubsection=TITLE.
@@ -426,6 +431,8 @@
 \provideboolean{abntex@innonumchapter}
 \setboolean{abntex@innonumchapter}{true}
 \makechapterstyle{abnt}{%
+  \renewcommand{\chapterheadstart}{} 
+
   \newlength{\chapternamenumlength}
 
   % tamanhos de fontes de chapter e part	
