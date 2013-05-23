@@ -35,6 +35,8 @@ CHANGE HISTORY
    . added macro \footciteref to abntex2cite that prints a bibliography reference
      as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.  
    . added xindy instructions in glossary model;
+   . added macro \footciteref to abntex2cite that prints a bibliography reference
+     as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.  
    . fixed abntex2cite's table 4: there was a line written twice;
    . changed class options declaration in all examples;   
    . fixed wrong \setsecheadstyle implementation that prevented font section be 
