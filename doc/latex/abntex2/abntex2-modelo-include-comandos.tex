@@ -554,6 +554,49 @@ referências do documento para o idioma inglês. Consulte o manual da classe
 documentos produzidos com \abnTeX.
 
 % ---
+\section{Ajuste no espaçamento entre os capítulos e o texto}
+% ---
+
+Segundo a \autoref[seção 5.2.2]{NBR14724:2011}, os títulos das seções primárias 
+(os capítulos) ``devem começar em página ímpar (anverso)\footnote{Esse requisito é 
+atendido ao usar a opção \texttt{openright}.}, na parte superior da 
+mancha gráfica e ser separados do texto que os sucede por um espaço entre as linhas 
+de 1,5''. Porém, propositalmente os modelos do \abnTeX não atendem a essa regra, uma vez
+que utiliza-se tamanhos diferentes de fontes para capítulos e, nesse caso,
+um espaçamento de 1,5 entre o capítulo e o início do texto não ficaria esteticamente 
+elegante. Observe que a norma em questão nem as demais normas estabelece um tamanho de fonte 
+para as seções, o que torna livre a opção de um tamanho diferente (e maior) de fonte para
+os capítulos do que o tamanho da fonte do corpo do texto.
+
+De toda forma, caso você queira seguir estritamente o requisito da norma referente ao
+espaçamento entre o capítulo e o início do texto, faça o seguinte.
+
+Utilize no preâmbulo do documento:
+\begin{verbatim}
+\setlength\afterchapskip{\lineskip}
+\end{verbatim}
+
+Imediatamente após a declaração de um capítulo de apêndice ou de anexo:
+\begin{verbatim}
+\chapter{Título de um anexo ou apêndice}
+\setlength{\afterchapskip}{-\baselineskip} 
+
+O texto do apêndice ou do anexo...
+\end{verbatim}
+
+Caso o título do apêndice ou do anexo tenha mais de duas linhas, use o comando
+abaixo para ajustar um eventual problema de espaçamento:
+
+\begin{verbatim}
+\chapter{Título de um anexo ou apêndice muito longo, com mais de duas linhas, que pode
+ocasionar um problema de espaçamento}
+\phantom{x}
+
+O texto do apêndice ou do anexo...
+\end{verbatim}
+
+
+% ---
 \section{Consulte o manual da classe \textsf{abntex2}}
 % ---
 
