@@ -1,82 +1,64 @@
 #% Não apague a linha abaixo. a configuração depende disto
 #  \DeclareLaTeXClass[abntex2]{abntex2}
 
-#############################################
-# Definição da classe padrão abntex2
-# Autor: Silvio Cesar Garcia Granja <sggranja@gmail.com>
-#
-# Versão: Alpha 0.1 r 1
-# Última revisão em 28/02/2013
-#
+#################################################################
+## Definição dao layout abntex2.layout para classe padrão abntex2
+## Autor: Silvio Cesar Garcia Granja <sggranja@gmail.com>
+##
+## Versão: Alpha 0.2 r 1
+## Última revisão em 23/05/2013
+##
+## 2013.5.23 10h00	sggranja
+##  Rescreve o início dos Parametros da classe, colocando a dependência com o
+##   layout memoir.layout. Assim qualquer modificação no memoir.layout será 
+##   repassado para abntex2.layout.
+##  Reagrupa ambiente citacao, Chapterprecis, Epigraph e Legend para o 
+##   grupo ABNTEXTExtual.
+##  Inclui suporte ao ambiente errata no grupo ABNTEXPreTextual(opcional)
+##  Corrige a ordem de carregamento de stdclass.inc e memoir.layout:
+##   para que os capitulares (seções) tenham acesso ao número correto de 
+##   opções (short title) especificado na classe memoir.cls, deve-se carregar 
+##   memoir.layout por último.
+##
+## 2013.5.22 15h00	sggranja
+##  Inclui o suporte aos ambientes dedicatoria, agradecimentos, epigrafe 
+##   e fichacatalografica no grupo ABNTEXPreTextual(opcional).
+##  Renomeia os grupos ABNT* para ABNTEX*.
+##  Coloca ambiente resumo no grupo ABNTEXPreTextual.
+##
+## 2013.3.5 15h00	sggranja
+##  Criação e adaptação do arquivo de layout para lyx, abntex2.layout, a partir 
+##   do layout abnt.layout.
 #
 #############################################
 
-###############################
+##################################################################
 # Parametros globais da classe
-# Original ao memoir.layout
+# Dependência com memoir.layout e elementos comuns a layouts do LyX
 ###############################
-
-Format 35
-Columns            1
-Sides              2
-SecNumDepth        1
-TocDepth           1
-DefaultStyle       Standard
-PageStyle          Headings
-Provides makeidx   1
-Provides framed    1
-Provides subscript 1
-# Memoir has support for line spacing, but uses different names from
-# what setspace.sty does.  
-Provides SetSpace  1
-
-
-ClassOptions
-	FontSize             9|10|11|12|14|17
-	PageStyle            empty|plain|headings|myheadings|ruled|Ruled|companion
-	Other                oldfontcommands
-End
-
-DefaultFont
-  Family		Roman
-  Series		Medium
-  Shape			Up
-  Size			Normal
-  Color			None
-EndFont
-
-Style Standard
-	Margin                Static
-	LatexType             Paragraph
-	LatexName             dummy
-	ParIndent             MM
-	ParSkip               0.4
-	Align                 Block
-	AlignPossible         Block, Left, Right, Center
-	LabelType             No_Label
-End
-
-#####################################
-# Elementos comuns a layouts do LyX
-#####################################
 
 Input stdclass.inc
-Input numreport.inc
+# memoir.layuout deve ser carregado por último
+Input memoir.layout
+
+#############################################################
+# Exclusão de Estilos ou redundantes não presentes no ABNTEX2
+#####################################
 
 NoStyle Title
 NoStyle Date
 NoStyle Author
 NoStyle Address
 NoStyle Right_Address
-
+NoStyle Abstract
 
 
 ####################################
-# Espacamentos
+# Espaçamentos
 ####################################
 
 Style Espaco_Simples
-	Category	ABNTEspacos
+	Category	ABNTEXEspacos
 	LatexType	Environment
 	LatexName	SingleSpace
 	Spacing		single
@@ -86,7 +68,7 @@ Style Espaco_Simples
 End
 
 Style Espaco_1_1/2
-	Category	ABNTEspacos
+	Category	ABNTEXEspacos
 	LatexType	Environment
 	LatexName	OnehalfSpace
 	Spacing		onehalf
@@ -96,7 +78,7 @@ Style Espaco_1_1/2
 End
 
 Style Espaco_Duplo
-	Category	ABNTEspacos
+	Category	ABNTEXEspacos
 	LatexType	Environment
 	LatexName	DoubleSpace
 	Spacing		double
@@ -106,11 +88,11 @@ Style Espaco_Duplo
 End
 
 #########################################
-# Citacoes
+# Material Textual
 #########################################
 
 Style Citacao
-	Category	ABNTCitacao
+	Category	ABNTEXTextual
 	LatexType	Environment
 	LatexName	citacao
 #	LeftMargin	MMMMMMMMMMMMMMM
@@ -123,13 +105,31 @@ Style Citacao
 	EndFont
 End
 
+Style Legend
+	Category	ABNTEXTextual
+End
+
+Style Epigraph
+	Category	ABNTEXTextual
+End
+
+Style Chapterprecis
+	Category	ABNTEXTextual
+End
+
+#########################################
+#  Bibliografia
+#########################################
+Style Bibliography
+	Category	ABNTEXPosTextual
+End
 
 ###################################################
 # Comandos pré-textuais
 ###################################################
 
 Style Titulo
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	LatexType	Command
 	LatexName	titulo
 	Margin		Dynamic
@@ -143,7 +143,7 @@ Style Titulo
 End
 
 Style Autor
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	LatexType	Command
 	LatexName	autor
 	Margin		Static
@@ -159,7 +159,7 @@ Style Autor
 End
 
 Style Orientador
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 LatexType	Command
 	LatexName	orientador
 	Margin		Static
@@ -179,49 +179,49 @@ End
 
 
 Style Orientadora
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	CopyStyle	Orientador
 	LatexParam	[Orientadora]
 	LabelString	"Orientadora :"
 End
 
 Style Orientadores
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	CopyStyle	Orientador
 	LatexParam	[Orientadores]
 	LabelString	"Orientadores :"
 End
 
 Style Co-Orientador
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	CopyStyle	Orientador
 	LatexName	coorientador
 	LabelString	"Co-orientador :"
 End
 
 Style Co-Orientadora
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	CopyStyle	Co-Orientador
 	LatexParam	[Co-Orientadora]
 	LabelString	"Co-orientadora :"
 End
 
 Style Co-Orientadores
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	CopyStyle	Co-Orientador
 	LatexParam	[Co-Orientadores]
 	LabelString	"Co-orientadores :"
 End
 
 Style Tipo-trabalho
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	CopyStyle	Co-Orientador
 	LatexName	tipotrabalho
 	LabelString	"Tipo de Trabalho :"
 End
 
 Style Preambulo
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	LatexType	Command
 	LatexName	preambulo
 	Margin		Dynamic
@@ -241,7 +241,7 @@ Style Preambulo
 End
 
 Style Instituicao
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	LatexType	Command
 	LatexName	instituicao
 	Align		Left
@@ -255,7 +255,7 @@ Style Instituicao
 End
 
 Style Local
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	LatexType	Command
 	LatexName	local
 	Align		Center
@@ -269,7 +269,7 @@ Style Local
 End
 
 Style Data
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	LatexType	Command
 	LatexName	data
 	Align		Center
@@ -283,13 +283,68 @@ Style Data
 End
 
 Style Folha_de_Aprovacao
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual
 	LatexType	Environment
 	LatexName	folhadeaprovacao
 End
 
+#####################################################
+# Resumo e Abstract
+#####################################################
+
+Style Resumo
+        Margin                Static
+        LatexType             Environment
+        LatexName             resumo
+        Category              ABNTEXPreTextual
+        NextNoIndent          1
+        LeftMargin            MMM
+        RightMargin           MMM
+        ParIndent             MM
+        ItemSep               0
+        TopSep                0.7
+        BottomSep             0.7
+        ParSep                0
+        Align                 Block
+        LabelType             Centered_Top_Environment
+        LabelString           "Resumo"
+        LabelBottomSep        0.5
+        Font
+          Size                Small
+        EndFont
+        LabelFont
+          Series              Bold
+          Size                Large
+        EndFont
+        HTMLLabelFirst        1
+        HTMLForceCSS          1
+        HTMLStyle
+                div.abstract {
+                        margin: 4ex;
+                }
+                div.abstract_item {
+                        font-size: small;
+                        padding-top: 1ex;
+                }
+                div.abstract_label {
+                        font-weight: bold;
+                }
+        EndHTMLStyle
+End
+
+###################################################
+# Comandos pré-textuais Opcionais
+###################################################
+
+Style PreTextualChapter
+	CopyStyle	Chapter
+	LatexName	pretextualchapter
+	Category	ABNTEXPreTextual(opcional)
+	LabelString	"Capitulo Pre-textual"
+End
+
 Style Assinatura
-	Category	ABNTPreTextual
+	Category	ABNTEXPreTextual(opcional)
 	LatexType	Command
 	LatexName	assinatura*
 	Margin		Static
@@ -302,37 +357,39 @@ Style Assinatura
 	LabelType	Static
 End
 
-Style Capitulo_Pre-Textual
-	Category	ABNTPreTextual
-	Margin		Dynamic
-	LatexType	Command
-	LatexName	pretextualchapter
-	NeedProtect	1
-	NextNoIndent	0
-	LabelSep	xxx
-	ParSkip		0.4
-	TopSep		1.3
-	BottomSep	0.7
-	ParSep		0.7
-	Align		Block
-	AlignPossible	Block, Left
-	LabelType	Static
-	LabelString	"Pré-textual capítulo: "
-
-	LabelFont
-		Series	Bold
-	EndFont
+Style Dedicatoria
+	CopyStyle	Resumo
+	Category	ABNTEXPreTextual(opcional)
+	LabelString	"Dedicatoria"
+	LatexName	"dedicatoria"
 End
 
+Style Agradecimentos
+	CopyStyle	Resumo
+	Category	ABNTEXPreTextual(opcional)
+	LabelString	"Agradecimentos"
+	LatexName	"agradecimentos"
+End
 
-#####################################################
-# Resumo e Abstract
-#####################################################
+Style Epigrafe
+	CopyStyle	Resumo
+	Category	ABNTEXPreTextual(opcional)
+	LabelString	"Epigrafe"
+	LatexName	"epigrafe"
+End
 
-Style Resumo
-	CopyStyle	Abstract
-	LabelString	"Resumo"
-	LatexName	"resumo"
+Style Ficha_catalografica
+	CopyStyle	Resumo
+	Category	ABNTEXPreTextual(opcional)
+	LabelString	"Ficha Catalografica"
+	LatexName	"fichacatalografica"
+End
+
+Style Errata
+	CopyStyle	Resumo
+	Category	ABNTEXPreTextual(opcional)
+	LabelString	"Errata"
+	LatexName	"errata"
 End
 
 #####################################################
