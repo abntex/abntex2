@@ -22,6 +22,9 @@
 %% command line for latex2html :
 %% latex2html -split 0 -toc_depth 8 -noinfo -noaddress -nonavigation -show_section_numbers -html_version 4.0 abnt-bibtex-alf-doc.tex
 %%
+%% 2013.5.22 07h05	laurocesar
+%%  Adiciona orientações sobre a nova macro \footciteref
+%%
 %% 2013.5.21 22h01	laurocesar
 %%  Remove a seção ``Requisitos ainda não implementados'', que foi transferida
 %%  para issues no site do projeto.
@@ -572,12 +575,34 @@ aquelas definidas como entrada {\tt @hidden}. Ou seja, se você não quiser
 que uma entrada apareça na lista de referências, você deve defini-la como
 {\tt @hidden} na sua base bibliográfica.
 
+\subsubsection{Citações em notas de rodapé}
+\label{sec-cite-rodape}
+
+A seção 7 da \citeonline{NBR10520:2002} apresenta as regras para referências em
+notas de rodapé. A seção 7.1.1 estabelece que ``A primeira citação de uma
+obra, em nota de rodapé, deve ter sua referência completa.'' As regras
+para as demais citações são estabelecidas pela seção 7.1.2, e podem ser
+atendidas pelos comandos detalhados pela \autoref{sec-idem-outros}.
+
+\DescribeMacro{\footciteref}
+Para inserir referências no rodapé da página, use:
+
+\noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
+No rodapé\footciteref{10520-2002:7.1.1}
+\end{verbatim}\end{minipage}\hspace{5mm}
+\begin{minipage}[t]{\LatL}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}%
+No rodapé\footciteref{10520-2002:7.1.1}
+\end{minipage}
+
 \subsubsection{Uso de idem, ibidem, opus citatum e outros}
+\label{sec-idem-outros}
 
 Implementamos comandos específicos para \emph{idem} (mesmo autor),
 \emph{ibidem} (mesma obra), \emph{opus citatum} (obra citada), \emph{passim}
 (aqui e alí), \emph{loco citato} (no lugar citado), \emph{confira e et
-sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abaixo.
+sequentia} (e sequência) que atendem as orientações da seção seção 7.1.2 da
+\citeonline{NBR10520:2002}. Veja uso desses tipos de citações nos exemplos abaixo.
 
 \DescribeMacro{\Idem}
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
@@ -636,9 +661,11 @@ sequentia} (e sequência). Veja uso desses tipos de citações nos exemplos abai
 \end{minipage}
 
 Note que esses comandos só fazem sentido para citações a uma única referência
-por vez. Segundo o ítem 6.1.3 da `norma' \cite{NBR10520:2001}, essas expressões
-só devem ser usadas em notas, não no texto. Apenas a expressão \emph{apud}
-poderia ser usada no texto.
+por vez. Segundo o ítem 7.1.2 da `norma' \cite{NBR10520:2002}, essas expressões
+só devem ser usadas em notas de rodapé, não no texto. Apenas a expressão
+\emph{apud} poderia ser usada no texto.
+
+As citações em notas de rodapé são detalhadas pela \autoref{sec-cite-rodape}.
 
 \subsubsection{Referências múltiplas}
 \label{mult-ref}
