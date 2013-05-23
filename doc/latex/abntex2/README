@@ -31,7 +31,9 @@ CHANGE HISTORY
   2013/xx/xx - v1.7
    . added new options chapter=TITLE, section=TITLE, subsection=TITLE and
      subsubsection=TITLE to the abntex2.cls class. These options change
-     to upper case the sections and chapter titles;
+     the sections and chapter titles to upper case;
+   . added macro \footciteref to abntex2cite that prints a bibliography reference
+     as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.  
    . added xindy instructions in glossary model;
    . fixed abntex2cite's table 4: there was a line written twice;
    . changed class options declaration in all examples;   
@@ -41,11 +43,11 @@ CHANGE HISTORY
      implementation of iso-690-1987 option; 
    . fixed \apudonline compliance with section 7.1.3 from ABNT NBR 10520:2002: 
      the publication year of the main author now is printed;
-   . fixed spacing between head pages and chapters;
-   . review content of all documentation files;   
+   . fixed single spacing before chapters;
+   . review text of documentations;   
    . replaced abntex2-doc-abnt-6023-2000.bib file by abntex2-doc-abnt-6023.bib:
      the new file replaces numerical bibkeys by keys composed by author name and year. 
-     This aims to turn easier the updates of the documents;
+     This aims to turn the document's updates easier;
    . merged abntex2-doc-abnt-10520-2001.bib and abntex2-doc-abnt-10520-2002.bib files
      into abntex2-doc-abnt-10520.bib;    
 
