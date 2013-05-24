@@ -39,6 +39,7 @@ arquivos de base bibliográficas |.bib|.
 
 % ---
 \section{Citações diretas}
+\label{sec-citacao}
 % ---
 
 \index{citações!diretas}Utilize o ambiente \texttt{citacao} para incluir
@@ -59,6 +60,32 @@ As citações diretas, no texto, com mais de três linhas [...] deve-se observar
 apenas o recuo \cite[5.3]{NBR10520:2002}.
 \end{citacao}
 \end{verbatim}
+
+O ambiente \texttt{citacao} pode receber como parâmetro opcional um nome de
+idioma previamente carregado nas opções da classe (\autoref{sec-hifenizacao}). Nesse
+caso, o texto da citação é automaticamente escrito em itálico e a hifenização é
+ajustada para o idioma selecionado na opção do ambiente. Por exemplo:
+
+\begin{verbatim}
+\begin{citacao}[english]
+Text in English language. This environment switches all language-related
+definitions, like the language specific names for figures, tables etc. to the
+other [...]
+\end{citacao}
+\end{verbatim}
+
+Tem como resultado:
+
+\begin{citacao}[english]
+Text in English language. This environment switches all language-related
+definitions, like the language specific names for figures, tables etc. to the other
+language. The starred version of this environment typesets the main text
+according to the rules of the other language, but keeps the language specific
+string for ancillary things like figures, in the main language of the document.
+The environment hyphenrules switches only the hyphenation patterns used; it can
+also be used to disallow hyphenation by using the language name
+`nohyphenation'.
+\end{citacao}
 
 \index{citações!simples}Citações simples, com até três linhas, devem ser
 incluídas com aspas. Observe que em \LaTeX as aspas iniciais são diferentes das
@@ -484,6 +511,7 @@ Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011}
 
 % ---
 \section{Diferentes idiomas e hifenizações}
+\label{sec-hifenizacao}
 % ---
 
 Para usar hifenizações de diferentes idiomas, inclua nas opções do documento o
@@ -553,12 +581,15 @@ referências do documento para o idioma inglês. Consulte o manual da classe
 \cite{abntex2classe} para obter orientações adicionais sobre internacionalização de
 documentos produzidos com \abnTeX.
 
+A \autoref{sec-citacao} descreve o ambiente \texttt{citacao} que pode receber
+como parâmetro um idioma a ser usado na citação.
+
 % ---
 \section{Ajuste no espaçamento entre os capítulos e o texto}
 % ---
 
-Segundo a \autoref[seção 5.2.2]{NBR14724:2011}, os títulos das seções primárias 
-(os capítulos) ``devem começar em página ímpar (anverso)\footnote{Esse requisito é 
+Segundo a \citeonline[seção 5.2.2]{NBR14724:2011}, os títulos das seções
+primárias (os capítulos) ``devem começar em página ímpar (anverso)\footnote{Esse requisito é 
 atendido ao usar a opção \texttt{openright}.}, na parte superior da 
 mancha gráfica e ser separados do texto que os sucede por um espaço entre as linhas 
 de 1,5''. Porém, propositalmente os modelos do \abnTeX não atendem a essa regra, uma vez
@@ -588,8 +619,8 @@ Caso o título do apêndice ou do anexo tenha mais de duas linhas, use o comando
 abaixo para ajustar um eventual problema de espaçamento:
 
 \begin{verbatim}
-\chapter{Título de um anexo ou apêndice muito longo, com mais de duas linhas, que pode
-ocasionar um problema de espaçamento}
+\chapter{Título de um anexo ou apêndice muito longo, com mais de duas linhas, 
+que pode ocasionar um problema de espaçamento}
 \phantom{x}
 
 O texto do apêndice ou do anexo...

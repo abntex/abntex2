@@ -29,6 +29,10 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.7
+   . added an optional argument to the citacao environment: language.
+     Now the quoted text in foreign language is automatically written in italics
+     and the right hyphenation system is selected. Use as: 
+     \begin{citacao}[franch]Texte français.\end{citacao}  
    . added new options chapter=TITLE, section=TITLE, subsection=TITLE and
      subsubsection=TITLE to the abntex2.cls class. These options change
      the sections and chapter titles to upper case;

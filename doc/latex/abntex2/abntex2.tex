@@ -16,8 +16,12 @@
 %% http://code.google.com/p/abntex2/
 %%
 %% This work consists of the file abntex2.tex
-%% 2013.4.01 21:00	gilsonolegario
-%% Melhorias visuais da documentação
+%%
+%%
+%% 2013.5.24 10h29	laurocesar
+%%  Adiciona seção referente ao espaçamento entre o capítulo e o início do
+%% texto.
+%%  Documenta a nova opção language do ambiente citacao.
 %%
 %% 2013.5.18 09h51	sggranja / laurocesar
 %%  Adiciona seção referente às opções chapter=TITLE, section=TITLE,
@@ -28,6 +32,9 @@
 %%
 %% 2013.4.4 09h05	wagner@admwagner.com.br
 %%  Revisão.
+%%
+%% 2013.4.01 21:00	gilsonolegario
+%% Melhorias visuais da documentação
 %%
 %% 2013.3.19 09h32	laurocesar
 %%  Adiciona orientações sobre a produção de documentos em outros idiomas.
@@ -1003,6 +1010,9 @@ partir do ponto em que é informado.
 
 Consulte a \autoref{sec-interncional-traducao} para obter detalhes sobre o uso
 de diferentes idiomas no documento.
+
+A \autoref{sec-citacao} descreve o ambiente |citacao|\oarg{language} que pode
+receber como parâmetro um idioma a ser usado na citação.
 
 %---
 \subsubsection{Alterações de nomes padronizados por \textsf{babel}}
@@ -2200,8 +2210,8 @@ Para mais detalhes, consulte o \citeonline[p. 73]{memoir}.
 \subsubsection{Espaçamento entre os capítulos e o texto}
 % ---
 
-Segundo a \autoref[seção 5.2.2]{NBR14724:2011}, os títulos das seções primárias 
-(os capítulos) ``devem começar em página ímpar (anverso)\footnote{Esse requisito é 
+Segundo a \citeonline[seção 5.2.2]{NBR14724:2011}, os títulos das seções
+primárias (os capítulos) ``devem começar em página ímpar (anverso)\footnote{Esse requisito é 
 atendido ao usar a opção \texttt{openright}.}, na parte superior da 
 mancha gráfica e ser separados do texto que os sucede por um espaço entre as linhas 
 de 1,5''. Porém, propositalmente os modelos do \abnTeX não atendem a essa regra, uma vez
@@ -2241,6 +2251,7 @@ O texto do apêndice ou do anexo...
 
 % ---
 \subsection{Citações diretas com mais de três linhas}
+\label{sec-citacao}
 % ---
 
 \DescribeEnv{citacao}
@@ -2258,6 +2269,21 @@ deve-se observar apenas o recuo \cite[5.3]{NBR10520:2002}
 \end{citacao}
 \end{verbatim}
 
+O ambiente |citacao|\oarg{language} pode receber como parâmetro opcional um nome
+de idioma previamente carregado nas opções da classe
+(\autoref{sec-internacional-hifen}). Nesse caso, o texto da citação é
+automaticamente escrito em itálico e a hifenização é ajustada para o idioma
+selecionado na opção do ambiente, conforme o exemplo:
+
+\begin{verbatim}
+\begin{citacao}[english]
+Text in English language...
+\end{citacao}
+\end{verbatim}
+
+A \autoref{sec-internacional-hifen} descreve o uso de diferentes idiomas no
+texto.
+
 O tamanho da fonte utilizada no ambiente |citacao| é determinada pela macro
 |\ABNTEXfontereduzida|, descrita na \autoref{sec-configgerais}.
 
@@ -2271,6 +2297,8 @@ O recuo utilizado pelo ambiente |citacao| é definido pela métrica\\ |\ABNTEXci
 Quando um documento é produzido com a opção \texttt{twocolumn}, a classe
 \textsf{abntex2} automaticamente altera o recuo padrão definido pela
 ABNT NBR 10520:2002 para 1.8cm. 
+
+
 
 % ---
 \subsection{Alíneas e Subalíneas}

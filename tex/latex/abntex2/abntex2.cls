@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.5.24 10h29	laurocesar
+%%  Adiciona a opção language ao ambiente citacao.
+%%
 %% 2013.5.21 22h17	ycherem
 %%  Resolve o problema de diferentes espaçamentos superiores entre
 %%  diferentes tipos de seções primárias (resumos, sumários, elementos
@@ -795,12 +798,13 @@
 }{% else
   \setlength{\ABNTEXcitacaorecuo}{4cm}
 }
-\newenvironment*{citacao}{%
+\newenvironment*{citacao}[1][default]{%
    \list{}%
    \footnotesize%
    \addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
    \item[]%
    \begin{SingleSpace}%
+   \ifthenelse{\not\equal{#1}{default}}{\itshape\selectlanguage{#1}}{}%
  }{%
    \end{SingleSpace}%
    \endlist}%
