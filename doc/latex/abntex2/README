@@ -28,7 +28,7 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.7
+  2013/05/25 - v1.7
    . added an optional argument to the citacao environment: language.
      Now the quoted text in foreign language is automatically written in italics
      and the right hyphenation system is selected. Use as: 
