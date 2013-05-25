@@ -32,15 +32,13 @@ CHANGE HISTORY
    . added an optional argument to the citacao environment: language.
      Now the quoted text in foreign language is automatically written in italics
      and the right hyphenation system is selected. Use as: 
-     \begin{citacao}[franch]Texte français.\end{citacao}  
+     \begin{citacao}[french]Texte français.\end{citacao}  
    . added new options chapter=TITLE, section=TITLE, subsection=TITLE and
      subsubsection=TITLE to the abntex2.cls class. These options change
      the sections and chapter titles to upper case;
    . added macro \footciteref to abntex2cite that prints a bibliography reference
      as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.  
    . added xindy instructions in glossary model;
-   . added macro \footciteref to abntex2cite that prints a bibliography reference
-     as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.  
    . fixed abntex2cite's table 4: there was a line written twice;
    . changed class options declaration in all examples;   
    . fixed wrong \setsecheadstyle implementation that prevented font section be 
