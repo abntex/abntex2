@@ -2,11 +2,16 @@
 #  \DeclareLaTeXClass[abntex2]{abntex2}
 
 #################################################################
-## Definição dao layout abntex2.layout para classe padrão abntex2
+## Definição do layout abntex2.layout para classe padrão abntex2
 ## Autor: Silvio Cesar Garcia Granja <sggranja@gmail.com>
 ##
-## Versão: Alpha 0.2 r 1
+## Versão: Alpha 0.2 r 2
 ## Última revisão em 23/05/2013
+##
+## 2013.5.24 11h25	sggranja
+##  Adicionando "OptionalArgs 1" para ambientes resumo (e herdeiros) e para 
+##   ambiente citacao, já que estes aceitam uma opção do tipo 
+##   \begin{ambiente}[opção] ... \end{ambiente}.
 ##
 ## 2013.5.23 10h00	sggranja
 ##  Rescreve o início dos Parametros da classe, colocando a dependência com o
@@ -95,6 +100,7 @@ Style Citacao
 	Category	ABNTEXTextual
 	LatexType	Environment
 	LatexName	citacao
+	OptionalArgs    1
 #	LeftMargin	MMMMMMMMMMMMMMM
 	Align		Right
 	AlignPossible	Block, Right
@@ -229,9 +235,9 @@ Style Preambulo
 	RightMargin	MMM
 	#Align		Block
 	#AlignPossible	Block
-   Align		Right
+	Align		Right
 	AlignPossible	RightLeft
-   BottomSep	1.4
+	BottomSep	1.4
 	LabelString	"Preambulo :"
 	LabelType	Centered_Top_Environment
 	Font
@@ -296,6 +302,7 @@ Style Resumo
         Margin                Static
         LatexType             Environment
         LatexName             resumo
+        OptionalArgs          1
         Category              ABNTEXPreTextual
         NextNoIndent          1
         LeftMargin            MMM
