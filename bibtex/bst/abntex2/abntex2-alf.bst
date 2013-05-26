@@ -25,6 +25,9 @@
 %%
 %% Revision history:
 %%
+%% 2013/05/26 laurocesar 
+%%  Corrige problemas de duplicação de ano nas funções article e jornalpart
+%%
 %% 2013/02/28 caduarte7@gmail.com 
 %%  Complete Fix iso-690-1987 option: year was placed for 
 %%  twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished
@@ -1694,8 +1697,8 @@ FUNCTION {article}
   format.title "title" output.check new.block
   format.journal output
   iso.date.place {format.date output} 'skip$ if$
-%	iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
-%                 {format.year output new.sentence} if$
+  %iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
+  %               {format.year output new.sentence} if$
   section "section" bibinfo.check output.dash
   publisher "publisher" bibinfo.check output
   address "address" bibinfo.check output
