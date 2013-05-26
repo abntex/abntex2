@@ -25,6 +25,9 @@
 %%
 %% Revision history:
 %%
+%% 2013/05/26 laurocesar 
+%%  Corrige problemas de duplicação de ano nas funções article e jornalpart
+%%
 %% 2013/02/28 caduarte7@gmail.com 
 %%  Complete Fix iso-690-1987 option: year was placed for 
 %%  twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished
