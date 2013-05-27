@@ -28,6 +28,9 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2013/xx/xx - v1.7.2
+    . fixed article model in compliance to ABNT NBR 6022:2003. 
+
   2013/05/26 - v1.7.1
    . fixed bibliography format for article and journalpart
 
