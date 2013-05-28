@@ -120,7 +120,7 @@ function buildCompressed(){
 
 	echo "$TAR_FILE (tds directory structure):"
 	cd target/abntex2source
-	tar cfvz ../../$TAR_FILE bibtex/bib/abntex2/*.bib bibtex/bst/abntex2/*.bst doc/latex/abntex2/{README,*.{bib,tex,pdf}} tex/latex/abntex2/*.{cls,sty} --exclude '._*'
+	COPYFILES_DISABLE=true tar cfvz ../../$TAR_FILE bibtex/bib/abntex2/*.bib bibtex/bst/abntex2/*.bst doc/latex/abntex2/{README,*.{bib,tex,pdf}} tex/latex/abntex2/*.{cls,sty}
 	cd ../..
 
 }
