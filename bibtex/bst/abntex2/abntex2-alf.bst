@@ -1696,7 +1696,7 @@ FUNCTION {article}
   iso.year.label
   format.title "title" output.check new.block
   format.journal output
-  iso.date.place {format.date output} 'skip$ if$
+  %iso.date.place {format.date output} 'skip$ if$
   %iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
   %               {format.year output new.sentence} if$
   section "section" bibinfo.check output.dash
