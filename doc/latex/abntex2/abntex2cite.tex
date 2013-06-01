@@ -18,6 +18,9 @@
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://abntex.codigolivre.org.br
 %%
+%% 2013.6.1 15h54 ycherem
+%%  Adiciona subseção "Autor com sobrenome composto".
+%%
 %% 2013.5.16 10h40	laurocesar / Jaqueline Taketsugu
 %%  Integra as alterações de Jaqueline Taketsugu (jtas29):
 %%  Cria um novo arquivo abntex2-doc-abnt-6023.bib a partir de
@@ -668,6 +671,31 @@ características e contribuições na investigação da escola eficaz},
 }
 \end{verbatim}
 
+\subsection{Autor com sobrenome composto}
+
+Para compor entradas bibliográficas para autores com sobrenome composto (Filho, Jr.,Neto, Sobrinho etc.) pode-se proceder segundo o seguinte exemplo.
+Para inserir uma referência cujo autor seja impresso como BARBOSA NETO, J. F., que é o padrão estabelecido pelas normas da ABNT, use:
+
+\begin{verbatim}
+   @ARTICLE{FerraoKaizoAll2001,
+   ...
+   author = {José Francisco Barbosa{ }Neto},
+   ...
+   }
+\end{verbatim}
+
+Note que há um espaço entre as chaves: \verb+{ }+.
+   
+Ou então:
+
+\begin{verbatim}
+   @ARTICLE{FerraoKaizoAll2001,
+   ...
+   author = {Barbosa, Neto, José Francisco},
+   ...
+   }
+
+\end{verbatim}
 
 \section{Utilização da citação por sistema autor-data {\tt [alf]}}
 
