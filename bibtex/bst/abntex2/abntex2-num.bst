@@ -25,6 +25,9 @@
 %%
 %% Revision history:
 %%
+%% 2013/06/01 laurocesar
+%%  Ajusta opção iso-690-1987 para @article
+%%
 %% 2013/05/26 laurocesar 
 %%  Corrige problemas de duplicação de ano nas funções article e jornalpart
 %%
@@ -1696,6 +1699,7 @@ FUNCTION {article}
   iso.year.label
   format.title "title" output.check new.block
   format.journal output
+  iso.date.place {format.year output} 'skip$ if$
   %iso.date.place {format.date output} 'skip$ if$
   %iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
   %               {format.year output} if$
