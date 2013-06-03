@@ -1,0 +1,956 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass abntex2
+\begin_preamble
+% ---
+% PACOTES
+% ---
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+\ifcase #1 %
+Nenhuma citação no texto.%
+\or
+Citado na página #2.%
+\else
+Citado #1 vezes nas páginas #2.%
+\fi}%
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+\end_preamble
+\options 12pt,openright,twoside,a4paper,english,french,spanish,brazil
+\use_default_options false
+\begin_modules
+theorems-std
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Os valores colocados nos campos abaixo 
+\series bold
+não serão impressos
+\series default
+ ao gerar o documento final.
+ Esses campos somente modificam os valores para as macros do documento,
+ as quais serão usadas posteriormente dentro do esqueleto da tese.
+ Esta parte do documento é como se fosse a 
+\begin_inset Quotes eld
+\end_inset
+
+ficha cadastral
+\begin_inset Quotes erd
+\end_inset
+
+ da tese.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Titulo
+Modelo Canônico de
+\begin_inset Newline newline
+\end_inset
+
+Trabalho Acadêmico com abnTeX e LyX
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Modifique o título acima para definir o título de sua tese.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Local
+Universidade do Brasil -- UBr
+\begin_inset Newline newline
+\end_inset
+
+Faculdade de Arquitetura da Informação
+\begin_inset Newline newline
+\end_inset
+
+Programa de Pós-Graduação
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Modifique o local acima para corresponder à sua instituição
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Data
+3 de Junho de 2013
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+O comando 
+\begin_inset Quotes eld
+\end_inset
+
+Insert->Date
+\begin_inset Quotes erd
+\end_inset
+
+ vai colocar a data no formato DD-MM-AAAA.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Autor
+Paulo Afonso Graner Fessel
+\end_layout
+
+\begin_layout Orientador
+Lauro César Araújo
+\end_layout
+
+\begin_layout Co-Orientador
+Sérgio Granja
+\end_layout
+
+\begin_layout Co-Orientadores
+Equipe abnTeX
+\end_layout
+
+\begin_layout Tipo-trabalho
+Dissertação de Mestrado
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+A partir daqui, inicia-se o texto impresso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimircapa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirfolhaderosto*
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Ficha catalografica
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Esta é a ficha catalográfica descrita no arquivo 
+\begin_inset Quotes eld
+\end_inset
+
+abntex2-modelo-trabalho-academico.tex
+\begin_inset Quotes erd
+\end_inset
+
+, adaptada para o ambiente do LyX.
+\end_layout
+
+\begin_layout Plain Layout
+Você pode inserir a ficha catalográfica em PDF provida pela instituição
+ usando o comando 
+\begin_inset Quotes eld
+\end_inset
+
+Insert->File->External Material...
+\begin_inset Quotes erd
+\end_inset
+
+ e usar o template 
+\begin_inset Quotes eld
+\end_inset
+
+PDFPages
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Neste caso, apague as definições abaixo e insira o PDF nesse ponto, usando
+ o comando descrito.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Ficha catalografica
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100text%"
+special "none"
+height "12.5cm"
+height_special "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirautor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirtitulo
+\end_layout
+
+\end_inset
+
+ / 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirautor
+\end_layout
+
+\end_inset
+
+.
+ -- 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirlocal
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirdata
+\end_layout
+
+\end_inset
+
+-
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{LastPage}
+\end_layout
+
+\end_inset
+
+ p.
+ il.
+ (algumas color.) ; 30 cm.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirorientadorRotulo
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirorientador
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "100text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirtipotrabalho
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+--
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirinstituicao
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirdata
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+1.
+ Palavra-chave1.
+ 2.
+ Palavra-chave2.
+ I.
+ Orientador.
+ II.
+ Universidade xxx.
+ III.
+ Faculdade de xxx.
+ IV.
+ Título
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 8.75cm
+\end_inset
+
+ CDU 02:141:005.7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Ficha catalografica
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Errata
+Elemento opcional da 
+\begin_inset CommandInset citation
+LatexCommand citeauthor
+key "NBR14724:2001"
+
+\end_inset
+
+.
+ Exemplo:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+FERRIGNO, C.
+ R.
+ A.
+ 
+\series bold
+Tratamento de neoplasias ósseas apendiculares com reimplantação de enxerto
+ ósseo autólogo autoclavado associado ao plasma rico em plaquetas
+\series default
+: estudo crítico na cirurgia de preservação de membro em cães.
+ 2011.
+ 128 f.
+ Tese (Livre-Docência) - Faculdade de Medicina Veterinária e Zootecnia,
+ Universidade de São Paulo, São Paulo, 2011.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Folha
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Linha
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Onde se lê
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Leia-se
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+auto-conclavo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+autoconclavo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Folha de Aprovacao
+\begin_inset External
+	template PDFPages
+	filename FolhaDeAprovacao.pdf
+	extra LaTeX "pages=1"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Esta folha de aprovação foi inserida a partir de um arquivo PDF usando o
+ comando 
+\begin_inset Quotes eld
+\end_inset
+
+Insert->File->External Material...
+\begin_inset Quotes erd
+\end_inset
+
+ conforme discutido anteriormente.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Dedicatoria
+Este trabalho é dedicado às crianças adultas que,
+\begin_inset Newline newline
+\end_inset
+
+ quando pequenas, sonharam em se tornar cientistas.
+\end_layout
+
+\begin_layout Agradecimentos
+Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
+ Leslie H.
+ Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+ Salvador, Renato Machnievscz
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Os nomes dos integrantes do primeiro projeto 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abnTeX
+\end_layout
+
+\end_inset
+
+ foram extraídos de 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://codigolivre.org.br/projects/abntex/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ e todos aqueles que contribuíram para que a produção de trabalhos acadêmicos
+ conforme as normas ABNT com LaTeX fosse possível.
+\end_layout
+
+\begin_layout Agradecimentos
+Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+ da Informação
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.cpai.unb.br/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ da Universidade de Brasília (CPAI), ao grupo de usuários 
+\series bold
+latex-br
+\series default
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://groups.google.com/group/latex-br
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ e aos novos voluntários do grupo abnTeX2 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://groups.google.com/group/abntex2
+\end_layout
+
+\end_inset
+
+ e 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://abntex2.googlecode.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ que contribuíram e que ainda contribuirão para a evolução do abnTeX.
+\end_layout
+
+\begin_layout Epigrafe
+``Não vos amoldeis às estruturas deste mundo,
+\begin_inset Newline newline
+\end_inset
+
+mas transformai-vos pela renovação da mente,
+\begin_inset Newline newline
+\end_inset
+
+a fim de distinguir qual é a vontade de Deus:
+\begin_inset Newline newline
+\end_inset
+
+o que é bom, o que Lhe é agradável, o que é perfeito.
+\begin_inset Newline newline
+\end_inset
+
+(Bíblia Sagrada, Romanos 12, 2)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "abntex2-modelo-references"
+options "/usr/share/texlive/texmf-dist/bibtex/bst/abntex2/abntex2-alf"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
