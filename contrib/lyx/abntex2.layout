@@ -367,6 +367,7 @@ End
 Style Dedicatoria
 	CopyStyle	Resumo
 	Category	ABNTEXPreTextual(opcional)
+	AlignPossible	block, left, right, center
 	LabelString	"Dedicatoria"
 	LatexName	"dedicatoria"
 End
@@ -381,6 +382,7 @@ End
 Style Epigrafe
 	CopyStyle	Resumo
 	Category	ABNTEXPreTextual(opcional)
+	AlignPossible	block, left, right, center
 	LabelString	"Epigrafe"
 	LatexName	"epigrafe"
 End
@@ -388,6 +390,7 @@ End
 Style Ficha_catalografica
 	CopyStyle	Resumo
 	Category	ABNTEXPreTextual(opcional)
+	Align		center
 	LabelString	"Ficha Catalografica"
 	LatexName	"fichacatalografica"
 End
@@ -395,6 +398,7 @@ End
 Style Errata
 	CopyStyle	Resumo
 	Category	ABNTEXPreTextual(opcional)
+	AlignPossible	block, left, right, center
 	LabelString	"Errata"
 	LatexName	"errata"
 End

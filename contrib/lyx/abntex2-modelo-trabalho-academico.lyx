@@ -35,14 +35,13 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-\ifcase #1 %
-Nenhuma citação no texto.%
+\ifcase #1
+Nenhuma citação no texto.
 \or
-Citado na página #2.%
+Citado na página #2.
 \else
-Citado #1 vezes nas páginas #2.%
-\fi}%
-% ---
+Citado #1 vezes nas páginas #2.
+\fi}
 
 % --- 
 % Espaçamentos entre linhas e parágrafos 
@@ -66,10 +65,10 @@ Citado #1 vezes nas páginas #2.%
 theorems-std
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language brazilian
 \language_package default
 \inputencoding utf8
-\fontencoding T1
+\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
@@ -88,16 +87,7 @@ theorems-std
 \float_placement H
 \paperfontsize default
 \spacing single
-\use_hyperref true
-\pdf_bookmarks true
-\pdf_bookmarksnumbered false
-\pdf_bookmarksopen false
-\pdf_bookmarksopenlevel 1
-\pdf_breaklinks false
-\pdf_pdfborder false
-\pdf_colorlinks false
-\pdf_backref false
-\pdf_pdfusetitle true
+\use_hyperref false
 \papersize default
 \use_geometry false
 \use_amsmath 0
@@ -164,7 +154,7 @@ Modelo Canônico de
 \begin_inset Newline newline
 \end_inset
 
-Trabalho Acadêmico com abnTeX e LyX
+Trabalho Acadêmico com abnTeX2 e LyX
 \end_layout
 
 \begin_layout Standard
@@ -206,7 +196,7 @@ Modifique o local acima para corresponder à sua instituição
 \end_layout
 
 \begin_layout Data
-3 de Junho de 2013
+6 de Junho de 2013
 \end_layout
 
 \begin_layout Standard
@@ -340,6 +330,10 @@ PDFPages
 \end_layout
 
 \begin_layout Ficha catalografica
+\begin_inset VSpace vfill*
+\end_inset
+
+
 \begin_inset Box Frameless
 position "c"
 hor_pos "c"
@@ -357,7 +351,7 @@ status open
 \begin_inset CommandInset line
 LatexCommand rule
 offset "0.5ex"
-width "100col%"
+width "100text%"
 height "1pt"
 
 \end_inset
@@ -508,11 +502,6 @@ imprimirorientador
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset space \hspace{}
-\length 0.5cm
-\end_inset
-
-
 \begin_inset Box Frameless
 position "c"
 hor_pos "c"
@@ -527,6 +516,11 @@ height_special "totalheight"
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+
 \begin_inset ERT
 status open
 
@@ -597,6 +591,10 @@ imprimirdata
  Faculdade de xxx.
  IV.
  Título
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -612,17 +610,17 @@ imprimirdata
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100text%"
+height "1pt"
+
 \end_inset
 
 
 \end_layout
-
-\begin_layout Ficha catalografica
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "1pt"
 
 \end_inset
 
@@ -764,7 +762,7 @@ autoconclavo
 \begin_layout Folha de Aprovacao
 \begin_inset External
 	template PDFPages
-	filename FolhaDeAprovacao.pdf
+	filename ../../../.lyx/templates/FolhaDeAprovacao.pdf
 	extra LaTeX "pages=1"
 
 \end_inset
@@ -792,11 +790,24 @@ Insert->File->External Material...
 \end_layout
 
 \begin_layout Dedicatoria
+\align center
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\shape italic
 Este trabalho é dedicado às crianças adultas que,
 \begin_inset Newline newline
 \end_inset
 
  quando pequenas, sonharam em se tornar cientistas.
+\end_layout
+
+\begin_layout Dedicatoria
+\begin_inset VSpace vfill*
+\end_inset
+
+
 \end_layout
 
 \begin_layout Agradecimentos
@@ -922,6 +933,12 @@ http://abntex2.googlecode.com/
 \end_layout
 
 \begin_layout Epigrafe
+\align right
+\begin_inset VSpace vfill*
+\end_inset
+
+
+\shape italic
 ``Não vos amoldeis às estruturas deste mundo,
 \begin_inset Newline newline
 \end_inset
@@ -934,7 +951,9 @@ a fim de distinguir qual é a vontade de Deus:
 \begin_inset Newline newline
 \end_inset
 
-o que é bom, o que Lhe é agradável, o que é perfeito.
+o que é bom, o que Lhe é agradável, o que é perfeito
+\shape default
+.
 \begin_inset Newline newline
 \end_inset
 
