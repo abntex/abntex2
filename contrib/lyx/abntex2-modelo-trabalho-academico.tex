@@ -1,0 +1,214 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english,12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% ---
+% PACOTES
+% ---
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+\ifcase #1 %
+Nenhuma citação no texto.%
+\or
+Citado na página #2.%
+\else
+Citado #1 vezes nas páginas #2.%
+\fi}%
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\begin{comment}
+Os valores colocados nos campos abaixo \textbf{não serão impressos}
+ao gerar o documento final. Esses campos somente modificam os valores
+para as macros do documento, as quais serão usadas posteriormente
+dentro do esqueleto da tese. Esta parte do documento é como se fosse
+a ``ficha cadastral'' da tese.
+\end{comment}
+
+
+
+\titulo{Modelo Canônico de\\
+Trabalho Acadêmico com abn\TeX{}2 e \LyX{}}
+
+
+
+
+\local{Universidade do Brasil -- UBr\\
+Faculdade de Arquitetura da Informação\\
+Programa de Pós-Graduação}
+
+
+
+
+\data{6 de Junho de 2013}
+
+
+
+
+\autor{Paulo Afonso Graner Fessel}
+
+
+\orientador{Lauro César Araújo}
+
+
+\coorientador{Sérgio Granja}
+
+
+\coorientador[Co-Orientadores]{Equipe \abnTeX\rule[0.5ex]{1\columnwidth}{1pt}}
+
+
+\tipotrabalho{Dissertação de Mestrado}
+
+\begin{comment}
+A partir daqui, inicia-se o texto impresso
+\end{comment}
+
+
+\imprimircapa
+
+\imprimirfolhaderosto*
+\begin{fichacatalografica}
+
+
+\begin{minipage}[c][12.5cm]{1\textwidth}%
+\rule[0.5ex]{1\columnwidth}{1pt}
+
+\imprimirautor
+
+\hspace{0.5cm}\imprimirtitulo / \imprimirautor. -- \imprimirlocal,
+\imprimirdata-
+
+\hspace{0.5cm}\pageref{LastPage} p. il. (algumas color.) ; 30 cm.
+
+\hspace{0.5cm}\imprimirorientadorRotulo~\imprimirorientador\\
+
+
+\parbox[c][1\totalheight][t]{1\textwidth}{%
+\hspace{0.5cm}\imprimirtipotrabalho~--~\imprimirinstituicao,
+\imprimirdata.\\
+
+
+\hspace{0.5cm}1. Palavra-chave1. 2. Palavra-chave2. I. Orientador.
+II. Universidade xxx. III. Faculdade de xxx. IV. Título\\
+
+
+\hspace{8.75cm} CDU 02:141:005.7%
+}%
+\end{minipage}
+
+\rule[0.5ex]{1\columnwidth}{1pt}\end{fichacatalografica}
+\begin{errata}
+Elemento opcional da \citeauthor{NBR14724:2001}. Exemplo:\\
+\\
+FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares
+com reimplantação de enxerto ósseo autólogo autoclavado associado
+ao plasma rico em plaquetas}: estudo crítico na cirurgia de preservação
+de membro em cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade
+de Medicina Veterinária e Zootecnia, Universidade de São Paulo, São
+Paulo, 2011.\\
+\begin{tabular}{|l|l|l|l|}
+\hline 
+\textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} & \textbf{Leia-se}\tabularnewline
+\hline 
+\hline 
+1 & 10 & auto-conclavo & autoconclavo\tabularnewline
+\hline 
+\end{tabular}\end{errata}
+\begin{folhadeaprovacao}
+\includepdf[pages=1]{FolhaDeAprovacao}\end{folhadeaprovacao}
+\begin{dedicatoria}
+Este trabalho é dedicado às crianças adultas que,\\
+ quando pequenas, sonharam em se tornar cientistas.\end{dedicatoria}
+\begin{agradecimentos}
+Os agradecimentos principais são direcionados à Gerald Weber, Miguel
+Frasson, Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos
+Corrêa, Otavio Real Salvador, Renato Machnievscz%
+\footnote{Os nomes dos integrantes do primeiro projeto \abnTeX foram extraídos
+de \url{http://codigolivre.org.br/projects/abntex/}%
+} e todos aqueles que contribuíram para que a produção de trabalhos
+acadêmicos conforme as normas ABNT com \LaTeX{} fosse possível.
+
+Agradecimentos especiais são direcionados ao Centro de Pesquisa em
+Arquitetura da Informação%
+\footnote{\url{http://www.cpai.unb.br/}%
+} da Universidade de Brasília (CPAI), ao grupo de usuários \textbf{latex-br}%
+\footnote{\url{http://groups.google.com/group/latex-br}%
+} e aos novos voluntários do grupo abn\TeX{}2 %
+\footnote{\url{http://groups.google.com/group/abntex2} e \url{http://abntex2.googlecode.com/}%
+} que contribuíram e que ainda contribuirão para a evolução do abn\TeX{}.\end{agradecimentos}
+\begin{epigrafe}
+\textit{``Não vos amoldeis às estruturas deste mundo,}\\
+\textit{mas transformai-vos pela renovação da mente,}\\
+\textit{a fim de distinguir qual é a vontade de Deus:}\\
+\textit{o que é bom, o que Lhe é agradável, o que é perfeito}.\\
+(Bíblia Sagrada, Romanos 12, 2)
+\end{epigrafe}
+\bibliographystyle{/usr/share/texlive/texmf-dist/bibtex/bst/abntex2/abntex2-alf}
+\bibliography{abntex2-modelo-references}
+
+\end{document}
