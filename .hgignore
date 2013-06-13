@@ -53,3 +53,5 @@ syntax: regexp
 \.toc$
 syntax: regexp
 \.aux$
+syntax: regexp
+\.synctex$
