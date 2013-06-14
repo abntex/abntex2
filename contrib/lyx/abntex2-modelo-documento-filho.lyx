@@ -101,7 +101,7 @@ theorems-std
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\use_refstyle 0
+\use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
@@ -125,6 +125,13 @@ theorems-std
 
 \begin_layout Chapter
 Resultados de comandos
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Resultados-de-comandos"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapterprecis
@@ -353,18 +360,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "tab-nvinv"
-
-\end_inset
-
-
 \begin_inset Caption
 
 \begin_layout Plain Layout
 Níveis de investigação
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab-nvinv"
 
 \end_inset
 
@@ -591,21 +598,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig-circulo"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption
 
 \begin_layout Plain Layout
 A delimitação do espaço
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-circulo"
 
 \end_inset
 
@@ -891,8 +895,13 @@ end{center}
 \begin_layout Standard
 Ou então figuras podem ser incorporadas de arquivos externos, como é o caso
  da 
-\backslash
-autoref{fig_grafico}.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-grafico"
+
+\end_inset
+
+.
  Se a figura que ser incluída se tratar de um diagrama, um gráfico ou uma
  ilustração que você mesmo produza, priorize o uso de imagens vetoriais
  no formato PDF.
@@ -1028,12 +1037,22 @@ Gráfico produzido em excel e salvo como PDF
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-grafico"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
+\noindent
 \align center
 \begin_inset Graphics
 	filename /home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico.pdf
+	scale 50
+	clip
 
 \end_inset
 
@@ -1139,10 +1158,20 @@ Settings→% Page Width
 
 .
  Veja o exemplo da 
-\backslash
-autoref{fig_minipage_grafico1} e da 
-\backslash
-autoref{fig_minipage_grafico2}.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-minipage-grafico1"
+
+\end_inset
+
+ e da 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-minipage-grafico2"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1150,10 +1179,6 @@ autoref{fig_minipage_grafico2}.
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Box Frameless
@@ -1175,6 +1200,13 @@ status open
 \begin_layout Plain Layout
 Gráfico 1 da minipage
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-minipage-grafico1"
 
 \end_inset
 
@@ -1218,6 +1250,16 @@ Gráfico 2 da minipage
 \end_inset
 
 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-minipage-grafico2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Graphics
 	filename /home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico.pdf
 	scale 20
@@ -1728,18 +1770,108 @@ pdflatex ARQUIVO_PRINCIPAL
 Remissões internas
 \end_layout
 
+\begin_layout Standard
+Ao nomear a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab-nvinv"
+
+\end_inset
+
+ e a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-circulo"
+
+\end_inset
+
+, apresentamos um exemplo de remissão interna, que também pode ser feita
+ quando indicamos o 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+, que tem o nome 
+\emph on
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+
+\emph default
+.
+ O número do capítulo indicado é 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+, que se inicia 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+O número da página de uma remissão pode ser obtida também assim: 
+\backslash
+pageref{cap_exemplos}.
+\end_layout
+
+\end_inset
+
+.
+ Veja a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes"
+
+\end_inset
+
+ para outros exemplos de remissões internas entre seções, subseções e subsubseçõ
+es.
+\end_layout
+
 \begin_layout Section
 Divisões do documento: seção
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-divisoes"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Esta seção testa o uso de divisões de documentos.
  Esta é a 
-\backslash
-autoref{sec-divisoes}.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes"
+
+\end_inset
+
+.
  Veja a 
-\backslash
-autoref{sec-divisoes-subsection}.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes-subsection"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1756,8 +1888,13 @@ name "sec-divisoes-subsection"
 \begin_layout Standard
 Isto é uma subseção.
  Veja a 
-\backslash
-autoref{sec-divisoes-subsubsection}, que é uma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes-subsubsection"
+
+\end_inset
+
+, que é uma 
 \family typewriter
 subsubsection
 \family default
@@ -1817,8 +1954,13 @@ Divisões do documento: subsubseção
 
 \begin_layout Standard
 Isto é mais uma subsubseção da 
-\backslash
-autoref{sec-exemplo-subsec}.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-exemplo-subsec"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph
@@ -1834,8 +1976,13 @@ name "sec-exemplo-paragrafo"
 
 \begin_layout Paragraph
 Este é um parágrafo na 
-\backslash
-autoref{sec-exemplo-paragrafo}.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-exemplo-paragrafo"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -1852,8 +1999,13 @@ name "sec-exemplo-paragrafo-outro"
 
 \begin_layout Paragraph
 Este é outro parágrafo na 
-\backslash
-autoref{sec-exemplo-paragrafo-outro}.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-exemplo-paragrafo-outro"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -1905,7 +2057,7 @@ citeonline[p.~5-6]{babel}.
 \begin_layout Standard
 Exemplo de hifenização em inglês
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Extraído de: 
@@ -1971,6 +2123,7 @@ dit-aux-cardinaux-de-tweeter-pendant-le-conclave/
 
 \begin_layout Standard
 
+\shape italic
 \lang french
 Texte en français.
  Pas question que Twitter ne vienne faire une concurrence déloyale à la
@@ -1986,7 +2139,7 @@ Texte en français.
 \begin_layout Standard
 Pequeno texto em espanhol
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Extraído de: 
@@ -2011,6 +2164,7 @@ http://internacional.elpais.com/internacional/2013/02/17/actualidad/1361102009_9
 
 \begin_layout Standard
 
+\shape italic
 \lang spanish
 Decenas de miles de personas ovacionan al pontífice en su penúltimo ángelus
  dominical, el primero desde que anunciase su renuncia.

@@ -88,6 +88,15 @@ theorems-std
 \paperfontsize default
 \spacing single
 \use_hyperref false
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry false
 \use_amsmath 0
@@ -99,7 +108,7 @@ theorems-std
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\use_refstyle 0
+\use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
@@ -246,6 +255,47 @@ status open
 
 \begin_layout Plain Layout
 A partir daqui, inicia-se o texto impresso
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+ref
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Veja 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://tex.stackexchange.com/questions/6059/table-figure-and-listing-prefixes
+\end_layout
+
+\end_inset
+
+ para uma explicação.
 \end_layout
 
 \end_inset
