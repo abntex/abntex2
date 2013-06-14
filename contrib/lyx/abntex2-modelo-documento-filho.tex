@@ -1,0 +1,374 @@
+%% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,brazil,12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{graphicx}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% ---
+% PACOTES
+% ---
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage[figurewithin=none]{caption}
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+\ifcase #1 %
+Nenhuma citação no texto.%
+\or
+Citado na página #2.%
+\else
+Citado #1 vezes nas páginas #2.%
+\fi}%
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\chapter{Resultados de comandos}
+
+
+\chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma normatização
+a respeito desse tipo de resumo, que é mais comum em romances e livros
+técnicos.}
+
+
+\section{Codificação dos arquivos: UTF8}
+
+A codificação de todos os arquivos do abn\TeX{}2 é \texttt{UTF8}.
+É necessário que você utilize a mesma codificação nos documentos que
+escrever, inclusive nos arquivos de base bibliográficas |.bib|. 
+
+
+\section{Citações diretas}
+
+Utilize o ambiente \texttt{citacao} para incluir citações diretas
+com mais de três linhas:
+
+
+\begin{citacao}
+As citações diretas, no texto, com mais de três linhas, devem ser
+destacadas com recuo de 4 cm da margem esquerda, com letra menor que
+a do texto utilizado e sem as aspas. No caso de documentos datilografados,
+deve-se observar apenas o recuo.
+\end{citacao}
+O ambiente \texttt{citacao} pode receber como parâmetro opcional um
+nome de idioma previamente carregado nas opções da classe (\textbackslash{}autoref\{sec-hifenizacao\}).
+No \LyX{}, esse parâmetro é ajustado através do comando ``Insert→Short
+Title'', sendo que o texto da opção representa o idioma escolhido.
+Nesse caso, o texto da citação é automaticamente escrito em itálico
+e a hifenização é ajustada para o idioma selecionado na opção do ambiente.
+Por exemplo:
+\begin{citacao}[english]
+Text in English language in italic with correct hyphenation.
+\end{citacao}
+Citações simples, com até três linhas, devem ser incluídas com aspas.
+``Amor é fogo que arde sem se ver''.
+
+
+\section{Notas de rodapé}
+
+As notas de rodapé são detalhadas pela NBR 14724:2011 na seção 5.2.1%
+\footnote{As notas devem ser digitadas ou datilografadas dentro das margens,
+ficando separadas do texto por um espaço simples de entre as linhas
+e por filete de 5 cm, a partir da margem esquerda. Devem ser alinhadas,
+a partir da segunda linha da mesma nota, abaixo da primeira letra
+da primeira palavra, de forma a destacar o expoente, sem espaço entre
+elas e com fonte menor \textbackslash{}citeonline{[}5.2.1{]}\{NBR14724:2011\}.%
+}%
+\footnote{Caso uma série de notas sejam criadas sequencialmente, o abn\TeX{}
+instrui o \LaTeX{} para que uma vírgula seja colocada após cada número
+do expoente que indica a nota de rodapé no corpo do texto.%
+}%
+\footnote{Verifique se os números do expoente possuem uma vírgula para dividi-los
+no corpo do texto.%
+}.
+
+
+\section{Tabelas}
+
+\index{tabelas}
+
+A \ref{tab-nvinv} é um exemplo de tabelas construídas com a interface
+gráfica do \LyX{}. Comece inserindo tabelas no texto com o comando
+``Insert→Float→Table'' para ter maior flexibilidade:
+
+\begin{table}[H]
+\label{tab-nvinv}\caption{Níveis de investigação}
+\begin{longtable}{>{\raggedright}p{2.6cm}|>{\raggedright}p{6cm}|>{\raggedright}p{2.25cm}|>{\raggedright}p{3.4cm}}
+\textbf{Nível de investigação} & \textbf{Insumos} & \textbf{Sistemas de investigação} & \textbf{Produtos}\tabularnewline
+\hline 
+Meta-nível & Filosofia da ciência & Epistemologia & Paradigma\tabularnewline
+\hline 
+Nível do objeto & Paradigmas do metanível e evidências do nível inferior & Ciência & Teorias e modelos\tabularnewline
+\hline 
+Nível inferior & Modelos e métodos do nível do objeto e problemas do nível inferior & Prática & Solução de problemas\tabularnewline
+\end{longtable}
+
+
+\legend{Fonte: \cite{van86}}
+\end{table}
+
+
+
+\section{Figuras}
+
+Figuras podem ser criadas diretamente em \LaTeX{}, com o uso de ERT
+(``Evil Red Text''), como o exemplo da \ref{fig-circulo}.
+
+\begin{center}
+\begin{figure}[H]
+\label{fig-circulo}
+
+\caption{A delimitação do espaço}
+
+
+\begin{center}
+	\setlength{\unitlength}{5cm} 		
+	\begin{picture}(1,1) 		
+		\put(0,0){\line(0,1){1}} 		
+		\put(0,0){\line(1,0){1}} 		
+		\put(0,0){\line(1,1){1}} 		
+		\put(0,0){\line(1,2){.5}} 		
+		\put(0,0){\line(1,3){.3333}} 		
+		\put(0,0){\line(1,4){.25}} 		
+		\put(0,0){\line(1,5){.2}} 		
+		\put(0,0){\line(1,6){.1667}} 		
+		\put(0,0){\line(2,1){1}} 		
+		\put(0,0){\line(2,3){.6667}} 		
+		\put(0,0){\line(2,5){.4}} 		
+		\put(0,0){\line(3,1){1}} 		
+		\put(0,0){\line(3,2){1}} 		
+		\put(0,0){\line(3,4){.75}} 		
+		\put(0,0){\line(3,5){.6}} 		
+		\put(0,0){\line(4,1){1}} 		
+		\put(0,0){\line(4,3){1}} 		
+		\put(0,0){\line(4,5){.8}} 		
+		\put(0,0){\line(5,1){1}} 		
+		\put(0,0){\line(5,2){1}} 		
+		\put(0,0){\line(5,3){1}} 		
+		\put(0,0){\line(5,4){1}} 		
+		\put(0,0){\line(5,6){.8333}} 		
+		\put(0,0){\line(6,1){1}} 		
+		\put(0,0){\line(6,5){1}} 		
+	\end{picture} 	
+\end{center}
+\end{figure}
+
+\par\end{center}
+
+Ou então figuras podem ser incorporadas de arquivos externos, como
+é o caso da \textbackslash{}autoref\{fig\_grafico\}. Se a figura que
+ser incluída se tratar de um diagrama, um gráfico ou uma ilustração
+que você mesmo produza, priorize o uso de imagens vetoriais no formato
+PDF. Com isso, o tamanho do arquivo final do trabalho será menor,
+e as imagens terão uma apresentação melhor, principalmente quando
+impressas, uma vez que imagens vetorias são perfeitamente escaláveis
+para qualquer dimensão. Nesse caso, se for utilizar o Microsoft Excel
+para produzir gráficos, ou o Microsoft Word para produzir ilustrações,
+exporte-os como PDF e os incorpore ao documento conforme o exemplo
+abaixo. No entanto, para manter a coerência no uso de software livre
+(já que você está usando \LaTeX{} e abn\TeX{}), teste a ferramenta
+\textsf{InkScape}\index{InkScape} (\url{http://inkscape.org/}).
+Ela é uma excelente opção de código-livre para produzir ilustrações
+vetoriais, similar ao CorelDraw ou ao Adobe IllustratorAdobe Illustrator\index{Adobe Illustrator}.
+De todo modo, caso não seja possível utilizar arquivos de imagens
+como PDF, utilize qualquer outro formato, como JPEG, GIF, BMP, etc.
+Nesse caso, você pode tentar aprimorar as imagens incorporadas com
+o software livre \textsf{Gimp\index{Gimp}} (\url{http://www.gimp.org}).
+Ele é uma alternativa livre ao Adobe Photoshop\index{Photoshop}.
+Da mesma maneira que as tabelas, comece inserindo a figura com o comando
+``Insert→Float→Figure''.
+
+\begin{center}
+\begin{figure}[H]
+\caption{Gráfico produzido em excel e salvo como PDF}
+
+
+\begin{centering}
+\includegraphics{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}
+\par\end{centering}
+
+
+\legend{Fonte: \cite[p. 24]{araujo2012}}
+
+\end{figure}
+
+\par\end{center}
+
+
+\subsection{Figuras em \textsf{\emph{minipages}}}
+
+\textsf{\emph{Minipages}} são usadas para inserir textos ou outros
+elementos em quadros com tamanhos e posições controladas. No \LyX{}
+elas são emuladas com os\linebreak{}
+comandos ``Insert→Float→Figure'' e ``Insert→Float→Box''. Um roteiro
+completo é dado em no Wiki do \LyX{}, em \url{http://wiki.lyx.org/Examples/FiguresSideBySide};
+note que, na tela. os gráficos podem aparecer empilhados e não necessariamente
+um do lado do outro. Será necessário também acertar a largura da de
+cada minipage manualmente, clicando-se com o botão direito em ``Box(Minipage)''
+e escolhendo ``Settings→Width'' e ``Settings→\% Page Width''.
+Veja o exemplo da \textbackslash{}autoref\{fig\_minipage\_grafico1\}
+e da \textbackslash{}autoref\{fig\_minipage\_grafico2\}.
+
+\begin{figure}[H]
+
+
+\begin{minipage}[t]{0.4\textwidth}%
+\caption{Gráfico 1 da minipage}
+\includegraphics[scale=0.2]{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}%
+\end{minipage}\hfill{}%
+\begin{minipage}[t]{0.4\textwidth}%
+\caption{Gráfico 2 da minipage}
+\includegraphics[scale=0.2]{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}%
+\end{minipage}
+\end{figure}
+
+\begin{citacao}
+Qualquer que seja o tipo de ilustração, sua identificação aparece
+na parte superior, precedida da palavra designativa (desenho, esquema,
+fluxograma, fotografia, gráfico, mapa, organograma, planta, quadro,
+retrato, figura, imagem, entre outros), seguida de seu número de ordem
+de ocorrência no texto, em algarismos arábicos, travessão e do respectivo
+título. Após a ilustração, na parte inferior, indicar a fonte consultada
+(elemento obrigatório, mesmo que seja produção do próprio autor),
+legenda, notas e outras informações necessárias à sua compreensão
+(se houver). A ilustração deve ser citada no texto e inserida o mais
+próximo possível do trecho a que se refere.\cite{NBR14724:2011}
+\end{citacao}
+
+\section{Equações matemáticas}
+
+Um dos pontos muito fortes do \LyX{} é o seu editor de equações, que
+é semalhante àqueles encontrados em programas de processamento de
+texto como LibreOffice e Word. Ele pode ser acessado usando-se os
+comandos ``Insert→Math''.
+
+Equações numeradas são inseridas com ``Insert→Math→Numbered~Formula'':
+
+\begin{equation}
+\forall x\in X,\;\exists y\leq\epsilon
+\end{equation}
+
+
+Equações matemáticas também podem ser inseridas em linha com o comando
+``Insert→Math→Inline\ Formula'', como por exemplo $\lim_{x\rightarrow\infty}\exp(-x)=0$.
+
+Para inserir expressões matemáticas sem numeração, use o comando ``Insert→Math→Display\ Formula'':
+
+\[
+\left|\sum_{i=1}^{n}a_{i}b_{i}\right|\leq\left(\sum_{i=1}^{n}a_{i}^{2}\right)\left(\sum_{i=1}^{n}b_{i}^{2}\right)
+\]
+
+
+Consulte mais informações sobre expressões matemáticas em \url{http://code.google.com/p/abntex2/w/edit/Referencias}.
+
+
+\section{Enumerações: alíneas e subalíneas}
+
+\index{alíneas}\index{subalíneas}\index{incisos}Quando for necessário
+enumerar os diversos assuntos de uma seção que não possua título,
+esta deve ser subdividida em alíneas\cite[4.3]{NBR6024:2012}:
+\begin{alineas}
+\item os diversos assuntos que não possuam título próprio, dentro de uma
+mesma seção, devem ser subdivididos em alíneas; 
+\item o texto que antecede as alíneas termina em dois pontos;
+\item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
+seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas
+as letras do alfabeto;
+\item as letras indicativas das alíneas devem apresentar recuo em relação
+à margem esquerda;
+\item o texto da alínea deve começar por letra minúscula e terminar em ponto-e-vírgula,
+exceto a última alínea que termina em ponto final;
+\item o texto da alínea deve terminar em dois pontos, se houver subalínea;
+\item a segunda e as seguintes linhas do texto da alínea começa sob a primeira
+letra do texto da própria alínea;
+\item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas
+a seguir:
+
+\begin{alineas}
+\item as subalíneas devem começar por travessão seguido de espaço;
+\item as subalíneas devem apresentar recuo em relação à alínea;
+\item o texto da subalínea deve começar por letra minúscula e terminar em
+ponto-e-vírgula. A última subalínea deve terminar em ponto final,
+se não houver alínea subsequente;
+\item a segunda e as seguintes linhas do texto da subalínea começam sob
+a primeira letra do texto da própria subalínea.
+\end{alineas}
+\item no abn\TeX{} estão disponíveis os ambientes \texttt{incisos} e \texttt{subalineas},
+que em suma são o mesmo que se criar outro nível de \texttt{alineas},
+como nos exemplos à seguir:
+
+\begin{incisos}
+\item \textit{Um novo inciso em itálico;}
+\end{incisos}
+\item Alínea em \textbf{negrito}:
+
+\begin{subalineas}
+\item \textit{Uma subalínea em itálico;}
+\item \textit{\uline{Uma subalínea em itálico e sublinhado;}}
+\end{subalineas}
+\item Última alínea com \emph{ênfase.}\end{alineas}
+
+\end{document}
