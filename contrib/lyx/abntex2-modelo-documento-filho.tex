@@ -1,28 +1,44 @@
 %% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[oneside,brazil,12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+\documentclass[oneside,spanish,english,french,brazil,12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{prettyref}
 \usepackage{float}
 \usepackage{textcomp}
 \usepackage{url}
 \usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
+\usepackage{nameref}
 
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\let\pr@chap=\pr@cha
 \providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
 %% A simple dot to overcome graphicx limitations
 \newcommand{\lyxdot}{.}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+{\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin}
+\setlength{\listparindent}{0pt}% needed for AMS classes
+\raggedright
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\normalfont\ttfamily}%
+ \item[]}
+{\end{list}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 % ---
@@ -84,9 +100,18 @@ Citado #1 vezes nas páginas #2.%
 \makeatother
 
 \usepackage{babel}
+\makeatletter
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\addto\extrasfrench{%
+   \providecommand{\og}{\leavevmode\flqq~}%
+   \providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}%
+}
+
+\makeatother
 \begin{document}
 
-\chapter{Resultados de comandos}
+\chapter{\label{chap:Resultados-de-comandos}Resultados de comandos}
 
 
 \chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma normatização
@@ -155,7 +180,8 @@ gráfica do \LyX{}. Comece inserindo tabelas no texto com o comando
 ``Insert→Float→Table'' para ter maior flexibilidade:
 
 \begin{table}[H]
-\label{tab-nvinv}\caption{Níveis de investigação}
+\caption{Níveis de investigação}
+\label{tab-nvinv}%
 \begin{longtable}{>{\raggedright}p{2.6cm}|>{\raggedright}p{6cm}|>{\raggedright}p{2.25cm}|>{\raggedright}p{3.4cm}}
 \textbf{Nível de investigação} & \textbf{Insumos} & \textbf{Sistemas de investigação} & \textbf{Produtos}\tabularnewline
 \hline 
@@ -179,10 +205,8 @@ Figuras podem ser criadas diretamente em \LaTeX{}, com o uso de ERT
 
 \begin{center}
 \begin{figure}[H]
-\label{fig-circulo}
-
 \caption{A delimitação do espaço}
-
+\label{fig-circulo}
 
 \begin{center}
 	\setlength{\unitlength}{5cm} 		
@@ -219,35 +243,34 @@ Figuras podem ser criadas diretamente em \LaTeX{}, com o uso de ERT
 \par\end{center}
 
 Ou então figuras podem ser incorporadas de arquivos externos, como
-é o caso da \textbackslash{}autoref\{fig\_grafico\}. Se a figura que
-ser incluída se tratar de um diagrama, um gráfico ou uma ilustração
-que você mesmo produza, priorize o uso de imagens vetoriais no formato
-PDF. Com isso, o tamanho do arquivo final do trabalho será menor,
-e as imagens terão uma apresentação melhor, principalmente quando
-impressas, uma vez que imagens vetorias são perfeitamente escaláveis
-para qualquer dimensão. Nesse caso, se for utilizar o Microsoft Excel
-para produzir gráficos, ou o Microsoft Word para produzir ilustrações,
-exporte-os como PDF e os incorpore ao documento conforme o exemplo
-abaixo. No entanto, para manter a coerência no uso de software livre
-(já que você está usando \LaTeX{} e abn\TeX{}), teste a ferramenta
-\textsf{InkScape}\index{InkScape} (\url{http://inkscape.org/}).
-Ela é uma excelente opção de código-livre para produzir ilustrações
-vetoriais, similar ao CorelDraw ou ao Adobe IllustratorAdobe Illustrator\index{Adobe Illustrator}.
-De todo modo, caso não seja possível utilizar arquivos de imagens
-como PDF, utilize qualquer outro formato, como JPEG, GIF, BMP, etc.
-Nesse caso, você pode tentar aprimorar as imagens incorporadas com
-o software livre \textsf{Gimp\index{Gimp}} (\url{http://www.gimp.org}).
-Ele é uma alternativa livre ao Adobe Photoshop\index{Photoshop}.
-Da mesma maneira que as tabelas, comece inserindo a figura com o comando
-``Insert→Float→Figure''.
+é o caso da \ref{fig-grafico}. Se a figura que ser incluída se tratar
+de um diagrama, um gráfico ou uma ilustração que você mesmo produza,
+priorize o uso de imagens vetoriais no formato PDF. Com isso, o tamanho
+do arquivo final do trabalho será menor, e as imagens terão uma apresentação
+melhor, principalmente quando impressas, uma vez que imagens vetorias
+são perfeitamente escaláveis para qualquer dimensão. Nesse caso, se
+for utilizar o Microsoft Excel para produzir gráficos, ou o Microsoft
+Word para produzir ilustrações, exporte-os como PDF e os incorpore
+ao documento conforme o exemplo abaixo. No entanto, para manter a
+coerência no uso de software livre (já que você está usando \LaTeX{}
+e abn\TeX{}), teste a ferramenta \textsf{InkScape}\index{InkScape}
+(\url{http://inkscape.org/}). Ela é uma excelente opção de código-livre
+para produzir ilustrações vetoriais, similar ao CorelDraw ou ao Adobe
+IllustratorAdobe Illustrator\index{Adobe Illustrator}. De todo modo,
+caso não seja possível utilizar arquivos de imagens como PDF, utilize
+qualquer outro formato, como JPEG, GIF, BMP, etc. Nesse caso, você
+pode tentar aprimorar as imagens incorporadas com o software livre
+\textsf{Gimp\index{Gimp}} (\url{http://www.gimp.org}). Ele é uma
+alternativa livre ao Adobe Photoshop\index{Photoshop}. Da mesma maneira
+que as tabelas, comece inserindo a figura com o comando ``Insert→Float→Figure''.
 
 \begin{center}
 \begin{figure}[H]
 \caption{Gráfico produzido em excel e salvo como PDF}
+\label{fig-grafico}
 
-
-\begin{centering}
-\includegraphics{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}
+\noindent \begin{centering}
+\includegraphics[clip,scale=0.5]{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}
 \par\end{centering}
 
 
@@ -269,18 +292,17 @@ note que, na tela. os gráficos podem aparecer empilhados e não necessariamente
 um do lado do outro. Será necessário também acertar a largura da de
 cada minipage manualmente, clicando-se com o botão direito em ``Box(Minipage)''
 e escolhendo ``Settings→Width'' e ``Settings→\% Page Width''.
-Veja o exemplo da \textbackslash{}autoref\{fig\_minipage\_grafico1\}
-e da \textbackslash{}autoref\{fig\_minipage\_grafico2\}.
+Veja o exemplo da \ref{fig-minipage-grafico1} e da \ref{fig-minipage-grafico2}.
 
 \begin{figure}[H]
-
-
 \begin{minipage}[t]{0.4\textwidth}%
 \caption{Gráfico 1 da minipage}
-\includegraphics[scale=0.2]{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}%
+\label{fig-minipage-grafico1}\includegraphics[scale=0.2]{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}%
 \end{minipage}\hfill{}%
 \begin{minipage}[t]{0.4\textwidth}%
 \caption{Gráfico 2 da minipage}
+\label{fig-minipage-grafico2}
+
 \includegraphics[scale=0.2]{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico}%
 \end{minipage}
 \end{figure}
@@ -295,7 +317,7 @@ título. Após a ilustração, na parte inferior, indicar a fonte consultada
 (elemento obrigatório, mesmo que seja produção do próprio autor),
 legenda, notas e outras informações necessárias à sua compreensão
 (se houver). A ilustração deve ser citada no texto e inserida o mais
-próximo possível do trecho a que se refere.\cite{NBR14724:2011}
+próximo possível do trecho a que se refere.\cite[seções 5.8]{NBR14724:2011}
 \end{citacao}
 
 \section{Equações matemáticas}
@@ -369,6 +391,179 @@ como nos exemplos à seguir:
 \item \textit{Uma subalínea em itálico;}
 \item \textit{\uline{Uma subalínea em itálico e sublinhado;}}
 \end{subalineas}
-\item Última alínea com \emph{ênfase.}\end{alineas}
+\item Última alínea com \emph{ênfase.}
+\end{alineas}
+
+\section{Espaçamento entre parágrafos e linhas}
+
+\index{espaçamento!entre os parágrafos}O espaçamento entre um parágrafo
+e outro pode ser controlado por meio do comando abaixo, inserido no
+preâmbulo do documento (Document→Settings→Document\ Preamble):
+\begin{lyxcode}
+~\textbackslash{}setlength\{\textbackslash{}parskip\}\{0.2cm\}~~\%~tente~também~\textbackslash{}onelineskip
+\end{lyxcode}
+\index{espaçamento!entre as linhas}O controle do espaçamento entre
+as linhas está disponível diretamente no menu de estilos, no grupo
+``ABNTEXEspaços''. As opções são ``Simples'', ``1 e 1/2'' e
+``Duplo''.
+
+
+\section{Inclusão de outros arquivos\label{sec-include}}
+
+É uma boa prática dividir o seu documento em diversos arquivos, e
+não apenas escrever tudo em um único. Esse recurso foi utilizado neste
+documento. Para incluir diferentes arquivos em um arquivo principal,
+utilize o comando ``Insert→File→Child Document...''; para cada documento
+filho, defina o documento mestre: isso é feito em ``Document→Settings→Document\ class''
+selecionando-se a checkbox ``Select default master document''. Esse
+comando funciona tanto com arquivos \LyX{}, \TeX{} ou \LaTeX{} (e
+mesmo alguns outros), sempre lembrando que no caso dos documentos
+\TeX{}/\LaTeX{} nenhuma verificação de sintaxe é feita; portanto,
+você estará por sua própria conta e risco. Já arquivos \LyX{} podem
+ser incluídos sem preocupações em relação à compatibilidade.
+
+
+\section{Compilar o documento \protect\LaTeX{}}
+
+No \LyX{}, os documentos são compilados com os comandos do menu ``View''.
+Há atalhos de teclas para os formatos PDF (Ctrl-R) e DVI (Ctrl-D),
+sendo que esses dois comandos compilam e exibem o resultado final
+da compilação. Ctrl-Alt-R e Ctrl-Alt-D recompilam o documento, sem
+no entanto solicitar uma nova janela para ele.
+
+Caso seja necessário compilar os documentos do \LyX{} num \LaTeX{}
+de linha de comando, deve-se usar o comando ``File→Export→\LaTeX{}
+(pdflatex)'' e copiar todos os arquivos usados pelo documento mestre
+num ú\pageref{chap:Resultados-de-comandos}nico diretório. Aí, para
+compilar o documento, use os seguintes comandos:
+\begin{lyxcode}
+pdflatex~ARQUIVO\_PRINCIPAL~~~~
+
+bibtex~ARQUIVO\_PRINCIPAL
+
+makeindex~ARQUIVO\_PRINCIPAL.idx
+
+makeindex~ARQUIVO\_PRINCIPAL.nlo~-s~nomencl.ist~-o~ARQUIVO\_PRINCIPAL.nls
+
+pdflatex~ARQUIVO\_PRINCIPAL~~~~
+
+pdflatex~ARQUIVO\_PRINCIPAL
+\end{lyxcode}
+
+\section{Remissões internas}
+
+Ao nomear a \ref{tab-nvinv} e a \ref{fig-circulo}, apresentamos
+um exemplo de remissão interna, que também pode ser feita quando indicamos
+o \ref{chap:Resultados-de-comandos}, que tem o nome \emph{\nameref{chap:Resultados-de-comandos}}.
+O número do capítulo indicado é \prettyref{chap:Resultados-de-comandos},
+que se inicia à \pageref{chap:Resultados-de-comandos}%
+\footnote{O número da página de uma remissão pode ser obtida também assim: \textbackslash{}pageref\{cap\_exemplos\}.%
+}. Veja a \ref{sec-divisoes} para outros exemplos de remissões internas
+entre seções, subseções e subsubseções.
+
+
+\section{Divisões do documento: seção\label{sec-divisoes}}
+
+Esta seção testa o uso de divisões de documentos. Esta é a \ref{sec-divisoes}.
+Veja a \ref{sec-divisoes-subsection}.
+
+
+\subsection{Divisões do documento: subseção\label{sec-divisoes-subsection}}
+
+Isto é uma subseção. Veja a \ref{sec-divisoes-subsubsection}, que
+é uma \texttt{subsubsection} do \LaTeX{}, mas é impressa chamada de
+``subseção'' porque no Português não temos a palavra ``subsubseção''.
+
+
+\subsubsection{Divisões do documento: subsubseção\label{sec-divisoes-subsubsection}}
+
+Isto é uma subsubseção.
+
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é outra subsubseção.
+
+
+\subsection{Divisões do documento: subseção\label{sec-exemplo-subsec}}
+
+Isto é uma subseção.
+
+
+\subsubsection{Divisões do documento: subsubseção}
+
+Isto é mais uma subsubseção da \ref{sec-exemplo-subsec}.
+
+
+\paragraph{Isto é um parágrafo rotulado\label{sec-exemplo-paragrafo}}
+
+
+\paragraph{Este é um parágrafo na \ref{sec-exemplo-paragrafo}. }
+
+
+\paragraph{Isto é outro parágrafo rotulado\label{sec-exemplo-paragrafo-outro}}
+
+
+\paragraph{Este é outro parágrafo na \ref{sec-exemplo-paragrafo-outro}. }
+
+
+\section{Este é um exemplo de nome de seção longo. Ele deve estar alinhado
+à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
+primeira palavra da primeira linha}
+
+Isso atende à norma \textbackslash{}citeonline{[}seções de 5.2.2 a
+5.2.4{]}\{NBR14724:2011\} e \textbackslash{}citeonline{[}seções de
+3.1 a 3.8{]}\{NBR6024:2012\}.
+
+
+\section{Diferentes idiomas e hifenizações\label{sec-hifenizacao}}
+
+Para usar hifenizações de diferentes idiomas, inclua nas opções do
+documento o nome dos idiomas que o seu texto contém. Por exemplo:
+\begin{lyxcode}
+\textbackslash{}documentclass{[}12pt,openright,twoside,a4paper,english,french,spanish,brazil{]}\{abntex2\}
+\end{lyxcode}
+A lista completa de idiomas suportados, bem como outras opções de
+hifenização, estão disponíveis em \textbackslash{}citeonline{[}p.\textasciitilde{}5-6{]}\{babel\}.
+
+Exemplo de hifenização em inglês%
+\footnote{Extraído de: \url{http://en.wikibooks.org/wiki/LaTeX/Internationalization}%
+}:
+
+\selectlanguage{english}%
+\textit{Text in English language. This environment switches all language-related
+definitions, like the language specific names for figures, tables
+etc. to the other language. The starred version of this environment
+typesets the main text according to the rules of the other language,
+but keeps the language specific string for ancillary things like figures,
+in the main language of the document. The environment hyphenrules
+switches only the hyphenation patterns used; it can also be used to
+disallow hyphenation by using the language name `nohyphenation'.}
+
+\selectlanguage{brazil}%
+Exemplo de hifenização em francês%
+\footnote{Extraído de: \url{http://bigbrowser.blog.lemonde.fr/2013/02/17/tu-ne-tweeteras-point-le-vatican-interdit-aux-cardinaux-de-tweeter-pendant-le-conclave/}%
+}:
+
+\selectlanguage{french}%
+\textit{Texte en français. Pas question que Twitter ne vienne faire
+une concurrence déloyale à la traditionnelle fumée blanche qui marque
+l'élection d'un nouveau pape. Pour éviter toute fuite précoce, le
+Vatican a donc pris un peu d'avance, et a déjà interdit aux cardinaux
+qui prendront part au vote d'utiliser le réseau social, selon Catholic
+News Service. Une mesure valable surtout pour les neuf cardinaux –
+sur les 117 du conclave – pratiquants très actifs de Twitter, qui
+auront interdiction pendant toute la période de se connecter à leur
+compte.}
+
+\selectlanguage{brazil}%
+Pequeno texto em espanhol%
+\footnote{Extraído de: \url{http://internacional.elpais.com/internacional/2013/02/17/actualidad/1361102009_913423.html}%
+}:
+
+\selectlanguage{spanish}%
+\textit{Decenas de miles de personas ovacionan al pontífice en su
+penúltimo ángelus dominical, el primero desde que anunciase su renuncia.
+El Papa se centra en la crítica al materialismo.}\selectlanguage{brazil}%
 
 \end{document}
