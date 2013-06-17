@@ -1,11 +1,27 @@
 #% Não apague a linha abaixo. a configuração depende disto
 #  \DeclareLaTeXClass[abntex2]{abntex2}
 
-#################################################################
-## Definição do layout abntex2.layout para classe padrão abntex2
-## Autor: Silvio Cesar Garcia Granja <sggranja@gmail.com>
+## abntex2.layout, v<VERSION> sggranja
+## Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
 ##
-## Versão: Alpha 0.2 r 3
+## This work may be distributed and/or modified under the
+## conditions of the LaTeX Project Public License, either version 1.3
+## of this license or (at your option) any later version.
+## The latest version of this license is in
+##   http://www.latex-project.org/lppl.txt
+## and version 1.3 or later is part of all distributions of LaTeX
+## version 2005/12/01 or later.
+##
+## This work has the LPPL maintenance status `maintained'.
+## 
+## The Current Maintainer of this work is 
+## Silvio Cesar Garcia Granja <sggranja@gmail.com>, member of abnTeX2 team, 
+## led by Lauro César Araujo. Further information are available on 
+## http://abntex2.googlecode.com/
+##
+## This work consists of the file abntex2.layout.
+##
+## Versão de revisão: r 3
 ## Última revisão em 3/06/2013
 ##
 ## 2013.6.03 12h46	pfessel
@@ -431,9 +447,9 @@ Style Incisos
 End
 
 Style Siglas
-	CopyStyle       Labeling
+	CopyStyle       Itemize
         LabelType       Centered_Top_Environment
-        LabelString     "Lista de abreviações e siglas"
+        LabelString     "Lista de abreviaturas e siglas"
 	LatexName	"siglas"
         LabelBottomSep  0.5 
         Font
@@ -446,7 +462,7 @@ Style Siglas
 End
 
 Style Simbolos
-	CopyStyle	Labeling
+	CopyStyle	Itemize
 	LabelType       Centered_Top_Environment
         LabelString     "Lista de simbolos"
 	LatexName	"simbolos"
