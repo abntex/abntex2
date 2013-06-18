@@ -1,0 +1,2175 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass abntex2
+\begin_preamble
+% ---
+% PACOTES
+% ---
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage[figurewithin=none]{caption}
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+\ifcase #1 %
+Nenhuma citação no texto.%
+\or
+Citado na página #2.%
+\else
+Citado #1 vezes nas páginas #2.%
+\fi}%
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+\end_preamble
+\options 12pt,openright,twoside,a4paper,english,french,spanish,brazil
+\use_default_options false
+\master abntex2-modelo-trabalho-academico.lyx
+\begin_modules
+theorems-std
+\end_modules
+\maintain_unincluded_children false
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 0
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Resultados de comandos
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Resultados-de-comandos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapterprecis
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Chapterprecis
+\end_layout
+
+\end_inset
+
+Isto é uma sinopse de capítulo.
+ A ABNT não traz nenhuma normatização a respeito desse tipo de resumo, que
+ é mais comum em romances e livros técnicos.
+\end_layout
+
+\begin_layout Section
+Codificação dos arquivos: UTF8
+\end_layout
+
+\begin_layout Standard
+A codificação de todos os arquivos do abnTeX2 é 
+\family typewriter
+UTF8
+\family default
+.
+ É necessário que você utilize a mesma codificação nos documentos que escrever,
+ inclusive nos arquivos de base bibliográficas |.bib|.
+ 
+\end_layout
+
+\begin_layout Section
+Citações diretas
+\end_layout
+
+\begin_layout Standard
+Utilize o ambiente 
+\family typewriter
+citacao
+\family default
+ para incluir citações diretas com mais de três linhas:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+O ambiente 
+\family typewriter
+citacao
+\family default
+ é ativado diretamente no menu de estilos do LyX, no canto superior esquerdo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Citacao
+As citações diretas, no texto, com mais de três linhas, devem ser destacadas
+ com recuo de 4 cm da margem esquerda, com letra menor que a do texto utilizado
+ e sem as aspas.
+ No caso de documentos datilografados, deve-se observar apenas o recuo.
+\end_layout
+
+\begin_layout Standard
+O ambiente 
+\family typewriter
+citacao
+\family default
+ pode receber como parâmetro opcional um nome de idioma previamente carregado
+ nas opções da classe (
+\backslash
+autoref{sec-hifenizacao}).
+ No LyX, esse parâmetro é ajustado através do comando 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Short Title
+\begin_inset Quotes erd
+\end_inset
+
+, sendo que o texto da opção representa o idioma escolhido.
+ Nesse caso, o texto da citação é automaticamente escrito em itálico e a
+ hifenização é ajustada para o idioma selecionado na opção do ambiente.
+ Por exemplo:
+\end_layout
+
+\begin_layout Citacao
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Note o 
+\begin_inset Quotes eld
+\end_inset
+
+opt english
+\begin_inset Quotes erd
+\end_inset
+
+ antes do texto da citação
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+english
+\end_layout
+
+\end_inset
+
+Text in English language in italic with correct hyphenation.
+\end_layout
+
+\begin_layout Standard
+Citações simples, com até três linhas, devem ser incluídas com aspas.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Amor é fogo que arde sem se ver
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Notas de rodapé
+\end_layout
+
+\begin_layout Standard
+As notas de rodapé são detalhadas pela NBR 14724:2011 na seção 5.2.1
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+As notas devem ser digitadas ou datilografadas dentro das margens, ficando
+ separadas do texto por um espaço simples de entre as linhas e por filete
+ de 5 cm, a partir da margem esquerda.
+ Devem ser alinhadas, a partir da segunda linha da mesma nota, abaixo da
+ primeira letra da primeira palavra, de forma a destacar o expoente, sem
+ espaço entre elas e com fonte menor 
+\backslash
+citeonline[5.2.1]{NBR14724:2011}.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Caso uma série de notas sejam criadas sequencialmente, o abnTeX instrui
+ o LaTeX para que uma vírgula seja colocada após cada número do expoente
+ que indica a nota de rodapé no corpo do texto.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Verifique se os números do expoente possuem uma vírgula para dividi-los
+ no corpo do texto.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Tabelas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+tabelas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab-nvinv"
+
+\end_inset
+
+ é um exemplo de tabelas construídas com a interface gráfica do LyX.
+ Comece inserindo tabelas no texto com o comando 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Float→Table
+\begin_inset Quotes erd
+\end_inset
+
+ para ter maior flexibilidade:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Níveis de investigação
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab-nvinv"
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="2.6cm">
+<column alignment="left" valignment="top" width="6cm">
+<column alignment="left" valignment="top" width="2.25cm">
+<column alignment="left" valignment="top" width="3.4cm">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nível de investigação
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Insumos
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Sistemas de investigação
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Produtos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Meta-nível
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filosofia da ciência
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Epistemologia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Paradigma
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nível do objeto
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Paradigmas do metanível e evidências do nível inferior
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ciência
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Teorias e modelos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nível inferior
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Modelos e métodos do nível do objeto e problemas do nível inferior
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prática
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Solução de problemas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Legend
+Fonte: 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "van86"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Figuras
+\end_layout
+
+\begin_layout Standard
+Figuras podem ser criadas diretamente em LaTeX, com o uso de ERT (
+\begin_inset Quotes eld
+\end_inset
+
+Evil Red Text
+\begin_inset Quotes erd
+\end_inset
+
+), como o exemplo da 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-circulo"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+A delimitação do espaço
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-circulo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+setlength{
+\backslash
+unitlength}{5cm} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{picture}(1,1) 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(0,1){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(1,0){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(1,1){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(1,2){.5}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(1,3){.3333}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(1,4){.25}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(1,5){.2}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(1,6){.1667}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(2,1){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(2,3){.6667}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(2,5){.4}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(3,1){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(3,2){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(3,4){.75}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(3,5){.6}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(4,1){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(4,3){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(4,5){.8}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(5,1){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(5,2){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(5,3){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(5,4){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(5,6){.8333}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(6,1){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+put(0,0){
+\backslash
+line(6,5){1}} 		
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{picture} 	
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ou então figuras podem ser incorporadas de arquivos externos, como é o caso
+ da 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-grafico"
+
+\end_inset
+
+.
+ Se a figura que ser incluída se tratar de um diagrama, um gráfico ou uma
+ ilustração que você mesmo produza, priorize o uso de imagens vetoriais
+ no formato PDF.
+ Com isso, o tamanho do arquivo final do trabalho será menor, e as imagens
+ terão uma apresentação melhor, principalmente quando impressas, uma vez
+ que imagens vetorias são perfeitamente escaláveis para qualquer dimensão.
+ Nesse caso, se for utilizar o Microsoft Excel para produzir gráficos, ou
+ o Microsoft Word para produzir ilustrações, exporte-os como PDF e os incorpore
+ ao documento conforme o exemplo abaixo.
+ No entanto, para manter a coerência no uso de software livre (já que você
+ está usando LaTeX e abnTeX), teste a ferramenta 
+\family sans
+InkScape
+\family default
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Use 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Index Entry
+\begin_inset Quotes erd
+\end_inset
+
+ para adicionar entradas de índice.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+InkScape
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://inkscape.org/
+\end_layout
+
+\end_inset
+
+).
+ Ela é uma excelente opção de código-livre para produzir ilustrações vetoriais,
+ similar ao CorelDraw ou ao Adobe IllustratorAdobe Illustrator
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Adobe Illustrator
+\end_layout
+
+\end_inset
+
+.
+ De todo modo, caso não seja possível utilizar arquivos de imagens como
+ PDF, utilize qualquer outro formato, como JPEG, GIF, BMP, etc.
+ Nesse caso, você pode tentar aprimorar as imagens incorporadas com o software
+ livre 
+\family sans
+Gimp
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Gimp
+\end_layout
+
+\end_inset
+
+
+\family default
+ (
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://www.gimp.org
+\end_layout
+
+\end_inset
+
+).
+ Ele é uma alternativa livre ao Adobe Photoshop
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Photoshop
+\end_layout
+
+\end_inset
+
+.
+ Da mesma maneira que as tabelas, comece inserindo a figura com o comando
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Float→Figure
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gráfico produzido em excel e salvo como PDF
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-grafico"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename /home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico.pdf
+	scale 50
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Legend
+Fonte: 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "p. 24"
+key "araujo2012"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Figuras em 
+\family sans
+\emph on
+minipages
+\end_layout
+
+\begin_layout Standard
+
+\family sans
+\emph on
+Minipages
+\family default
+\emph default
+ são usadas para inserir textos ou outros elementos em quadros com tamanhos
+ e posições controladas.
+ No LyX elas são emuladas com os
+\begin_inset Newline linebreak
+\end_inset
+
+comandos 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Float→Figure
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Float→Box
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Um roteiro completo é dado em no Wiki do LyX, em 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://wiki.lyx.org/Examples/FiguresSideBySide
+\end_layout
+
+\end_inset
+
+; note que, na tela.
+ os gráficos podem aparecer empilhados e não necessariamente um do lado
+ do outro.
+ Será necessário também acertar a largura da de cada minipage manualmente,
+ clicando-se com o botão direito em 
+\begin_inset Quotes eld
+\end_inset
+
+Box(Minipage)
+\begin_inset Quotes erd
+\end_inset
+
+ e escolhendo 
+\begin_inset Quotes eld
+\end_inset
+
+Settings→Width
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Settings→% Page Width
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Veja o exemplo da 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-minipage-grafico1"
+
+\end_inset
+
+ e da 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-minipage-grafico2"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gráfico 1 da minipage
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-minipage-grafico1"
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico.pdf
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40text%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Gráfico 2 da minipage
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig-minipage-grafico2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-img-grafico.pdf
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Citacao
+Qualquer que seja o tipo de ilustração, sua identificação aparece na parte
+ superior, precedida da palavra designativa (desenho, esquema, fluxograma,
+ fotografia, gráfico, mapa, organograma, planta, quadro, retrato, figura,
+ imagem, entre outros), seguida de seu número de ordem de ocorrência no
+ texto, em algarismos arábicos, travessão e do respectivo título.
+ Após a ilustração, na parte inferior, indicar a fonte consultada (elemento
+ obrigatório, mesmo que seja produção do próprio autor), legenda, notas
+ e outras informações necessárias à sua compreensão (se houver).
+ A ilustração deve ser citada no texto e inserida o mais próximo possível
+ do trecho a que se refere.
+\begin_inset CommandInset citation
+LatexCommand cite
+after "seções 5.8"
+key "NBR14724:2011"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Equações matemáticas
+\end_layout
+
+\begin_layout Standard
+Um dos pontos muito fortes do LyX é o seu editor de equações, que é semalhante
+ àqueles encontrados em programas de processamento de texto como LibreOffice
+ e Word.
+ Ele pode ser acessado usando-se os comandos 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Math
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Equações numeradas são inseridas com 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Math→Numbered
+\begin_inset space ~
+\end_inset
+
+Formula
+\begin_inset Quotes erd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\forall x\in X,\;\exists y\leq\epsilon
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equações matemáticas também podem ser inseridas em linha com o comando 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Math→Inline
+\begin_inset space \space{}
+\end_inset
+
+Formula
+\begin_inset Quotes erd
+\end_inset
+
+, como por exemplo 
+\begin_inset Formula $\lim_{x\rightarrow\infty}\exp(-x)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para inserir expressões matemáticas sem numeração, use o comando 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→Math→Display
+\begin_inset space \space{}
+\end_inset
+
+Formula
+\begin_inset Quotes erd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|\sum_{i=1}^{n}a_{i}b_{i}\right|\leq\left(\sum_{i=1}^{n}a_{i}^{2}\right)\left(\sum_{i=1}^{n}b_{i}^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consulte mais informações sobre expressões matemáticas em 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://code.google.com/p/abntex2/w/edit/Referencias
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Enumerações: alíneas e subalíneas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+alíneas
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+subalíneas
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+incisos
+\end_layout
+
+\end_inset
+
+Quando for necessário enumerar os diversos assuntos de uma seção que não
+ possua título, esta deve ser subdividida em alíneas
+\begin_inset CommandInset citation
+LatexCommand cite
+after "4.3"
+key "NBR6024:2012"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Alineas
+os diversos assuntos que não possuam título próprio, dentro de uma mesma
+ seção, devem ser subdivididos em alíneas; 
+\end_layout
+
+\begin_layout Alineas
+o texto que antecede as alíneas termina em dois pontos;
+\end_layout
+
+\begin_layout Alineas
+as alíneas devem ser indicadas alfabeticamente, em letra minúscula, seguida
+ de parêntese.
+ Utilizam-se letras dobradas, quando esgotadas as letras do alfabeto;
+\end_layout
+
+\begin_layout Alineas
+as letras indicativas das alíneas devem apresentar recuo em relação à margem
+ esquerda;
+\end_layout
+
+\begin_layout Alineas
+o texto da alínea deve começar por letra minúscula e terminar em ponto-e-vírgula
+, exceto a última alínea que termina em ponto final;
+\end_layout
+
+\begin_layout Alineas
+o texto da alínea deve terminar em dois pontos, se houver subalínea;
+\end_layout
+
+\begin_layout Alineas
+a segunda e as seguintes linhas do texto da alínea começa sob a primeira
+ letra do texto da própria alínea;
+\end_layout
+
+\begin_layout Alineas
+subalíneas 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "4.3"
+key "NBR6024:2012"
+
+\end_inset
+
+ devem ser conforme as alíneas a seguir:
+\end_layout
+
+\begin_deeper
+\begin_layout Alineas
+as subalíneas devem começar por travessão seguido de espaço;
+\end_layout
+
+\begin_layout Alineas
+as subalíneas devem apresentar recuo em relação à alínea;
+\end_layout
+
+\begin_layout Alineas
+o texto da subalínea deve começar por letra minúscula e terminar em ponto-e-vírg
+ula.
+ A última subalínea deve terminar em ponto final, se não houver alínea subsequen
+te;
+\end_layout
+
+\begin_layout Alineas
+a segunda e as seguintes linhas do texto da subalínea começam sob a primeira
+ letra do texto da própria subalínea.
+\end_layout
+
+\end_deeper
+\begin_layout Alineas
+no abnTeX estão disponíveis os ambientes 
+\family typewriter
+incisos
+\family default
+ e 
+\family typewriter
+subalineas
+\family default
+, que em suma são o mesmo que se criar outro nível de 
+\family typewriter
+alineas
+\family default
+, como nos exemplos à seguir:
+\end_layout
+
+\begin_deeper
+\begin_layout Incisos
+
+\shape italic
+Um novo inciso em itálico;
+\end_layout
+
+\end_deeper
+\begin_layout Alineas
+Alínea em 
+\series bold
+negrito
+\series default
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Subalineas
+
+\shape italic
+Uma subalínea em itálico;
+\end_layout
+
+\begin_layout Subalineas
+
+\shape italic
+\bar under
+Uma subalínea em itálico e sublinhado;
+\end_layout
+
+\end_deeper
+\begin_layout Alineas
+Última alínea com 
+\emph on
+ênfase.
+\end_layout
+
+\begin_layout Section
+Espaçamento entre parágrafos e linhas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+espaçamento!entre os parágrafos
+\end_layout
+
+\end_inset
+
+O espaçamento entre um parágrafo e outro pode ser controlado por meio do
+ comando abaixo, inserido no preâmbulo do documento (Document→Settings→Document
+\begin_inset space \space{}
+\end_inset
+
+Preamble):
+\end_layout
+
+\begin_layout LyX-Code
+ 
+\backslash
+setlength{
+\backslash
+parskip}{0.2cm}  % tente também 
+\backslash
+onelineskip
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+espaçamento!entre as linhas
+\end_layout
+
+\end_inset
+
+O controle do espaçamento entre as linhas está disponível diretamente no
+ menu de estilos, no grupo 
+\begin_inset Quotes eld
+\end_inset
+
+ABNTEXEspaços
+\begin_inset Quotes erd
+\end_inset
+
+.
+ As opções são 
+\begin_inset Quotes eld
+\end_inset
+
+Simples
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+1 e 1/2
+\begin_inset Quotes erd
+\end_inset
+
+ e 
+\begin_inset Quotes eld
+\end_inset
+
+Duplo
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Inclusão de outros arquivos
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-include"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+É uma boa prática dividir o seu documento em diversos arquivos, e não apenas
+ escrever tudo em um único.
+ Esse recurso foi utilizado neste documento.
+ Para incluir diferentes arquivos em um arquivo principal, utilize o comando
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Insert→File→Child Document...
+\begin_inset Quotes erd
+\end_inset
+
+; para cada documento filho, defina o documento mestre: isso é feito em
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Document→Settings→Document
+\begin_inset space \space{}
+\end_inset
+
+class
+\begin_inset Quotes erd
+\end_inset
+
+ selecionando-se a checkbox 
+\begin_inset Quotes eld
+\end_inset
+
+Select default master document
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Esse comando funciona tanto com arquivos LyX, TeX ou LaTeX (e mesmo alguns
+ outros), sempre lembrando que no caso dos documentos TeX/LaTeX nenhuma
+ verificação de sintaxe é feita; portanto, você estará por sua própria conta
+ e risco.
+ Já arquivos LyX podem ser incluídos sem preocupações em relação à compatibilida
+de.
+\end_layout
+
+\begin_layout Section
+Compilar o documento LaTeX
+\end_layout
+
+\begin_layout Standard
+No LyX, os documentos são compilados com os comandos do menu 
+\begin_inset Quotes eld
+\end_inset
+
+View
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Há atalhos de teclas para os formatos PDF (Ctrl-R) e DVI (Ctrl-D), sendo
+ que esses dois comandos compilam e exibem o resultado final da compilação.
+ Ctrl-Alt-R e Ctrl-Alt-D recompilam o documento, sem no entanto solicitar
+ uma nova janela para ele.
+\end_layout
+
+\begin_layout Standard
+Caso seja necessário compilar os documentos do LyX num LaTeX de linha de
+ comando, deve-se usar o comando 
+\begin_inset Quotes eld
+\end_inset
+
+File→Export→LaTeX (pdflatex)
+\begin_inset Quotes erd
+\end_inset
+
+ e copiar todos os arquivos usados pelo documento mestre num único diretório.
+ Aí, para compilar o documento, use os seguintes comandos:
+\end_layout
+
+\begin_layout LyX-Code
+pdflatex ARQUIVO_PRINCIPAL    
+\end_layout
+
+\begin_layout LyX-Code
+bibtex ARQUIVO_PRINCIPAL
+\end_layout
+
+\begin_layout LyX-Code
+makeindex ARQUIVO_PRINCIPAL.idx
+\end_layout
+
+\begin_layout LyX-Code
+makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+\end_layout
+
+\begin_layout LyX-Code
+pdflatex ARQUIVO_PRINCIPAL    
+\end_layout
+
+\begin_layout LyX-Code
+pdflatex ARQUIVO_PRINCIPAL
+\end_layout
+
+\begin_layout Section
+Remissões internas
+\end_layout
+
+\begin_layout Standard
+Ao nomear a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab-nvinv"
+
+\end_inset
+
+ e a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig-circulo"
+
+\end_inset
+
+, apresentamos um exemplo de remissão interna, que também pode ser feita
+ quando indicamos o 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+, que tem o nome 
+\emph on
+
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+
+\emph default
+.
+ O número do capítulo indicado é 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+, que se inicia 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Resultados-de-comandos"
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+O número da página de uma remissão pode ser obtida também assim: 
+\backslash
+pageref{cap_exemplos}.
+\end_layout
+
+\end_inset
+
+.
+ Veja a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes"
+
+\end_inset
+
+ para outros exemplos de remissões internas entre seções, subseções e subsubseçõ
+es.
+\end_layout
+
+\begin_layout Section
+Divisões do documento: seção
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-divisoes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta seção testa o uso de divisões de documentos.
+ Esta é a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes"
+
+\end_inset
+
+.
+ Veja a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes-subsection"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Divisões do documento: subseção
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-divisoes-subsection"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Isto é uma subseção.
+ Veja a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-divisoes-subsubsection"
+
+\end_inset
+
+, que é uma 
+\family typewriter
+subsubsection
+\family default
+ do LaTeX, mas é impressa chamada de ``subseção'' porque no Português não
+ temos a palavra 
+\begin_inset Quotes eld
+\end_inset
+
+subsubseção
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Divisões do documento: subsubseção
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-divisoes-subsubsection"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Isto é uma subsubseção.
+\end_layout
+
+\begin_layout Subsubsection
+Divisões do documento: subsubseção
+\end_layout
+
+\begin_layout Standard
+Isto é outra subsubseção.
+\end_layout
+
+\begin_layout Subsection
+Divisões do documento: subseção
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-exemplo-subsec"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Isto é uma subseção.
+\end_layout
+
+\begin_layout Subsubsection
+Divisões do documento: subsubseção
+\end_layout
+
+\begin_layout Standard
+Isto é mais uma subsubseção da 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-exemplo-subsec"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Isto é um parágrafo rotulado
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-exemplo-paragrafo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Este é um parágrafo na 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-exemplo-paragrafo"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Isto é outro parágrafo rotulado
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-exemplo-paragrafo-outro"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Este é outro parágrafo na 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec-exemplo-paragrafo-outro"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Este é um exemplo de nome de seção longo.
+ Ele deve estar alinhado à esquerda e a segunda e demais linhas devem iniciar
+ logo abaixo da primeira palavra da primeira linha
+\end_layout
+
+\begin_layout Standard
+Isso atende à norma 
+\backslash
+citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} e 
+\backslash
+citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
+\end_layout
+
+\begin_layout Section
+Diferentes idiomas e hifenizações
+\begin_inset CommandInset label
+LatexCommand label
+name "sec-hifenizacao"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para usar hifenizações de diferentes idiomas, inclua nas opções do documento
+ o nome dos idiomas que o seu texto contém.
+ Por exemplo:
+\end_layout
+
+\begin_layout LyX-Code
+
+\backslash
+documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abnt
+ex2}
+\end_layout
+
+\begin_layout Standard
+A lista completa de idiomas suportados, bem como outras opções de hifenização,
+ estão disponíveis em 
+\backslash
+citeonline[p.~5-6]{babel}.
+\end_layout
+
+\begin_layout Standard
+Exemplo de hifenização em inglês
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Extraído de: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://en.wikibooks.org/wiki/LaTeX/Internationalization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\lang english
+Text in English language.
+ This environment switches all language-related definitions, like the language
+ specific names for figures, tables etc.
+ to the other language.
+ The starred version of this environment typesets the main text according
+ to the rules of the other language, but keeps the language specific string
+ for ancillary things like figures, in the main language of the document.
+ The environment hyphenrules switches only the hyphenation patterns used;
+ it can also be used to disallow hyphenation by using the language name
+ `nohyphenation'.
+\end_layout
+
+\begin_layout Standard
+Exemplo de hifenização em francês
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Extraído de: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://bigbrowser.blog.lemonde.fr/2013/02/17/tu-ne-tweeteras-point-le-vatican-inter
+dit-aux-cardinaux-de-tweeter-pendant-le-conclave/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\lang french
+Texte en français.
+ Pas question que Twitter ne vienne faire une concurrence déloyale à la
+ traditionnelle fumée blanche qui marque l'élection d'un nouveau pape.
+ Pour éviter toute fuite précoce, le Vatican a donc pris un peu d'avance,
+ et a déjà interdit aux cardinaux qui prendront part au vote d'utiliser
+ le réseau social, selon Catholic News Service.
+ Une mesure valable surtout pour les neuf cardinaux – sur les 117 du conclave
+ – pratiquants très actifs de Twitter, qui auront interdiction pendant toute
+ la période de se connecter à leur compte.
+\end_layout
+
+\begin_layout Standard
+Pequeno texto em espanhol
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Extraído de: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://internacional.elpais.com/internacional/2013/02/17/actualidad/1361102009_913
+423.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+\lang spanish
+Decenas de miles de personas ovacionan al pontífice en su penúltimo ángelus
+ dominical, el primero desde que anunciase su renuncia.
+ El Papa se centra en la crítica al materialismo.
+\end_layout
+
+\end_body
+\end_document

@@ -1,6 +1,6 @@
 %% LyX 2.0.6 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[oneside,english,12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+\documentclass[oneside,spanish,english,french,brazil,12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \setcounter{secnumdepth}{3}
@@ -53,14 +53,13 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-\ifcase #1 %
-Nenhuma citação no texto.%
+\ifcase #1
+Nenhuma citação no texto.
 \or
-Citado na página #2.%
+Citado na página #2.
 \else
-Citado #1 vezes nas páginas #2.%
-\fi}%
-% ---
+Citado #1 vezes nas páginas #2.
+\fi}
 
 % --- 
 % Espaçamentos entre linhas e parágrafos 
@@ -81,6 +80,15 @@ Citado #1 vezes nas páginas #2.%
 \makeatother
 
 \usepackage{babel}
+\makeatletter
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\addto\extrasfrench{%
+   \providecommand{\og}{\leavevmode\flqq~}%
+   \providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}%
+}
+
+\makeatother
 \begin{document}
 \begin{comment}
 Os valores colocados nos campos abaixo \textbf{não serão impressos}
@@ -119,7 +127,7 @@ Programa de Pós-Graduação}
 \coorientador{Sérgio Granja}
 
 
-\coorientador[Co-Orientadores]{Equipe \abnTeX\rule[0.5ex]{1\columnwidth}{1pt}}
+\coorientador[Co-Orientadores]{Equipe abn\TeX{}}
 
 
 \tipotrabalho{Dissertação de Mestrado}
@@ -129,14 +137,19 @@ A partir daqui, inicia-se o texto impresso
 \end{comment}
 
 
+\frenchspacing
+
+\pretextual
+
 \imprimircapa
 
-\imprimirfolhaderosto*
+\imprimirfolhaderosto*{}
 \begin{fichacatalografica}
 
 
+\vspace*{\fill}
 \begin{minipage}[c][12.5cm]{1\textwidth}%
-\rule[0.5ex]{1\columnwidth}{1pt}
+\rule[0.5ex]{1\textwidth}{1pt}
 
 \imprimirautor
 
@@ -158,10 +171,10 @@ II. Universidade xxx. III. Faculdade de xxx. IV. Título\\
 
 
 \hspace{8.75cm} CDU 02:141:005.7%
-}%
-\end{minipage}
+}
 
-\rule[0.5ex]{1\columnwidth}{1pt}\end{fichacatalografica}
+\rule[0.5ex]{1\textwidth}{1pt}%
+\end{minipage}\end{fichacatalografica}
 \begin{errata}
 Elemento opcional da \citeauthor{NBR14724:2001}. Exemplo:\\
 \\
@@ -170,7 +183,9 @@ com reimplantação de enxerto ósseo autólogo autoclavado associado
 ao plasma rico em plaquetas}: estudo crítico na cirurgia de preservação
 de membro em cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade
 de Medicina Veterinária e Zootecnia, Universidade de São Paulo, São
-Paulo, 2011.\\
+Paulo, 2011.
+
+\begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline 
 \textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} & \textbf{Leia-se}\tabularnewline
@@ -178,12 +193,19 @@ Paulo, 2011.\\
 \hline 
 1 & 10 & auto-conclavo & autoconclavo\tabularnewline
 \hline 
-\end{tabular}\end{errata}
+\end{tabular}
+\par\end{center}\end{errata}
 \begin{folhadeaprovacao}
-\includepdf[pages=1]{FolhaDeAprovacao}\end{folhadeaprovacao}
+\includepdf[pages=1]{\lyxdot \lyxdot /\lyxdot \lyxdot /\lyxdot \lyxdot /\lyxdot lyx/templates/FolhaDeAprovacao}\end{folhadeaprovacao}
 \begin{dedicatoria}
-Este trabalho é dedicado às crianças adultas que,\\
- quando pequenas, sonharam em se tornar cientistas.\end{dedicatoria}
+\begin{center}
+\vspace*{\fill}
+\textit{Este trabalho é dedicado às crianças adultas que,}\\
+\textit{ quando pequenas, sonharam em se tornar cientistas.}
+\par\end{center}
+
+\vspace*{\fill}
+\end{dedicatoria}
 \begin{agradecimentos}
 Os agradecimentos principais são direcionados à Gerald Weber, Miguel
 Frasson, Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos
@@ -202,13 +224,116 @@ Arquitetura da Informação%
 \footnote{\url{http://groups.google.com/group/abntex2} e \url{http://abntex2.googlecode.com/}%
 } que contribuíram e que ainda contribuirão para a evolução do abn\TeX{}.\end{agradecimentos}
 \begin{epigrafe}
+\begin{flushright}
+\vspace*{\fill}
 \textit{``Não vos amoldeis às estruturas deste mundo,}\\
 \textit{mas transformai-vos pela renovação da mente,}\\
 \textit{a fim de distinguir qual é a vontade de Deus:}\\
 \textit{o que é bom, o que Lhe é agradável, o que é perfeito}.\\
 (Bíblia Sagrada, Romanos 12, 2)
-\end{epigrafe}
-\bibliographystyle{/usr/share/texlive/texmf-dist/bibtex/bst/abntex2/abntex2-alf}
-\bibliography{abntex2-modelo-references}
+\par\end{flushright}\end{epigrafe}
+\begin{resumo}
+\noindent Segundo a \citeauthor[3.1-3.2][]{NBR6028:2003}, ``o resumo
+deve ressaltar o objetivo, o método, os resultados e as conclusões
+do documento. A ordem e a extensão destes itens dependem do tipo de
+resumo (informativo ou indicativo) e do tratamento que cada item recebe
+no documento original. O resumo deve ser precedido da referência do
+documento, com exceção do resumo inserido no próprio documento. (\ldots{})
+As palavras-chave devem figurar logo abaixo do resumo, antecedidas
+da expressão Palavras-chave:, separadas entre si por ponto e finalizadas
+também por ponto''.
+
+\noindent \textbf{Palavras-chaves:} latex. abntex. editoração de texto.
+\end{resumo}
+\cleardoublepage{}
+\begin{resumo}[Abstract]
+\noindent \foreignlanguage{english}{This is the english abstract.}
+
+\selectlanguage{english}%
+\noindent \textbf{Key words:} latex. abntex. text typesetting.
+\end{resumo}
+\cleardoublepage{}
+\begin{resumo}[Résumé]
+\noindent \foreignlanguage{french}{Ce texte-ci c'est le résumé en
+français.}
+
+\selectlanguage{french}%
+\noindent \textbf{Mots-clés:} latex. abntex. publication de textes.
+\end{resumo}
+\cleardoublepage{}
+\selectlanguage{spanish}%
+\begin{resumo}[Resumen]
+\noindent Este es el resumen en español.
+
+\noindent \textbf{Palavras clave: }latex. abntex. publicación de textos.
+\end{resumo}
+\selectlanguage{brazil}%
+\cleardoublepage{}
+
+\listoffigures
+
+
+\cleardoublepage{}
+
+\listoftables
+\cleardoublepage{}
+
+\tableofcontents*
+
+\cleardoublepage{}
+
+
+\chapter*{Introdução}
+
+Este documento e seu código-fonte são exemplos de referência de uso
+da classe abntex2 e do pacote abntex2cite. O documento exemplifica
+a elaboração de trabalho acadêmico (tese, dissertação e outros do
+gênero) produzido conforme a ABNT NBR 14724:2011 \textbf{Informação
+e documentação - Trabalhos acadêmicos - Apresentação}.
+
+A expressão ``Modelo Canônico'' é utilizada para indicar que abn\TeX{}
+não é modelo específico de nenhuma universidade ou instituição, mas
+que implementa tão somente os requisitos das normas da ABNT. Uma lista
+completa das normas observadas pelo abn\TeX{} é apresentada em \citealp{abntex2classe}.
+
+Sinta-se convidado a participar do projeto abn\TeX{}! Acesse o site
+do projeto em \url{http://abntex2.googlecode.com/}. Também fique
+livre para conhecer, estudar, alterar e redistribuir o trabalho do
+abn\TeX{}, desde que os arquivos modificados tenham seus nomes alterados
+e que os créditos sejam dados aos autores originais, nos termos da
+``The \LaTeX{} Project Public License''%
+\footnote{\url{http://abntex2.googlecode.com/}%
+}.
+
+Encorajamos que sejam realizadas customizações específicas deste exemplo
+para universidades e outras instituições --- como capas, folha de
+aprovação, etc. Porém, recomendamos que ao invés de se alterar diretamente
+os arquivos do abn\TeX{}, distribua-se arquivos com as respectivas
+customizações. Isso permite que futuras versões do abn\TeX{} não se
+tornem automaticamente incompatíveis com as customizações promovidas.
+Consulte \citeauthor[ "como customizar"]{abntex2-wiki-como-customizar}
+para mais informações.
+
+Este documento deve ser utilizado como complemento dos manuais do
+abn\TeX{} (\citealp{abntex2classe};\citealp{abntex2cite};\citealp{abntex2cite-alf})
+e da classe \textsf{memoir}\citep{memoir}. 
+
+Esperamos, sinceramente, que o abn\TeX{} aprimore a qualidade do trabalho
+que você produzirá, de modo que o principal esforço seja concentrado
+no principal: na contribuição científica.
+
+Equipe abn\TeX{} 
+
+Lauro César Araujo
+
+
+\part{Preparação da pesquisa}
+
+
+
+\include{abntex2-modelo-documento-filho}
+
+\bibliographystyle{abntex2-alf}
+\bibliography{/home/pfessel/abntex2/doc/latex/abntex2/abntex2-doc,/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-references}
 
 \end{document}
