@@ -1816,8 +1816,144 @@ filename "abntex2-modelo-documento-filho.lyx"
 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
+\begin_layout Part
+Revisão de Literatura
+\end_layout
+
+\begin_layout Chapter
+Lorem ipsum dolor sit amet
+\end_layout
+
+\begin_layout Section
+Aliquam vestibulum fringilla lorem
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[1]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[2-3]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+
+Resultados
+\end_layout
+
+\begin_layout Chapter
+Lectus lobortis condimentum
+\end_layout
+
+\begin_layout Section
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+ cubilia Curae
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[21-22]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Pellentesque sit amet pede ac sem eleifend consectetuer
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[24]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Conclusão
+\end_layout
+
+\end_inset
+
+Conclusão
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{Conclusão}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[31-33]
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -1826,6 +1962,205 @@ filename "abntex2-modelo-documento-filho.lyx"
 LatexCommand bibtex
 bibfiles "/home/pfessel/abntex2/doc/latex/abntex2/abntex2-doc,/home/pfessel/abntex2/doc/latex/abntex2/abntex2-modelo-references"
 options "abntex2-alf"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{apendicesenv}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Não iniciamos o apêndice com o documento do LyX porque não seria possível
+ incluir os anexos posteriormente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+partapendices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Quisque libero justo
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[50]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula ac
+ pretium ante justo a nulla curabitur tristique arcu eu metus
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[55-57]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{apendicesenv}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{anexosenv}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+partanexos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis parturient
+ montes nascetur ridiculus mus
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[31]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Fusce facilisis lacinia dui
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lipsum[32]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{anexosenv}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset index_print
+LatexCommand printindex
+type "idx"
 
 \end_inset
 
