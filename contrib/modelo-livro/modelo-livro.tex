@@ -10,7 +10,6 @@
 \usepackage{polyglossia}
 \setmainlanguage{brazil}
 \usepackage{fontspec}
-\usepackage[alf]{abntex2cite}
 \defaultfontfeatures{Ligatures=TeX}
 \setmainfont{Minion Pro} %fonte principal (serifada)
 \setsansfont{Myriad Pro} %fonte sem serifas
@@ -23,7 +22,7 @@
 \usepackage{xspace} % para nao precisar de espaços com {} depios de comandos como \LaTeX e abreviações criadas pelo usuário
 \usepackage[bookmarks,colorlinks]{hyperref}
 \usepackage{microtype} %recomendável para melhorias de justificação
-
+\usepackage[alf]{abntex2cite} %cuidado para colocar abntex2cite DEPOIS de hyperref!!!
 
 \chapterstyle{veelo} % estilo de capítulo
 \nouppercaseheads % para cabeçalhos sem estar em maiúsculas
@@ -61,21 +60,18 @@ Fulano de Tal\\
 \phantom{xxx}
 \vspace{0.5cm}
 \huge
-{\raggedright
-Fulano de Tal}\\
+\raggedright
+Fulano de Tal\\
 \vspace{2.5cm}
 \Huge 
-{
-\raggedleft
+{\raggedleft
 \textit{\textcolor{red}{Exemplo de livro utilizando a classe}} ABN\TeX\\[1cm]
 }
-
-{\centering 
+\centering 
 
 \vfill
 \Large
  Publicações Acadêmicas, Ltda.
-}
 
 \clearpage
 \footnotesize
@@ -181,14 +177,12 @@ Armadillo & frozen      & 8.99       \\
 
 \chapter{Exemplos de citação}
 
-Uma citação de Fulano:
+Uma citação de Fulano: \citeonline{fulano}.
 
-\citeonline{fulano}.
-
-\cite{fulano}
+\cite{fulano}.
 
 
-\bibliography{modelo-livro} % insere o arquivo de bibliografia (.bib)
+\bibliography{teste} % insere o arquivo de bibliografia (.bib)
 
 \backmatter % pós-textual
 \cleardoublepage
