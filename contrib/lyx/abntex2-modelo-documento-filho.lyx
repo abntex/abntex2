@@ -2171,5 +2171,368 @@ Decenas de miles de personas ovacionan al pontífice en su penúltimo ángelus
  El Papa se centra en la crítica al materialismo.
 \end_layout
 
+\begin_layout Standard
+O idioma geral do texto por ser alterado com o comando "Edit→Language→(Idioma
+ escolhido)
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Isso altera automaticamente a hifenização e todos os nomes constantes de
+ referências do documento para o idioma inglês.
+ Consulte o manual da classe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abntex2cite"
+
+\end_inset
+
+ para obter orientações adicionais sobre internacionalização de documentos
+ produzidos com abnTeX.
+\end_layout
+
+\begin_layout Standard
+A descreve o ambiente 
+\backslash
+texttt{citacao} que pode receber como parâmetro um idioma a ser usado na
+ citação.
+ 
+\end_layout
+
+\begin_layout Section
+Consulte o manual da classe 
+\family sans
+abnTeX2
+\end_layout
+
+\begin_layout Standard
+Consulte o manual da classe 
+\family sans
+abnTeX2
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abntex2classe"
+
+\end_inset
+
+
+\family default
+ para uma referência completa das macros e ambientes disponíveis.
+ 
+\end_layout
+
+\begin_layout Standard
+Além disso, o manual possui informações adicionais sobre as normas ABNT
+ observadas pelo abnTeX e considerações sobre eventuais requisitos específicos
+ não atendidos, como o caso da 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+citeonline[seção 5.2.2]{NBR14724:2011}
+\end_layout
+
+\end_inset
+
+, que especifica o espaçamento entre os capítulos e o início do texto, regra
+ propositalmente não atendida pelo presente modelo.
+\end_layout
+
+\begin_layout Section
+Referências bibliográficas
+\end_layout
+
+\begin_layout Standard
+A formatação das referências bibliográficas conforme as regras da ABNT são
+ um dos principais objetivos do abnTeX.
+ Consulte os manuais 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+citeonline{abntex2cite}
+\end_layout
+
+\end_inset
+
+ e 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+citeonline{abntex2cite-alf}
+\end_layout
+
+\end_inset
+
+ para obter informações sobre como utilizar as referências bibliográficas.
+\end_layout
+
+\begin_layout Subsection
+Acentuação de referências bibliográficas
+\end_layout
+
+\begin_layout Standard
+Normalmente não há problemas em usar caracteres acentuados em arquivos bibliográ
+ficos (
+\family typewriter
+*.bib
+\family default
+).
+ Porém, como as regras da ABNT fazem uso quase abusivo da conversão para
+ letras maiúsculas, é preciso observar o modo como se escreve os nomes dos
+ autores.
+ Na 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tabela-acentos"
+
+\end_inset
+
+ você encontra alguns exemplos das conversões mais importantes.
+ Preste atenção especial para `ç' e `í' que devem estar envoltos em chaves.
+ A regra geral é sempre usar a acentuação neste modo quando houver conversão
+ para letras maiúsculas.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Tabela de conversão de acentuação.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tabela-acentos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+acento
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+bibtex
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+àáã
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\backslash
+`a 
+\backslash
+'a 
+\backslash
+~a
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+í
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+{
+\backslash
+'i}
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ç
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+{
+\backslash
+c c}
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Precisa de ajuda?
+\end_layout
+
+\begin_layout Standard
+Consulte a FAQ com perguntas frequentes e comuns no portal do abnTeX: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://code.google.com/p/abntex2/wiki/FAQ
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Inscreva-se no grupo de usuários LaTeX: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://groups.google.com/group/latex-br
+\end_layout
+
+\end_inset
+
+, tire suas dúvidas e ajude outros usuários.
+\end_layout
+
+\begin_layout Standard
+Participe também do grupo de desenvolvedores do abnTeX: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://groups.google.com/group/abntex2
+\end_layout
+
+\end_inset
+
+ e faça sua contribuição à ferramenta.
+\end_layout
+
+\begin_layout Section
+Você pode ajudar!
+\end_layout
+
+\begin_layout Standard
+Sua contribuição é muito importante! Você pode ajudar na divulgação, no
+ desenvolvimento e de várias outras formas.
+ Veja como contribuir com o abnTeX em 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://code.google.com/p/abntex2/wiki/ComoContribuir
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Quer customizar os modelos do abnTeX para sua instituição ou universidade?
+\end_layout
+
+\begin_layout Standard
+Veja como customizar o abnTeX em: 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://code.google.com/p/abntex2/wiki/ComoCustomizar
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document
