@@ -8,8 +8,10 @@
 % PACOTES
 % ---
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
+\usepackage{indentfirst}			% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}			% Controle das cores
+\RequirePackage{url}			% deve ser carregado para tratar url de forma correta e usado pelo abntex2cite
+\RequirePackage{breakurl}			% trata de forma correta a quebra de url entre linhas
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -21,7 +23,9 @@
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf,%
+         abnt-url-package=url]{abntex2cite}	% Citações padrão ABNT
+% O carregamento da opção abnt-url-package=url corrige os hiperlinks com quebra de linha na bibliografia
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -52,6 +56,33 @@ Citado #1 vezes nas páginas #2.
 
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\hypersetup{
+    unicode=true,
+    backref=true,
+    pagebackref=true,
+    bookmarks=true,         		% show bookmarks bar?
+%	    pdftitle={\titulocompleto}, 
+%	    pdfauthor={\nomecompletoautor},
+%	    pdfsubject={\imprimirpreambulo},
+%	    pdfkeywords={\palavrachaveum}{\palavrachavedois}{\palavrachavetres},
+    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+%	    pdfcreator={\nomecompletoautor},
+    colorlinks=true,       		% false: boxed links; true: colored links
+    linkcolor=blue,          	        % color of internal links
+    citecolor=blue,        		% color of links to bibliography
+    filecolor=magenta,      		% color of file links
+    urlcolor=blue,			% color of url links
+    bookmarksdepth=4,
+    breaklinks=true			% deve ser usado com o pacote breakurl, sem ele não fuciona
+}
 
 % ---
 % compila o indice
@@ -238,11 +269,43 @@ Lauro César Araújo
 \end_layout
 
 \begin_layout Co-Orientador
-Sérgio Granja
+Silvio Cesar Garcia Granja 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Este campo será ignorado se houver Co-orientadores.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Co-Orientadores
+Silvio Cesar Garcia Granja 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
 Equipe abnTeX
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Tipo-trabalho
@@ -1216,6 +1279,313 @@ latex.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Siglas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+TeX
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ sistema de tipografia criado por Donald Knuth.
+\end_layout
+
+\begin_layout Siglas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+LaTeX
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ sistema de tipografia de alta qualidade, que inclui recursos projetados
+ para a produção de documentação técnica e científica.
+ LaTeX é o padrão de fato para a comunicação e publicação de documentos
+ científicos.
+ LaTeX está disponível como software livre.
+ Basicamente LateX é um conjunto de macros para o sistema de tipografia
+ de textos TeX.
+\end_layout
+
+\begin_layout Siglas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+abnTeX2
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ evolução do abnTeX (ABsurd Norms for TeX*), é uma suíte para LaTeX que
+ atende os requisitos das normas da ABNT (Associação Brasileira de Normas
+ Técnicas) para elaboração de documentos técnicos e científicos brasileiros,
+ como artigos científicos, relatórios técnicos, trabalhos acadêmicos como
+ teses, dissertações, projetos de pesquisa e outros documentos do gênero.
+ 
+\end_layout
+
+\begin_layout Siglas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+WYSIWYG
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ acrônimo da expressão "What You See Is What You Get", cuja tradução remete
+ a algo como "O que você vê é o que você obtém".
+ 
+\end_layout
+
+\begin_layout Siglas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+WYSIWYM
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ acrónimo da expressão ''What You See Is What You Mean''.
+ Significa que a exibição na tela deve primar pelas informações, e não pela
+ formatação, que é um trabalho que deve ser deixado para o computador.
+\end_layout
+
+\begin_layout Simbolos
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\alpha,\beta,\gamma,\ldots$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ alfabeto grego
+\end_layout
+
+\begin_layout Simbolos
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $u_{i}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima componente do deslocamento 
+\begin_inset Formula $\vec{u}$
+\end_inset
+
+ do ponto em 
+\begin_inset Formula $x_{j}$
+\end_inset
+
+ no instante 
+\begin_inset Formula $t$
+\end_inset
+
+, ou vetor deslocamento na notação tensorial
+\end_layout
+
+\begin_layout Simbolos
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\dot{u}_{i}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $i$
+\end_inset
+
+-ésima componente da velocidade 
+\begin_inset Formula $\dot{\vec{u}}$
+\end_inset
+
+ em 
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+ no instante 
+\begin_inset Formula $t$
+\end_inset
+
+, ou vetor velocidade na notação tensorial
+\end_layout
+
+\begin_layout Simbolos
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\varepsilon_{ik}$
+\end_inset
+
+, 
+\begin_inset Formula $e_{ik}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+ deformação (
+\emph on
+strain
+\emph default
+) infinitesimal e deformação finita nas direções 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ e 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+, respectivamente
+\end_layout
+
+\begin_layout Standard
 \begin_inset Newpage cleardoublepage
 \end_inset
 
