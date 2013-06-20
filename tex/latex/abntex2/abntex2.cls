@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.6.20 07h27	laurocesar / ricardoerikson
+%%  Adiciona condição para a criação de length \chapternamenumlength na 
+%%  definição do chapterstyle abnt
+%%
 %% 2013.5.24 10h29	laurocesar
 %%  Adiciona a opção language ao ambiente citacao.
 %%
@@ -436,7 +440,9 @@
 \makechapterstyle{abnt}{%
   \renewcommand{\chapterheadstart}{} 
 
-  \newlength{\chapternamenumlength}
+  \ifx \chapternamenumlength \undefined
+    \newlength{\chapternamenumlength}
+  \fi
 
   % tamanhos de fontes de chapter e part	
    \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
