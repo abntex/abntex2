@@ -336,7 +336,7 @@ tabelas
 A 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab-nvinv"
+reference "tab:nvinv"
 
 \end_inset
 
@@ -371,7 +371,7 @@ Níveis de investigação
 
 \begin_inset CommandInset label
 LatexCommand label
-name "tab-nvinv"
+name "tab:nvinv"
 
 \end_inset
 
@@ -582,7 +582,7 @@ Evil Red Text
 ), como o exemplo da 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig-circulo"
+reference "fig:circulo"
 
 \end_inset
 
@@ -609,7 +609,7 @@ A delimitação do espaço
 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig-circulo"
+name "fig:circulo"
 
 \end_inset
 
@@ -897,7 +897,7 @@ Ou então figuras podem ser incorporadas de arquivos externos, como é o caso
  da 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig-grafico"
+reference "fig:grafico"
 
 \end_inset
 
@@ -1039,7 +1039,7 @@ Gráfico produzido em excel e salvo como PDF
 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig-grafico"
+name "fig:grafico"
 
 \end_inset
 
@@ -1068,10 +1068,6 @@ key "araujo2012"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1160,14 +1156,14 @@ Settings→% Page Width
  Veja o exemplo da 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig-minipage-grafico1"
+reference "fig:minipage-grafico1"
 
 \end_inset
 
  e da 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig-minipage-grafico2"
+reference "fig:minipage-grafico2"
 
 \end_inset
 
@@ -1206,7 +1202,7 @@ Gráfico 1 da minipage
 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig-minipage-grafico1"
+name "fig:minipage-grafico1"
 
 \end_inset
 
@@ -1252,7 +1248,7 @@ Gráfico 2 da minipage
 
 \begin_inset CommandInset label
 LatexCommand label
-name "fig-minipage-grafico2"
+name "fig:minipage-grafico2"
 
 \end_inset
 
@@ -1773,22 +1769,22 @@ Remissões internas
 \begin_layout Standard
 Ao nomear a 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "tab-nvinv"
+LatexCommand formatted
+reference "tab:nvinv"
 
 \end_inset
 
  e a 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "fig-circulo"
+LatexCommand formatted
+reference "fig:circulo"
 
 \end_inset
 
 , apresentamos um exemplo de remissão interna, que também pode ser feita
  quando indicamos o 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "chap:Resultados-de-comandos"
 
 \end_inset
@@ -1807,7 +1803,7 @@ reference "chap:Resultados-de-comandos"
 .
  O número do capítulo indicado é 
 \begin_inset CommandInset ref
-LatexCommand formatted
+LatexCommand ref
 reference "chap:Resultados-de-comandos"
 
 \end_inset
@@ -1834,8 +1830,8 @@ pageref{cap_exemplos}.
 .
  Veja a 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec-divisoes"
+LatexCommand formatted
+reference "sec:divisoes"
 
 \end_inset
 
@@ -1847,7 +1843,7 @@ es.
 Divisões do documento: seção
 \begin_inset CommandInset label
 LatexCommand label
-name "sec-divisoes"
+name "sec:divisoes"
 
 \end_inset
 
@@ -1858,16 +1854,16 @@ name "sec-divisoes"
 Esta seção testa o uso de divisões de documentos.
  Esta é a 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec-divisoes"
+LatexCommand formatted
+reference "sec:divisoes"
 
 \end_inset
 
 .
  Veja a 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec-divisoes-subsection"
+LatexCommand formatted
+reference "sec:divisoes-subsection"
 
 \end_inset
 
@@ -1878,7 +1874,7 @@ reference "sec-divisoes-subsection"
 Divisões do documento: subseção
 \begin_inset CommandInset label
 LatexCommand label
-name "sec-divisoes-subsection"
+name "sec:divisoes-subsection"
 
 \end_inset
 
@@ -1889,8 +1885,8 @@ name "sec-divisoes-subsection"
 Isto é uma subseção.
  Veja a 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec-divisoes-subsubsection"
+LatexCommand formatted
+reference "sec:divisoes-subsubsection"
 
 \end_inset
 
@@ -1914,7 +1910,7 @@ subsubseção
 Divisões do documento: subsubseção
 \begin_inset CommandInset label
 LatexCommand label
-name "sec-divisoes-subsubsection"
+name "sec:divisoes-subsubsection"
 
 \end_inset
 
@@ -1937,7 +1933,7 @@ Isto é outra subsubseção.
 Divisões do documento: subseção
 \begin_inset CommandInset label
 LatexCommand label
-name "sec-exemplo-subsec"
+name "sec:exemplo-subsec"
 
 \end_inset
 
@@ -1955,8 +1951,8 @@ Divisões do documento: subsubseção
 \begin_layout Standard
 Isto é mais uma subsubseção da 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec-exemplo-subsec"
+LatexCommand formatted
+reference "sec:exemplo-subsec"
 
 \end_inset
 
@@ -1967,7 +1963,7 @@ reference "sec-exemplo-subsec"
 Isto é um parágrafo rotulado
 \begin_inset CommandInset label
 LatexCommand label
-name "sec-exemplo-paragrafo"
+name "sec:exemplo-paragrafo"
 
 \end_inset
 
@@ -1977,8 +1973,8 @@ name "sec-exemplo-paragrafo"
 \begin_layout Paragraph
 Este é um parágrafo na 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec-exemplo-paragrafo"
+LatexCommand formatted
+reference "sec:exemplo-paragrafo"
 
 \end_inset
 
@@ -1990,7 +1986,7 @@ reference "sec-exemplo-paragrafo"
 Isto é outro parágrafo rotulado
 \begin_inset CommandInset label
 LatexCommand label
-name "sec-exemplo-paragrafo-outro"
+name "sec:exemplo-paragrafo-outro"
 
 \end_inset
 
@@ -2000,8 +1996,8 @@ name "sec-exemplo-paragrafo-outro"
 \begin_layout Paragraph
 Este é outro parágrafo na 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec-exemplo-paragrafo-outro"
+LatexCommand formatted
+reference "sec:exemplo-paragrafo-outro"
 
 \end_inset
 
@@ -2027,7 +2023,7 @@ citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
 Diferentes idiomas e hifenizações
 \begin_inset CommandInset label
 LatexCommand label
-name "sec-hifenizacao"
+name "sec:hifenizacao"
 
 \end_inset
 
