@@ -7,13 +7,27 @@
 
 
 \documentclass[11pt,a5paper]{memoir}
-\usepackage{polyglossia}
+\usepackage{ifxetex}
+
+\usepackage{ifxetex}
+\ifxetex
+ \usepackage{polyglossia}
 \setmainlanguage{brazil}
+\setotherlanguages{french,english,spanish,german,italian}
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
 \setmainfont{Minion Pro} %fonte principal (serifada)
 \setsansfont{Myriad Pro} %fonte sem serifas
 \setmonofont{Consolas} % fonte monoespaçada
+ % comandos de fontes
+\else
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage{ebgaramond}
+ % pacote de fontes
+\fi
+
+
 \usepackage[dvipsnames]{xcolor} % para cores
 \usepackage{graphicx} % para imagens
 \usepackage{booktabs} % para tabelas
