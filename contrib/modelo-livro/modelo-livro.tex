@@ -6,8 +6,7 @@
 
 
 
-\documentclass[11pt,a5paper]{memoir}
-\usepackage{ifxetex}
+\documentclass[a5paper]{memoir}
 
 \usepackage{ifxetex}
 \ifxetex
@@ -16,9 +15,9 @@
 \setotherlanguages{french,english,spanish,german,italian}
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
-\setmainfont{Minion Pro} %fonte principal (serifada)
-\setsansfont{Myriad Pro} %fonte sem serifas
-\setmonofont{Consolas} % fonte monoespaçada
+\setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
+\setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
+\setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
  % comandos de fontes
 \else
  \usepackage[utf8]{inputenc}
@@ -31,24 +30,31 @@
 
 \usepackage[dvipsnames]{xcolor} % para cores
 \usepackage{graphicx} % para imagens
-\usepackage{booktabs} % para tabelas
+\usepackage{booktabs,tabularx,rotating}% para tabelas
+\usepackage{caption}
 \usepackage{lipsum} % para texto de preenchimento de exemplo
 \usepackage{mdframed} % para caixas de texto como na CIP do verso do título
 \usepackage{xspace} % para nao precisar de espaços com {} depios de comandos como \LaTeX e abreviações criadas pelo usuário
 \usepackage[bookmarks,colorlinks]{hyperref}
 \usepackage{microtype} %recomendável para melhorias de justificação
 \usepackage[alf]{abntex2cite} %cuidado para colocar abntex2cite DEPOIS de hyperref!!!
+\usepackage{multicol}
+\usepackage{lettrine}
 
-\chapterstyle{veelo} % estilo de capítulo
+
+\chapterstyle{pedersen} % estilo de capítulo
 \nouppercaseheads % para cabeçalhos sem estar em maiúsculas
 
 
 
-\title{Exemplo de livro utilizando a classe ABN\TeX}
+\title{Exemplo de livro}
 \author{Youssef Cherem}
 \date{2013}
 
 \begin{document}
+\frenchspacing
+
+\frontmatter
 
 \begin{titlingpage}
 
@@ -60,7 +66,7 @@ Fulano de Tal\\
 \vspace{2.5cm}
 \Huge 
 {\raggedleft
-\textit{\textcolor{red}{Exemplo de livro utilizando a classe}} ABN\TeX\\[1cm]
+\textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
 }
 \centering 
 
@@ -80,7 +86,7 @@ Fulano de Tal\\
 \vspace{2.5cm}
 \Huge 
 {\raggedleft
-\textit{\textcolor{red}{Exemplo de livro utilizando a classe}} ABN\TeX\\[1cm]
+\textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
 }
 \centering 
 
@@ -106,7 +112,7 @@ Câmara Brasileira do Livro, \textsc{sp}, Brasil
 \begin{mdframed}
 \noindent Tal, Fulano de.
 
-Exemplo de livro utilizando a classe ABN\TeX. / Fulano de Tal. -- São Paulo: Publicações Acadêmicas, Ltda., 2013.
+Exemplo de livro composto com \LaTeX. / Fulano de Tal. -- São Paulo: Publicações Acadêmicas, Ltda., 2013.
 
 \medskip
 
@@ -124,8 +130,6 @@ ISBN XXXX-XXXX-XX.
 
 
 
-\frontmatter
-
 \tableofcontents*
 \cleardoublepage
 
@@ -138,12 +142,24 @@ ISBN XXXX-XXXX-XX.
 \mainmatter
 
 \chapter*{Introdução}
-Este documento destina-se a servir como modelo para composição e diagramação de livros em \LaTeX. Ele foi concebido para servir de base para elaboração de livros baseados na norma 6029 (de 2003) da \textsc{abnt}, para livros. A formatação de geral dos capítulos, margens, tamanho de página, fontes etc. pode ser modificada pelo usuário.
+\lettrine[nindent=0.35em,lhang=0.40,loversize=0.3]{E}{ste documento} faz parte do projeto ABN\TeX, destinando-se a servir como modelo para composição e diagramação de livros em \LaTeX. Ele foi concebido para servir de base para elaboração de livros baseados na norma NBR 6029:2006 da \textsc{abnt}, para livros. Essa norma não estabelece parâmetros tão rígidos quanto a NBR 14724:2011, para trabalhos acadêmicos, e segue, de certa forma, o design usual de livros. (Para facilitação da compreensão de termos técnicos, ver a Tabela \ref{vocabulario-texto} com alguns termos do design de livros.)
 
+Desta forma, temos:
+
+\begin{description}
+\item[parte pré-textual] Composta por: falsa folha de rosto, folha de rosto, colofão (opcional na parte pós-textual), sumário (conteúdo), a\-gra\-de\-ci\-men\-tos (acknowledgments), dedicatória, epígrafe.
+\item[folha de rosto] Como diz o nome em inglês (\textit{title page}) a “folha de rosto” é a \textit{página do título}. No verso da folha de rosto, costuma-se incluir os dados sobre a obra e a edição, catalogação, editora, direitos autorais e de reprodução etc.
+\item [parte pós-textual] Composta por epílogo, posfácio, apêndice, glossário, bibliografia, índice remissivo (inglês: \textit{index}), colofão etc.
+
+\end{description}
+
+Este modelo foi composto com a classe \texttt{memoir}, mas qualquer outra classe que contemple o formato de livros poderia ser utilizada. A formatação de geral dos capítulos, margens, tamanho de página, fontes etc. pode ser modificada pelo usuário.
 
 \chapter{Um exemplo de capítulo}
+\lipsum[1-10]
 
 \chapter{Exemplos de imagens}
+\lipsum[1-5]
 
 \begin{figure}
 \centering
@@ -171,9 +187,67 @@ Este documento destina-se a servir como modelo para composição e diagramação
 
 
 \chapter{Um exemplo de capítulo}
-\section{Um exemplo de tabela}
+
+\section{Exemplos de tabela}
+
+
+
+\begin{table}
+\caption{Pequeno vocabulário de design de livros\label{vocabulario-texto}}
+\footnotesize
+\begin{tabular}{p{5cm}p{5cm}}
+\toprule
+\textit{Termo em inglês} & \textit{Termo em português}\\
+\midrule
+\footnotesize
+title page & folha de rosto.\\
+
+cover & capa\\
+
+back cover & quarta capa ou contra-capa ou verso da capa\\
+
+bastard title ou half title & falsa folha de rosto. Tem só o título do livro.\\
+
+table of contents & sumário\\
+
+text block ou book block & miolo\\
+
+print space (alemão: \textit{Satzspiegel}) & mancha gráfica\\
+
+section, gathering, quire (especialmente se não impresso), signature & caderno\\
+
+leaf = folio (latim) & folha, composta de recto (lat.) (anverso/frente) e verso (lat.) (verso). Geralmente o recto é página ímpar, e verso é página par.\\
+
+hardcover & capa dura.\\
+
+endpaper/endsheet & folha de guarda. Folha de papel para prender o miolo do livro na capa dura.\\
+
+dust jacket, dust cover, book jacket, dust wrapper & sobrecapa. Geralmente de papel, para cobrir capas duras.\\
+
+front matter & parte pré-textual.\\
+
+main matter & parte textual\\
+
+back matter & parte pós-textual. Composta por epílogo, posfácio, apêndice, glossário, bibliografia, índice remissivo (inglês: index), colofão etc.\\
+
+colophon & colofão. Breve descrição sobre aspectos da publicação do livro. \\
+
+running headers & títulos correntes\\
+
+volume & volume. Conjunto de páginas encadernadas.\\
+
+\bottomrule
+\end{tabular}
+\caption*{\footnotesize Fontes:\\
+\url{http://pt.wikipedia.org/wiki/Design_de_livros}\\
+\url{http://en.wikipedia.org/wiki/Book_design}\\
+\url{http://static.lexicool.com/dictionary/RX7KW614433.pdf}\\}
+\end{table}
+
+
 \begin{table}
 \caption{Exemplo de tabela utilizando o pacote \textsf{booktabs}.}
+\centering
 \begin{tabular}{llr}
 \toprule
 \multicolumn{2}{c}{Item} \\
@@ -197,13 +271,24 @@ Uma citação de Fulano: \citeonline{fulano}.
 \cite{fulano}.
 
 
-\bibliography{teste} % insere o arquivo de bibliografia (.bib)
+\bibliography{modelo-livro} % insere o arquivo de bibliografia (.bib)
 
 \backmatter % pós-textual
 \cleardoublepage
 \thispagestyle{empty} % para última página com informações sobre a composição do livro.
+
+Sinta-se convidado a participar do projeto ABN\TeX! Acesse o site do projeto em
+\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
+estudar, alterar e redistribuir o trabalho do ABN\TeX, desde que os arquivos
+modificados tenham seus nomes alterados e que os créditos sejam dados aos
+autores originais, nos termos da ``The \LaTeX\ Project Public
+License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
+
+Encorajamos que sejam realizadas customizações específicas deste exemplo para
+universidades e outras instituições --- como capas, folhas de rosto, etc.
 ~\vfill
 Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro, de Robert Slimbach e Carol Twombly.
 
 
 \end{document}
+
