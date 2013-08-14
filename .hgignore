@@ -55,3 +55,21 @@ syntax: regexp
 \.aux$
 syntax: regexp
 \.synctex$
+syntax: regexp
+^contrib/modelo-livro/modelo-livro\.synctex\.gz$
+syntax: regexp
+\.bbl$
+syntax: regexp
+\.blg$
+syntax: regexp
+\.out$
+syntax: regexp
+\.lot$
+syntax: regexp
+^doc/latex/abntex2/abntex2cite-alf\.pdf$
+syntax: regexp
+\.gz$
+syntax: regexp
+^doc/latex/abntex2/abntex2-modelo-artigo\.pdf$
+syntax: regexp
+^doc/latex/abntex2/abntex2-modelo-trabalho-academico\.pdf$
