@@ -17,6 +17,8 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.8.14 9h30	laurocesar
+%%  Adiciona informação sobre como customizar as margens do resumo.
 %%
 %% 2013.5.24 10h29	laurocesar
 %%  Adiciona seção referente ao espaçamento entre o capítulo e o início do
@@ -1797,6 +1799,14 @@ Exemplos de uso do ambiente são:
   \end{otherlanguage*}  
 \end{resumoumacoluna}
 ] fim de opção de twocolumn
+\end{verbatim}
+
+\DescribeMacro{\absleftindent}\DescribeMacro{\absrightindent}
+As margens do ambiente |resumo| podem ser customizadas com os comandos:
+
+\begin{verbatim}
+\setlength\absleftindent{0cm}
+\setlength\absrightindent{0cm}
 \end{verbatim}
 
 A \autoref{sec-internacional-hifen} aborda a macro |otherlanguage*|,
