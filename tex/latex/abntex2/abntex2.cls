@@ -666,12 +666,21 @@
 
 % ---
 % Resumo e abstracts em diferentes idiomas - NBR 14724/2011
+
+% altera as margens padrões do memoir para abstract caso nao seja article
+\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+    %
+  }{ % else
+    \setlength\absleftindent{0cm}
+    \setlength\absrightindent{0cm}
+  }
+
 \newenvironment{resumo}[1][\resumoname]{%
    \PRIVATEbookmarkthis{#1}
    \renewcommand{\abstractnamefont}{\chaptitlefont}
    \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
    \begin{abstract}
-   \SingleSpacing
+   %\SingleSpacing
   }{\end{abstract}\PRIVATEclearpageifneeded}
   
 \newenvironment{resumoumacoluna}[1][\resumoname]{%
@@ -679,7 +688,7 @@
    \renewcommand{\abstractnamefont}{\chaptitlefont}
    \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
    \begin{onecolabstract}
-   \SingleSpacing
+   %\SingleSpacing
 }{\end{onecolabstract}\PRIVATEclearpageifneeded}
 % ---
 
