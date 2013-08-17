@@ -669,33 +669,27 @@
 
 % altera as margens padrões do memoir para abstract caso nao seja article
 \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-    %
+    % em artigos, margens e fontes são as mesmas de memoir
   }{ % else
+  	% Ajusta as margens para serem a mesma do documento
     \setlength\absleftindent{0cm}
     \setlength\absrightindent{0cm}
+    % Garante que a fonte do texto do abstract será a mesma do documento, pois
+    % na classe memoir está \small
+    \abstracttextfont{\normalfont\normalsize}
   }
   
 % A norma não diz nada sobre identação e separação entre parágrafos no abstract,
-% porém o uso mostra que muitos abstracts são montados sem identação e com a 
-% separação entre o texto e "Palavras chaves" em 18pt. O códogo que segue garante isso.
+% porém o uso mostra que muitos abstracts são montados sem identação.
 \AtBeginDocument{%
    \setlength{\absparindent}{0pt}
-   \setlength{\absparsep}{18pt}}
-
-% Garante que a fonte do texto do abstract será 12pt, pois na classe memoir está \small
-\abstracttextfont{\normalfont\normalsize}
-
-% Inclui uma opção de controle para o espaçamento do ambiente abstract
-% e faz por padrão \OnehalfSpacing
-\newcommand{\abstracttextspacing}{\OnehalfSpacing}
+}
 
 \newenvironment{resumo}[1][\resumoname]{%
    \PRIVATEbookmarkthis{#1}
    \renewcommand{\abstractnamefont}{\chaptitlefont}
    \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
    \begin{abstract}
-   %\SingleSpacing
-   \abstracttextspacing
   }{\end{abstract}\PRIVATEclearpageifneeded}
   
 \newenvironment{resumoumacoluna}[1][\resumoname]{%
@@ -703,8 +697,6 @@
    \renewcommand{\abstractnamefont}{\chaptitlefont}
    \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
    \begin{onecolabstract}
-   %\SingleSpacing
-   \abstracttextspacing
 }{\end{onecolabstract}\PRIVATEclearpageifneeded}
 % ---
 

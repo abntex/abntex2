@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.8.17 8h42	laurocesar
+%%  Descreve outros comandos usados para customizar o resumo.
+%%
 %% 2013.8.14 9h30	laurocesar
 %%  Adiciona informação sobre como customizar as margens do resumo.
 %%
@@ -1802,12 +1805,37 @@ Exemplos de uso do ambiente são:
 \end{verbatim}
 
 \DescribeMacro{\absleftindent}\DescribeMacro{\absrightindent}
-As margens do ambiente |resumo| podem ser customizadas com os comandos:
+As margens esquerda e direita, respectivamente, do ambiente |resumo| podem ser
+customizadas com os comandos. Esta é a configuração padrão para documentos que
+não sejam artigos:
 
 \begin{verbatim}
 \setlength\absleftindent{0cm}
 \setlength\absrightindent{0cm}
 \end{verbatim}
+
+\DescribeMacro{\abstracttextfont}
+A fonte do ambiente |resumo| é automaticamente alterada para o caso de
+documentos que não sejam artigos com:
+
+\begin{verbatim}
+\abstracttextfont{\normalfont\normalsize}
+\end{verbatim}
+
+\DescribeMacro{\absparindent}\DescribeMacro{\absparsep}
+A indentação e o espaçamento entre parágrafos do ambiente |resumo| podem ser
+alterados, respectivamente, com:
+
+\begin{verbatim}
+\setlength{\absparindent}{0pt}
+\setlength{\absparsep}{18pt}
+\end{verbatim}
+
+A indentação padrão utilizada no ambiente é |0pt|. Já o separador de parágrafos
+não é alterada pela classe \textsf{abntex2}.
+
+Outras configurações do ambiente |resumo| estão disponíveis no manual do
+\textsf{memoir} \cite[p.~69-71]{memoir}.
 
 A \autoref{sec-internacional-hifen} aborda a macro |otherlanguage*|,
 responsável pela hifenização em diferentes idiomas.
