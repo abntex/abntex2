@@ -32,7 +32,7 @@ CHANGE HISTORY
     . fixed article model in compliance to ABNT NBR 6022:2003. 
     . fixed definition of chapternamenumlength in abnt chapter style 
     . added general information in the documentation files
-    . changed margins and paragraph spacing of abstract environment
+    . changed indentation, margins and paragraph spacing of abstract environment
 
   2013/05/26 - v1.7.1
    . fixed bibliography format for article and journalpart
