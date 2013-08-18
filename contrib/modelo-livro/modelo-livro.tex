@@ -41,23 +41,27 @@
 
 % compilação de fontes
 
-  % para xelatex: para ser possível utilizar as fontes do sistema. se for usar pdflatex, comente (ou apague) as linhas abaixo:
-%   \usepackage{polyglossia}
-%   \setmainlanguage{brazil}
-%   \setotherlanguages{french,english,spanish,german,italian}
-%   \usepackage{fontspec}
-%   \defaultfontfeatures{Ligatures=TeX}
-%   \setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
-%   \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
-%   \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
-
-  % pdflatex: se for utilizar pdflatex, descomente as linhas abaixo.
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-%escolha só um pacote de fontes:
-\usepackage{ebgaramond}	% fontes EBGaramond
-%\usepackage{lmodern}		% fontes LatinModern
-
+\usepackage{ifxetex}
+\ifxetex
+% % se for utilizar as fontes do sistema: **escolha sua fonte**
+ \usepackage{polyglossia}
+\setmainlanguage{brazil}
+\setotherlanguages{french,english,spanish,german,italian}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
+\setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
+\setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
+ % comandos de fontes
+\else
+ % % se for utilizar pdflatex
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage[american,frenchb,spanish,brazil]{babel}
+ \usepackage{ebgaramond}
+\fi
+%% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel. 
+%% Se isso acontecer, atualize o pacote para a versão mais recente ou utilize somente uma das sequências (pdflatex ou xelatex), comentando ou apagando a outra.
 
 \usepackage[dvipsnames]{xcolor} 	% para cores
 \usepackage{graphicx} 				% para imagens
