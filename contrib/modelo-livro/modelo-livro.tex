@@ -42,22 +42,21 @@
 % compilação de fontes
 
   % para xelatex: para ser possível utilizar as fontes do sistema. se for usar pdflatex, comente (ou apague) as linhas abaixo:
-  \usepackage{polyglossia}
-  \setmainlanguage{brazil}
-  \setotherlanguages{french,english,spanish,german,italian}
-  \usepackage{fontspec}
-  \defaultfontfeatures{Ligatures=TeX}
-  \setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
-  \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
-  \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
+%   \usepackage{polyglossia}
+%   \setmainlanguage{brazil}
+%   \setotherlanguages{french,english,spanish,german,italian}
+%   \usepackage{fontspec}
+%   \defaultfontfeatures{Ligatures=TeX}
+%   \setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
+%   \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
+%   \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
 
-se for utilizar pdflatex, descomente as linhas abaixo.
-  % pdflatex: compilação padrão
-  %\usepackage[utf8]{inputenc}
-  %\usepackage[T1]{fontenc}
-  % escolha só um pacote de fontes:
-  %\usepackage{ebgaramond}	% fontes EBGaramond
-  %\usepackage{lmodern}		% fontes LatinModern
+  % pdflatex: se for utilizar pdflatex, descomente as linhas abaixo.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%escolha só um pacote de fontes:
+\usepackage{ebgaramond}	% fontes EBGaramond
+%\usepackage{lmodern}		% fontes LatinModern
 
 
 \usepackage[dvipsnames]{xcolor} 	% para cores
@@ -426,7 +425,7 @@ Encorajamos que sejam realizadas customizações específicas deste exemplo para
 universidades e outras instituições --- como capas, folhas de rosto, etc.
 % ~\vfill Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro,
 % de Robert Slimbach e Carol Twombly.
-~\vfill Este texto foi composto em fontes EBGara­mond
+~\vfill Este texto foi composto em fontes EBGaramond
 (\url{http://www.ctan.org/tex-archive/fonts/ebgaramond}).
 
 \end{document}
