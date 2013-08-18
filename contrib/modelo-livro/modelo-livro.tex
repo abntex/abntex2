@@ -40,9 +40,8 @@
 ]{abntex2}
 
 % compilação de fontes
-\usepackage{ifxetex}
-\ifxetex
-  % para xelatex: para ser possível utilizar as fontes do sistema
+
+  % para xelatex: para ser possível utilizar as fontes do sistema. se for usar pdflatex, comente (ou apague) as linhas abaixo:
   \usepackage{polyglossia}
   \setmainlanguage{brazil}
   \setotherlanguages{french,english,spanish,german,italian}
@@ -51,14 +50,15 @@
   \setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
   \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
   \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
-\else
+
+se for utilizar pdflatex, descomente as linhas abaixo.
   % pdflatex: compilação padrão
-  \usepackage[utf8]{inputenc}
-  \usepackage[T1]{fontenc}
-  \usepackage{cmap}			% Mapear caracteres especiais no PDF
-  \usepackage{ebgaramond}	% fontes EBGaramond
+  %\usepackage[utf8]{inputenc}
+  %\usepackage[T1]{fontenc}
+  % escolha só um pacote de fontes:
+  %\usepackage{ebgaramond}	% fontes EBGaramond
   %\usepackage{lmodern}		% fontes LatinModern
-\fi
+
 
 \usepackage[dvipsnames]{xcolor} 	% para cores
 \usepackage{graphicx} 				% para imagens
@@ -85,7 +85,7 @@
      	%pagebackref=true,
 		pdftitle={\@title}, 
 		pdfauthor={\@author},
-    	pdfsubject={Breve sinópse do documento},
+    	pdfsubject={Breve sinopse do documento},
 	    pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{livro}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
@@ -153,10 +153,10 @@ Fulano de Tal\\
 \textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
 }
 \centering 
-% 
+%  %este é um símbolo que só aparecerá com a fonte Minion.
 \vfill
 \Large
-% 
+% %este é um símbolo que só aparecerá com a fonte Minion.
 Publicações Acadêmicas, Ltda.
 
 \end{titlingpage}
@@ -178,10 +178,10 @@ Fulano de Tal\\
 \textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
 }
 \centering 
-%
+% %este é um símbolo que só aparecerá com a fonte Minion.
 \vfill
 \Large
-% 
+% %este é um símbolo que só aparecerá com a fonte Minion.
 Publicações Acadêmicas, Ltda.
 % ---
 
