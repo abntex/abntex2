@@ -10,15 +10,10 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%%
-%% The Current Maintainer of this work is 
-%% Youssef Cherem <ycherem@gmail.com>, member of abnTeX2 team, 
-%% led by Lauro César Araujo. Further information are available on 
+%% Further information is available on 
 %% http://abntex2.googlecode.com/
 %%
-%% This work consists of the files abtex2-modelo-glossarios.tex,
-%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
-%%
+
 
 
 \documentclass[
@@ -79,7 +74,7 @@
 % Informações do documento
 % ---
 \title{Exemplo de livro}
-\author{Youssef Cherem}
+\author{Fulano de Tal}
 \date{2013}
 
 % informações do PDF
@@ -119,16 +114,18 @@
 % ---
 % Espaçamentos entre linhas e parágrafos
 % ---
-% O tamanho do parágrafo é dado por:
+% O tamanho do parágrafo é dado por (exemplo):
 %\setlength{\parindent}{1.3cm}
+%% Não recomendado mudar.
  
 % Controle do espaçamento entre um parágrafo e outro:
 %\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+%% Não recomendado mudar.
 
-% Margens do documento
-%\setlrmarginsandblock{3cm}{2cm}{*}
-%\setulmarginsandblock{3cm}{2cm}{*}
-%\checkandfixthelayout
+% Margens do documento %% (margens do abntex2 não combinam nem com A5 nem com estilos de capítulo da classe memoir.)
+\setlrmarginsandblock{2.5cm}{3.5cm}{*}
+\setulmarginsandblock{2.5cm}{3.5cm}{*}
+\checkandfixthelayout
 % ---
 
 
