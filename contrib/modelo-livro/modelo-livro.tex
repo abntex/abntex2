@@ -1,59 +1,105 @@
+%% abtex2-modelo-livro.tex, v<VERSION> ycherem
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/
+%%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
 %% of this license or (at your option) any later version.
 %% The latest version of this license is in
 %%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is 
+%% Youssef Cherem <ycherem@gmail.com>, member of abnTeX2 team, 
+%% led by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abtex2-modelo-glossarios.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
 
 
+\documentclass[
+	% -- opções da classe memoir --
+	10pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	a5paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+]{abntex2}
 
-\documentclass[a5paper]{memoir}
-
+% compilação de fontes
 \usepackage{ifxetex}
 \ifxetex
- \usepackage{polyglossia}
-\setmainlanguage{brazil}
-\setotherlanguages{french,english,spanish,german,italian}
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
-\setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
-\setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
-\setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
- % comandos de fontes
+  % se for utilizar as fontes do sistema: escolha sua fonte
+  \usepackage{polyglossia}
+  \setmainlanguage{brazil}
+  \setotherlanguages{french,english,spanish,german,italian}
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
+  \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
+  \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
 \else
- \usepackage[utf8]{inputenc}
- \usepackage[T1]{fontenc}
- \usepackage[american,frenchb,spanish,brazil]{babel}
- \usepackage{ebgaramond}
- % pacote de fontes
+  % se for utilizar pdflatex
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{ebgaramond}
+  %\usepackage{lmodern}
 \fi
 
-
-\usepackage[dvipsnames]{xcolor} % para cores
-\usepackage{graphicx} % para imagens
+\usepackage[dvipsnames]{xcolor} 	% para cores
+\usepackage{graphicx} 				% para imagens
 \usepackage{booktabs,tabularx,rotating}% para tabelas
-\usepackage{caption}
-\usepackage{lipsum} % para texto de preenchimento de exemplo
-\usepackage{mdframed} % para caixas de texto como na CIP do verso do título
-\usepackage{xspace} % para nao precisar de espaços com {} depios de comandos como \LaTeX e abreviações criadas pelo usuário
-\usepackage[bookmarks,colorlinks]{hyperref}
-\usepackage{microtype} %recomendável para melhorias de justificação
-\usepackage[alf]{abntex2cite} %cuidado para colocar abntex2cite DEPOIS de hyperref!!!
-\usepackage{multicol}
-\usepackage{lettrine}
+\usepackage{lipsum} 				% para texto de preenchimento de exemplo
+\usepackage{mdframed} 				% para caixas de texto como na CIP do verso do título
+\usepackage{microtype} 				% para melhorias de justificação
+\usepackage{multicol}				% tabelas com colunas mescladas
+\usepackage[alf]{abntex2cite} 		% pacote de citações
+\usepackage{lettrine}				% 
+\usepackage{xspace} 				% para nao precisar de espaços com {} depois de comandos
+									% como \LaTeX e abreviações criadas pelo usuário
 
+% ------------------------------------------------------------
+% Estilo de capítulos
+%
+% \chapterstyle{pedersen} 
+% \chapterstyle{lyhne} 
+% \chapterstyle{madsen} 
+\chapterstyle{veelo} 
+%
+% Veja outros estilos em:
+% http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
+% ------------------------------------------------------------
 
-\chapterstyle{pedersen} % estilo de capítulo
-\nouppercaseheads % para cabeçalhos sem estar em maiúsculas
+% para cabeçalhos sem estar em maiúsculas
+\nouppercaseheads 
 
-
-
+% ------------------------------------------------------------
+% Informações do documento
+% ------------------------------------------------------------
 \title{Exemplo de livro}
 \author{Youssef Cherem}
 \date{2013}
+% ------------------------------------------------------------
 
 \begin{document}
 \frenchspacing
 
+% ------------------------------------------------------------
+% Capa principal
+% ------------------------------------------------------------
 \frontmatter
 
 \begin{titlingpage}
@@ -69,13 +115,18 @@ Fulano de Tal\\
 \textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
 }
 \centering 
-
+% 
 \vfill
 \Large
- Publicações Acadêmicas, Ltda.
+% 
+Publicações Acadêmicas, Ltda.
 
 \end{titlingpage}
+% ------------------------------------------------------------
 
+% ------------------------------------------------------------
+% Contra-capa
+% ------------------------------------------------------------
 \begin{titlingpage}
 
 \phantom{xxx}
@@ -89,11 +140,16 @@ Fulano de Tal\\
 \textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
 }
 \centering 
-
+%
 \vfill
 \Large
- Publicações Acadêmicas, Ltda.
+% 
+Publicações Acadêmicas, Ltda.
+% ------------------------------------------------------------
 
+% ------------------------------------------------------------
+% Verso da contra-capa
+% ------------------------------------------------------------
 \clearpage
 \footnotesize
 %\raggedright
@@ -127,38 +183,75 @@ ISBN XXXX-XXXX-XX.
 \end{mdframed}
 
 \end{titlingpage}
+% ------------------------------------------------------------
 
 
-
-\tableofcontents*
-\cleardoublepage
-
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
 
 \mainmatter
 
+% ------------------------------------------------------------
 \chapter*{Introdução}
-\lettrine[nindent=0.35em,lhang=0.40,loversize=0.3]{E}{ste documento} faz parte do projeto ABN\TeX, destinando-se a servir como modelo para composição e diagramação de livros em \LaTeX. Ele foi concebido para servir de base para elaboração de livros baseados na norma NBR 6029:2006 da \textsc{abnt}, para livros. Essa norma não estabelece parâmetros tão rígidos quanto a NBR 14724:2011, para trabalhos acadêmicos, e segue, de certa forma, o design usual de livros. (Para facilitação da compreensão de termos técnicos, ver a Tabela \ref{vocabulario-texto} com alguns termos do design de livros.)
+% ------------------------------------------------------------
+
+\lettrine[nindent=0.35em,lhang=0.40,loversize=0.3]{E}{ste documento} faz parte
+do projeto ABN\TeX, destinando-se a servir como modelo para composição e
+diagramação de livros em \LaTeX. Ele foi concebido para servir de base para
+elaboração de livros baseados na norma NBR 6029:2006 da \textsc{abnt}, para
+livros. Essa norma não estabelece parâmetros tão rígidos quanto a NBR
+14724:2011, para trabalhos acadêmicos, e segue, de certa forma, o design usual
+de livros. (Para facilitação da compreensão de termos técnicos, ver a Tabela
+\ref{vocabulario-texto} com alguns termos do design de livros.)
 
 Desta forma, temos:
 
 \begin{description}
-\item[parte pré-textual] Composta por: falsa folha de rosto, folha de rosto, colofão (opcional na parte pós-textual), sumário (conteúdo), a\-gra\-de\-ci\-men\-tos (acknowledgments), dedicatória, epígrafe.
-\item[folha de rosto] Como diz o nome em inglês (\textit{title page}) a “folha de rosto” é a \textit{página do título}. No verso da folha de rosto, costuma-se incluir os dados sobre a obra e a edição, catalogação, editora, direitos autorais e de reprodução etc.
-\item [parte pós-textual] Composta por epílogo, posfácio, apêndice, glossário, bibliografia, índice remissivo (inglês: \textit{index}), colofão etc.
+\item[parte pré-textual] Composta por: falsa folha de rosto, folha de rosto,
+colofão (opcional na parte pós-textual), sumário (conteúdo),
+a\-gra\-de\-ci\-men\-tos (acknowledgments), dedicatória, epígrafe.
+\item[folha de rosto] Como diz o nome em inglês (\textit{title page}) a “folha
+de rosto” é a \textit{página do título}. No verso da folha de rosto, costuma-se
+incluir os dados sobre a obra e a edição, catalogação, editora, direitos
+autorais e de reprodução etc.
+\item [parte pós-textual] Composta por epílogo, posfácio, apêndice, glossário,
+bibliografia, índice remissivo (inglês: \textit{index}), colofão etc.
 
 \end{description}
 
 Este modelo foi composto com a classe \texttt{memoir}, mas qualquer outra classe que contemple o formato de livros poderia ser utilizada. A formatação de geral dos capítulos, margens, tamanho de página, fontes etc. pode ser modificada pelo usuário.
 
+% ------------------------------------------------------------
 \chapter{Um exemplo de capítulo}
+% ------------------------------------------------------------
+
 \lipsum[1-10]
 
+% ------------------------------------------------------------
 \chapter{Exemplos de imagens}
+% ------------------------------------------------------------
+
 \lipsum[1-5]
 
 \begin{figure}
@@ -186,7 +279,9 @@ Este modelo foi composto com a classe \texttt{memoir}, mas qualquer outra classe
 
 
 
+% ------------------------------------------------------------
 \chapter{Um exemplo de capítulo}
+% ------------------------------------------------------------
 
 \section{Exemplos de tabela}
 
@@ -264,7 +359,9 @@ Armadillo & frozen      & 8.99       \\
 \end{tabular}
 \end{table}
 
+% ------------------------------------------------------------
 \chapter{Exemplos de citação}
+% ------------------------------------------------------------
 
 Uma citação de Fulano: \citeonline{fulano}.
 
@@ -274,21 +371,24 @@ Uma citação de Fulano: \citeonline{fulano}.
 \bibliography{modelo-livro} % insere o arquivo de bibliografia (.bib)
 
 \backmatter % pós-textual
+
+% ------------------------------------------------------------
+% para última página com informações sobre a composição do livro.
 \cleardoublepage
-\thispagestyle{empty} % para última página com informações sobre a composição do livro.
+\thispagestyle{empty} 
 
 Sinta-se convidado a participar do projeto ABN\TeX! Acesse o site do projeto em
-\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
-estudar, alterar e redistribuir o trabalho do ABN\TeX, desde que os arquivos
-modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The \LaTeX\ Project Public
+\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer, estudar,
+alterar e redistribuir o trabalho do ABN\TeX, desde que os arquivos modificados
+tenham seus nomes alterados e que os créditos sejam dados aos autores originais,
+nos termos da ``The \LaTeX\ Project Public
 License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
 
 Encorajamos que sejam realizadas customizações específicas deste exemplo para
 universidades e outras instituições --- como capas, folhas de rosto, etc.
-~\vfill
-Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro, de Robert Slimbach e Carol Twombly.
-
+% ~\vfill Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro,
+% de Robert Slimbach e Carol Twombly.
+~\vfill Este texto foi composto em fontes EBGara­mond
+(\url{http://www.ctan.org/tex-archive/fonts/ebgaramond}).
 
 \end{document}
-
