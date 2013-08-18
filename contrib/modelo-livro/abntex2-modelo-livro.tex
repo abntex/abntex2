@@ -10,11 +10,16 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
+%%
 %% Further information is available on 
 %% http://abntex2.googlecode.com/
 %%
-
-
+%% This work consists of the files
+% abntex2-modelo-livro.tex, abntex2-modelo-livro.bib,
+% abntex2-modelo-livro-pintassilgo.jpg,
+% abntex2-modelo-livro-saira-amarela.jpg,
+% abntex2-modelo-livro-bandeirinha.jpg
+%%
 
 \documentclass[
 	% -- opções da classe memoir --
@@ -38,44 +43,49 @@
 
 \usepackage{ifxetex}
 \ifxetex
-% % se for utilizar as fontes do sistema: **escolha sua fonte**
- \usepackage{polyglossia}
-\setmainlanguage{brazil}
-\setotherlanguages{french,english,spanish,german,italian}
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
-\setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
-\setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
-\setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
- % comandos de fontes
+  % % se for utilizar as fontes do sistema: **escolha sua fonte**
+  \usepackage{polyglossia}
+  \setmainlanguage{brazil}
+  \setotherlanguages{french,english,spanish,german,italian}
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+  % comandos de fontes
+  \setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
+  \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
+  \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
 \else
- % % se for utilizar pdflatex
- \usepackage[utf8]{inputenc}
- \usepackage[T1]{fontenc}
- \usepackage[american,frenchb,spanish,brazil]{babel}
- \usepackage{ebgaramond}
+  % % se for utilizar pdflatex
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[lining,scaled=.95]{ebgaramond}
 \fi
 %% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel. 
 %% Se isso acontecer, atualize o pacote para a versão mais recente ou utilize somente uma das sequências (pdflatex ou xelatex), comentando ou apagando a outra.
 
+\usepackage{microtype} 				% para melhorias de justificação
 \usepackage[dvipsnames]{xcolor} 	% para cores
 \usepackage{graphicx} 				% para imagens
 \usepackage{booktabs,tabularx,rotating}% para tabelas
-\usepackage{lipsum} 				% para texto de preenchimento de exemplo
 \usepackage{mdframed} 				% para caixas de texto como na CIP do verso do título
-\usepackage{microtype} 				% para melhorias de justificação
 \usepackage{multicol}				% tabelas com colunas mescladas
 \usepackage[alf]{abntex2cite} 		% pacote de citações
-\usepackage{lettrine}				% 
+\usepackage{lettrine}				% letras capitulares
 \usepackage{xspace} 				% para nao precisar de espaços com {} depois de comandos
 									% como \LaTeX e abreviações criadas pelo usuário
+\usepackage{lipsum} 				% para texto de preenchimento de exemplo
 
 % ---
 % Informações do documento
 % ---
-\title{Exemplo de livro}
-\author{Fulano de Tal}
-\date{2013}
+\titulo{Exemplo de livro produzido com \abnTeX}
+\autor{Fulano de Tal}
+\data{2013}
+\preambulo{Breve sinopse do livro}
+\local{São Paulo}
+\instituicao{Publicações Acadêmicas Ltda.}
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
 
 % informações do PDF
 \makeatletter
@@ -83,7 +93,7 @@
      	%pagebackref=true,
 		pdftitle={\@title}, 
 		pdfauthor={\@author},
-    	pdfsubject={Breve sinopse do documento},
+    	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{livro}, 
 		colorlinks=true,       		% false: boxed links; true: colored links
@@ -101,15 +111,37 @@
 %
 % \chapterstyle{pedersen} 
 % \chapterstyle{lyhne} 
-% \chapterstyle{madsen} 
-\chapterstyle{veelo} 
+\chapterstyle{madsen} 
+%\chapterstyle{veelo} 
 %
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
 % ---
 
 % para cabeçalhos sem estar em maiúsculas
-\nouppercaseheads 
+%\nouppercaseheads 
+
+% -----
+% Declarações de cabecalhos 
+% -----
+% Cabecalho padrao
+\makepagestyle{abntbookheadings}
+\makeevenhead{abntbookheadings}{\ABNTEXfontereduzida\thepage}{}{\ABNTEXfontereduzida\textit\leftmark}
+\makeoddhead{abntbookheadings}{\ABNTEXfontereduzida\textit\rightmark}{}{\ABNTEXfontereduzida\thepage}
+\makeheadrule{abntbookheadings}{\textwidth}{\normalrulethickness}
+
+% Cabecalho do inicio do capitulo
+\makepagestyle{abntbookchapfirst}
+\makeoddhead{abntbookchapfirst}{}{}{}
+
+% Configura layout para elementos textuais
+\renewcommand{\textual}{%
+  \pagestyle{abntbookheadings}%
+  \aliaspagestyle{chapter}{abntbookchapfirst}% customizing chapter pagestyle
+  \nouppercaseheads%
+  \bookmarksetup{startatroot}% 
+}
+% ---
 
 % ---
 % Espaçamentos entre linhas e parágrafos
@@ -135,30 +167,28 @@
 \begin{document}
 \frenchspacing
 
+\frontmatter
+
 % ---
 % Capa principal
 % ---
-\frontmatter
-
 \begin{titlingpage}
-
 \phantom{xxx}
 \vspace{0.5cm}
 \huge
 \raggedright
-Fulano de Tal\\
+\imprimirautor\\
 \vspace{2.5cm}
 \Huge 
 {\raggedleft
-\textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
+\textit{\textcolor{blue}{\imprimirtitulo}}\\[1cm]
 }
 \centering 
 %  %este é um símbolo que só aparecerá com a fonte Minion.
 \vfill
 \Large
 % %este é um símbolo que só aparecerá com a fonte Minion.
-Publicações Acadêmicas, Ltda.
-
+\imprimirinstituicao
 \end{titlingpage}
 % ---
 
@@ -171,18 +201,18 @@ Publicações Acadêmicas, Ltda.
 \vspace{0.5cm}
 \huge
 \raggedright
-Fulano de Tal\\
+\imprimirautor\\
 \vspace{2.5cm}
 \Huge 
 {\raggedleft
-\textit{\textcolor{red}{Exemplo de livro composto com}} \LaTeX\\[1cm]
+\textit{\textcolor{blue}{\imprimirtitulo}}\\[1cm]
 }
 \centering 
 % %este é um símbolo que só aparecerá com a fonte Minion.
 \vfill
 \Large
 % %este é um símbolo que só aparecerá com a fonte Minion.
-Publicações Acadêmicas, Ltda.
+\imprimirinstituicao
 % ---
 
 % ---
@@ -191,12 +221,12 @@ Publicações Acadêmicas, Ltda.
 \clearpage
 \footnotesize
 %\raggedright
-© 2013 Fulano de Tal \& Publicações Acadêmicas, Ltda.
+© 2013 \imprimirautor \space \& \imprimirinstituicao
 %este é só um exemplo de copyright.
 
 Qualquer parte desta publicação pode ser reproduzida, desde que citada a fonte.
 
-\bigskip
+\vspace*{\fill}
 
 \begin{center}
 Dados Internacionais de Catalogação na Publicação (\textsc{cip})
@@ -206,7 +236,8 @@ Câmara Brasileira do Livro, \textsc{sp}, Brasil
 \begin{mdframed}
 \noindent Tal, Fulano de.
 
-Exemplo de livro composto com \LaTeX. / Fulano de Tal. -- São Paulo: Publicações Acadêmicas, Ltda., 2013.
+\imprimirtitulo. / \imprimirautor. -- \imprimirlocal: \imprimirinstituicao
+Ltda., 2013.
 
 \medskip
 
@@ -223,6 +254,15 @@ ISBN XXXX-XXXX-XX.
 \end{titlingpage}
 % ---
 
+% ---
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+Este trabalho é fruto da ação de membros da comunidade \abnTeX. Porém, ele não
+seria real se não fosse o trabalho de Youssef Cherem, a quem o responsável atual
+pelo projeto, Lauro César Araujo, agradece incondicionalmente.
+\end{agradecimentos}
+% ---
 
 % ---
 % inserir lista de ilustrações
@@ -247,39 +287,60 @@ ISBN XXXX-XXXX-XX.
 \cleardoublepage
 % ---
 
-
+% ------------------------------------------------------------
+% Início da parte textual
+% ------------------------------------------------------------
+%\textual
 \mainmatter
+% ------------------------------------------------------------
 
 % ------------------------------------------------------------
-\chapter*{Introdução}
+\chapter*[Introdução]{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
 % ------------------------------------------------------------
 
 \lettrine[nindent=0.35em,lhang=0.40,loversize=0.3]{E}{ste documento} faz parte
-do projeto ABN\TeX, destinando-se a servir como modelo para composição e
-diagramação de livros em \LaTeX. Ele foi concebido para servir de base para
-elaboração de livros baseados na norma NBR 6029:2006 da \textsc{abnt}, para
-livros. Essa norma não estabelece parâmetros tão rígidos quanto a NBR
-14724:2011, para trabalhos acadêmicos, e segue, de certa forma, o design usual
-de livros. (Para facilitação da compreensão de termos técnicos, ver a Tabela
-\ref{vocabulario-texto} com alguns termos do design de livros.)
+do projeto \abnTeX\footnote{\url{http://abntex2.googlecode.com/}}, e destina-se
+a servir como modelo para composição e diagramação de livros e folhetos em \LaTeX. Ele
+foi concebido para servir de base para elaboração de livros baseados na norma
+ABNT NBR 6029:2006 \emph{Informação e documentação - Livros e folhetos -
+Apresentação}.
+Essa norma não estabelece parâmetros tão rígidos quanto a ABNT NBR 14724:2011,
+para trabalhos acadêmicos, e segue, de certa forma, o design usual de
+livros\footnote{Para facilitação da compreensão de termos técnicos, ver a Tabela
+\ref{vocabulario-texto} com alguns termos do design de livros.}.
 
 Desta forma, temos:
 
 \begin{description}
 \item[parte pré-textual] Composta por: falsa folha de rosto, folha de rosto,
 colofão (opcional na parte pós-textual), sumário (conteúdo),
-a\-gra\-de\-ci\-men\-tos (acknowledgments), dedicatória, epígrafe.
-\item[folha de rosto] Como diz o nome em inglês (\textit{title page}) a “folha
-de rosto” é a \textit{página do título}. No verso da folha de rosto, costuma-se
+a\-gra\-de\-ci\-men\-tos (acknowledgments), dedicatória, epígrafe;
+\item[folha de rosto] Como diz o nome em inglês (\textit{title page}) a ``folha
+de rosto'' é a \textit{página do título}. No verso da folha de rosto, costuma-se
 incluir os dados sobre a obra e a edição, catalogação, editora, direitos
-autorais e de reprodução etc.
+autorais e de reprodução, etc;
 \item [parte pós-textual] Composta por epílogo, posfácio, apêndice, glossário,
-bibliografia, índice remissivo (inglês: \textit{index}), colofão etc.
+bibliografia, índice remissivo (inglês: \textit{index}), colofão, etc;
 
 \end{description}
 
-Este modelo foi composto com a classe \texttt{memoir}, mas qualquer outra classe que contemple o formato de livros poderia ser utilizada. A formatação de geral dos capítulos, margens, tamanho de página, fontes etc. pode ser modificada pelo usuário.
+Em geral, qualquer outra classe que contemple o formato de livros poderia
+ser utilizada. A formatação de geral dos capítulos, margens, tamanho de página,
+fontes, etc., segundo a norma ABNT em questão, pode ser modificada pelo usuário
+à vontade.
 
+Porém, este modelo foi composto com a classe \texttt{abntex2.cls} com o intuito
+de estimular que autores de teses e dissertações convertam e publiquem seus
+trabalhos em forma de livro. 
+
+Essencialmente, este modelo é idêntico aos demais modelos distribuídos com o
+\abnTeX. Porém, este documento exemplifica como customizar a formatação final do
+documento para que ele fique adequado aos padrões de publicação de livros.
+Observe que há vários comentários no código fonte do arquivo, de modo a
+facilitar ao máximo as customizações. Consulte o portal do projeto para obter
+acesso aos manuais, wiki, e grupos de discussões do \abnTeX.
+  
 % ------------------------------------------------------------
 \chapter{Um exemplo de capítulo}
 % ------------------------------------------------------------
@@ -294,36 +355,37 @@ Este modelo foi composto com a classe \texttt{memoir}, mas qualquer outra classe
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\linewidth]{pintassilgo}
+\includegraphics[width=0.6\linewidth]{abntex2-modelo-livro-pintassilgo}
 \caption{Pintassilgo (\textit{Carduelis magellanicus}).}
 \label{fig:pintassilgo}
 \end{figure}
 
+\lipsum[6]
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\linewidth]{saira-amarela}
+\includegraphics[width=0.6\linewidth]{abntex2-modelo-livro-saira-amarela}
 \caption{Saíra-amarela (\textit{Tangara cayana}).}
 \label{fig:saira-amarela}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\linewidth]{bandeirinha}
+\includegraphics[width=0.6\linewidth]{abntex2-modelo-livro-bandeirinha}
 \caption{Bandeirinha (\textit{Chlorophonia cyanea}).}
 \label{fig:bandeirinha}
 \end{figure}
 
 
-
+\lipsum[7]
 
 % ------------------------------------------------------------
-\chapter{Um exemplo de capítulo}
+\chapter{Outro exemplo de capítulo}
 % ------------------------------------------------------------
 
 \section{Exemplos de tabela}
 
-
+\lipsum[8]
 
 \begin{table}
 \caption{Pequeno vocabulário de design de livros\label{vocabulario-texto}}
@@ -397,6 +459,8 @@ Armadillo & frozen      & 8.99       \\
 \end{tabular}
 \end{table}
 
+\lipsum[9]
+
 % ------------------------------------------------------------
 \chapter{Exemplos de citação}
 % ------------------------------------------------------------
@@ -405,17 +469,18 @@ Uma citação de Fulano: \citeonline{fulano}.
 
 \cite{fulano}.
 
+\lipsum[10]
 
-\bibliography{modelo-livro} % insere o arquivo de bibliografia (.bib)
+\bibliography{abntex2-modelo-livro} % insere o arquivo de bibliografia (.bib)
 
-\backmatter % pós-textual
+\postextual % pós-textual
 
 % ------------------------------------------------------------
 % para última página com informações sobre a composição do livro.
 \cleardoublepage
 \thispagestyle{empty} 
 
-Sinta-se convidado a participar do projeto ABN\TeX! Acesse o site do projeto em
+Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
 \url{http://abntex2.googlecode.com/}. Também fique livre para conhecer, estudar,
 alterar e redistribuir o trabalho do ABN\TeX, desde que os arquivos modificados
 tenham seus nomes alterados e que os créditos sejam dados aos autores originais,
