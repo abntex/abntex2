@@ -42,7 +42,7 @@
 % compilação de fontes
 \usepackage{ifxetex}
 \ifxetex
-  % se for utilizar as fontes do sistema: escolha sua fonte
+  % para xelatex: para ser possível utilizar as fontes do sistema
   \usepackage{polyglossia}
   \setmainlanguage{brazil}
   \setotherlanguages{french,english,spanish,german,italian}
@@ -52,11 +52,12 @@
   \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
   \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
 \else
-  % se for utilizar pdflatex
+  % pdflatex: compilação padrão
   \usepackage[utf8]{inputenc}
   \usepackage[T1]{fontenc}
-  \usepackage{ebgaramond}
-  %\usepackage{lmodern}
+  \usepackage{cmap}			% Mapear caracteres especiais no PDF
+  \usepackage{ebgaramond}	% fontes EBGaramond
+  %\usepackage{lmodern}		% fontes LatinModern
 \fi
 
 \usepackage[dvipsnames]{xcolor} 	% para cores
@@ -71,7 +72,33 @@
 \usepackage{xspace} 				% para nao precisar de espaços com {} depois de comandos
 									% como \LaTeX e abreviações criadas pelo usuário
 
-% ------------------------------------------------------------
+% ---
+% Informações do documento
+% ---
+\title{Exemplo de livro}
+\author{Youssef Cherem}
+\date{2013}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Breve sinópse do documento},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{livro}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% ---
+
+% ---
 % Estilo de capítulos
 %
 % \chapterstyle{pedersen} 
@@ -81,25 +108,36 @@
 %
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
-% ------------------------------------------------------------
+% ---
 
 % para cabeçalhos sem estar em maiúsculas
 \nouppercaseheads 
 
-% ------------------------------------------------------------
-% Informações do documento
-% ------------------------------------------------------------
-\title{Exemplo de livro}
-\author{Youssef Cherem}
-\date{2013}
-% ------------------------------------------------------------
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+% O tamanho do parágrafo é dado por:
+%\setlength{\parindent}{1.3cm}
+ 
+% Controle do espaçamento entre um parágrafo e outro:
+%\setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
+% Margens do documento
+%\setlrmarginsandblock{3cm}{2cm}{*}
+%\setulmarginsandblock{3cm}{2cm}{*}
+%\checkandfixthelayout
+% ---
+
+
+% ---
+% Início do documento
+% ---
 \begin{document}
 \frenchspacing
 
-% ------------------------------------------------------------
+% ---
 % Capa principal
-% ------------------------------------------------------------
+% ---
 \frontmatter
 
 \begin{titlingpage}
@@ -122,11 +160,11 @@ Fulano de Tal\\
 Publicações Acadêmicas, Ltda.
 
 \end{titlingpage}
-% ------------------------------------------------------------
+% ---
 
-% ------------------------------------------------------------
+% ---
 % Contra-capa
-% ------------------------------------------------------------
+% ---
 \begin{titlingpage}
 
 \phantom{xxx}
@@ -145,11 +183,11 @@ Fulano de Tal\\
 \Large
 % 
 Publicações Acadêmicas, Ltda.
-% ------------------------------------------------------------
+% ---
 
-% ------------------------------------------------------------
+% ---
 % Verso da contra-capa
-% ------------------------------------------------------------
+% ---
 \clearpage
 \footnotesize
 %\raggedright
@@ -183,7 +221,7 @@ ISBN XXXX-XXXX-XX.
 \end{mdframed}
 
 \end{titlingpage}
-% ------------------------------------------------------------
+% ---
 
 
 % ---
