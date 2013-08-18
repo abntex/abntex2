@@ -58,7 +58,12 @@
   \usepackage[utf8]{inputenc}
   \usepackage[T1]{fontenc}
   \usepackage[lining,scaled=.95]{ebgaramond}
+   \usepackage[defaultsans]{droidsans} %fonte droid sans como default sans, ao invés de CM Sans.
+ \usepackage[scaled=0.9]{inconsolata} %fonte inconsolata para códigos
+%\usepackage[defaultmono,scale=0.8]{droidmono} %fonte droid mono para códigos
 \fi
+ 
+
 %% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel. 
 %% Se isso acontecer, atualize o pacote para a versão mais recente ou utilize somente uma das sequências (pdflatex ou xelatex), comentando ou apagando a outra.
 
@@ -105,6 +110,10 @@
 }
 \makeatother
 % ---
+%% espaçamento entrelinhas (leading)
+\usepackage{leading}
+\leading{13pt}
+
 
 % ---
 % Estilo de capítulos
@@ -434,7 +443,7 @@ volume & volume. Conjunto de páginas encadernadas.\\
 
 \bottomrule
 \end{tabular}
-\caption*{\footnotesize Fontes:\\
+\legend{\footnotesize Fontes:\\
 \url{http://pt.wikipedia.org/wiki/Design_de_livros}\\
 \url{http://en.wikipedia.org/wiki/Book_design}\\
 \url{http://static.lexicool.com/dictionary/RX7KW614433.pdf}\\}
