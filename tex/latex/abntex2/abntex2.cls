@@ -404,9 +404,63 @@
 
 % ---
 % Estilos de caption
+\hangcaption
 \captiondelim{\space--\space}
 \captionnamefont{\ABNTEXfontereduzida}
 \captiontitlefont{\ABNTEXfontereduzida}
+
+% Para uso com pacotes subfig e caption dentro do memoir se estes forem carregados ou não.
+% É necessário para que os comandos \IBGEtab e \fonte funcionem 
+% independente do carregamento de pacotes externos ao memoir que tratam captions.
+\AtBeginDocument{%
+    \@ifpackageloaded{caption}{%
+           \DeclareCaptionLabelSeparator{barr}{~--~}
+           \captionsetup{format=hang,
+                         labelseparator=barr,
+                         labelfont=\ABNTEXfontereduzida,
+                         font=\ABNTEXfontereduzida}
+           \def\configurecaptions{%
+                          \captionsetup{justification=justified,%
+                                        singlelinecheck=false}}
+           \def\configureseparator{\captionsetup{labelsep=colon}}
+           }
+           {\def\configurecaptions{\captionstyle[\raggedright]{}}
+            \def\configureseparator{\captiondelim{: }}
+     }
+}
+
+% Define o comando \IBGEtab{}{}{} com caption e legenda da largura do conteúdo tabular, tabular*, etc
+% Parece funcionar com qualque pacote
+\newsavebox{\myptabbox}
+\newlength{\myptabboxwidth}
+\newcommand{\IBGEtab}[3]{%
+    \savebox{\myptabbox}{{#1}}%
+    \settowidth{\myptabboxwidth}{\usebox{\myptabbox}}%
+    \centering%
+    \parbox{\myptabboxwidth}{%
+     \configurecaptions
+    #2%
+    \par%
+    %\usebox{\myptabbox}%
+    #1%
+    \par%
+    #3}%
+}
+
+% Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
+\newcommand{\fonte}[1]{%
+  \M@gettitle{#1}%
+  \memlegendinfo{#1}%
+  \par
+  \begingroup
+     \@parboxrestore
+     \if@minipage
+       \@setminipage
+     \fi
+     \ABNTEXfontereduzida      
+     \configureseparator                          
+     \@makecaption{\ABNTEXfontereduzida Fonte}{\ignorespaces\ABNTEXfontereduzida #1}\par
+  \endgroup}
 % ---
 
 % -----
