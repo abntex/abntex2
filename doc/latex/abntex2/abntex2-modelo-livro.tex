@@ -15,10 +15,10 @@
 %% http://abntex2.googlecode.com/
 %%
 %% This work consists of the files
-% abntex2-modelo-livro.tex, abntex2-modelo-livro.bib,
-% abntex2-modelo-livro-pintassilgo.jpg,
-% abntex2-modelo-livro-saira-amarela.jpg,
-% abntex2-modelo-livro-bandeirinha.jpg
+%% abntex2-modelo-livro.tex, abntex2-modelo-references.bib,   
+%% abntex2-modelo-livro-pintassilgo.jpg,
+%% abntex2-modelo-livro-saira-amarela.jpg,
+%% abntex2-modelo-livro-bandeirinha.jpg
 %%
 
 \documentclass[
@@ -72,13 +72,35 @@
 \usepackage{booktabs,tabularx,rotating}% para tabelas
 \usepackage{mdframed} 				% para caixas de texto como na CIP do verso do título
 \usepackage{multicol}				% tabelas com colunas mescladas
-\usepackage[alf]{abntex2cite} 		% pacote de citações
 \usepackage{lettrine}				% letras capitulares
 \usepackage{xspace} 				% para nao precisar de espaços com {} depois de comandos
 									% como \LaTeX e abreviações criadas pelo usuário
 \usepackage{lipsum} 				% para texto de preenchimento de exemplo
 \usepackage{leading}				% espaçamento entrelinhas (leading)
 \leading{13pt}
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
 
 % ---
 % Informações do documento
@@ -309,14 +331,32 @@ incondicionalmente.
 
 \lettrine[nindent=0.35em,lhang=0.40,loversize=0.3]{E}{ste documento} faz parte
 do projeto \abnTeX\footnote{\url{http://abntex2.googlecode.com/}}, e destina-se
-a servir como modelo para composição e diagramação de livros e folhetos em \LaTeX. Ele
-foi concebido para servir de base para elaboração de livros baseados na norma
-ABNT NBR 6029:2006 \emph{Informação e documentação - Livros e folhetos -
-Apresentação}.
-Essa norma não estabelece parâmetros tão rígidos quanto a ABNT NBR 14724:2011,
-para trabalhos acadêmicos, e segue, de certa forma, o design usual de
-livros\footnote{Para facilitação da compreensão de termos técnicos, ver a Tabela
-\ref{vocabulario-texto} com alguns termos do design de livros.}.
+a servir de modelo para composição e diagramação de livros e folhetos em
+\LaTeX em conformidade com a norma ABNT NBR 6029:2006 \emph{Informação e
+documentação - Livros e folhetos - Apresentação}. 
+
+Em geral, qualquer classe do \LaTeX\ que contemple o formato de livros poderia
+ser utilizada (como \textsf{book}, \textsf{memoir} e \textsf{scrbook}, entre
+outras). A formatação de geral dos capítulos, margens, tamanho de página,
+fontes, etc., segundo a norma ABNT em questão, pode ser modificada pelo usuário
+à vontade.
+
+Porém, este modelo foi composto com a classe \textsf{abntex2.cls} com o intuito
+de estimular que autores de teses e dissertações convertam e publiquem seus
+trabalhos em forma de livro. 
+
+Essencialmente, este modelo é idêntico aos demais modelos distribuídos com o
+\abnTeX. Porém, este documento exemplifica como customizar a formatação final do
+documento para que ele fique adequado aos padrões de publicação de livros.
+Observe que há vários comentários no código-fonte do arquivo, de modo a
+facilitar ao máximo as customizações. Consulte o portal do projeto para obter
+acesso aos manuais, wiki, e grupos de discussões do \abnTeX.
+
+Em linhas gerais, a norma ABNT NBR 6029:2006 não estabelece parâmetros tão
+rígidos quanto a ABNT NBR 14724:2011, para trabalhos acadêmicos, e segue, de
+certa forma, o design usual de livros\footnote{Para facilitação da compreensão
+de termos técnicos, ver a Tabela \ref{vocabulario-texto} com alguns termos do
+design de livros.}.
 
 Desta forma, temos:
 
@@ -333,21 +373,10 @@ bibliografia, índice remissivo (inglês: \textit{index}), colofão, etc;
 
 \end{description}
 
-Em geral, qualquer outra classe que contemple o formato de livros poderia
-ser utilizada. A formatação de geral dos capítulos, margens, tamanho de página,
-fontes, etc., segundo a norma ABNT em questão, pode ser modificada pelo usuário
-à vontade.
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
+\cite{memoir}. 
 
-Porém, este modelo foi composto com a classe \texttt{abntex2.cls} com o intuito
-de estimular que autores de teses e dissertações convertam e publiquem seus
-trabalhos em forma de livro. 
-
-Essencialmente, este modelo é idêntico aos demais modelos distribuídos com o
-\abnTeX. Porém, este documento exemplifica como customizar a formatação final do
-documento para que ele fique adequado aos padrões de publicação de livros.
-Observe que há vários comentários no código fonte do arquivo, de modo a
-facilitar ao máximo as customizações. Consulte o portal do projeto para obter
-acesso aos manuais, wiki, e grupos de discussões do \abnTeX.
   
 % ------------------------------------------------------------
 \chapter{Um exemplo de capítulo}
@@ -470,21 +499,15 @@ Armadillo & frozen      & 8.99       \\
 \lipsum[9]
 
 % ------------------------------------------------------------
-\chapter{Exemplos de citação}
-% ------------------------------------------------------------
-
-Uma citação de Fulano: \citeonline{fulano}.
-
-\cite{fulano}.
-
-\lipsum[10]
-
-\bibliography{abntex2-modelo-livro} % insere o arquivo de bibliografia (.bib)
-
 \postextual % pós-textual
+% ------------------------------------------------------------
 
 % ------------------------------------------------------------
-% para última página com informações sobre a composição do livro.
+\bibliography{abntex2-modelo-references} % insere o arquivo de bibliografia
+% ------------------------------------------------------------
+
+% ------------------------------------------------------------
+% Colofão: última página com informações sobre a composição do livro.
 \cleardoublepage
 \thispagestyle{empty} 
 
@@ -495,8 +518,14 @@ tenham seus nomes alterados e que os créditos sejam dados aos autores originais
 nos termos da ``The \LaTeX\ Project Public
 License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
 
-Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folhas de rosto, etc.
+Encorajamos que sejam realizadas customizações específicas deste documento.
+Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
+\abnTeX, distribua-se arquivos com as respectivas customizações.
+Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
+incompatíveis com as customizações promovidas. Consulte
+\citeonline{abntex2-wiki-como-customizar} par mais informações.
+
+
 % ~\vfill Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro,
 % de Robert Slimbach e Carol Twombly.
 ~\vfill Este texto foi composto em Utopia, de Robert Slimbach, através do pacote \texttt{fournier}.
