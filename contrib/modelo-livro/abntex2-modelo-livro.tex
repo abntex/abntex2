@@ -57,7 +57,7 @@
   % % se for utilizar pdflatex
   \usepackage[utf8]{inputenc}
   \usepackage[T1]{fontenc}
-  \usepackage[lining,scaled=.95]{ebgaramond}
+  \usepackage{fourier}
   \usepackage[defaultsans]{droidsans} %fonte droid sans como default sans, ao invés de CM Sans.
   \usepackage[scaled=0.9]{inconsolata} %fonte inconsolata para códigos
   \usepackage[defaultmono,scale=0.8]{droidmono} %fonte droid mono para códigos
@@ -118,8 +118,8 @@
 %
 % \chapterstyle{pedersen} 
 % \chapterstyle{lyhne} 
-\chapterstyle{madsen} 
-%\chapterstyle{veelo} 
+%\chapterstyle{madsen} 
+\chapterstyle{veelo} 
 %
 % Veja outros estilos em:
 % http://www.tex.ac.uk/tex-archive/info/MemoirChapStyles/MemoirChapStyles.pdf
@@ -441,10 +441,10 @@ volume & volume. Conjunto de páginas encadernadas.\\
 
 \bottomrule
 \end{tabular}
-\legend{Fontes:
-\url{http://pt.wikipedia.org/wiki/Design_de_livros}, 
-\url{http://en.wikipedia.org/wiki/Book_design} e
-\url{http://static.lexicool.com/dictionary/RX7KW614433.pdf}}
+\footnotesize Fontes:\\
+\url{http://pt.wikipedia.org/wiki/Design_de_livros}\\
+\url{http://en.wikipedia.org/wiki/Book_design}\\
+\url{http://static.lexicool.com/dictionary/RX7KW614433.pdf}\\
 \end{table}
 
 
@@ -499,7 +499,6 @@ Encorajamos que sejam realizadas customizações específicas deste exemplo para
 universidades e outras instituições --- como capas, folhas de rosto, etc.
 % ~\vfill Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro,
 % de Robert Slimbach e Carol Twombly.
-~\vfill Este texto foi composto em fontes EBGaramond
-(\url{http://www.ctan.org/tex-archive/fonts/ebgaramond}).
+~\vfill Este texto foi composto em Utopia, de Robert Slimbach, através do pacote \texttt{fournier}.
 
 \end{document}
