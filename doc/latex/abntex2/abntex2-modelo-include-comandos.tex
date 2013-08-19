@@ -107,7 +107,7 @@ dividi-los no corpo do texto.}.
 \LaTeX.
 
 \begin{table}[htb]
-\footnotesize
+\ABNTEXfontereduzida
 \caption[Níveis de investigação]{Níveis de investigação.}
 \label{tab-nivinv}
 \begin{tabular}{p{2.6cm}|p{6.0cm}|p{2.25cm}|p{3.40cm}}
@@ -125,6 +125,26 @@ dividi-los no corpo do texto.}.
 \end{tabular}
 \legend{Fonte: \citeonline{van86}}
 \end{table}
+
+Já a \autoref{tab-ibge} apresenta uma tabela criada conforme o padrão do IBGE
+requerido pelas normas da ABNT para documentos técnicos e acadêmicos.
+
+\begin{table}[htb]
+\IBGEtab{%
+\begin{tabular}{ccc}
+\toprule
+ Nome & Nascimento & Documento \\
+\midrule \midrule
+ Maria da Silva & 11/11/1111 & 111.111.111-11 \\
+\bottomrule
+\end{tabular}%
+}{%
+\label{tab-ibge}
+\caption{Um Exemplo de tabela alinhada que pode ser longa ou curta.}%
+}{%
+\fonte{Material criado pelos autores}}
+\end{table}
+
 
 % ---
 \section{Figuras}

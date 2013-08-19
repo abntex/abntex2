@@ -58,11 +58,10 @@
   \usepackage[utf8]{inputenc}
   \usepackage[T1]{fontenc}
   \usepackage[lining,scaled=.95]{ebgaramond}
-   \usepackage[defaultsans]{droidsans} %fonte droid sans como default sans, ao invés de CM Sans.
- \usepackage[scaled=0.9]{inconsolata} %fonte inconsolata para códigos
-%\usepackage[defaultmono,scale=0.8]{droidmono} %fonte droid mono para códigos
+  \usepackage[defaultsans]{droidsans} %fonte droid sans como default sans, ao invés de CM Sans.
+  \usepackage[scaled=0.9]{inconsolata} %fonte inconsolata para códigos
+  \usepackage[defaultmono,scale=0.8]{droidmono} %fonte droid mono para códigos
 \fi
- 
 
 %% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel. 
 %% Se isso acontecer, atualize o pacote para a versão mais recente ou utilize somente uma das sequências (pdflatex ou xelatex), comentando ou apagando a outra.
@@ -78,6 +77,8 @@
 \usepackage{xspace} 				% para nao precisar de espaços com {} depois de comandos
 									% como \LaTeX e abreviações criadas pelo usuário
 \usepackage{lipsum} 				% para texto de preenchimento de exemplo
+\usepackage{leading}				% espaçamento entrelinhas (leading)
+\leading{13pt}
 
 % ---
 % Informações do documento
@@ -110,9 +111,6 @@
 }
 \makeatother
 % ---
-%% espaçamento entrelinhas (leading)
-\usepackage{leading}
-\leading{13pt}
 
 
 % ---
@@ -228,7 +226,7 @@
 % Verso da contra-capa
 % ---
 \clearpage
-\footnotesize
+\ABNTEXfontereduzida
 %\raggedright
 © 2013 \imprimirautor \space \& \imprimirinstituicao
 %este é só um exemplo de copyright.
@@ -361,7 +359,7 @@ acesso aos manuais, wiki, e grupos de discussões do \abnTeX.
 \chapter{Exemplos de imagens}
 % ------------------------------------------------------------
 
-\lipsum[1-5]
+\lipsum[1]
 
 \begin{figure}
 \centering
@@ -390,21 +388,21 @@ acesso aos manuais, wiki, e grupos de discussões do \abnTeX.
 \lipsum[7]
 
 % ------------------------------------------------------------
-\chapter{Outro exemplo de capítulo}
+\chapter{Exemplos de tabela}
 % ------------------------------------------------------------
 
-\section{Exemplos de tabela}
+\section{Uma seção}
 
 \lipsum[8]
 
 \begin{table}
 \caption{Pequeno vocabulário de design de livros\label{vocabulario-texto}}
-\footnotesize
-\begin{tabular}{p{5cm}p{5cm}}
+\ABNTEXfontereduzida
+\begin{tabular}{p{4cm}p{4cm}}
 \toprule
 \textit{Termo em inglês} & \textit{Termo em português}\\
 \midrule
-\footnotesize
+\ABNTEXfontereduzida
 title page & folha de rosto.\\
 
 cover & capa\\
@@ -443,10 +441,10 @@ volume & volume. Conjunto de páginas encadernadas.\\
 
 \bottomrule
 \end{tabular}
-\legend{\footnotesize Fontes:\\
-\url{http://pt.wikipedia.org/wiki/Design_de_livros}\\
-\url{http://en.wikipedia.org/wiki/Book_design}\\
-\url{http://static.lexicool.com/dictionary/RX7KW614433.pdf}\\}
+\legend{Fontes:
+\url{http://pt.wikipedia.org/wiki/Design_de_livros}, 
+\url{http://en.wikipedia.org/wiki/Book_design} e
+\url{http://static.lexicool.com/dictionary/RX7KW614433.pdf}}
 \end{table}
 
 
@@ -465,7 +463,7 @@ Gnu       & stuffed     & 92.50      \\
 Emu       & stuffed     & 33.33      \\
 Armadillo & frozen      & 8.99       \\
 \bottomrule
-\multicolumn{3}{l}{\footnotesize Fonte: \url{http://en.wikibooks.org/wiki/LaTeX/Tables}}
+\multicolumn{3}{l}{\ABNTEXfontereduzida Fonte: \url{http://en.wikibooks.org/wiki/LaTeX/Tables}}
 \end{tabular}
 \end{table}
 
