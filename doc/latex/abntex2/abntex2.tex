@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.8.20 8h42	laurocesar
+%%  Descreve macros \IBGEtab e \legenda
+%%
 %% 2013.8.17 8h42	laurocesar
 %%  Descreve outros comandos usados para customizar o resumo.
 %%
@@ -2429,6 +2432,53 @@ Recomenda-se que imagens vetoriais, como imagens em PDF, sejam preferidas em
 oposição a imagens baseadas em mapas de bits, uma vez que desse forma não há
 perda de qualidade nas imagens. Porém, formatos como PNG, BMP, JPG e outros são
 aceitos pelo \LaTeX.
+
+% ---
+\subsection{Tabelas em conformidade com padrões do IBGE}
+% ---
+
+\DescribeMacro{\IBGEtab}\DescribeMacro{\ibgetab}
+Conforme a ABNT NBR 14724:2011, seção 5.9, as tabelas ``devem ser citadas no
+texto, inseridas o mais próximo possível do trecho a que se referem e
+padronizadas conforme o Instituto Brasileiro de Geografia e Estatística
+(IBGE)''. Para atender a esse requisito, a classe \textsf{abntex2} oferece a
+macro 
+|\IBGEtab|\marg{Nome e rótulo da tabela}\marg{Conteúdo da tabela}\marg{Conteúdo da legenda}.
+
+Nome e rótulo devem ser criados com |\caption|\margs{Nome do objeto} e
+|\label|\marg{Nome do rótulo}, respectivamente. O conteúdo da tabela pode ser
+criada com os ambientes |tabular|, |table|, |longtable| ou mesmo ser uma figura
+importada no ambiente |figure|. A legenda pode ser criada com |\fonte| ou com a
+macro |\legend|, padrão do \textsf{memoir}.
+
+A macro |\IBGEtab| pode ser usada conforme o exemplo:
+
+\begin{verbatim}
+\begin{table}[htb]
+\IBGEtab{%
+  \label{tab-ibge}
+  \caption{Um Exemplo de tabela alinhada que pode ser longa ou curta,
+  conforme padrão IBGE.}%
+}{%
+  \begin{tabular}{ccc}
+  \toprule
+   Nome & Nascimento & Documento \\
+  \midrule \midrule
+   Maria da Silva & 11/11/1111 & 111.111.111-11 \\
+  \bottomrule
+\end{tabular}%
+}{%
+  \fonte{Produzido pelos autores}%
+}
+\end{table}
+\end{verbatim}
+
+\DescribeMacro{\fonte}
+Adicionalmente, a classe \textsf{abntex2} fornece a macro
+|\fonte|\marg{Descrição da fonte da tabela ou imagem}, que imprime o conteúdo do
+primeiro argumento antecedido da expressão ``Fonte: '' alinhado conforme
+requisitos do IBGE. A macro |\fonte| pode ser usada no interior de figuras ou de
+outros ambientes.
 
 % ------
 \section{Elementos pós-textuais}
