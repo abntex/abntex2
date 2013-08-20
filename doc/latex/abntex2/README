@@ -28,8 +28,10 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.7.2
-    . added an example of book produced with abntex2 
+  2013/xx/xx - v1.8
+    . added an example of book produced with abntex2
+    . added macros \IBGEtab and \fonte in order to meet table 
+      formatting requirements from IBGE 
     . changed indentation, margins, paragraph spacing and further 
       improvements of abstract environment
     . fixed article model in compliance to ABNT NBR 6022:2003. 
