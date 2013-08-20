@@ -441,9 +441,9 @@
 
 % Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
 \makeatletter
-\newcommand{\fonte}[1]{%
-  \M@gettitle{#1}%
-  \memlegendinfo{#1}%
+\newcommand{\fonte}[2][Fonte]{%
+  \M@gettitle{#2}%
+  \memlegendinfo{#2}%
   \par
   \begingroup
      \@parboxrestore
@@ -452,25 +452,13 @@
      \fi
      \ABNTEXfontereduzida
      \configureseparator
-     \@makecaption{\ABNTEXfontereduzida Fonte}{\ignorespaces\ABNTEXfontereduzida #1}\par
+     \@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida #2}\par
   \endgroup}
 \makeatother
 
 % Define o comando \notas que respeita as configurações de caption do memoir ou do caption
 \makeatletter
-\newcommand{\notas}[1]{%
-  \M@gettitle{#1}%
-  \memlegendinfo{#1}%
-  \par
-  \begingroup
-     \@parboxrestore
-     \if@minipage
-       \@setminipage
-     \fi
-     \ABNTEXfontereduzida
-     \configureseparator
-     \@makecaption{\ABNTEXfontereduzida Notas}{\ignorespaces\ABNTEXfontereduzida #1}\par
-  \endgroup}
+\newcommand{\notas}[2][Notas]{\fonte[#1]{#2}}
 \makeatother
 
 
