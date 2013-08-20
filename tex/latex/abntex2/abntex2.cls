@@ -409,8 +409,8 @@
 % Estilos de caption
 \hangcaption
 \captiondelim{\space--\space}
-\captionnamefont{\ABNTEXfontereduzida}
-\captiontitlefont{\ABNTEXfontereduzida}
+%\captionnamefont{\ABNTEXfontereduzida}
+%\captiontitlefont{\ABNTEXfontereduzida}
 
 % Para uso com pacotes subfig e caption dentro do memoir se estes forem carregados ou não.
 % É necessário para que os comandos \IBGEtab e \fonte funcionem 
@@ -456,6 +456,23 @@
   \endgroup}
 \makeatother
 
+% Define o comando \notas que respeita as configurações de caption do memoir ou do caption
+\makeatletter
+\newcommand{\notas}[1]{%
+  \M@gettitle{#1}%
+  \memlegendinfo{#1}%
+  \par
+  \begingroup
+     \@parboxrestore
+     \if@minipage
+       \@setminipage
+     \fi
+     \ABNTEXfontereduzida
+     \configureseparator
+     \@makecaption{\ABNTEXfontereduzida Notas}{\ignorespaces\ABNTEXfontereduzida #1}\par
+  \endgroup}
+\makeatother
+
 
 % Altera os comandos \configurecaptions e \configureseparator para trabalhar com 
 % o pacote caption e amigos.
@@ -465,8 +482,9 @@
     \DeclareCaptionFont{ABNTEXfontereduzida}{\ABNTEXfontereduzida}
       \captionsetup{format=hang,
                     labelseparator=barr,
-                    labelfont=ABNTEXfontereduzida,
-                    font=ABNTEXfontereduzida}
+                    %labelfont=ABNTEXfontereduzida,
+                    %font=ABNTEXfontereduzida
+                    }
       \renewcommand{\configurecaptions}{%
                   \captionsetup{justification=justified,%
                                 singlelinecheck=false}}
