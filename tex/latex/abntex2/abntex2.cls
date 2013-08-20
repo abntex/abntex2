@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.8.19 07h27	sggranja
+%%  Adiciona macros \IBGEtab e \fonte
+%%
 %% 2013.6.20 07h27	laurocesar / ricardoerikson
 %%  Adiciona condição para a criação de length \chapternamenumlength na 
 %%  definição do chapterstyle abnt
@@ -421,18 +424,19 @@
   \newsavebox{\myptabbox}
   \newlength{\myptabboxwidth}
   \newcommand{\IBGEtab}[3]{%
-    \savebox{\myptabbox}{{#1}}%
+    \savebox{\myptabbox}{{#2}}%
     \settowidth{\myptabboxwidth}{\usebox{\myptabbox}}%
     \centering%
     \parbox{\myptabboxwidth}{%
     \configurecaptions
-    #2%
-    \par%
-    %\usebox{\myptabbox}%
     #1%
     \par%
+    %\usebox{\myptabbox}%
+    #2%
+    \par%
     #3}%
-  }  
+  }
+  \let\ibgetab\IBGEtab  
 }
 
 % Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
