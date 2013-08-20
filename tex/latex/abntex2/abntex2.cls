@@ -413,41 +413,30 @@
 % É necessário para que os comandos \IBGEtab e \fonte funcionem 
 % independente do carregamento de pacotes externos ao memoir que tratam captions.
 \AtBeginDocument{%
-    \@ifpackageloaded{caption}{%
-           \DeclareCaptionLabelSeparator{barr}{~--~}
-           \captionsetup{format=hang,
-                         labelseparator=barr,
-                         labelfont=\ABNTEXfontereduzida,
-                         font=\ABNTEXfontereduzida}
-           \def\configurecaptions{%
-                          \captionsetup{justification=justified,%
-                                        singlelinecheck=false}}
-           \def\configureseparator{\captionsetup{labelsep=colon}}
-           }
-           {\def\configurecaptions{\captionstyle[\raggedright]{}}
-            \def\configureseparator{\captiondelim{: }}
-     }
-}
-
-% Define o comando \IBGEtab{}{}{} com caption e legenda da largura do conteúdo tabular, tabular*, etc
-% Parece funcionar com qualque pacote
-\newsavebox{\myptabbox}
-\newlength{\myptabboxwidth}
-\newcommand{\IBGEtab}[3]{%
+  % comandos auxiliares para manipular os captions dentro do comando \IBGEtab.
+  \newcommand{\configurecaptions}{\captionstyle[\raggedright]{}}
+  \newcommand{\configureseparator}{\captiondelim{: }}
+  % Define o comando \IBGEtab{}{}{} com caption e legenda da largura do conteúdo tabular, tabular*, etc
+  % Parece funcionar com qualque pacote
+  \newsavebox{\myptabbox}
+  \newlength{\myptabboxwidth}
+  \newcommand{\IBGEtab}[3]{%
     \savebox{\myptabbox}{{#1}}%
     \settowidth{\myptabboxwidth}{\usebox{\myptabbox}}%
     \centering%
     \parbox{\myptabboxwidth}{%
-     \configurecaptions
+    \configurecaptions
     #2%
     \par%
     %\usebox{\myptabbox}%
     #1%
     \par%
     #3}%
+  }  
 }
 
 % Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
+\makeatletter
 \newcommand{\fonte}[1]{%
   \M@gettitle{#1}%
   \memlegendinfo{#1}%
@@ -457,10 +446,29 @@
      \if@minipage
        \@setminipage
      \fi
-     \ABNTEXfontereduzida      
-     \configureseparator                          
+     \ABNTEXfontereduzida
+     \configureseparator
      \@makecaption{\ABNTEXfontereduzida Fonte}{\ignorespaces\ABNTEXfontereduzida #1}\par
   \endgroup}
+\makeatother
+
+
+% Altera os comandos \configurecaptions e \configureseparator para trabalhar com 
+% o pacote caption e amigos.
+\AtEndPackage{caption}{
+  \AtBeginDocument{%
+    \DeclareCaptionLabelSeparator{barr}{~--~}
+    \DeclareCaptionFont{ABNTEXfontereduzida}{\ABNTEXfontereduzida}
+      \captionsetup{format=hang,
+                    labelseparator=barr,
+                    labelfont=ABNTEXfontereduzida,
+                    font=ABNTEXfontereduzida}
+      \renewcommand{\configurecaptions}{%
+                  \captionsetup{justification=justified,%
+                                singlelinecheck=false}}
+      \renewcommand{\configureseparator}{\captionsetup{labelsep=colon}}
+  }
+}
 % ---
 
 % -----
