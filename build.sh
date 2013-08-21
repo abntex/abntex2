@@ -39,7 +39,7 @@ function initialize(){
 	mkdir -p target/abntex2source/
 	cp -rf doc tex bibtex target/abntex2source/
 	
-	# creating doc directory 
+	# creating doc directory (only documentation, without examples)
 	mkdir -p target/doc
 }
 
@@ -52,8 +52,29 @@ function buildPdf(){
 	cp -rf target/abntex2source/tex/latex/abntex2/* target/abntex2source/doc/latex/abntex2
 	cp -rf target/abntex2source/bibtex/bib/abntex2/* target/abntex2source/doc/latex/abntex2
 	cp -rf target/abntex2source/bibtex/bst/abntex2/* target/abntex2source/doc/latex/abntex2
+	cp -rf target/abntex2source/tex/latex/abntex2/* target/abntex2source/doc/latex/abntex2/examples
+	cp -rf target/abntex2source/bibtex/bib/abntex2/* target/abntex2source/doc/latex/abntex2/examples
+	cp -rf target/abntex2source/bibtex/bst/abntex2/* target/abntex2source/doc/latex/abntex2/examples
 
-	cd target/abntex2source/doc/latex/abntex2/	
+    
+    echo "Compiling base documentation"
+	
+	cd target/abntex2source/doc/latex/abntex2/
+    
+    echo "Compiling abntex2"
+	compileLaTeX abntex2
+	
+	echo "Compiling abntex2cite"
+	compileLaTeX abntex2cite
+	
+	echo "Compiling abntex2cite-alf"
+	compileLaTeX abntex2cite-alf
+	
+    
+    echo "Compiling examples"
+    
+	cd examples/
+		
 	echo "Compiling abntex2-modelo-relatorio-tecnico"
 	compileLaTeX abntex2-modelo-relatorio-tecnico
 	
@@ -68,23 +89,21 @@ function buildPdf(){
 	
 	echo "Compiling abntex2-modelo-projeto-pesquisa"
 	compileLaTeX abntex2-modelo-projeto-pesquisa
+
+	echo "Compiling abntex2-modelo-livro"
+	compileLaTeX abntex2-modelo-livro
 	
-	echo "Compiling abntex2"
-	compileLaTeX abntex2
+	cd ../../../../../../
 	
-	echo "Compiling abntex2cite"
-	compileLaTeX abntex2cite
-	
-	echo "Compiling abntex2cite-alf"
-	compileLaTeX abntex2cite-alf
-	
-	cd ../../../../../
-	
-	echo "removing abnTeX2 files to doc files" 
+	echo "removing abnTeX2 files from doc files" 
 	rm -rf target/abntex2source/doc/latex/abntex2/*.cls
 	rm -rf target/abntex2source/doc/latex/abntex2/*.sty
 	rm -rf target/abntex2source/doc/latex/abntex2/*.bst
 	rm -rf target/abntex2source/doc/latex/abntex2/abntex2-options.bib
+	rm -rf target/abntex2source/doc/latex/abntex2/examples/*.cls
+	rm -rf target/abntex2source/doc/latex/abntex2/examples/*.sty
+	rm -rf target/abntex2source/doc/latex/abntex2/examples/*.bst
+	rm -rf target/abntex2source/doc/latex/abntex2/examples/abntex2-options.bib
 }
 
 # generate compressed files
@@ -92,14 +111,13 @@ function buildCompressed(){
 
 	echo "$ZIP_DOC (only doc files):"
 	cp target/abntex2source/doc/latex/abntex2/* target/doc
-	rm target/doc/abntex2-modelo*
 	cd target/doc
 	zip -j ../../$ZIP_DOC * -i *README \*.tex \*.pdf \*.bib
 	cd ../..
 	
 	echo "$ZIP_TDS (tds directory structure):"
 	cd target/abntex2source
-	zip -r ../../$ZIP_TDS bibtex doc tex -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty
+	zip -r ../../$ZIP_TDS bibtex doc tex -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.jpg
 	cd ../..
 	
 	echo "$ZIP_CTAN (tex and doc browsable content + abntex2-tds.zip + README):"
@@ -110,17 +128,17 @@ function buildCompressed(){
 	cp -rf target/abntex2source/doc/latex/abntex2/* target/abntex2/doc
 	mv target/abntex2/doc/README target/abntex2/README
 	cd target 
-	zip -r ../$ZIP_CTAN abntex2 -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.zip
+	zip -r ../$ZIP_CTAN abntex2 -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.zip \*.jpg
 	cd ..
 	
 	echo "$ZIP_MODELO (only example files):"
-	cd target/abntex2source/doc/latex/abntex2
-	zip ../../../../../$ZIP_MODELO abntex2-modelo* -i \*.pdf \*.tex \*.bib
-	cd ../../../../..
+	cd target/abntex2source/doc/latex/abntex2/examples
+	zip ../../../../../../$ZIP_MODELO abntex2-modelo* -i \*.pdf \*.tex \*.bib \*.jpg
+	cd ../../../../../..
 
 	echo "$TAR_FILE (tds directory structure):"
 	cd target/abntex2source
-	COPYFILES_DISABLE=true tar cfvz ../../$TAR_FILE bibtex/bib/abntex2/*.bib bibtex/bst/abntex2/*.bst doc/latex/abntex2/{README,*.{bib,tex,pdf}} tex/latex/abntex2/*.{cls,sty}
+	COPYFILES_DISABLE=true tar cfvz ../../$TAR_FILE bibtex/bib/abntex2/*.bib bibtex/bst/abntex2/*.bst doc/latex/abntex2/{README,*.{bib,tex,pdf}} doc/latex/abntex2/examples/{*.{bib,tex,pdf,jpg}} tex/latex/abntex2/*.{cls,sty}
 	cd ../..
 
 }
@@ -134,7 +152,7 @@ function clean() {
 
 # replace version number in all files with <VERSION> string
 function replaceVersion(){
-	find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"   
+	find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"   
 }
 
 # build compressed files
