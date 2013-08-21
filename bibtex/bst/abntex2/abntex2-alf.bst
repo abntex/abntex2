@@ -2213,8 +2213,8 @@ FUNCTION {apresentacao}
   "| http://abntex2.googlecode.com                           |"
   "| Em caso de dúvidas ou problemas com este estilo procure |"
   abnt.alf
- {"| Estilo bibliográfico abnt-alf.bst versão " abnt.bst.revision * "          |" *}
- {"| Estilo bibliográfico abnt-num.bst versão " abnt.bst.revision * "          |" *}
+ {"| Estilo bibliográfico abntex2-alf.bst versão " abnt.bst.revision * "          |" *}
+ {"| Estilo bibliográfico abntex2-num.bst versão " abnt.bst.revision * "          |" *}
  if$
   "+---------------------------------------------------------+"
   stack$
