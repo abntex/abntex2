@@ -126,14 +126,15 @@ dividi-los no corpo do texto.}.
 \legend{Fonte: \citeonline{van86}}
 \end{table}
 
-Já a \autoref{tab-ibge} apresenta uma tabela criada conforme o padrão do IBGE
-requerido pelas normas da ABNT para documentos técnicos e acadêmicos.
+Já a \autoref{tabela-ibge} apresenta uma tabela criada conforme o padrão do
+\citeonline{ibge1993} requerido pelas normas da ABNT para documentos técnicos e
+acadêmicos.
 
 \begin{table}[htb]
 \IBGEtab{%
-  \label{tab-ibge}
-  \caption{Um Exemplo de tabela alinhada que pode ser longa ou curta,
-  conforme padrão IBGE.}%
+  \caption{Um Exemplo de tabela alinhada que pode ser longa
+  ou curta, conforme padrão IBGE.}%
+  \label{tabela-ibge}
 }{%
   \begin{tabular}{ccc}
   \toprule
@@ -143,8 +144,12 @@ requerido pelas normas da ABNT para documentos técnicos e acadêmicos.
   \bottomrule
 \end{tabular}%
 }{%
-  \fonte{Produzido pelos autores}%
-}
+  \fonte{Produzido pelos autores.}%
+  \nota{Esta é uma nota, que diz que os dados são baseados na
+  regressão linear.}%
+  \nota[Anotações]{Uma anotação adicional, que pode ser seguida de várias
+  outras.}%
+  }
 \end{table}
 
 

@@ -1123,6 +1123,8 @@ no mamual do pacote \textsf{babel} \cite{babel}:
   \renewcommand{\resumoname}{Abstract} 
   \renewcommand{\listadesiglasname}{List of abbreviations and acronyms}
   \renewcommand{\listadesimbolosname}{List of symbols}
+  \renewcommand{\fontename}{Source}
+  \renewcommand{\notaname}{Note}
    %% adjusts names used by \autoref
   \renewcommand{\pageautorefname}{page}
   \renewcommand{\sectionautorefname}{section}
@@ -2448,22 +2450,39 @@ texto, inseridas o mais próximo possível do trecho a que se referem e
 padronizadas conforme o Instituto Brasileiro de Geografia e Estatística
 (IBGE)''. Para atender a esse requisito, a classe \textsf{abntex2} oferece a
 macro 
-|\IBGEtab|\marg{Nome e rótulo da tabela}\marg{Conteúdo da tabela}\marg{Conteúdo da legenda}.
+|\IBGEtab|\marg{Nome e rótulo da tabela}\marg{Conteúdo da tabela}\marg{Conteúdo
+da legenda}, criada para atender requisitos descritos por \citeonline{ibge1993}.
 
-Nome e rótulo devem ser criados com |\caption|\margs{Nome do objeto} e
-|\label|\marg{Nome do rótulo}, respectivamente. O conteúdo da tabela pode ser
-criada com os ambientes |tabular|, |table|, |longtable| ou mesmo ser uma figura
-importada no ambiente |figure|. A legenda pode ser criada com |\fonte| ou com a
-macro |\legend|, padrão do \textsf{memoir}.
+Nome e rótulo devem ser criados com |\caption|\marg{Nome a ser impresso acima do
+objeto} e |\label|\marg{Nome do rótulo}, respectivamente. O rótulo é usado por
+|\autoref|\marg{Nome do rótulo} para referenciar o elemento criado. O conteúdo
+da tabela pode ser criado com os ambientes |tabular|, |table|, |longtable| ou
+mesmo ser uma figura importada no ambiente |figure|. O conteúdo da legenda pode
+ser criado com a macro |\legend| e |\namedlegend|, padrões do \textsf{memoir},
+ou, preferencialmente, com |\fonte| e |\nota|.
 
-A macro |\IBGEtab| pode ser usada conforme o exemplo:
+\DescribeMacro{\fonte}
+A macro |\fonte|\oarg{Rótulo da fonte. Padrão: ``Fonte''}\marg{Descrição da
+fonte da tabela ou figura} imprime o conteúdo do argumento
+antecedido da expressão ``Fonte: '', ou do conteúdo do parâmetro opcional,
+alinhado conforme requisitos do IBGE. A macro |\fonte| pode ser usada no
+interior de figuras ou de outros ambientes.
+
+\DescribeMacro{\nota}
+A macro |\fonte|\oarg{Rótulo da nota. Padrão: ``Nota''}\marg{Nota ou outra
+descrição} imprime o conteúdo do argumento antecedido da expressão ``Nota:
+'', ou do conteúdo do parâmetro opcional, alinhado conforme requisitos do IBGE.
+A macro |\nota| pode ser usada no interior de figuras ou de outros ambientes.
+
+Desse modo, um exemplo completo de uso das macros |\IBGEtab|, |\fonte| e |\nota|
+é:
 
 \begin{verbatim}
 \begin{table}[htb]
 \IBGEtab{%
-  \label{tab-ibge}
   \caption{Um Exemplo de tabela alinhada que pode ser longa ou curta,
   conforme padrão IBGE.}%
+  \label{tabela-ibge}
 }{%
   \begin{tabular}{ccc}
   \toprule
@@ -2474,16 +2493,13 @@ A macro |\IBGEtab| pode ser usada conforme o exemplo:
 \end{tabular}%
 }{%
   \fonte{Produzido pelos autores}%
+  \nota{Esta é uma nota, que diz que os dados são baseados na
+  regressão linear.}%
+  \nota[Anotações]{Uma anotação adicional, seguida de várias outras.}%
 }
 \end{table}
 \end{verbatim}
 
-\DescribeMacro{\fonte}
-Adicionalmente, a classe \textsf{abntex2} fornece a macro
-|\fonte|\marg{Descrição da fonte da tabela ou imagem}, que imprime o conteúdo do
-primeiro argumento antecedido da expressão ``Fonte: '' alinhado conforme
-requisitos do IBGE. A macro |\fonte| pode ser usada no interior de figuras ou de
-outros ambientes.
 
 % ------
 \section{Elementos pós-textuais}

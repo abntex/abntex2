@@ -231,6 +231,8 @@
 \newcommand{\resumoname}{Resumo} 
 \newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
 \newcommand{\listadesimbolosname}{Lista de s\'imbolos}
+\newcommand{\fontename}{Fonte}
+\newcommand{\notaname}{Nota}
 %
 \addto\captionsbrazil{% portugues-brasil
   %% ajusta nomes padroes do babel
@@ -262,6 +264,8 @@
   \renewcommand{\resumoname}{Abstract} 
   \renewcommand{\listadesiglasname}{List of abbreviations and acronyms}
   \renewcommand{\listadesimbolosname}{List of symbols}
+  \renewcommand{\fontename}{Source}
+  \renewcommand{\notaname}{Note}
    %% adjusts names used by \autoref
   \renewcommand{\pageautorefname}{page}
   \renewcommand{\sectionautorefname}{section}
@@ -432,7 +436,9 @@
     #1%
     \par%
     %\usebox{\myptabbox}%
+    {\ABNTEXfontereduzida%
     #2%
+    }%
     \par%
     #3}%
   }
@@ -441,7 +447,7 @@
 
 % Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
 \makeatletter
-\newcommand{\fonte}[2][Fonte]{%
+\newcommand{\fonte}[2][\fontename]{%
   \M@gettitle{#2}%
   \memlegendinfo{#2}%
   \par
@@ -458,7 +464,7 @@
 
 % Define o comando \notas que respeita as configurações de caption do memoir ou do caption
 \makeatletter
-\newcommand{\notas}[2][Notas]{\fonte[#1]{#2}}
+\newcommand{\nota}[2][\notaname]{\fonte[#1]{#2}}
 \makeatother
 
 

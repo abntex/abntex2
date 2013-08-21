@@ -73,3 +73,11 @@ syntax: regexp
 ^doc/latex/abntex2/abntex2-modelo-artigo\.pdf$
 syntax: regexp
 ^doc/latex/abntex2/abntex2-modelo-trabalho-academico\.pdf$
+syntax: regexp
+^doc/latex/abntex2/examples/abntex2$
+syntax: regexp
+^doc/latex/abntex2/examples/abntex2\.cls$
+syntax: regexp
+\.sty$
+syntax: regexp
+^doc/latex/abntex2/examples/abntex2-modelo-glossarios\.pdf$
