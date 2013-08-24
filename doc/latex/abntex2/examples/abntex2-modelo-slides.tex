@@ -1,0 +1,214 @@
+%% abtex2-modelo-slides.tex, v-1.0 gfabinhomat
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Fábio Rodrigues Silva, 
+%% member of abnTeX2 team, led by Lauro César Araujo. 
+%% Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-slides.tex, abntex2-modelo-references.bib and abntex2-marca.pdf
+%%
+%% Modelo desenvolvido por Fábio Rodrigues Silva (gfabinhomat@gmail.com)
+%% Mais informações podem ser obtidas no guia do usuário Beamer (http://linorg.usp.br/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf)
+%% Informações rápidas podem ser acessadas em http://en.wikibooks.org/wiki/LaTeX/Presentations
+
+\documentclass[aspectratio=169]{beamer}	 	% Apresentações em widescreen. Outros valores possíveis: 1610, 149, 54, 43 e 32.
+% Por padrão, as apresentações são no formato 4:3 (sem o aspectratio).
+
+\usetheme{Pittsburgh}
+\usecolortheme{default}
+\usefonttheme[onlymath]{serif}			% para fontes matemáticas
+% Enconte mais temas e cores em http://www.hartwork.org/beamer-theme-matrix/ 
+% Veja também http://deic.uab.es/~iblanes/beamer_gallery/index.html
+
+% Customizações de Cores: fg significa cor do texto e bg é cor do fundo
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{author}{fg=blue}
+\setbeamercolor{institute}{fg=blue}
+\setbeamercolor{date}{fg=green}
+\setbeamercolor{frametitle}{fg=red}
+\setbeamercolor{framesubtitle}{fg=brown}
+\setbeamercolor{block title}{bg=blue, fg=white}			%Cor da parte do bloco que tem título
+\setbeamercolor{block body}{bg=gray, fg=darkgray}		%Cor da parte do bloco que tem o texto (bg=cor de fundo; fg=cor do texto)
+
+% ---
+% PACOTES
+% ---
+\usepackage[alf]{abntex2cite}		% Citações padrão ABNT
+\usepackage[brazil]{babel}		% Idioma do documento
+\usepackage{cmap}			% Mapear caracteres especiais no PDF
+\usepackage{color}			% Controle das cores
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{txfonts}			% Fontes virtuais
+% ---
+
+% --- Informações do documento ---
+\title{Modelo Canônico para Desenvolvimento de Slides no Beamer Utilizando o abnTeX2}
+\author{Fábio Rodrigues Silva}
+\institute{Universidade do Brasil
+	    \par
+	    Faculdade de Arquitetura da Informação}
+\date{\today}
+% ---
+
+% ----------------- INÍCIO DO DOCUMENTO --------------------------------------
+\begin{document}
+
+% ----------------- NOVO SLIDE --------------------------------
+\begin{frame}
+
+\begin{minipage}{1\linewidth}
+  \centering
+  \begin{tabular}{cc}
+    \begin{tabular}{c}
+      \includegraphics[width=3.0cm]{abntex2-marca.pdf}
+    \end{tabular}
+    &
+    \begin{tabular}{c}
+      \textbf{Universidade do Brasil} \\ \textbf{Faculdade de Arquitetura da Informação}
+    \end{tabular}
+  \end{tabular}
+\end{minipage}
+
+\titlepage
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\begin{frame}{Sumário}
+\tableofcontents
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\section{Introdução}
+
+\begin{frame}{Introdução}
+
+Sinta-se convidado a participar do projeto abnTeX! Acesse o site do projeto em
+\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
+estudar, alterar e redistribuir o trabalho do ABNTEX, desde que os arquivos
+modificados tenham seus nomes alterados e que os créditos sejam dados aos
+autores originais, nos termos da ``The LATEX Project Public
+License''\ \url{http://www.latex-project.org/lppl.txt} \cite[p. 31]{abntex2modelo}.
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\section{Fontes a serem consultadas}
+\begin{frame}
+\frametitle{Público-Alvo}
+\framesubtitle{Usuários já iniciados ao Beamer}
+
+\begin{block}{Título}
+ Este modelo foi preparado como uma aplicação do uso do pacote abnTeX2 com o Beamer.
+\end{block}
+
+\begin{itemize}
+ \item Alguns comandos são explicados no modelo TEX. \pause
+ \item Para maiores informações, consulte o guia do usuário Beamer (\url{http://www.tex.ac.uk/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf})\pause
+ \item Para alterar o tema e as cores, consulte \url{http://deic.uab.es/~iblanes/beamer_gallery/index.html}
+ \item Consulte também \url{http://www.hartwork.org/beamer-theme-matrix/}
+\end{itemize}
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\begin{frame}{CTAN}
+
+Visite com frequência a página \url{http://www.ctan.org/}. Use-a como um guia de orientações gerais.
+\vspace{0.7cm}
+
+Outras fontes a serem consideradas:
+\begin{enumerate}
+ \item \url{http://www.latex-project.org/}
+ \item \url{http://www.tex-br.org/}
+ \item \url{http://latexbr.blogspot.com.br/}
+ \item \url{http://tex.stackexchange.com/}
+ \item \url{http://www.tug.org/}
+\end{enumerate}
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\begin{frame}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=1.0]{abntex2-marca.pdf}
+  \caption{Marca abnTeX2. Fonte: \url{https://code.google.com/p/abntex2}}
+\end{figure}
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\begin{frame}{Participe dos grupos de discussão}
+
+\begin{itemize}
+  \item Tire dúvidas e ajude outros por meio do grupo de usuários LaTeX \url{https://groups.google.com/group/latex-br} (e-mail: \url{latex-br@googlegroups.com})
+  \item Proponha melhorias, avise sobre falhas e faça sugestões sobre o abnTeX2 no grupo dos desenvolvedores \url{https://groups.google.com/group/abntex2} (e-mail: \url{abntex2@googlegroups.com});
+\end{itemize}
+
+Participe também da comunidade abnTeX2 no Google Plus \url{https://plus.google.com/u/0/communities/105202176004387477100}.
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\section{Resultados}
+
+\begin{frame}
+\frametitle{ABNT}
+\framesubtitle{Normas para trabalhos acadêmicos}
+
+Para adequar seus documentos acadêmicos com as normas ABNT, utilize:
+\begin{enumerate}
+ \item \citeonline{NBR14724:2011}: Esta Norma especifica os princípios gerais para a elaboração de trabalhos acadêmicos (teses, dissertações e outros), visando sua apresentação à instituição (banca, comissão examinadora de professores, especialistas designados e/ou outros).
+ \item \citeonline{NBR6028:2003}: Esta Norma estabelece os requisitos para redação e apresentação de resumos.
+ \item \citeonline{NBR6024:2012}: Esta Norma especifica os princípios gerais para de um sistema de numeração progressiva das seções de um documento, de modo a expor numa
+seqüência lógica o inter-relacionamento da matéria e a permitir sua localização.
+ \item \citeonline{NBR10520:2002}: Esta Norma especifica as características exigíveis para a apresentação de citações em documentos.
+\end{enumerate}
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\begin{frame}
+\frametitle{abnTeX2}
+\framesubtitle{Usando a suíte abnTeX2}
+
+Consulte \citeonline{abntex2-wiki-como-customizar} para customizações do abnTeX2.
+\vspace{0.5cm}
+
+Os documentos \citeonline{abntex2modelo-artigo}, \citeonline{abntex2modelo-relatorio} e \citeonline{abntex2modelo} tratam dos principais trabalhos acadêmicos e suas aplicações ao TeX.
+\vspace{0.5cm}
+
+Para orientações sobre as citações e as referências com o abnTeX2, consulte \citeonline{abntex2cite} e \citeonline{abntex2cite-alf}.
+\vspace{0.5cm}
+
+\end{frame}
+
+% ----------------- NOVO SLIDE --------------------------------
+\section{Referências}
+
+% --- O comando \allowframebreaks ---
+% Se o conteúdo não se encaixa em um quadro, a opção allowframebreaks instrui beamer para quebrá-lo automaticamente entre dois ou mais quadros,
+% mantendo o frametitle do primeiro quadro (dado como argumento) e acrescentando um número romano ou algo parecido na continuação.
+
+\begin{frame}[allowframebreaks]{Referências}
+\bibliography{abntex2-modelo-references}
+\end{frame}
+
+% ----------------- FIM DO DOCUMENTO -----------------------------------------
+\end{document}
