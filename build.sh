@@ -92,6 +92,10 @@ function buildPdf(){
 
 	echo "Compiling abntex2-modelo-livro"
 	compileLaTeX abntex2-modelo-livro
+
+	echo "Compiling abntex2-modelo-slides"
+	compileLaTeX abntex2-modelo-slides
+	
 	
 	cd ../../../../../../
 	

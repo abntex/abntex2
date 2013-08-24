@@ -30,6 +30,7 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.8
     . added an example of book produced with abntex2
+    . added an example of a beamer presentation produced with abntex2
     . added macros \IBGEtab, \fonte and \nota in order to meet table 
       formatting requirements from IBGE 
     . changed indentation, margins, paragraph spacing and further 
@@ -248,9 +249,15 @@ The abnTeX2 documentation consists of the following files:
   abntex2-modelo-relatorio-tecnico.tex	An usage example of abntex2 class and abntex2cite package producing a technical report
   abntex2-modelo-projeto-pesquisa.tex	An usage example of abntex2 class and abntex2cite package producing a research project
   abntex2-modelo-artigo.tex				An usage example of abntex2 class and abntex2cite package producing an article
-  abntex2-modelo-glossarios.tex			An usage example of abntex2 class and abntex2cite package producing an glossary
+  abntex2-modelo-glossarios.tex			An usage example of abntex2 class and abntex2cite package producing a glossary
+  abntex2-modelo-slides.tex				An usage example of a beamer presentation with abntex2cite package
   abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files 
-  abntex2-img-grafico.pdf				Image used as an example
+  abntex2-modelo-livro.tex				An usage example of abntex2 class and abntex2cite package producing a book
+  abntex2-modelo-livro-bandeirinha.jpg		Image used by abntex2-modelo-livro.tex
+  abntex2-modelo-livro-pintassilgo.jpg		Image used by abntex2-modelo-livro.tex
+  abntex2-modelo-livro-saira-amarela.jpg	Image used by abntex2-modelo-livro.tex
+  abntex2-modelo-img-grafico.pdf			Image used as an example
+  abntex2-modelo-img-marca.pdf
   abntex2-modelo-references.bib			Bib references of examples above
 
   abntex2.tex							The main class documentation
