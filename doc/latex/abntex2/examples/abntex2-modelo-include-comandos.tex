@@ -538,10 +538,20 @@ Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011}
 % ---
 
 Para usar hifenizações de diferentes idiomas, inclua nas opções do documento o
-nome dos idiomas que o seu texto contém. Por exemplo:
+nome dos idiomas que o seu texto contém. Por exemplo (para melhor
+visualização, as opções foram quebras em diferentes linhas):
 
 \begin{verbatim}
-\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+\documentclass[
+	12pt,
+	openright,
+	twoside,
+	a4paper,
+	english,
+	french,
+	spanish,
+	brazil
+	]{abntex2}
 \end{verbatim}
 
 O idioma português-brasileiro (\texttt{brazil}) é incluído automaticamente pela
@@ -552,7 +562,15 @@ documento. Desse modo, caso deseje escrever um texto em inglês que tenha
 citações em português e em francês, você deveria usar o preâmbulo como abaixo:
 
 \begin{verbatim}
-\documentclass[12pt,openright,twoside,a4paper,french,brazil,english]{abntex2}
+\documentclass[
+	12pt,
+	openright,
+	twoside,
+	a4paper,
+	french,
+	brazil,
+	english
+	]{abntex2}
 \end{verbatim}
 
 A lista completa de idiomas suportados, bem como outras opções de hifenização,
