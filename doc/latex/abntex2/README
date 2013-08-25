@@ -35,6 +35,11 @@ CHANGE HISTORY
       formatting requirements from IBGE 
     . changed indentation, margins, paragraph spacing and further 
       improvements of abstract environment
+    . changed the font size of name of tables and figures due to a 
+      congruent interpretation of ABNT NBR 14724:2011 and IBGE rules: 
+      the font size of the name of tables and figures must be the same 
+      of the text. The font size of sources and notes are keep the 
+      same: a smaller and uniform one. 
     . fixed article model in compliance to ABNT NBR 6022:2003. 
     . fixed definition of chapternamenumlength in abnt chapter style 
     . added new general information in the documentation files
