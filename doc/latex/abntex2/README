@@ -28,7 +28,7 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2013/xx/xx - v1.8
+  2013/08/26 - v1.8
     . added an example of book produced with abntex2
     . added an example of a beamer presentation produced with abntex2
     . added macros \IBGEtab, \fonte and \nota in order to meet table 
