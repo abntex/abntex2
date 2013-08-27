@@ -25,6 +25,10 @@
 %%
 %% Revision history:
 %%
+%% 2013/08/27 PauloQuinan 
+%%  Corrige a formatação de url com https
+%%  Corrige caracter & não escapado em urls de referências quando se usa hyperref
+%%
 %% 2013/06/01 laurocesar
 %%  Ajusta opção iso-690-1987 para @article
 %%
@@ -977,14 +981,16 @@ FUNCTION {format.journal.pages}
 
 FUNCTION {get.url.type}
 {s #1 #5 substring$ "http:" = {http.url}
+ {s #1 #6 substring$ "https:" = {http.url}
   {s #1 #5 substring$ "file:" = {file.url}
-     {s #1 #4 substring$ "ftp:"  = {ftp.url}
-       {s #1 #4 substring$ "doi:"  = {doi.url}
-         {s #1 #7 substring$ "mailto:" = {mailto.url} {unknown.url} if$}
-       if$}
+   {s #1 #4 substring$ "ftp:"  = {ftp.url}
+    {s #1 #4 substring$ "doi:"  = {doi.url}
+     {s #1 #7 substring$ "mailto:" = {mailto.url} {unknown.url} if$}
+      if$}
      if$}
+    if$}
    if$}
- if$
+  if$
  'url.type :=
 }
 
@@ -1003,6 +1009,7 @@ FUNCTION {filter.url.tex}
     {s url.pos #1 substring$
     duplicate$ "_" = {pop$ "\underline{\ }" } 'skip$ if$
     duplicate$ "%" = {pop$ "\%" } 'skip$ if$
+    duplicate$ "&" = {pop$ "\&" } 'skip$ if$
     duplicate$ "~" = {pop$ "\~{}" } 'skip$ if$
     duplicate$ "/" = {pop$ "\-/" } 'skip$ if$
     duplicate$ "." = {pop$ "\-." } 'skip$ if$
