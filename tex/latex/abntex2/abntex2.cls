@@ -754,7 +754,7 @@
     \setlength\absrightindent{0cm}
     % Garante que a fonte do texto do abstract será a mesma do documento, pois
     % na classe memoir está \small
-    \abstracttextfont{\normalfont\normalsize}
+    \renewcommand{\abstracttextfont}{\normalfont\normalsize}
   }
   
 % A norma não diz nada sobre identação e separação entre parágrafos no abstract,
