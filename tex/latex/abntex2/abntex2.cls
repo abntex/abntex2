@@ -435,10 +435,7 @@
     \configurecaptions
     #1%
     \par%
-    %\usebox{\myptabbox}%
-    {\ABNTEXfontereduzida%
     #2%
-    }%
     \par%
     #3}%
   }
