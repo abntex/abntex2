@@ -11,7 +11,7 @@ VERSAO=""
 ZIP_DOC=""
 ZIP_TDS=""
 ZIP_MODELO=""
-ZIP_CTAN=target/abntex2.zip
+ZIP_CTAN="target/abntex2.zip"
 TAR_FILE=""
 
 # compile LaTeX
@@ -125,14 +125,15 @@ function buildCompressed(){
 	cd ../..
 	
 	echo "$ZIP_CTAN (tex and doc browsable content + abntex2-tds.zip + README):"
-	cp $ZIP_TDS target/abntex2/abntex2.tds.zip
+	cp $ZIP_TDS target/abntex2.tds.zip
 	cp -rf target/abntex2source/tex/latex/abntex2/* target/abntex2/tex
 	cp -rf target/abntex2source/bibtex/bib/abntex2/* target/abntex2/tex
 	cp -rf target/abntex2source/bibtex/bst/abntex2/* target/abntex2/tex
 	cp -rf target/abntex2source/doc/latex/abntex2/* target/abntex2/doc
 	mv target/abntex2/doc/README target/abntex2/README
-	cd target 
-	zip -r ../$ZIP_CTAN abntex2 -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.zip \*.jpg
+	cd target
+	zip -r ../$ZIP_CTAN abntex2 -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.jpg
+	zip ../$ZIP_CTAN abntex2.tds.zip
 	cd ..
 	
 	echo "$ZIP_MODELO (only example files):"
