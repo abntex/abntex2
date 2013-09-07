@@ -419,6 +419,7 @@
 % Para uso com pacotes subfig e caption dentro do memoir se estes forem carregados ou não.
 % É necessário para que os comandos \IBGEtab e \fonte funcionem 
 % independente do carregamento de pacotes externos ao memoir que tratam captions.
+\newcommand{\IBGEtabfontsize}{\ABNTEXfontereduzida}
 \AtBeginDocument{%
   % comandos auxiliares para manipular os captions dentro do comando \IBGEtab.
   \newcommand{\configurecaptions}{\captionstyle[\raggedright]{}}
@@ -428,14 +429,16 @@
   \newsavebox{\myptabbox}
   \newlength{\myptabboxwidth}
   \newcommand{\IBGEtab}[3]{%
-    \savebox{\myptabbox}{{#2}}%
+    \savebox{\myptabbox}{{\IBGEtabfontsize #2}}%
     \settowidth{\myptabboxwidth}{\usebox{\myptabbox}}%
     \centering%
     \parbox{\myptabboxwidth}{%
     \configurecaptions
     #1%
     \par%
+    {\IBGEtabfontsize%
     #2%
+    }%
     \par%
     #3}%
   }
