@@ -32,6 +32,9 @@ CHANGE HISTORY
     . added microtype package to examples and documentation files
     . fixed url link for "https" addresses on .bst files
     . fixed scape of caracter "&" in urls on .bst files
+    . fixed the layout of url if the option-package-url = url is used with the
+      abntex2cite.sty. Without this insert the url was displayed without 
+      delimiters '<' and '>'
 
   2013/08/26 - v1.8
     . added an example of book produced with abntex2
