@@ -369,6 +369,10 @@
 \setboolean{ABNThyperref}{true}
 }{\setboolean{ABNThyperref}{false}}
 
+\@ifpackageloaded{url}{%
+\def\UrlLeft{<}
+\def\UrlRight{>}}
+
 \provideboolean{ABNTbackref} %By AWSS
 
 \@ifpackageloaded{backref}{% %By AWSS
