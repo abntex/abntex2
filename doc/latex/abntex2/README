@@ -35,6 +35,8 @@ CHANGE HISTORY
     . fixed the layout of url if the option-package-url = url is used with the
       abntex2cite.sty. Without this insert the url was displayed without 
       delimiters '<' and '>'
+    . fixed title printed with \imprimirtitle in title pages (\imprimircapa,
+      folhaderostocontent and abntex2-modelo-trabalho-academico's folhadeaprovacao)  
 
   2013/08/26 - v1.8
     . added an example of book produced with abntex2
