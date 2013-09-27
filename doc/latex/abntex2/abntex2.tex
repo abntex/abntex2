@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.9.27 19h00 laurocesar
+%%  Ajusta exemplos de capa, de folha de rosto e de folha de aprovação
+%%
 %% 2013.8.20 8h42	laurocesar
 %%  Descreve macros \IBGEtab e \legenda e informações do modeo de livro
 %%
@@ -1394,15 +1397,19 @@ com base no ambiente |capa|, conforme o exemplo:
 \renewcommand{\imprimircapa}{%
   \begin{capa}%
     \center
+    \ABNTEXchapterfont\Large UNIVERSIDADE QUE TORNA OS DOCUMENTOS AINDA MAIS ESTRANHOS
+    
+    \vspace*{1cm}
+    
     {\ABNTEXchapterfont\large\imprimirautor}
 
-    \vspace*{\fill}
-    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
-    \vspace*{\fill}
+    \vfill
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \vfill
     
-    {\large\imprimirlocal}
-    \par
-    {\large\imprimirdata}
+    \large\imprimirlocal
+
+    \large\imprimirdata
     
     \vspace*{1cm}
   \end{capa}
@@ -1444,7 +1451,9 @@ reescreva a macro |\folhaderostocontent|, conforme o exemplo:
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
-    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+    \begin{center}
+    \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
     \vspace*{\fill}
 
     \abntex@ifnotempty{\imprimirpreambulo}{%
@@ -1612,7 +1621,9 @@ aprovação final do trabalho:
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vspace*{\fill}\vspace*{\fill}
-    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+    \begin{center}
+     \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center} 
     \vspace*{\fill}
     
     \hspace{.45\textwidth}
