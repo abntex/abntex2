@@ -963,16 +963,15 @@
 \newcommand{\imprimircapa}{%
   \begin{capa}%
     \center
-    %\vspace*{1cm}
-    {\ABNTEXchapterfont\large\imprimirautor}
+    \ABNTEXchapterfont\large\imprimirautor
 
-    \vspace*{\fill}
-    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
-    \vspace*{\fill}
+    \vfill
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \vfill
     
-    {\large\imprimirlocal}
-    \par
-    {\large\imprimirdata}
+    \large\imprimirlocal
+
+    \large\imprimirdata
     
     \vspace*{1cm}
   \end{capa}
@@ -997,11 +996,13 @@
 
     %\vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
-
+	
     \vspace*{\fill}\vspace*{\fill}
-    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
     \vspace*{\fill}
-
+	
     \abntex@ifnotempty{\imprimirpreambulo}{%
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
