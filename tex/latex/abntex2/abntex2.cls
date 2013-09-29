@@ -507,6 +507,9 @@
 
 % leaders para os capitulos
 \renewcommand*{\cftchapterdotsep}{\cftdotsep}
+
+% suprime espaço entre os itens de listings de diferentes capítulos 
+\setlength\cftbeforechapterskip{0pt}
 % -----
 
 % ---
