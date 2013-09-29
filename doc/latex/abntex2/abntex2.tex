@@ -2486,6 +2486,14 @@ descrição} imprime o conteúdo do argumento antecedido da expressão ``Nota:
 '', ou do conteúdo do parâmetro opcional, alinhado conforme requisitos do IBGE.
 A macro |\nota| pode ser usada no interior de figuras ou de outros ambientes.
 
+\DescribeMacro{\IBGEtabfontsize}
+O conteúdo do material tabulado usado na macro |\IBGEtab| podem ser globalmente ou 
+localmente ajustado através da mabro |\IBGEtabfontsize|. A norma diz que o
+contéudo de tabelas deve ser em fonte reduzida, assim, por padrão, a classe 
+faz |\IBGEtabfontsize| como |\ABNTEXfontereduzida|. Para uma adequação às 
+normas da intituição este tamanho pode ser modificado via  
+|\renewcommand|\marg{|\IBGEtabfontsize|}{tamanho de fonte desejada}.
+
 Desse modo, um exemplo completo de uso das macros |\IBGEtab|, |\fonte| e |\nota|
 é:
 
