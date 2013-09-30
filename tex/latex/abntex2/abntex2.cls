@@ -648,7 +648,9 @@
 \newcommand{\imprimirautor}{\theauthor}
 
 % Comandos de dados - data
-\newcommand{\data}[1]{\AtBeginDocument{\date{#1}}}
+\let\olddate\date
+\renewcommand{\date}[1]{\AtBeginDocument{\olddate{#1}}}
+\newcommand{\data}[1]{\date{#1}}
 \newcommand{\imprimirdata}{\thedate}
 
 % Comandos de dados - instituicao
