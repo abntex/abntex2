@@ -38,6 +38,8 @@ CHANGE HISTORY
     . fixed title printed with \imprimirtitle in title pages (\imprimircapa,
       folhaderostocontent and abntex2-modelo-trabalho-academico's folhadeaprovacao)  
     . fixed language of the date command (\imprimirdata)
+    . fixed space between label and name separator ("--") greater than 9th 
+      item of listings 
     . suppressed "before chapter skip" on items of listings 
       (\setlength\cftbeforechapterskip{0pt})  
 
