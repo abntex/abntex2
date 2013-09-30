@@ -496,11 +496,11 @@
 
 % lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
-\renewcommand*{\cftfigureaftersnum}{~~--}
+\renewcommand*{\cftfigureaftersnum}{\hfill--\hfill}
  
 % lista de tabelas  
 \renewcommand{\cfttablename}{\tablename\space}
-\renewcommand*{\cfttableaftersnum}{~~--}	
+\renewcommand*{\cfttableaftersnum}{\hfill--\hfill}	
  
 % fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
