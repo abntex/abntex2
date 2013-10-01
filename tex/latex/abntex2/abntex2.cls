@@ -509,7 +509,9 @@
 \renewcommand*{\cftchapterdotsep}{\cftdotsep}
 
 % suprime espaço entre os itens de listings de diferentes capítulos 
-\setlength\cftbeforechapterskip{0pt}
+\setlength{\cftbeforechapterskip}{0pt plus 0pt}
+\renewcommand*{\insertchapterspace}{}
+
 % -----
 
 % ---
