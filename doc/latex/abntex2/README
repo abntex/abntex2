@@ -30,6 +30,7 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2013/xx/xx - v1.8.1
     . added microtype package to examples and documentation files
+    . added a fifth level on text structure (use \paragraph as a subsubsubsection)
     . fixed url link for "https" addresses on .bst files
     . fixed scape of caracter "&" in urls on .bst files
     . fixed the layout of url if the option-package-url = url is used with the
