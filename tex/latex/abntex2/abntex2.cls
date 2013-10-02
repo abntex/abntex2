@@ -1,4 +1,4 @@
-%% abntex2.cls, v laurocesar
+%% abntex2.cls, v<VERSION> laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%
 %% This work may be distributed and/or modified under the
