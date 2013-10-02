@@ -1,4 +1,4 @@
-%% abntex2.cls, v<VERSION> laurocesar
+%% abntex2.cls, v laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%
 %% This work may be distributed and/or modified under the
@@ -16,6 +16,10 @@
 %% http://abntex2.googlecode.com/
 %%
 %% This work consists of the file abntex2.cls.
+%%
+%% 2013.10.02 11h00	carlini
+%%  Adiciona suporte a subsubsubsection (utilizando paragraph)
+%%  e adiciona a opcao subsubsubsection=TITLE.
 %%
 %% 2013.8.19 07h27	sggranja
 %%  Adiciona macros \IBGEtab e \fonte
@@ -151,14 +155,17 @@
 \newboolean{ABNTEXuppersection}     %true=titles of sections in uppercase
 \newboolean{ABNTEXuppersubsection}  %true=titles of subsections in uppercase
 \newboolean{ABNTEXuppersubsubsection}  %true=titles of subsubsections in uppercase
+\newboolean{ABNTEXuppersubsubsubsection}  %true=titles of subsubsubsections in uppercase
 \setboolean{ABNTEXupperchapter}{false}
 \setboolean{ABNTEXuppersection}{false}
 \setboolean{ABNTEXuppersubsection}{false}
 \setboolean{ABNTEXuppersubsubsection}{false}
+\setboolean{ABNTEXuppersubsubsubsection}{false}
 \DeclareOption{chapter=TITLE}{\setboolean{ABNTEXupperchapter}{true}}
 \DeclareOption{section=TITLE}{\setboolean{ABNTEXuppersection}{true}}
 \DeclareOption{subsection=TITLE}{\setboolean{ABNTEXuppersubsection}{true}}
 \DeclareOption{subsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsection}{true}}
+\DeclareOption{subsubsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsubsection}{true}}
 
 %
 % Repassa demais opcoes a memoir	
@@ -186,6 +193,7 @@
 \newcommand{\ABNTEXsectionupperifneeded}{\ifthenelse{\boolean{ABNTEXuppersection}}{\MakeTextUppercase}{}}
 \newcommand{\ABNTEXsubsectionupperifneeded}{\ifthenelse{\boolean{ABNTEXuppersubsection}}{\MakeTextUppercase}{}}
 \newcommand{\ABNTEXsubsubsectionupperifneeded}{\ifthenelse{\boolean{ABNTEXuppersubsubsection}}{\MakeTextUppercase}{}}
+\newcommand{\ABNTEXsubsubsubsectionupperifneeded}{\ifthenelse{\boolean{ABNTEXuppersubsubsubsection}}{\MakeTextUppercase}{}}
 % ---
 
 % ------------------------------------------------------------------------
@@ -245,7 +253,7 @@
   \renewcommand{\sectionautorefname}{se{\c c}\~ao}
   \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
   \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
-  \renewcommand{\paragraphautorefname}{par\'agrafo}
+  \renewcommand{\paragraphautorefname}{subse{\c c}\~ao}
 }
 \addto\captionsenglish{% ingles
   %% adjusts names from abnTeX2
@@ -271,7 +279,7 @@
   \renewcommand{\sectionautorefname}{section}
   \renewcommand{\subsectionautorefname}{subsection}
   \renewcommand{\subsubsectionautorefname}{subsubsection}
-  \renewcommand{\paragraphautorefname}{paragraph}
+  \renewcommand{\paragraphautorefname}{subsubsection}
 }
 % ---
 
@@ -332,6 +340,9 @@
 
 \newcommand{\ABNTEXsubsubsectionfont}{\ABNTEXsubsectionfont}
 \newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+\newcommand{\ABNTEXsubsubsubsectionfont}{\ABNTEXsubsectionfont}
+\newcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 % ---
 
 % ------------------------------------------------------------------------
@@ -490,9 +501,17 @@
 % -----
 % Configuracoes do TOC
 % -----
-% nivel de profundidade
-\setsecnumdepth{subsubsection}
-\settocdepth{subsubsection}   %\maxtocdepth{subsubsection}
+% nivel de profundidade (implementa o quinto nivel - subsubsubsection)
+\setsecnumdepth{paragraph}
+\settocdepth{paragraph}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+% redefine os comandos *paragraph* para *subsubsubsection*
+\newcommand{\subsubsubsection}{\paragraph}
+\newcommand{\cftbeforesubsubsubsectionskip }{\cftbeforeparagraphskip}
+\newcommand{\cftsubsubsubsectionfont }{\cftparagraphfont}
+\newcommand{\setsubsubsubsecheadstyle}{\setparaheadstyle}
 
 % lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
@@ -545,6 +564,7 @@
   \setsecheadstyle{\ABNTEXsectionfont\ABNTEXsectionfontsize\ABNTEXsectionupperifneeded}
   \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize\ABNTEXsubsectionupperifneeded}
   \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize\ABNTEXsubsubsectionupperifneeded}
+  \setsubsubsubsecheadstyle{\ABNTEXsubsubsubsectionfont\ABNTEXsubsubsubsectionfontsize\ABNTEXsubsubsubsectionupperifneeded}
   
   % impressao do numero do capitulo
   \renewcommand{\chapternamenum}{}
