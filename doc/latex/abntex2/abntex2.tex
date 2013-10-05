@@ -2468,10 +2468,11 @@ da legenda}, criada para atender requisitos descritos por \citeonline{ibge1993}.
 Nome e rótulo devem ser criados com |\caption|\marg{Nome a ser impresso acima do
 objeto} e |\label|\marg{Nome do rótulo}, respectivamente. O rótulo é usado por
 |\autoref|\marg{Nome do rótulo} para referenciar o elemento criado. O conteúdo
-da tabela pode ser criado com os ambientes |tabular|, |table|, |longtable| ou
-mesmo ser uma figura importada no ambiente |figure|. O conteúdo da legenda pode
-ser criado com a macro |\legend| e |\namedlegend|, padrões do \textsf{memoir},
-ou, preferencialmente, com |\fonte| e |\nota|.
+da tabela pode ser criado com os ambientes |tabular|, |table|, ou
+mesmo ser uma figura importada no ambiente |figure|. O desenvolvimento do
+|\IBGEtab| prevê o uso do |longtable|, mas não funciona com ele ainda. 
+O conteúdo da legenda pode ser criado com a macro |\legend| e |\namedlegend|, 
+padrões do \textsf{memoir}, ou, preferencialmente, com |\fonte| e |\nota|.
 
 \DescribeMacro{\fonte}
 A macro |\fonte|\oarg{Rótulo da fonte. Padrão: ``Fonte''}\marg{Descrição da
