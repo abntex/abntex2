@@ -43,6 +43,7 @@ CHANGE HISTORY
       item of listings 
     . suppressed "before chapter skip" on items of listings 
       (\setlength\cftbeforechapterskip{0pt})  
+    . removed useless cmap package from examples
 
   2013/08/26 - v1.8
     . added an example of book produced with abntex2
