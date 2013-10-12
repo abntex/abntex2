@@ -178,7 +178,8 @@
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 \RequirePackage{abntex2abrev}
-\RequirePackage{setspace}	%*****
+\RequirePackage{setspace}	
+\RequirePackage{url} %*****
 
 %%%%%%  Options Declaration  %%%%%%
 
@@ -370,6 +371,7 @@
 }{\setboolean{ABNThyperref}{false}}
 
 \@ifpackageloaded{url}{%
+\addtociteoptionlist{abnt-url-package=url}
 \def\UrlLeft{<}
 \def\UrlRight{>}}
 
@@ -380,6 +382,27 @@
 }{\setboolean{ABNTbackref}{false}} %By AWSS
 
 \ProcessOptions
+
+% Check if not running pdf/xe/lua/htlatex, then load breakurl
+%   From http://tex.stackexchange.com/a/53943
+\edef\texforht{TT\noexpand\fi
+  \@ifpackageloaded{tex4ht}
+    {\noexpand\iftrue}
+    {\noexpand\iffalse}}
+\RequirePackage{ifpdf,ifxetex,ifluatex}
+\ifpdf
+\else
+  \ifxetex
+  \else
+    \ifluatex
+    \else
+      \if\texforht
+      \else
+        \RequirePackage{breakurl}
+      \fi% texforht
+    \fi% luatex
+  \fi% xetex
+\fi% pdftex
 
 % really foot?
 \ifthenelse{\boolean{ABCIfoot}\and\equal{\AbntCitetype}{num}}
