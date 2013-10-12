@@ -1,0 +1,150 @@
+%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para a Universidade Federal do Ceará
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Luan Falcão Daniel Santos, luan_aero@yahoo.com.br
+%%
+%% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
+%%
+
+% ---
+% INICIO DAS CUSTOMIZACOES PARA A UNIVERSIDADE FEDERAL DO CEARA
+% ---
+\usepackage{float}
+
+\usepackage{graphicx}
+
+\newcommand{\membroumname}{Membro um:}
+\newcommand{\membrodoisname}{Membro dois:}
+
+% Comandos de dados - Membro da banca um
+\providecommand{\imprimirmembroumRotulo}{}
+\providecommand{\imprimirmembroum}{}
+\newcommand{\membroum}[2][\membroumname]%
+  {\renewcommand{\imprimirmembroumRotulo}{#1}%
+   \renewcommand{\imprimirmembroum}{#2}}
+   
+% Comandos de dados - Membro da banca dois
+\providecommand{\imprimirmembrodoisRotulo}{}
+\providecommand{\imprimirmembrodois}{}
+\newcommand{\membrodois}[2][\membrodoisname]%
+  {\renewcommand{\imprimirmembrodoisRotulo}{#1}%
+   \renewcommand{\imprimirmembrodois}{#2}}
+
+% alterando a capa
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.9]{abntex2-ufc-brasao.pdf}
+\end{figure}
+    {\ABNTEXchapterfont\bfseries{\imprimirinstituicao\vspace*{3.5cm}}}
+
+    {\ABNTEXchapterfont\bfseries\imprimirautor\vspace*{3.5cm}}
+
+    {\ABNTEXchapterfont\bfseries\imprimirtitulo}
+    \vspace*{\fill}
+
+    {\bfseries\imprimirlocal}
+    \par
+    {\bfseries\imprimirdata}
+
+    \vspace*{1cm}
+  \end{capa}
+}
+
+
+% folha de rosto
+
+\makeatletter
+
+\renewcommand{\folhaderostocontent}{
+\begin{center}
+{\ABNTEXchapterfont\imprimirautor}
+
+\vspace*{3.5cm}
+
+{\ABNTEXchapterfont\imprimirtitulo}
+
+\vspace*{\fill}
+
+\abntex@ifnotempty{\imprimirpreambulo}{%
+  \hspace{.45\textwidth}
+  \begin{minipage}{.5\textwidth}
+  \SingleSpacing
+  \imprimirpreambulo
+  \end{minipage}%
+}%
+
+\abntex@ifnotempty{\imprimirorientador}{%
+  \hspace{.45\textwidth}
+  \begin{minipage}{.5\textwidth}
+  \SingleSpacing
+  \imprimirorientador
+  \end{minipage}%
+  \vspace*{\fill}
+}%
+
+\vspace*{\fill}
+
+{\imprimirlocal}
+
+\par
+
+{\imprimirdata}
+\vspace*{1cm}
+\end{center}
+}
+
+\makeatother
+
+%folha de aprovação
+\newcommand{\imprimirfolhadeaprovacao}{
+\begin{folhadeaprovacao}
+\begin{center}
+{\ABNTEXchapterfont\imprimirautor}
+
+\vspace*{\fill}\vspace*{\fill}
+{\ABNTEXchapterfont\imprimirtitulo}
+\vspace*{\fill}
+
+\hspace{.45\textwidth}
+\begin{minipage}{.5\textwidth}
+\imprimirpreambulo
+\end{minipage}%
+\vspace*{\fill}
+\end{center}
+
+Aprovada em
+
+\begin{center}
+BANCA EXAMINADORA
+\end{center}
+
+\assinatura{\textbf{\imprimirorientador (Orientador)} \\ Universidade Federal do Ceará}
+\assinatura{\textbf{\imprimirmembroum} \\ Universidade Federal do Ceará}
+\assinatura{\textbf{\imprimirmembrodois} \\ Universidade Federal do Ceará}
+
+\begin{center}
+\vspace*{0.5cm}
+{\large\imprimirlocal}
+\par
+{\large\imprimirdata}
+\vspace*{1cm}
+\end{center}
+
+\end{folhadeaprovacao}
+}
+% ---
+% FIM DAS CUSTOMIZACOES PARA A UNIVERSIDADE FEDERAL DO CEARA
+% ---
