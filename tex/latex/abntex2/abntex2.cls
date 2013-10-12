@@ -166,7 +166,16 @@
 \DeclareOption{subsection=TITLE}{\setboolean{ABNTEXuppersubsection}{true}}
 \DeclareOption{subsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsection}{true}}
 \DeclareOption{subsubsubsection=TITLE}{\setboolean{ABNTEXuppersubsubsubsection}{true}}
-
+%
+% Opções de diagramação de sumários
+% sumario=tradicional    : Sumário tradicional do LaTeX/Memoir
+% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012
+\newboolean{ABNTEXsumario-tradicional}     %true=titles of chapter/appendix in uppercase
+\newboolean{ABNTEXsumario-abnt-6027-2012} 
+\setboolean{ABNTEXsumario-tradicional}{true}
+\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+\DeclareOption{sumario=tradicional}{\setboolean{ABNTEXsumario-tradicional}{true}}
+\DeclareOption{sumario=abnt-6027-2012}{\setboolean{ABNTEXsumario-abnt-6027-2012}{true}}
 %
 % Repassa demais opcoes a memoir	
 %
@@ -531,6 +540,51 @@
 \setlength{\cftbeforechapterskip}{0pt plus 0pt}
 \renewcommand*{\insertchapterspace}{}
 
+% macros para configurar o cft
+\ifthenelse{\boolean{ABNTEXsumario-tradicional}}{%
+\cftinsertcode{A}{}
+\newcommand{\cftlastnumwidth}{\cftsubsubsectionnumwidth}
+%
+\newcommand{\tocprintchapter}{}
+%
+\newcommand{\tocinnonumchapter}{}
+%
+\newcommand{\tocprintchapternonum}{}
+%
+\newcommand{\tocpartapendices}{}
+%
+\newcommand{\tocpartanexos}{}
+}{}
+%
+\ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
+\cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
+\renewcommand{\cftlastnumwidth}{\cftsubsubsectionnumwidth}
+\cftsetindents{part}{0em}{\cftlastnumwidth}
+\cftsetindents{chapter}{0em}{\cftlastnumwidth}
+\cftsetindents{section}{0em}{\cftlastnumwidth}
+\cftsetindents{subsection}{0em}{\cftlastnumwidth}
+\cftsetindents{subsubsection}{0em}{\cftlastnumwidth}
+\cftsetindents{paragraph}{0em}{\cftlastnumwidth}
+\cftsetindents{subparagraph}{0em}{\cftlastnumwidth}
+%
+\renewcommand{\tocprintchapter}{%
+\addtocontents{toc}{\cftsetindents{chapter}{0em}{\cftlastnumwidth}}}
+%
+\renewcommand{\tocinnonumchapter}{%
+\addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}%
+\cftinserthook{toc}{A}}
+%
+\renewcommand{\tocprintchapternonum}{%
+\addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}}
+%
+\renewcommand{\tocpartapendices}{%
+\addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+\cftinserthook{toc}{A}}
+%
+\renewcommand{\tocpartanexos}{%
+\addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+\cftinserthook{toc}{A}}
+}{}
 % -----
 
 % ---
@@ -587,10 +641,12 @@
        
   % impressao do numero do capitulo     	
   \renewcommand{\printchapternum}{%
+     \tocprintchapter
      \setboolean{abntex@innonumchapter}{false}
      \chapnumfont%
      \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+       \tocinnonumchapter
        --\space%
      }{} % else
   }
@@ -598,6 +654,7 @@
   
   % impressao do capitulo nao numerado
   \renewcommand\printchapternonum{%
+     \tocprintchapternonum
      \setboolean{abntex@innonumchapter}{true}%
     }
 }
@@ -905,9 +962,13 @@
 
 % atalhos para \partpage ou \appendixpage* 
 \makeatletter
-\newcommand{\partapendices}{\@ifstar{\appendixpage*}{\partpage}}
+\newcommand{\partapendices}{%
+\tocpartapendices%
+\@ifstar{\appendixpage*}{\partpage}}
 
-\newcommand{\partanexos}{\@ifstar{\appendixpage*}{\partpage}}
+\newcommand{\partanexos}{%
+\tocpartanexos%
+\@ifstar{\appendixpage*}{\partpage}}
 \makeatother
 % ---
 
