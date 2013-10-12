@@ -295,6 +295,7 @@ parana1997,microsoft1995,mpc1993,sony1990,accioly2000}
 \Large{Estilos bibliográficos compatíveis com a ABNT NBR 6023}}
 \newcommand{\abnTeX}{abn\TeX}
 \newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
+\newcommand{\optiondefaultval}[1]{\underline{\texttt{#1}}}
 
 %begin{latexonly}
 \title{\titulo}
@@ -308,7 +309,7 @@ Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
 % \begin{htmlonly}
 % \title{\titulo}
 % 
-% \author{Equipe \abnTeX2\\\htmladdnormallink{\tt
+% \author{Equipe \abnTeX2\\\htmladdnormallink\texttt{
 % https://code.google.com/p/abntex2}{https://code.google.com/p/abntex2}}
 % \date{\today}
 % \maketitle
@@ -536,7 +537,7 @@ entende-se que \ldots\
 O estilo \textsf{abntex2cite} ainda disponibiliza os comandos \verb+\citeyear+,
 \verb+\citeauthor+ e \verb+citeauthoronline+.
 O uso de \verb+\citeyear+ e \verb+citeauthoronline+
-é igual ao do estilo autor-data ({\tt [alf]}) como mostrado nos seguintes
+é igual ao do estilo autor-data (\texttt{[alf]}) como mostrado nos seguintes
 exemplos:
 
 \noindent\begin{minipage}[t]{8cm}\latex{\small}\vspace{0pt}\begin{verbatim}
@@ -550,7 +551,7 @@ mostraram que elétrons podem relaxar via
 interação elétron-fônon\cite{Tsen86}.
 \end{minipage}\\
 
-O uso de \verb+citeauthor+ é modificado em relação ao estilo autor-data ({\tt [alf]})
+O uso de \verb+citeauthor+ é modificado em relação ao estilo autor-data (\texttt{[alf]})
 como se vê no exemplo:
 
 \noindent\begin{minipage}[t]{7cm}\latex{\small}\vspace{0pt}\begin{verbatim}
@@ -579,7 +580,7 @@ macro |\citetext|\marg{lista de keys}, como no exemplo:
 
 
 %sub
-\subsubsection{Alteração do estilo de chamada {\tt [num]}}
+\subsubsection{Alteração do estilo de chamada \texttt{[num]}}
 
 A `norma'\cite{NBR6023:2000} aceita três estilos de chamada:
 
@@ -594,7 +595,7 @@ A `norma'\cite{NBR6023:2000} aceita três estilos de chamada:
 
 \DescribeMacro{\leftovercite}\DescribeMacro{\rightovercite}
 Percebe-se que o terceiro estilo entra em conflito com a numeração das notas de
-rodapé. Portanto agora o estilo {\tt [num]} coloca colchetes na primeira opção
+rodapé. Portanto agora o estilo \texttt{[num]} coloca colchetes na primeira opção
 listada pela `norma'\cite{NBR6023:2000}. Este comportamento pode ser alterado
 com os comandos \verb+\leftovercite+ e \verb+\rightovercite+.
 
@@ -606,12 +607,12 @@ Por exemplo, para usar parênteses coloque no preâmbulo do seu texto e use:
 \end{verbatim}
 
 
-\subsubsection{Citação alfabética por autor-data [{\tt alf}]}
+\subsubsection{Citação alfabética por autor-data [\texttt{alf}]}
 
 \DescribeMacro{\usepackage[alf]{abntex2cite}}
 Se você quiser usar o estilo de citação alfabético
 (seção 9.2 da ABNT NBR 6023:2000\cite{NBR6023:2000}),
-utilize {\tt [alf]} (que utilizará o arquivo {\tt abnt-alf.bst}).
+utilize \texttt{[alf]} (que utilizará o arquivo \texttt{abnt-alf.bst}).
 
 \begin{verbatim}
 \usepackage[alf]{abntex2cite}
@@ -702,11 +703,11 @@ Ou então:
 
 \end{verbatim}
 
-\section{Utilização da citação por sistema autor-data {\tt [alf]}}
+\section{Utilização da citação por sistema autor-data \texttt{[alf]}}
 
 Veja documento específico Ref.~\citeonline{abntex2cite-alf}.
 
-\section{Alteração dinâmica das opções do estilo {\tt [citeoption]}}
+\section{Alteração dinâmica das opções do estilo \texttt{[citeoption]}}
 
 \label{chapter-opcoes-estilo}
 
@@ -720,10 +721,10 @@ lendo. Todas as opções estão apresentadas nas tabelas
 
 \subsection{Como proceder}
 
-\subsubsection{Usando \textsf{abntex2cite} e {\tt citeoption}}
+\subsubsection{Usando \textsf{abntex2cite} e \texttt{citeoption}}
 
 \DescribeMacro{\citeoption}
-Você deve utilizar o comando \verb+\citeoption+ e incluir a base {\tt
+Você deve utilizar o comando \verb+\citeoption+ e incluir a base \texttt{
 abnt-options} em \verb+\bibliography+, como no exemplo, que ativa a opção de
 usar primeiro o nome completo do autor:
 
@@ -738,7 +739,7 @@ exemplo:
 \usepackage[num,abnt-full-initials=yes]{abntex2cite}
 \end{verbatim}
 
-\subsubsection{Sem usar \textsf{abntex2cite} nem {\tt citeoption}}
+\subsubsection{Sem usar \textsf{abntex2cite} nem \texttt{citeoption}}
 
 \DescribeMacro{\nocite}
 Você pode se valer das opções aqui apresentadas sem usar o pacote
@@ -750,14 +751,14 @@ no seguinte exemplo:
 \end{verbatim}
 
 O único inconveniente desse método (que funciona bem) é que você vai ter de
-conviver constantemente com a mensagem de que a referência {\tt
+conviver constantemente com a mensagem de que a referência \texttt{
 abnt-full-initials=yes} não foi definida.
 
 \subsubsection{Como agrupar várias opções}
 
 \DescribeEnv{@ABNT-options}\DescribeMacro{\citeoption}
-Você pode agrupar opções criando uma entrada do tipo {\tt \@ABNT-options}
-em um arquivo de bibliografias (tipo {\tt .bib}), por exemplo:
+Você pode agrupar opções criando uma entrada do tipo \texttt{\@ABNT-options}
+em um arquivo de bibliografias (tipo \texttt{.bib}), por exemplo:
 
 \begin{verbatim}
 @ABNT-options{minhasopcoes,
@@ -770,15 +771,15 @@ em um arquivo de bibliografias (tipo {\tt .bib}), por exemplo:
 
 Desse modo, deve deve chamar suas opções assim \verb+\citeoption{minhasopcoes}+.
 
-A \autoref{section-quando-vale} explica a função do campo {\tt key}.
+A \autoref{section-quando-vale} explica a função do campo \texttt{key}.
 
-%\subsubsection{Modo de funcionamento do {\tt citeoption}}
+%\subsubsection{Modo de funcionamento do \texttt{citeoption}}
 
 O comando \verb+\citeoption+ força o \LaTeX\ a gerar uma entrada de citação no
 arquivo auxiliar (.aux) que é processada pelo \textsf{bibtex}. Se você não
-quiser usar o arquivo {\tt abnt-options}, você pode colocar uma entrada tipo
-{\tt ABNT-options} no seu arquivo .bib. É essa entrada que você deve citar com
-\verb+\citeoption+. Veja o arquivo {\tt abnt-bibtex-doc.bib} para exemplos dessa
+quiser usar o arquivo \texttt{abnt-options}, você pode colocar uma entrada tipo
+\texttt{ABNT-options} no seu arquivo .bib. É essa entrada que você deve citar com
+\verb+\citeoption+. Veja o arquivo \texttt{abnt-bibtex-doc.bib} para exemplos dessa
 entrada. As opções disponíveis estão descritas nas
 \autoref{tabela-opcoes-formatacao}, na \autoref{tabela-opcoes-composicao} e na
 \autoref{tabela-opcoes-funcionamento}.
@@ -799,45 +800,45 @@ começa a funcionar depende do estilo bibliográfico usado. A
 \autoref{section-quando-vale-num} descreve o uso no sistema numérico e a
 \autoref{section-quando-vale-alf}, no sistema alfa-numérico.
 
-\subsubsection{Sistema numérico [{\tt num}]}\label{section-quando-vale-num}
+\subsubsection{Sistema numérico [\texttt{num}]}\label{section-quando-vale-num}
 
 As opções valem a partir do ponto do texto onde aparece o comando
 \verb+\citeoption+. Se você quiser que a opção esteja valendo para \emph{todas}
 as entradas então use \verb+\citeoption+ \emph{antes} de qualquer uso de
 \verb+\cite+ ou \verb+\citeonline+.
 
-\subsubsection{Sistema alfabético por autor-data [{\tt alf}]}
+\subsubsection{Sistema alfabético por autor-data [\texttt{alf}]}
 \label{section-quando-vale-alf}
 
 As opções valem a partir do ponto onde a entrada aparece na ordem alfabética,
 \emph{independente do ponto no texto onde a citação foi feita}. Isso é
-controlado por meio do campo {\tt key}. Se você quiser que as opções estejam
-valendo desde o início você deve selecionar {\tt key} de maneira a fazer a
-opção aparecer primeiro na ordenação alfabética, como por exemplo {\tt
-key=\{a\}}. Ao usar \verb+\citeoption+ com {\tt [alf]} esteja atento aos
+controlado por meio do campo \texttt{key}. Se você quiser que as opções estejam
+valendo desde o início você deve selecionar \texttt{key} de maneira a fazer a
+opção aparecer primeiro na ordenação alfabética, como por exemplo \texttt{
+key=\{a\}}. Ao usar \verb+\citeoption+ com \texttt{[alf]} esteja atento aos
 seguintes fatos:
 
 \begin{enumerate}
 \item é muito difícil controlar a posição exata em que a opção
-      começa a valer, a menos que você escolha um {\tt key} bem
-      radical como {\tt=\{aaaa\}}, que garante que esta opção será
+      começa a valer, a menos que você escolha um \texttt{key} bem
+      radical como \texttt{=\{aaaa\}}, que garante que esta opção será
       processada antes de todas as outras entradas bibliográficas.
-      Este recurso é usado no arquivo {\tt abntex2-options.bib};
+      Este recurso é usado no arquivo \texttt{abntex2-options.bib};
 \item na prática, em geral você vai querer que uma opção esteja
       valendo para todas as suas referências. Então você pode usar
-      as opções predefinidas no arquivo {\tt abntex2-options.bib};
+      as opções predefinidas no arquivo \texttt{abntex2-options.bib};
 \item você não pode usar \verb+\nocite{*}+ ou \verb+\cite{*}+
       junto com o arquivo
-      {\tt abntex2-options.bib}, pois isso chamaria \emph{todas} as
+      \texttt{abntex2-options.bib}, pois isso chamaria \emph{todas} as
       opções ao mesmo tempo.
 \end{enumerate}
 
-O controle de onde a opção aparece é bem mais delicado no estilo {\tt [alf]}
-do que no estilo {\tt [num]}. Sugerimos ficar atento ao posicionamento
-usando a opção {\tt abnt-show-options=list} e remover essa opção quando o
+O controle de onde a opção aparece é bem mais delicado no estilo \texttt{[alf]}
+do que no estilo \texttt{[num]}. Sugerimos ficar atento ao posicionamento
+usando a opção \texttt{abnt-show-options=list} e remover essa opção quando o
 documento estiver na redação final.
 
-{\bf Veja também outras opções de alteração no
+\textbf{Veja também outras opções de alteração no
 documento~\citeonline{abntex2cite-alf}.}
 
 \begin{table}[htbp]
@@ -845,7 +846,7 @@ documento~\citeonline{abntex2cite-alf}.}
 \caption[Opções de alteração dos estilos bibliográficos: formatação]{
 Opções de alteração da formatação dos estilos bibliográficos.
 As opções padrão (\emph{default}) são sublinhadas ou indicadas.
-Também indicados as entradas que já estão definidas em {\tt
+Também indicados as entradas que já estão definidas em \texttt{
 abntex2-options.bib}.}
 \label{tabela-opcoes-formatacao}
 
@@ -856,22 +857,22 @@ campo & opções & descrição \\ \hline
 Podem ser usadas quaisquer combinações de comandos de fonte, mas apenas
 \verb+\bf+ (negrito) e \verb+\em+ (ênfase) são compatíveis com a `norma' 6023.
 \\
-{\tt abnt-emphasize=em} & \verb+\emph+ & {\em opção padrão}.  \\
-{\tt abnt-emphasize=bf} & \verb+\textbf+ &
+\texttt{abnt-emphasize=em} & \verb+\emph+ & {\em opção padrão}.  \\
+\texttt{abnt-emphasize=bf} & \verb+\textbf+ &
 \\ \hline
-\emph{abnt-ldots-type} && (somente {\tt [alf]}) determina de que maneira deve
+\emph{abnt-ldots-type} && (somente \texttt{[alf]}) determina de que maneira deve
 ser composto as ``$\ldots$'' nas chamadas. \\
-{\tt abnt-ldots-type=normal} & \underline{\tt normal} & usar \verb+\ldots+ normal do \LaTeX.\\
-{\tt abnt-ldots-type=math} & \tt math & usar ambiente matemático, ou seja
+\texttt{abnt-ldots-type=normal} & \optiondefaultval{normal} & usar \verb+\ldots+ normal do \LaTeX.\\
+\texttt{abnt-ldots-type=math} & \tt math & usar ambiente matemático, ou seja
 \verb+$\ldots$+.\\
-{\tt abnt-ldots-type=none} & {\tt none} & não usa nada.\\
-{\tt abnt-ldots-type=text} & {\tt text} & simplesmente usa ``...'', o espaçamento
+\texttt{abnt-ldots-type=none} & \texttt{none} & não usa nada.\\
+\texttt{abnt-ldots-type=text} & \texttt{text} & simplesmente usa ``...'', o espaçamento
 fica ruim mas pode ser útil na conversão para HTML.
 \\ \hline
 \emph{abnt-title-command} && Controla o uso do comando (veja
 seção~\ref{sec-titlecommand}) \verb+\bibtextitlecommand+. \\
-{\tt abnt-title-command=no} & \underline{\tt no} & não usa esse comando.\\
-{\tt abnt-title-command=yes} & {\tt yes} & usa esse comando.
+\texttt{abnt-title-command=no} & \optiondefaultval{no} & não usa esse comando.\\
+\texttt{abnt-title-command=yes} & \texttt{yes} & usa esse comando.
 \\ \hline\hline
 \end{tabular}
 \end{center}
@@ -887,32 +888,32 @@ na composição dos estilos bibliográficos.}
 \begin{center}
 \begin{tabular}{lrp{6cm}}\hline\hline
 campo & opções & descrição \\ \hline
-\emph{abnt-and-type} & & Opção específica do estilo {\tt [alf]} veja
+\emph{abnt-and-type} & & Opção específica do estilo \texttt{[alf]} veja
 referência~\citeonline{abntex2cite-alf}.
 \\ \hline
 \emph{abnt-dont-use-etal} &  & Opção obsoleta veja \emph{abnt-etal-cite}.
 \\ \hline
-\emph{abnt-etal-cite} &  & Opção específica do estilo {\tt [alf]} veja
+\emph{abnt-etal-cite} &  & Opção específica do estilo \texttt{[alf]} veja
 referência~\citeonline{abntex2cite-alf}.
 \\ \hline
 \emph{abnt-etal-list} &  & controla como e quando os co-autores são
-substituídos por \emph{et al.} na lista bibliográfica. Segundo o ítem {\bf 8.1.12}\cite{NBR6023:2000}
+substituídos por \emph{et al.} na lista bibliográfica. Segundo o ítem \textbf{8.1.12}\cite{NBR6023:2000}
 é facultado
 indicar todos os autores se isto for indispensável. Note que a substituição
 por \emph{et al.} continua ocorrendo \emph{sempre} se os co-autores tiverem sido indicados
-como {\tt others}.\\
-{\tt abnt-etal-list=0}&{\tt 0}& não abrevia a lista de autores.\\
-{\tt abnt-etal-list=2}& {\tt 2} & abrevia com mais de 2 autores.\\
-{\tt abnt-etal-list=3}& \underline{\tt 3} & abrevia com mais de 2 autores.\\
+como \texttt{others}.\\
+\texttt{abnt-etal-list=0}&\texttt{0}& não abrevia a lista de autores.\\
+\texttt{abnt-etal-list=2}& \texttt{2} & abrevia com mais de 2 autores.\\
+\texttt{abnt-etal-list=3}& \optiondefaultval{3} & abrevia com mais de 2 autores.\\
 $\vdots$ & $\vdots$ & \\
-{\tt abnt-etal-list=5}& {\tt 5} & abrevia com mais de 5 autores.
+\texttt{abnt-etal-list=5}& \texttt{5} & abrevia com mais de 5 autores.
 \\ \hline
 \emph{abnt-etal-text} &  & Texto a ser usado, tanto na chamada quanto na
 bibliografia, quando a lista de autores é abreviada.\\
-{\tt abnt-etal-text=none}&{\tt none}& não usa qualquer texto.\\
-{\tt abnt-etal-text=default}&\underline{\tt et al.}& usa `et al.'.\\
-{\tt abnt-etal-text=emph}&\verb+\emph{et al.}+& usa ênfase: `\emph{et al.}'.\\
-{\tt abnt-etal-text=it}&\verb+\textit{et al.}+& usa itálico: `\textit{et al.}'.\\
+\texttt{abnt-etal-text=none}&\texttt{none}& não usa qualquer texto.\\
+\texttt{abnt-etal-text=default}&\optiondefaultval{et al.}& usa `et al.'.\\
+\texttt{abnt-etal-text=emph}&\verb+\emph{et al.}+& usa ênfase: `\emph{et al.}'.\\
+\texttt{abnt-etal-text=it}&\verb+\textit{et al.}+& usa itálico: `\textit{et al.}'.\\
 \\ \hline\hline
 \end{tabular}
 \end{center}
@@ -929,49 +930,49 @@ Opções de alteração da composição dos estilos bibliográficos.}
 campo & opções & descrição \\ \hline
 \emph{abnt-full-initials} & & Seleciona se os prenomes são
 por extenso (quando disponível na base).\\
-{\tt abnt-full-initials=no}& \underline{\tt no} & abreviado;\\
-{\tt abnt-full-initials=yes}& {\tt yes} & por extenso. Exemplos: \protect\citeonline{fraipont1998,alves1995,dami1995,maia1995}.
+\texttt{abnt-full-initials=no}& \optiondefaultval{no} & abreviado;\\
+\texttt{abnt-full-initials=yes}& \texttt{yes} & por extenso. Exemplos: \protect\citeonline{fraipont1998,alves1995,dami1995,maia1995}.
 \\ \hline
 \emph{abnt-last-names} & & Determina de que maneira devem ser tratados os sobrenomes.
 Para uma discussão sobre esse aspecto veja \autoref{nome-pessoais}.\\
-{\tt abnt-last-names=abnt}& \underline{\tt abnt} & Segue estritamente a ABNT.\\
-{\tt abnt-last-names=bibtex}& {\tt bibtex} & Segue o modo usual do
+\texttt{abnt-last-names=abnt}& \optiondefaultval{abnt} & Segue estritamente a ABNT.\\
+\texttt{abnt-last-names=bibtex}& \texttt{bibtex} & Segue o modo usual do
 \textsf{bibtex}.
 \\ \hline
 % \emph{abnt-last-names} && Determina de que maneira devem ser tratados os
 % sobrenomes.\\
-% {\tt abnt-missing-year=void} & \underline{\tt void} & deixa em branco, é o padrão.\\
-% {\tt abnt-missing-year=sd} & {\tt sd} & coloca a expressão ``[s.d.]'' (sem data).
+% \texttt{abnt-missing-year=void} & \optiondefaultval{void} & deixa em branco, é o padrão.\\
+% \texttt{abnt-missing-year=sd} & \texttt{sd} & coloca a expressão ``[s.d.]'' (sem data).
 % Note que a `norma'\cite{NBR6023:2000} não usa isso.
 % \\ \hline
 \emph{abnt-missing-year} && Determina de que maneira deve ser tratado
-um ano (campo {\tt year}) ausente.\\
-{\tt abnt-missing-year=void} & \underline{\tt void} & deixa em branco, é o padrão.\\
-{\tt abnt-missing-year=sd} & {\tt sd} & coloca a expressão ``[s.d.]'' (sem data).
+um ano (campo \texttt{year}) ausente.\\
+\texttt{abnt-missing-year=void} & \optiondefaultval{void} & deixa em branco, é o padrão.\\
+\texttt{abnt-missing-year=sd} & \texttt{sd} & coloca a expressão ``[s.d.]'' (sem data).
 Note que a `norma'\cite{NBR6023:2000} não usa isso.\\
 \\ \hline
 \emph{abnt-repeated-author-omit} &   & Permite suprimir o autor que aparece
 repetidas vezes na sequência.
 Exemplos: \citeonline{freyre1943,freyre1936}.\\
-{\tt abnt-repeated-author-omit=no} & \underline{\tt no} & Repete os autores. \\
+\texttt{abnt-repeated-author-omit=no} & \optiondefaultval{no} & Repete os autores. \\
 && Nota: também coloca automaticamente
-{\tt abnt-repeated-title-omit=no}. \\
-{\tt abnt-repeated-author-omit=yes} & \tt yes & Substitui o autor repetido por \underline{\ \ \ \ \ \ \ \ }. \\
+\texttt{abnt-repeated-title-omit=no}. \\
+\texttt{abnt-repeated-author-omit=yes} & \tt yes & Substitui o autor repetido por \underline{\ \ \ \ \ \ \ \ }. \\
 \\ \hline
 \emph{abnt-repeated-title-omit} &   & Permite suprimir o título que aparece repetidas vezes na seqüência quando
 o autor \emph{também} está repetido.
 Exemplos: \citeonline{freyreg1936,freyre1938}\\
-{\tt abnt-repeated-title-omit=no} & \underline{\tt no} & Repete os títulos. \\
-{\tt abnt-repeated-title-omit=yes} & \tt yes & Substitui o título repetido por \underline{\ \ \ \ \ \ \ \ }.\\
+\texttt{abnt-repeated-title-omit=no} & \optiondefaultval{no} & Repete os títulos. \\
+\texttt{abnt-repeated-title-omit=yes} & \tt yes & Substitui o título repetido por \underline{\ \ \ \ \ \ \ \ }.\\
 && Nota: também coloca automaticamente
-{\tt abnt-repeated-author-omit=yes}. \\
+\texttt{abnt-repeated-author-omit=yes}. \\
 \\ \hline
 \emph{abnt-thesis-year} & &
-Controla a posição do ano numa entrada tipo {\tt mastersthesis}, {\tt phdthesis}
-e {\tt monography}.\\
-{\tt abnt-thesis-year=final}& \underline{\tt final} & coloca o ano no final, ex.~\protect\citeonline{morgado1990,araujo1986};\\
-{\tt abnt-thesis-year=title}& {\tt title} & logo após o título, ex.~\protect\citeonline{morgadob1990};\\
-{\tt abnt-thesis-year=both}& {\tt both} & em ambas as posições, ex.~\protect\citeonline{morgadoc1990}.
+Controla a posição do ano numa entrada tipo \texttt{mastersthesis}, \texttt{phdthesis}
+e \texttt{monography}.\\
+\texttt{abnt-thesis-year=final}& \optiondefaultval{final} & coloca o ano no final, ex.~\protect\citeonline{morgado1990,araujo1986};\\
+\texttt{abnt-thesis-year=title}& \texttt{title} & logo após o título, ex.~\protect\citeonline{morgadob1990};\\
+\texttt{abnt-thesis-year=both}& \texttt{both} & em ambas as posições, ex.~\protect\citeonline{morgadoc1990}.
 \\ \hline\hline
 \end{tabular}
 \end{center}
@@ -989,24 +990,24 @@ Opções de alteração do funcionamento dos estilos bibliográficos.
 campo & opções & descrição \\ \hline
 \emph{abnt-refinfo} & & Controla a utilização do comando
 \verb+\abntrefinfo+ usado pelo estilo \textsf{abntex2cite}\\
-{\tt abnt-refinfo=yes} &\underline{\tt yes} & usa \verb+\abntrefinfo+ \\
-{\tt abnt-refinfo=no} & {\tt no} & não usa \verb+\abntrefinfo+
+\texttt{abnt-refinfo=yes} &\optiondefaultval{yes} & usa \verb+\abntrefinfo+ \\
+\texttt{abnt-refinfo=no} & \texttt{no} & não usa \verb+\abntrefinfo+
 \\ \hline
 \emph{abnt-show-options} &  &
 Controla como são mostradas as opções. \\
-{\tt abnt-show-options=no}& \underline{\tt no} & para não ver informação nenhuma; \\
-{\tt abnt-show-options=warn}& {\tt warn} & para ter as informações mostradas como
+\texttt{abnt-show-options=no}& \optiondefaultval{no} & para não ver informação nenhuma; \\
+\texttt{abnt-show-options=warn}& \texttt{warn} & para ter as informações mostradas como
 \emph{warnings} durante a execução do \textsf{bibtex}; \\
-{\tt abnt-show-options=list}& {\tt list} & para ter
+\texttt{abnt-show-options=list}& \texttt{list} & para ter
 cada entrada listada na própria lista de referências.
 Exemplos: \protect\citeonline{abnt-options0,abnt-options1,abnt-options2,abnt-options3,abnt-options4,abnt-options5,ABNT-final}.
 \\ \hline
 \emph{abnt-verbatim-entry} & & Permite mostrar na lista de referências toda
 a entrada em modo \emph{verbatim}.
 \textbf{Importante:} este modo mostra as entrada já com a
-substituição das macros definidas por {\tt @string}.\\
-{\tt abnt-verbatim-entry=no} &\underline{\tt no} & não mostra a entrada. \\
-{\tt abnt-verbatim-entry=yes} & {\tt yes} & mostra a entrada \emph{verbatim}, é
+substituição das macros definidas por \texttt{@string}.\\
+\texttt{abnt-verbatim-entry=no} &\optiondefaultval{no} & não mostra a entrada. \\
+\texttt{abnt-verbatim-entry=yes} & \texttt{yes} & mostra a entrada \emph{verbatim}, é
 usado neste documento.
 \\ \hline\hline
 \end{tabular}
@@ -1025,31 +1026,31 @@ Veja também a seção~\protect\ref{sec-url} para mais informações.}
 campo & opções & descrição \\ \hline
 \emph{abnt-doi} & & Determina como são tratadas url's referentes a DOI
 (Digital Object Identifier)\cite{DOI}. Note que as opções seguintes
-só terão efeito se a url iniciar por {\tt doi:}.\\
-{\tt abnt-doi=expand} & \underline{expand} &
-Expande um endereço iniciado com {\tt doi:} para
-{\tt http://dx.doi.org/}\\
-{\tt abnt-doi=link} & {\tt link} & Deixa o endereço intacto e coloca uma hiperligação
-para a url correspondente em {\tt http:}. A ligação só estará funcionando
-se algum pacote como {\tt hyperref} tiver sido selecionado.\\
-{\tt abnt-doi=doi} & {\tt doi} & Deixa o endereço intacto e coloca uma hiperligação
-também para um documento do tipo {\tt doi:}.\\ \hline
+só terão efeito se a url iniciar por \texttt{doi:}.\\
+\texttt{abnt-doi=expand} & \underline{expand} &
+Expande um endereço iniciado com \texttt{doi:} para
+\texttt{http://dx.doi.org/}\\
+\texttt{abnt-doi=link} & \texttt{link} & Deixa o endereço intacto e coloca uma hiperligação
+para a url correspondente em \texttt{http:}. A ligação só estará funcionando
+se algum pacote como \texttt{hyperref} tiver sido selecionado.\\
+\texttt{abnt-doi=doi} & \texttt{doi} & Deixa o endereço intacto e coloca uma hiperligação
+também para um documento do tipo \texttt{doi:}.\\ \hline
 \emph{abnt-url-package} & & \textbf{Opção obsoleta}\newline
 \emph{O valor padrão aqui é \texttt{url}; as demais opções são mantidas apenas
 para compatibilidade reversa.}\newline
 Identifica o pacote que é usado para tratar url's.\newline
 \emph{Nota: é necessário carregar esses pacotes para que estas opções tenham
 efeito.}\\
-{\tt abnt-url-package=none} &\underline{\tt none} & nenhum pacote.\\
-{\tt abnt-url-package=url} & {\tt url} & usa o pacote {\tt url}.\\
-{\tt abnt-url-package=hyperref} & {\tt hyperref} & usa o pacote {\tt hyperref}.\\
-{\tt abnt-url-package=html} & {\tt html} & usa o pacote {\tt html}.\\
+\texttt{abnt-url-package=none} &\texttt{none} & nenhum pacote.\\
+\texttt{abnt-url-package=url} & \optiondefaultval{url} & usa o pacote \texttt{url}.\\
+\texttt{abnt-url-package=hyperref} & \texttt{hyperref} & usa o pacote \texttt{hyperref}.\\
+\texttt{abnt-url-package=html} & \texttt{html} & usa o pacote \texttt{html}.\\
 \hline\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-\subsection{Comandos controlados por {\tt citeoption}}
+\subsection{Comandos controlados por \texttt{citeoption}}
 
 \DescribeMacro{\bibtextitlecommand}
 \label{sec-titlecommand}
@@ -1068,7 +1069,7 @@ aspas, voce pode usar o comando seguinte ainda no preâmbulo:
 \newcommand{\bibtextitlecommand}[2]{``#2''}
 \end{verbatim}
 
-Você pode restringir esse comando apenas a entradas do tipo {\tt
+Você pode restringir esse comando apenas a entradas do tipo \texttt{
 article}, por exemplo. Nesse caso, comando seria o seguinte:
 
 \begin{verbatim}
@@ -1080,13 +1081,13 @@ article}, por exemplo. Nesse caso, comando seria o seguinte:
 
 \subsection{Opções agrupadas}
 
-O arquivo {\tt abntex2-options.bib} define opções que agrupam outras opções
+O arquivo \texttt{abntex2-options.bib} define opções que agrupam outras opções
 definidas na \autoref{tabela-opcoes-formatacao} a na
 \autoref{tabela-opcoes-funcionamento}. A tabela \autoref{tabela-subestilos} e a
 \autoref{tabela-versao-normas} mostram os grupos de opções disponíveis. Consulte
-o próprio arquivo {\tt abntex2-options.bib} para ver as opções 
+o próprio arquivo \texttt{abntex2-options.bib} para ver as opções 
 definidas\footnote{Note que essas opções só podem ser usadas se for usado o
-arquivo {\tt abntex2-options.bib} na bibliografia.}.
+arquivo \texttt{abntex2-options.bib} na bibliografia.}.
 
 \begin{table}[htbp]
 
@@ -1099,8 +1100,8 @@ tem regras particulares que poderiam entrar aqui, por favor avise-nos.}
 \begin{center}
 \begin{tabular}{lp{8cm}}\hline\hline
 opção  & descrição \\ \hline
-{\tt abnt-substyle=COPPE} & opções específicas para a COPPE/UFRJ.\\
-{\tt abnt-substyle=UFLA} & opções específicas para a UFLA.\\
+\texttt{abnt-substyle=COPPE} & opções específicas para a COPPE/UFRJ.\\
+\texttt{abnt-substyle=UFLA} & opções específicas para a UFLA.\\
 \hline\hline
 \end{tabular}
 \end{center}
@@ -1117,8 +1118,8 @@ Grupos de opções que caraterizam as versões das diversas `normas'.}
 \begin{center}
 \begin{tabular}{lp{8cm}}\hline\hline
 opção & descrição \\ \hline
-{\tt abnt-nbr10520=2001} & (\emph{padrão}) segue a `norma' 10520/2001\cite{NBR10520:2001}.\\
-{\tt abnt-nbr10520=1988} & segue a `norma' 10520/1988\cite{NBR10520:1988}.\\
+\texttt{abnt-nbr10520=2001} & (\emph{padrão}) segue a `norma' 10520/2001\cite{NBR10520:2001}.\\
+\texttt{abnt-nbr10520=1988} & segue a `norma' 10520/1988\cite{NBR10520:1988}.\\
 \hline\hline
 \end{tabular}
 \end{center}
@@ -1138,7 +1139,7 @@ seguintes.
 \subsection{Endereços de internet (url)}\label{sec-url}
 
 O estilo bibliográfico junto com o pacote \textsf{abntex2cite} trata
-corretamente endereços de internet, mais conhecidos como {\tt url}. Veja a
+corretamente endereços de internet, mais conhecidos como \texttt{url}. Veja a
 \autoref{tabela-url}. Se o seu documento carrega o pacote \textsf{hyperref}
 \emph{antes} do pacote \textsf{abntex2cite} todas as url viram com hyperligações
 (\emph{hyperlinks}) que podem ser navegáveis. Note que ao utilizar
@@ -1147,7 +1148,7 @@ corretamente endereços de internet, mais conhecidos como {\tt url}. Veja a
 Dependendo das opções escolhidas (veja a \autoref{tabela-opcoes-url}),
 a url pode aparecer como hiperligação na sua lista bibliográfica. Para que isso
 ocorra é necessário que a url esteja formatada de maneira válida, isto é, que inicie por
-{\tt http:}, {\tt ftp:}, {\tt mailto:}, {\tt file:} ou {\tt doi:}. A url será
+\texttt{http:}, \texttt{ftp:}, \texttt{mailto:}, \texttt{file:} ou \texttt{doi:}. A url será
 filtrada para a remoção de caracteres que atrapalham a formatação \LaTeX, mas a
 url passada para o programa externo será sempre correta. O estilo bibliográfico
 também insere marcações de hifenização que permite que a url seja quebrada, já
@@ -1158,19 +1159,19 @@ que elas tendem a ser muito longas.
 {Campos relativos a sites de Internet e documentos eletrônicos.
 Exemplos: \citeonline{priberam1998,secretaria1999,silva1998,ribeiro1998,pc1998,gsilva1998,%
 kelly1996,nordeste1998,cientifica1996,oliveira1996,guncho1998,sabroza1998,krzyzanowski1996,birds1998,bioline1998}.
-O campo {\tt url} é utilizado em numerosos estilos \textsf{bibtex}.}
+O campo \texttt{url} é utilizado em numerosos estilos \textsf{bibtex}.}
 \label{tabela-url}
 
 \begin{center}
 \begin{tabular}{lcp{8cm}}\hline\hline
 campo & entradas & descrição \\ \hline
-{\tt url}   & todas    & {\bf u}niversal {\bf r}esource {\bf l}ocator, ou endereço
+\texttt{url}   & todas    & \textbf{u}niversal \textbf{r}esource \textbf{l}ocator, ou endereço
 de internet. \emph{A url deve ser dada exatamente como seria usada num browser.
 O estilo bibliográfico se encarrega de adaptar a url para que possa ser formatada
 pelo \LaTeX~e para que possa servir como hiperligação em documentos que usam o
 pacote \textsf{hyperref} ou \textsf{pdflatex}.}
 \\ \hline
-{\tt urlaccessdate} & todas & data em que foi acessado a url.
+\texttt{urlaccessdate} & todas & data em que foi acessado a url.
 \emph{É responsabilidade
 do usuário colocar a data no formato correto.}
 \\ \hline\hline
@@ -1181,20 +1182,20 @@ do usuário colocar a data no formato correto.}
 \begin{table}[htbp]
 \caption[Campos relativos a ISBN e ISSN.]
 {Campos relativos a ISBN e ISSN.
-Os campos {\tt isbn} e {\tt issn} são  usados nos estilos {\tt is-alpha}, {\tt is-unsrt},
-{\tt dinat}, {\tt jurabib}, {\tt jureco},
-{\tt abbrvnat}, {\tt plainnat}, {\tt unsrtnat}}
+Os campos \texttt{isbn} e \texttt{issn} são  usados nos estilos \texttt{is-alpha}, \texttt{is-unsrt},
+\texttt{dinat}, \texttt{jurabib}, \texttt{jureco},
+\texttt{abbrvnat}, \texttt{plainnat}, \texttt{unsrtnat}}
 \label{tabela-isbn}
 
 \begin{center}
 \begin{tabular}{lp{3cm}p{8cm}}\hline\hline
 campo & entradas & descrição \\ \hline
-{\tt isbn}   & {\tt book}, {\tt booklet}, {\tt inbook}, {\tt incollection},
-{\tt inproceedings}, {\tt proceedings}    & ISBN é a numeração internacional para livros.
+\texttt{isbn}   & \texttt{book}, \texttt{booklet}, \texttt{inbook}, \texttt{incollection},
+\texttt{inproceedings}, \texttt{proceedings}    & ISBN é a numeração internacional para livros.
 \emph{É responsabilidade do usuário colocar o ISBN no formato correto.}
 Ex.~\citeonline{gomes1998,FUNDAP1994,daghalian1995,chueire1994,holanda1994}.
 \\ \hline
-{\tt issn} & {\tt article}, {\tt book}, {\tt inproceedings}, {\tt proceedings} & ISSN é a numeração internacional para publicações periódicas:
+\texttt{issn} & \texttt{article}, \texttt{book}, \texttt{inproceedings}, \texttt{proceedings} & ISSN é a numeração internacional para publicações periódicas:
 jornais, revistas, catálogos telefônicos etc.
 \emph{É responsabilidade do usuário colocar o ISSN no formato correto.}
 Ex.~\citeonline{brasileira1939,paulista1941}.
@@ -1210,15 +1211,15 @@ Ex.~\citeonline{brasileira1939,paulista1941}.
 \begin{center}
 \begin{tabular}{lp{4cm}p{6cm}}\hline\hline
 campo & entradas & descrição \\ \hline
-{\tt subtitle} & todas & subtítulo relativo ao {\tt title}, não coloque os dois pontos que são gerados
+\texttt{subtitle} & todas & subtítulo relativo ao \texttt{title}, não coloque os dois pontos que são gerados
                    automáticamente.
 Ex.~\citeonline{NBR6023:2000,houaiss1996,secretaria1989,museu1997,moreira1997,torelly1991,ribeiro1998,quimica1997,michalany1981,%
 geografico1986,birds1998,passos1995,albergaria1994,brasileira1988,pastro1993,golsalves1971,franco1993,araujo1986}
 \\ \hline
-{\tt booksubtitle} & todas que tem o campo {\tt booktitle}& subtítulo relatívo ao {\tt booktitle}.
+\texttt{booksubtitle} & todas que tem o campo \texttt{booktitle}& subtítulo relatívo ao \texttt{booktitle}.
 Ex.~\citeonline{romano1996,krzyzanowski1996}
 \\  \hline
-{\tt section} & {\tt journal} & formata a seção de um {\tt article}.
+\texttt{section} & \texttt{journal} & formata a seção de um \texttt{article}.
 Ex.~\citeonline{costa1998,tourinho1997,brasil1966,lex1998,lex1943,brasillex1998,tribunal1998}
 \\ \hline\hline
 \end{tabular}
@@ -1231,21 +1232,21 @@ Ex.~\citeonline{costa1998,tourinho1997,brasil1966,lex1998,lex1943,brasillex1998,
 \begin{center}
 \begin{tabular}{lp{4cm}p{6cm}}\hline\hline
 campo & entradas & descrição \\ \hline
-{\tt editortype} & todas onde cabe {\tt editor} & altera o tipo de editor (padrão ``Ed.'')
+\texttt{editortype} & todas onde cabe \texttt{editor} & altera o tipo de editor (padrão ``Ed.'')
 para qualquer valor colocado no campo.
-Isto atende ao ítem {\bf 8.1.1.4}\cite{NBR6023:2000}.
+Isto atende ao ítem \textbf{8.1.1.4}\cite{NBR6023:2000}.
 \emph{É responsabilidade
 do usuário usar formato correto: ``Org.", ``Coord." etc.}
 Ex.~\citeonline{romano1996,ferreira1991,marcondes1993,lujan1993,golsalves1971,rego1991} e sem essa opção:
 \citeonline{houaiss1996,moore1960}.\\ \hline
-{\tt furtherresp} & {\tt book} & adiciona informações sobre responsabilidades
+\texttt{furtherresp} & \texttt{book} & adiciona informações sobre responsabilidades
 adicionais de autoria, tradução, organização, ilustrações etc.
-Isto atende ao ítem {\bf 8.1.1.7}\cite{NBR6023:2000}.
+Isto atende ao ítem \textbf{8.1.1.7}\cite{NBR6023:2000}.
 \emph{É responsabilidade do usuário colocar isso na forma correta, muito embora
 nenhuma prescrição para isso esteja dada\cite{NBR6023:2000}}
 Ex.~\citeonline{houaiss1996,koogan1998,brasil1995,lujan1993,alighieri1983,gomes1995,%
 albergaria1994,golsalves1971,swokowski1994,batista1992,chueire1994,rodrigues1994,carruth1993,saadi1994,mandino1994}\\  \hline
-{\tt org-short} & todas & este campo permite colocar uma abreviatura
+\texttt{org-short} & todas & este campo permite colocar uma abreviatura
 ou sigla para o nome de uma organização (ex. ABNT). Isso permite que
 a chamada na citação use a forma abreviada. \emph{Somente para o estilo
 alfabético}.\\
@@ -1260,25 +1261,25 @@ alfabético}.\\
 \begin{center}
 \begin{tabular}{lp{3cm}p{6cm}}\hline\hline
 campo & entradas & descrição \\ \hline
-{\tt dimensions} & {\tt book} & texto que mostra as dimensões do documento.
-Isto atende ao ítem {\bf 8.9}\cite{NBR6023:2000}.
+\texttt{dimensions} & \texttt{book} & texto que mostra as dimensões do documento.
+Isto atende ao ítem \textbf{8.9}\cite{NBR6023:2000}.
 \emph{É responsabilidade
 do usuário colocar as dimensões na forma correta.}
 Ex.~\citeonline{gomes1998,daghalian1995,chueire1994,duran1993,chemello1993,arbex1993,carvalho1994,miglori1993,%
 rodrigues1994,saadi1994,tringali1994}
 \\ \hline
-{\tt illustrated} & {\tt book} & indica as ilustrações. Se for vazio,
-{\tt illustrated=\{\}}, será colocado automáticamente ``il.''.
+\texttt{illustrated} & \texttt{book} & indica as ilustrações. Se for vazio,
+\texttt{illustrated=\{\}}, será colocado automáticamente ``il.''.
 Senão será colocado o que estiver neste campo.
 \emph{É responsabilidade
 do usuário usar os formatos corretos: ``il. color.'', ``principalmente il. color.'',
 ``somente il.'' etc.}
 Ex.~\citeonline{folha1995,daghalian1995,cesar1994,azevedo1994,batista1992,chueire1994,arbex1993,saadi1994,holanda1994}
 \\ \hline
-{\tt pagename} & todas  & define novo nome para página, alterando o
+\texttt{pagename} & todas  & define novo nome para página, alterando o
 padrão ``p.''. Note que a única variação é usar ``f.'', para designar folhas
 ao invés de páginas.
-Isto atende ao ítem {\bf 8.7.2}\cite{NBR6023:2000}.
+Isto atende ao ítem \textbf{8.7.2}\cite{NBR6023:2000}.
 \emph{É responsabilidade
 do usuário usar formato correto: ``f."}
 Ex.~\citeonline{barcelos1998,libris1981,tabak1993,levi1997}
@@ -1289,18 +1290,18 @@ Ex.~\citeonline{barcelos1998,libris1981,tabak1993,levi1997}
 
 \begin{table}[htbp]
 \caption{Campos relativos a descrição de uma conferência para entradas do tipo
-{\tt proceedings}, {\tt inproceedings} e {\tt conference}.}
+\texttt{proceedings}, \texttt{inproceedings} e \texttt{conference}.}
 \label{tabela-conf}
 \begin{center}
 \begin{tabular}{lp{8cm}}\hline\hline
 campo & descrição \\ \hline
-{\tt conference-number} & número da conferência, adiciona
+\texttt{conference-number} & número da conferência, adiciona
 um ponto automaticamente, isto é, `13' torna-se `13.'.
 \\ \hline
-{\tt conference-year} & ano em que foi realizada
+\texttt{conference-year} & ano em que foi realizada
 a conferência.
 \\ \hline
-{\tt conference-location} &
+\texttt{conference-location} &
 localização onde foi realizada a conferência
 \\ \hline\hline
 \end{tabular}
@@ -1314,7 +1315,7 @@ localização onde foi realizada a conferência
 \begin{center}
 \begin{tabular}{lp{8cm}}\hline\hline
 campo & descrição \\ \hline
-{\tt year-presented} & ano em que um trabalho foi apresentado.
+\texttt{year-presented} & ano em que um trabalho foi apresentado.
 \\ \hline\hline
 \end{tabular}
 \end{center}
@@ -1325,13 +1326,13 @@ campo & descrição \\ \hline
 
 Algumas novas entradas tiveram que ser criadas. Entradas são objetos de citação
 bibliográficas como \verb+@book+ e \verb+@article+ que ficam no arquivo de
-bibliografias (arquivo {\tt .bib}). Note que outros estilos bibliográficos 
+bibliografias (arquivo \texttt{.bib}). Note que outros estilos bibliográficos 
 trataarão essas entradas como \verb+@misc+.
 
-\subsection{{\tt @ABNT-option} --- Mudança no estilo ABNT}
+\subsection{\texttt{@ABNT-option} --- Mudança no estilo ABNT}
 
 \DescribeEnv{@ABNT-option}
-Com entrada a {\tt @ABNT-option} você pode especificar as alterações no
+Com entrada a \texttt{@ABNT-option} você pode especificar as alterações no
 comportamento dos estilos bibliográficos. Veja a
 \autoref{chapter-opcoes-estilo}, \autopageref{chapter-opcoes-estilo}, para
 mais detalhes. Neste texto as alterações são mostradas na própria lista de
@@ -1339,29 +1340,29 @@ referências:
 \citeonline{abnt-options0,ABNT-barcelos0,ABNT-barcelos1,fraipont1998:begin,fraipont1998:end,%
 abnt-options1,abnt-options2,abnt-options3,abnt-options4,abnt-options5}
 
-\subsection{{\tt @hidden} --- Entrada escondida}
+\subsection{\texttt{@hidden} --- Entrada escondida}
 
 \DescribeEnv{@hidden}\DescribeMacro{\apud}\DescribeMacro{\apudeonline}
-{\tt @hidden} gera uma entrada que não aparece na lista de referências. Ela é
+\texttt{@hidden} gera uma entrada que não aparece na lista de referências. Ela é
 útil para ser usada com os comandos \verb+\apud+ e \verb+\apudonline+. Veja a
 Ref.~\citeonline{abntex2cite-alf} para mais detalhes. Os únicos campos
-considerados são de autoria ({\tt author}, ou {\tt editor}, ou {\tt
-organization}, ou {\tt title}) e de ano ({\tt year}). Esse tipo de entrada só
-tem sentido no estilo autor-data {\tt [alf]}.
+considerados são de autoria (\texttt{author}, ou \texttt{editor}, ou \texttt{
+organization}, ou \texttt{title}) e de ano (\texttt{year}). Esse tipo de entrada só
+tem sentido no estilo autor-data \texttt{[alf]}.
 
-\subsection{{\tt @ISO-option} --- Mudança de estilo ISO}
+\subsection{\texttt{@ISO-option} --- Mudança de estilo ISO}
 
 \DescribeEnv{@ISO-option}
-Tem a mesma função que entradas tipo {\tt @ABNT-option}, só que altera
+Tem a mesma função que entradas tipo \texttt{@ABNT-option}, só que altera
 opções específicas para `normas' ISO.
 
-\subsection{{\tt @journalpart} --- Partes de periódicos }
+\subsection{\texttt{@journalpart} --- Partes de periódicos }
 
 \DescribeEnv{@journalpart}
 Esta entrada formata partes de periódicos. Veja os exemplos
 \citeonline{fgv1984,ibge1983,tres2000,febab1973,boletim1965,grafica1985,industria1957}.
 
-\subsection{{\tt @monography} --- Monografias}
+\subsection{\texttt{@monography} --- Monografias}
 
 \DescribeEnv{@monography}
 Além de teses de mestrado\footnote{O trabalho escrito de mestrado no Brasil
@@ -1369,19 +1370,19 @@ Além de teses de mestrado\footnote{O trabalho escrito de mestrado no Brasil
 de qualidade inferior ao de uma tese. No exterior, onde o trabalho das pessoas
 costuma ser mais respeitado, é chamado de tese de mestrado.} e doutorado, a
 ABNT ainda definiu separadamente monografias em geral. Use exatamente da mesma
-maneira como {\tt @mastersthesis} e {\tt @phdthesis}. Exemplos:
+maneira como \texttt{@mastersthesis} e \texttt{@phdthesis}. Exemplos:
 \citeonline{morgado1990,morgadob1990,morgadoc1990}
 
-\subsection{{\tt @patent} --- Patentes}
+\subsection{\texttt{@patent} --- Patentes}
 
 \DescribeEnv{@patent}
 É uma entrada ainda bastante experimental para descrever patentes. Exemplo:
 \citeonline{cruvinel1989}
 
-\subsection{{\tt @thesis} --- Teses de modo geral}
+\subsection{\texttt{@thesis} --- Teses de modo geral}
 
 \DescribeEnv{@thesis}
-Esta entrada funciona como {\tt @phdthesis} com a diferença que o campo {\tt
+Esta entrada funciona como \texttt{@phdthesis} com a diferença que o campo \texttt{
 type} deve conter toda a informação sobre o tipo de tese. 
 
 Por exemplo, se tivermos:
@@ -1391,7 +1392,7 @@ type={Doutorado em f\'\i sica}
 \end{verbatim}
 
 teremos como saída `Doutorado em física' e não `Tese (Doutorado em física)' como
-em {\tt @phdthesis}.
+em \texttt{@phdthesis}.
 
 \addcontentsline{toc}{section}{Referências}
 \bibliography{abntex2-doc-options,abntex2-doc,abntex2-doc-abnt-6023,abntex2-doc-test}
@@ -1416,7 +1417,7 @@ exemplos de modo a ter exatamente a mesma formatação. Com os exemplos errados,
 
 \paragraph{Abreviação de nomes:} a referência \citeonline{alighieri1983} deveria
 abreviar o ``Dante'' mas não é isso o que é feito no exemplo da `norma'
-6023/2000\cite{NBR6023:2000}. A solução para reproduzir isso foi formatar o {\tt
+6023/2000\cite{NBR6023:2000}. A solução para reproduzir isso foi formatar o \texttt{
 author} do seguinte modo:
 
 \begin{verbatim}
@@ -1425,44 +1426,44 @@ author  ={Dante{\space}Alighieri},
 
 \subsection{Elementos essenciais e complementares}
 
-Do ítem {\bf 7.1.3}\cite{NBR6023:2000}:
+Do ítem \textbf{7.1.3}\cite{NBR6023:2000}:
 
 \begin{quote}
 Os elementos complementares são: indicações de outros tipos de responsabilidade
 (ilustrador, tradutor, revisor, adaptador, compilador etc.);
 informações sobre características físicas do suporte material, páginas
-[{\tt pages}] e/ou
-volumes [{\tt volume}], ilustrações,
-dimensões [{\tt dimensions}]\cite{gomes1998,FUNDAP1994},
-série editorial ou coleção [{\tt series}], notas [{\tt notes}] e
-ISBN [{\tt isbn}]\cite{gomes1998,FUNDAP1994}, entre outros.
+[\texttt{pages}] e/ou
+volumes [\texttt{volume}], ilustrações,
+dimensões [\texttt{dimensions}]\cite{gomes1998,FUNDAP1994},
+série editorial ou coleção [\texttt{series}], notas [\texttt{notes}] e
+ISBN [\texttt{isbn}]\cite{gomes1998,FUNDAP1994}, entre outros.
 \end{quote}
 
-{\tt book} \cite{gomes1998,FUNDAP1994,houaiss1996,folha1995,torelly1991};
-{\tt phdthesis} \cite{barcelos1998};
-{\tt booklet} \cite{IBICT1993};
-{\tt manual} \cite{secretaria1989,museu1997,moreira1997};
+\texttt{book} \cite{gomes1998,FUNDAP1994,houaiss1996,folha1995,torelly1991};
+\texttt{phdthesis} \cite{barcelos1998};
+\texttt{booklet} \cite{IBICT1993};
+\texttt{manual} \cite{secretaria1989,museu1997,moreira1997};
 
 \paragraph{Comentário:}
-Veja \autoref{tabela-isbn} sobre a descrição e uso do campo {\tt isbn}.
+Veja \autoref{tabela-isbn} sobre a descrição e uso do campo \texttt{isbn}.
 
 Veja comentário na \autoref{sec-teses}, \latex{página \pageref{sec-teses},}
 sobre o posicionamento do ano em \citeonline{barcelos1998}.
 
-\subsection{Partes de coletâneas [{\tt incollection}] e livros [{\tt inbook}]}
+\subsection{Partes de coletâneas [\texttt{incollection}] e livros [\texttt{inbook}]}
 
-Do ítem {\bf 7.2.2}\cite{NBR6023:2000}:
+Do ítem \textbf{7.2.2}\cite{NBR6023:2000}:
 
 \begin{quote}
-Os elementos essenciais são: autor(es) [{\tt author}], título [{\tt subtitle}],
-subtítulo [{\tt subtitle}] (se houver) da parte,
+Os elementos essenciais são: autor(es) [\texttt{author}], título [\texttt{subtitle}],
+subtítulo [\texttt{subtitle}] (se houver) da parte,
 seguidos da expressão ``In:'' \cite{romano1996}, e da referência completa
-da monografia no todo. No final da referência, deve-se informar a paginação [{\tt pages}]
+da monografia no todo. No final da referência, deve-se informar a paginação [\texttt{pages}]
 ou outra forma de individualizar a parte referenciada.
 \end{quote}
 
-{\tt incollection} \cite{romano1996,rego1991};
-{\tt inbook} \cite{santos1994}.
+\texttt{incollection} \cite{romano1996,rego1991};
+\texttt{inbook} \cite{santos1994}.
 
 \paragraph{O que ainda precisa ser feito:}
 \begin{enumerate}
@@ -1483,7 +1484,7 @@ Outro problema é que no lugar do editor a ABNT coloca o nome do evento, o que
 normalmente viria no título. Em compensação o título foi quebrado em duas partes
 (suspiro!). Assim um \textit{proceeding} do tipo ``Anais da V Reunião dos
 Usuários Latex" tem no lugar do editor ``REUNIÃO DOS USUÁRIOS LATEX, 5." e no lugar
-do título ``{\bf Anais\latexhtml{$\ldots$}{...}}. Note ainda que o ``V" vira ```5." embora
+do título ``\textbf{Anais\latexhtml{$\ldots$}{...}}. Note ainda que o ``V" vira ```5." embora
 todo mundo diga ``V Reunião" e não ``Reunião, 5.". Enfim, se podemos complicar,
 para que simplificar!?
 
@@ -1496,8 +1497,8 @@ coerente que seja compatível com essa bobagem sem introduzir vários campos nov
 Vide a \autoref{tabela-conf} para a descrição dos campos novos que foram
 introduzidos.
 
-Outra adaptação foi usar o campo {\tt organization} para o nome do evento. Isso
-normalmente não é usado em entradas to tipo {\tt proceedings} e {\tt
+Outra adaptação foi usar o campo \texttt{organization} para o nome do evento. Isso
+normalmente não é usado em entradas to tipo \texttt{proceedings} e \texttt{
 inproceedings}, mas foi a melhor solução encontrada. Novamente, esteja atento
 que ao usar outros estilos \textsf{bibtex} suas bibliografias poderão ficar com
 uma cara muito estranha. Recomendamos estudar os exemplos aqui apresentados para
@@ -1505,20 +1506,20 @@ um resultado aceitável.
 
 Naturalmente, como é internacionalmente aceito, é usual se referenciar ao
 editor e se você já tem entradas formatadas desse modo, o editor aparecerá
-no lugar de {\tt organization}. Existe aí o risco de alguém aborrecer você
+no lugar de \texttt{organization}. Existe aí o risco de alguém aborrecer você
 dizendo que você não está cumprindo a `norma', mas esse risco é pequeno
 porque o número de pessoas que conhece a `norma' a esse ponto é
 pequeno também.
 
-{\tt proceedings}\cite{redes1995,chemical1984,quimica1997,cientifica1996,biblioteconomia1979};
-{\tt inproceedings}\cite{martin1997,brayner1994,souza1994,oliveira1996,guncho1998,sabroza1998,krzyzanowski1996}
+\texttt{proceedings}\cite{redes1995,chemical1984,quimica1997,cientifica1996,biblioteconomia1979};
+\texttt{inproceedings}\cite{martin1997,brayner1994,souza1994,oliveira1996,guncho1998,sabroza1998,krzyzanowski1996}
 
-\subsection{Nomes pessoais [{\tt author}]}
+\subsection{Nomes pessoais [\texttt{author}]}
 
 \label{nome-pessoais}
 \begin{quote}
-{\bf 8.1.1.1}\cite{NBR6023:2000}
-Indica(m)-se o(s) autores [{\tt author}, {\tt editor}]
+\textbf{8.1.1.1}\cite{NBR6023:2000}
+Indica(m)-se o(s) autores [\texttt{author}, \texttt{editor}]
 pelo \emph{último sobrenome}, em maiúsculas, seguido
 do(s) prenome(s) e \emph{outros sobrenomes} abreviado(s) ou não.
 \cite{alves1995,dami1995}
@@ -1536,7 +1537,7 @@ ser escrito assim: author=\{Roque de Brito Alves\}, aqui ficou ``First=Roque'',
 a `norma'. O nosso estilo consegue contornar o problema e gerar ``ALVES, Roque de
 Brito'', mas existe a possibilidade de que o nosso mecanismo gere problemas.
 Se você quiser reverter ao modo usual do \textsf{bibtex}, use a opção
-{\tt bibtex} descrita na \autoref{tabela-opcoes-composicao}. 
+\texttt{bibtex} descrita na \autoref{tabela-opcoes-composicao}. 
 
 Outro problema é a questão de elementos tipo ``Jr.'' tais como ``Filho'',
 ``Neto'' etc. A `norma' não diz nada explicitamente sobre o que fazer com isso.
@@ -1544,73 +1545,73 @@ Pelos exemplos fica aparente que esses elementos são agregados ao sobrenome.
 Embora seja estranho, o estilo trata esses casos sem problema algum.
 Veja \citeonline{lazzarini1994,cretella1992,martin1997,tourinho1997,sabroza1998}
 
-\subsection{Título ({\tt title}) e subtítulo ({\tt subtitle})}
+\subsection{Título (\texttt{title}) e subtítulo (\texttt{subtitle})}
 
-Do ítem {\bf pastro1993}\cite{NBR6023:2000}:
+Do ítem \textbf{pastro1993}\cite{NBR6023:2000}:
 \begin{quote}
-O título [{\tt title}, {\tt booktitle}] e subtítulo [{\tt subtitle}, {\tt
+O título [\texttt{title}, \texttt{booktitle}] e subtítulo [\texttt{subtitle}, \texttt{
 booksubtitle}] devem ser reproduzidos tal como figuram no documento, separados
 por dois pontos.
 \end{quote}
 
 Exemplos:
-{\tt article}\cite{ribeiro1998}
-{\tt book}
+\texttt{article}\cite{ribeiro1998}
+\texttt{book}
 \cite{houaiss1996,torelly1991,michalany1981,passos1995,pastro1993,franco1993} 
-{\tt incollection}\cite{romano1996} 
-{\tt manual}\cite{NBR6023:2000,secretaria1989,museu1997,moreira1997,geografico1986,brasileira1988}
-{\tt mastersthesis}\cite{araujo1986}
-{\tt misc}\cite{birds1998}.
+\texttt{incollection}\cite{romano1996} 
+\texttt{manual}\cite{NBR6023:2000,secretaria1989,museu1997,moreira1997,geografico1986,brasileira1988}
+\texttt{mastersthesis}\cite{araujo1986}
+\texttt{misc}\cite{birds1998}.
 
 \subsubsection{Comentário:}
-O subtítulo foi implementado por meio dos novos campos {\tt subtitle}
-e {\tt booksubtitle} que estão disponível para todas as entradas bibliográficas.
+O subtítulo foi implementado por meio dos novos campos \texttt{subtitle}
+e \texttt{booksubtitle} que estão disponível para todas as entradas bibliográficas.
 A separação por dois pontos é gerada automaticamente quando o estilo detecta a
-presença do campo {\tt subtitle} ou {\tt booksubtitle}. Note que em outros
-estilos bibliográficos os campos {\tt subtitle} e {\tt booksubtitle} serão
+presença do campo \texttt{subtitle} ou \texttt{booksubtitle}. Note que em outros
+estilos bibliográficos os campos \texttt{subtitle} e \texttt{booksubtitle} serão
 ignorado. Veja também a \autoref{tabela-subtitle}.
 
 Não fica muito claro o que vem a ser um subtítulo nem qual seria a sua
 serventia. Não conhecemos nenhum outro estilo bibliográfico que faça uso de
 subtítulos, daí não recomendamos o seu uso.
 
-\subsection{Ausência de local ({\tt address}) e editora ({\tt publisher})}
+\subsection{Ausência de local (\texttt{address}) e editora (\texttt{publisher})}
 
-Do ítem {\bf 8.4.5}\cite{NBR6023:2000}:
+Do ítem \textbf{8.4.5}\cite{NBR6023:2000}:
 \begin{quote}
-Não sendo possível determinar o local [{\tt address}], utiliza-se a expressão \emph{Sine loco},
+Não sendo possível determinar o local [\texttt{address}], utiliza-se a expressão \emph{Sine loco},
 abreviada, entre colchetes [S.l.]
 \end{quote}
 
-Do ítem {\bf franco1993}\cite{NBR6023:2000}:
+Do ítem \textbf{franco1993}\cite{NBR6023:2000}:
 \begin{quote}
-Quando a editora [{\tt publisher}] não é identificada, deve-se indicar a expressão
+Quando a editora [\texttt{publisher}] não é identificada, deve-se indicar a expressão
 \emph{sine nomine}, abreviada, entre colchetes [s.n.].
 \end{quote}
 
-Do ítem {\bf alves1993}\cite{NBR6023:2000}:
+Do ítem \textbf{alves1993}\cite{NBR6023:2000}:
 \begin{quote}
-Quando o local [{\tt address}] e o editor [{\tt publisher}] não puderem ser
+Quando o local [\texttt{address}] e o editor [\texttt{publisher}] não puderem ser
 identificados na publicação, utilizam-se ambas as expressões, abreviadas e
 entre colchetes [S.l.: s.n.]
 \end{quote}
 
 \subsubsection{Comentário:}
-Quando o \textsf{bibtex} encontrar uma entrada {\tt book} sem campo {\tt
+Quando o \textsf{bibtex} encontrar uma entrada \texttt{book} sem campo \texttt{
 publisher} será feita a substituição automática por [s.n.].
 \cite{franco1993}
-Se encontrar sem {\tt address} será colocada [S.l.]. \cite{libris1981,krieger1992}
+Se encontrar sem \texttt{address} será colocada [S.l.]. \cite{libris1981,krieger1992}
 Se não tiver nenhuma das duas [S.l.: s.n.]. \cite{alves1993}
 
 \subsection{Teses, Dissertações, Monografias}
 \label{sec-teses}
 
-Do ítem {\bf 8.11.4}\cite{NBR6023:2000}:
+Do ítem \textbf{8.11.4}\cite{NBR6023:2000}:
 \begin{quote}
-Nas dissertações [{\tt mastersthesis}], teses [{\tt phdthesis}] e/ou outros
-trabalhos acadêmicos [{\tt monography}] devem ser indicados em nota o tipo do
-documento (monografia, dissertação, tese etc.), o grau [{\tt type}], a
-vinculação acadêmica [{\tt school}], local [{\tt address}] e a data [{\tt
+Nas dissertações [\texttt{mastersthesis}], teses [\texttt{phdthesis}] e/ou outros
+trabalhos acadêmicos [\texttt{monography}] devem ser indicados em nota o tipo do
+documento (monografia, dissertação, tese etc.), o grau [\texttt{type}], a
+vinculação acadêmica [\texttt{school}], local [\texttt{address}] e a data [\texttt{
 year}] da defesa, mencionada na folha de aprovação (se houver).
 \cite{morgado1990,araujo1986,morgadob1990,morgadoc1990}
 \end{quote}
@@ -1622,7 +1623,7 @@ e a segunda no final. O exemplo \citeonline{araujo1986} inclusive apresenta
 duas datas diferentes. Não foi fornecida nenhuma explicação para essa
 discrepância. Como na descrição acima se diz ``local e a data'' optamos no
 estilo colocar apenas a data no final logo após o local. É possível alterar o
-comportamento do estilo via o campo {\tt abnt-thesis-year}. Veja a
+comportamento do estilo via o campo \texttt{abnt-thesis-year}. Veja a
 \autoref{tabela-opcoes-composicao} para mais detalhes.
 
 \section{Referências segundo o tipo de entrada \textsf{bibtex}}
@@ -1633,7 +1634,7 @@ tipo de entrada.}\label{table-entrada}
 \begin{center}
 \begin{tabular}{lp{2.5cm}p{7cm}}\hline\hline
 entrada & contribuídas & da referência \citeonline{NBR6023:2000} \\ \hline
-{\tt article} & \citeonline{Sun99,Creci99,Subramaniam98,Deng00,Eiter99:HAA,%
+\texttt{article} & \citeonline{Sun99,Creci99,Subramaniam98,Deng00,Eiter99:HAA,%
 Inverno97:Formalisms,Tsen86}%,Schroter98}
 & \citeonline{costa1998,gurgel1997,tourinho1997,mansilla1998,%
 aldus1997,naves1999,leal1999,silva1998,ribeiro1998,pc1998,gsilva1998,%
@@ -1641,7 +1642,7 @@ kelly1996,nordeste1998,brasil1966,brasil1997,lex1998,leis1991,lex1943,brasillex1
 tribunal1998,barros1995,brasil1999,supremo1998,fraipont1998,leitao1989,%
 schaum1956,alcarde1996,benetton1993,figueirde1996,duran1993,chemello1993,%
 marins1991}. \\ \hline
-{\tt book} & \citeonline{Koneman99,Ferber95:SMA,Cardona82}
+\texttt{book} & \citeonline{Koneman99,Ferber95:SMA,Cardona82}
 & \citeonline{gomes1998,FUNDAP1994,houaiss1996,folha1995,torelly1991,%
 koogan1998,brasileira1939,geografico1943,paulista1941,brasil1988,brasil1995,ceravi1983,riofilme1998,warner1991,%
 britanica1981,michalany1981,alves1995,dami1995,%
@@ -1652,29 +1653,29 @@ leite1994,cipolla1993,florenzano1993,biblica1970,ruch1926,lucci1994,felipe1994,l
 cesar1994,azevedo1994,batista1992,chueire1994,arbex1993,carvalho1994,miglori1993,amaral1994,rodrigues1994,carruth1993,saadi1994,mandino1994,%
 laurenti1978,holanda1994,pelosi1993,tringali1994,cardim1984,cretella1992,freyre1943,freyre1936,freyreg1936,freyre1938}
 \\ \hline
-{\tt booklet} && \citeonline{IBICT1993,boletime1965} \\ \hline
-{\tt inbook} && \citeonline{santos1994,priberam1998,brasil1994,alcionet1988,simonej1977} \\ \hline
-{\tt incollection} & \citeonline{Jennings98:Applications} &
+\texttt{booklet} && \citeonline{IBICT1993,boletime1965} \\ \hline
+\texttt{inbook} && \citeonline{santos1994,priberam1998,brasil1994,alcionet1988,simonej1977} \\ \hline
+\texttt{incollection} & \citeonline{Jennings98:Applications} &
 \citeonline{romano1996,rego1991,makau1962,lion1981} \\ \hline
-{\tt inproceedings} & \citeonline{Valiant95:Rationality,Chiao00} &
+\texttt{inproceedings} & \citeonline{Valiant95:Rationality,Chiao00} &
 \citeonline{martin1997,brayner1994,souza1994,oliveira1996,%
 guncho1998,sabroza1998,krzyzanowski1996} \\ \hline
-{\tt journalpart} && \citeonline{fgv1984,ibge1983,tres2000,febab1973,boletim1965,grafica1985,industria1957}\\ \hline
-{\tt manual} &  \citeonline{Bumgardner97:Syd} &
+\texttt{journalpart} && \citeonline{fgv1984,ibge1983,tres2000,febab1973,boletim1965,grafica1985,industria1957}\\ \hline
+\texttt{manual} &  \citeonline{Bumgardner97:Syd} &
 \citeonline{secretaria1989,museu1997,moreira1997,geografico1994,geografico1986,%
 brasileira1988,universidade1993,secretaria1993,francco1996,vicosa1994} \\ \hline
-{\tt masterthesis} && \citeonline{araujo1986} \\ \hline
-{\tt misc} && \citeonline{cruvinel1989,kobayashi1998,ceravi1985,souza1985,samu1977,mattos1987,vaso1999,%
+\texttt{masterthesis} && \citeonline{araujo1986} \\ \hline
+\texttt{misc} && \citeonline{cruvinel1989,kobayashi1998,ceravi1985,souza1985,samu1977,mattos1987,vaso1999,%
 levi1997,datum1996,espaciais1987,univali1999,globo1995,alcione1988,silva1991,fagner1988,simone1977,bart1952,gallet1851,%
 villa1916,duchamp1918,europa0000,indias0000,birds1998,tropical1998,bioline1998,drummond1998,%
 coordena1995,marinho1995,cassiano1998,parana1998,parana1997,microsoft1995,mpc1993,sony1990,accioly2000}
 \\ \hline
-{\tt proceedings} &&\citeonline{redes1995,chemical1984,quimica1997,cientifica1996,biblioteconomia1979,malagrino1985}
+\texttt{proceedings} &&\citeonline{redes1995,chemical1984,quimica1997,cientifica1996,biblioteconomia1979,malagrino1985}
 \\ \hline
-{\tt phdthesis} &\citeonline{Giraffa:1999}&  \citeonline{barcelos1998} \\ \hline
-{\tt techreport} & \citeonline{Singh91:Intentions} &
+\texttt{phdthesis} &\citeonline{Giraffa:1999}&  \citeonline{barcelos1998} \\ \hline
+\texttt{techreport} & \citeonline{Singh91:Intentions} &
 \citeonline{justica1993,biblioteca1985,biblioteca1983} \\ \hline
-{\tt unpublished} & \citeonline{Mccarthy92:Elephant} & \\ \hline\hline
+\texttt{unpublished} & \citeonline{Mccarthy92:Elephant} & \\ \hline\hline
 \end{tabular}
 \end{center}
 \end{table}
