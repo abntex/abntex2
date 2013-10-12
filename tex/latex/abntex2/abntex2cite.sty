@@ -385,6 +385,7 @@
 
 % Check if not running pdf/xe/lua/htlatex, then load breakurl
 %   From http://tex.stackexchange.com/a/53943
+\RequirePackage{ifpdf,ifxetex}
 \edef\texforht{TT\noexpand\fi
   \@ifpackageloaded{tex4ht}
     {\noexpand\iftrue}
