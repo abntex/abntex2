@@ -33,6 +33,7 @@ CHANGE HISTORY
       (class option sumario=abnt-6027-2012 and sumario=tradicional) 
     . added microtype package to examples and documentation files
     . added a fifth level on text structure (use \paragraph as a subsubsubsection)
+    . added new example of bibliography reference in abntex2cite (key hamada2008)
     . fixed url link for "https" addresses on .bst files
     . fixed scape of caracter "&" in urls on .bst files
     . fixed the layout of url if the option-package-url = url is used with the
