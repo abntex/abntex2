@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.10.11 07h27	sggranja
+%%  Adiciona opções sumario=abnt-6027-2012 e sumario=tradicional
+%%
 %% 2013.10.02 11h00	carlini
 %%  Adiciona suporte a subsubsubsection (utilizando paragraph)
 %%  e adiciona a opcao subsubsubsection=TITLE.
@@ -132,7 +135,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2013/09/01 v1.8 abnTeX2]
+\ProvidesClass{abntex2}[2013/10/26 v1.9 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn

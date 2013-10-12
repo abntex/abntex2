@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.10.12 10h47 laurocesar
+%%  Adiciona documentação das opções de sumário
+%%
 %% 2013.9.27 19h00 laurocesar
 %%  Ajusta exemplos de capa, de folha de rosto e de folha de aprovação
 %%
@@ -621,6 +624,9 @@ As opções mais comuns de inicialização do texto do documento são:
 \documentclass[12pt,openright,twoside,a4paper,brazil]{abntex2}
 \end{verbatim}
 
+Veja a \autoref{sec-sumario}, a \autoref{sec-opcoes-tamanho-fonte} e a
+\autoref{sec-opcoes-tamanho-titulo} para outras opções.
+
 % ---
 \subsubsection{O tamanho do papel}
 % ---
@@ -665,6 +671,7 @@ A macro |\part| também é permitida em |article|.
 
 % ---
 \subsubsection{As opções de tamanho de fonte e o tamanho ``menor e uniforme''}
+\label{sec-opcoes-tamanho-fonte}
 % ---
 
 \DescribeMacro{\ABNTEXfontereduzida}\DescribeMacro{\footnotesize}\DescribeEnv{12pt}
@@ -690,6 +697,7 @@ completa de opções disponíveis pode ser consultada em
 % ---
 \subsubsection{Opções específicas da classe \textsf{abntex2}: títulos de
 divisões em letras maiúsculas}
+\label{sec-opcoes-tamanho-titulo}
 % ---
 
 \begin{description}
@@ -720,6 +728,14 @@ Exemplo de uso:
 	subsubsection=TITLE, % títulos de subsubseções em letras maiúsculas
 	english,french,spanish,brazil]{abntex2}
 \end{verbatim}
+
+% ---
+\subsubsection{Opções específicas da classe \textsf{abntex2}: alternativas de
+sumário}
+% ---
+
+A \autoref{sec-sumario} contém opções adicionais de configuração do sumário.
+
 
 % ---
 \subsection{Espaçamentos entre parágrafos e linhas}
@@ -2010,9 +2026,24 @@ informações.
 
 \DescribeMacro{\tableofcontents}
 O Sumário é um elemento obrigatório da ABNT NBR 14724:2011, seção
-4.2.1.13, que pode ser criada por meio da macro padrão |\tableofcontents|. O
-sumário deve ser construído conforme a ABNT NBR 6027:2012.
+4.2.1.13, que pode ser criada por meio da macro padrão |\tableofcontents|. 
 
+\DescribeMacro{sumario=abnt-6027-2012}\DescribeMacro{sumario=tradicional}
+A classe \textsf{abntex2} produz um sumário construído similar ao exemplo
+recomendado pela ABNT NBR 6027:2012. O sumário customizado é ativado
+automaticamente, mas pode ser controlado por meio da opção
+|sumario=| da declação |\documentclass|. Desse modo, a opção
+
+\begin{description}
+ \item[|sumario=abnt-6027-2012|] formata o sumário
+ conforme as recomendações da ABNT NBR 6027:2012. É a opção padrão, de modo que
+ não é necessário informá-la;
+ \item[|sumario=tradicional|] usa o estilo tradicional
+ de sumários do \textsf{memoir}. Recomenda-se que se use esta opção no caso de
+ customizações adicionais do sumário.
+\end{description}
+
+\DescribeMacro{\tableofcontents}\DescribeMacro{\pdfbookmark}
 Nem a classe \textsf{memoir}, nem a classe \textsf{abntex2} incluem
 automaticamente o capítulo criado pela macro |\tableofcontents| no
 \textsf{bookmark} do PDF. Caso deseje que o título do capítulo seja
