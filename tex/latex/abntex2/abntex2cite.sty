@@ -366,14 +366,15 @@
 \provideboolean{ABNThyperref}
 
 \@ifpackageloaded{hyperref}{%
-\addtociteoptionlist{abnt-url-package=hyperref}
+%\addtociteoptionlist{abnt-url-package=hyperref}
 \setboolean{ABNThyperref}{true}
 }{\setboolean{ABNThyperref}{false}}
 
 \@ifpackageloaded{url}{%
 \addtociteoptionlist{abnt-url-package=url}
 \def\UrlLeft{<}
-\def\UrlRight{>}}
+\def\UrlRight{>}
+\urlstyle{same}}
 
 \provideboolean{ABNTbackref} %By AWSS
 
@@ -396,7 +397,8 @@
   \else
     \if\texforht
     \else
-      \RequirePackage{breakurl}
+      \@ifpackageloaded{hyperref}
+        {\RequirePackage{breakurl}}{}
     \fi% texforht
   \fi% xetex
 \fi% pdftex
