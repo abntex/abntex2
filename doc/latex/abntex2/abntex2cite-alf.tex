@@ -207,6 +207,7 @@ específicos da ABNT NBR 10520:2002 e o \\ estilo bibliográfico alfabético
 
 \newcommand{\abnTeX}{abn\TeX}
 \newcommand{\abnTeXSite}{\url{http://abntex2.googlecode.com/}}
+\newcommand{\optiondefaultval}[1]{\underline{\texttt{#1}}}
 
 \title{\titulo}
 \author{Equipe \abnTeX2\\\abnTeXSite 
@@ -336,7 +337,7 @@ essa `norma' entrou em vigor em agosto de 2002, apenas um ano depois da
 Esse sistema aceita basicamente duas formatações para a citação, dependendo da
 maneira como ocorre a citação no texto.
 
-\subsubsection{Referências explícitas ({\tt citeonline}) }
+\subsubsection{Referências explícitas (\texttt{citeonline}) }
 
 \DescribeMacro{\citeonline}
 É o caso em que você menciona \emph{explicitamente} o autor da referência na sentença. Algo
@@ -429,13 +430,13 @@ coisa também
 \cite[p.~34]{10520-2002:6.3-5}.
 \end{minipage}\\
 
-\subsubsection{Referências a {\tt organization}}
+\subsubsection{Referências a \texttt{organization}}
 
 \DescribeEnv{organization}
-Se a autoria do texto for do tipo {\tt organization}, você pode usar as citações
+Se a autoria do texto for do tipo \texttt{organization}, você pode usar as citações
 normalmente. No entanto, é recomendado que, para organizações com descrição
-longa, você controle o que aparece no texto com o campo {\tt org-short} do
-arquivo {\tt .bib}. No exemplo seguinte temos:
+longa, você controle o que aparece no texto com o campo \texttt{org-short} do
+arquivo \texttt{.bib}. No exemplo seguinte temos:
 
 \begin{verbatim}
 organization={Comiss\~ao das Comunidades Europ\'eias},
@@ -497,7 +498,7 @@ Outro artigo anônimo
 \cite[p.~12]{10520-2002:6.3-9}.
 \end{minipage}\\
 
-\subsubsection{Referências implícitas ({\tt cite})}
+\subsubsection{Referências implícitas (\texttt{cite})}
 
 \DescribeMacro{\cite}
 São aquelas referências que não fazem parte do texto. Use com \verb+\cite+.
@@ -552,7 +553,7 @@ A produção de \latexhtml{\ldots\ }{...} em 1928 \cite[p.~513]{10520:2000:4.2-1
 \end{minipage}\\
 
 
-\subsubsection{Referências citadas por outra referência ({\tt apud})}
+\subsubsection{Referências citadas por outra referência (\texttt{apud})}
 
 \DescribeMacro{\apud}\DescribeMacro{\apudeonline}
 Para citar uma referência que é citada dentro de outra referência, pode-se
@@ -573,9 +574,9 @@ Segundo \apudonline[p.~3]{Silva1992}{Abreu1999}
 \end{minipage}
 
 Nesses casos, todas as referências aparecerão na lista de referências, exceto
-aquelas definidas como entrada {\tt @hidden}. Ou seja, se você não quiser
+aquelas definidas como entrada \texttt{@hidden}. Ou seja, se você não quiser
 que uma entrada apareça na lista de referências, você deve defini-la como
-{\tt @hidden} na sua base bibliográfica.
+\texttt{@hidden} na sua base bibliográfica.
 
 \subsubsection{Citações em notas de rodapé}
 \label{sec-cite-rodape}
@@ -714,7 +715,7 @@ NBR10520:2001}
 
 \subsubsection{Múltiplas referências com mesmo autor-data}
 \label{mult-abc}
-Quando há várias referências com o mesmo autor-data, {\tt abntex2cite.sty}
+Quando há várias referências com o mesmo autor-data, \texttt{abntex2cite.sty}
 gera automaticamente um `a', `b', etc., adicional. Isto atende ao ítem
 5.1.3 da `norma' \cite{NBR10520:2001}.
 
@@ -758,8 +759,8 @@ foram investigados estados em
 fios quânticos.
 \end{minipage}\\
 
-Você pode altera esse comportamento usando as opções {\tt abnt-etal-cite},
-{\tt abnt-etal-list} e {\tt abnt-etal-text}.
+Você pode altera esse comportamento usando as opções \texttt{abnt-etal-cite},
+\texttt{abnt-etal-list} e \texttt{abnt-etal-text}.
 Veja mais informacões na \autoref{tabela-opcoes} e em \cite{abntex2cite}.
 
 \subsubsection{Citações de partes da referência}
@@ -770,7 +771,7 @@ autor ou apenas o ano. Para isso, foram implementados os comandos
 modo:
 
 % subsubsubsection
-%\subsubsection{Apenas o autor ({\tt citeauthoronline}), forma explícita}
+%\subsubsection{Apenas o autor (\texttt{citeauthoronline}), forma explícita}
 \DescribeMacro{\citeauthoronline}
 A macro |\citeauthoronline| deve ser utilizada para citar
 apenas o autor de forma explícita:
@@ -787,7 +788,7 @@ mencionada por
 \end{minipage}\\
 
 % subsubsubsection
-%\subsubsection{Apenas o autor ({\tt citeauthor}), forma implícita}
+%\subsubsection{Apenas o autor (\texttt{citeauthor}), forma implícita}
 \DescribeMacro{\citeauthor}
 A macro |\citeauthor| deve ser utilizada para citar
 apenas o autor de forma implícita:
@@ -802,7 +803,7 @@ A produção de \latexhtml{\ldots\ }{...} em 1928
 \end{minipage}\\
 
 % subsubsubsection
-%\subsubsection{Apenas o ano ({\tt citeyear})}
+%\subsubsection{Apenas o ano (\texttt{citeyear})}
 
 \DescribeMacro{\citeyear}
 A macro |\citeyear| deve ser utilizada para citar
@@ -850,12 +851,12 @@ alterado com:
 \renewcommand{\yearstyle}{\bf}
 \end{verbatim}
 
-\section{Alteração do estilo alfabético {\tt citeoption}}
+\section{Alteração do estilo alfabético \texttt{citeoption}}
 
 \DescribeMacro{\citeoption}
 Com o comando \verb+\citeoption+ ou \verb+\usepackage+ você pode alterar alguns comportamentos
 do estilo bibliográfico. Na \autoref{tabela-opcoes}, listamos as opções que são
-específicas do estilo {\tt abnt-alf}.
+específicas do estilo \texttt{abnt-alf}.
 
 Por exemplo, para desativar a substituição dos autores por `et al.', você
 incluir o pacote com a seguinte opção:
@@ -882,18 +883,18 @@ Opções de alteração da composição dos estilos bibliográficos.}
 \begin{tabular}{lrp{7cm}}\hline\hline
 campo & opções & descrição \\ \hline
 \emph{abnt-and-type} & & determina de que maneira é formatado o \emph{and}.\\
-{\tt abnt-and-type=e} & \underline{\tt e}& Usa `e' como em `Fonseca e Paiva'.\\
-{\tt abnt-and-type=\&} & {\tt \&} & Usa `\&' como em `Fonseca \& Paiva'.
+\texttt{abnt-and-type=e} & \optiondefaultval{e}& Usa `e' como em `Fonseca e Paiva'.\\
+\texttt{abnt-and-type=\&} & \texttt{\&} & Usa `\&' como em `Fonseca \& Paiva'.
 \\ \hline
 \emph{abnt-etal-cite} &  & controla como e quando os co-autores são
 substituídos por \emph{et al.}.  Note que a substituição
 por \emph{et al.} continua ocorrendo \emph{sempre} se os co-autores tiverem sido indicados
-como {\tt others}.\\
-{\tt abnt-etal-cite=0}&{\tt 0}& não abrevia a lista de autores.\\
-{\tt abnt-etal-cite=2}& {\tt 2} & abrevia com mais de 2 autores.\\
-{\tt abnt-etal-cite=3}& \underline{\tt 3} & abrevia com mais de 2 autores.\\
+como \texttt{others}.\\
+\texttt{abnt-etal-cite=0}&\texttt{0}& não abrevia a lista de autores.\\
+\texttt{abnt-etal-cite=2}& \texttt{2} & abrevia com mais de 2 autores.\\
+\texttt{abnt-etal-cite=3}& \optiondefaultval{3} & abrevia com mais de 2 autores.\\
 $\vdots$ & $\vdots$ & \\
-{\tt abnt-etal-cite=5}& {\tt 5} & abrevia com mais de 5 autores.
+\texttt{abnt-etal-cite=5}& \texttt{5} & abrevia com mais de 5 autores.
 \\ \hline\hline
 \end{tabular}
 \end{center}
