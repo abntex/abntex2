@@ -389,18 +389,14 @@
   \@ifpackageloaded{tex4ht}
     {\noexpand\iftrue}
     {\noexpand\iffalse}}
-\RequirePackage{ifpdf,ifxetex,ifluatex}
 \ifpdf
 \else
   \ifxetex
   \else
-    \ifluatex
+    \if\texforht
     \else
-      \if\texforht
-      \else
-        \RequirePackage{breakurl}
-      \fi% texforht
-    \fi% luatex
+      \RequirePackage{breakurl}
+    \fi% texforht
   \fi% xetex
 \fi% pdftex
 
