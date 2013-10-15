@@ -636,10 +636,17 @@
   \def\printchaptertitle##1{%
     \chaptitlefont%
     \ifthenelse{\boolean{abntex@innonumchapter}}{\centering\ABNTEXchapterupperifneeded{##1}}{%
-    % else
-	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-	    \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}%
-	}    
+    % else  
+      \ifthenelse{\boolean{abntex@apendiceousecao}}{\centering%
+        \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+        %\parbox[t]{\columnwidth-\chapternamenumlength}
+        \ABNTEXchapterupperifneeded{##1}%
+      }{%
+        \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+        \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}}%
+      %  \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+      %  \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}%
+     }    
   }
        
   % impressao do numero do capitulo     	
@@ -650,7 +657,7 @@
      \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        \tocinnonumchapter
-       --\space%
+       \space--\space%
      }{} % else
   }
   \renewcommand{\afterchapternum}{}
