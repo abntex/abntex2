@@ -147,6 +147,7 @@
 \usepackage{hyperref}  			% controla a formação do índice
 \usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{microtype} 			% para melhorias de justificação
+\usepackage{morefloats}			% permite mais floats
 
 
 % Babel e ajustes
@@ -163,6 +164,7 @@
     \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
     \renewcommand{\paragraphautorefname}{par\'agrafo}
     \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
+    \renewcommand{\paragraphautorefname}{subse{\c c}\~ao}
 }  
 
 \usepackage{color}
@@ -216,10 +218,9 @@ técnicos e científicos brasileiros \\compatíveis com as normas ABNT}}
 %   se referete ao \textsf{abntex2} versão \fileversion,
 %   de \filedate.}
   
-  
-\author{Equipe \abnTeX2\\\abnTeXSite 
-\and 
-Lauro César Araujo\\\url{laurocesar@laurocesar.com}}
+\author{Lauro César Araujo\\\url{laurocesar@laurocesar.com}
+\and
+Equipe \abnTeX2\\\abnTeXSite} 
 
 \date{\today, v<VERSION>}
 
@@ -707,11 +708,11 @@ Altera para caixa alta (letras maiúsculas) os \emph{títulos} dos
 capítulos e o títulos de todos os elementos pré e pós textuais escritos com o
 mesmo nível que capítulos.
 
-\item {\texttt{section=TITLE}, \texttt{section=TITLE},
-\texttt{subsubsection=TITLE}}
+\item {\texttt{section=TITLE}, \texttt{subsection=TITLE},
+\texttt{subsubsection=TITLE}, \texttt{subsubsubsection=TITLE}}
 
 Altera para caixa alta (letras maiúsculas) os \emph{títulos} das seções,
-subseções, subsubseções, respectivamente.
+subseções, subsubseções e subsubsubseções, respectivamente.
 \end{description}
 
 Essas opções \emph{não controlam o formato dos items} no sumário, lista de
@@ -726,6 +727,7 @@ Exemplo de uso:
 	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 	subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 	subsubsection=TITLE, % títulos de subsubseções em letras maiúsculas
+	subsubsubsection=TITLE, % títulos de subsubsubseções em letras maiúsculas
 	english,french,spanish,brazil]{abntex2}
 \end{verbatim}
 
@@ -1078,7 +1080,9 @@ Algumas alterações foram realizadas nos nomes padronizados pelo pacote
     \hline
     |\subsubsectionautorefname| & ``Subsubseção'' & ``subseção'' \\
     \hline
-    |\paragraphautorefname| & ``Parágrafo'' & ``parágrafo'' \\
+    |\paragraphautorefname| & ``Parágrafo'' & ``subseção''\footnote{Ver
+    \autoref{sec-sumario}.}
+    \\
     \hline
     \hline
 \end{tabular}
@@ -1150,7 +1154,7 @@ no mamual do pacote \textsf{babel} \cite{babel}:
   \renewcommand{\sectionautorefname}{section}
   \renewcommand{\subsectionautorefname}{subsection}
   \renewcommand{\subsubsectionautorefname}{subsubsection}
-  \renewcommand{\paragraphautorefname}{paragraph}
+  \renewcommand{\paragraphautorefname}{subsubsubsection}
 }
 \end{verbatim}
 
@@ -2028,6 +2032,11 @@ informações.
 O Sumário é um elemento obrigatório da ABNT NBR 14724:2011, seção
 4.2.1.13, que pode ser criada por meio da macro padrão |\tableofcontents|. 
 
+\DescribeMacro{\subsubsubsection}
+Conforme a referida norma, os itens do sumário são numerados até o quinto nível.
+Por isso, adicionou-se ao \abnTeX2 o comando |\subsubsubsection|\marg{divisão de
+quinto nível}.
+
 \DescribeMacro{sumario=abnt-6027-2012}\DescribeMacro{sumario=tradicional}
 A classe \textsf{abntex2} produz um sumário construído similar ao exemplo
 recomendado pela ABNT NBR 6027:2012. O sumário customizado é ativado
@@ -2213,6 +2222,7 @@ utilizado por padrão:
 \DescribeMacro{\ABNTEXsectionfont}\DescribeMacro{\ABNTEXsectionfontsize}
 \DescribeMacro{\ABNTEXsubsectionfont}\DescribeMacro{\ABNTEXsubsectionfontsize}
 \DescribeMacro{\ABNTEXsubsubsectionfont}\DescribeMacro{\ABNTEXsubsubsectionfontsize}
+\DescribeMacro{\ABNTEXsubsubsubsectionfont}\DescribeMacro{\ABNTEXsubsubsubsectionfontsize}
 
 As fontes e o tamanho das fontes obtidas com as divisões |\part|\marg{nome da
 parte}, |\chapter|\marg{nome do capítulo}, |\section|\marg{nome da seção},
@@ -2253,6 +2263,12 @@ comando |\renewcommand|.
     \hline
     |\ABNTEXsubsubsectionfontsize| & |\normalsize| \\
     \hline
+
+    |\ABNTEXsubsubsubsectionfont| & |\ABNTEXsubsectionfont| \\
+    \hline
+    |\ABNTEXsubsubsubsectionfontsize| & |\normalsize| \\
+    \hline
+
     \hline
 
 \end{tabular}
