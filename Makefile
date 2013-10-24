@@ -1,7 +1,7 @@
 #!/usr/bin/make -k
 PREFIX = /usr
-INSTALL_TEXLIVE2013 = $(PREFIX)/share/texlive/texmf-dist
-DOCS_TEXLIVE2013 = $(PREFIX)/share/doc/texlive-doc
+INSTALL_DEB-RPM_DISTROS = $(PREFIX)/share/texlive/texmf-dist
+DOCS_DEB-RPM_DISTROS = $(PREFIX)/share/doc/texlive-doc
 INSTALL_DEFAULT = $(PREFIX)/local/share/texmf
 DOCS_DEFAULT = $(PREFIX)/local/share/texmf-dist/doc
 
@@ -11,23 +11,23 @@ all:
 install:
 	@echo 'Verificando a instalação do TexLive ...'
 	@if (which tex > /dev/null); then \
-		if (tex -version|egrep 201[2-3]); then \
-			if (cat /etc/issue|grep -i 'debian\|fedora\|mageia\|mandriva\|mint\|scientific\|suse\|ubuntu'); then \
-				install -d $(DESTDIR)$(INSTALL_TEXLIVE2013); \
-				if ! (test -w $(DESTDIR)$(INSTALL_TEXLIVE2013)); then \
-					echo 'O abnTeX2 deve ser instalado usando o comando \"sudo make install\" ou como usuário root!'; \
+		if (tex -version|egrep 201[2-3] > /dev/null); then \
+			if (cat /etc/issue|grep -i 'debian\|fedora\|mageia\|mandriva\|mint\|scientific\|suse\|ubuntu' > /dev/null); then \
+				install -d $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS); \
+				if ! (test -w $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)); then \
+					echo 'O abnTeX2 deve ser instalado usando o comando "sudo make install" ou como usuário root!'; \
 				else \
-					cp -r bibtex $(DESTDIR)$(INSTALL_TEXLIVE2013)/; \
-					cp -r tex $(DESTDIR)$(INSTALL_TEXLIVE2013)/; \
-					install -d $(DESTDIR)$(DOCS_TEXLIVE2013); \
-					cp -r doc/latex $(DESTDIR)$(DOCS_TEXLIVE2013)/; \
+					cp -r bibtex $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/; \
+					cp -r tex $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/; \
+					install -d $(DESTDIR)$(DOCS_DEB-RPM_DISTROS); \
+					cp -r doc/latex $(DESTDIR)$(DOCS_DEB-RPM_DISTROS)/; \
 					texhash; \
 					echo 'abnTeX2 instalado com sucesso!'; \
 				fi; \
 			else \
 				install -d $(DESTDIR)$(INSTALL_DEFAULT); \
 				if ! (test -w $(DESTDIR)$(INSTALL_DEFAULT)); then \
-					echo 'O abnTeX2 deve ser instalado usando o comando \"sudo make install\" ou como usuário root!'; \
+					echo 'O abnTeX2 deve ser instalado usando o comando "sudo make install" ou como usuário root!'; \
 				else \
 					cp -r bibtex $(DESTDIR)$(INSTALL_DEFAULT)/; \
 					cp -r tex $(DESTDIR)$(INSTALL_DEFAULT)/; \
@@ -47,38 +47,38 @@ install:
 	fi
 
 uninstall:
-	@if (cat /etc/issue|grep -i 'debian\|fedora\|mageia\|mandriva\|mint\|scientific\|suse\|ubuntu'); then \
-		if ! (test -w $(DESTDIR)$(INSTALL_TEXLIVE2013)); then \
-	  	echo 'O abnTeX2 deve ser desinstalado usando o comando \"sudo make uninstall\" ou como usuário root!'; \
+	@if (cat /etc/issue|grep -i 'debian\|fedora\|mageia\|mandriva\|mint\|scientific\|suse\|ubuntu' > /dev/null); then \
+		if ! (test -w $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)); then \
+	  	echo 'O abnTeX2 deve ser desinstalado usando o comando "sudo make uninstall" ou como usuário root!'; \
 		else \
-			rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex/bib/abntex2; \
-			rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex/bst/abntex2; \
-			if ! [ $(ls -A $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex/bib) ]; then \
-				rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex/bib; \
+			rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex/bib/abntex2; \
+			rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex/bst/abntex2; \
+			if ! [ $(ls -A $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex/bib) ]; then \
+				rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex/bib; \
 			fi; \
-			if ! [ $(ls -A $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex/bst) ]; then \
-				rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex/bst; \
+			if ! [ $(ls -A $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex/bst) ]; then \
+				rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex/bst; \
 			fi; \
-			if ! [ $(ls -A $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex) ]; then \
-				rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/bibtex; \
+			if ! [ $(ls -A $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex) ]; then \
+				rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/bibtex; \
 			fi; \
-			rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/tex/latex/abntex2; \
-			if ! [ $(ls -A $(DESTDIR)$(INSTALL_TEXLIVE2013)/tex/latex) ]; then \
-				rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/tex/latex; \
+			rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/tex/latex/abntex2; \
+			if ! [ $(ls -A $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/tex/latex) ]; then \
+				rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/tex/latex; \
 			fi; \
-			if ! [ $(ls -A $(DESTDIR)$(INSTALL_TEXLIVE2013)/tex) ]; then \
-				rm -rf $(DESTDIR)$(INSTALL_TEXLIVE2013)/tex; \
+			if ! [ $(ls -A $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/tex) ]; then \
+				rm -rf $(DESTDIR)$(INSTALL_DEB-RPM_DISTROS)/tex; \
 			fi; \
-			rm -rf $(DESTDIR)$(DOCS_TEXLIVE2013)/latex/abntex2; \
-			if ! [ $(ls -A $(DESTDIR)$(DOCS_TEXLIVE2013)/latex) ]; then \
-				rm -rf $(DESTDIR)$(DOCS_TEXLIVE2013)/latex; \
+			rm -rf $(DESTDIR)$(DOCS_DEB-RPM_DISTROS)/latex/abntex2; \
+			if ! [ $(ls -A $(DESTDIR)$(DOCS_DEB-RPM_DISTROS)/latex) ]; then \
+				rm -rf $(DESTDIR)$(DOCS_DEB-RPM_DISTROS)/latex; \
 			fi; \
 			texhash; \
 			echo 'abnTeX2 desinstalado com sucesso!'; \
 		fi; \
 	else \
 		if ! (test -w $(DESTDIR)$(INSTALL_DEFAULT)); then \
-	  	echo 'O abnTeX2 deve ser desinstalado usando o comando \"sudo make uninstall\" ou como usuário root!'; \
+	  	echo 'O abnTeX2 deve ser desinstalado usando o comando "sudo make uninstall" ou como usuário root!'; \
 		else \
 			rm -rf $(DESTDIR)$(INSTALL_DEFAULT)/bibtex/bib/abntex2; \
 			rm -rf $(DESTDIR)$(INSTALL_DEFAULT)/bibtex/bst/abntex2; \
