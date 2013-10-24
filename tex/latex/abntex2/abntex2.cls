@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.10.24 09h53	laurocesar
+%%  Revisa as alterações de quinto nível
+%%
 %% 2013.10.11 07h27	sggranja
 %%  Adiciona opções sumario=abnt-6027-2012 e sumario=tradicional
 %%
@@ -291,7 +294,7 @@
   \renewcommand{\sectionautorefname}{section}
   \renewcommand{\subsectionautorefname}{subsection}
   \renewcommand{\subsubsectionautorefname}{subsubsection}
-  \renewcommand{\paragraphautorefname}{subsubsection}
+  \renewcommand{\paragraphautorefname}{subsubsubsection}
 }
 % ---
 
@@ -518,12 +521,17 @@
 \settocdepth{paragraph}
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
+\maxsecnumdepth{paragraph}
 
-% redefine os comandos *paragraph* para *subsubsubsection*
+% redefine os comandos *paragraph* para *subsubsubsection* ****
 \newcommand{\subsubsubsection}{\paragraph}
-\newcommand{\cftbeforesubsubsubsectionskip }{\cftbeforeparagraphskip}
-\newcommand{\cftsubsubsubsectionfont }{\cftparagraphfont}
+\newcommand{\cftbeforesubsubsubsectionskip}{\cftbeforeparagraphskip}
+\newcommand{\cftsubsubsubsectionfont}{\cftparagraphfont}
 \newcommand{\setsubsubsubsecheadstyle}{\setparaheadstyle}
+
+\setafterparaskip{1.0\onelineskip plus 0.5\onelineskip minus 0.2\onelineskip}
+\setparaheadstyle{\normalfont\sffamily\raggedright}%
+
 
 % lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
@@ -617,7 +625,7 @@
   \renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
   \renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
   
-  % tamanhos de fontes de section, subsection e subsubsection
+  % tamanhos de fontes de section, subsection, subsubsection e subsubsubsection
   \setsecheadstyle{\ABNTEXsectionfont\ABNTEXsectionfontsize\ABNTEXsectionupperifneeded}
   \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize\ABNTEXsubsectionupperifneeded}
   \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize\ABNTEXsubsubsectionupperifneeded}
