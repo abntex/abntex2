@@ -44,8 +44,8 @@
 	french,				% idioma adicional para hifenização
 	spanish,			% idioma adicional para hifenização
 	brazil,				% o último idioma é o principal do documento
+	sumario=abnt-6027-2012
 	]{abntex2}
-
 
 % ---
 % PACOTES
@@ -96,7 +96,6 @@
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
 % ---
-
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -570,10 +569,11 @@ elementum}
 \lipsum[24]
 
 % ---
-% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
 % ---
-\bookmarksetup{startatroot}% 
-% ---
+\phantompart
 
 % ---
 % Conclusão
@@ -587,7 +587,6 @@ elementum}
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
-
 
 % ----------------------------------------------------------
 % Referências bibliográficas
@@ -666,6 +665,7 @@ parturient montes nascetur ridiculus mus}
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
 
+\phantompart
 \printindex
 
 \end{document}
