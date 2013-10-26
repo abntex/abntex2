@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2013.10.26 17h45 laurocesar
+%%  Atualiza o documento para adicionar a marcro \phantompart
+%%
 %% 2013.10.12 10h47 laurocesar
 %%  Adiciona documentação das opções de sumário
 %%
@@ -854,9 +857,9 @@ Para alterar o cabeçalho da página automaticamente com o comando
 Para inserir uma divisão com * no sumário, consulte \autoref{sec-sumario}.
 
 \DescribeMacro{\phantomsection}
-A macro |\phantomsection| pode ser útil imediatamente antes de |\pdfbookmark|
+A macro |\phantomsection| pode ser útil imediatamente antes de |\pdfbookmark|,
 quando o texto adicionado ao bookmark não estiver próxima a uma divisão do
-documento. Nesse caso, o comando fica assim:
+documento. Nesse caso, o comando deve ser usado assim:
 
 \begin{verbatim}
 \phantomsection\pdfbookmark[0]{Capítulo}{texto-qualquer2} 
@@ -1371,6 +1374,43 @@ internas entre seções e parágrafos com letras minúsculas. Veja a lista compl
 de alterações realizadas na \autoref{sec-internacional-babel-alteracoes}. As remissões internas
 a capítulo, parte, figura, tabela e demais não foram alteradas, e serão
 impressas com letras maiúsculas.
+
+% ---
+\subsection{Finalização de partes com \texttt{phantompart}}
+\label{sec-phantompart}
+% ---
+
+\DescribeMacro{\phantompart}
+A classe \textsf{abntex2} fornece a macro |\phantompart|, que 
+simula a finalização de uma parte criada com |\part|. A macro automaticamente
+faz com que o próximo capítulo se inicie na raiz do índice do PDF
+(\autoref{sec-bookmark}), e caso a opção |abnt-6027-2012| (\autoref{sec-sumario})
+esteja habilitada, também adiciona ao Sumário (\autoref{sec-sumario}) um espaço
+vertical equivalente ao espaço do início de uma parte. A macro |\phantompart|
+deve ser usada sempre que um novo capítulo não fizer parte do contexto da parte
+em que os capítulos anteriores estavam, mas que não seja o caso de se criar uma
+nova parte para o novo capítulo. Desse modo, não é necessário usar
+|\phantompart| no início de partes subsequentes. Exemplo correto de uso:
+
+\begin{verbatim}
+\phantompart
+
+\chapter*[Conclusão]{Conclusão}
+\addcontentsline{toc}{chapter}{Conclusão}
+
+\phantompart
+\printindex
+\end{verbatim}
+
+Exemplo INCORRETO de uso:
+
+\begin{verbatim}
+\phantompart
+\part{Nova parte em que phantompart foi usado incorretamente} 
+\end{verbatim}
+
+A macro |\phantompart| é executado automaticamente em |\postextual|
+(\autoref{sec-postextual}).
 
 % ------
 \section{Elementos pré-textuais e Parte externa}\label{sec-pretextuais}
@@ -2105,6 +2145,15 @@ Sumário. Veja mais informações na \autoref{sec-elementostextuais}.
 Consulte a \autoref{sec-bookmark} para obter informações sobre o
 \textsf{bookmark}, índice da estrutura do documento no PDF.
 
+\DescribeMacro{\addtocontents}
+O comando |\addtocontents{toc}{\vspace{\cftbeforepartskip}}| pode ser usado para
+adicionar um espaço vertical no Sumário do mesmo tamanho do espaço usado na
+separação de |\part|. Isso é útil, por exemplo, para indicar no sumário que um
+novo capítulo não faz parte da parte anterior.
+
+Consulte a \autoref{sec-phantompart} para obter informações sobre a macro
+|\phantompart|.
+
 \DescribeMacro{KeepFromToc}
 O ambiente |KeepFromToc| pode ser utilizada para que um divisão não seja
 incluída no Sumário. Esse ambiente é equivalente à macro |\ProximoForaDoSumario|
@@ -2570,18 +2619,17 @@ Desse modo, um exemplo completo de uso das macros |\IBGEtab|, |\fonte| e |\nota|
 
 
 % ------
-\section{Elementos pós-textuais}
+\section{Elementos pós-textuais}\label{sec-postextual}
 % ------
 
 \DescribeMacro{\postextual}\DescribeMacro{\backmatter}
 O comando |\postextual| identifica o início dos elementos pós-textuais. Na
-prática não há nenhum comportamento específico, uma vez que as
-normas não prescrevem nenhum requisito para esses elementos. Porém, mesmo
-que para uso futuro, a macro |\postextual| já está criada e recomenda-se que
-seja utilizada. Dessa forma, caso deseje atribuir algum comportamento
-diferenciado aos elementos pós-textuais, faça-o redefinindo a macro. A título de
-coerência, a macro |\backmatter|, padrão do \textsf{memoir}, é reescrita para
-que tenha o mesmo comportamento que |\postextual|.
+prática o único comportamento específico é a execução da macro |\phantompart|
+(\autoref{sec-phantompart}). Dessa forma, caso deseje atribuir algum comportamento
+diferenciado aos elementos pós-textuais, faça-o redefinindo a macro, mas não se
+esqueça de adicionar o comando |\phantompart|. A título de coerência, a macro
+|\backmatter|, padrão do \textsf{memoir}, é reescrita para que tenha o mesmo
+comportamento que |\postextual|.
 
 % ---
 \subsection{Referências (obrigatório)}\label{sec-referencias}

@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.10.26 17h45 laurocesar
+%%  Adiciona a marcro \phantompart
+%%
 %% 2013.10.24 09h53	laurocesar
 %%  Revisa as alterações de quinto nível
 %%
@@ -532,7 +535,6 @@
 \setafterparaskip{1.0\onelineskip plus 0.5\onelineskip minus 0.2\onelineskip}
 \setparaheadstyle{\normalfont\sffamily\raggedright}%
 
-
 % lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
 \renewcommand*{\cftfigureaftersnum}{\hfill--\hfill}
@@ -567,35 +569,49 @@
 \newcommand{\tocpartanexos}{}
 }{}
 %
+
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
-\cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
-\renewcommand{\cftlastnumwidth}{\cftsubsubsectionnumwidth}
-\cftsetindents{part}{0em}{\cftlastnumwidth}
-\cftsetindents{chapter}{0em}{\cftlastnumwidth}
-\cftsetindents{section}{0em}{\cftlastnumwidth}
-\cftsetindents{subsection}{0em}{\cftlastnumwidth}
-\cftsetindents{subsubsection}{0em}{\cftlastnumwidth}
-\cftsetindents{paragraph}{0em}{\cftlastnumwidth}
-\cftsetindents{subparagraph}{0em}{\cftlastnumwidth}
-%
-\renewcommand{\tocprintchapter}{%
-\addtocontents{toc}{\cftsetindents{chapter}{0em}{\cftlastnumwidth}}}
-%
-\renewcommand{\tocinnonumchapter}{%
-\addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}%
-\cftinserthook{toc}{A}}
-%
-\renewcommand{\tocprintchapternonum}{%
-\addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}}
-%
-\renewcommand{\tocpartapendices}{%
-\addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
-\cftinserthook{toc}{A}}
-%
-\renewcommand{\tocpartanexos}{%
-\addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
-\cftinserthook{toc}{A}}
+  \cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
+  \setlength{\cftlastnumwidth}{\cftsubsubsectionnumwidth+1em}
+  %\setlength{\cftsubsubsectionnumwidth}
+  %\addtolength{\cftlastnumwidth}{1em}
+  \cftsetindents{part}{0em}{\cftlastnumwidth}
+  \cftsetindents{chapter}{0em}{\cftlastnumwidth}
+  \cftsetindents{section}{0em}{\cftlastnumwidth}
+  \cftsetindents{subsection}{0em}{\cftlastnumwidth}
+  \cftsetindents{subsubsection}{0em}{\cftlastnumwidth}
+  \cftsetindents{paragraph}{0em}{\cftlastnumwidth}
+  \cftsetindents{subparagraph}{0em}{\cftlastnumwidth}
+  %
+  \renewcommand{\tocprintchapter}{%
+    \addtocontents{toc}{\cftsetindents{chapter}{0em}{\cftlastnumwidth}}}
+  %
+  \renewcommand{\tocinnonumchapter}{%
+    \addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}%
+    \cftinserthook{toc}{A}}
+  %
+  \renewcommand{\tocprintchapternonum}{%
+    \addtocontents{toc}{\cftsetindents{chapter}{\cftlastnumwidth}{2em}}}
+  %
+  \renewcommand{\tocpartapendices}{%
+    \addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+    \cftinserthook{toc}{A}}
+  %
+  \renewcommand{\tocpartanexos}{%
+    \addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
+    \cftinserthook{toc}{A}}
+  %
+  \setlength{\cftbeforechapterskip}{0.5em}
 }{}
+
+% Comando que simula a finalizacao de uma parte no bookmark e
+% adiciona espaco de \part no sumario
+\newcommand{\phantompart}{%
+  \bookmarksetup{startatroot}%
+  \phantomsection%
+  \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
+    \addtocontents{toc}{\vspace{\cftbeforepartskip}}}{}%
+}
 % -----
 
 % ---
@@ -724,9 +740,7 @@
 
 % ---
 % Configura layout para elementos pos-textuais
-\newcommand{\postextual}{%
- \bookmarksetup{startatroot}%
-}
+\newcommand{\postextual}{\phantompart}
 \renewcommand{\backmatter}{\postextual}
 % -----
 

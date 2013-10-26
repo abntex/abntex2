@@ -310,12 +310,12 @@ observadas pelo \abnTeX, é apresentada em \citeonline{abntex2classe}.
 
 \include{abntex2-modelo-include-comandos}
 
-
 % ---
-% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
 % ---
-\bookmarksetup{startatroot}% 
-% ---
+\phantompart
 
 % ---
 % Conclusão
@@ -406,6 +406,8 @@ parturient montes nascetur ridiculus mus}
 %---------------------------------------------------------------------
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
+
+\phantompart
 
 \printindex
 
