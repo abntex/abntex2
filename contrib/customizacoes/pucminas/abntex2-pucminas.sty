@@ -1,0 +1,512 @@
+%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para a Pontifícia Universidade Católica de Minas Gerais
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Ricardo Carlini Sperandio, rcarlini@gmail.com
+%%
+%% Further information about abnTeX2 are available on http://abntex2.googlecode.com/
+%%
+
+% ---
+% INICIO DAS CUSTOMIZACOES PARA A PUC MINAS
+% ---
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{abntex2-pucminas}[2013/10/02 v0.9999 AbnTeX2-PUCMinas]
+
+% -----------------------------------------------------------------------------
+% PACOTES UTILIZADOS
+% -----------------------------------------------------------------------------
+
+\newboolean{ABNTEX2PUCMINASbrasao}
+\setboolean{ABNTEX2PUCMINASbrasao}{false}
+\newboolean{ABNTEX2PUCMINASalgorithm}
+\setboolean{ABNTEX2PUCMINASalgorithm}{false}
+\DeclareOption{combrasao}{\setboolean{ABNTEX2PUCMINASbrasao}{true}}
+\DeclareOption{hackalgorithm}{\setboolean{ABNTEX2PUCMINASalgorithm}{true}}
+\ProcessOptions\relax
+
+
+% PACOTES FUNDAMENTAIS
+\usepackage{cmap}	% Mapear caracteres especiais no PDF
+\usepackage{lmodern}	% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}% Codificacao do documento (conversão automática  dos acentos)
+\usepackage{lastpage}	% Usado pela Ficha catalográfica
+\usepackage{indentfirst}% Indenta o primeiro parágrafo de cada seção.
+
+\usepackage{xcolor}
+\usepackage[normalem]{ulem} % para o underline colorido
+
+% posicionar os floats
+\usepackage[bottom]{footmisc}
+% http://tex.stackexchange.com/questions/62720/vertical-space-after-algorithm
+% \setlength{\textfloatsep}{1.241\onelineskip}% Remove \textfloatsep
+% \setlength{\floatsep}{1.241\onelineskip}% Remove \textfloatsep
+% \setlength{\intextsep}{1.241\onelineskip}% Remove \textfloatsep
+\setlength{\textfloatsep}{1\baselineskip}% Remove \textfloatsep
+\setlength{\floatsep}{1\baselineskip}% Remove \textfloatsep
+\setlength{\intextsep}{1\baselineskip}% Remove \textfloatsep
+
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{black}{RGB}{0,0,0}
+
+% define o underline colorido.
+\makeatletter
+\newcommand\coloruline[1][black]{\bgroup\markoverwith
+{\textcolor{#1}{\rule[-0.5ex]{2pt}{0.4pt}}}\ULon}
+\makeatother
+
+
+% -----------------------------------------------------------------------------
+% NIVEIS DO DOCUMENTO
+% -----------------------------------------------------------------------------
+% A Puc Minas determinou a existencia de uma seção quinária. Para simular
+% esse possível \subsubsubsection foi utilizado o nivel \paragraph
+
+%% A Classe 1.8.1 do ABNTEX já implementa
+%\settocdepth{paragraph}
+%\setsecnumdepth{paragraph}
+%\setcounter{tocdepth}{5}
+%\setcounter{secnumdepth}{5}
+%\newcommand{\subsubsubsection}{\paragraph}
+
+% -----------------------------------------------------------------------------
+% CONFIGURACAO DO SUMARIO
+% -----------------------------------------------------------------------------
+% Modifica o espaçamento no sumário
+% Nao ha espacos, exceto para as entradas de capitulos
+\setlength{\cftbeforeparagraphskip}{0pt}
+\setlength{\cftbeforesubsectionskip}{0pt}
+\setlength{\cftbeforesectionskip}{0pt}
+\setlength{\cftbeforesubsubsectionskip}{0pt}
+\setlength{\cftbeforechapterskip}{\onelineskip}
+
+% Modifica a formatacao dos textos
+
+% Secao Primaria (Chapter): Caixa alta, Negrito, tamanho 12 
+\makeatletter
+\settocpreprocessor{chapter}{%
+  \let\tempf@rtoc\f@rtoc%
+  \def\f@rtoc{%
+  \texorpdfstring{\bfseries\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+}
+\makeatother
+
+
+% Secao secundaria (Section) Caixa baixa, Negrito, tamanho 12
+\renewcommand*{\cftsectionfont}{\bfseries}
+% Secao terciaria (Subsection) Caixa baixa, Negrito, italico, tamanho 12
+\renewcommand*{\cftsubsectionfont}{\itshape\bfseries}
+% Secao quaternaria (Subsubsection) Caixa baixa, Negrito, sublinhado, tamanho 12
+\renewcommand*{\cftsubsubsectionfont}{\bfseries\coloruline[black]}
+% Seção quinaria (subsubsubsection) Caixa baixa, sem negrito, tamanho 12
+\renewcommand*{\cftparagraphfont}{\normalfont}
+
+
+% -----------------------------------------------------------------------------
+% FORMATACAO DAS PAGINAS
+% -----------------------------------------------------------------------------
+% Definicao das margens e espaçamentos
+\setlrmarginsandblock{3cm}{2cm}{*} % externa / interna
+\setulmarginsandblock{3cm}{2cm}{*} % superior / inferior
+\checkandfixthelayout
+
+% Recuo do paragrafo
+\setlength{\parindent}{1.25cm} % normativo citatanto o valor de 1,25 qto 1,5cm
+% sem espaco entre os paragrafos
+\setlength{\parskip}{0cm}
+
+% Espacamentos nos titulos:
+% chapter
+\setlength{\beforechapskip}{-\onelineskip} %com 0 nao funcionou
+\setlength{\afterchapskip}{\onelineskip} % antes do titulo de capitulo
+%\setlength\beforechapskip{-18pt} 
+
+% section
+\setbeforesecskip{\onelineskip}
+\setaftersecskip{\onelineskip}
+
+% subsection
+\setbeforesubsecskip{\onelineskip}
+\setaftersubsecskip{\onelineskip}
+
+% subsubsection
+\setbeforesubsubsecskip{\onelineskip}
+\setaftersubsubsecskip{\onelineskip}
+
+% subsubsubsection
+\setbeforeparaskip{\onelineskip}
+\setafterparaskip{\onelineskip}
+
+% Fontes de títulos no documento
+% Capitulo  Negrito + MakeUpperCase (via chapter=TITLE)
+\renewcommand{\ABNTEXchapterfont}{\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\setboolean{ABNTEXupperchapter}{true}
+
+% Section Negrito
+\renewcommand{\ABNTEXsectionfont}{\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+
+% Subsecao Negrito + Italico
+\renewcommand{\ABNTEXsubsectionfont}{\bfseries\itshape}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+% SubSubSecao Negrito + Sublinhado
+\renewcommand{\ABNTEXsubsubsectionfont}{\bfseries}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+\setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize\ABNTEXsubsubsectionupperifneeded\coloruline[black]}
+
+% SubSubSubSecao Caixa baixa, sem negrito, tamanho 12
+\setparaheadstyle{\normalfont\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize}
+% -----------------------------------------------------------------------------
+% Padronizacao da Bibliografia (BIBTEX)
+% -----------------------------------------------------------------------------
+
+% ---
+% Pacotes de citações
+% ---
+% Paginas com as citações na bibliografia (TODO: verif. se PUC deixa passar)
+\usepackage[brazilian,hyperpageref]{backref}
+
+% Padrao de citacao alfabetico e com destaque em negrito
+\usepackage[alf,abnt-emphasize=bf]{abntex2cite}
+
+%\renewcommand{\bibname}{REFER\^ENCIAS}
+
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{%
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or%
+		Citado na página #2.%
+	\else%
+		Citado #1 vezes nas páginas #2.%
+	\fi%
+}%
+% ---
+
+
+% -----------------------------------------------------------------------------
+%  NOVOS COMANDOS PARA FACILITAR ALGUMAS COISAS
+% -----------------------------------------------------------------------------
+
+% Cria o comando \departamento. Utilizado na capa / folha de {rosto, aprovacao}
+\providecommand{\imprimirdepartamento}{}
+\newcommand{\departamento}[1]{\renewcommand{\imprimirdepartamento}{#1}}
+
+% Cria o comando \subtitulo. A norma define que o TITULO deve ser em caixa alta
+% negrito, mas o subtitulo deve ser em caixa baixa.
+\providecommand{\imprimirsubtitulo}{}
+\newcommand{\subtitulo}[1]{\renewcommand{\imprimirsubtitulo}{#1}}
+
+% Legendas utilizadas em Figuras / Tabelas / Etc.
+\newcommand{\foa}{\legend{Fonte: Elaborada pelo autor.}}
+\newcommand{\fad}[1]{\legend{Fonte: Adaptada de \citeonline{#1}.}}
+\newcommand{\fod}[1]{\legend{Fonte: \citeonline{#1}.}}
+\newcommand{\fodp}{\legend{Fonte: Dados da pesquisa.}}
+
+
+% Ativa modificacoes necessarias no pacote algorithm
+\newcommand{\pucminashackalgorithmpkg}{}
+
+% Comandos utilizados para configuracao da Folha de Aprovacao
+
+% Sao aceitos ate tres convidados + orientador + coorientador
+% A forma de uso eh: \membrobanca?[SiglaInst]{Nome}. 
+% SiglaInst eh opcional, padrao eh Puc Minas.
+\newcommand{\membrobancaA}{}
+\newcommand{\membrobancaB}{}
+\newcommand{\membrobancaC}{}
+
+% Data da defesa deve ser por extenso na folha de aprovacao
+\newcommand{\datadefesa}{}
+
+% -----------------------------------------------------------------------------
+% CAPA
+% -----------------------------------------------------------------------------
+\makeatletter
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center%
+    {\ABNTEXchapterfont\MakeUppercase\imprimirinstituicao}\\%
+    {\ABNTEXchapterfont\imprimirdepartamento}%
+    \ifthenelse{\boolean{ABNTEX2PUCMINASbrasao}}{%
+      \begin{figure}[h!]%
+        \centering%
+        \includegraphics[scale=0.4]{abntex2-pucminas-brasao.pdf}%
+      \end{figure}%
+      \vspace*{1.5cm}%
+    }%
+    {\vspace*{4cm}}%
+    \par%
+    {\ABNTEXchapterfont\imprimirautor}%
+    \vspace*{4cm}%
+    \par%
+    {\ABNTEXchapterfont\bfseries\MakeUppercase\imprimirtitulo}\abntex@ifnotempty{\imprimirsubtitulo}{{\bfseries:%
+      \par%
+      \imprimirsubtitulo}%
+    }%
+    \par%
+    \vspace*{\fill}%
+    \par%
+    {\imprimirlocal}%
+    \par%
+    {\imprimirdata}%
+    \vspace*{1cm}%
+  \end{capa}%
+}
+\makeatother
+
+% -----------------------------------------------------------------------------
+% FOLHA DE ROSTO
+% -----------------------------------------------------------------------------
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+  \begin{center}%
+    {\ABNTEXchapterfont\imprimirautor}%
+    \vspace*{4cm}%
+    \par%
+    \vspace*{\fill}\vspace*{\fill}%
+    {\ABNTEXchapterfont\bfseries\MakeUppercase\imprimirtitulo}\abntex@ifnotempty{\imprimirsubtitulo}{{\bfseries:%
+      \par%
+      \imprimirsubtitulo}%
+    }%
+    \vspace*{\fill}%
+    \par%
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace*{7cm}%
+      \begin{minipage}{.5\textwidth}%
+        \SingleSpacing%
+        \imprimirpreambulo%
+      \end{minipage}%
+      \vspace*{\fill}%
+    }%
+    \vspace*{4cm}%
+    \par%
+    {\hspace*{7cm}%
+    \begin{minipage}{.5\textwidth}%
+      \SingleSpacing%
+      \imprimirorientadorRotulo~\imprimirorientador%
+      \par%
+    \end{minipage}%
+    }
+    \abntex@ifnotempty{\imprimircoorientador}{%
+      {\hspace*{7cm}\begin{minipage}{.5\textwidth}%
+      \SingleSpacing%
+      \imprimircoorientadorRotulo~\imprimircoorientador%
+      \end{minipage}%
+      }%
+    }%
+    \vspace*{\fill}%
+    \par%
+    {\imprimirlocal}%
+    \par%
+    {\imprimirdata}%
+    \vspace*{1cm}%
+  \end{center}%
+}%
+\makeatother
+
+
+
+% -----------------------------------------------------------------------------
+% FOLHA DE APROVACAO
+% -----------------------------------------------------------------------------
+\setlength{\ABNTEXsignwidth}{12cm}
+\newcommand{\imprimirsiglapucminas}{PUC Minas}
+
+\makeatletter
+\providecommand{\imprimirdatadefesa}{}
+\renewcommand{\datadefesa}[1]{\renewcommand{\imprimirdatadefesa}{#1}}
+
+\providecommand{\imprimirmembrobancaA}{}
+\providecommand{\imprimirmembrobancaAinst}{}
+\renewcommand{\membrobancaA}[2][\imprimirsiglapucminas]{\renewcommand{\imprimirmembrobancaA}{#2}\renewcommand{\imprimirmembrobancaAinst}{#1}}
+
+\providecommand{\imprimirmembrobancaB}{}
+\providecommand{\imprimirmembrobancaBinst}{}
+\renewcommand{\membrobancaB}[2][\imprimirsiglapucminas]{\renewcommand{\imprimirmembrobancaB}{#2}\renewcommand{\imprimirmembrobancaBinst}{#1}}
+
+\providecommand{\imprimirmembrobancaC}{}
+\providecommand{\imprimirmembrobancaCinst}{}
+\renewcommand{\membrobancaC}[2][\imprimirsiglapucminas]{\renewcommand{\imprimirmembrobancaC}{#2}\renewcommand{\imprimirmembrobancaCinst}{#1}}
+
+\newcommand{\imprimirmeOrientadorinst}{\imprimirsiglapucminas}
+\newcommand{\imprimirmeCoorientadorinst}{\imprimirsiglapucminas}
+
+\newcommand{\imprimefolhadeaprovacao}{
+\begin{folhadeaprovacao}%
+  \begin{center}%
+    {\ABNTEXchapterfont\imprimirautor}%
+    \vspace*{\fill}%
+    \par%
+    {\ABNTEXchapterfont\bfseries\MakeUppercase\imprimirtitulo}\abntex@ifnotempty{\imprimirsubtitulo}{{\bfseries:%
+    \par%
+    \imprimirsubtitulo}%
+    }%
+    \vspace*{\fill}%
+    \par%
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+    \hspace*{7cm}%
+    \begin{minipage}{.5\textwidth}%
+      \SingleSpacing%
+      \imprimirpreambulo%
+    \end{minipage}%
+    \vspace*{\fill}%
+    \par%
+  }%
+  \end{center}%
+  \assinatura{\imprimirorientador~(Orientador) -- \imprimirmeOrientadorinst}%
+  \abntex@ifnotempty{\imprimircoorientador}{%
+  \assinatura{\imprimircoorientador~(Coorientador) -- \imprimirmeCoorientadorinst}%
+  }%
+  \assinatura{\imprimirmembrobancaA ~-- \imprimirmembrobancaAinst}%
+  \abntex@ifnotempty{\imprimirmembrobancaB}{%
+  \assinatura{\imprimirmembrobancaB ~-- \imprimirmembrobancaBinst}%
+  }%
+  \abntex@ifnotempty{\imprimirmembrobancaC}{%
+  \assinatura{\imprimirmembrobancaC ~-- \imprimirmembrobancaCinst}%
+  }%
+  \vspace*{\fill}%
+  \par%
+  \begin{center}%
+    \imprimirlocal, \imprimirdatadefesa.%
+  \end{center}%
+\end{folhadeaprovacao}%
+}
+\makeatother
+
+
+
+% -----------------------------------------------------------------------------
+%  (RE)DEFINICOES DE AMBIENTES 
+% -----------------------------------------------------------------------------
+
+% No abntex2 lista de siglas trata tanto siglas quanto abreviaturas
+% ja para a PUC Minas ha tanto a Lista de siglas, quanto a de abreviaturas
+
+% Redefine \listadesiglasname para ser apenas siglas
+\renewcommand{\listadesiglasname}{Lista de siglas} 
+
+% Define \listadeabreviaturasname
+\newcommand{\listadeabreviaturasname}{Lista de abreviaturas}
+
+\addto\captionsenglish{% ingles
+	%% adjusts names from abnTeX2
+	\renewcommand{\listadesiglasname}{List of abbreviations}
+	\renewcommand{\listadeabreviaturasname}{List of acronyms}
+}
+
+% Cria o ambiente abreviaturas utilizando o pacote acronym
+% FIXME: Talvez nao seja a melhor forma de gerar a lista
+\usepackage[printonlyused]{acronym} % lista de simbolos
+\newenvironment{abreviaturas}[1][XXX]{%
+	\pretextualchapter{\listadeabreviaturasname}
+  \begin{acronym}[#1]
+	}{%
+	\end{acronym}
+	\cleardoublepage
+}
+
+
+% Redefine para imprimir o -- na lista de siglas
+% SGL -- Sigla
+\renewcommand\acsfont{\normalfont}
+\makeatletter
+\def\uplabel#1{{\normalfont{{#1}}\hfill}\ --\ }
+\renewenvironment{acronym}[1][1]{%
+   \providecommand*{\acro}{\AC@acro}%
+   \providecommand*{\acroplural}{\AC@acroplural}%
+   \long\def\acroextra##1{##1}%
+   \def\@tempa{1}\def\@tempb{#1}%
+   \ifx\@tempa\@tempb%
+      \global\expandafter\let\csname ac@des@mark\endcsname\AC@used%
+      \ifAC@nolist%
+      \else%
+         \begin{list}{}%
+                {\settowidth{\labelwidth}{\normalfont{{#1}}\ }% change according to your needs
+                \setlength{\leftmargin}{\labelwidth}%
+                \addtolength{\leftmargin}{\labelsep}%
+                \renewcommand{\makelabel}{\uplabel}}
+      \fi%
+   \else%
+      \begin{AC@deflist}{#1}%
+   \fi%
+  }%
+  {%
+   \ifx\AC@populated\AC@used\else%
+      \ifAC@nolist%
+      \else%
+          \item[]\relax%
+      \fi%
+   \fi%
+   \expandafter\ifx\csname ac@des@mark\endcsname\AC@used%
+      \ifAC@nolist%
+      \else%
+        \end{list}%
+      \fi%
+   \else%
+      \end{AC@deflist}%
+   \fi}%
+\renewenvironment{AC@deflist}[1]%
+        {\ifAC@nolist%
+         \else%
+            \raggedright\begin{list}{}%
+                {\settowidth{\labelwidth}{\normalfont{{#1}}\ }% change according to your needs
+                \setlength{\leftmargin}{\labelwidth}%
+                \addtolength{\leftmargin}{\labelsep}%
+                \renewcommand{\makelabel}{\uplabel}}%
+          \fi}%
+        {\ifAC@nolist%
+         \else%
+            \end{list}%
+         \fi}%
+ \makeatother
+
+% -----------------------------------------------------------------------------
+% HACK PARA O PACOTE ALGORITHM
+% -----------------------------------------------------------------------------
+\makeatletter
+\@ifpackageloaded{algorithm}{
+\def\ALG@name{Algoritmo}%
+\ifthenelse{\boolean{ABNTEX2PUCMINASalgorithm}}{%
+  \renewcommand{\listalgorithmname}{Lista de algoritmos}%
+  \def\algorithmautorefname{Algoritmo}%
+  \let\OLDlistofalgorithms\listofalgorithms%
+  \newcommand{\NEWnumberline}[1]{\hspace*{-17.5pt}Algoritmo #1~--~}%
+  \renewcommand{\listofalgorithms}{%
+    \let\OLDnumberline\numberline%
+    \let\numberline\NEWnumberline%
+    \OLDlistofalgorithms%
+    \let\numberline\OLDnumberline%
+  }%
+}{}%
+}%
+{}
+%
+\makeatother
+
+% Configuracoes do pacote algorithm
+% por padrao esse pacote nao tem os nomes em Portugues
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA A PUC MINAS
+% ---
