@@ -136,16 +136,20 @@ function buildCompressed(){
 	zip ../$ZIP_CTAN abntex2.tds.zip
 	cd ..
 	
+	echo "$ZIP_TDS - add Makefile to existing file:"
+	cd target/abntex2source
+	zip ../../$ZIP_TDS Makefile
+	cd ../..
+
 	echo "$ZIP_MODELO (only example files):"
 	cd target/abntex2source/doc/latex/abntex2/examples
 	zip ../../../../../../$ZIP_MODELO abntex2-modelo* -i \*.pdf \*.tex \*.bib \*.jpg
 	cd ../../../../../..
 
-	echo "$TAR_FILE (tds directory structure):"
+	echo "$TAR_FILE (tds directory structure + MakeFile):"
 	cd target/abntex2source
 	COPYFILES_DISABLE=true tar cfvz ../../$TAR_FILE Makefile bibtex/bib/abntex2/*.bib bibtex/bst/abntex2/*.bst doc/latex/abntex2/{README,*.{bib,tex,pdf},examples/*.{bib,tex,pdf,jpg}} tex/latex/abntex2/*.{cls,sty}
 	cd ../..
-
 }
 
 # clean temp files
@@ -153,6 +157,7 @@ function clean() {
 	rm -rf target/abntex2
 	rm -rf target/doc
 	rm -rf target/abntex2source
+	rm -rf target/abntex2.tds.zip
 }
 
 # replace version number in all files with <VERSION> string
