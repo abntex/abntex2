@@ -19,6 +19,7 @@
 %%
 %% 2013.10.26 17h45 laurocesar
 %%  Adiciona a marcro \phantompart
+%%  Revisa código do sumário 6027-2012
 %%
 %% 2013.10.24 09h53	laurocesar
 %%  Revisa as alterações de quinto nível
@@ -181,10 +182,13 @@
 % sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012
 \newboolean{ABNTEXsumario-tradicional}     %true=titles of chapter/appendix in uppercase
 \newboolean{ABNTEXsumario-abnt-6027-2012} 
-\setboolean{ABNTEXsumario-tradicional}{true}
-\setboolean{ABNTEXsumario-abnt-6027-2012}{false}
-\DeclareOption{sumario=tradicional}{\setboolean{ABNTEXsumario-tradicional}{true}}
-\DeclareOption{sumario=abnt-6027-2012}{\setboolean{ABNTEXsumario-abnt-6027-2012}{true}}
+\setboolean{ABNTEXsumario-tradicional}{false}
+\setboolean{ABNTEXsumario-abnt-6027-2012}{true}
+\DeclareOption{sumario=tradicional}{%
+  \setboolean{ABNTEXsumario-tradicional}{true}%
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{false}}
+\DeclareOption{sumario=abnt-6027-2012}{%
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{true}}
 %
 % Repassa demais opcoes a memoir	
 %
@@ -553,28 +557,21 @@
 \setlength{\cftbeforechapterskip}{0pt plus 0pt}
 \renewcommand*{\insertchapterspace}{}
 
-% macros para configurar o cft
-\ifthenelse{\boolean{ABNTEXsumario-tradicional}}{%
-\cftinsertcode{A}{}
-\newcommand{\cftlastnumwidth}{\cftsubsubsectionnumwidth}
-%
+% macros para configurar o Sumário conforme 6027-2012 ou tradicional cft
+\ifthenelse{\boolean{ABNTEXsumario-tradicional}}{\cftinsertcode{A}}{}
+
+\newlength{\cftlastnumwidth}
+\setlength{\cftlastnumwidth}{\cftsubsubsectionnumwidth+1em}
+
 \newcommand{\tocprintchapter}{}
-%
 \newcommand{\tocinnonumchapter}{}
-%
 \newcommand{\tocprintchapternonum}{}
-%
 \newcommand{\tocpartapendices}{}
-%
 \newcommand{\tocpartanexos}{}
-}{}
-%
 
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
   \cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
-  \setlength{\cftlastnumwidth}{\cftsubsubsectionnumwidth+1em}
-  %\setlength{\cftsubsubsectionnumwidth}
-  %\addtolength{\cftlastnumwidth}{1em}
+  
   \cftsetindents{part}{0em}{\cftlastnumwidth}
   \cftsetindents{chapter}{0em}{\cftlastnumwidth}
   \cftsetindents{section}{0em}{\cftlastnumwidth}
