@@ -558,7 +558,7 @@
 \renewcommand*{\insertchapterspace}{}
 
 % macros para configurar o Sumário conforme 6027-2012 ou tradicional cft
-\ifthenelse{\boolean{ABNTEXsumario-tradicional}}{\cftinsertcode{A}}{}
+\cftinsertcode{A}{}
 
 \newlength{\cftlastnumwidth}
 \setlength{\cftlastnumwidth}{\cftsubsubsectionnumwidth+1em}
@@ -568,6 +568,10 @@
 \newcommand{\tocprintchapternonum}{}
 \newcommand{\tocpartapendices}{}
 \newcommand{\tocpartanexos}{}
+
+\ifthenelse{\boolean{ABNTEXsumario-tradicional}}{}{} % essa linha não faz nada,
+                                                     % mas se houver necessidade de alterar o comportamento
+                                                     % do sumário tradicional altere aqui.
 
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
   \cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
