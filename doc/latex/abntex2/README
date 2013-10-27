@@ -28,6 +28,9 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2014/xx/xx - v1.9.1
+    . minor fix errors in sumario=tradicional option
+
   2013/10/26 - v1.9
     . added customizations of table of contents in compliance to ABNT NBR 6027:2012
       (class option sumario=abnt-6027-2012 and sumario=tradicional) 
