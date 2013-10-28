@@ -148,7 +148,7 @@ function buildCompressed(){
 
 	echo "$TAR_FILE (tds directory structure + MakeFile):"
 	cd target/abntex2source
-	COPYFILES_DISABLE=true tar cfvz ../../$TAR_FILE Makefile bibtex/bib/abntex2/*.bib bibtex/bst/abntex2/*.bst doc/latex/abntex2/{README,*.{bib,tex,pdf},examples/*.{bib,tex,pdf,jpg}} tex/latex/abntex2/*.{cls,sty}
+	COPYFILES_DISABLE=1 tar cfvz ../../$TAR_FILE Makefile bibtex/bib/abntex2/*.bib bibtex/bst/abntex2/*.bst doc/latex/abntex2/{README,*.{bib,tex,pdf},examples/*.{bib,tex,pdf,jpg}} tex/latex/abntex2/*.{cls,sty}
 	cd ../..
 }
 
