@@ -30,6 +30,8 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2014/xx/xx - v1.9.1
     . minor fix errors in sumario=tradicional option
+    . changed the presentation example name to 'Modelo de apresentação de
+      slides com Beamer e abnTeX2'
 
   2013/10/26 - v1.9
     . added customizations of table of contents in compliance to ABNT NBR 6027:2012
