@@ -703,6 +703,61 @@ Ou então:
 
 \end{verbatim}
 
+\subsection{URLs longas}
+
+O pacote lida com URLs longas carregando os pacotes \texttt{url} e
+\texttt{breakurl} onde necessário (ou seja, carregando o último em
+compilação com \LaTeX, ou em ``modo \texttt{dvi}''). Estes pacotes,
+contudo, não inserem quebras de linha em URLs com hífens por padrão. 
+
+Caso sejam necessárias quebras de linha com URLs longas e hifenizadas,
+deve-se passar as opções correspondentes para tais pacotes, chamando-os
+\emph{antes} do \texttt{abntex2cite}:
+
+\begin{description}
+
+  \item[Compilação com \texttt{latex} (ou em ``modo \texttt{dvi}'')]
+    Ao compilar o arquivo com \texttt{latex}, deve-se passar a opção
+    \texttt{hyphenbreak} ao pacote \texttt{breakurl}:
+
+    \begin{verbatim}
+\usepackage{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage{abntex2cite}
+    \end{verbatim}
+
+    Verifique a documentação do pacote
+    \texttt{breakurl}.\footnote{\url{http://texdoc.net/pkg/breakurl}}
+
+  \item[Compilação com \texttt{pdflatex}, \texttt{lualatex} ou
+    \texttt{xelatex}] Ao compilar com \texttt{pdflatex},
+    \texttt{lualatex} ou \texttt{xelatex} deve-se passar a opção
+    \texttt{hyphens} ao pacote \texttt{url}:
+
+    \begin{verbatim}
+\usepackage[hyphens]{url}
+\usepackage{abntex2cite}
+    \end{verbatim}
+
+    Verifique a documentação do pacote
+    \texttt{url}.\footnote{\url{http://texdoc.net/pkg/url}}
+
+\end{description}
+
+A ordem de carregamento dos pacotes é importante na medida em que
+evita erros do tipo ``option clash''. Caso os erros permaneçam
+(provavelmente causados pelo carregamento do pacote em questão por um
+terceiro pacote), o pacote deve ser carregado com o comando
+\verb+\PassOptionsToPackage{<options>}{<package>}+:
+
+\begin{verbatim}
+\PassOptionsToPackage{hyphens}{url}
+\end{verbatim}
+
+\begin{verbatim}
+\PassOptionsToPackage{hyphenibreaks}{breakurl}
+\end{verbatim}
+
 \section{Utilização da citação por sistema autor-data \texttt{[alf]}}
 
 Veja documento específico Ref.~\citeonline{abntex2cite-alf}.
