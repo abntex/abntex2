@@ -734,29 +734,31 @@ deve-se passar as opções correspondentes para tais pacotes, chamando-os
     \texttt{lualatex} ou \texttt{xelatex} deve-se passar a opção
     \texttt{hyphens} ao pacote \texttt{url}:
 
-    \begin{verbatim}
+    \begin{itemize}
+      \item Usando o pacote \texttt{abntex2cite} autonomamente (ou
+        seja, sem a classe \texttt{abntex2}): Com outras classes (que
+        não carregam o pacote \texttt{hyperref}) é preciso passar a
+        opção carregando o pacote url \emph{antes} do
+        \texttt{abntex2cite}:
+
+        \begin{verbatim}
 \usepackage[hyphens]{url}
 \usepackage{abntex2cite}
-    \end{verbatim}
+        \end{verbatim}
 
-    Verifique a documentação do pacote
-    \texttt{url}.\footnote{\url{http://texdoc.net/pkg/url}}
+    \item Com a classe \texttt{abntex2}: A classe \texttt{abntex2}
+      carrega o pacote \texttt{hyperref}, que por usa vez carrega o
+      \texttt{url} causando um erro do tipo ``option clash'' se o
+      procedimento descrito acima for empregado. Para evitar isso,
+      deve-se passar a opção \texttt{hyphens} ao \texttt{url}
+      \emph{antes} ou \emph{durante} o carregamento \emph{da classe}.
 
+        \begin{verbatim}
+\documentclass[hyphens]{abntex2}
+        \end{verbatim}
+
+    \end{itemize}
 \end{description}
-
-A ordem de carregamento dos pacotes é importante na medida em que
-evita erros do tipo ``option clash''. Caso os erros permaneçam
-(provavelmente causados pelo carregamento do pacote em questão por um
-terceiro pacote), o pacote deve ser carregado com o comando
-\verb+\PassOptionsToPackage{<options>}{<package>}+:
-
-\begin{verbatim}
-\PassOptionsToPackage{hyphens}{url}
-\end{verbatim}
-
-\begin{verbatim}
-\PassOptionsToPackage{hyphenibreaks}{breakurl}
-\end{verbatim}
 
 \section{Utilização da citação por sistema autor-data \texttt{[alf]}}
 
