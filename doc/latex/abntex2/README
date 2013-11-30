@@ -33,6 +33,7 @@ CHANGE HISTORY
     . changed the presentation example name to 'Modelo de apresentação de
       slides com Beamer e abnTeX2'
     . added escape of '%' characters in URL on bibliography references  
+    . added information about "url packages" to abntex2cite.tex documentation
 
   2013/10/26 - v1.9
     . added customizations of table of contents in compliance to ABNT NBR 6027:2012
