@@ -569,10 +569,28 @@
 \newcommand{\tocpartapendices}{}
 \newcommand{\tocpartanexos}{}
 
+% No caso de Sumario (TOC) tradicional
 \ifthenelse{\boolean{ABNTEXsumario-tradicional}}{}{} % essa linha não faz nada,
                                                      % mas se houver necessidade de alterar o comportamento
                                                      % do sumário tradicional altere aqui.
 
+% No caso de Sumario (TOC) especifico da ABNT-6027-2012
+
+\makeatletter
+\ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{
+  \settocpreprocessor{chapter}{%
+  \let\tempf@rtoc\f@rtoc%
+  \def\f@rtoc{%
+  \texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+  }
+  \settocpreprocessor{part}{%
+  \let\tempf@rtoc\f@rtoc%
+  \def\f@rtoc{%
+  \texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+  }
+}{}
+\makeatother
+%
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
   \cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
   
@@ -602,7 +620,26 @@
     \addtocontents{toc}{\cftsetindents{part}{\cftlastnumwidth}{2em}}
     \cftinserthook{toc}{A}}
   %
-  \setlength{\cftbeforechapterskip}{0.5em}
+  \setlength{\cftbeforechapterskip}{1em}
+  %
+  % Fontes das entradas do sumario
+  %
+  \renewcommand{\cftpartfont}{\bfseries\larger}
+  %
+  \renewcommand{\cftchapterfont}{\bfseries}
+  \renewcommand{\cftchapterpagefont}{\normalsize\cftchapterfont}
+  %
+  \renewcommand{\cftsectionfont}{\bfseries}
+  \renewcommand{\cftsectionpagefont}{\cftsectionfont}
+  %
+  \renewcommand{\cftsubsectionfont}{\normalsize}
+  \renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
+  %
+  \renewcommand{\cftsubsubsectionfont}{\smaller}
+  \renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
+  %
+  \renewcommand{\cftparagraphfont}{\smaller\smaller}
+  \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
 }{}
 
 % Comando que simula a finalizacao de uma parte no bookmark e
@@ -611,7 +648,7 @@
   \bookmarksetup{startatroot}%
   \phantomsection%
   \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
-    \addtocontents{toc}{\vspace{\cftbeforepartskip}}}{}%
+    \addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{}%\cftbeforepartskip
 }
 % -----
 
@@ -936,9 +973,11 @@
 \newcommand{\PRIVATEapendiceconfig}[2]{%
  \setboolean{abntex@apendiceousecao}{true}%
  \renewcommand{\appendixname}{#1}
+ \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{
+   \renewcommand{\appendixtocname}{\uppercase{#2}}
+  }{%
+  \renewcommand{\appendixtocname}{#2}} 
  \renewcommand{\appendixpagename}{#2}
- \renewcommand{\appendixtocname}{#2}
- 
  \switchchapname{#1}% Corrected from \switchapname -> \switchchapname
  \renewcommand*{\cftappendixname}{#1 \space}
 }
@@ -989,7 +1028,7 @@
 \newcommand{\partpage}{%
   \cleardoublepage
   \phantomsection
-  \addcontentsline{toc}{part}{\appendixpagename}
+  \addcontentsline{toc}{part}{\appendixtocname}%
   \appendixpage*
 }
 
