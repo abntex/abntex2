@@ -1042,7 +1042,7 @@ FUNCTION {compose.url}
    abnt.doi abnt.doi.expand.to.url = 'expand.doi {s} if$
    * "$>$" *} 'skip$ if$
  abnt.url.package #1 =
-   { "\url{" * s * "}" *} 'skip$ if$
+   { "\url{" * filter.url.html * "}" *} 'skip$ if$
  abnt.url.package #2 =
    {url.type http.url =
      {"\htmladdnormallink{$<$" * filter.url.tex * "$>$}{" * filter.url.html * "}" *}
