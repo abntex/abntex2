@@ -35,7 +35,8 @@ CHANGE HISTORY
     . added escape of '%' characters in URL on bibliography references  
     . added information about "url packages" to abntex2cite.tex documentation
     . changed configurations in Table of Contents when option 
-      abnt-6027-2012 is active
+      abnt-6027-2012 is active. Now the chapter entry is in upper case, and
+      the others entries has different formats as well.
 
   2013/10/26 - v1.9
     . added customizations of table of contents in compliance to ABNT NBR 6027:2012
