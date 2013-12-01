@@ -21,6 +21,11 @@
 %%  Adiciona a marcro \phantompart
 %%  Revisa código do sumário 6027-2012
 %%
+%% 2013.11.30 15h12 laurocesar
+%%  conclusão dos ajustes no sumário abnt-6027-2012
+%%  \phantompart adiciona espaço ao sumário mesmo se abnt-6027-2012
+%%  não estiver ativa   
+%%
 %% 2013.10.24 09h53	laurocesar
 %%  Revisa as alterações de quinto nível
 %%
@@ -142,7 +147,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2013/10/26 v1.9 abnTeX2]
+\ProvidesClass{abntex2}[2013/12/26 v1.9.1 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn
@@ -569,6 +574,9 @@
 \newcommand{\tocpartapendices}{}
 \newcommand{\tocpartanexos}{}
 
+% insere o hifen no anexo/apendice do toc
+\cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
+
 % No caso de Sumario (TOC) tradicional
 \ifthenelse{\boolean{ABNTEXsumario-tradicional}}{}{} % essa linha não faz nada,
                                                      % mas se houver necessidade de alterar o comportamento
@@ -592,7 +600,6 @@
 \makeatother
 %
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
-  \cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
   
   \cftsetindents{part}{0em}{\cftlastnumwidth}
   \cftsetindents{chapter}{0em}{\cftlastnumwidth}
@@ -648,7 +655,8 @@
   \bookmarksetup{startatroot}%
   \phantomsection%
   \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
-    \addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{}%\cftbeforepartskip
+    \addtocontents{toc}{\vspace{\cftbeforechapterskip}}}{%
+    \addtocontents{toc}{\vspace{\cftbeforepartskip}}}%
 }
 % -----
 
