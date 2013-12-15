@@ -32,7 +32,7 @@ CHANGE HISTORY
     . minor fix errors in sumario=tradicional option
     . changed the presentation example name to 'Modelo de apresentação de
       slides com Beamer e abnTeX2'
-    . added escape for '%' and '#' characters in URL of bibliography references  
+    . added escape for '%', '#' and '_' characters in URL of bibliography references  
     . added information about "url packages" to abntex2cite.tex documentation
     . changed configurations in Table of Contents when option 
       abnt-6027-2012 is active. Now the chapter entry is in upper case, and
