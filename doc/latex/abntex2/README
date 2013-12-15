@@ -28,7 +28,7 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2014/12/26 - v1.9.1
+  2013/12/26 - v1.9.1
     . minor fix errors in sumario=tradicional option
     . changed the presentation example name to 'Modelo de apresentação de
       slides com Beamer e abnTeX2'
