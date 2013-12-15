@@ -1014,6 +1014,7 @@ FUNCTION {filter.url.tex}
     duplicate$ "/" = {pop$ "\-/" } 'skip$ if$
     duplicate$ "." = {pop$ "\-." } 'skip$ if$
     duplicate$ "\" = {pop$ "{\textbackslash}" } 'skip$ if$
+    duplicate$ "#" = {pop$ "\#" } 'skip$ if$
     t swap$ * 't :=
     url.pos #1 + 'url.pos :=
     }
@@ -1026,6 +1027,7 @@ FUNCTION {filter.url.html}
   {url.pos url.length <}
     {s url.pos #1 substring$
     duplicate$ "%" = {pop$ "\%" } 'skip$ if$
+    duplicate$ "#" = {pop$ "\#" } 'skip$ if$
     t swap$ * 't :=
     url.pos #1 + 'url.pos :=
     }
