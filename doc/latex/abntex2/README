@@ -39,6 +39,8 @@ CHANGE HISTORY
       the others entries has different formats as well
     . changed implementation of \phantompart: the macro adds some spacing in TOC
       even whether sumario=abnt-6027-2012 is not active  
+    . changed implementation of "citacao" environment: now it uses
+      \ABNTEXfontereduzida instead of \ footnotesize
 
   2013/10/26 - v1.9
     . added customizations of table of contents in compliance to ABNT NBR 6027:2012
