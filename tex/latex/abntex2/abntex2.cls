@@ -1069,7 +1069,7 @@
 }
 \newenvironment*{citacao}[1][default]{%
    \list{}%
-   \footnotesize%
+   \ABNTEXfontereduzida%
    \addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
    \item[]%
    \begin{SingleSpace}%
