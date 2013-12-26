@@ -47,11 +47,7 @@
 	]{abntex2}
 
 % ---
-% PACOTES
-% ---
-
-% ---
-% Pacotes fundamentais 
+% Pacotes básicos 
 % ---
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
@@ -433,10 +429,8 @@ contribuirão para a evolução do \abnTeX.
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
-  \item[Fig.] Area of the $i^{th}$ component
-  \item[456] Isto é um número
-  \item[123] Isto é outro número
-  \item[lauro cesar] este é o meu nome
+  \item[ABNT] Associação Brasileira de Normas Técnicas
+  \item[abnTeX] ABsurdas Normas para TeX
 \end{siglas}
 % ---
 
@@ -467,10 +461,11 @@ contribuirão para a evolução do \abnTeX.
 \textual
 
 % ----------------------------------------------------------
-% Introdução
+% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
 % ----------------------------------------------------------
 \chapter*[Introdução]{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
+% ----------------------------------------------------------
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
@@ -512,25 +507,28 @@ Lauro César Araujo
 
 
 % ----------------------------------------------------------
-% PARTE - preparação da pesquisa
+% PARTE
 % ----------------------------------------------------------
 \part{Preparação da pesquisa}
-
 % ----------------------------------------------------------
+
+% ---
 % Capitulo com exemplos de comandos inseridos de arquivo externo 
-% ----------------------------------------------------------
-
+% ---
 \include{abntex2-modelo-include-comandos}
+% ---
 
 % ----------------------------------------------------------
-% Parte de revisão de literatura
+% PARTE
 % ----------------------------------------------------------
 \part{Referenciais teóricos}
+% ----------------------------------------------------------
 
 % ---
 % Capitulo de revisão de literatura
 % ---
 \chapter{Lorem ipsum dolor sit amet}
+% ---
 
 % ---
 \section{Aliquam vestibulum fringilla lorem}
@@ -541,14 +539,16 @@ Lauro César Araujo
 \lipsum[2-3]
 
 % ----------------------------------------------------------
-% Resultados
+% PARTE
 % ----------------------------------------------------------
 \part{Resultados}
+% ----------------------------------------------------------
 
 % ---
 % primeiro capitulo de Resultados
 % ---
 \chapter{Lectus lobortis condimentum}
+% ---
 
 % ---
 \section{Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
@@ -562,23 +562,27 @@ posuere cubilia Curae}
 % ---
 \chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
 elementum}
+% ---
 
+% ---
 \section{Pellentesque sit amet pede ac sem eleifend consectetuer}
+% ---
 
 \lipsum[24]
 
-% ---
+% ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
 % para que se inicie o bookmark na raiz
 % e adiciona espaço de parte no Sumário
-% ---
+% ----------------------------------------------------------
 \phantompart
 
 % ---
-% Conclusão
+% Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
 % ---
 \chapter*[Conclusão]{Conclusão}
 \addcontentsline{toc}{chapter}{Conclusão}
+% ---
 
 \lipsum[31-33]
 
@@ -586,6 +590,7 @@ elementum}
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
+% ----------------------------------------------------------
 
 % ----------------------------------------------------------
 % Referências bibliográficas
@@ -663,8 +668,8 @@ parturient montes nascetur ridiculus mus}
 %---------------------------------------------------------------------
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
-
 \phantompart
 \printindex
+%---------------------------------------------------------------------
 
 \end{document}

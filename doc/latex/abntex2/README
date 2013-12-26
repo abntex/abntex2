@@ -41,6 +41,7 @@ CHANGE HISTORY
       even whether sumario=abnt-6027-2012 is not active  
     . changed implementation of "citacao" environment: now it uses
       \ABNTEXfontereduzida instead of \ footnotesize
+    . Replaced ~--~ by ~\textendash~ in abntex2.cls class  
 
   2013/10/26 - v1.9
     . added customizations of table of contents in compliance to ABNT NBR 6027:2012
