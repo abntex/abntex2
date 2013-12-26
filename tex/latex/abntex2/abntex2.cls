@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2013.12.26 06h41 laurocesar (volanski)
+%%  Replaced ~--~ by ~\textendash~
+%%
 %% 2013.10.26 17h45 laurocesar
 %%  Adiciona a marcro \phantompart
 %%  Revisa código do sumário 6027-2012
@@ -450,7 +453,7 @@
 % ---
 % Estilos de caption
 \hangcaption
-\captiondelim{\space--\space}
+\captiondelim{~\textendash~}
 %\captionnamefont{\ABNTEXfontereduzida}
 %\captiontitlefont{\ABNTEXfontereduzida}
 
@@ -510,7 +513,7 @@
 % o pacote caption e amigos.
 \AtEndPackage{caption}{
   \AtBeginDocument{%
-    \DeclareCaptionLabelSeparator{barr}{~--~}
+    \DeclareCaptionLabelSeparator{barr}{~\textendash~}
     \DeclareCaptionFont{ABNTEXfontereduzida}{\ABNTEXfontereduzida}
       \captionsetup{format=hang,
                     labelseparator=barr,
@@ -546,11 +549,11 @@
 
 % lista de ilustracoes
 \renewcommand{\cftfigurename}{\figurename\space} 
-\renewcommand*{\cftfigureaftersnum}{\hfill--\hfill}
+\renewcommand*{\cftfigureaftersnum}{\hfill\textendash\hfill}
  
 % lista de tabelas  
 \renewcommand{\cfttablename}{\tablename\space}
-\renewcommand*{\cfttableaftersnum}{\hfill--\hfill}	
+\renewcommand*{\cfttableaftersnum}{\hfill\textendash\hfill}	
  
 % fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
@@ -575,7 +578,7 @@
 \newcommand{\tocpartanexos}{}
 
 % insere o hifen no anexo/apendice do toc
-\cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill--\hfill}}
+\cftinsertcode{A}{\renewcommand{\cftchapteraftersnum}{\hfill\textendash\hfill}}
 
 % No caso de Sumario (TOC) tradicional
 \ifthenelse{\boolean{ABNTEXsumario-tradicional}}{}{} % essa linha não faz nada,
@@ -706,16 +709,13 @@
   \def\printchaptertitle##1{%
     \chaptitlefont%
     \ifthenelse{\boolean{abntex@innonumchapter}}{\centering\ABNTEXchapterupperifneeded{##1}}{%
-    % else  
-      \ifthenelse{\boolean{abntex@apendiceousecao}}{\centering%
+    \ifthenelse{\boolean{abntex@apendiceousecao}}{%
+        \centering%
         \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-        %\parbox[t]{\columnwidth-\chapternamenumlength}
         \ABNTEXchapterupperifneeded{##1}%
       }{%
         \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
         \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}}%
-      %  \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-      %  \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}%
      }    
   }
        
@@ -727,7 +727,7 @@
      \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        \tocinnonumchapter
-       \space--\space%
+       ~\textendash~%
      }{} % else
   }
   \renewcommand{\afterchapternum}{}
