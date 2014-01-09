@@ -187,11 +187,18 @@
 %
 % Opções de diagramação de sumários
 % sumario=tradicional    : Sumário tradicional do LaTeX/Memoir
-% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012
+% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012, que
+%    soh pode ser usado com memoir v3.6k ou superior
+%    \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
 \newboolean{ABNTEXsumario-tradicional}     %true=titles of chapter/appendix in uppercase
 \newboolean{ABNTEXsumario-abnt-6027-2012} 
-\setboolean{ABNTEXsumario-tradicional}{false}
-\setboolean{ABNTEXsumario-abnt-6027-2012}{true}
+\ifdefined\settocpreprocessor
+  \setboolean{ABNTEXsumario-tradicional}{false}
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{true}
+\else
+  \setboolean{ABNTEXsumario-tradicional}{true}
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+\fi
 \DeclareOption{sumario=tradicional}{%
   \setboolean{ABNTEXsumario-tradicional}{true}%
   \setboolean{ABNTEXsumario-abnt-6027-2012}{false}}
