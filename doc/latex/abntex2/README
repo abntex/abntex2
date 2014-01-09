@@ -28,6 +28,10 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2014/01/xx - v1.9.2
+    . load sumario=tradicional by default when memoir command \settocpreprocessor
+      is not present (\settocpreprocessor was added in memoir {v3.6k}{2012/09/18})
+
   2013/12/26 - v1.9.1
     . minor fix errors in sumario=tradicional option
     . changed the presentation example name to 'Modelo de apresentação de
