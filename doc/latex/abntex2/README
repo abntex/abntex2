@@ -29,8 +29,10 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2014/01/xx - v1.9.2
-    . load sumario=tradicional by default when memoir command \settocpreprocessor
-      is not present (\settocpreprocessor was added in memoir {v3.6k}{2012/09/18})
+    . fixed "undefined control sequence. l.100 \settocpreprocessor ...": abntex2.cls
+      now loads sumario=tradicional by default when memoir command \settocpreprocessor
+      is not present (\settocpreprocessor was added in memoir {v3.6k}{2012/09/18}, TexLive 2013)
+    . changed default article margins from 4cm to 3cm
 
   2013/12/26 - v1.9.1
     . minor fix errors in sumario=tradicional option
