@@ -13,6 +13,8 @@ install:
 			if ! (test -w $(DESTDIR)$(INSTALL_PATH)); then \
 				echo 'O abnTeX2 deve ser instalado usando o comando "sudo make install" ou como usuário root!'; \
 			else \
+				find . -type d -exec chmod 755 {} \; ; \
+				find . -type f -exec chmod 644 {} \; ; \
 				cp -r bibtex tex doc $(DESTDIR)$(INSTALL_PATH)/; \
 				texhash; \
 				echo 'abnTeX2 instalado com sucesso!'; \
