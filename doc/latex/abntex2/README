@@ -28,7 +28,7 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2014/01/xx - v1.9.2
+  2014/01/26 - v1.9.2
     . fixed "undefined control sequence. l.100 \settocpreprocessor ...": abntex2.cls
       now loads sumario=tradicional by default when memoir command \settocpreprocessor
       is not present (\settocpreprocessor was added in memoir {v3.6k}{2012/09/18}, TexLive 2013)

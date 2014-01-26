@@ -1,5 +1,5 @@
 %% abntex2.cls, v<VERSION> laurocesar
-%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -17,11 +17,15 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2014.1.26 8h24 laurocesar
+%%  Corrige declaracao de opcoes para abnt-6027-2012 quando versao de memoir for
+%%  antiga
+%%
 %% 2013.12.26 06h41 laurocesar (volanski)
 %%  Replaced ~--~ by ~\textendash~
 %%
 %% 2013.10.26 17h45 laurocesar
-%%  Adiciona a marcro \phantompart
+%%  Adiciona a macro \phantompart
 %%  Revisa código do sumário 6027-2012
 %%
 %% 2013.11.30 15h12 laurocesar
@@ -150,7 +154,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2013/12/26 v1.9.1 abnTeX2]
+\ProvidesClass{abntex2}[2014/01/26 v1.9.2 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn
@@ -187,23 +191,17 @@
 %
 % Opções de diagramação de sumários
 % sumario=tradicional    : Sumário tradicional do LaTeX/Memoir
-% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012, que
-%    soh pode ser usado com memoir v3.6k ou superior
-%    \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
+% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012
 \newboolean{ABNTEXsumario-tradicional}     %true=titles of chapter/appendix in uppercase
 \newboolean{ABNTEXsumario-abnt-6027-2012} 
-\ifdefined\settocpreprocessor
-  \setboolean{ABNTEXsumario-tradicional}{false}
-  \setboolean{ABNTEXsumario-abnt-6027-2012}{true}
-\else
-  \setboolean{ABNTEXsumario-tradicional}{true}
-  \setboolean{ABNTEXsumario-abnt-6027-2012}{false}
-\fi
+\setboolean{ABNTEXsumario-tradicional}{false}
+\setboolean{ABNTEXsumario-abnt-6027-2012}{true}
 \DeclareOption{sumario=tradicional}{%
   \setboolean{ABNTEXsumario-tradicional}{true}%
   \setboolean{ABNTEXsumario-abnt-6027-2012}{false}}
 \DeclareOption{sumario=abnt-6027-2012}{%
-  \setboolean{ABNTEXsumario-abnt-6027-2012}{true}}
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{true}
+  \setboolean{ABNTEXsumario-tradicional}{false}}
 %
 % Repassa demais opcoes a memoir	
 %
@@ -212,6 +210,16 @@
 }
 \ProcessOptions\relax
 \LoadClass{memoir}
+
+% sumario=abnt-6027-2012 : Sumário conforme recomendação da ABNT NBR 6027:2012, que
+%    soh pode ser usado com memoir v3.6k ou superior
+%    \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
+\ifdefined\settocpreprocessor
+\else
+  \setboolean{ABNTEXsumario-tradicional}{true}
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+\fi
+
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
