@@ -8,7 +8,7 @@ all:
 install:
 	@echo 'Verificando a instalação do TexLive ...'
 	@if (which tex > /dev/null); then \
-		if [ $$(tex -version|grep Copyright|sed 's/Copyright //g'|sed 's/ D.E. Knuth.//g') -gt 2011 ]; then \
+		if [ $$(tex -version|grep Copyright|sed 's/Copyright //g'|sed 's/ D.E. Knuth.//g') -gt 2012 ]; then \
 			install -d $(DESTDIR)$(INSTALL_PATH); \
 			if ! (test -w $(DESTDIR)$(INSTALL_PATH)); then \
 				echo 'O abnTeX2 deve ser instalado usando o comando "sudo make install" ou como usuário root!'; \
