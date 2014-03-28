@@ -269,25 +269,53 @@ CHANGE HISTORY
   2012/12/20 - v1.0 
      initial release on CTAN 
 
+
 INSTALLATION
 -----------------------------------------------------------------
 
-In order to install the abntex2 class and abntex2cite package you need:
+Are you new on TeX's world?
+---------------------------
 
-  abntex2.cls						The abntex2 class file.
-  abntex2cite.sty					The abntex2cite citation package file.
-  abntex2abrev.sty					Extension of abntex2cite package. It contains abbreviations helpers macros.
-  abntex2-alf.bst					Numeric citation style file.
-  abntex2-num.bst					Alphanumeric (author-date) citation style file.
-  abntex2-options.bib				Default citation options configurations.
-  
-Put those files somewhere LaTeX can find them. Read the documentation of 
-your LaTeX system to find out where this might be. 
-  
 If you're new to this, see https://code.google.com/p/abntex2/wiki/Instalacao (portuguese)
 or http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages (english) for more
 information on installing packages.
+
+"Automagic" instalation on a TeXLive system
+-------------------------------------------
+
+If you already have a TexLive system installed on a Unix-like system (Linux, Mac, BSD),
+in order to install the abntex2 class and the abntex2cite package, uncompress the TDS file (something like 
+abntex2-tds-VERSION.zip or abntex2-tds-VERSION.tar.gz) and type on a Terminal:
+
+  make install
+
+This will install abnTeX2 on your TeXLive system. 
+
+Manual instalation
+------------------
+
+You can manually install the abntex2 class and the abntex2cite package in any LaTeX system (TeXLive, MiKTeX, 
+among others) running over a Windows, Linux, Mac, BSD (among others) if you have:
+
+  abntex2.cls	            The abntex2 class file.
+  abntex2cite.sty	        The abntex2cite citation package file.
+  abntex2abrev.sty	       Extension of abntex2cite package. It contains abbreviations helpers macros.
+  abntex2-alf.bst	        Numeric citation style file.
+  abntex2-num.bst					Alphanumeric (author-date) citation style file.
+  abntex2-options.bib	    Default citation options configurations.
   
+Put those files somewhere LaTeX can find them. Read the documentation of 
+your LaTeX system to find out where this might be. 
+
+Test the installation
+---------------------
+
+Type on a Terminal:
+
+  texdoc abntex2
+  
+It should open the abntex2.pdf document file. You will find the current version of abnTeX2 on it.
+ 
 
 DOCUMENTATION
 -----------------------------------------------------------------
