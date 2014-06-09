@@ -28,6 +28,10 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2014/xx/xx - v1.9.3
+    . remove "calc" package dependency in order to make abntex2.cls works 
+      with "external" tikz library
+
   2014/01/26 - v1.9.2
     . fixed "undefined control sequence. l.100 \settocpreprocessor ...": abntex2.cls
       now loads sumario=tradicional by default when memoir command \settocpreprocessor
