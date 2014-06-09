@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2014.6.9 11h31 laurocesar
+%%  Remove uso do pacote calc
+%%
 %% 2014.1.26 8h24 laurocesar
 %%  Corrige declaracao de opcoes para abnt-6027-2012 quando versao de memoir for
 %%  antiga
@@ -334,11 +337,6 @@
 % ---
 
 % ---
-% Pacote que permite realizar operacoes matematicas no codigo TeX
-\RequirePackage{calc}
-% ---
-
-% ---
 % Margens - NBR 14724/2011 - 5.1 Formato
 % ---
 \setlrmarginsandblock{3cm}{2cm}{*}
@@ -584,7 +582,8 @@
 \cftinsertcode{A}{}
 
 \newlength{\cftlastnumwidth}
-\setlength{\cftlastnumwidth}{\cftsubsubsectionnumwidth+1em}
+\setlength{\cftlastnumwidth}{\cftsubsubsectionnumwidth}
+\addtolength{\cftlastnumwidth}{1em}
 
 \newcommand{\tocprintchapter}{}
 \newcommand{\tocinnonumchapter}{}
