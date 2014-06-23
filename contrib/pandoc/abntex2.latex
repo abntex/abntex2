@@ -1,8 +1,22 @@
+%% abntex2.latex, v0.1 dudektria
+%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Felipe Schneider.
+%% Further information are available on http://abntex2.googlecode.com/
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% USO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Este é um template para o pandoc compatível com abntex2
-% Tentou-se mexer o mínimo possível no template original do pandoc
-%
-%%%%%%%%% USO %%%%%%%%%%%%%%%
 %
 % É necessário chamar pandoc com pelo menos -V documentclass=abntex2 e
 % --template=/caminho/absoluto/para/abntex2.latex
@@ -24,7 +38,7 @@
 % Trocando a extensão do arquivo final de .pdf para .latex gera-se o código
 % fonte, para processamento adicional posterior
 %
-%%%%%%%%% METADATA %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% METADATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % As seguintes metadatas relacionadas ao abntex2 estão disponíveis no template:
 % - title:			título do trabalho (caso não haja capa será chamado
@@ -41,7 +55,7 @@
 % - folhaderosto:	se true chama \imprimirfolhaderosto
 % - tipotrabalho:	ver documentação do abntex2
 %
-%%%%%%%%% CITAÇÕES %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CITAÇÕES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % São feitas pelo pandoc-citeproc (chame pandoc --filter=pandoc-citeproc).
 % Isto quer dizer que você precisa chamar
