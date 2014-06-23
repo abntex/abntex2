@@ -1,0 +1,264 @@
+%
+% Este é um template para o pandoc compatível com abntex2
+% Tentou-se mexer o mínimo possível no template original do pandoc
+%
+%%%%%%%%% USO %%%%%%%%%%%%%%%
+%
+% É necessário chamar pandoc com pelo menos -V documentclass=abntex2 e
+% --template=/caminho/absoluto/para/abntex2.latex
+%
+% Desta maneira, classes baseadas na abntex2 ainda podem ser usadas. O caminho
+% absoluto é devido ao fato de o pandoc ter problemas com caminhos relativos.
+%
+% Todos os exemplos foram compilados com as seguintes opções (exceto quando
+% eles mesmos dizem o contrário):
+%
+%   pandoc -V documentclass=abntex2 \
+%          --template=/caminho/absoluto/para/abntex2.latex \
+%          -SRs --normalize --filter=pandoc-citeproc \
+%          -V lang=english,french,spanish,german,brazil -V papersize=a4paper \
+%          -V fontsize=12pt -V classoption=twoside -V classoption=openright \
+%          -V linkcolor=blue caminho/do/arquivo.md -o caminho/do/arquivo.pdf
+%
+% Os com _art.pdf no final receberam também -V classoption=article
+% Trocando a extensão do arquivo final de .pdf para .latex gera-se o código
+% fonte, para processamento adicional posterior
+%
+%%%%%%%%% METADATA %%%%%%%%%%
+%
+% As seguintes metadatas relacionadas ao abntex2 estão disponíveis no template:
+% - title:			título do trabalho (caso não haja capa será chamado
+%					\maketitle)
+% - date:			data
+% - author:			autor(es) do trabalho
+% - place:			local
+% - institution:	instituição
+% - preamble:		ver documentação do abntex2 (\preambulo{})
+% - abstract:		texto do resumo
+% - tags:			lista de palavras-chave (aparece se abstract for definido)
+% - tagstitle:		nome para substituir "Palavras-chave" no texto
+% - capa:			se true chama \imprimircapa
+% - folhaderosto:	se true chama \imprimirfolhaderosto
+% - tipotrabalho:	ver documentação do abntex2
+%
+%%%%%%%%% CITAÇÕES %%%%%%%%%%
+%
+% São feitas pelo pandoc-citeproc (chame pandoc --filter=pandoc-citeproc).
+% Isto quer dizer que você precisa chamar
+%
+%   \postextual
+%   # Referências
+%
+% ou algo semelhante no final do seu markdown. Para citar use as metadatas
+% bibliography e csl como descrito na documentação do pandoc.
+%
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}	% Opções da classe do documento:
+			% 	fontsize,lang,papersize,classoption
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}	% Latin Modern
+\usepackage{amssymb,amsmath}	% Símbolos matemáticos (Pandoc)
+\usepackage{ifxetex,ifluatex}	% Testes de processadores (Pandoc)
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{indentfirst}	% Indenta o primeiro parágrafo
+\usepackage{color}	% Controle de cores
+\definecolor{blue}{RGB}{41,5,195}	% Altera o aspecto do azul
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}	% Adição de inputenc
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+$if(mainfont)$
+    \setmainfont{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
+$endif$
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage{biblatex}
+$if(biblio-files)$
+\bibliography{$biblio-files$}
+$endif$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$endif$
+$if(graphics)$
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+$endif$
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$author-meta$},
+            pdftitle={$title-meta$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\parindent}{1.3cm}	% Tamanho dos parágrafos
+\setlength{\parskip}{0.2cm}	% Espaçamento entre parágrafos
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(lang)$
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{$mainlang$}
+\else
+  \usepackage[$mainlang$]{babel}	% Adiciona a última língua de $lang$
+\fi
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$if(title)$
+\titulo{$title$}	% Adicionando o título
+$endif$
+\autor{$for(author)$$author$$sep$ \and $endfor$}	% Adicionando autor(es)
+\data{$date$}	% Adicionando a data
+$if(place)$
+\local{$place$}	% Adicionando o local
+$endif$
+$if(institution)$
+\instituicao{$institution$}	% Adicionando a instituição
+$endif$
+$if(tipotrabalho)$
+\tipotrabalho{$tipotrabalho$}	% Adicionando a natureza do trabalho
+$endif$
+$if(preamble)$
+\preambulo{$preamble$}	% Adicionando o preâmbulo
+$endif$
+
+\begin{document}
+$if(capa)$
+\imprimircapa	% Imprimindo a capa
+$if(folhaderosto)$
+\imprimirfolhaderosto	% Imprimindo a folha de rosto
+$endif$
+$else$
+$if(title)$
+\maketitle	% Imprimindo um título, caso não seja usada a capa
+$endif$
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{$toc-depth$}
+\noindent\tableofcontents	% Adicionando sumário
+}
+$endif$
+$if(abstract)$
+\begin{resumoumacoluna}
+$abstract$	% Adicionando o resumo
+
+$if(tags)$
+\vspace{\onelineskip}
+
+\noindent
+\textbf{$if(tagstitle)$$tagstitle$$else$Palavras-chaves$endif$}: $for(tags)$$tags$$sep$. $endfor$.	% Adicionando as palavras-chaves
+$endif$
+\end{resumoumacoluna}
+$endif$
+
+\textual	% Início do texto convertido do arquivo original
+$body$	% No próprio texto é necessário invocar \postextual
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$biblio-files$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
