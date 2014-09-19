@@ -17,6 +17,9 @@
 %%
 %% This work consists of the file abntex2.tex
 %%
+%% 2014.9.19 13h00 laurocesar
+%%  Ajusta o comando de \counterwithout para \counterwithin
+%%
 %% 2014.1.26 07h47 laurocesar
 %%  Revisa o texto do histórico
 %%
@@ -810,13 +813,14 @@ e podem ser alteradas do seguinte modo:
 % ---
 \subsection{Numeração contínua de figuras e tabelas}
 % ---
-  
+
+\DescribeMacro{\counterwithin}
 A numeração de figuras e tabelas deve ser contínua em todo o documento (ABNT
 NBR 14724:2011 seções 5.8 e 5.9). Porém, caso deseje alterar esse comportamento
 para numeração por capítulos, por exemplo, use:
 \begin{verbatim}
-\counterwithout{figure}{section}
-\counterwithout{table}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
 \end{verbatim}
 
 
