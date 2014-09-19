@@ -32,6 +32,7 @@ CHANGE HISTORY
     . remove "calc" package dependency in order to make abntex2.cls works 
       with "external" tikz library
     . added a minimal pandoc template, making it possible to generate abntex2 documents from markdown files
+    . changed abntex2.tex: \counterwithout replaced by \counterwithin
 
   2014/01/26 - v1.9.2
     . fixed "undefined control sequence. l.100 \settocpreprocessor ...": abntex2.cls
