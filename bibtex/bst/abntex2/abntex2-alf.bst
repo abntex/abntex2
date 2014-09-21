@@ -1737,11 +1737,11 @@ FUNCTION {book}
   format.publisher.address output
   iso.date.place {abnt.alf 'skip$ {format.year output new.sentence} if$}
                  {format.year output new.sentence} if$
+  format.volume output new.sentence
   format.book.pages output
   format.illustrated
   format.dimensions  new.sentence
   format.howpublished output  new.sentence
-  format.volume.number.series output new.sentence
   format.note output
   format.issn output %pode parecer curioso, mas revistas inteiras são tratadas como livro
   format.isbn output new.sentence
