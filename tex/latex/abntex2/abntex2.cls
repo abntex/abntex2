@@ -664,6 +664,19 @@
   %
   \renewcommand{\cftparagraphfont}{\smaller\smaller}
   \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
+  %
+  % Ajusta entrada Referencias
+  %
+  \renewcommand{\bibsection}{%
+    \chapter*{\bibname}
+    \bibmark
+    \ifnobibintoc\else
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\uppercase{\bibname}}
+    \fi
+    \prebibhook
+}
+  
 }{}
 
 % Comando que simula a finalizacao de uma parte no bookmark e
