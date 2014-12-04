@@ -28,7 +28,9 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2014/xx/xx - v1.9.3
+  2015/xx/xx - v1.9.3
+    . changed sumario=abnt-6027-2012 option: now the "References" chapter label
+      is printed in uppercase in TOC
     . remove "calc" package dependency in order to make abntex2.cls works 
       with "external" tikz library
     . added a minimal pandoc template, making it possible to generate abntex2 documents from markdown files
