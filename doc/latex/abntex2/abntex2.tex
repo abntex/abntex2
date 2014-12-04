@@ -1013,12 +1013,19 @@ spanish,brazil]{abntex2}
 O idioma português-brasileiro (\texttt{brazil}) é incluído automaticamente pela
 classe \textsf{abntex2}. Porém, mesmo assim a opção \texttt{brazil} deve ser
 informada como a última opção da classe para que todos os pacotes reconheçam o
-idioma. Vale ressaltar que a última opção de idioma é a utilizada por padrão no
-documento. Desse modo, caso deseje escrever um texto em inglês que tenha
-citações em português e em francês, você deveria usar o preâmbulo como abaixo:
+idioma, além de selecionar o idioma após o preâmbulo (no início do documento).
+Vale ressaltar que a última opção de idioma é a utilizada por padrão na
+hifenização do documento. Desse modo, caso deseje escrever um texto em inglês
+que tenha citações em português e em francês, você deveria usar o preâmbulo e o
+início do documento como abaixo:
 
 \begin{verbatim}
 \documentclass[12pt,openright,twoside,a4paper,french,brazil,english]{abntex2}
+...
+\begin{document}
+\selectlanguage{english}
+...
+\end{document}
 \end{verbatim}
 
 A lista completa de idiomas suportados, bem como outras opções de hifenização,
