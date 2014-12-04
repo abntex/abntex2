@@ -29,6 +29,7 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2015/xx/xx - v1.9.3
+    . added \selectlanguage at begin{document} of all examples
     . changed sumario=abnt-6027-2012 option: now the "References" chapter label
       is printed in uppercase in TOC
     . changed deprecated command \glossarystyle to \setglossarystyle  
