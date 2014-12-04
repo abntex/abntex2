@@ -17,6 +17,10 @@
 %%
 %% This work consists of the file abntex2.cls.
 %%
+%% 2014.12.4 8h13 laurocesar
+%%  Adiciona configuração do capítulo de Referências (título em maiúsculo no
+%%  sumário) para a opção sumario=abnt-6027-2012 (issue 112)
+%%
 %% 2014.6.9 11h31 laurocesar
 %%  Remove uso do pacote calc
 %%
