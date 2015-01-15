@@ -200,13 +200,14 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % \begin{fichacatalografica}
 %     \includepdf{fig_ficha_catalografica.pdf}
 % \end{fichacatalografica}
+
 \begin{fichacatalografica}
 	\vspace*{\fill}					% Posição vertical
-	\hrule							% Linha horizontal
 	\begin{center}					% Minipage Centralizado
-	\begin{minipage}[c]{12.5cm}		% Largura
-	
+	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+	\small
 	\imprimirautor
+	%Sobrenome, Nome do autor
 	
 	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
 	\imprimirlocal, \imprimirdata-
@@ -222,16 +223,13 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 	\hspace{0.5cm}
 		1. Palavra-chave1.
 		2. Palavra-chave2.
+		2. Palavra-chave3.
 		I. Orientador.
 		II. Universidade xxx.
 		III. Faculdade de xxx.
-		IV. Título\\ 			
-	
-	\hspace{8.75cm} CDU 02:141:005.7\\
-	
-	\end{minipage}
+		IV. Título 			
+	\end{minipage}}
 	\end{center}
-	\hrule
 \end{fichacatalografica}
 % ---
 
