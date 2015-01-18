@@ -16,144 +16,6 @@
 %% http://abntex2.googlecode.com/
 %%
 %% This work consists of the file abntex2.cls.
-%%
-%% 2014.12.4 8h13 laurocesar
-%%  Adiciona configuração do capítulo de Referências (título em maiúsculo no
-%%  sumário) para a opção sumario=abnt-6027-2012 (issue 112)
-%%
-%% 2014.6.9 11h31 laurocesar
-%%  Remove uso do pacote calc
-%%
-%% 2014.1.26 8h24 laurocesar
-%%  Corrige declaracao de opcoes para abnt-6027-2012 quando versao de memoir for
-%%  antiga
-%%
-%% 2013.12.26 06h41 laurocesar (volanski)
-%%  Replaced ~--~ by ~\textendash~
-%%
-%% 2013.10.26 17h45 laurocesar
-%%  Adiciona a macro \phantompart
-%%  Revisa código do sumário 6027-2012
-%%
-%% 2013.11.30 15h12 laurocesar
-%%  conclusão dos ajustes no sumário abnt-6027-2012
-%%  \phantompart adiciona espaço ao sumário mesmo se abnt-6027-2012
-%%  não estiver ativa   
-%%
-%% 2013.10.24 09h53	laurocesar
-%%  Revisa as alterações de quinto nível
-%%
-%% 2013.10.11 07h27	sggranja
-%%  Adiciona opções sumario=abnt-6027-2012 e sumario=tradicional
-%%
-%% 2013.10.02 11h00	carlini
-%%  Adiciona suporte a subsubsubsection (utilizando paragraph)
-%%  e adiciona a opcao subsubsubsection=TITLE.
-%%
-%% 2013.8.19 07h27	sggranja
-%%  Adiciona macros \IBGEtab e \fonte
-%%
-%% 2013.6.20 07h27	laurocesar / ricardoerikson
-%%  Adiciona condição para a criação de length \chapternamenumlength na 
-%%  definição do chapterstyle abnt
-%%
-%% 2013.5.24 10h29	laurocesar
-%%  Adiciona a opção language ao ambiente citacao.
-%%
-%% 2013.5.21 22h17	ycherem
-%%  Resolve o problema de diferentes espaçamentos superiores entre
-%%  diferentes tipos de seções primárias (resumos, sumários, elementos
-%%  pré-textuais, etc.)
-%%
-%% 2013.5.18 09h35	sggranja / laurocesar
-%%  Conclui implementação das opções chapter=TITLE, section=TITLE,
-%% subsection=TITLE, subsubsection=TITLE.
-%%
-%% 2013.5.16 09h15	sggranja / laurocesar
-%%  Adiciona as opções chapter=Title, chapter=TITLE, section=Title,
-%%  section=TITLE, subsection=TITLE, subsection=Title,
-%%  subsubsection=TITLE, subsubsection=Title
-%%  que alterna os títulos de divisoes do tipo capitulo entre
-%%  caixa baixa e caixa alta. Porem, apenas a implementacao de chapter esta
-%%  completa.
-%%
-%% 2013.3.19 09h32	laurocesar
-%%  Incorpora as macros de nomes a configuracao do babel e prove traducoes
-%%   dessas macros para ingles, de modo que a classe abntex2 ja fique
-%%   internacionalizavel.
-%%
-%% 2013.3.17 11h26	laurocesar
-%%  Altera a implementacao de \titulo, \autor, \data e seus pares
-%%   \imprimirtitulo, \imprimirautor e \imprimirdata para serem meras traducoes
-%%   \title, \author, \date, \thetitle, \theauthor e \thedate, respectivamente.
-%%  Adiciona o comando \renewcommand*{\cftchapterdotsep}{\cftdotsep} para que os
-%% capitulos tambem tenham leaders.
-%%
-%% 2013.3.13 07h33	laurocesar
-%%  Aprimoramentos nas notas de rodapé propostas por gilsonolegario
-%%
-%% 2013.3.12 08h52	laurocesar
-%%  Revisa a classe, remove acentos dos comentarios e orientacoes especificas de
-%%  xelatex. Ajusta o espaçamento das notas de rodape.
-%%
-%% 2013.3.10 10h15	laurocesar
-%%  Altera usepackage por RequirePackage na selecao de fontes em xelatex.
-%%
-%% 2013.3.8 12h29	ycherem
-%%  Inclui codificacao utf8, fontes T1, uso do pacote fontspec para selecao de
-%%  fontes em xelatex.
-%%
-%% 2013.2.23 11h24	laurocesar
-%%  Altera o estilo dos cabecalhos dos artigos para \pagestyle{plain}
-%%  Adiciona lista de siglas e abreviaturas e lista de simbolos 
-%%
-%% 2013.2.18 09h38	laurocesar
-%%  Adiciona \bookmarksetup{startatroot} a \textual e \postextual
-%%
-%% 2013.2.6 22h41	laurocesar
-%%  Remove \vspace*{1cm} no inicio da capa e da folha de rosto: como a margem
-%% padrao e 3cm superior e 2cm inferior, colocar um espaco de mais 1cm superior
-%% deixava o documento com aspecto ruim.
-%%
-%% 2013.2.3 22h10	laurocesar
-%%  Adiciona \partpage, \partanexos e \partapendices
-%%  Modifica comandos de anexos para incluir automaticamente \cftinserthook{toc}{AAA}
-%%
-%% 2013.1.16 18h46	laurocesar
-%%  Altera o \ABNTEXchapterfont para usar \sffamily
-%%
-%% 2013.1.15 07h43	laurocesar
-%%  Altera \pretextualchapyer para que insira automaticamente a opção de alterar
-%%  o cabecalho da pagina criada com \chapter*
-%%
-%% 2013.1.13 09h23	laurocesar
-%%  Altera o ambiente citacao para que receba diferentes recuos no modo
-%%  twocolumn
-%%
-%% 2013.1.12 21h44	laurocesar
-%%  Corrige numeracao continua de seções quando nao esta no modo article
-%%
-%% 2013.1.9 14h24 laurocesar
-%%  Altera o nome \listtablename para ``Lista de tabelas'' (com t minusculo)
-%%  Altera a implementacao do ambiente citacao
-%%
-%% 2013.1.7 20h35 laurocesar
-%%  Uso da fonte de \ABNTEXfontereduzida em \caption, \legend e \footnote
-%%  Redefinicao da implementacao do ambiente resumo: agora ele usa abstract. 
-%%  Criacao de \resumoname e do ambiente resumoumacoluna.
-%%  Tratamento especial dos capitulos e divisoes pre-textuais no caso da option
-%% article estar habilitada.
-%%  Altera a metrica usada para calcular o espacamento dos capitulos abnt de 
-%% \textwidth para \columnwidth.
-%%
-%% 2013.1.3 09h02 laurocesar
-%%  Correção do estilo de capitulo de \renewcommand{\beforechapskip}{0cm} para
-%%  setlength{\beforechapskip}{0cm}
-%%  Inclusão de \title{} \author{} e \date{} nos equivalentes em portugues
-%%
-%% 2012.12.2 09h38 laurocesar
-%%  Criacao do arquivo 
-%%
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -161,7 +23,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2014/01/26 v1.9.2 abnTeX2]
+\ProvidesClass{abntex2}[2015/01/26 v1.9.3 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn
@@ -1165,7 +1027,9 @@
     \ABNTEXchapterfont\large\imprimirautor
 
     \vfill
+    \begingroup
     \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \begingroup
     \vfill
     
     \large\imprimirlocal

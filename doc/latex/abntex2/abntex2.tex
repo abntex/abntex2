@@ -16,138 +16,6 @@
 %% http://code.google.com/p/abntex2/
 %%
 %% This work consists of the file abntex2.tex
-%%
-%% 2014.9.19 13h00 laurocesar
-%%  Ajusta o comando de \counterwithout para \counterwithin
-%%
-%% 2014.1.26 07h47 laurocesar
-%%  Revisa o texto do histórico
-%%
-%% 2013.10.26 17h45 laurocesar
-%%  Atualiza o documento para adicionar a marcro \phantompart
-%%
-%% 2013.10.12 10h47 laurocesar
-%%  Adiciona documentação das opções de sumário
-%%
-%% 2013.9.27 19h00 laurocesar
-%%  Ajusta exemplos de capa, de folha de rosto e de folha de aprovação
-%%
-%% 2013.8.20 8h42	laurocesar
-%%  Descreve macros \IBGEtab e \legenda e informações do modeo de livro
-%%
-%% 2013.8.17 8h42	laurocesar
-%%  Descreve outros comandos usados para customizar o resumo.
-%%
-%% 2013.8.14 9h30	laurocesar
-%%  Adiciona informação sobre como customizar as margens do resumo.
-%%
-%% 2013.5.24 10h29	laurocesar
-%%  Adiciona seção referente ao espaçamento entre o capítulo e o início do
-%% texto.
-%%  Documenta a nova opção language do ambiente citacao.
-%%
-%% 2013.5.18 09h51	sggranja / laurocesar
-%%  Adiciona seção referente às opções chapter=TITLE, section=TITLE,
-%% subsection=TITLE e subsubsection=TITLE.
-%%
-%% 2013.4.5 08h04	laurocesar
-%%  Revisa alterações de gilsonolegario
-%%
-%% 2013.4.4 09h05	wagner@admwagner.com.br
-%%  Revisão.
-%%
-%% 2013.4.01 21:00	gilsonolegario
-%% Melhorias visuais da documentação
-%%
-%% 2013.3.19 09h32	laurocesar
-%%  Adiciona orientações sobre a produção de documentos em outros idiomas.
-%%
-%% 2013.3.18 10h42	laurocesar
-%%  Adiciona traduções à seção do babel
-%%
-%% 2013.3.17 11h42	laurocesar
-%%  Adiciona comentários sobre as macros \and e \\ na descrição da macro \autor.
-%%  Adiciona informação de que \titulo, \autor e \data são traduções de \title,
-%% \autor e \date.
-%%  Revisa a seção referente ao \hypersetup
-%%
-%% 2013.3.14 10h53	laurocesar
-%%  Revisa a seção Referências bibliográficas
-%%
-%% 2013.3.12 08h04	laurocesar
-%%  Altera a posição da instituição na forma de rosto
-%%
-%% 2013.3.11 10h42	laurocesar
-%%  Inclui referências ao novo exemplo de glossários
-%%
-%% 2013.3.10 10h36	laurocesar
-%%  Adiciona informações sobre pacotes inputenc e fontenc incorporados por
-%% padrão quando xelatex não é usado.
-%%
-%% 2013.2.23 13h48	laurocesar
-%%  Adiciona lista de siglas e abreviaturas e lista de símbolos
-%%
-%% 2013.2.17 11h09	laurocesar
-%%  Inclui informações sobre hifenização em diferentes idiomas na seção sobre
-%%  o pacote babel e na seção referente aos resumos.
-%%
-%% 2013.2.6 22h35	laurocesar
-%%  Inclui informação de compatibilidade com a versão 2002 da ABNT NBR 6023 e
-%%  informação de que os manuais do cite estão desatualizados.
-%%  Corrige erro na instrução referente \partanexos* (estava \partname*)
-%%  Remove \vspace*{1cm} na parte superior dos exemplos de capa, folha de
-%%  rosto e folha de aprovação
-%%
-%% 2013.2.2 15h0	laurocesar
-%%  Adiciona subseções referentes às macros \partanexos e \partapendices
-%%
-%% 2013.2.2 15h0	laurocesar
-%%  Adiciona subseções referentes às opções de documentclass.
-%%  Adiciona seção referente à codificação UTF8 do documento. 
-%%
-%% 2013.1.22 08h31	laurocesar
-%%  Adiciona referências a enumitem em Alíneas e Sunalineas
-%%
-%% 2013.1.19 08h03	laurocesar
-%%  Revisão do documento
-%%
-%% 2013.1.17 19h18	laurocesar
-%%  Adiciona seção explicativa sobre as fontes.
-%%  Adiciona \bfseries nos exemplos de capa, folha de rosto e folha de aprovacao
-%%  Altera a definicao de \ABNTEXchapterfont
-%%  Adiciona explicação da alteração de \listtablename do pacote babel 
-%%  Revisões pontuais do texto
-%%  Adiciona informações no histórico
-%%  Inclui revisão de Youssef Cherem
-%%
-%% 2013.1.14 21h03	laurocesar
-%%  Adiciona referência à norma ABNT NBR 6022:2003
-%%  Adiciona informação de cabeçalhos com o comando \chapter*
-%%  Revisa conteúdo e relacionamento entre as seções
-%%  Altera o nome do documento de ``A classe abntex2: Modelo canônico de
-%%   trabalhos acadêmicos brasileiros compatível com as normas ABNT NBR
-%%   14724:2011, ABNT NBR 6024:2012 e outras'' para ``A classe
-%%   abntex2: Documentos técnicos e científicos brasileiros compatíveis com as
-%%   normas ABNT''
-%%
-%% 2013.1.13 09h46 laurocesar
-%%  Adiciona explicação do recuo do ambiente citacao
-%%  Adiciona explicação sobre espaçamentos entre parágrafos e linhas
-%%
-%% 2013.1.9 21h44 laurocesar
-%%  Inclusão da norma ABNT NBR ABNT NBR 10719-2011 - Informação e
-%% documentação - Relatório técnico e-ou científico - Apresentação
-%%
-%% 2013.1.6 11h43 laurocesar
-%%  Inclusão da norma ABNT NBR 15287:2011: Informação e documentação - Projeto
-%% de pesquisa - Apresentação
-%%
-%% 2013.1.3 09h08 laurocesar
-%%  Documentação de \title{} \author{} e \date{} nos equivalentes em portugues.
-%%
-%% 2012.12.2 09h38 laurocesar
-%%  Criação do arquivo 
-%%
 
 \documentclass[a4paper]{ltxdoc}
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
@@ -1473,7 +1341,9 @@ com base no ambiente |capa|, conforme o exemplo:
     {\ABNTEXchapterfont\large\imprimirautor}
 
     \vfill
+    \begingroup
     \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \endgroup
     \vfill
     
     \large\imprimirlocal
