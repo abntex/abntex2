@@ -30,17 +30,20 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2015/01/26 - v1.9.3
     . added \selectlanguage at begin{document} in all examples
+    . added a minimal pandoc template, making it possible to generate abntex2 
+      documents from markdown files
     . changed sumario=abnt-6027-2012 option: now the "References" chapter label
       is printed in uppercase in TOC
     . changed deprecated command \glossarystyle to \setglossarystyle  
-    . remove "calc" package dependency in order to solve conflicts 
-      with "external" tikz library
-    . added a minimal pandoc template, making it possible to generate abntex2 
-      documents from markdown files
-    . changed abntex2.tex: \counterwithout replaced by \counterwithin
-    . the "volume" field at @book bib entry is printed in references 
-    . changed sample of "Ficha catalográfica"
+    . changed abntex2.tex: 
+      \counterwithout replaced by \counterwithin
+      added several improvements 
+    . changed .sty files to print "volume" field at @book bib entries 
+    . changed example of "Ficha catalográfica"
     . changed default implementation of \imprimircapa
+    . changed default value for \ABNTEXsignskip from 1cm to 0.7cm
+    . removed "calc" package dependency in order to solve conflicts 
+      with "external" tikz library
     . removed change history from source files
 
   2014/01/26 - v1.9.2

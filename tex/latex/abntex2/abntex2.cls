@@ -994,7 +994,7 @@
 \setlength{\ABNTEXsignthickness}{1pt}
    % ammount of space left between previous text and th signature line
 \newlength{\ABNTEXsignskip}
-\setlength{\ABNTEXsignskip}{1cm}
+\setlength{\ABNTEXsignskip}{0.7cm}
    % \assinatura{name} -> types a line with name under the line, centralized
    % \assinatura*{name} -> Creates the box with the line and name under
    %     it, but the box has no position assigned. However the line and the
