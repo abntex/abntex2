@@ -1027,9 +1027,9 @@
     \ABNTEXchapterfont\large\imprimirautor
 
     \vfill
-    \begingroup
+    \begin{center}
     \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
-    \endgroup
+    \end{center}
     \vfill
     
     \large\imprimirlocal
