@@ -1,5 +1,5 @@
 %% abntex2-num.bst, v<VERSION> laurocesar
-%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%% Copyright 2012-2015 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -22,79 +22,7 @@
 %% The original source files were:
 %% merlin.mbs  (with options: `babel,nm-revf,aunm-semi,nmlm,x3,m3,dt-end,yr-com,xmth,vnum-x,volp-com,jwdpg,jwdvol,num-xser,btit-rm,bt-rm,pg-bk,add-pub,pub-date,pub-xpar,pre-pub,isbn,issn,pp,ed,abr,ednx,nfss')
 %% These sourefiles are copyrighted by Patrick W Daly
-%%
-%% Revision history:
-%%
-%% 2013/08/27 PauloQuinan 
-%%  Corrige a formatação de url com https
-%%  Corrige caracter & não escapado em urls de referências quando se usa hyperref
-%%
-%% 2013/06/01 laurocesar
-%%  Ajusta opção iso-690-1987 para @article
-%%
-%% 2013/05/26 laurocesar 
-%%  Corrige problemas de duplicação de ano nas funções article e jornalpart
-%%
-%% 2013/02/28 caduarte7@gmail.com 
-%%  Complete Fix iso-690-1987 option: year was placed for 
-%%  twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished
-%%
-%% 2013/02/21 21h52 caduarte7@gmail.com (revision by laurocesar)
-%%  Fix iso-690-1987 option: year was placed twice
-%%
-%% 2012/12/12 22h14 laurocesar
-%% Fork of the version v 1.42.2.1 2004/11/02 15:18:21 created by gweber
-%% Change file name to from abnt-num.bst to abntex2-num.bst
-%% Removed CVS revision automation
-%% Modify referentes of abnt-alf.bst and abnt-num.bst 
-%%
-%% The original revision history is the following:
-%%
-%% Nota sobre os Logs: Se aparecer abnt-num é por que as aletarções foram feitas
-%% neste arquivo e depois copiadas para abnt.alf e vice-versa.
-%%
-%% $Log: abnt-num.bst,v $
-%% Revision 1.42.2.1  2004/11/02 15:18:21  gweber
-%% correcao do bug 239
-%%
-%% Revision 1.42  2003/07/23 12:06:01  gweber
-%% O comando apply.title.command agora atua sobre todas as ocorrências de title, mas
-%% não sobre campos title que estão vazios.
-%%
-%% Revision 1.41  2003/07/22 16:26:02  gweber
-%% Adicionada a opção abnt-title-command. Com esta opção pode-se definir o comando
-%% \bibtextitlecommand que permite formatações especiais no titulo.
-%%
-%% Revision 1.40  2003/06/05 14:34:05  gweber
-%% Introduzido filtro.url.tex e filtro.url.html, a função do primeiro é alterar uma url de tal maneira
-%% que que o TeX possa processá-la sem problemas. A do segundo é fazer a mesma coisa
-%% para a url que é passada para html ou hyperref.
-%%
-%% Revision 1.39  2003/06/04 13:18:07  gweber
-%% Introduzidas as opções hyperref para abnt.url.package com isso os campos url são formatados agora como hyperlinks ativos.
-%% Também foram acrescentadas a opção abnt.doi que permite selecionar o tratamento que recebe uma url começada com doi:
-%%
-%% Revision 1.38  2003/04/08 00:39:39  gweber
-%% Implementada a entrada @hidden que gera um \hiddenbibitem (só alf),
-%% ou seja uma entrada que não aparece na lista de referências e que pode ser
-%% usada com o comando \apud e \apudonline.
-%%
-%% Revision 1.37  2003/04/01 19:34:47  gweber
-%% consertado bug de ordenação alfabética, agora a ordenação em sort.format.names é igual a de format.names
-%%
-%% Revision 1.36  2003/03/25 14:06:20  gweber
-%% Inicio da adaptação para ISO 690:1987.
-%% Acrescentada a opção iso-author-punctuation cuja opção
-%% void gera iniciais juntas e sem ponto.
-%%
-%% Revision 1.35  2003/03/22 22:59:13  gweber
-%% abnt-nbr10520 foi substituído por abnt-cite-style.
-%% A função recompose.name recompõe um nome complicado, mas a função
-%% ainda é experimental e não está sendo usada no momento. Mesmo
-%% porque há nomes que o próprio bibtex tem problemas para tratar.
-%% A função presort for modificada de modo a poder manter o SORT em
-%% abnt-num sem realmente ordenar alfabeticamente.
-%%
+
 ENTRY
   { address author
     booktitle booksubtitle
