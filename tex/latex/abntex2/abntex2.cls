@@ -1029,7 +1029,7 @@
     \vfill
     \begingroup
     \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
-    \begingroup
+    \endgroup
     \vfill
     
     \large\imprimirlocal
