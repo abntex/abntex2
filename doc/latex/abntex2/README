@@ -40,6 +40,8 @@ CHANGE HISTORY
     . changed abntex2.tex: \counterwithout replaced by \counterwithin
     . the "volume" field at @book bib entry is printed in references 
     . changed sample of "Ficha catalográfica"
+    . changed default implementation of \imprimircapa
+    . removed change history from source files
 
   2014/01/26 - v1.9.2
     . fixed "undefined control sequence. l.100 \settocpreprocessor ...": abntex2.cls
