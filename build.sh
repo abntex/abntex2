@@ -159,6 +159,7 @@ function clean() {
         rm -rf target/abntex2
         rm -rf target/doc
         rm -rf target/abntex2source
+        rm -rf target/abntex2.tds.zip
 }
 
 # replace version number in all files with <VERSION> string
