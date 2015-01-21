@@ -150,7 +150,7 @@ function buildCompressed(){
 
         echo "$TAR_FILE (tds directory structure + MakeFile):"
         cd target/abntex2source
-        find -E . -regex "^\..*\.(tex|pdf|bib|bst|cls|sty|jpg)" -o -name README -o -name Makefile | sed 's/^..//' | tar cfvz ../../$TAR_FILE --files-from -
+        find . -type f -name '*.tex' -o -name '*.pdf' -o -name '*.bib' -o -name '*.bst' -o -name '*.cls' -o -name '*.sty' -o -name '*.jpg' -o -name README -o -name Makefile | sed 's/^..//' | tar cfvz ../../$TAR_FILE --files-from -
         cd ../..
 }
 
