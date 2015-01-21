@@ -127,7 +127,7 @@ function buildCompressed(){
         cd ../..
        
         echo "$ZIP_CTAN (tex and doc browsable content + abntex2-tds.zip + README):"
-        cp $ZIP_TDS target/`basename $ZIP_TDS`
+        cp $ZIP_TDS target/abntex2.tds.zip
         cp -rf target/abntex2source/tex/latex/abntex2/* target/abntex2/tex
         cp -rf target/abntex2source/bibtex/bib/abntex2/* target/abntex2/tex
         cp -rf target/abntex2source/bibtex/bst/abntex2/* target/abntex2/tex
@@ -135,7 +135,7 @@ function buildCompressed(){
         mv target/abntex2/doc/README target/abntex2/README
         cd target
         zip -r ../$ZIP_CTAN abntex2 -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.jpg
-        zip ../$ZIP_CTAN `basename $ZIP_TDS`
+        zip ../$ZIP_CTAN abntex2.tds.zip
         cd ..
        
         echo "$ZIP_TDS - add Makefile to existing file:"
