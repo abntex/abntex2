@@ -127,7 +127,7 @@ function buildCompressed(){
         cd ../..
        
         echo "$ZIP_CTAN (tex and doc browsable content + abntex2-tds.zip + README):"
-        cp $ZIP_TDS target/abntex2.tds.zip
+        cp $ZIP_TDS target/`basename $ZIP_TDS`
         cp -rf target/abntex2source/tex/latex/abntex2/* target/abntex2/tex
         cp -rf target/abntex2source/bibtex/bib/abntex2/* target/abntex2/tex
         cp -rf target/abntex2source/bibtex/bst/abntex2/* target/abntex2/tex
@@ -135,7 +135,7 @@ function buildCompressed(){
         mv target/abntex2/doc/README target/abntex2/README
         cd target
         zip -r ../$ZIP_CTAN abntex2 -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.jpg
-        zip ../$ZIP_CTAN abntex2.tds.zip
+        zip ../$ZIP_CTAN `basename $ZIP_TDS`
         cd ..
        
         echo "$ZIP_TDS - add Makefile to existing file:"
@@ -150,7 +150,7 @@ function buildCompressed(){
 
         echo "$TAR_FILE (tds directory structure + MakeFile):"
         cd target/abntex2source
-        COPYFILE_DISABLE=1 tar cfvz ../../$TAR_FILE Makefile bibtex doc tex --exclude="\.*"
+        find -E . -regex "^\..*\.(tex|pdf|bib|bst|cls|sty|jpg)" -o -name README -o -name Makefile | sed 's/^..//' | tar cfvz ../../$TAR_FILE --files-from -
         cd ../..
 }
 
@@ -159,7 +159,6 @@ function clean() {
         rm -rf target/abntex2
         rm -rf target/doc
         rm -rf target/abntex2source
-        rm -rf target/abntex2.tds.zip
 }
 
 # replace version number in all files with <VERSION> string
