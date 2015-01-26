@@ -257,13 +257,13 @@ function printUsage(){
         echo
         echo "Usage: ./build.sh ([version] [(user password)]) | [--help]"
         echo
-        echo "  version : Build compressed file with version number"
-        echo "  user : User name on Google Code for project abntex2"
-        echo "  password : Password on Google Code for project abntex2"
-        echo "  --help : Show this help message"
+        echo "  version  : Build compressed file with version number"
+        echo "  user     : (deploy) User name on Bintray"
+        echo "  password : (deploy) API Key on Bintray (https://bintray.com/profile/edit)"
+        echo "  --help   : Show this help message"
         echo
         echo "IMPORTANT: Don't put your user and password, unless you really want to "
-        echo " release a new version to CTAN."
+        echo " release and deploy a new version."
         echo
 }
 
