@@ -112,6 +112,13 @@ function buildPdf(){
         rm -rf target/abntex2source/doc/latex/abntex2/examples/abntex2-options.bib
 }
 
+# change permissions of folders and files
+function changepermissions(){
+        find target/abntex2source/ -type d -exec chmod 755 {} \;
+        
+        find target/abntex2source/ -type f -exec chmod 644 {} \;
+}
+
 # generate compressed files
 function buildCompressed(){
 
@@ -189,6 +196,9 @@ function buildAll(){
        
         # compile latex
         buildPdf
+        
+        # change permissions of folders and files in the target directory
+        changepermissions
        
         # building compressed files
         buildCompressed
