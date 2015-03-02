@@ -28,6 +28,10 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2015/03/26 - v1.9.4
+    . changed \textual command to set page numbering to the arabic format.
+      Now the \pretextual command may change the page numbering to another format, like roman.
+      
   2015/01/26 - v1.9.3
     . added \selectlanguage at begin{document} in all examples
     . added a minimal pandoc template, making it possible to generate abntex2 
