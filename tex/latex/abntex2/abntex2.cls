@@ -673,7 +673,6 @@
   }  
   \nouppercaseheads%
   \bookmarksetup{startatroot}% 
-  \pagenumbering{arabic}%
 }
 \renewcommand{\mainmatter}{\textual}
 % ---
