@@ -1,0 +1,86 @@
+syntax: glob
+*~ 
+~*
+
+syntax: regexp
+^\.project$
+syntax: regexp
+^\.texlipse$
+syntax: regexp
+\.glo$
+syntax: regexp
+\.idx$
+syntax: regexp
+^\.settings$
+syntax: regexp
+^abntex2-modelo\.nlo$
+syntax: regexp
+^abntex2-modelo\.nls$
+syntax: regexp
+\.brf$
+syntax: regexp
+\.nlo$
+syntax: regexp
+\.nls$
+syntax: regexp
+^target$
+syntax: regexp
+^test$
+syntax: regexp
+^tds/doc/latex/abntex2/abntex2\.cls$
+syntax: regexp
+^tds/doc/latex/abntex2/abntex2cite\.sty$
+syntax: regexp
+^doc/latex/abntex2/abntex2\.cls$
+syntax: regexp
+^doc/latex/abntex2/abntex2cite\.sty$
+syntax: regexp
+\.bst$
+syntax: regexp
+^doc/latex/abntex2/abntex2abrev\.sty$
+syntax: regexp
+^doc/latex/abntex2/abntex2-options\.bib$
+syntax: regexp
+\.glg$
+syntax: regexp
+\.gls$
+syntax: regexp
+\.ilg$
+syntax: regexp
+\.ind$
+syntax: regexp
+\.ist$
+syntax: regexp
+^doc/latex/abntex2/abntex2-modelo-glossarios\.pdf$
+syntax: regexp
+\.toc$
+syntax: regexp
+\.aux$
+syntax: regexp
+\.synctex$
+syntax: regexp
+^contrib/modelo-livro/modelo-livro\.synctex\.gz$
+syntax: regexp
+\.bbl$
+syntax: regexp
+\.blg$
+syntax: regexp
+\.out$
+syntax: regexp
+\.lot$
+syntax: regexp
+^doc/latex/abntex2/abntex2cite-alf\.pdf$
+syntax: regexp
+\.gz$
+syntax: regexp
+^doc/latex/abntex2/abntex2-modelo-artigo\.pdf$
+syntax: regexp
+^doc/latex/abntex2/abntex2-modelo-trabalho-academico\.pdf$
+syntax: regexp
+^doc/latex/abntex2/examples/abntex2$
+syntax: regexp
+^doc/latex/abntex2/examples/abntex2\.cls$
+syntax: regexp
+\.sty$
+syntax: regexp
+^doc/latex/abntex2/examples/abntex2-modelo-glossarios\.pdf$

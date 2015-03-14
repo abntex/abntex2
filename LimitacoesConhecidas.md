@@ -1,0 +1,6 @@
+# Limitações e problemas conhecidos do abnTeX2 #
+
+  1. **`chapterbib`**: O pacote `chapterbib`, usados para controlar múltiplas bibliografias para cada capítulo, não funciona em conjunto com os estilos de formatação de bibliograficas do abntex2. Veja a [discussão grupo de desenvolvedores](https://groups.google.com/forum/?fromgroups=#!topic/abntex2/VvTOtB8J4rw);
+    1. Atualização: Uma [sugestão da lista de usuários latex-br](https://groups.google.com/d/msg/latex-br/giZEz6hqAIE/AzoWvJCSgOgJ) é usar o pacote [bibunits](http://www.ctan.org/pkg/bibunits).
+    1. Atualização de 23.4.2014:  Uma indicação de [solução definitiva foi apresentada na lista de usuários abntex2](https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!msg/abntex2/VvTOtB8J4rw/ZtW2fZxmM1AJ)
+  1. **`footmisc`**: Enquanto a [issue 103](https://code.google.com/p/abntex2/issues/detail?id=103) estiver aberta, pelo fato de a classe `abntex2.cls` carregar automaticamente o pacote `hyperref`, ela é incompatível com o pacote `footmisc`, que deve ser carregado antes do pacote `hyperref` para evitar que os links para as notas de rodapé fiquem sem referência e consequentemente apontando para a primeira página.
