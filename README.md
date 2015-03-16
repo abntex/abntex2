@@ -22,7 +22,7 @@ O abnTeX2 é compatível com as seguintes normas vigentes:
 
 ### Por onde começar? ###
 
-<font color='green'>Não entre em pânico!**</font> É iniciante em LaTeX ou em abnTeX2? Consulte a página [PorOndeComecar](PorOndeComecar.md).**
+<font color='green'>Não entre em pânico!**</font> É iniciante em LaTeX ou em abnTeX2? Consulte a página [PorOndeComecar](https://github.com/abntex/abntex2/wiki/PorOndeComecar).**
 
 ### Download ###
 
@@ -45,27 +45,27 @@ O abnTeX2 está disponível no [CTAN: Comprehensive TeX Archive Network](http://
   * [TeX Live 2013/2014](http://www.tug.org/texlive/) para Windows e diversos sabores de Linux;
   * [MacTeX 2013/2014](http://tug.org/mactex/) para Mac;
 
-Se você usa uma dessas distribuições, nenhuma instalação adicional é necessária. Baixe um dos [modelos canônicos](http://code.google.com/p/abntex2/downloads/list) disponíveis e pronto!
+Se você usa uma dessas distribuições, nenhuma instalação adicional é necessária. Baixe um dos [modelos canônicos](https://www.ctan.org/pkg/abntex2)) disponíveis e pronto!
 
-Porém, caso não possa usar as versões mais recentes das distribuições indicadas, instale o abnTeX 2 por meio do `Package Manager` da sua distribuição LaTeX. Consulte as [instruções de instalação do LaTeX e do abnTeX2](Instalacao.md). Há instruções para [Windows](InstalacaoWindows.md), [Linux](InstalacaoLinux.md) e [Mac](InstalacaoMac.md).
+Porém, caso não possa usar as versões mais recentes das distribuições indicadas, instale o abnTeX 2 por meio do `Package Manager` da sua distribuição LaTeX. Consulte as [instruções de instalação do LaTeX e do abnTeX2](https://github.com/abntex/abntex2/wiki/Instalacao). Há instruções para [Windows](https://github.com/abntex/abntex2/wiki/InstalacaoWindows), [Linux](https://github.com/abntex/abntex2/wiki/InstalacaoLinux) e [Mac](https://github.com/abntex/abntex2/wiki/InstalacaoMac).
 
 ### Como colaborar? ###
 
-Sua ajuda é muito importante! [Você pode ajudar no desenvolvimento e na divulgação](ComoContribuir.md) do abnTeX2.
+Sua ajuda é muito importante! [Você pode ajudar no desenvolvimento e na divulgação](https://github.com/abntex/abntex2/wiki/Como-Contribuir) do abnTeX2.
 
 ### Customizações do abnTeX2 ###
 
-**Customizações conhecidas**: já são dezenas de customizações para universidades e instituições. Veja a lista de [customizações conhecidas](CustomizacoesConhecidas.md).
+**Customizações conhecidas**: já são dezenas de customizações para universidades e instituições. Veja a lista de [customizações conhecidas](https://github.com/abntex/abntex2/wiki/CustomizacoesConhecidas).
 
-**Deseja customizar o abnTeX2?** Caso você pretenda alterar e/ou redistribuir os modelos canônicos do abnTeX2, recomendamos fortemente que leia com atenção as [orientações sobre como customizar o abnTeX2](ComoCustomizar.md).
+**Deseja customizar o abnTeX2?** Caso você pretenda alterar e/ou redistribuir os modelos canônicos do abnTeX2, recomendamos fortemente que leia com atenção as [orientações sobre como customizar o abnTeX2](https://github.com/abntex/abntex2/wiki/ComoCustomizar).
 
 ### LyX e abnTeX2 ###
 
-Usa o LyX? O abnTeX2 é compatível! Veja como instalar o arquivo de layout e o modelo de documento do [abnTeX2 para LyX](LyX.md).
+Usa o LyX? O abnTeX2 é compatível! Veja como instalar o arquivo de layout e o modelo de documento do [abnTeX2 para LyX](https://github.com/abntex/abntex2/wiki/LyX).
 
 ### Veja também ###
 
-  * [Wiki do abnTeX2](TOC.md)
+  * [Wiki do abnTeX2](https://github.com/abntex/abntex2/wiki)
   * [Comunidade do abnTeX2 no Google Plus](https://plus.google.com/u/0/communities/105202176004387477100)
 
 
@@ -76,4 +76,4 @@ Usa o LyX? O abnTeX2 é compatível! Veja como instalar o arquivo de layout e o 
 
 `*` o abnTeX original era um projeto coordenado por Gerald Weber, Miguel Frasson, Renato Machnievscz e outros.
 
-`**` O abnTeX2 é compatível com a versão corrente da norma ABNT NBR 6023:2002. Porém, até este momento, o manual abnTeX2cite.pdf está atualizado com informações referentes à versão anterior da referida norma, ou seja, com informações sobre a versão 2000. A atualização do manual é uma das [atividades em execução](https://code.google.com/p/abntex2/issues/) do projeto.
+`**` O abnTeX2 é compatível com a versão corrente da norma ABNT NBR 6023:2002. Porém, até este momento, o manual abnTeX2cite.pdf está atualizado com informações referentes à versão anterior da referida norma, ou seja, com informações sobre a versão 2000. A atualização do manual é uma das [atividades em execução](https://github.com/abntex/abntex2/issues) do projeto.
