@@ -26,7 +26,7 @@ O abnTeX2 é compatível com as seguintes normas vigentes:
 
 ### Download ###
 
-[Download de modelos canônicos de documentos construídos com abnTeX2](http://code.google.com/p/abntex2/downloads/list), que incluem (links remetem a exemplos compilados):
+[Download de modelos canônicos de documentos construídos com abnTeX2](https://www.ctan.org/pkg/abntex2), que incluem (links remetem a exemplos compilados):
   1. Artigo científico;
   1. Trabalho acadêmico (tese, dissertação, trabalho de conclusão de curso e outros do gênero);
   1. Projeto de pesquisa;
@@ -35,7 +35,7 @@ O abnTeX2 é compatível com as seguintes normas vigentes:
   1. Documento com Glossários;
   1. Apresentação de slides <font color='red'>(novo!)</font>
 
-[Download dos manuais de uso](http://code.google.com/p/abntex2/downloads/list)
+[Download dos manuais de uso](https://www.ctan.org/pkg/abntex2)
 
 ### Instalação ###
 
