@@ -22,7 +22,7 @@ O abnTeX2 é compatível com as seguintes normas vigentes:
 
 ### Por onde começar? ###
 
-<font color='green'>Não entre em pânico!**</font> É iniciante em LaTeX ou em abnTeX2? Consulte a página [PorOndeComecar](https://github.com/abntex/abntex2/wiki/PorOndeComecar).**
+<font color='green'>Não entre em pânico!**</font> É iniciante em LaTeX ou em abnTeX2? Consulte a página [Por Onde Começar?](https://github.com/abntex/abntex2/wiki/PorOndeComecar).**
 
 ### Download ###
 
