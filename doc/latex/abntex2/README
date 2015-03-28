@@ -28,6 +28,9 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2015/xx/xx - v1.9.4
+    . fixed differences in .bst files
+
   2015/01/26 - v1.9.3
     . added \selectlanguage at begin{document} in all examples
     . added a minimal pandoc template, making it possible to generate abntex2 

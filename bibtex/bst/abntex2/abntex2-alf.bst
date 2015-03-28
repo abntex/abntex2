@@ -1670,6 +1670,7 @@ FUNCTION {book}
   format.illustrated
   format.dimensions  new.sentence
   format.howpublished output  new.sentence
+  format.volume.number.series output new.sentence
   format.note output
   format.issn output %pode parecer curioso, mas revistas inteiras são tratadas como livro
   format.isbn output new.sentence
