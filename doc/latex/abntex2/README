@@ -28,6 +28,9 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2015/xx/xx - v1.9.5
+    . 
+
   2015/04/26 - v1.9.4
     . changed url references to the new domain: www.abntex.net.br (#143)
     . fixed differences in .bst files (#144) 
