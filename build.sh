@@ -3,7 +3,7 @@
 echo
 echo -----------------------------------------------------
 echo abnTeX2 BUILDER SCRIPT
-echo http://abntex2.googlecode.com/
+echo https://www.abntex.net.br/
 echo build compressed files and deploy them on Bintray.com
 echo -----------------------------------------------------
 
@@ -256,7 +256,7 @@ function printEndingInformation(){
         echo $TAR_FILE
         echo
         echo Remember: You should follow the steps in:
-        echo https://code.google.com/p/abntex2/wiki/DisponibilizarNovoRelease
+        echo https://github.com/abntex/abntex2/wiki/DisponibilizarNovoRelease
         echo
         echo If you need help, contact us: http://groups.google.com/group/abntex2
         echo --------------------------------------------------

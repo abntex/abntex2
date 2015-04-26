@@ -21,7 +21,7 @@ install:
 			fi; \
 		else \
 			echo 'A versão do TexLive que está instalada não é a recomendada para uso com o abnTeX2.'; \
-			echo 'Por favor, acesse http://code.google.com/p/abntex2/wiki/InstalacaoLinux para'; \
+			echo 'Por favor, acesse https://github.com/abntex/abntex2/wiki/InstalacaoLinux para'; \
 			echo 'maiores informações.'; \
 		fi; \
 	else \

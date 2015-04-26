@@ -1,5 +1,5 @@
 %% abntex2-alf.bst, v<VERSION> laurocesar
-%% Copyright 2012-2015 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%% Copyright 2012-2015 by abnTeX2 group at http://www.abntex.net.br/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -13,7 +13,7 @@
 %% 
 %% The Current Maintainer of this work is the abnTeX2 team, led
 %% by Lauro César Araujo. Further information are available on 
-%% http://abntex2.googlecode.com/
+%% http://www.abntex.net.br/
 %%
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2002 by the abnTeX group at http://abntex.codigolivre.org.br
@@ -2150,7 +2150,7 @@ FUNCTION {end.bib}
 EXECUTE {end.bib}
 FUNCTION {apresentacao}
 { "+---------------------------------------------------------+"
-  "| http://abntex2.googlecode.com                           |"
+  "| http://www.abntex.net.br/                               |"
   "| Em caso de dúvidas ou problemas com este estilo procure |"
   abnt.alf
  {"| Estilo bibliográfico abntex2-alf.bst versão " abnt.bst.revision * "          |" *}

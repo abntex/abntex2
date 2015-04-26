@@ -28,8 +28,11 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
-  2015/xx/xx - v1.9.4
-    . fixed differences in .bst files
+  2015/04/26 - v1.9.4
+    . changed url references to the new domain: www.abntex.net.br (#143)
+    . fixed differences in .bst files (#144) 
+    . added back the "calc" package in order to solve conflicts 
+      with chapter configurations (#140)
 
   2015/01/26 - v1.9.3
     . added \selectlanguage at begin{document} in all examples
@@ -297,7 +300,7 @@ INSTALLATION
 Are you new on TeX's world?
 ---------------------------
 
-If you're new to this, see https://code.google.com/p/abntex2/wiki/Instalacao (portuguese)
+If you're new to this, see https://github.com/abntex/abntex2/wiki/Instalacao (portuguese)
 or http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages (english) for more
 information on installing packages.
 
@@ -387,7 +390,7 @@ COPYING AND MODIFICATION
 -----------------------------------------------------------------
 
 Copyright 2001-2003 abnTeX group at http://abntex.codigolivre.org.br
-Copyright 2012-2013 abntex2 team at https://abntex2.googlecode.com/
+Copyright 2012-2015 abntex2 team at http://www.abntex.net.br
 
 This package can be redistributed and/or modified under the terms
 of the LaTeX Project Public License distributed from CTAN
@@ -405,7 +408,7 @@ HELP
 
 You can get help here:
  
-www   https://abntex2.googlecode.com/
+www   http://www.abntex.net.br
 group http://groups.google.com/group/abntex2
 
 We need your help too. Access the project's home page and contact us.
