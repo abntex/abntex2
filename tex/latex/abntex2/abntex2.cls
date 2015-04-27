@@ -23,7 +23,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2015/04/26 v1.9.4 abnTeX2]
+\ProvidesClass{abntex2}[2015/04/27 v1.9.4.1 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn
