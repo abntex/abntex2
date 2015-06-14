@@ -23,7 +23,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2015/04/28 v1.9.5 abnTeX2]
+\ProvidesClass{abntex2}[2015/xx/xx v1.9.6 abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn
@@ -336,8 +336,9 @@
 
 % ---
 % Estilos de caption
+% ---
 \hangcaption
-\captiondelim{~\textendash~}
+\newcommand{\ABNTEXcaptiondelim}{~\textendash~}
 %\captionnamefont{\ABNTEXfontereduzida}
 %\captiontitlefont{\ABNTEXfontereduzida}
 
@@ -348,7 +349,7 @@
 \AtBeginDocument{%
   % comandos auxiliares para manipular os captions dentro do comando \IBGEtab.
   \newcommand{\configurecaptions}{\captionstyle[\raggedright]{}}
-  \newcommand{\configureseparator}{\captiondelim{: }}
+  \newcommand{\configureseparator}{\captiondelim{\ABNTEXcaptiondelim}}
   % Define o comando \IBGEtab{}{}{} com caption e legenda da largura do conteúdo tabular, tabular*, etc
   % Parece funcionar com qualque pacote
   \newsavebox{\myptabbox}
@@ -397,7 +398,7 @@
 % o pacote caption e amigos.
 \AtEndPackage{caption}{
   \AtBeginDocument{%
-    \DeclareCaptionLabelSeparator{barr}{~\textendash~}
+    \DeclareCaptionLabelSeparator{barr}{\ABNTEXcaptiondelim}
     \DeclareCaptionFont{ABNTEXfontereduzida}{\ABNTEXfontereduzida}
       \captionsetup{format=hang,
                     labelseparator=barr,
@@ -409,6 +410,10 @@
                                 singlelinecheck=false}}
       \renewcommand{\configureseparator}{\captionsetup{labelsep=colon}}
   }
+}
+
+\AtBeginDocument{
+ \captiondelim{\ABNTEXcaptiondelim}
 }
 % ---
 
@@ -625,7 +630,7 @@
      \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        \tocinnonumchapter
-       ~\textendash~%
+       \ABNTEXcaptiondelim%
      }{} % else
   }
   \renewcommand{\afterchapternum}{}

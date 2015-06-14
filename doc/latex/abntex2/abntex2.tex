@@ -2420,6 +2420,18 @@ elemento e a legenda abaixo, conforme no exemplo:
 \end{figure}
 \end{verbatim}
 
+\DescribeMacro{\ABNTEXcaptiondelim}
+O comando |\ABNTEXcaptiondelim| representa a definição do separador padrão de
+rótulos. O separador padrão é o travessão (\textendash), conforme estabelecido
+pela norma ABNT NBR 14724:2011. Você pode mudar o separador padrão seguindo este
+exemplo:
+
+\begin{verbatim}
+\renewcommand{\ABNTEXcaptiondelim}{~\textendash~}
+\captiondelim{\ABNTEXcaptiondelim}
+\end{verbatim}
+
+
 \DescribeMacro{\includegraphics}
 A macro |\includegraphics| pode ser utilizada para inclusão de imagens.
 Recomenda-se que imagens vetoriais, como imagens em PDF, sejam preferidas em
