@@ -535,10 +535,10 @@
   \renewcommand{\cftsubsectionfont}{\normalsize}
   \renewcommand{\cftsubsectionpagefont}{\cftsubsectionfont}
   %
-  \renewcommand{\cftsubsubsectionfont}{\smaller}
+  \renewcommand{\cftsubsubsectionfont}{\small}
   \renewcommand{\cftsubsubsectionpagefont}{\cftsubsubsectionfont}
   %
-  \renewcommand{\cftparagraphfont}{\smaller\smaller}
+  \renewcommand{\cftparagraphfont}{\footnotesize}
   \renewcommand{\cftparagraphpagefont}{\cftparagraphfont}
   %
   % Ajusta entrada Referencias

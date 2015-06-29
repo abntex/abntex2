@@ -30,6 +30,7 @@ CHANGE HISTORY
 -----------------------------------------------------------------
   2015/xx/xx - v1.9.6
     . fixed caption's separator to long dash, in accordance to ABNT NBR 14724:2011
+    . fixed invalid dependence on relsize package 
     . add \ABNTEXcaptiondelim command
     
   2015/04/28 - v1.9.5
