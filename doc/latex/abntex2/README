@@ -29,6 +29,8 @@ SUMMARY
 CHANGE HISTORY
 -----------------------------------------------------------------
   2015/xx/xx - v1.9.6
+    . changed reference title printing: now the uppercase or lowercase letters of 
+      the title field are kept as they are written in the bib file
     . fixed caption's separator to long dash, in accordance to ABNT NBR 14724:2011
     . fixed invalid dependence on relsize package 
     . add \ABNTEXcaptiondelim command
