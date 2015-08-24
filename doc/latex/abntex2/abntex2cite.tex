@@ -35,7 +35,7 @@
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage[brazil]{babel}
 \usepackage{hyperref}  			% controla a formação do índice
-\usepackage{parskip}			% espaçamento entre os parágrafos
+%\usepackage{parskip}			% espaçamento entre os parágrafos
 \usepackage{nomencl} 			% Lista de simbolos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{booktabs}			% para tabelas
@@ -79,6 +79,9 @@
 
 % latex2html nao suporta \ifthenelse...
 \usepackage[num,abnt-verbatim-entry=yes]{abntex2cite}
+%overcite
+%\citebrackets{}
+
 \newcommand{\OKs}{173}
 \newcommand{\quaseOKs}{12}
 \newcommand{\nadaOK}{3}
@@ -123,13 +126,17 @@
 }
 
 
-\addtolength{\textwidth}{.3in}
-\addtolength{\oddsidemargin}{1em}
+%\addtolength{\textwidth}{.3in}
+%\addtolength{\oddsidemargin}{1em}
 
+
+\definecolor{blue}{RGB}{41,5,195}
+
+\frenchspacing
 
 \begin{document}
 
-\definecolor{blue}{RGB}{41,5,195}
+
 
 \citeoption{abnt-options0}
 \nocite{NBR6023:2000,NBR10520:1988,NBR10520:2001,abnt-bibtex-alf-doc}
@@ -388,8 +395,8 @@ providos pelo \abnTeX2 até que os exemplos sejam completamente atualizados.
 Os estilos foram desenvolvidos em Conectiva Linux 8, e a implementação \TeX\ é
 o |tetex| versão 1.0.7.
 
-O \abnTeX2 foi desenvolvido em um Mac OS X, testado em Linux Ubuntu versão 12.10
-e em Windows XP SP 2.
+O \abnTeX2 foi desenvolvido em um Mac OS X, testado em Linux Ubuntu versão 14.04
+e em Windows XP SP 2, 7, 8 e 10, nas distribuições MikTeX e TeXLive.
 
 \section{Uso de \textsf{abntex2cite}}
 
@@ -399,7 +406,7 @@ e em Windows XP SP 2.
 
 \DescribeMacro{\usepackage[num]{abntex2cite}}
 Diferente do que muita gente imagina, o sistema numérico é `permitido'  pela
-`norma'\cite{NBR6023:2000} em sua seção 9.1.\footnote{Você não faz idéia do
+`norma'\cite{NBR6023:2000} em sua seção 9.1.\footnote{Você não faz ideia do
 número de pessoas (especialmente funcionários de pós-graduação, orientadores e
 membros de banca) que simplesmente \emph{não acreditam} que o sistema numérico
 seja `permitido' pela `norma'. E não adianta `esfregar' o original da `norma' na
@@ -497,28 +504,46 @@ macro |\citetext|\marg{lista de keys}, como no exemplo:
 %sub
 \subsubsection{Alteração do estilo de chamada \texttt{[num]}}
 
-A `norma'\cite{NBR6023:2000} aceita três estilos de chamada:
+
+
+A norma NBR 10520:2002 \cite{NBR10520:2002} cita dois estilos de chamada numérica: entre parênteses, no texto (padrão no \verb|abntex2cite|) ou como sobrescrito, sem parênteses ou colchetes:
 
 \begin{enumerate}
-\item para que \latexhtml{$\ldots$}{...} à sociedade\latexhtml{$^{[10]}$
-    $\ldots$}{\begin{rawhtml}<sup>[10]</sup>\end{rawhtml}...}
-\item para que \latexhtml{$\ldots$}{...} à sociedade\latexhtml{$^{(10)}$
-    $\ldots$}{\begin{rawhtml}<sup>(10)</sup>\end{rawhtml}...}
-\item para que \latexhtml{$\ldots$}{...} à sociedade\latexhtml{$^{10}$
-    $\ldots$}{\begin{rawhtml}<sup>10</sup>\end{rawhtml}...}
+\item para que \ldots{} à sociedade\textsuperscript{[10]}
+\item para que \ldots{} à sociedade\textsuperscript{10}
 \end{enumerate}
 
-\DescribeMacro{\leftovercite}\DescribeMacro{\rightovercite}
-Percebe-se que o terceiro estilo entra em conflito com a numeração das notas de
-rodapé. Portanto agora o estilo \texttt{[num]} coloca colchetes na primeira opção
-listada pela `norma'\cite{NBR6023:2000}. Este comportamento pode ser alterado
-com os comandos \verb+\leftovercite+ e \verb+\rightovercite+.
+\DescribeMacro{\citebrackets[]}\DescribeMacro{\citebrackets()}
+\DescribeMacro{\citebrackets\{\}}
 
-Por exemplo, para usar parênteses coloque no preâmbulo do seu texto e use:
+Para a opção 1, utilize:
 
 \begin{verbatim}
-\renewcommand{\leftovercite}{(}
-\renewcommand{\rightovercite}{)}
+\usepackage[num,overcite]{abntex2cite}
+\citebrackets()
+\end{verbatim} 
+
+
+Para a opção 2, utilize:
+
+\begin{verbatim}
+\usepackage[num,overcite]{abntex2cite}
+\citebrackets{}
+\end{verbatim} 
+
+
+
+Como o segundo estilo entra em conflito com a numeração das notas de
+rodapé, recomenda-se não utilizar notas de rodapé com citações numéricas. Também no estilo sobrescrito não se deve deixar espaço entre o texto e a citação. %Portanto agora o estilo \texttt{[num]} coloca colchetes na primeira opção
+%listada pela `norma'\cite{NBR6023:2000}. 
+%Este comportamento pode ser alterado com:
+%com os comandos %\verb+\leftovercite+ e \verb+\rightovercite+. %% leftovercite e rightovercite não funcionam.
+%\verb|\citebrackets[]| ou \verb|\citebrackets()|
+
+Para usar colchetes (citação padrão no \LaTeX), coloque no preâmbulo do seu texto:
+
+\begin{verbatim}
+\citebrackets[]
 \end{verbatim}
 
 
