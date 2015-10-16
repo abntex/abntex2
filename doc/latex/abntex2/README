@@ -34,6 +34,7 @@ CHANGE HISTORY
     . fixed caption's separator to long dash, in accordance to ABNT NBR 14724:2011
     . fixed invalid dependence on relsize package 
     . add \ABNTEXcaptiondelim command
+    . add documentation for superscript citations 
     
   2015/04/28 - v1.9.5
     . fixed abntex2cite.pdf bibliography errors
