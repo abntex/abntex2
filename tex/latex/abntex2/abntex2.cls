@@ -306,20 +306,13 @@
 % ------------------------------------------------------------------------
 
 % ---
-% Notas de rodape - NBR 14724/2011 - 5.2.1 
-\makeatletter
-\renewcommand\@makefntext[1]{\hangindent=1.2em\leftskip=0.4em\hskip-0.4em\@makefnmark\hskip1.2em\relax#1}
-%\renewcommand\@makefntext[1]{\leftskip=0.7cm\hskip-0.15cm\@makefnmark#1}
-\makeatother
-\renewcommand{\foottextfont}{\ABNTEXfontereduzida}
+% Notas de rodape - footnotes - NBR 14724/2011 - 5.2.1 
+\setlength{\footmarkwidth}{1.2em} % largura do footnotemark
+\setlength{\footmarksep}{0em}
+\footmarkstyle{\footnotesize{\textsuperscript{#1}}\hfill}
 
-% Virgula em footnote consecutiva
-\let\oldFootnote\footnote
-\newcommand\nextToken\relax
-\renewcommand\footnote[1]{%
-    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
-\newcommand\isFootnote{%
-    \ifx\footnote\nextToken\textsuperscript{,}\fi}
+% tamanho da fonte do footnote
+\renewcommand{\foottextfont}{\ABNTEXfontereduzida}
 % ---
 
 % ---
