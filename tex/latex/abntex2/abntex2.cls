@@ -332,6 +332,7 @@
 % ---
 \hangcaption
 \newcommand{\ABNTEXcaptiondelim}{~\textendash~}
+\newcommand{\ABNTEXcaptionfontedelim}{:~}
 %\captionnamefont{\ABNTEXfontereduzida}
 %\captiontitlefont{\ABNTEXfontereduzida}
 
@@ -376,7 +377,8 @@
        \@setminipage
      \fi
      \ABNTEXfontereduzida
-     \configureseparator
+     %\configureseparator
+     \captiondelim{\ABNTEXcaptionfontedelim}
      \@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida #2}\par
   \endgroup}
 \makeatother

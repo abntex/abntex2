@@ -38,6 +38,9 @@ CHANGE HISTORY
     . fix footnote mark size for footmarkers with more than 1 character
     . removed implementation of multifootnote, once memoir has "," as
       as default value for \multfootsep 
+    . fix caption delimiter: 
+      \ABNTEXcaptiondelim: \textendash for captions 
+      \ABNTEXcaptionfontedelim: colon for source (fonte)
     
   2015/04/28 - v1.9.5
     . fixed abntex2cite.pdf bibliography errors
