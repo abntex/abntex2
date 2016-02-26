@@ -39,7 +39,7 @@ O abnTeX2 é compatível com as seguintes normas vigentes:
 
 ### Instalação ###
 
-O abnTeX2 está disponível no [CTAN: Comprehensive TeX Archive Network](http://www.ctan.org/tex-archive/macros/latex/contrib/abntex2) e já é integrado às distribuições LaTeX:
+O abnTeX2 está disponível no [CTAN: Comprehensive TeX Archive Network](https://www.ctan.org/pkg/abntex2) e já é integrado às distribuições LaTeX:
 
   * [MiKTeX](http://www.miktex.org/) ou [proTeXt](http://www.tug.org/protext/) para Windows;
   * [TeX Live 2013/2014](http://www.tug.org/texlive/) para Windows e diversos sabores de Linux;

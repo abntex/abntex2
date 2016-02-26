@@ -13,7 +13,7 @@ assist the preparation of technical and scientific documents
 academic papers) based on ABNT (Associação Brasileira de Normas 
 Técnicas) rules used in Brazil.
 
-The latest version of abnTeX2 is v<VERSION>.
+The latest version of abnTeX2 is v<VERSION> (<CURRENT_DATE>).
 
 SUMMARY
 -----------------------------------------------------------------
@@ -32,7 +32,7 @@ CHANGE HISTORY
     . added compliance to ABNT NBR 10719:2015
     . added \ABNTEXcaptiondelim command
     . added documentation for superscript citations 
-    . changed caption's separator to long dash, in accordance to ABNT NBR 14724:2011
+    . changed caption's separator to enddash, in accordance to ABNT NBR 14724:2011
     . removed implementation of multifootnote, once memoir has "," as
       default value for \multfootsep 
     . fixed invalid dependence on relsize package 
@@ -318,7 +318,7 @@ Are you new on TeX's world?
 ---------------------------
 
 If you're new to this, see https://github.com/abntex/abntex2/wiki/Instalacao (portuguese)
-or http://www.tex.ac.uk/cgi-bin/texfaq2html?label=instpackages (english) for more
+or https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages (english) for more
 information on installing packages.
 
 "Automagic" instalation on a TeXLive system
@@ -340,9 +340,9 @@ among others) running over a Windows, Linux, Mac, BSD (among others) if you have
 
   abntex2.cls	            The abntex2 class file.
   abntex2cite.sty	        The abntex2cite citation package file.
-  abntex2abrev.sty	       Extension of abntex2cite package. It contains abbreviations helpers macros.
+  abntex2abrev.sty	        Extension of abntex2cite package. It contains abbreviations helpers macros.
   abntex2-alf.bst	        Numeric citation style file.
-  abntex2-num.bst					Alphanumeric (author-date) citation style file.
+  abntex2-num.bst			Alphanumeric (author-date) citation style file.
   abntex2-options.bib	    Default citation options configurations.
   
 Put those files somewhere LaTeX can find them. Read the documentation of 
@@ -407,7 +407,7 @@ COPYING AND MODIFICATION
 -----------------------------------------------------------------
 
 Copyright 2001-2003 abnTeX group at http://abntex.codigolivre.org.br
-Copyright 2012-2015 abntex2 team at http://www.abntex.net.br
+Copyright 2012-<COPYRIGHT_YEAR> abntex2 team at http://www.abntex.net.br
 
 This package can be redistributed and/or modified under the terms
 of the LaTeX Project Public License distributed from CTAN

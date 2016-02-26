@@ -1,5 +1,5 @@
 %% abntex2.cls, v<VERSION> laurocesar
-%% Copyright 2012-2015 by abnTeX2 group at https://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at https://www.abntex.net.br/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -23,7 +23,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{abntex2}[2016/02/26 v1.9.6 abnTeX2]
+\ProvidesClass{abntex2}[<CURRENT_DATE> v<VERSION> abnTeX2]
 \RequirePackage{ifthen}
 %
 % Captura as options article e twocolumn

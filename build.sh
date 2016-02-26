@@ -21,7 +21,7 @@ function compileLaTeX(){
 #        bibtex $1
 #        makeindex $1.idx
 #        makeindex $1.nlo -s nomencl.ist -o $1.nls
-#    	makeglossaries $1
+#    	 makeglossaries $1
 #        pdflatex -interaction=nonstopmode $1
 #        pdflatex -interaction=nonstopmode $1
 		latexmk -pdf -time -silent $1
@@ -30,7 +30,7 @@ function compileLaTeX(){
 # initialize directories
 function initialize(){
        
-        # initializing: create clean directories
+        # initializing: create empty directories
         rm -rf target
 
         # creating directories for CTAN zip
@@ -113,7 +113,7 @@ function buildPdf(){
 }
 
 # change permissions of folders and files
-function changepermissions(){
+function changePermissions(){
         find target/abntex2source/ -type d -exec chmod 755 {} \;
         
         find target/abntex2source/ -type f -exec chmod 644 {} \;
@@ -169,9 +169,18 @@ function clean() {
         rm -rf target/abntex2.tds.zip
 }
 
-# replace version number in all files with <VERSION> string
-function replaceVersion(){
+# replace tokens in the source files
+function replaceTokens(){
+		# replace version number in all files with <VERSION> string
         find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"  
+        
+        # replace current date in all files with <CURRENT_DATE> string
+        CURRENT_DATE=`date +'%Y\/%m\/%d'`
+        find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<CURRENT_DATE>/$CURRENT_DATE/g"
+        
+        # replace copyright year in all files with <COPYRIGHT_YEAR> string
+        CURRENT_YEAR=`date +'%Y'`
+        find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<COPYRIGHT_YEAR>/$CURRENT_YEAR/g"
 }
 
 # build compressed files
@@ -192,13 +201,13 @@ function buildAll(){
         initialize
        
         # update version number in files
-        replaceVersion
+        replaceTokens
        
         # compile latex
         buildPdf
         
         # change permissions of folders and files in the target directory
-        changepermissions
+        changePermissions
        
         # building compressed files
         buildCompressed
@@ -304,8 +313,6 @@ else
                 printEndingInformation
         fi
 fi
-
-
 
 
 # ending...

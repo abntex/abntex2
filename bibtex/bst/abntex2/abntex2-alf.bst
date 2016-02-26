@@ -1,5 +1,5 @@
 %% abntex2-alf.bst, v<VERSION> laurocesar
-%% Copyright 2012-2015 by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
