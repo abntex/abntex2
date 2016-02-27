@@ -130,7 +130,7 @@ técnicos e científicos brasileiros \\compatíveis com as normas ABNT}}
 Este é o manual de uso da classe \textsf{abntex2}. Trata-se de um conjunto de
 customizações da classe \textsf{memoir} para elaboração de documentos técnicos e
 científicos condizentes com as normas da Associação Brasileira de Normas
-Técnicas, especialmente a ABNT NBR 6022:2003, ABNT NBR 10719:2011, ABNT NBR
+Técnicas, especialmente a ABNT NBR 6022:2003, ABNT NBR 10719:2015, ABNT NBR
 14724:2011 e a ABNT NBR 6024:2012, além de outras referentes a ``Informação e
 documentação''.
 \end{abstract}
@@ -147,7 +147,7 @@ O objetivo deste manual é descrever a classe \textsf{abntex2}, responsável pel
 \textit{layout} dos elementos de estruturação de documentos técnicos e
 científicos --- como trabalhos acadêmicos, artigos, relatórios técnicos, livros
 e folhetos ---, especialmente aqueles definidos pela ABNT NBR 6022:2003, ABNT
-NBR 10719:2011, ABNT NBR 14724:2011 e pela ABNT NBR 6024:2012. A
+NBR 10719:2015, ABNT NBR 14724:2011 e pela ABNT NBR 6024:2012. A
 \autoref{sec-introducao} contém a lista completa de normas observadas pela
 classe.
 
@@ -218,7 +218,7 @@ O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
   \item[ABNT NBR 6034:2004] Informação e documentação - Índice -
   Apresentação
   \item[ABNT NBR 10520:2002] Informação e documentação - Citações
-  \item[ABNT NBR 10719-2011] Informação e documentação - Relatório técnico
+  \item[ABNT NBR 10719-2015] Informação e documentação - Relatório técnico
   e-ou científico - Apresentação
   \item[ABNT NBR 14724:2011] Informação e documentação - Trabalhos
   acadêmicos - Apresentação
@@ -409,7 +409,7 @@ O \abnTeX2 apresenta instrumentos para produzir todas as partes do documento,
 exceto a Lombada e o Glossário, que podem ser produzidos por outros pacotes
 adicionais. As seções seguintes descrevem como cada seção pode ser produzida.
 
-A norma ABNT NBR 10719:2011 \emph{Informação e documentação - Relatório técnico
+A norma ABNT NBR 10719:2015 \emph{Informação e documentação - Relatório técnico
 e-ou científico - Apresentação} apresenta basicamente a mesma estrutura que a
 norma de trabalhos acadêmicos, exceto que nesta norma a Capa é opcional, não há
 Folha de aprovação, Dedicatória, Epígrafe nem Resumo em língua estrangeira e
@@ -422,11 +422,11 @@ A norma ABNT NBR 15287:2011 \emph{Informação e documentação - Projeto de
 pesquisa - Apresentação} também apresenta a mesma estrutura básica da ABNT NBR
 14724:2011. Porém, na ABNT NBR 15287:2011 a Capa é opcional, não há Errata,
 Folha de aprovação, Dedicatória, Agradecimentos, Epígrafe nem Resumos. Todos os
-demais elementos aparecem na mesma ordem e, a exemplo da ABNT NBR 10719:2011,
+demais elementos aparecem na mesma ordem e, a exemplo da ABNT NBR 10719:2015,
 são regidos pelas mesmas regras.
 
 Dessa forma, a classe \textsf{abntex2} pode ser utilizada para gerar os
-documentos previstos tanto na ABNT NBR 10719:2011 quanto na ABNT NBR 15287:2011.
+documentos previstos tanto na ABNT NBR 10719:2015 quanto na ABNT NBR 15287:2011.
 
 Adicionalmente, a classe \textsf{abntex2} também é compatível com a norma ABNT
 NBR 6022:2003 \emph{Informação e documentação - Artigo em publicação periódica
@@ -546,14 +546,21 @@ A macro |\part| também é permitida em |article|.
 % ---
 
 \DescribeMacro{\ABNTEXfontereduzida}\DescribeMacro{\footnotesize}\DescribeEnv{12pt}
-A seção 5.1 da ABNT NBR 14724:2011 também estabelece que o tamanho fonte seja 12
-para todo o documento (obtida com a opção |12pt|), ``inclusive capa,
+O terceiro parágrafo da seção 5.1 da ABNT NBR 14724:2011  estabelece que
+o tamanho fonte seja 12 para todo o documento (obtida com a opção |12pt|), ``inclusive capa,
 excetuando-se citações com mais de três linhas, notas de rodapé, paginação,
 dados internacionais de catalogação-na-publicação, legendas e fontes das
-ilustrações e das tabelas, que devem ser em tamanho menor e uniforme''.  O
-tamanho ``menor e uniforme'' é estabelecido pela macro |\ABNTEXfontereduzida| e
-o valor padrão utilizado é o mesmo da macro |\footnotesize|. Você pode alterar o
-valor de |\ABNTEXfontereduzida| para |\small|, por exemplo, com o seguinte
+ilustrações e das tabelas, que devem ser em tamanho menor e uniforme''. Da mesma
+forma, o terceiro parágrafo da seção 5.1 da ABNT NBR 10719:2015 possui
+orientação semelhante, ao recomendar que ``quando digitado, fonte tamanho 12 e
+tipo da fonte padronizado para todo o documento. As citações com mais de três
+linhas, notas de rodapé, paginação, dados internacionais de
+catalogação-na-publicação, legendas, notas e fontes das ilustrações e tabelas
+devem ser em tamanho menor e uniforme.'' 
+
+O tamanho ``menor e uniforme'' é estabelecido pela macro |\ABNTEXfontereduzida|
+e o valor padrão utilizado é o mesmo da macro |\footnotesize|. Você pode alterar
+o valor de |\ABNTEXfontereduzida| para |\small|, por exemplo, com o seguinte
 comando:
 
 \begin{verbatim}
@@ -2529,7 +2536,7 @@ comportamento que |\postextual|.
 \DescribeMacro{\bibliography}
 A classe \textsf{abntex2} é responsável pela estruturação e o aspecto geral dos
 documentos. Mais precisamente, ela é focada em atender os requisitos
-apresentados pela norma ABNT NBR 10719:2011, ABNT NBR 14724:2011, ABNT NBR
+apresentados pela norma ABNT NBR 10719:2015, ABNT NBR 14724:2011, ABNT NBR
 15287:2011 e normas correlatas. As referências bibliográficas são normatizadas
 pela norma ABNT NBR 10520:2002 e ABNT NBR 6023:2002. Os requisitos impostos
 por estas normas são atendidos pelo pacote \textsf{abntex2cite}.
