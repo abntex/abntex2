@@ -28,6 +28,9 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  2016/02/26 - v1.9.6.1
+    . fixed warning message in the english TOC
+  
   2016/02/26 - v1.9.6
     . added compliance to ABNT NBR 10719:2015
     . added \ABNTEXcaptiondelim command
