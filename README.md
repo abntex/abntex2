@@ -16,7 +16,7 @@ O abnTeX2 é compatível com as seguintes normas vigentes:
   * **ABNT NBR 6029:2006**: Informação e documentação - Livros e folhetos - Apresentação <font color='red'>(novo!)</font>
   * **ABNT NBR 6034:2004**: Informação e documentação - Índice - Apresentação
   * **ABNT NBR 10520:2002**: Informação e documentação - Citações
-  * **ABNT NBR 10719:2011**: Informação e documentação - Relatório técnico e/ou científico - Apresentação
+  * **ABNT NBR 10719:2015**: Informação e documentação - Relatório técnico e/ou científico - Apresentação
   * **ABNT NBR 14724:2011**: Informação e documentação - Trabalhos acadêmicos - Apresentação
   * **ABNT NBR 15287:2011**: Informação e documentação - Projeto de pesquisa - Apresentação
 
