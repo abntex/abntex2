@@ -140,6 +140,14 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \makeatother
 % --- 
 
+% ---
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\makeatother
+% ---
+
 % --- 
 % Espaçamentos entre linhas e parágrafos 
 % --- 
