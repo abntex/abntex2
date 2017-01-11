@@ -4,6 +4,7 @@ Para reportar seu problema foneça as informações abaixo:
 
 **Qual o sistema operacional e versão que está utilizado**?
 **Qual versão do latex está utilizando**? (`latex --version`)
+**Você está utilizando alguma personalização**? Qual?
 
 ### Descrição do problema
 
@@ -25,7 +26,6 @@ Descreva seu problema aqui.
 1. Passo 3
 
 - Se possível forneça comandos ou links para baixar os arquivos necessários.
-
 
 ## Melhoria
 
