@@ -1,6 +1,6 @@
 ## Problema/Erro
 
-Para reportar seu problema foneça as informações abaixo:
+Para reportar seu problema forneça as informações abaixo:
 
 **Qual o sistema operacional e versão que está utilizado**?
 **Qual versão do latex está utilizando**? (`latex --version`)
