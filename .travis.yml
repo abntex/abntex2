@@ -4,7 +4,8 @@ language: c
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -y -qq pdftk poppler-utils language-pack-pt
-- wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && tar -xf install-tl-unx.tar.gz && cd install-tl-* && sudo ./install-tl -no-gui -profile ../spec/dependencias/texlive-abntex2.profile -no-verify-downloads && cd ..
+- wget https://raw.githubusercontent.com/abntex/limarka/master/spec/dependencias/texlive-abntex2.profile
+- wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && tar -xf install-tl-unx.tar.gz && cd install-tl-* && sudo ./install-tl -no-gui -profile ../texlive-abntex2.profile -no-verify-downloads && cd ..
 - export PATH=$PATH:/usr/local/texlive/2016/bin/x86_64-linux
 script:
 - tlmgr --version
