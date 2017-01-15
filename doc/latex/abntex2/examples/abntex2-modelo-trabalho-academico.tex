@@ -148,6 +148,24 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \makeatother
 % ---
 
+% ---
+% Possibilita criação de Quadros e Lista de quadros.
+% Ver https://github.com/abntex/abntex2/issues/176
+%
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+% ---
+
 % --- 
 % Espaçamentos entre linhas e parágrafos 
 % --- 
@@ -431,6 +449,14 @@ contribuirão para a evolução do \abnTeX.
 % ---
 
 % ---
+% inserir lista de quadros
+% ---
+\pdfbookmark[0]{\listofquadrosname}{loq}
+\listofquadros*
+\cleardoublepage
+% ---
+
+% ---
 % inserir lista de tabelas
 % ---
 \pdfbookmark[0]{\listtablename}{lot}
@@ -529,6 +555,31 @@ Lauro César Araujo
 % ---
 \include{abntex2-modelo-include-comandos}
 % ---
+
+\chapter{Conteúdos específicos do modelo de trabalho acadêmico}\label{cap_trabalho_academico}
+
+\section{Quadros}
+
+Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
+configurados por padrão. Verifique um exemplo de utilização:
+
+\begin{quadro}[htb]
+\caption{\label{quadro_exemplo}Exemplo de quadro}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+	Marcos & 26    & 68   & 178    \\ \hline
+	Ivone  & 22    & 57   & 162    \\ \hline
+	...    & ...   & ...  & ...    \\ \hline
+	Sueli  & 40    & 65   & 153    \\ \hline
+\end{tabular}
+\fonte{Autor.}
+\end{quadro}
+
+Este parágrafo apresenta como referenciar o quadro no texto, requisito
+obrigatório da ABNT. 
+Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
+Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
 
 % ----------------------------------------------------------
 % PARTE

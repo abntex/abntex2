@@ -2516,6 +2516,35 @@ Desse modo, um exemplo completo de uso das macros |\IBGEtab|, |\fonte| e |\nota|
 \end{verbatim}
 
 
+% ---
+\subsection{Quadros no modelo de trabalho acadêmico}
+% ---
+
+\DescribeMacro{\quadro}
+A partir da versão XXX, o modelo de trabalho acadêmico dispobibilizado no \abnTeX~ 
+trás pré-configurado a impressão da lista de quadros no pretextual e 
+disponibiliza o ambiente |quadro| para sua criação, veja um exemplo:
+
+
+\begin{verbatim}
+\begin{quadro}[htb]
+\caption{\label{quadro_exemplo}Exemplo de quadro}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+	Marcos & 26    & 68   & 178    \\ \hline
+	Ivone  & 22    & 57   & 162    \\ \hline
+	...    & ...   & ...  & ...    \\ \hline
+	Sueli  & 40    & 65   & 153    \\ \hline
+\end{tabular}
+\fonte{Autor.}
+\end{quadro}
+\end{verbatim}
+
+Caso esteja utilizando um modelo anterior deseja incluir um quadro, você 
+precisará configurar o seu modelo apropriadamente\footnote{Para configuração
+consulte \url{https://github.com/abntex/abntex2/wiki/HowToCriarNovoAmbienteListing}}.
+
 % ------
 \section{Elementos pós-textuais}\label{sec-postextual}
 % ------
