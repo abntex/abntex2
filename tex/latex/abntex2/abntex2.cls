@@ -649,7 +649,7 @@
 \makeheadrule{abntheadings}{\textwidth}{\normalrulethickness}
 
 % Cabecalho do inicio do capitulo
-\makepagestyle{abntchapfirst}
+%\makepagestyle{abntchapfirst}
 \makeoddhead{abntchapfirst}{}{}{\ABNTEXfontereduzida\thepage}
 % ---
 
