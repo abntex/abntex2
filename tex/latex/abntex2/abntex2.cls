@@ -840,6 +840,40 @@
 
 % ---
 % Lista de abreviaturas e siglas
+\RequirePackage{datatool}
+\makeatletter
+
+	\newcommand\criarsigla[2]{%
+		\write\@auxout{\noexpand\@writefile{sig}{\noexpand\sortitem{#1} {#2}}}}
+
+	\newcommand{\sortitem}[2]{%
+		\DTLnewrow{list}%
+		\DTLnewdbentry{list}{label}{#1}%
+		\DTLnewdbentry{list}{description}{#2}%
+	}
+
+	\newenvironment{sortedList}{%
+		\DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}%
+	}
+	{
+		\DTLsort{label}{list}%
+		\begin{description}%
+			\DTLforeach*{list}{\theLabel=label,\theDesc=description}{\item[\theLabel] \theDesc}			
+		\end{description}
+	}
+
+	\newcommand\imprimirlistadesiglas{
+	
+		\begin{center}
+			{\ABNTEXchapterfont\huge{Lista de abreviaturas e siglas}}
+			\vspace*{1.1cm}
+			\begin{sortedList}
+				\fontfamily{cmss}\@starttoc{sig}
+			\end{sortedList}
+		\end{center}
+	}
+\makeatother
+% ---
 \newenvironment{siglas}{%
   \pretextualchapter{\listadesiglasname}
   \begin{symbols}
