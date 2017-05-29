@@ -851,13 +851,24 @@
 
 % ---
 % Lista de simbolos
-\newenvironment{simbolos}{%
-  \pretextualchapter{\listadesimbolosname}
-  \begin{symbols}
-}{%
-  \end{symbols}
-  \cleardoublepage
-}
+\makeatletter
+	\newcommand\criarsimbolo[2]{%
+		\write\@auxout{\noexpand\@writefile{sbl}{\noexpand\item[#1] #2}}}
+	\newcommand\imprimirlistadesimbolos{%
+		\pretextualchapter{\listadesimbolosname}
+		\begin{symbols}
+			   \@starttoc{sbl}
+			   \cleardoublepage
+		\end{symbols}}
+\makeatother
+% -----------------
+% \newenvironment{simbolos}{%
+%   \pretextualchapter{\listadesimbolosname}
+%   \begin{symbols}
+% }{%
+%   \end{symbols}
+%   \cleardoublepage
+% }
 % ---
 
 
