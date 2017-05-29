@@ -864,8 +864,8 @@
 			\begin{sortedList}
 				\fontfamily{cmss}\@starttoc{sig}
 			\end{sortedList}
-			\cleardoublepage
 		\end{center}
+		\cleardoublepage
 	}
 \makeatother
 % ---
