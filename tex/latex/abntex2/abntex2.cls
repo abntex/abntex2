@@ -840,27 +840,49 @@
 
 % ---
 % Lista de abreviaturas e siglas
-\newenvironment{siglas}{%
-  \pretextualchapter{\listadesiglasname}
-  \begin{symbols}
-}{%
-  \end{symbols}
-  \cleardoublepage
-}
+\RequirePackage{datatool}
+\makeatletter
+	\newcommand\criarsigla[2]{
+		\write\@auxout{\noexpand\@writefile{sig}{\noexpand\sortitem{#1} {#2}}}}
+	\newcommand{\sortitem}[2]{
+		\DTLnewrow{list}
+		\DTLnewdbentry{list}{label}{#1}
+		\DTLnewdbentry{list}{description}{#2}
+	}
+	\newenvironment{sortedList}{
+		\DTLifdbexists{list}{\DTLcleardb{list}}{\DTLnewdb{list}}
+	}
+	{
+		\DTLsort{label}{list}
+		\begin{description}
+			\DTLforeach*{list}{\theLabel=label,\theDesc=description}{\item[\theLabel] \theDesc}			
+		\end{description}
+	}
+	\newcommand\imprimirlistadesiglas{
+		\begin{center}
+			\pretextualchapter{\listadesiglasname}
+			\begin{sortedList}
+				\fontfamily{cmss}\@starttoc{sig}
+			\end{sortedList}
+		\end{center}
+		\cleardoublepage
+	}
+\makeatother
 % ---
 
 % ---
 % Lista de simbolos
-\newenvironment{simbolos}{%
-  \pretextualchapter{\listadesimbolosname}
-  \begin{symbols}
-}{%
-  \end{symbols}
-  \cleardoublepage
-}
+\makeatletter
+	\newcommand\criarsimbolo[2]{
+		\write\@auxout{\noexpand\@writefile{sbl}{\noexpand\item[#1] #2}}}
+	\newcommand\imprimirlistadesimbolos{
+		\pretextualchapter{\listadesimbolosname}
+		\begin{symbols}
+			   \@starttoc{sbl}
+			   \cleardoublepage
+		\end{symbols}}
+\makeatother
 % ---
-
-
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
