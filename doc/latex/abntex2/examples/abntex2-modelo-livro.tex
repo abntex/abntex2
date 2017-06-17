@@ -47,7 +47,8 @@
   % % se for utilizar as fontes do sistema: **escolha sua fonte**
   \usepackage{polyglossia}
   \setmainlanguage{brazil}
-  \setotherlanguages{french,english,spanish,german,italian}
+  \let\textspanish\undefined  % babel já definiu o comando \textspanish, por isso copiamos para um novo nome...
+  \setotherlanguages{english,french,german,italian,spanish}  % ... para que \setotherlanguages de polyglossia possa (re)defini-lo
   \usepackage{fontspec}
   \defaultfontfeatures{Ligatures=TeX}
   % comandos de fontes
@@ -58,10 +59,12 @@
   % % se for utilizar pdflatex
   \usepackage[utf8]{inputenc}
   \usepackage[T1]{fontenc}
-  \usepackage{fourier}
-  \usepackage[defaultsans]{droidsans} %fonte droid sans como default sans, ao invés de CM Sans.
-  \usepackage[scaled=0.9]{inconsolata} %fonte inconsolata para códigos
-  \usepackage[defaultmono,scale=0.8]{droidmono} %fonte droid mono para códigos
+  % comandos de fontes
+  \usepackage{cochineal}   % fonte principal (serifada)
+  \usepackage[tabular]{sourcesanspro}  % fonte sem serifas
+  \usepackage[lf,scale=0.85]{sourcecodepro}  % fonte monoespaçada
+  \usepackage[cochineal,bigdelims,cmintegrals,vvarbb]{newtxmath}  % fonte matemática
+  \usepackage[bb=ams,cal=cm]{mathalfa}  % personalização dos alfabetos \mathbb, \mathcal, \mathfrak e \mathscr
 \fi
 
 %% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel. 
@@ -528,11 +531,16 @@ Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
 \abnTeX, distribua-se arquivos com as respectivas customizações.
 Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
 incompatíveis com as customizações promovidas. Consulte
-\citeonline{abntex2-wiki-como-customizar} par mais informações.
+\citeonline{abntex2-wiki-como-customizar} para mais informações.
 
 
-% ~\vfill Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro,
-% de Robert Slimbach e Carol Twombly.
-~\vfill Este texto foi composto em Utopia, de Robert Slimbach, através do pacote \texttt{fournier}.
+\ifxetex
+~\vfill Este texto foi composto em Minion Pro, de Robert Slimbach, e Myriad Pro,
+de Robert Slimbach e Carol Twombly.
+\else
+~\vfill Este texto foi composto em Cochineal, de Michael Sharpe, que é uma
+bifurcação de Crimson, de Sebastian Kosch; e Source Sans Pro, de Paul D.
+Hunt sob a orientação de Robert Slimbach.
+\fi
 
 \end{document}
