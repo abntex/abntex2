@@ -8,7 +8,7 @@ A suíte abnTeX2 é composta por uma classe, por pacotes de citação e de forma
 
 O abnTeX2 é compatível com as seguintes normas vigentes:
 
-  * **ABNT NBR 6022:2003**: Informação e documentação - Artigo em publicação periódica científica impressa - Apresentação
+  * **ABNT NBR 6022:2018**: Informação e documentação - Artigo em publicação periódica científica - Apresentação
   * **ABNT NBR 6023:2002**:  Informação e documentação -  Referência - Elaboração`**`
   * **ABNT NBR 6024:2012**: Informação e documentação - Numeração  progressiva das seções de um documento - Apresentação
   * **ABNT NBR 6027:2012**: Informação e documentação - Sumário - Apresentação
@@ -36,6 +36,8 @@ O abnTeX2 é compatível com as seguintes normas vigentes:
   1. Apresentação de slides <font color='red'>(novo!)</font>
 
 [Download dos manuais de uso](https://www.ctan.org/pkg/abntex2)
+
+[Notas de atualização](https://raw.githubusercontent.com/abntex/abntex2/master/doc/latex/abntex2/README)
 
 ### Instalação ###
 
@@ -68,10 +70,6 @@ Usa o LyX? O abnTeX2 é compatível! Veja como instalar o arquivo de layout e o 
   * [Wiki do abnTeX2](https://github.com/abntex/abntex2/wiki)
   * [Comunidade do abnTeX2 no Google Plus](https://plus.google.com/u/0/communities/105202176004387477100)
 
-
-**Este projeto conta com o apoio:**
-
-[![](http://abntex2.googlecode.com/files/cpai-logo.png)](http://cpai.unb.br/pt/swl-inicio)
 
 
 `*` o abnTeX original era um projeto coordenado por Gerald Weber, Miguel Frasson, Renato Machnievscz e outros.

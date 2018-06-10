@@ -698,6 +698,11 @@
 \newcommand{\titulo}[1]{\title{#1}}
 \newcommand{\imprimirtitulo}{\thetitle}
 
+% Comandos de dados - titulo do documento
+\newcommand{\tituloestrangeiro}[1]{\providecommand{\theforeigntitle}{#1}}
+\newcommand{\imprimirtituloestrangeiro}{\theforeigntitle}
+
+
 % Comandos de dados - autor (use \and para multiplos autores)
 \newcommand{\autor}[1]{\author{#1}}
 \newcommand{\imprimirautor}{\theauthor}
@@ -747,6 +752,13 @@
 % ---
 % Ambiente para definicao da Capa
 \newenvironment{capa}{\begin{titlingpage}}{\end{titlingpage}\cleardoublepage}
+% ---
+
+% ---
+% Titulos em lingua estrangeira para artigos: ABNT NBR 6022:2018
+\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+\renewcommand{\maketitlehookb}{\larger\larger\center\theforeigntitle}
+}{}
 % ---
 
 % ---
