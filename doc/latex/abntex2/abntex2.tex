@@ -120,6 +120,7 @@ técnicos e científicos brasileiros \\compatíveis com as normas ABNT}}
 
 \changes{v1.0}{2013/02/01}{Versão inicial}
 \changes{v1.9.3}{2015/01/26}{Release 1.9.3}
+\changes{v1.9.4}{2018/06/06}{Release 1.9.4}
 
 \begin{document}
 
@@ -130,7 +131,7 @@ técnicos e científicos brasileiros \\compatíveis com as normas ABNT}}
 Este é o manual de uso da classe \textsf{abntex2}. Trata-se de um conjunto de
 customizações da classe \textsf{memoir} para elaboração de documentos técnicos e
 científicos condizentes com as normas da Associação Brasileira de Normas
-Técnicas, especialmente a ABNT NBR 6022:2003, ABNT NBR 10719:2015, ABNT NBR
+Técnicas, especialmente a ABNT NBR 6022:2018, ABNT NBR 10719:2015, ABNT NBR
 14724:2011 e a ABNT NBR 6024:2012, além de outras referentes a ``Informação e
 documentação''.
 \end{abstract}
@@ -146,7 +147,7 @@ documentação''.
 O objetivo deste manual é descrever a classe \textsf{abntex2}, responsável pelo
 \textit{layout} dos elementos de estruturação de documentos técnicos e
 científicos --- como trabalhos acadêmicos, artigos, relatórios técnicos, livros
-e folhetos ---, especialmente aqueles definidos pela ABNT NBR 6022:2003, ABNT
+e folhetos ---, especialmente aqueles definidos pela ABNT NBR 6022:2018, ABNT
 NBR 10719:2015, ABNT NBR 14724:2011 e pela ABNT NBR 6024:2012. A
 \autoref{sec-introducao} contém a lista completa de normas observadas pela
 classe.
@@ -197,8 +198,8 @@ técnicos e científicos condizentes com as normas ABNT.
 O \abnTeX2 foi desenvolvido com base nos requisitos das seguintes normas ABNT:
 
 \begin{description}
-  \item[ABNT NBR 6022:2003] Informação e documentação - Artigo em publicação
-  periódica científica impressa - Apresentação
+  \item[ABNT NBR 6022:2018] Informação e documentação - Artigo em publicação
+  periódica científica - Apresentação
   \item[ABNT NBR 6023:2002] Informação e documentação - Referência -
   Elaboração\footnote{ O abnTeX2 é compatível com a versão corrente da norma
   ABNT NBR 6023:2002. Porém, até este momento, os manuais
@@ -429,8 +430,8 @@ Dessa forma, a classe \textsf{abntex2} pode ser utilizada para gerar os
 documentos previstos tanto na ABNT NBR 10719:2015 quanto na ABNT NBR 15287:2011.
 
 Adicionalmente, a classe \textsf{abntex2} também é compatível com a norma ABNT
-NBR 6022:2003 \emph{Informação e documentação - Artigo em publicação periódica
-científica impressa - Apresentação}. Porém, nesse caso, a estrutura apresentada
+NBR 6022:2018 \emph{Informação e documentação - Artigo em publicação periódica
+científica - Apresentação}. Porém, nesse caso, a estrutura apresentada
 nesta seção não é aplicável. O modelo \cite{abntex2modelo-artigo} é um exemplo
 de artigo científico elaborado com a classe \textsf{abntex2}. O mesmo vale para
 norma ABNT NBR 6029:2006 \emph{Informação e documentação - Livros e folhetos -
@@ -524,7 +525,9 @@ A opção |article| é útil para produção de artigos com \abnTeX2.
 Nesse caso, a maioria dos elementos pré-textuais descritos na
 \autoref{sec-pretextuais} se tornam desnecessários. Quando esta opção for
 utilizada, a classe \textsf{abntex2} não forçará quebra de página para os
-elementos pré-textuais e definirá a formatação do capítulo de forma idêntica à
+elementos pré-textuais, utilizará título estrangeiro 
+(\autoref{sec-macro-titulo-estrangeiro}) e definirá a formatação do 
+capítulo de forma idêntica à
 formatação das seções. Por padrão, quando a opção |article| estiver presente,
 você deve iniciar as divisões do documento com |\section|, e não |\chapter|,
 como é usual em trabalhos monográficos. Porém, caso queira iniciar as divisões com
@@ -1079,6 +1082,15 @@ A macro |\titulo|\marg{texto do título} é utilizada para armazenar o título d
 documento. O conteúdo armazenado é impresso por meio da macro |\imprimirtitulo|.
 Esta macro também executa a macro padrão |\title| com o mesmo conteúdo informado
 em |\titulo|.
+
+% ---
+\subsubsection{Título estrangeiro}\label{sec-macro-titulo-estrangeiro}
+% ---
+
+\DescribeMacro{\tituloestrangeiro}\DescribeMacro{\imprimirtituloestrangeiro} 
+A macro |\tituloestrangeiro|\marg{texto do título} é utilizada para armazenar o 
+título do documento em idioma diferente do corpo do texto. O conteúdo armazenado 
+é impresso por meio da macro |\imprimirtituloestrangeiro|.
 
 % ---
 \subsubsection{Autor}\label{sec-macro-autor}

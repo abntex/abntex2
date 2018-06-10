@@ -22,8 +22,8 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % abnTeX2: Modelo de Artigo Acadêmico em conformidade com
-% ABNT NBR 6022:2003: Informação e documentação - Artigo em publicação 
-% periódica científica impressa - Apresentação
+% ABNT NBR 6022:2018: Informação e documentação - Artigo em publicação 
+% periódica científica - Apresentação
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
@@ -92,15 +92,20 @@
 	\fi}%
 % ---
 
-% ---
-% Informações de dados para CAPA e FOLHA DE ROSTO
-% ---
-\titulo{Modelo Canônico de\\ Artigo científico com \abnTeX}
-\autor{Equipe \abnTeX\thanks{\url{http://www.abntex.net.br/}} \and Lauro
-César
-Araujo\thanks{laurocesar@laurocesar.com}}
+% --- Informações de dados para CAPA e FOLHA DE ROSTO ---
+\titulo{Modelo Canônico de Artigo científico com \abnTeX}
+\tituloestrangeiro{Canonical article template in \abnTeX: optional foreign title}
+
+\autor{
+Equipe \abnTeX\thanks{``Recomenda-se que os dados de vinculação e
+endereço constem em nota, com sistema de chamada próprio, diferente do sistema 
+adotado para citações no texto.'' \url{http://www.abntex.net.br/}} 
+\\[0.5cm] 
+Lauro César Araujo\thanks{``Constar currículo sucinto de cada autor, com 
+vinculação corporativa e endereço de contato.''} }
+
 \local{Brasil}
-\data{2015, v<VERSION>}
+\data{2018, v<VERSION>}
 % ---
 
 % ---
@@ -155,6 +160,7 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 % Espaçamento simples
 \SingleSpacing
 
+
 % ----
 % Início do documento
 % ----
@@ -178,18 +184,24 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 % \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
 %
 %---
-% página de titulo
+
+% página de titulo principal (obrigatório)
 \maketitle
+
+
+% titulo em outro idioma (opcional)
+
+
 
 % resumo em português
 \begin{resumoumacoluna}
- Conforme a ABNT NBR 6022:2003, o resumo é elemento obrigatório, constituído de
- uma sequência de frases concisas e objetivas e não de uma simples enumeração
- de tópicos, não ultrapassando 250 palavras, seguido, logo abaixo, das palavras
- representativas do conteúdo do trabalho, isto é, palavras-chave e/ou
- descritores, conforme a NBR 6028. (\ldots) As palavras-chave devem figurar logo
- abaixo do resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
- ponto e finalizadas também por ponto.
+ Conforme a ABNT NBR 6022:2018, o resumo no idioma do documento é elemento obrigatório. 
+ Constituído de uma sequência de frases concisas e objetivas e não de uma 
+ simples enumeração de tópicos, não ultrapassando 250 palavras, seguido, logo 
+ abaixo, das palavras representativas do conteúdo do trabalho, isto é, 
+ palavras-chave e/ou descritores, conforme a NBR 6028. (\ldots) As 
+ palavras-chave devem figurar logo abaixo do resumo, antecedidas da expressão 
+ Palavras-chave:, separadas entre si por ponto e finalizadas também por ponto.
  
  \vspace{\onelineskip}
  
@@ -197,8 +209,29 @@ Araujo\thanks{laurocesar@laurocesar.com}}
  \textbf{Palavras-chave}: latex. abntex. editoração de texto.
 \end{resumoumacoluna}
 
+
+% resumo em inglês
+\renewcommand{\resumoname}{Abstract}
+\begin{resumoumacoluna}
+ \begin{otherlanguage*}{english}
+   According to ABNT NBR 6022:2018, an abstract in foreign language is optional.
+
+   \vspace{\onelineskip}
+ 
+   \noindent
+   \textbf{Keywords}: latex. abntex.
+ \end{otherlanguage*}  
+\end{resumoumacoluna}
+
 % ]  				% FIM DE ARTIGO EM DUAS COLUNAS
 % ---
+
+\begin{center}\smaller
+\textbf{Data de submissão e aprovação}: elemento obrigatório. Indicar dia, mês e ano
+
+\textbf{Identificação e disponibilidade}: elemento opcional. Pode ser indicado 
+o endereço eletrônico, DOI, suportes e outras informações relativas ao acesso.
+\end{center}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
@@ -208,14 +241,13 @@ Araujo\thanks{laurocesar@laurocesar.com}}
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
-\section*{Introdução}
-\addcontentsline{toc}{section}{Introdução}
+\section{Introdução}
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento exemplifica a
 elaboração de publicação periódica científica impressa produzida conforme a ABNT
-NBR 6022:2003 \emph{Informação e documentação - Artigo em publicação periódica
-científica impressa - Apresentação}.
+NBR 6022:2018 \emph{Informação e documentação - Artigo em publicação periódica
+científica - Apresentação}.
 
 A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX\ não é
 modelo específico de nenhuma universidade ou instituição, mas que implementa tão
@@ -249,7 +281,7 @@ exemplos e informações adicionais de uso de \abnTeX\ e de \LaTeX.
 
 \subsection{Margens}
 
-A norma ABNT NBR 6022:2003 não estabelece uma margem específica a ser utilizada
+A norma ABNT NBR 6022:2018 não estabelece uma margem específica a ser utilizada
 no artigo científico. Dessa maneira, caso deseje alterar as margens, utilize os
 comandos abaixo:
 
@@ -389,8 +421,7 @@ referência completa das macros e ambientes disponíveis.
 % ---
 % Conclusão
 % ---
-\section*{Considerações finais}
-\addcontentsline{toc}{section}{Considerações finais}
+\section{Considerações finais}
 
 \lipsum[1]
 
@@ -404,34 +435,6 @@ referência completa das macros e ambientes disponíveis.
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
-
-% ---
-% Título e resumo em língua estrangeira
-% ---
-
-% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
-
-% titulo em inglês
-\titulo{Canonical academic article model with \abnTeX}
-\emptythanks
-\maketitle
-
-% resumo em português
-\renewcommand{\resumoname}{Abstract}
-\begin{resumoumacoluna}
- \begin{otherlanguage*}{english}
-   According to ABNT NBR 6022:2003, an abstract in foreign language is a back
-   matter mandatory element.
-
-   \vspace{\onelineskip}
- 
-   \noindent
-   \textbf{Keywords}: latex. abntex.
- \end{otherlanguage*}  
-\end{resumoumacoluna}
-
-% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
-% ---
 
 % ----------------------------------------------------------
 % Referências bibliográficas
@@ -460,7 +463,7 @@ referência completa das macros e ambientes disponíveis.
 \chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
 ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 % ----------------------------------------------------------
-\lipsum[55-57]
+\lipsum[55-56]
 
 \end{apendicesenv}
 % ---
@@ -483,5 +486,13 @@ parturient montes nascetur ridiculus mus}
 \lipsum[31]
 
 \end{anexosenv}
+
+% ----------------------------------------------------------
+% Agradecimentos
+% ----------------------------------------------------------
+
+\section*{Agradecimentos}
+Texto sucinto aprovado pelo periódico em que será publicado. Último 
+elemento pós-textual.
 
 \end{document}
