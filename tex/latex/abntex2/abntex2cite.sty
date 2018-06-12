@@ -544,8 +544,8 @@
 %we are repeating \bibcite command as defined in hyperref.sty
 %so that we have it all together at one place.
 \ifthenelse{\boolean{ABNThyperref}}{%
-\renewcommand{\bibcite}[2]{%
- \@newl@bel{b}{#1}{\hyper@@link[cite]{}{cite.#1}{#2}}}%
+%\renewcommand{\bibcite}[2]{%
+% \@newl@bel{b}{#1}{\hyper@@link[cite]{}{cite.#1}{#2}}}%
 \newcommand{\bibciteEXPL}[2]{%
  \@newl@bel{b}{#1++EXPL}{\hyper@@link[cite]{}{cite.#1}{#2}}}%
 \newcommand{\bibciteIMPL}[2]{%
