@@ -515,7 +515,7 @@
   %
   % Fontes das entradas do sumario
   %
-  \renewcommand{\cftpartfont}{\bfseries\larger}
+  \renewcommand{\cftpartfont}{\bfseries\large}
   %
   \renewcommand{\cftchapterfont}{\bfseries}
   \renewcommand{\cftchapterpagefont}{\normalsize\cftchapterfont}
@@ -753,7 +753,7 @@
 % ---
 % Titulos em lingua estrangeira para artigos: ABNT NBR 6022:2018
 \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-\renewcommand{\maketitlehookb}{\larger\larger\center\theforeigntitle}
+\renewcommand{\maketitlehookb}{\LARGE\center\textit{\theforeigntitle}}
 }{}
 % ---
 
