@@ -366,7 +366,6 @@
 }
 
 % Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
-\makeatletter
 \newcommand{\fonte}[2][\fontename]{%
   \M@gettitle{#2}%
   \memlegendinfo{#2}%
@@ -381,12 +380,9 @@
      \captiondelim{\ABNTEXcaptionfontedelim}
      \@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida #2}\par
   \endgroup}
-\makeatother
 
 % Define o comando \notas que respeita as configurações de caption do memoir ou do caption
-\makeatletter
 \newcommand{\nota}[2][\notaname]{\fonte[#1]{#2}}
-\makeatother
 
 
 % Altera os comandos \configurecaptions e \configureseparator para trabalhar com 
@@ -519,7 +515,7 @@
   %
   % Fontes das entradas do sumario
   %
-  \renewcommand{\cftpartfont}{\bfseries\larger}
+  \renewcommand{\cftpartfont}{\bfseries\large}
   %
   \renewcommand{\cftchapterfont}{\bfseries}
   \renewcommand{\cftchapterpagefont}{\normalsize\cftchapterfont}
@@ -698,6 +694,11 @@
 \newcommand{\titulo}[1]{\title{#1}}
 \newcommand{\imprimirtitulo}{\thetitle}
 
+% Comandos de dados - titulo do documento
+\newcommand{\tituloestrangeiro}[1]{\providecommand{\theforeigntitle}{#1}}
+\newcommand{\imprimirtituloestrangeiro}{\theforeigntitle}
+
+
 % Comandos de dados - autor (use \and para multiplos autores)
 \newcommand{\autor}[1]{\author{#1}}
 \newcommand{\imprimirautor}{\theauthor}
@@ -747,6 +748,13 @@
 % ---
 % Ambiente para definicao da Capa
 \newenvironment{capa}{\begin{titlingpage}}{\end{titlingpage}\cleardoublepage}
+% ---
+
+% ---
+% Titulos em lingua estrangeira para artigos: ABNT NBR 6022:2018
+\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+\renewcommand{\maketitlehookb}{\LARGE\center\textit{\theforeigntitle}}
+}{}
 % ---
 
 % ---

@@ -273,6 +273,20 @@ hospedado originalmente em
 A equipe do projeto \abnTeX2, observando a \emph{LaTeX Project Public License},
 registra que os créditos deste manual são dos autores originais.
 
+\section{O novo pacote \textsf{biblatex-abnt}}
+
+O \textsf{biblatex-abnt}\footnote{Ver \url{https://ctan.org/pkg/biblatex-abnt} e
+\url{https://github.com/abntex/biblatex-abnt}.} \cite{biblatex-abnt} é um
+projeto em andamento que define em \textsf{Bib\LaTeX}\footnote{Ver \url{https://ctan.org/pkg/biblatex}}
+as regras de formatação bibliográfica da ABNT NBR 6023 e de citação da ABNT NBR
+10520. Sendo totalmente implementado em \LaTeX, ele substitui os arquivos de
+estilo \textsf{bibtex} \textsf{abntex2-alf.bst}, \textsf{abntex2-num.bst} e o
+pacote \textsf{abntex2cite.sty} descrito neste manual. Com isso, o
+\textsf{biblatex-abnt} deve aposentar os estilos de formatação do
+\textsf{abntex2cite} e utilizar exclusivamente o \textsf{biblatex-abnt} e as
+macros padrões do \textsf{Bib\LaTeX}.
+
+
 \section{Considerações iniciais}
 
 \subsection{Se puder, evite a `norma' ANBT NBR 6023}
@@ -326,7 +340,7 @@ subestilos. Consulte a \autoref{tabela-subestilos} e avise-nos se houver
 regras particulares de sua instituição para que possam ser disponibilizadas
 para outras pessoas.
 
-\subsection{Até que ponto esse estilo \textsf{bibtex} cumpre a `norma' 6023?}
+\subsection{Até que ponto este estilo \textsf{bibtex} cumpre a `norma' 6023?}
 
 O estilo ainda está em fase final de desenvolvimento. Praticamente
 todos os tipos de entrada funcionam bem.
