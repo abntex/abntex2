@@ -366,7 +366,6 @@
 }
 
 % Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
-\makeatletter
 \newcommand{\fonte}[2][\fontename]{%
   \M@gettitle{#2}%
   \memlegendinfo{#2}%
@@ -381,12 +380,9 @@
      \captiondelim{\ABNTEXcaptionfontedelim}
      \@makecaption{\ABNTEXfontereduzida #1}{\ignorespaces\ABNTEXfontereduzida #2}\par
   \endgroup}
-\makeatother
 
 % Define o comando \notas que respeita as configurações de caption do memoir ou do caption
-\makeatletter
 \newcommand{\nota}[2][\notaname]{\fonte[#1]{#2}}
-\makeatother
 
 
 % Altera os comandos \configurecaptions e \configureseparator para trabalhar com 
