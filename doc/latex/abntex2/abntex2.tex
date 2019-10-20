@@ -18,17 +18,17 @@
 %% This work consists of the file abntex2.tex
 
 \documentclass[a4paper]{ltxdoc}
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
-\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
-\usepackage{hyperref}  			% controla a formação do índice
-\usepackage{parskip}			% espaçamento entre os parágrafos
-\usepackage{microtype} 			% para melhorias de justificação
-\usepackage{morefloats}			% permite mais floats
+\usepackage{lmodern}      % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}    % seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}   % determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{hyperref}       % controla a formação do índice
+\usepackage{parskip}      % espaçamento entre os parágrafos
+\usepackage{microtype}      % para melhorias de justificação
+\usepackage{morefloats}     % permite mais floats
 
 
 % Babel e ajustes
-\usepackage[brazil]{babel}		% idiomas
+\usepackage[brazil]{babel}    % idiomas
 \addto\captionsbrazil{
     %% ajusta nomes padroes do babel
     \renewcommand{\bibname}{Refer\^encias}
@@ -55,32 +55,32 @@
 \IfFileExists{listings.sty}{
   \usepackage{listings}
 \lstset{%
-	language=[LaTeX]TeX,
-	columns=flexible,
-	basicstyle=\ttfamily\small,
-	backgroundcolor=\color{theshade},
-	frame=single,
-	tabsize=2,
-	rulecolor=\color{theframe},
-	title=\lstname,
-	escapeinside={\%*}{*)},
-	breaklines=true,
-	commentstyle=\color{thegrey},
-	keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
-	keywordstyle=[0]\color{thered},
-	keywords=[1]{},
-	keywordstyle=[1]\color{thegreen},
-	breakatwhitespace=true,
-	alsoother={0123456789_},
-	inputencoding=utf8,
-	extendedchars=true,
-	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
+  language=[LaTeX]TeX,
+  columns=flexible,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{theshade},
+  frame=single,
+  tabsize=2,
+  rulecolor=\color{theframe},
+  title=\lstname,
+  escapeinside={\%*}{*)},
+  breaklines=true,
+  commentstyle=\color{thegrey},
+  keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
+  keywordstyle=[0]\color{thered},
+  keywords=[1]{},
+  keywordstyle=[1]\color{thegreen},
+  breakatwhitespace=true,
+  alsoother={0123456789_},
+  inputencoding=utf8,
+  extendedchars=true,
+  literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
 }
 \let\verbatim\relax
- 	\lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+  \lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
 }
 
-\usepackage[alf]{abntex2cite}	% citacoes
+\usepackage[alf]{abntex2cite} % citacoes
 
 
 % COMANDOS PROPRIOS
@@ -100,18 +100,18 @@ técnicos e científicos brasileiros \\compatíveis com as normas ABNT}}
 \date{\today, v<VERSION>}
 
 \hypersetup{
-		pdftitle={A classe abntex2},
-		pdfauthor={Equipe abnTeX2},
-    	pdfsubject={Documentos técnicos e científicos brasileiros compatíveis com
-    	as normas ABNT},
-    	pdfkeywords={ABNT}{abntex}{abntex2}{trabalho
-		acadêmico}{dissertação}{tese}{ABNT 14724}{ABNT 6024},
-		pdfproducer={Lauro César Araujo -- laurocesar@laurocesar.com}, 	% producer of the document
-	    pdfcreator={LaTeX with abnTeX2},
-    	colorlinks=true,
-    	linkcolor=blue,
-    	citecolor=blue,
-		urlcolor=blue
+    pdftitle={A classe abntex2},
+    pdfauthor={Equipe abnTeX2},
+      pdfsubject={Documentos técnicos e científicos brasileiros compatíveis com
+      as normas ABNT},
+      pdfkeywords={ABNT}{abntex}{abntex2}{trabalho
+    acadêmico}{dissertação}{tese}{ABNT 14724}{ABNT 6024},
+    pdfproducer={Lauro César Araujo -- laurocesar@laurocesar.com},  % producer of the document
+      pdfcreator={LaTeX with abnTeX2},
+      colorlinks=true,
+      linkcolor=blue,
+      citecolor=blue,
+    urlcolor=blue
 }
 
 \EnableCrossrefs
@@ -373,37 +373,37 @@ diferenças entre as outras normas.
        Capa (obrigatório) \\
        Lombada (opcional)
   \item[Parte Interna]\
-		\begin{description}
-		\item[Elementos pré-textuais]\ \\
-		  Folha de rosto (obrigatório) + \\
-		  Dados de catalogação-na-publicação\footnote{O documento
-		  ``Dados de catalogação-na-publicação'' é chamado apenas como ``Ficha
-		  catalográfica'' neste texto.} (opcional)\\
-		  Errata (opcional) \\
-		  Folha de aprovação (obrigatório) \\
-		  Dedicatória (opcional) \\
-		  Agradecimentos (opcional) \\
-		  Epígrafe (opcional) \\
-		  Resumo em língua vernácula (obrigatório) \\
-		  Resumo em língua estrangeira (obrigatório) \\
-		  Lista de ilustrações (opcional) \\
-		  Lista de tabelas (opcional) \\
-		  Lista de abreviaturas e siglas (opcional) \\
-		  Lista de símbolos (opcional) \\
-		  Sumário (obrigatório)
-		\item[Elementos textuais]\footnote{A nomenclatura dos títulos dos elementos
-		textuais é a critério do autor.}\
-		\\
-		  Introdução \\
-		  Desenvolvimento \\
-		  Conclusão
-		\item[Elementos pós-textuais]\ \\
-		  Referências (obrigatório) \\
-		  Glossário (opcional) \\
-		  Apêndice (opcional) \\
-		  Anexo (opcional) \\
-		  Índice (opcional)
-		\end{description}
+    \begin{description}
+    \item[Elementos pré-textuais]\ \\
+      Folha de rosto (obrigatório) + \\
+      Dados de catalogação-na-publicação\footnote{O documento
+      ``Dados de catalogação-na-publicação'' é chamado apenas como ``Ficha
+      catalográfica'' neste texto.} (opcional)\\
+      Errata (opcional) \\
+      Folha de aprovação (obrigatório) \\
+      Dedicatória (opcional) \\
+      Agradecimentos (opcional) \\
+      Epígrafe (opcional) \\
+      Resumo em língua vernácula (obrigatório) \\
+      Resumo em língua estrangeira (obrigatório) \\
+      Lista de ilustrações (opcional) \\
+      Lista de tabelas (opcional) \\
+      Lista de abreviaturas e siglas (opcional) \\
+      Lista de símbolos (opcional) \\
+      Sumário (obrigatório)
+    \item[Elementos textuais]\footnote{A nomenclatura dos títulos dos elementos
+    textuais é a critério do autor.}\
+    \\
+      Introdução \\
+      Desenvolvimento \\
+      Conclusão
+    \item[Elementos pós-textuais]\ \\
+      Referências (obrigatório) \\
+      Glossário (opcional) \\
+      Apêndice (opcional) \\
+      Anexo (opcional) \\
+      Índice (opcional)
+    \end{description}
 \end{description}
 
 O \abnTeX2 apresenta instrumentos para produzir todas as partes do documento,
@@ -603,12 +603,12 @@ Exemplo de uso:
 
 \begin{verbatim}
 \documentclass[12pt,openright,twoside,a4paper,
-	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	subsubsection=TITLE, % títulos de subsubseções em letras maiúsculas
-	subsubsubsection=TITLE, % títulos de subsubsubseções em letras maiúsculas
-	english,french,spanish,brazil]{abntex2}
+  chapter=TITLE,    % títulos de capítulos convertidos em letras maiúsculas
+  section=TITLE,    % títulos de seções convertidos em letras maiúsculas
+  subsection=TITLE, % títulos de subseções convertidos em letras maiúsculas
+  subsubsection=TITLE, % títulos de subsubseções em letras maiúsculas
+  subsubsubsection=TITLE, % títulos de subsubsubseções em letras maiúsculas
+  english,french,spanish,brazil]{abntex2}
 \end{verbatim}
 
 % ---
@@ -640,7 +640,7 @@ parágrafo também seja indentado. Para isso, apenas inclua o pacote
 \textsf{indentfirst} no preâmbulo do documento:
 
 \begin{verbatim}
-\usepackage{indentfirst}	% Indenta o primeiro parágrafo de cada seção.
+\usepackage{indentfirst}  % Indenta o primeiro parágrafo de cada seção.
 \end{verbatim}
 
 \subsubsection{Espaçamento entre parágrafos}
@@ -649,7 +649,7 @@ O espaçamento entre um parágrafo e outro pode ser controlado por meio do
 comando:
 
 \begin{verbatim}
-\setlength{\parskip}{0.2cm}	% tente também \onelineskip
+\setlength{\parskip}{0.2cm} % tente também \onelineskip
 \end{verbatim}
 
 \subsubsection{Espaçamento entre linhas}
@@ -1200,7 +1200,7 @@ metadados do PDF final, conforme o exemplo, que também altera informações de 
 links internos do documento final:
 
 \begin{verbatim}
-\usepackage{hyperref}		% controla a formação do índice
+\usepackage{hyperref}   % controla a formação do índice
 
 \titulo{Modelo Canônico de\\ Trabalho Acadêmico com \abnTeX}
 \autor{Equipe \abnTeX}
@@ -1220,15 +1220,15 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 
 \makeatletter
 \hypersetup{
-		pdftitle={\@title},
-		pdfauthor={\@author},
-		pdfsubject={\imprimirpreambulo},
-		pdfkeywords={PALAVRAS}{CHAVE}{EM}{PORTUGUES},
-		pdfcreator={LaTeX with abnTeX2},
-		colorlinks=true,
-		linkcolor=blue,
-		citecolor=blue,
-		urlcolor=blue
+    pdftitle={\@title},
+    pdfauthor={\@author},
+    pdfsubject={\imprimirpreambulo},
+    pdfkeywords={PALAVRAS}{CHAVE}{EM}{PORTUGUES},
+    pdfcreator={LaTeX with abnTeX2},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
 }
 \makeatother
 \end{verbatim}
@@ -1416,7 +1416,7 @@ reescreva a macro |\folhaderostocontent|, conforme o exemplo:
     \abntex@ifnotempty{\imprimirpreambulo}{%
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
-      	\SingleSpacing
+        \SingleSpacing
          \imprimirpreambulo
        \end{minipage}%
        \vspace*{\fill}
@@ -1461,37 +1461,37 @@ Um exemplo de uso do comando é:
 \begin{verbatim}
 \begin{fichacatalografica}
     \sffamily
-	\vspace*{15cm}			% Posição vertical
-	\hrule				% Linha horizontal
-	\begin{center}			% Minipage Centralizado
-	\begin{minipage}[c]{12.5cm}	% Largura
+  \vspace*{15cm}      % Posição vertical
+  \hrule        % Linha horizontal
+  \begin{center}      % Minipage Centralizado
+  \begin{minipage}[c]{12.5cm} % Largura
 
-	\imprimirautor
+  \imprimirautor
 
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
+  \hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+  \imprimirlocal, \imprimirdata-
 
-	\hspace{0.5cm} \pageref{LastPage} p. : il.(alguma color.); 30 cm.\\
+  \hspace{0.5cm} \pageref{LastPage} p. : il.(alguma color.); 30 cm.\\
 
-	\hspace{0.5cm} \imprimirorientadorRotulo \imprimirorientador\\
+  \hspace{0.5cm} \imprimirorientadorRotulo \imprimirorientador\\
 
 \hspace{0.5cm}
 \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
 \imprimirdata.}\\
 
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título\\
+  \hspace{0.5cm}
+    1. Palavra-chave1.
+    2. Palavra-chave2.
+    I. Orientador.
+    II. Universidade xxx.
+    III. Faculdade de xxx.
+    IV. Título\\
 
-	\hspace{8.75cm} CDU 02:141:005.7\\
+  \hspace{8.75cm} CDU 02:141:005.7\\
 
-	\end{minipage}
-	\end{center}
-	\hrule
+  \end{minipage}
+  \end{center}
+  \hrule
 \end{fichacatalografica}
 \end{verbatim}
 
@@ -2431,11 +2431,11 @@ elemento e a legenda abaixo, conforme no exemplo:
 
 \begin{verbatim}
 \begin{figure}[htb]
-	\caption{\label{fig_circulo}A delimitação do espaço}
-	\begin{center}
-	  \includegraphics[scale=0.75]{myfig.pdf}
-	\end{center}
-	\legend{Fonte: os autores}
+  \caption{\label{fig_circulo}A delimitação do espaço}
+  \begin{center}
+    \includegraphics[scale=0.75]{myfig.pdf}
+  \end{center}
+  \legend{Fonte: os autores}
 \end{figure}
 \end{verbatim}
 
@@ -2542,12 +2542,12 @@ disponibiliza o ambiente |quadro| para sua criação, veja um exemplo:
 \begin{quadro}[htb]
 \caption{\label{quadro_exemplo}Exemplo de quadro}
 \begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
-	Marcos & 26    & 68   & 178    \\ \hline
-	Ivone  & 22    & 57   & 162    \\ \hline
-	...    & ...   & ...  & ...    \\ \hline
-	Sueli  & 40    & 65   & 153    \\ \hline
+  \hline
+  \textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+  Marcos & 26    & 68   & 178    \\ \hline
+  Ivone  & 22    & 57   & 162    \\ \hline
+  ...    & ...   & ...  & ...    \\ \hline
+  Sueli  & 40    & 65   & 153    \\ \hline
 \end{tabular}
 \fonte{Autor.}
 \end{quadro}
@@ -2590,7 +2590,7 @@ Para utilizar o padrão de bibliografias brasileiro implementado pelo pacote
 \textsf{abntex2cite}, declare no preâmbulo do documento:
 
 \begin{verbatim}
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[alf]{abntex2cite} % Citações padrão ABNT
 \end{verbatim}
 
 A opção |alf| indica que as referências serão alfanuméricas, no padrão
@@ -2635,13 +2635,13 @@ imprimir as referências:
 
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	  \ifcase #1 %
-		 Nenhuma citação no texto.%
-	  \or
-		 Citado na página #2.%
-	  \else
-		 Citado #1 vezes nas páginas #2.%
-	  \fi}%
+    \ifcase #1 %
+     Nenhuma citação no texto.%
+    \or
+     Citado na página #2.%
+    \else
+     Citado #1 vezes nas páginas #2.%
+    \fi}%
 \end{verbatim}
 
 % ---

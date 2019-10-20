@@ -28,21 +28,21 @@
 % ------------------------------------------------------------------------
 
 \documentclass[
-	% -- opções da classe memoir --
-	article,			% indica que é um artigo acadêmico
-	11pt,				% tamanho da fonte
-	oneside,			% para impressão apenas no recto. Oposto a twoside
-	a4paper,			% tamanho do papel.
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
-	sumario=tradicional
-	]{abntex2}
+  % -- opções da classe memoir --
+  article,      % indica que é um artigo acadêmico
+  11pt,       % tamanho da fonte
+  oneside,      % para impressão apenas no recto. Oposto a twoside
+  a4paper,      % tamanho do papel.
+  % -- opções da classe abntex2 --
+  %chapter=TITLE,   % títulos de capítulos convertidos em letras maiúsculas
+  %section=TITLE,   % títulos de seções convertidos em letras maiúsculas
+  %subsection=TITLE,  % títulos de subseções convertidos em letras maiúsculas
+  %subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+  % -- opções do pacote babel --
+  english,      % idioma adicional para hifenização
+  brazil,       % o último idioma é o principal do documento
+  sumario=tradicional
+  ]{abntex2}
 
 
 % ---
@@ -52,27 +52,27 @@
 % ---
 % Pacotes fundamentais
 % ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{nomencl} 			% Lista de simbolos
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{lmodern}      % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}    % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}   % Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}    % Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl}      % Lista de simbolos
+\usepackage{color}        % Controle das cores
+\usepackage{graphicx}     % Inclusão de gráficos
+\usepackage{microtype}      % para melhorias de justificação
 % ---
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
-\usepackage{lipsum}				% para geração de dummy text
+\usepackage{lipsum}       % para geração de dummy text
 % ---
 
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref}   % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite} % Citações padrão ABNT
 % ---
 
 % ---
@@ -83,13 +83,13 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
+  \ifcase #1 %
+    Nenhuma citação no texto.%
+  \or
+    Citado na página #2.%
+  \else
+    Citado #1 vezes nas páginas #2.%
+  \fi}%
 % ---
 
 % --- Informações de dados para CAPA e FOLHA DE ROSTO ---
@@ -117,18 +117,18 @@ vinculação corporativa e endereço de contato.''} }
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title},
-		pdfauthor={\@author},
-    	pdfsubject={Modelo de artigo científico com abnTeX2},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico},
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+      %pagebackref=true,
+    pdftitle={\@title},
+    pdfauthor={\@author},
+      pdfsubject={Modelo de artigo científico com abnTeX2},
+      pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico},
+    colorlinks=true,          % false: boxed links; true: colored links
+      linkcolor=blue,           % color of internal links
+      citecolor=blue,           % color of links to bibliography
+      filecolor=magenta,          % color of file links
+    urlcolor=blue,
+    bookmarksdepth=4
 }
 \makeatother
 % ---
@@ -181,7 +181,7 @@ vinculação corporativa e endereço de contato.''} }
 %
 % Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
 % e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
-% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+% \twocolumn[       % INICIO DE ARTIGO EM DUAS COLUNAS
 %
 %---
 
@@ -223,7 +223,7 @@ vinculação corporativa e endereço de contato.''} }
  \end{otherlanguage*}
 \end{resumoumacoluna}
 
-% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
+% ]         % FIM DE ARTIGO EM DUAS COLUNAS
 % ---
 
 \begin{center}\smaller

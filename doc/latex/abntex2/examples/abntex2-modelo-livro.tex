@@ -17,21 +17,21 @@
 
 
 \documentclass[
-	% -- opções da classe memoir --
-	10pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a5paper,			% tamanho do papel.
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
-	sumario=tradicional
+    % -- opções da classe memoir --
+    10pt,               % tamanho da fonte
+    openright,          % capítulos começam em pág ímpar (insere página vazia caso preciso)
+    twoside,            % para impressão em recto e verso. Oposto a oneside
+    a5paper,            % tamanho do papel.
+    % -- opções da classe abntex2 --
+    %chapter=TITLE,     % títulos de capítulos convertidos em letras maiúsculas
+    %section=TITLE,     % títulos de seções convertidos em letras maiúsculas
+    %subsection=TITLE,  % títulos de subseções convertidos em letras maiúsculas
+    %subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+    % -- opções do pacote babel --
+    english,            % idioma adicional para hifenização
+    french,             % idioma adicional para hifenização
+    brazil,             % o último idioma é o principal do documento
+    sumario=tradicional
 ]{abntex2}
 
 % compilação de fontes
@@ -69,24 +69,24 @@
 %% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel.
 %% Se isso acontecer, atualize o pacote para a versão mais recente ou utilize somente uma das sequências (pdflatex ou xelatex), comentando ou apagando a outra.
 
-\usepackage{microtype} 				% para melhorias de justificação
-\usepackage[dvipsnames]{xcolor} 		% para cores
-\usepackage{graphicx} 			% para imagens
-\usepackage{booktabs,tabularx,rotating}	% para tabelas
-\usepackage{mdframed} 				% para caixas de texto como na CIP do verso do título
-\usepackage{multicol}				% tabelas com colunas mescladas
-\usepackage{lettrine}				% letras capitulares
-\usepackage{xspace} 				% para nao precisar de espaços com {} depois de comandos
-									% como \LaTeX e abreviações criadas pelo usuário
-\usepackage{lipsum} 				% para texto de preenchimento de exemplo
-\usepackage{leading}				% espaçamento entrelinhas (leading)
+\usepackage{microtype}              % para melhorias de justificação
+\usepackage[dvipsnames]{xcolor}         % para cores
+\usepackage{graphicx}           % para imagens
+\usepackage{booktabs,tabularx,rotating} % para tabelas
+\usepackage{mdframed}               % para caixas de texto como na CIP do verso do título
+\usepackage{multicol}               % tabelas com colunas mescladas
+\usepackage{lettrine}               % letras capitulares
+\usepackage{xspace}                 % para nao precisar de espaços com {} depois de comandos
+                                    % como \LaTeX e abreviações criadas pelo usuário
+\usepackage{lipsum}                 % para texto de preenchimento de exemplo
+\usepackage{leading}                % espaçamento entrelinhas (leading)
 \leading{13pt}
 
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref}     % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 
 % ---
 % Configurações do pacote backref
@@ -96,13 +96,13 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
+    \ifcase #1 %
+        Nenhuma citação no texto.%
+    \or
+        Citado na página #2.%
+    \else
+        Citado #1 vezes nas páginas #2.%
+    \fi}%
 % ---
 
 % ---
@@ -121,18 +121,18 @@
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title},
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{livro},
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+        %pagebackref=true,
+        pdftitle={\@title},
+        pdfauthor={\@author},
+        pdfsubject={\imprimirpreambulo},
+        pdfcreator={LaTeX with abnTeX2},
+        pdfkeywords={abnt}{latex}{abntex}{abntex2}{livro},
+        colorlinks=true,            % false: boxed links; true: colored links
+        linkcolor=blue,             % color of internal links
+        citecolor=blue,             % color of links to bibliography
+        filecolor=magenta,              % color of file links
+        urlcolor=blue,
+        bookmarksdepth=4
 }
 \makeatother
 % ---

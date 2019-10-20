@@ -30,13 +30,13 @@
 %
 \providecommand{\ABNTEXisarticle}{false}
 \DeclareOption{article}{
-	\renewcommand{\ABNTEXisarticle}{true}
-	\PassOptionsToClass{article}{memoir}%}
+  \renewcommand{\ABNTEXisarticle}{true}
+  \PassOptionsToClass{article}{memoir}%}
 }
 \providecommand{\ABNTEXistwocolumn}{false}
 \DeclareOption{twocolumn}{
-	\renewcommand{\ABNTEXistwocolumn}{true}
-	\PassOptionsToClass{twocolumn}{memoir}%}
+  \renewcommand{\ABNTEXistwocolumn}{true}
+  \PassOptionsToClass{twocolumn}{memoir}%}
 }
 %
 % Opcoes chapter=TITLE, section=TITLE, subsection=TITLE e
@@ -817,7 +817,7 @@
 \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
     % em artigos, margens e fontes são as mesmas de memoir
   }{ % else
-  	% Ajusta as margens para serem a mesma do documento
+    % Ajusta as margens para serem a mesma do documento
     \setlength\absleftindent{0cm}
     \setlength\absrightindent{0cm}
     % Garante que a fonte do texto do abstract será a mesma do documento, pois
@@ -1082,7 +1082,7 @@
     \abntex@ifnotempty{\imprimirpreambulo}{%
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
-      	\SingleSpacing
+        \SingleSpacing
          \imprimirpreambulo
        \end{minipage}%
        \vspace*{\fill}

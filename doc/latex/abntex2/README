@@ -349,12 +349,12 @@ Manual instalation
 You can manually install the abntex2 class and the abntex2cite package in any LaTeX system (TeXLive, MiKTeX,
 among others) running over a Windows, Linux, Mac, BSD (among others) if you have:
 
-  abntex2.cls	            The abntex2 class file.
-  abntex2cite.sty	        The abntex2cite citation package file.
-  abntex2abrev.sty	        Extension of abntex2cite package. It contains abbreviations helpers macros.
-  abntex2-alf.bst	        Numeric citation style file.
-  abntex2-num.bst			Alphanumeric (author-date) citation style file.
-  abntex2-options.bib	    Default citation options configurations.
+  abntex2.cls             The abntex2 class file.
+  abntex2cite.sty         The abntex2cite citation package file.
+  abntex2abrev.sty          Extension of abntex2cite package. It contains abbreviations helpers macros.
+  abntex2-alf.bst         Numeric citation style file.
+  abntex2-num.bst     Alphanumeric (author-date) citation style file.
+  abntex2-options.bib     Default citation options configurations.
 
 Put those files somewhere LaTeX can find them. Read the documentation of
 your LaTeX system to find out where this might be.
@@ -374,34 +374,34 @@ DOCUMENTATION
 
 The abnTeX2 documentation consists of the following files:
 
-  README								Instructions on installation and documentation.
-  abntex2-modelo-trabalho-academico.tex	An usage example of abntex2 class and abntex2cite package producing a thesis
-  abntex2-modelo-relatorio-tecnico.tex	An usage example of abntex2 class and abntex2cite package producing a technical report
-  abntex2-modelo-projeto-pesquisa.tex	An usage example of abntex2 class and abntex2cite package producing a research project
-  abntex2-modelo-artigo.tex				An usage example of abntex2 class and abntex2cite package producing an article
-  abntex2-modelo-glossarios.tex			An usage example of abntex2 class and abntex2cite package producing a glossary
-  abntex2-modelo-slides.tex				An usage example of a beamer presentation with abntex2cite package
-  abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files
-  abntex2-modelo-livro.tex				An usage example of abntex2 class and abntex2cite package producing a book
-  abntex2-modelo-livro-bandeirinha.jpg		Image used by abntex2-modelo-livro.tex
-  abntex2-modelo-livro-pintassilgo.jpg		Image used by abntex2-modelo-livro.tex
-  abntex2-modelo-livro-saira-amarela.jpg	Image used by abntex2-modelo-livro.tex
-  abntex2-modelo-img-grafico.pdf			Image used as an example
+  README                Instructions on installation and documentation.
+  abntex2-modelo-trabalho-academico.tex An usage example of abntex2 class and abntex2cite package producing a thesis
+  abntex2-modelo-relatorio-tecnico.tex  An usage example of abntex2 class and abntex2cite package producing a technical report
+  abntex2-modelo-projeto-pesquisa.tex An usage example of abntex2 class and abntex2cite package producing a research project
+  abntex2-modelo-artigo.tex       An usage example of abntex2 class and abntex2cite package producing an article
+  abntex2-modelo-glossarios.tex     An usage example of abntex2 class and abntex2cite package producing a glossary
+  abntex2-modelo-slides.tex       An usage example of a beamer presentation with abntex2cite package
+  abntex2-modelo-include-comandos.tex LaTeX examples shared by others files
+  abntex2-modelo-livro.tex        An usage example of abntex2 class and abntex2cite package producing a book
+  abntex2-modelo-livro-bandeirinha.jpg    Image used by abntex2-modelo-livro.tex
+  abntex2-modelo-livro-pintassilgo.jpg    Image used by abntex2-modelo-livro.tex
+  abntex2-modelo-livro-saira-amarela.jpg  Image used by abntex2-modelo-livro.tex
+  abntex2-modelo-img-grafico.pdf      Image used as an example
   abntex2-modelo-img-marca.pdf
-  abntex2-modelo-references.bib			Bib references of examples above
+  abntex2-modelo-references.bib     Bib references of examples above
 
-  abntex2.tex							The main class documentation
-  abntex2cite.tex						The abntex2cite package documentation
-  abntex2cite-alf.tex					Additional alphanumeric (author-date) citation style documentation
-  abntex2-doc.bib						Bib references used by documentation
-  abntex2-doc-abnt-10520.bib			Specific ABNT NBR 10520:2001 and ABNT NBR 10520:2002 bib references entries
-  abntex2-doc-abnt-6023.bib				Specific ABNT NBR 6023:2000 and ABNT NBR 6023:2002 bib references entries
-  abntex2-doc-options.bib				Options configurations used by documentation
-  abntex2-doc-test.bib					General bib references used by accordance tests
+  abntex2.tex             The main class documentation
+  abntex2cite.tex           The abntex2cite package documentation
+  abntex2cite-alf.tex         Additional alphanumeric (author-date) citation style documentation
+  abntex2-doc.bib           Bib references used by documentation
+  abntex2-doc-abnt-10520.bib      Specific ABNT NBR 10520:2001 and ABNT NBR 10520:2002 bib references entries
+  abntex2-doc-abnt-6023.bib       Specific ABNT NBR 6023:2000 and ABNT NBR 6023:2002 bib references entries
+  abntex2-doc-options.bib       Options configurations used by documentation
+  abntex2-doc-test.bib          General bib references used by accordance tests
 
 To produce any documentation above you also need:
-  ltxdoc.cls   													(part of the standard LaTeX2e distribution)
-  all installation files described in "INSTALLATION" section	(par of this bundle)
+  ltxdoc.cls                            (part of the standard LaTeX2e distribution)
+  all installation files described in "INSTALLATION" section  (par of this bundle)
 
 Compile the documentation as the example below. There are 3 PDF files of documentation and 4 of examples.
 

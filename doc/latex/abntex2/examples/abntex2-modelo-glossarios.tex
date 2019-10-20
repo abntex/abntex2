@@ -26,22 +26,22 @@
 % ------------------------------------------------------------------------
 
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel.
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
-	]{abntex2}
+  % -- opções da classe memoir --
+  12pt,       % tamanho da fonte
+  openright,      % capítulos começam em pág ímpar (insere página vazia caso preciso)
+  twoside,      % para impressão em recto e verso. Oposto a oneside
+  a4paper,      % tamanho do papel.
+  % -- opções da classe abntex2 --
+  %chapter=TITLE,   % títulos de capítulos convertidos em letras maiúsculas
+  %section=TITLE,   % títulos de seções convertidos em letras maiúsculas
+  %subsection=TITLE,  % títulos de subseções convertidos em letras maiúsculas
+  %subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+  % -- opções do pacote babel --
+  english,      % idioma adicional para hifenização
+  french,       % idioma adicional para hifenização
+  spanish,      % idioma adicional para hifenização
+  brazil,       % o último idioma é o principal do documento
+  ]{abntex2}
 
 
 % ---
@@ -51,13 +51,13 @@
 % ---
 % Pacotes fundamentais
 % ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{lmodern}      % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}    % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}   % Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}    % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}        % Controle das cores
+\usepackage{graphicx}     % Inclusão de gráficos
+\usepackage{microtype}      % para melhorias de justificação
 % ---
 
 % ---
@@ -71,8 +71,8 @@
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref}   % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite} % Citações padrão ABNT
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -106,18 +106,18 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title},
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{glossários},
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+      %pagebackref=true,
+    pdftitle={\@title},
+    pdfauthor={\@author},
+      pdfsubject={\imprimirpreambulo},
+      pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={abnt}{latex}{abntex}{abntex2}{glossários},
+    colorlinks=true,          % false: boxed links; true: colored links
+      linkcolor=blue,           % color of internal links
+      citecolor=blue,           % color of links to bibliography
+      filecolor=magenta,          % color of file links
+    urlcolor=blue,
+    bookmarksdepth=4
 }
 \makeatother
 

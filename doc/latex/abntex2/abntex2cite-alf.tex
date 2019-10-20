@@ -19,20 +19,20 @@
 %% Copyright 2001-2003 by the abnTeX group at http://codigolivre.org.br/projects/abntex
 
 \documentclass[a4paper]{ltxdoc}
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
-\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{lmodern}            % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}        % seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}     % determina a codificação utiizada (conversão automática dos acentos)
 \usepackage[brazil]{babel}
-\usepackage{hyperref}  			% controla a formação do índice
-\usepackage{parskip}			% espaçamento entre os parágrafos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{hyperref}           % controla a formação do índice
+\usepackage{parskip}            % espaçamento entre os parágrafos
+\usepackage{microtype}          % para melhorias de justificação
 
 \hypersetup{
-		colorlinks=true,       		% false: boxed links; true: colored links
-    		linkcolor=blue,          		% color of internal links
-    		citecolor=blue,        		% color of links to bibliography
-    		filecolor=magenta,      		% color of file links
-		urlcolor=blue}
+        colorlinks=true,            % false: boxed links; true: colored links
+            linkcolor=blue,                 % color of internal links
+            citecolor=blue,             % color of links to bibliography
+            filecolor=magenta,              % color of file links
+        urlcolor=blue}
 
 \IfFileExists{html.sty}
 {\usepackage{html}}
@@ -93,29 +93,29 @@
 \IfFileExists{listings.sty}{
   \usepackage{listings}
 \lstset{%
-	language=[LaTeX]TeX,
-	columns=flexible,
-	basicstyle=\ttfamily\small,
-	backgroundcolor=\color{theshade},
-	frame=single,
-	tabsize=2,
-	rulecolor=\color{theframe},
-	title=\lstname,
-	escapeinside={\%*}{*)},
-	breaklines=true,
-	commentstyle=\color{thegrey},
-	keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
-	keywordstyle=[0]\color{thered},
-	keywords=[1]{},
-	keywordstyle=[1]\color{thegreen},
-	breakatwhitespace=true,
-	alsoother={0123456789_},
-	inputencoding=utf8,
-	extendedchars=true,
-	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
+    language=[LaTeX]TeX,
+    columns=flexible,
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{theshade},
+    frame=single,
+    tabsize=2,
+    rulecolor=\color{theframe},
+    title=\lstname,
+    escapeinside={\%*}{*)},
+    breaklines=true,
+    commentstyle=\color{thegrey},
+    keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
+    keywordstyle=[0]\color{thered},
+    keywords=[1]{},
+    keywordstyle=[1]\color{thegreen},
+    breakatwhitespace=true,
+    alsoother={0123456789_},
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
 }
 \let\verbatim\relax
- 	\lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+    \lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
 }
 
 

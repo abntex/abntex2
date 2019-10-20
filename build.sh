@@ -21,10 +21,10 @@ function compileLaTeX(){
 #        bibtex $1
 #        makeindex $1.idx
 #        makeindex $1.nlo -s nomencl.ist -o $1.nls
-#    	 makeglossaries $1
+#        makeglossaries $1
 #        pdflatex -interaction=nonstopmode $1
 #        pdflatex -interaction=nonstopmode $1
-		latexmk -pdf -time -silent $1
+        latexmk -pdf -time -silent $1
 }
 
 # initialize directories
@@ -171,7 +171,7 @@ function clean() {
 
 # replace tokens in the source files
 function replaceTokens(){
-		# replace version number in all files with <VERSION> string
+        # replace version number in all files with <VERSION> string
         find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"
 
         # replace current date in all files with <CURRENT_DATE> string
@@ -232,24 +232,24 @@ function deploy(){
 
         echo
         echo Deploying $TAR_FILE
-		curl -T $TAR_FILE -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$TAR_FILE_BASENAME
+        curl -T $TAR_FILE -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$TAR_FILE_BASENAME
 
         echo
         echo Deploying $ZIP_TDS
-		curl -T $ZIP_TDS -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$ZIP_TDS_BASENAME
+        curl -T $ZIP_TDS -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$ZIP_TDS_BASENAME
 
         echo
         echo Deploying $ZIP_DOC
-		curl -T $ZIP_DOC -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$ZIP_DOC_BASENAME
+        curl -T $ZIP_DOC -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$ZIP_DOC_BASENAME
 
         echo
         echo Deploying $ZIP_MODELO
-		curl -T $ZIP_MODELO -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$ZIP_MODELO_BASENAME
+        curl -T $ZIP_MODELO -u$1:$2 https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/$ZIP_MODELO_BASENAME
 
-		echo
-		echo Publishing all files
-		curl -u$1:$2 --request POST https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/publish
-		echo
+        echo
+        echo Publishing all files
+        curl -u$1:$2 --request POST https://api.bintray.com/content/laurocesar/generic/abntex2-releases/${VERSAO:1}/publish
+        echo
 
 }
 

@@ -31,7 +31,7 @@ install:
 uninstall:
 	@echo 'Verificando a instalação do abnTeX2 ...'
 	@if ! (test -w $(DESTDIR)$(INSTALL_PATH)); then \
-	 	echo 'O abnTeX2 deve ser desinstalado usando o comando "sudo make uninstall" ou como usuário root!'; \
+		echo 'O abnTeX2 deve ser desinstalado usando o comando "sudo make uninstall" ou como usuário root!'; \
 	else \
 		rm -rf $(DESTDIR)$(INSTALL_PATH)/bibtex/bib/abntex2; \
 		rm -rf $(DESTDIR)$(INSTALL_PATH)/bibtex/bst/abntex2; \

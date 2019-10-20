@@ -62,12 +62,12 @@ INTEGERS {abnt.alf  abnt.cite.style abnt.doi
           abnt.last.names abnt.ldots.type
           abnt.missing.year
           abnt.refinfo  abnt.repeated.author.omit abnt.repeated.title.omit
-	  abnt.show.options abnt.and.type
+    abnt.show.options abnt.and.type
           abnt.title.command
-	  abnt.thesis.year
-	  abnt.url.package abnt.verbatim.entry
-	  iso.abbreviation iso.author.punctuation iso.date.place
-	  repeated.author}
+    abnt.thesis.year
+    abnt.url.package abnt.verbatim.entry
+    iso.abbreviation iso.author.punctuation iso.date.place
+    repeated.author}
 
 %needed for title formatting
 INTEGERS { title.lenght title.pos first.word no.bracket}
@@ -361,71 +361,71 @@ if$
 
 FUNCTION {write.entry.verbatim1}
 {
-   "address" 		address  		write.field.verbatim
-   "author" 		author   		write.field.verbatim
-   "booktitle" 		booktitle 		write.field.verbatim
-   "booksubtitle" 	booksubtitle 		write.field.verbatim
-   "chapter" 		chapter 		write.field.verbatim
-   "conference-number" 	conference-number 	write.field.verbatim
-   "conference-year" 	conference-year 	write.field.verbatim
-   "conference-location" conference-location 	write.field.verbatim
-   "edition" 		edition 		write.field.verbatim
-   "editor" 		editor 			write.field.verbatim
-   "editortype" 	editortype 		write.field.verbatim
-   "dimensions" 	dimensions 		write.field.verbatim
-   "furtherresp" 	furtherresp 		write.field.verbatim
-   "howpublished" 	howpublished 		write.field.verbatim
-   "illustrated" 	illustrated  		write.field.verbatim
-   "institution" 	institution 		write.field.verbatim
-   "isbn" 		isbn 			write.field.verbatim
-   "issn" 		issn 			write.field.verbatim
-   "journal" 		journal 		write.field.verbatim
+   "address"    address     write.field.verbatim
+   "author"     author      write.field.verbatim
+   "booktitle"    booktitle     write.field.verbatim
+   "booksubtitle"   booksubtitle    write.field.verbatim
+   "chapter"    chapter     write.field.verbatim
+   "conference-number"  conference-number   write.field.verbatim
+   "conference-year"  conference-year   write.field.verbatim
+   "conference-location" conference-location  write.field.verbatim
+   "edition"    edition     write.field.verbatim
+   "editor"     editor      write.field.verbatim
+   "editortype"   editortype    write.field.verbatim
+   "dimensions"   dimensions    write.field.verbatim
+   "furtherresp"  furtherresp     write.field.verbatim
+   "howpublished"   howpublished    write.field.verbatim
+   "illustrated"  illustrated     write.field.verbatim
+   "institution"  institution     write.field.verbatim
+   "isbn"     isbn      write.field.verbatim
+   "issn"     issn      write.field.verbatim
+   "journal"    journal     write.field.verbatim
 }
 FUNCTION {write.entry.verbatim2}
 {
-   "key" 		key 			write.field.verbatim
-   "month" 		month 			write.field.verbatim
-   "note" 		note 			write.field.verbatim
-   "marginnote" 	marginnote 		write.field.verbatim
-   "number" 		number 			write.field.verbatim
-   "organization" 	organization 		write.field.verbatim
-   "org-short" 		org-short 		write.field.verbatim
-   "pages" 		pages 			write.field.verbatim
-   "pagename" 		pagename 		write.field.verbatim
-   "publisher" 		publisher 		write.field.verbatim
-   "reprinted-from" 	reprinted-from 		write.field.verbatim
-   "reprinted-text" 	reprinted-text 		write.field.verbatim
-   "school" 		school 			write.field.verbatim
-   "series" 		series 			write.field.verbatim
-   "subtitle" 		subtitle 		write.field.verbatim
-   "section" 		section 		write.field.verbatim
-   "title" 		title 			write.field.verbatim
-   "type" 		type 			write.field.verbatim
+   "key"    key       write.field.verbatim
+   "month"    month       write.field.verbatim
+   "note"     note      write.field.verbatim
+   "marginnote"   marginnote    write.field.verbatim
+   "number"     number      write.field.verbatim
+   "organization"   organization    write.field.verbatim
+   "org-short"    org-short     write.field.verbatim
+   "pages"    pages       write.field.verbatim
+   "pagename"     pagename    write.field.verbatim
+   "publisher"    publisher     write.field.verbatim
+   "reprinted-from"   reprinted-from    write.field.verbatim
+   "reprinted-text"   reprinted-text    write.field.verbatim
+   "school"     school      write.field.verbatim
+   "series"     series      write.field.verbatim
+   "subtitle"     subtitle    write.field.verbatim
+   "section"    section     write.field.verbatim
+   "title"    title       write.field.verbatim
+   "type"     type      write.field.verbatim
 }
 FUNCTION {write.entry.verbatim3}
 {
-   "url" 		url 			write.field.verbatim
-   "urlaccessdate" 	urlaccessdate 		write.field.verbatim
-   "volume" 		volume 			write.field.verbatim
-   "year" 		year 			write.field.verbatim
-   "abnt-emphasize" 	abnt-emphasize 		write.field.verbatim
-   "abnt-experimental" 	abnt-experimental 	write.field.verbatim
-   "abnt-doi" 		abnt-doi	 	write.field.verbatim
-   "abnt-dont-use-etal" abnt-dont-use-etal 	write.field.verbatim
-   "abnt-full-initials" abnt-full-initials 	write.field.verbatim
-   "abnt-ldots-type" 	abnt-ldots-type 	write.field.verbatim
-   "abnt-missing-year" 	abnt-missing-year 	write.field.verbatim
-   "abnt-cite-style" 	abnt-cite-style 		write.field.verbatim
-   "abnt-no-etal-label" abnt-no-etal-label 	write.field.verbatim
+   "url"    url       write.field.verbatim
+   "urlaccessdate"  urlaccessdate     write.field.verbatim
+   "volume"     volume      write.field.verbatim
+   "year"     year      write.field.verbatim
+   "abnt-emphasize"   abnt-emphasize    write.field.verbatim
+   "abnt-experimental"  abnt-experimental   write.field.verbatim
+   "abnt-doi"     abnt-doi    write.field.verbatim
+   "abnt-dont-use-etal" abnt-dont-use-etal  write.field.verbatim
+   "abnt-full-initials" abnt-full-initials  write.field.verbatim
+   "abnt-ldots-type"  abnt-ldots-type   write.field.verbatim
+   "abnt-missing-year"  abnt-missing-year   write.field.verbatim
+   "abnt-cite-style"  abnt-cite-style     write.field.verbatim
+   "abnt-no-etal-label" abnt-no-etal-label  write.field.verbatim
    %abnt-note
    "abnt-repeated-author-omit" abnt-repeated-author-omit write.field.verbatim
    "abnt-repeated-title-omit" abnt-repeated-title-omit write.field.verbatim
-   "abnt-show-options" 	abnt-show-options 	write.field.verbatim
-   "abnt-refinfo" 	abnt-refinfo 		write.field.verbatim
-   "abnt-thesis-year" 	abnt-thesis-year 	write.field.verbatim
-   "abnt-title-command" abnt-title-command 	write.field.verbatim
-   "abnt-url-package" 	abnt-url-package 	write.field.verbatim
-   "abnt-verbatim-entry" abnt-verbatim-entry 	write.field.verbatim
+   "abnt-show-options"  abnt-show-options   write.field.verbatim
+   "abnt-refinfo"   abnt-refinfo    write.field.verbatim
+   "abnt-thesis-year"   abnt-thesis-year  write.field.verbatim
+   "abnt-title-command" abnt-title-command  write.field.verbatim
+   "abnt-url-package"   abnt-url-package  write.field.verbatim
+   "abnt-verbatim-entry" abnt-verbatim-entry  write.field.verbatim
 }
 
 FUNCTION {write.entry.verbatim}
@@ -541,20 +541,20 @@ FUNCTION {format.names.plain}
     { namesleft #0 > }
     { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ 't :=
       nameptr #1 >
-	{ namesleft #1 >
-	    { ", " * t * }
-	    { numnames #20 >
-		{ "," * }
-		'skip$
-	      if$
-	      t "others" =
-		{ bbl.etal * }
-		{ bbl.and * t * }
-	      if$
-	    }
-	  if$
-	}
-	't
+  { namesleft #1 >
+      { ", " * t * }
+      { numnames #20 >
+    { "," * }
+    'skip$
+        if$
+        t "others" =
+    { bbl.etal * }
+    { bbl.and * t * }
+        if$
+      }
+    if$
+  }
+  't
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
@@ -671,8 +671,8 @@ FUNCTION {format.title.as.author}
       no.bracket 'skip$ {title.char "}" = {#1 'no.bracket :=} 'skip$ if$}  if$
       type$ "journalpart" =
         {title.char "." = title.char ":" = or title.char "!" = or
-	 title.char "," = or title.char ";" = or title.char "?" = or}
-	{title.char " " =}
+   title.char "," = or title.char ";" = or title.char "?" = or}
+  {title.char " " =}
       if$ s t = or no.bracket and
        {#0 'first.word :=
        t title.char * "u" change.case$
@@ -754,12 +754,12 @@ FUNCTION {format.month}
 FUNCTION {format.date}
 { year empty$
     { month empty$
-	{ bbl.missing.year }
-	{ "existe o campo month (mês) mas não o campo year (ano) em " cite$ * warning$ month}
+  { bbl.missing.year }
+  { "existe o campo month (mês) mas não o campo year (ano) em " cite$ * warning$ month}
       if$}
     { month empty$
-	{ year n.dashify}
-	{ month " " * year * }
+  { year n.dashify}
+  { month " " * year * }
       if$}
   if$
 }
@@ -1186,7 +1186,7 @@ FUNCTION {format.author.or.editor.or.organization}
 { author empty$
     { editor empty$
         { organization empty$
-	    'skip$
+      'skip$
             { organization "u" change.case$ "organization"  bibinfo.check output}
           if$}
         { format.editors output.nonnull }
@@ -1227,15 +1227,15 @@ FUNCTION {format.names.for.label1} %abnt-alf only
       nameptr #1 >
         {namesleft #1 >
           { numnames abnt.etal.cite > abnt.etal.cite #0 = not and
-	    {#0 'namesleft := abnt.etal.cite {bbl.etal *} 'skip$ if$}
-	    {", " * t * } if$ }
+      {#0 'namesleft := abnt.etal.cite {bbl.etal *} 'skip$ if$}
+      {", " * t * } if$ }
             { t "others" =
               {abnt.etal.cite {bbl.etal *} 'skip$ if$}
                 {numnames nameptr =
                 {bbl.and * t *}
-		'skip$ if$}
+    'skip$ if$}
              if$
-	     }
+       }
           if$ }
         't
       if$
@@ -1259,13 +1259,13 @@ FUNCTION {format.names.for.label2} %abnt-alf only
       nameptr #1 >
         {namesleft #1 >
             { numnames abnt.etal.cite >
-	      {#0 'namesleft := abnt.etal.cite {bbl.etal *} 'skip$ if$}
-	      {"; " * t * } if$ }
+        {#0 'namesleft := abnt.etal.cite {bbl.etal *} 'skip$ if$}
+        {"; " * t * } if$ }
             { t "OTHERS" = t "others" = or
-	      {abnt.etal.cite {bbl.etal *} 'skip$ if$}
-	      {numnames nameptr = { bbl.semicolon * t *} 'skip$ if$}
+        {abnt.etal.cite {bbl.etal *} 'skip$ if$}
+        {numnames nameptr = { bbl.semicolon * t *} 'skip$ if$}
              if$
-	     }
+       }
           if$ }
         't
       if$
@@ -1281,7 +1281,7 @@ FUNCTION {format.title.for.label}
   {first.word}
     {s title.pos #1 substring$ 'title.char :=
         title.char "." = title.char ":" = or title.char ";" = or
-	title.char "," = or title.char " " = or s t = or
+  title.char "," = or title.char " " = or s t = or
        {#0 'first.word :=
        title.pos #1 + 'title.pos :=}
        {title.pos #1 + 'title.pos := t title.char * 't :=}
@@ -1310,7 +1310,7 @@ FUNCTION {extract.cvs.key} %we borrow the functionality of format.title.for.labe
       { title.char "$" =
         {#2 'value.pos :=}
         {t title.char * 't :=}
-	if$}
+  if$}
      if$
      key.pos #1 + 'key.pos :=
      }
@@ -1435,10 +1435,10 @@ FUNCTION { abnt-options1 }
       'skip$
       {abnt-cite-style "(AUTHOR, YEAR)" =
         {#0 'abnt.cite.style :=}
-	{abnt-cite-style "(Author, YEAR)" =
-	  {#1 'abnt.cite.style :=}
-	  {"opção " abnt-cite-style * " desconhecida" * warning$}
-	 if$}
+  {abnt-cite-style "(Author, YEAR)" =
+    {#1 'abnt.cite.style :=}
+    {"opção " abnt-cite-style * " desconhecida" * warning$}
+   if$}
         if$
        "abnt-cite-style" abnt-cite-style abnt.display.options}if$
 
@@ -1460,13 +1460,13 @@ FUNCTION { abnt-options1 }
       'skip$
       {abnt-doi "expand" =
         {abnt.doi.expand.to.url 'abnt.doi :=}
-	{abnt-doi "link" =
-	  {abnt.doi.link 'abnt.doi :=}
-	  {abnt-doi "doi" =
-	    {abnt.doi.leave.as.is 'abnt.doi :=}
-	    {"opção " abnt-doi * " desconhecida" * warning$}
-	   if$}
-	 if$}
+  {abnt-doi "link" =
+    {abnt.doi.link 'abnt.doi :=}
+    {abnt-doi "doi" =
+      {abnt.doi.leave.as.is 'abnt.doi :=}
+      {"opção " abnt-doi * " desconhecida" * warning$}
+     if$}
+   if$}
         if$
        "abnt-doi" abnt-doi abnt.display.options}if$
  }
@@ -1491,7 +1491,7 @@ FUNCTION { abnt-options2 }
         {abnt-ldots-type "normal" = {#1}
           {abnt-ldots-type "math" =   {#2}
             {abnt-ldots-type "text" =   {#1} {#0}
-	    if$} if$} if$} if$
+      if$} if$} if$} if$
        'abnt.ldots.type :=
        "abnt-ldots-type" abnt-ldots-type abnt.display.options}
     if$
@@ -1499,7 +1499,7 @@ FUNCTION { abnt-options2 }
     abnt-missing-year empty$
       'skip$
       {abnt-missing-year "void" = {#0}
-	{abnt-missing-year "sd" = {#1} {#0} if$}
+  {abnt-missing-year "sd" = {#1} {#0} if$}
        if$
        'abnt.missing.year :=
        "abnt-missing-year" abnt-missing-year abnt.display.options}
@@ -1555,13 +1555,13 @@ FUNCTION { abnt-options3 }
     abnt-repeated-author-omit empty$
     'skip$ {abnt-repeated-author-omit "yes" =
             {#1 'abnt.repeated.author.omit :=}
-	    {#0 'abnt.repeated.author.omit := "" 'previous.author :=} if$
+      {#0 'abnt.repeated.author.omit := "" 'previous.author :=} if$
     "abnt-repeated-author-omit" abnt-repeated-author-omit abnt.display.options} if$
 
     abnt-repeated-title-omit empty$ 'skip$
       {abnt-repeated-title-omit "yes" =
         {#1 'abnt.repeated.title.omit :=}
-	{#0 'abnt.repeated.title.omit := "" 'previous.title :=} if$
+  {#0 'abnt.repeated.title.omit := "" 'previous.title :=} if$
         "abnt-repeated-title-omit" abnt-repeated-title-omit abnt.display.options
         abnt.repeated.author.omit not abnt.repeated.title.omit and
           {"Use abnt-repeated-title-omit=yes junto com abnt-repeated-author-omit=yes"
@@ -1570,7 +1570,7 @@ FUNCTION { abnt-options3 }
     abnt-title-command empty$
     'skip$ {abnt-title-command "yes" =
             {#1 'abnt.title.command :=}
-	    {#0 'abnt.title.command :=} if$
+      {#0 'abnt.title.command :=} if$
     "abnt-title-command" abnt-title-command abnt.display.options} if$
 
     abnt-url-package empty$ 'skip$
@@ -1618,15 +1618,15 @@ FUNCTION { iso.year.label }
 {  iso.date.place
      { abnt.alf
          {year.label output new.sentence}
-	 'skip$ if$}
+   'skip$ if$}
     'skip$ if$}
 
 FUNCTION { iso.date }
 {  iso.date.place
      { abnt.alf
-	 'skip$
+   'skip$
           {year output new.sentence}
-	 if$}
+   if$}
     'skip$ if$}
 
 FUNCTION { non.iso.date }
@@ -1850,7 +1850,7 @@ FUNCTION {format.thesis.type}
        {bbl.mthesis}
        {type$ "monography" =
           {bbl.monography}
-	  {bbl.void}
+    {bbl.void}
         if$}
      if$}
   if$
@@ -2036,7 +2036,7 @@ FUNCTION {set.default.abnt.variables}
   "\emph" 'abnt.emphasize :=
   #0 'abnt.cite.style :=       %default norm version for NBR10520
                                %#0 \cite=(AUTHOR, YEAR)
-			       %#1 \cite=(Author, YEAR)
+             %#1 \cite=(Author, YEAR)
   #0 'abnt.experimental :=
   abnt.doi.expand.to.url 'abnt.doi :=
   #3 'abnt.etal.cite :=

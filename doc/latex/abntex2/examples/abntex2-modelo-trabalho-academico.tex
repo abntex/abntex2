@@ -29,46 +29,46 @@
 % ------------------------------------------------------------------------
 
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel.
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	brazil				% o último idioma é o principal do documento
-	]{abntex2}
+    % -- opções da classe memoir --
+    12pt,               % tamanho da fonte
+    openright,          % capítulos começam em pág ímpar (insere página vazia caso preciso)
+    twoside,            % para impressão em recto e verso. Oposto a oneside
+    a4paper,            % tamanho do papel.
+    % -- opções da classe abntex2 --
+    %chapter=TITLE,     % títulos de capítulos convertidos em letras maiúsculas
+    %section=TITLE,     % títulos de seções convertidos em letras maiúsculas
+    %subsection=TITLE,  % títulos de subseções convertidos em letras maiúsculas
+    %subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+    % -- opções do pacote babel --
+    english,            % idioma adicional para hifenização
+    french,             % idioma adicional para hifenização
+    spanish,            % idioma adicional para hifenização
+    brazil              % o último idioma é o principal do documento
+    ]{abntex2}
 
 % ---
 % Pacotes básicos
 % ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{lmodern}            % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}        % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}     % Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}              % Controle das cores
+\usepackage{graphicx}           % Inclusão de gráficos
+\usepackage{microtype}          % para melhorias de justificação
 % ---
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
-\usepackage{lipsum}				% para geração de dummy text
+\usepackage{lipsum}             % para geração de dummy text
 % ---
 
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[brazilian,hyperpageref]{backref}     % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 
 % ---
 % CONFIGURAÇÕES DE PACOTES
@@ -82,13 +82,13 @@
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
+    \ifcase #1 %
+        Nenhuma citação no texto.%
+    \or
+        Citado na página #2.%
+    \else
+        Citado #1 vezes nas páginas #2.%
+    \fi}%
 % ---
 
 % ---
@@ -123,18 +123,18 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title},
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+        %pagebackref=true,
+        pdftitle={\@title},
+        pdfauthor={\@author},
+        pdfsubject={\imprimirpreambulo},
+        pdfcreator={LaTeX with abnTeX2},
+        pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+        colorlinks=true,            % false: boxed links; true: colored links
+        linkcolor=blue,             % color of internal links
+        citecolor=blue,             % color of links to bibliography
+        filecolor=magenta,              % color of file links
+        urlcolor=blue,
+        bookmarksdepth=4
 }
 \makeatother
 % ---
@@ -229,35 +229,35 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % \end{fichacatalografica}
 
 \begin{fichacatalografica}
-	\sffamily
-	\vspace*{\fill}					% Posição vertical
-	\begin{center}					% Minipage Centralizado
-	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
-	\small
-	\imprimirautor
-	%Sobrenome, Nome do autor
+    \sffamily
+    \vspace*{\fill}                 % Posição vertical
+    \begin{center}                  % Minipage Centralizado
+    \fbox{\begin{minipage}[c][8cm]{13.5cm}      % Largura
+    \small
+    \imprimirautor
+    %Sobrenome, Nome do autor
 
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
+    \hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+    \imprimirlocal, \imprimirdata-
 
-	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
+    \hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
 
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+    \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
 
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
+    \hspace{0.5cm}
+    \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+    \imprimirdata.}\\
 
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		2. Palavra-chave3.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título
-	\end{minipage}}
-	\end{center}
+    \hspace{0.5cm}
+        1. Palavra-chave1.
+        2. Palavra-chave2.
+        2. Palavra-chave3.
+        I. Orientador.
+        II. Universidade xxx.
+        III. Faculdade de xxx.
+        IV. Título
+    \end{minipage}}
+    \end{center}
 \end{fichacatalografica}
 % ---
 
@@ -381,13 +381,13 @@ contribuirão para a evolução do \abnTeX.
 % ---
 \begin{epigrafe}
     \vspace*{\fill}
-	\begin{flushright}
-		\textit{``Não vos amoldeis às estruturas deste mundo, \\
-		mas transformai-vos pela renovação da mente, \\
-		a fim de distinguir qual é a vontade de Deus: \\
-		o que é bom, o que Lhe é agradável, o que é perfeito.\\
-		(Bíblia Sagrada, Romanos 12, 2)}
-	\end{flushright}
+    \begin{flushright}
+        \textit{``Não vos amoldeis às estruturas deste mundo, \\
+        mas transformai-vos pela renovação da mente, \\
+        a fim de distinguir qual é a vontade de Deus: \\
+        o que é bom, o que Lhe é agradável, o que é perfeito.\\
+        (Bíblia Sagrada, Romanos 12, 2)}
+    \end{flushright}
 \end{epigrafe}
 % ---
 
@@ -566,12 +566,12 @@ configurados por padrão. Verifique um exemplo de utilização:
 \begin{quadro}[htb]
 \caption{\label{quadro_exemplo}Exemplo de quadro}
 \begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
-	Marcos & 26    & 68   & 178    \\ \hline
-	Ivone  & 22    & 57   & 162    \\ \hline
-	...    & ...   & ...  & ...    \\ \hline
-	Sueli  & 40    & 65   & 153    \\ \hline
+    \hline
+    \textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+    Marcos & 26    & 68   & 178    \\ \hline
+    Ivone  & 22    & 57   & 162    \\ \hline
+    ...    & ...   & ...  & ...    \\ \hline
+    Sueli  & 40    & 65   & 153    \\ \hline
 \end{tabular}
 \fonte{Autor.}
 \end{quadro}
