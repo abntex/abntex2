@@ -1,5 +1,5 @@
 %% abtex2-modelo-include-comandos.tex, v<VERSION> laurocesar
-%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://www.abntex.net.br/
 %%
 %% This work consists of the files abntex2-modelo-include-comandos.tex
@@ -23,11 +23,11 @@
 % Este capítulo, utilizado por diferentes exemplos do abnTeX2, ilustra o uso de
 % comandos do abnTeX2 e de LaTeX.
 % ---
- 
+
 \chapter{Resultados de comandos}\label{cap_exemplos}
 
 \chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma
-normatização a respeito desse tipo de resumo, que é mais comum em romances 
+normatização a respeito desse tipo de resumo, que é mais comum em romances
 e livros técnicos.}\index{sinopse de capítulo}
 
 % ---
@@ -97,7 +97,7 @@ o expoente, sem espaço entre elas e com fonte menor
 criadas sequencialmente, o \abnTeX\ instrui o \LaTeX\ para que uma vírgula seja
 colocada após cada número do expoente que indica a nota de rodapé no corpo do
 texto.}\footnote{Verifique se os números do expoente possuem uma vírgula para
-dividi-los no corpo do texto.}. 
+dividi-los no corpo do texto.}.
 
 
 % ---
@@ -142,9 +142,9 @@ acadêmicos.
    Nome & Nascimento & Documento \\
   \midrule \midrule
    Maria da Silva & 11/11/1111 & 111.111.111-11 \\
-  \midrule 
+  \midrule
    João Souza & 11/11/2111 & 211.111.111-11 \\
-  \midrule 
+  \midrule
    Laura Vicuña & 05/04/1891 & 3111.111.111-11 \\
   \bottomrule
 \end{tabular}%
@@ -308,8 +308,8 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
 \begin{alineas}
 
   \item os diversos assuntos que não possuam título próprio, dentro de uma mesma
-  seção, devem ser subdivididos em alíneas; 
-  
+  seção, devem ser subdivididos em alíneas;
+
   \item o texto que antecede as alíneas termina em dois pontos;
   \item as alíneas devem ser indicadas alfabeticamente, em letra minúscula,
   seguida de parêntese. Utilizam-se letras dobradas, quando esgotadas as
@@ -325,7 +325,7 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
 
   \item a segunda e as seguintes linhas do texto da alínea começa sob a
   primeira letra do texto da própria alínea;
-  
+
   \item subalíneas \cite[4.3]{NBR6024:2012} devem ser conforme as alíneas a
   seguir:
 
@@ -341,24 +341,24 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
      \item a segunda e as seguintes linhas do texto da subalínea começam sob a
      primeira letra do texto da própria subalínea.
   \end{alineas}
-  
+
   \item no \abnTeX\ estão disponíveis os ambientes \texttt{incisos} e
   \texttt{subalineas}, que em suma são o mesmo que se criar outro nível de
   \texttt{alineas}, como nos exemplos à seguir:
-  
+
   \begin{incisos}
     \item \textit{Um novo inciso em itálico};
   \end{incisos}
-  
+
   \item Alínea em \textbf{negrito}:
-  
+
   \begin{subalineas}
     \item \textit{Uma subalínea em itálico};
-    \item \underline{\textit{Uma subalínea em itálico e sublinhado}}; 
+    \item \underline{\textit{Uma subalínea em itálico e sublinhado}};
   \end{subalineas}
-  
+
   \item Última alínea com \emph{ênfase}.
-  
+
 \end{alineas}
 
 % ---
@@ -393,9 +393,9 @@ pode ser controlado por meio do comando:
 definido por:
 
 \begin{verbatim}
-  \OnehalfSpacing       % espaçamento um e meio (padrão); 
+  \OnehalfSpacing       % espaçamento um e meio (padrão);
   \DoubleSpacing        % espaçamento duplo
-  \SingleSpacing        % espaçamento simples	
+  \SingleSpacing        % espaçamento simples
 \end{verbatim}
 
 Para isso, também estão disponíveis os ambientes:
@@ -406,7 +406,7 @@ Para isso, também estão disponíveis os ambientes:
   \begin{OnehalfSpace} ... \end{OnehalfSpace}
   \begin{OnehalfSpace*} ... \end{OnehalfSpace*}
   \begin{DoubleSpace} ... \end{DoubleSpace}
-  \begin{DoubleSpace*} ... \end{DoubleSpace*} 
+  \begin{DoubleSpace*} ... \end{DoubleSpace*}
 \end{verbatim}
 
 Para mais informações, consulte \citeonline[p. 47-52 e 135]{memoir}.
@@ -448,7 +448,7 @@ comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
 \begin{verbatim}
    pdflatex ARQUIVO_PRINCIPAL.tex
    bibtex ARQUIVO_PRINCIPAL.aux
-   makeindex ARQUIVO_PRINCIPAL.idx 
+   makeindex ARQUIVO_PRINCIPAL.idx
    makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
    pdflatex ARQUIVO_PRINCIPAL.tex
    pdflatex ARQUIVO_PRINCIPAL.tex
@@ -549,7 +549,7 @@ alinhado à esquerda e a segunda e demais linhas devem iniciar logo abaixo da
 primeira palavra da primeira linha}
 % ---
 
-Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011} 
+Isso atende à norma \citeonline[seções de 5.2.2 a 5.2.4]{NBR14724:2011}
  e \citeonline[seções de 3.1 a 3.8]{NBR6024:2012}.
 
 % ---
@@ -650,7 +650,7 @@ como parâmetro um idioma a ser usado na citação.
 % ---
 
 Consulte o manual da classe \textsf{abntex2} \cite{abntex2classe} para uma
-referência completa das macros e ambientes disponíveis. 
+referência completa das macros e ambientes disponíveis.
 
 Além disso, o manual possui informações adicionais sobre as normas ABNT
 observadas pelo \abnTeX\ e considerações sobre eventuais requisitos específicos

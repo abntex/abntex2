@@ -1,16 +1,16 @@
-                            abnTeX2  
-                Type­set technical and scientific 
+                            abnTeX2
+                Type­set technical and scientific
              Brazilian documents based on ABNT rules
-             
+
 -----------------------------------------------------------------
 
-This is the README file for abntex2 class and abntex2cite package. 
+This is the README file for abntex2 class and abntex2cite package.
 Please read the license information at the end of this file.
 
-The abntex2 class and the abntex2cite package are intended to 
-assist the preparation of technical and scientific documents 
-(like thesis, articles, research projects and other 
-academic papers) based on ABNT (Associação Brasileira de Normas 
+The abntex2 class and the abntex2cite package are intended to
+assist the preparation of technical and scientific documents
+(like thesis, articles, research projects and other
+academic papers) based on ABNT (Associação Brasileira de Normas
 Técnicas) rules used in Brazil.
 
 The latest version of abnTeX2 is v<VERSION> (<CURRENT_DATE>).
@@ -19,7 +19,7 @@ SUMMARY
 -----------------------------------------------------------------
 
   This file consists of the following sections:
-  
+
   . Change history
   . Installation
   . Documentation
@@ -32,51 +32,51 @@ CHANGE HISTORY
     . added compliance to ABNT NBR 6022:2018 for article template
     . added \tituloestrangeiro (title in foreign language) for article template
     . fixed various spelling errors and improvements
-     (thanks to @edusantana @apinheiro @ycherem) 
-    . added example of frame (Quadro) in abntex2-modelo-trabalho-academico.tex 
+     (thanks to @edusantana @apinheiro @ycherem)
+    . added example of frame (Quadro) in abntex2-modelo-trabalho-academico.tex
     (thanks to @edusantana)
 
   2016/02/26 - v1.9.6.1
     . fixed warning message in the english TOC
-  
+
   2016/02/26 - v1.9.6
     . added compliance to ABNT NBR 10719:2015
     . added \ABNTEXcaptiondelim command
-    . added documentation for superscript citations 
+    . added documentation for superscript citations
     . changed caption's separator to enddash, in accordance to ABNT NBR 14724:2011
     . removed implementation of multifootnote, once memoir has "," as
-      default value for \multfootsep 
-    . fixed invalid dependence on relsize package 
+      default value for \multfootsep
+    . fixed invalid dependence on relsize package
     . fixed footnote mark size for footmarkers more than 1 character longer
-    . fixed caption delimiter: 
-      \ABNTEXcaptiondelim: \textendash for captions 
+    . fixed caption delimiter:
+      \ABNTEXcaptiondelim: \textendash for captions
       \ABNTEXcaptionfontedelim: colon for source (fonte)
-    
+
   2015/04/28 - v1.9.5
     . fixed abntex2cite.pdf bibliography errors
-    . normalized the authorship of the documents  
+    . normalized the authorship of the documents
 
   2015/04/26 - v1.9.4
     . changed url references to the new domain: www.abntex.net.br (#143)
-    . fixed differences in .bst files (#144) 
-    . added back the "calc" package in order to solve conflicts 
+    . fixed differences in .bst files (#144)
+    . added back the "calc" package in order to solve conflicts
       with chapter configurations (#140)
 
   2015/01/26 - v1.9.3
     . added \selectlanguage at begin{document} in all examples
-    . added a minimal pandoc template, making it possible to generate abntex2 
+    . added a minimal pandoc template, making it possible to generate abntex2
       documents from markdown files
     . changed sumario=abnt-6027-2012 option: now the "References" chapter label
       is printed in uppercase in TOC
-    . changed deprecated command \glossarystyle to \setglossarystyle  
-    . changed abntex2.tex: 
+    . changed deprecated command \glossarystyle to \setglossarystyle
+    . changed abntex2.tex:
       \counterwithout replaced by \counterwithin
-      added several improvements 
-    . changed .sty files to print "volume" field at @book bib entries 
+      added several improvements
+    . changed .sty files to print "volume" field at @book bib entries
     . changed example of "Ficha catalográfica"
     . changed default implementation of \imprimircapa
     . changed default value for \ABNTEXsignskip from 1cm to 0.7cm
-    . removed "calc" package dependency in order to solve conflicts 
+    . removed "calc" package dependency in order to solve conflicts
       with "external" tikz library
     . removed change history from source files
 
@@ -90,55 +90,55 @@ CHANGE HISTORY
     . minor fix errors in sumario=tradicional option
     . changed the presentation example name to 'Modelo de apresentação de
       slides com Beamer e abnTeX2'
-    . added escape for '%', '#' and '_' characters in URL of bibliography references  
+    . added escape for '%', '#' and '_' characters in URL of bibliography references
     . added information about "url packages" to abntex2cite.tex documentation
-    . changed configurations in Table of Contents when option 
+    . changed configurations in Table of Contents when option
       abnt-6027-2012 is active. Now the chapter entry is in upper case, and
       the others entries has different formats as well
     . changed implementation of \phantompart: the macro adds some spacing in TOC
-      even whether sumario=abnt-6027-2012 is not active  
+      even whether sumario=abnt-6027-2012 is not active
     . changed implementation of "citacao" environment: now it uses
       \ABNTEXfontereduzida instead of \ footnotesize
-    . Replaced ~--~ by ~\textendash~ in abntex2.cls class  
+    . Replaced ~--~ by ~\textendash~ in abntex2.cls class
 
   2013/10/26 - v1.9
     . added customizations of table of contents in compliance to ABNT NBR 6027:2012
-      (class option sumario=abnt-6027-2012 and sumario=tradicional) 
-    . added macro \phantompart that helps control TOC and bookmark  
+      (class option sumario=abnt-6027-2012 and sumario=tradicional)
+    . added macro \phantompart that helps control TOC and bookmark
     . added microtype package to examples and documentation files
     . added a fifth level on text structure (use \paragraph as a subsubsubsection)
     . added new example of bibliography reference in abntex2cite (key hamada2008)
     . added new Makefile for Linux/POSIX based systems that might be used in order
-      to install or update abnTeX2 apart of TeXLive/CTAN packages from the 
-      distribution: you might just download and install the last version of abnTeX2 
+      to install or update abnTeX2 apart of TeXLive/CTAN packages from the
+      distribution: you might just download and install the last version of abnTeX2
     . fixed url link for "https" addresses on .bst files
     . fixed scape of caracter "&" in urls on .bst files
     . fixed the layout of url if the option-package-url = url is used with the
-      abntex2cite.sty. Without this insert the url was displayed without 
+      abntex2cite.sty. Without this insert the url was displayed without
       delimiters '<' and '>'
     . fixed title printed with \imprimirtitle in title pages (\imprimircapa,
-      folhaderostocontent and abntex2-modelo-trabalho-academico's folhadeaprovacao)  
+      folhaderostocontent and abntex2-modelo-trabalho-academico's folhadeaprovacao)
     . fixed language of the date command (\imprimirdata)
-    . fixed space between label and name separator ("--") greater than 9th 
-      item of listings 
-    . suppressed "before chapter skip" on items of listings 
-      (\setlength\cftbeforechapterskip{0pt})  
+    . fixed space between label and name separator ("--") greater than 9th
+      item of listings
+    . suppressed "before chapter skip" on items of listings
+      (\setlength\cftbeforechapterskip{0pt})
     . removed useless cmap package from examples
 
   2013/08/26 - v1.8
     . added an example of book produced with abntex2
     . added an example of a beamer presentation produced with abntex2
-    . added macros \IBGEtab, \fonte and \nota in order to meet table 
-      formatting requirements from IBGE 
-    . changed indentation, margins, paragraph spacing and further 
+    . added macros \IBGEtab, \fonte and \nota in order to meet table
+      formatting requirements from IBGE
+    . changed indentation, margins, paragraph spacing and further
       improvements of abstract environment
-    . changed the font size of name of tables and figures due to a 
-      congruent interpretation of ABNT NBR 14724:2011 and IBGE rules: 
-      the font size of the name of tables and figures must be the same 
-      of the text. The font size of sources and notes are keep the 
-      same: a smaller and uniform one. 
-    . fixed article model in compliance to ABNT NBR 6022:2003. 
-    . fixed definition of chapternamenumlength in abnt chapter style 
+    . changed the font size of name of tables and figures due to a
+      congruent interpretation of ABNT NBR 14724:2011 and IBGE rules:
+      the font size of the name of tables and figures must be the same
+      of the text. The font size of sources and notes are keep the
+      same: a smaller and uniform one.
+    . fixed article model in compliance to ABNT NBR 6022:2003.
+    . fixed definition of chapternamenumlength in abnt chapter style
     . added new general information in the documentation files
 
   2013/05/26 - v1.7.1
@@ -147,77 +147,77 @@ CHANGE HISTORY
   2013/05/25 - v1.7
    . added an optional argument to the citacao environment: language.
      Now the quoted text in foreign language is automatically written in italics
-     and the proper hyphenation system is selected. Use as: 
-     \begin{citacao}[french]Texte français.\end{citacao}  
+     and the proper hyphenation system is selected. Use as:
+     \begin{citacao}[french]Texte français.\end{citacao}
    . added new options chapter=TITLE, section=TITLE, subsection=TITLE and
      subsubsection=TITLE to the abntex2.cls class. These options change
      the sections and chapter titles to upper case;
    . added macro \footciteref to abntex2cite that prints a bibliography reference
-     as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.  
+     as a footnote in accordance to ABNT NBR 10520:2002 section 7.1.
    . added xindy instructions in glossary model;
    . fixed abntex2cite's table 4: there was a line written twice;
-   . changed class options declaration in all examples;   
-   . fixed wrong \setsecheadstyle implementation that prevented font section be 
+   . changed class options declaration in all examples;
+   . fixed wrong \setsecheadstyle implementation that prevented font section be
      changed as expected;
    . fixed bibliography style for @article and @journalpart caused by wrong
-     implementation of iso-690-1987 option; 
-   . fixed \apudonline compliance with section 7.1.3 from ABNT NBR 10520:2002: 
+     implementation of iso-690-1987 option;
+   . fixed \apudonline compliance with section 7.1.3 from ABNT NBR 10520:2002:
      the publication year of the main author now is printed;
    . fixed single spacing before chapters;
-   . review text of documentations;   
+   . review text of documentations;
    . replaced abntex2-doc-abnt-6023-2000.bib file by abntex2-doc-abnt-6023.bib:
-     the new file replaces numerical bibkeys by keys composed by author name and year. 
+     the new file replaces numerical bibkeys by keys composed by author name and year.
      This aims to turn the document's updates easier;
    . merged abntex2-doc-abnt-10520-2001.bib and abntex2-doc-abnt-10520-2002.bib files
-     into abntex2-doc-abnt-10520.bib;    
+     into abntex2-doc-abnt-10520.bib;
 
   2013/04/30 - v1.6.1
-   . fixed use of different languages on example and documentation 
+   . fixed use of different languages on example and documentation
      files: option "brazil" must be on documentclass
    . added visual enhancements on documentation files
    . changed the name of documentation files:
-     from: "Manual de uso dos estilos bibliográficos do pacote abntex2cite: 
+     from: "Manual de uso dos estilos bibliográficos do pacote abntex2cite:
             estilos bibtex compatíveis com a ABNT NBR 6023"
        to: "O pacote abntex2cite: Estilos bibliográficos compatíveis com a ABNT NBR 6023"
-     from: "Manual de uso do pacote abntex2cite: tópicos específicos da 
+     from: "Manual de uso do pacote abntex2cite: tópicos específicos da
             ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema autor-data)"
-       to: "O pacote abntex2cite: Tópicos específicos da ABNT NBR 10520:2002 e o 
+       to: "O pacote abntex2cite: Tópicos específicos da ABNT NBR 10520:2002 e o
             estilo bibliográfico alfabético (sistema autor-data)"
-   . added information about bibliographies on examples.              
-  
+   . added information about bibliographies on examples.
+
   2013/03/23 - v1.6
    . added support for typeset documents in different languages
-   . enhancements in footnotes: 
-     now there is a comma between sequential footnotes and 
-     more spacing between index and text; 
+   . enhancements in footnotes:
+     now there is a comma between sequential footnotes and
+     more spacing between index and text;
    . added new example: glossary with abnTeX2
    . added xelatex, inputenc and fontenc information on abntex2.tex class manual;
-   . added translations for section, subsection, subsubsection, paragraph and page in \autoref 
+   . added translations for section, subsection, subsubsection, paragraph and page in \autoref
      in order to reach compliance to ABNT NBR 6024:2012
-   . added information of compliance to ABNT NBR 6027:2012  
+   . added information of compliance to ABNT NBR 6027:2012
    . added translations to english of all macros from abnTeX2
-   . added leaders to chapters in TOC 
+   . added leaders to chapters in TOC
    . changed implementation of \titulo, \autor, \data and
      \imprimirtitulo, \imprimirautor e \imprimirdata to be translations of
      \title, \author, \date, \thetitle, \theauthor e \thedate, respectively.
    . added how you can contribute to the abnTeX2 and minipage examples on abntex2-modelo-include.tex
-   . complete fix iso-690-1987 option: year was placed for 
+   . complete fix iso-690-1987 option: year was placed for
      twicebooklet, journalpart, manual, misc, unpublished, patent and unpublished on abntex2cite.sty
-   . fix creation of macros \su@ExpandTwoArgs, \IfSubStringInString and \su@IfSubStringInString 
+   . fix creation of macros \su@ExpandTwoArgs, \IfSubStringInString and \su@IfSubStringInString
      imported from substr.sty on abntex2cite.sty
    . changed position of institutio's name at title page
-   . removed unnecessary packages makeidx and hyperref from all examples; 
+   . removed unnecessary packages makeidx and hyperref from all examples;
    . removed unnecessary package "lastpage" from:
      abntex2-modelo-projeto-pesquisa, abntex2-modelo-relatorio-tecnico and abntex2-modelo-artigo
-   . added sections about internacionalization and about \autoref configurations on abntex2.tex class manual; 
-   . added information about \and and \\ on description of macro \autor in abntex2.tex 
+   . added sections about internacionalization and about \autoref configurations on abntex2.tex class manual;
+   . added information about \and and \\ on description of macro \autor in abntex2.tex
    . added enhancements to abntex2cite.tex and abntex2.tex about bibliographies
-   . added examples of HEADERS and FOOTERS on abntex2-modelo-artigo.tex 
-    
+   . added examples of HEADERS and FOOTERS on abntex2-modelo-artigo.tex
+
   2013/02/23 - v1.5
     abntex2.cls:
       . added \bookmarksetup{startatroot} in \textual and \postextual
-      . added "siglas" and "simbolos" environments in order to 
+      . added "siglas" and "simbolos" environments in order to
         create "list of abbreviations and acronyms" and "list of symbols"
       . changed article headings to \pagestyle{plain}
       . removed \vspace*{1cm} on beginning of cover and titles pages
@@ -225,10 +225,10 @@ CHANGE HISTORY
       . removed \vspace*{1cm} on beginning of aprovation page
       . changed to use "siglas" and "simbolos" environments
       . minor changes
-    abntex2-modelo-relatorio-tecnico.tex  
+    abntex2-modelo-relatorio-tecnico.tex
       . changed to use "siglas" and "simbolos" environments
       . minor changes
-    abntex2-modelo-projeto-pesquisa.tex  
+    abntex2-modelo-projeto-pesquisa.tex
       . changed to use "siglas" and "simbolos" environments
       . minor changes
     abntex2-modelo-artigo.tex:
@@ -238,7 +238,7 @@ CHANGE HISTORY
       . fix iso-690-1987 option: year was placed twice
     abntex2cite.sty:
       . changed default style for author names in citations from small caps to upper case
-      . added "versalete" option to use author names in small caps style on citations 
+      . added "versalete" option to use author names in small caps style on citations
     abntex2cite-alf.tex:
       . added explanations about versalete option
       . added explanations about \authorcapstyle, \authorstyle and \yearstyle
@@ -266,30 +266,30 @@ CHANGE HISTORY
      . added sections about the main options of the class
      . added  \partanexos and \partapendices explanations
      . general review
-    removed change logs from example files 
+    removed change logs from example files
     changed README file structure
-  
+
   2013/01/18 - v1.3
-    added two new model: 
+    added two new model:
       . abntex2-modelo-relatorio-tecnico.tex: Technical report in compliance to ABNT NBR 10719:2011
       . abntex2-modelo-projeto-pesquisa.tex: Research project in compliance to ABNT NBR 15287:2011
     added on abntex.tex:
-      . explanations about heading (not) created by \chapter* 
+      . explanations about heading (not) created by \chapter*
       . explanations about font and XeLaTeX
     added versions numbers in all files, documents and examples with a new build.sh script
     changed default font on examples and documentations to Latin Modern (lmodern)
     changed \pretextualchapter to change headings with the value of chapter title
     changed \ABNTEXchapterfont: now it uses a font style without serif (\sffamily)
     changed thesis model to add examples of \chapter*[heading title]{text title}
-    changed title of the article model from "Modelo Canônico de Artigos Acadêmicos" 
+    changed title of the article model from "Modelo Canônico de Artigos Acadêmicos"
       to "Modelo Canônico de Artigo Científico"
-    changed title of the thesis model from "Modelo Canônico de Trabalhos Acadêmicos" 
+    changed title of the thesis model from "Modelo Canônico de Trabalhos Acadêmicos"
       to "Modelo Canônico de Trabalho Acadêmico"
     changed title of abntex2 documentation from "A classe abntex2: Modelo canônico de
       trabalhos acadêmicos brasileiros compatível com as normas ABNT NBR 14724:2011,
-      ABNT NBR 6024:2012 e outras" to "A classe abntex2: Documentos técnicos e científicos 
-      brasileiros compatíveis com as normas ABNT"   
-    as an example of \include, now all example documents share a single file 
+      ABNT NBR 6024:2012 e outras" to "A classe abntex2: Documentos técnicos e científicos
+      brasileiros compatíveis com as normas ABNT"
+    as an example of \include, now all example documents share a single file
       named abntex2-modelo-include-comandos.tex, that has the content from
       abntex2-modelo-trabalho-academico.tex and:
        . explanations about \include and \input macros
@@ -299,15 +299,15 @@ CHANGE HISTORY
 
   2013/01/13 - v1.2.1
      added length \ABNTEXcitacaorecuo, useful on articles
-     abntex2's twocolumn class option changes \ABNTEXcitacaorecuo to 1.8cm 
-     changed \ABNTEXcitacaorecuo explanation on abntex2.tex and on examples 
-     
+     abntex2's twocolumn class option changes \ABNTEXcitacaorecuo to 1.8cm
+     changed \ABNTEXcitacaorecuo explanation on abntex2.tex and on examples
+
   2013/01/12 - v1.2
      added article support to abntex2.cls
      added new article example
      changed canonical example: new commands, explanations and examples
-     changed abntex2-modelo.tex file name to abntex2-modelo-trabalho-academico.tex 
-     updated documentation 
+     changed abntex2-modelo.tex file name to abntex2-modelo-trabalho-academico.tex
+     updated documentation
      bug fixes on abntex2.cls
      added compatibility information to:
        . ABNT NBR 10719:2011: Informação e documentação - Relatório técnico e/ou científico - Apresentação
@@ -315,11 +315,11 @@ CHANGE HISTORY
        . ABNT NBR 6022-2003 - Informação e documentação - Artigo em publicação periódica científica impressa - Apresentação
 
   2013/01/05 - v1.1
-     bug fixes on abnex2cite.sty when using with Beamer 
-     changed \titulo, \autor and \data to do the same as \title, \author and \date  
-      
-  2012/12/20 - v1.0 
-     initial release on CTAN 
+     bug fixes on abnex2cite.sty when using with Beamer
+     changed \titulo, \autor and \data to do the same as \title, \author and \date
+
+  2012/12/20 - v1.0
+     initial release on CTAN
 
 
 INSTALLATION
@@ -336,17 +336,17 @@ information on installing packages.
 -------------------------------------------
 
 If you already have a TexLive system installed on a Unix-like system (Linux, Mac, BSD),
-in order to install the abntex2 class and the abntex2cite package, uncompress the TDS file (something like 
+in order to install the abntex2 class and the abntex2cite package, uncompress the TDS file (something like
 abntex2-tds-VERSION.zip or abntex2-tds-VERSION.tar.gz) and type on a Terminal:
 
   make install
 
-This will install abnTeX2 on your TeXLive system. 
+This will install abnTeX2 on your TeXLive system.
 
 Manual instalation
 ------------------
 
-You can manually install the abntex2 class and the abntex2cite package in any LaTeX system (TeXLive, MiKTeX, 
+You can manually install the abntex2 class and the abntex2cite package in any LaTeX system (TeXLive, MiKTeX,
 among others) running over a Windows, Linux, Mac, BSD (among others) if you have:
 
   abntex2.cls	            The abntex2 class file.
@@ -355,9 +355,9 @@ among others) running over a Windows, Linux, Mac, BSD (among others) if you have
   abntex2-alf.bst	        Numeric citation style file.
   abntex2-num.bst			Alphanumeric (author-date) citation style file.
   abntex2-options.bib	    Default citation options configurations.
-  
-Put those files somewhere LaTeX can find them. Read the documentation of 
-your LaTeX system to find out where this might be. 
+
+Put those files somewhere LaTeX can find them. Read the documentation of
+your LaTeX system to find out where this might be.
 
 Test the installation
 ---------------------
@@ -365,9 +365,9 @@ Test the installation
 Type on a Terminal:
 
   texdoc abntex2
-  
+
 It should open the abntex2.pdf document file. You will find the current version of abnTeX2 on it.
- 
+
 
 DOCUMENTATION
 -----------------------------------------------------------------
@@ -381,7 +381,7 @@ The abnTeX2 documentation consists of the following files:
   abntex2-modelo-artigo.tex				An usage example of abntex2 class and abntex2cite package producing an article
   abntex2-modelo-glossarios.tex			An usage example of abntex2 class and abntex2cite package producing a glossary
   abntex2-modelo-slides.tex				An usage example of a beamer presentation with abntex2cite package
-  abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files 
+  abntex2-modelo-include-comandos.tex	LaTeX examples shared by others files
   abntex2-modelo-livro.tex				An usage example of abntex2 class and abntex2cite package producing a book
   abntex2-modelo-livro-bandeirinha.jpg		Image used by abntex2-modelo-livro.tex
   abntex2-modelo-livro-pintassilgo.jpg		Image used by abntex2-modelo-livro.tex
@@ -404,15 +404,15 @@ To produce any documentation above you also need:
   all installation files described in "INSTALLATION" section	(par of this bundle)
 
 Compile the documentation as the example below. There are 3 PDF files of documentation and 4 of examples.
-  
+
   pdflatex FILE.tex
   bibtex FILE.aux
   makeindex FILE
   latex2pdf FILE.tex
   latex2pdf FILE.tex
-  
+
   (the "FILE" entry is one of the .tex file listed above)
-  
+
 
 COPYING AND MODIFICATION
 -----------------------------------------------------------------
@@ -425,17 +425,17 @@ of the LaTeX Project Public License distributed from CTAN
 archives in the directory macros/latex/base/lppl.txt; either
 version 1.3 of the license, or (at your option) any later version.
 
-Universities and other institutions are encouraged to customize 
-front pages and others files and redistribute them to the users, 
-but not to change the abnTeX2 files. You may customize almost all 
-abnTeX2 commands with \renewcommand or using commands from memoir 
+Universities and other institutions are encouraged to customize
+front pages and others files and redistribute them to the users,
+but not to change the abnTeX2 files. You may customize almost all
+abnTeX2 commands with \renewcommand or using commands from memoir
 class. It is better than changing the files themselves.
 
 HELP
 -----------------------------------------------------------------
 
 You can get help here:
- 
+
 www   http://www.abntex.net.br
 group http://groups.google.com/group/abntex2
 

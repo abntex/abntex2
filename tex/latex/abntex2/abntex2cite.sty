@@ -1,5 +1,5 @@
 %% abntex2cite.sty, v<VERSION> laurocesar
-%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at https://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at https://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% https://www.abntex.net.br/
 %%
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
@@ -97,14 +97,14 @@
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 \RequirePackage{abntex2abrev}
-\RequirePackage{setspace}	
+\RequirePackage{setspace}
 \RequirePackage{url} %*****
 
 %%%%%%  Options Declaration  %%%%%%
 
 
 %----------------------------------------------------------------
-%    Extracted from substr.sty (2000-06-15) 
+%    Extracted from substr.sty (2000-06-15)
 %----------------------------------------------------------------
 % Copyright 2000 Harald Harders <h.harders@tu-bs.de>
 % Look at www.ctan.org for original package
@@ -112,12 +112,12 @@
 % Commands:
 %
 % \IfSubStringInString{substring}{string}{true part}{false part}
-% This command searches <substring> in <string> and executes the 
+% This command searches <substring> in <string> and executes the
 % <true part> if it is and else the <else part>
 
 % expands the first and second argument with
 % \protected@edef and calls #3 with them:
-\ifx \su@ExpandTwoArgs\undefined 
+\ifx \su@ExpandTwoArgs\undefined
    \newcommand{\su@ExpandTwoArgs}[3]{%
      \protected@edef\su@SubString{#1}%
      \protected@edef\su@String{#2}%
@@ -126,16 +126,16 @@
        \expandafter\su@SubString\expandafter
      }\expandafter{\su@String}%
    }
-\fi   
+\fi
 %%
 %% tests if #1 in #2. If yes execute #3, else #4
-\ifx \IfSubStringInString\undefined 
+\ifx \IfSubStringInString\undefined
   \newcommand*{\IfSubStringInString}[2]{%
      \su@ExpandTwoArgs{#1}{#2}\su@IfSubStringInString
   }
 \fi
 %%
-\ifx \su@IfSubStringInString\undefined 
+\ifx \su@IfSubStringInString\undefined
    \newcommand*{\su@IfSubStringInString}[2]{%
      \def\su@compare##1#1##2\@nil{%
        \def\su@param{##2}%
@@ -169,7 +169,7 @@
 
 % cite text on demand (defaults depends on foot or not-foot)
 %  (also recall that options are executed in order of definition at
-%    \ProcessOptions) 
+%    \ProcessOptions)
 \DeclareOption{load-text-on-demand}{\setboolean{ABCItextondemand}{true}}
 \DeclareOption{load-text}{\setboolean{ABCItextondemand}{false}}
 
@@ -202,7 +202,7 @@
 % recuo : compatibility with old norms
 \ifx \bibindent\undefined
   \newlength{\bibindent}
-\fi  
+\fi
 \setlength{\bibindent}{0em}
 \DeclareOption{recuo}{\setlength{\bibindent}{1.8em}}
 
@@ -246,7 +246,7 @@
 \newcounter{ABCImax}
 
 % Here I define a LaTeX list that will contain all options not defined
-% before. 
+% before.
 %
 % A LaTeX list is a command containing a comma separated list of
 % itens. The list is processed by command \@for, as in \citeoption.
@@ -377,8 +377,8 @@
 	  \ifx \SingleSpacing\undefined
 	    \singlespacing
 	  \else
-	    \SingleSpacing   
-	  \fi  
+	    \SingleSpacing
+	  \fi
 	  %
 	  \ifthenelse{\boolean{ABCIciteoptionwasused}
 	               \and\boolean{ABCIauto-abntoptions}}
@@ -516,7 +516,7 @@
       \fi%
       \ignorespaces
     }
-  
+
     \def\@bibitem#1{
       \gdef\abntnextkey{#1}
   %    \ifthenelse{}{\item}{\item}
@@ -600,21 +600,21 @@
 \ifx\AbntCitetype\AbntCitetypeALF % if alf
 
   \renewcommand{\@biblabel}[1]{}
-  
+
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %
   %               \cite[optional]{list of keys}
   %
-  %  Implicit citation - author in capital letters and year; 
+  %  Implicit citation - author in capital letters and year;
   %                       mechanism to deal with repeated names;
   %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
+
   \renewcommand{\@cite}[2]%
     {\citeopen{#1\ifthenelse{\equal{#2}{}}{}{,
           {\optionaltextstyle#2}}}\citeclose}
-  
+
   \DeclareRobustCommand{\cite}[2][]{%
   %
     \leavevmode
@@ -660,20 +660,20 @@
         }% end for
     }{#1}%
   }
-  
-  
+
+
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %
   %             \citeonline[optional]{list of keys}
   %
-  %  Inline (explicit) citation - author in "inline style" and year; 
+  %  Inline (explicit) citation - author in "inline style" and year;
   %                               mechanism to deal with repeated names;
   %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
+
   \newcommand{\@citeonline}[2]%
     {{#1\ifthenelse{\equal{#2}{}}{}{, {\optionaltextstyle#2}}}\citeclose}
-  
+
   \DeclareRobustCommand{\citeonline}[2][]{%
   %
     \leavevmode
@@ -690,11 +690,11 @@
              \csname b@\@citekey++YEAR\endcsname%
          \ifx\@citeprevious\@empty%
          \else%
-           \ifx\@citename\@citeprevious%       
+           \ifx\@citename\@citeprevious%
              \ABCIcitecommadefault% echoing ", "
            \else%
              \citeclose, % echoing "), "
-           \fi%   
+           \fi%
          \fi%
          % writing in aux file
          \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
@@ -717,7 +717,7 @@
         }% end for
     }{#1}%
   }
-  
+
   % "overcite" compatibility
   \let\citen\citeonline
   \let\citenum\citeonline
@@ -799,24 +799,24 @@
    \newcommand{\citeifnotcited}[1]{%
      \def\ABCIcitelist{}%
      \@for\@citeb:=#1\do%
-        {%     
+        {%
          \@ifundefined{b@\@citeb}
            {\ABCIaddtocitelist{\@citeb}}
            {}%
         }%
      \expandafter\cite\expandafter{\ABCIcitelist}%
-   }     
+   }
 
    \newcommand{\citeonlineifnotcited}[1]{%
      \def\ABCIcitelist{}%
      \@for\@citeb:=#1\do%
-        {%     
+        {%
          \@ifundefined{b@\@citeb}
            {\ABCIaddtocitelist{\@citeb}}
            {}%
         }%
      \expandafter\citeonline\expandafter{\ABCIcitelist}%
-   }     
+   }
 
    \newcommand{\ABCIaddtocitelist}[1]{%
      \ifthenelse{\equal{\ABCIcitelist}{}}%
@@ -845,7 +845,7 @@
             \ifthenelse{\lengthtest{\ABCIauxlen<\minimumbiblabelwidth}}
                {\setlength{\ABCIauxlen}{\minimumbiblabelwidth-\ABCIauxlen}}
                {\setlength{\ABCIauxlen}{0cm}}%
-            {\biblabeltext\hspace{\ABCIauxlen}}%   
+            {\biblabeltext\hspace{\ABCIauxlen}}%
            }%
         }%
      }
@@ -907,7 +907,7 @@
        {\edef\ABCIcitelist{#1}}
        {\edef\ABCIcitelist{\ABCIcitelist,#1}}%
    }%
-  
+
 
   \fi
 \fi % end if alf
@@ -920,7 +920,7 @@
 %
 %                \citeyear{list of keys}
 %
-%  Citation by year 
+%  Citation by year
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -931,14 +931,14 @@
   \let\@citeprevious\@empty%
   \@for\@citekey:=#1\do %\@citekey contains the key
     {%
-%     \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%     
+%     \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
      \expandafter\let\expandafter\@citename%
           \csname b@\@citekey++YEAR\endcsname%
      %compare previous name with current name and decide the punctuation marks
      %if first use do nothing
      \ifx\@citeprevious\@empty%
      \else%
-        , % echoing ", 
+        , % echoing ",
      \fi%
      % writing on aux file
      \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
@@ -1141,7 +1141,7 @@
      \setlength{\itemindent}{-\bibindent}
      \setlength{\listparindent}{0cm}
      \ABCIthebiblihook
-     }     
+     }
   }
   {% mode num
    \ifthenelse{\boolean{ABCIbiblabelonmargin}}

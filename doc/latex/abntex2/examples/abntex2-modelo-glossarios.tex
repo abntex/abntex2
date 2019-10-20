@@ -18,19 +18,19 @@
 %% This work consists of the files abtex2-modelo-glossarios.tex,
 %% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
 %%
-                     
+
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % abnTeX2: Exemplo de glossários com o pacote glossaries e abntex2
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
- 
+
 \documentclass[
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel. 
+	a4paper,			% tamanho do papel.
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
@@ -42,16 +42,16 @@
 	spanish,			% idioma adicional para hifenização
 	brazil,				% o último idioma é o principal do documento
 	]{abntex2}
- 
- 
+
+
 % ---
 % PACOTES
 % ---
- 
+
 % ---
 % Pacotes fundamentais
 % ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
@@ -73,7 +73,7 @@
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
- 
+
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
@@ -95,23 +95,23 @@
 \preambulo{Modelo de texto com glossário conforme as
 as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
- 
- 
+
+
 % ---
 % Configurações de aparência do PDF final
- 
+
 % alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
- 
+
 % informações do PDF
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
+		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{glossários}, 
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{glossários},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -122,28 +122,28 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \makeatother
 
 % ---
- 
+
 % ---
 % Espaçamentos entre linhas e parágrafos
 % ---
- 
+
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
- 
+
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
- 
+
 % ---
 % compila o indice
 % ---
 \makeindex
 % ---
- 
+
 % ---
 % GLOSSARIO
 % ---
 \makeglossaries
- 
+
 % ---
 % entradas do glossario
 % ---
@@ -158,7 +158,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
                 plural={componentes},
                 parent=pai,
                 description={descriação da entrada componente.} }
- 
+
  \newglossaryentry{filho}{
                 name={filho},
                 plural={filhos},
@@ -166,7 +166,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
                 description={isto é uma entrada filha da entrada de nome
                 \gls{pai}. Trata-se de uma entrada irmã da entrada
                 \gls{componente}.} }
- 
+
 \newglossaryentry{equilibrio}{
                 name={equilíbrio da configuração},
                 see=[veja também]{componente},
@@ -187,29 +187,29 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 
 % ---
 % Exemplo de configurações do glossairo
-\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1}  
+\renewcommand*{\glsseeformat}[3][\seename]{\textit{#1}
  \glsseelist{#2}}
 % ---
-              
-                
+
+
 % ----
 % Início do documento
 % ----
 \begin{document}
- 
+
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing
- 
+
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
- 
+
 % ---
 % Capa
 % ---
 \imprimircapa
 % ---
- 
+
 % ---
 % inserir o sumario
 % ---
@@ -217,19 +217,19 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \tableofcontents*
 \cleardoublepage
 % ---
-  
- 
+
+
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
 \textual
- 
+
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
 \chapter*[Introdução]{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
- 
+
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento não se trata de
 um modelo específico baseado em alguma norma da ABNT, mas exemplifica a
@@ -242,14 +242,14 @@ A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
 modelo específico de nenhuma universidade ou instituição, mas que implementa tão
 somente os requisitos das normas da ABNT. Uma lista completa das normas
 observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
- 
+
 Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
 \url{http://www.abntex.net.br/}. Também fique livre para conhecer,
 estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
 modificados tenham seus nomes alterados e que os créditos sejam dados aos
 autores originais, nos termos da ``The \LaTeX\ Project Public
 License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
- 
+
 Encorajamos que sejam realizadas customizações específicas deste exemplo para
 universidades e outras instituições --- como capas, folha de aprovação, etc.
 Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
@@ -257,25 +257,25 @@ Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
 Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
 incompatíveis com as customizações promovidas. Consulte
 \citeonline{abntex2-wiki-como-customizar} para mais informações.
- 
+
 Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
 \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
 \cite{memoir}.
- 
+
 Equipe \abnTeX
-  
+
 Lauro César Araujo
- 
- 
+
+
 % ---
 % Capitulo que faz uso de elementos do glossario
 % ---
 \chapter{Orientações a respeito de glossários}
- 
+
 % ---
 \section{Usar o glossário no texto}
 % ---
- 
+
 Você pode definir as entradas do glossário no início do texto. Recomenda-se o
 uso de um arquivo separado a ser inserido ainda no preâmbulo. Veja orientações
 sobre inclusão de arquivos na \autoref{sec-include}.
@@ -307,7 +307,7 @@ documento com o comando:
 \begin{verbatim}
    \glsaddall
 \end{verbatim}
- 
+
 A impressão efetiva do glossário é dada com:
 
 \begin{verbatim}
@@ -325,19 +325,19 @@ citadas. Isso pode ser removido adicionando-se a opção \texttt{nonumberlist} e
 \section{Compilar um documento com glossário}
 \label{sec-compilar-glossario}
 % ---
- 
+
 Para compilar um documento \LaTeX\ com glossário use:
 
 \begin{verbatim}
    pdflatex ARQUIVO_PRINCIPAL.tex
    bibtex ARQUIVO_PRINCIPAL.aux
-   makeindex ARQUIVO_PRINCIPAL.idx 
+   makeindex ARQUIVO_PRINCIPAL.idx
    makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
    makeglossaries ARQUIVO_PRINCIPAL.aux
    pdflatex ARQUIVO_PRINCIPAL.tex
    pdflatex ARQUIVO_PRINCIPAL.tex
 \end{verbatim}
- 
+
 O comando \texttt{makeglossaries} é um aplicativo Perl instalado
 automaticamente pelas distribuições MacTeX, TeX Live e MiKTeX. Geralmente
 usuários de Linux e de Mac OS X já possuem o interpretador Perl\footnote{O Perl
@@ -368,7 +368,7 @@ pacote \textsf{glossaries}: \url{http://www.ctan.org/pkg/glossaries}.
 
 Consulte também o livro da WikiBooks sobre a produção de glossários:
 \url{http://en.wikibooks.org/wiki/LaTeX/Glossary}.
- 
+
 
 \subsection{Estilos do glossário}
 
@@ -434,23 +434,23 @@ seguinte:
 \end{alineas}
 
 % ----------------------------------------------------------
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% Capitulo com exemplos de comandos inseridos de arquivo externo
 % ----------------------------------------------------------
 
 \include{abntex2-modelo-include-comandos}
- 
- 
+
+
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
- 
- 
+
+
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
 \bibliography{abntex2-modelo-references}
- 
+
 % ----------------------------------------------------------
 % Glossário
 % ----------------------------------------------------------
@@ -475,7 +475,7 @@ por exemplo.\\
 \providetranslation{Symbol (glossaries)}{Símbolo}
 \providetranslation{Page List (glossaries)}{Lista de Páginas}
 \providetranslation{Symbols (glossaries)}{Símbolos}
-\providetranslation{Numbers (glossaries)}{Números} 
+\providetranslation{Numbers (glossaries)}{Números}
 % ---
 
 % ---
@@ -494,18 +494,18 @@ por exemplo.\\
 \addcontentsline{toc}{chapter}{\glossaryname}
 \printglossaries
 % ---
-  
- 
+
+
 % ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------
- 
+
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------
- 
+
 %---------------------------------------------------------------------
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
- 
+
 \end{document}

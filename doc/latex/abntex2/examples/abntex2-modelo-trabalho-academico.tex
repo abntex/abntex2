@@ -1,5 +1,5 @@
 %% abtex2-modelo-trabalho-academico.tex, v<VERSION> laurocesar
-%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://www.abntex.net.br/
 %%
 %% This work consists of the files abntex2-modelo-trabalho-academico.tex,
@@ -22,7 +22,7 @@
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
-% mestrado e trabalhos monograficos em geral) em conformidade com 
+% mestrado e trabalhos monograficos em geral) em conformidade com
 % ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
 % Apresentacao
 % ------------------------------------------------------------------------
@@ -33,7 +33,7 @@
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel. 
+	a4paper,			% tamanho do papel.
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
@@ -47,9 +47,9 @@
 	]{abntex2}
 
 % ---
-% Pacotes básicos 
+% Pacotes básicos
 % ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
@@ -57,7 +57,7 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 % ---
-		
+
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
@@ -70,9 +70,9 @@
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -107,8 +107,8 @@
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Tese (Doutorado)}
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
 \preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
 as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
@@ -124,11 +124,11 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
+		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -137,7 +137,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 		bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
 % ---
 % Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
@@ -161,15 +161,15 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % configurações para atender às regras da ABNT
 \setfloatadjustment{quadro}{\centering}
 \counterwithout{quadro}{chapter}
-\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand{\cftquadroname}{\quadroname\space}
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 
 \setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
 % ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
@@ -193,7 +193,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \selectlanguage{brazil}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -218,7 +218,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
 
 % Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
 % Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
 % com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
 % com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
@@ -236,18 +236,18 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 	\small
 	\imprimirautor
 	%Sobrenome, Nome do autor
-	
+
 	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
 	\imprimirlocal, \imprimirdata-
-	
+
 	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
-	
+
 	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-	
+
 	\hspace{0.5cm}
 	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
 	\imprimirdata.}\\
-	
+
 	\hspace{0.5cm}
 		1. Palavra-chave1.
 		2. Palavra-chave2.
@@ -255,7 +255,7 @@ as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 		I. Orientador.
 		II. Universidade xxx.
 		III. Faculdade de xxx.
-		IV. Título 			
+		IV. Título
 	\end{minipage}}
 	\end{center}
 \end{fichacatalografica}
@@ -313,22 +313,22 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
       \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
     \end{center}
     \vspace*{\fill}
-    
+
     \hspace{.45\textwidth}
     \begin{minipage}{.5\textwidth}
         \imprimirpreambulo
     \end{minipage}%
     \vspace*{\fill}
    \end{center}
-        
+
    Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
 
-   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+   \assinatura{\textbf{\imprimirorientador} \\ Orientador}
    \assinatura{\textbf{Professor} \\ Convidado 1}
    \assinatura{\textbf{Professor} \\ Convidado 2}
    %\assinatura{\textbf{Professor} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
-      
+
    \begin{center}
     \vspace*{0.5cm}
     {\large\imprimirlocal}
@@ -336,7 +336,7 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
     {\large\imprimirdata}
     \vspace*{1cm}
   \end{center}
-  
+
 \end{folhadeaprovacao}
 % ---
 
@@ -416,17 +416,17 @@ contribuirão para a evolução do \abnTeX.
    This is the english abstract.
 
    \vspace{\onelineskip}
- 
-   \noindent 
+
+   \noindent
    \textbf{Keywords}: latex. abntex. text editoration.
  \end{otherlanguage*}
 \end{resumo}
 
-% resumo em francês 
+% resumo em francês
 \begin{resumo}[Résumé]
  \begin{otherlanguage*}{french}
     Il s'agit d'un résumé en français.
- 
+
    \textbf{Mots-clés}: latex. abntex. publication de textes.
  \end{otherlanguage*}
 \end{resumo}
@@ -435,7 +435,7 @@ contribuirão para a evolução do \abnTeX.
 \begin{resumo}[Resumen]
  \begin{otherlanguage*}{spanish}
    Este es el resumen en español.
-  
+
    \textbf{Palabras clave}: latex. abntex. publicación de textos.
  \end{otherlanguage*}
 \end{resumo}
@@ -507,7 +507,7 @@ contribuirão para a evolução do \abnTeX.
 % ----------------------------------------------------------
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
+\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento
 exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
 gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
 - Trabalhos acadêmicos - Apresentação}.
@@ -532,15 +532,15 @@ Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
 incompatíveis com as customizações promovidas. Consulte
 \citeonline{abntex2-wiki-como-customizar} para mais informações.
 
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
 \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{memoir}. 
+\cite{memoir}.
 
 Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
 você produzirá, de modo que o principal esforço seja concentrado no principal:
 na contribuição científica.
 
-Equipe \abnTeX 
+Equipe \abnTeX
 
 Lauro César Araujo
 
@@ -551,7 +551,7 @@ Lauro César Araujo
 % ----------------------------------------------------------
 
 % ---
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% Capitulo com exemplos de comandos inseridos de arquivo externo
 % ---
 \include{abntex2-modelo-include-comandos}
 % ---
@@ -560,7 +560,7 @@ Lauro César Araujo
 
 \section{Quadros}
 
-Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
+Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros
 configurados por padrão. Verifique um exemplo de utilização:
 
 \begin{quadro}[htb]
@@ -577,8 +577,8 @@ configurados por padrão. Verifique um exemplo de utilização:
 \end{quadro}
 
 Este parágrafo apresenta como referenciar o quadro no texto, requisito
-obrigatório da ABNT. 
-Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
+obrigatório da ABNT.
+Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}.
 Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
 
 % ----------------------------------------------------------

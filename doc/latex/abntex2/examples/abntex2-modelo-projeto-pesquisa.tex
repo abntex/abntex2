@@ -1,5 +1,5 @@
 %% abtex2-modelo-projeto-pesquisa.tex, v<VERSION> laurocesar
-%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://www.abntex.net.br/
 %%
 %% This work consists of the files abntex2-modelo-projeto-pesquisa.tex
@@ -21,10 +21,10 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% abnTeX2: Modelo de Projeto de pesquisa em conformidade com 
+% abnTeX2: Modelo de Projeto de pesquisa em conformidade com
 % ABNT NBR 15287:2011 Informação e documentação - Projeto de pesquisa -
-% Apresentação 
-% ------------------------------------------------------------------------ 
+% Apresentação
+% ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 \documentclass[
@@ -32,7 +32,7 @@
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel. 
+	a4paper,			% tamanho do papel.
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
@@ -50,7 +50,7 @@
 % ---
 
 % ---
-% Pacotes fundamentais 
+% Pacotes fundamentais
 % ---
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
@@ -73,9 +73,9 @@
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -108,8 +108,8 @@
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Tese (Doutorado)}
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
 \preambulo{Modelo canônico de Projeto de pesquisa em conformidade
 com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
@@ -124,11 +124,11 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
+		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto de pesquisa}, 
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto de pesquisa},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -137,11 +137,11 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 		bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
@@ -165,7 +165,7 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \selectlanguage{brazil}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -247,10 +247,10 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \addcontentsline{toc}{chapter}{Introdução}
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
+\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento
 exemplifica a elaboração de projetos de pesquisa produzidos
 conforme a ABNT NBR 15287:2011 \emph{Informação e documentação - Projeto de
-pesquisa - Apresentação}. 
+pesquisa - Apresentação}.
 
 A expressão ``Modelo canônico'' é utilizada para indicar que \abnTeX\ não é
 modelo específico de nenhuma universidade ou instituição, mas que implementa tão
@@ -272,7 +272,7 @@ Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
 incompatíveis com as customizações promovidas. Consulte
 \citeonline{abntex2-wiki-como-customizar} para mais informações.
 
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
 \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
 \cite{memoir}. Consulte \citeonline{abntex2modelo} para obter
 exemplos e informações adicionais de uso de \abnTeX\ e de \LaTeX.
@@ -281,12 +281,12 @@ Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
 você produzirá, de modo que o principal esforço seja concentrado no principal:
 na contribuição científica.
 
-Equipe \abnTeX 
+Equipe \abnTeX
 
 Lauro César Araujo
 
 % ----------------------------------------------------------
-% Capitulo de textual  
+% Capitulo de textual
 % ----------------------------------------------------------
 \chapter{Elementos textuais}
 
@@ -307,7 +307,7 @@ para outras informações. Uma lista com as principais normas dessa série, toda
 observadas pelo \abnTeX, é apresentada em \citeonline{abntex2classe}.
 
 % ----------------------------------------------------------
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% Capitulo com exemplos de comandos inseridos de arquivo externo
 % ----------------------------------------------------------
 
 \include{abntex2-modelo-include-comandos}
