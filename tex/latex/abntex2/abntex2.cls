@@ -622,8 +622,8 @@
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        \tocinnonumchapter
        \ABNTEXcaptiondelim%
-     }{} % else
-     \space
+     }{}%
+     \space%
   }
   \renewcommand{\afterchapternum}{}
   
