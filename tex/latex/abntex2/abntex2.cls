@@ -695,7 +695,8 @@
 \newcommand{\imprimirtitulo}{\thetitle}
 
 % Comandos de dados - titulo do documento
-\newcommand{\tituloestrangeiro}[1]{\providecommand{\theforeigntitle}{#1}}
+\providecommand{\theforeigntitle}[1]{}
+\newcommand{\tituloestrangeiro}[1]{\renewcommand{\theforeigntitle}{#1}}
 \newcommand{\imprimirtituloestrangeiro}{\theforeigntitle}
 
 

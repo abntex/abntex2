@@ -28,6 +28,10 @@ SUMMARY
 
 CHANGE HISTORY
 -----------------------------------------------------------------
+  YYYY/MM/DD - v1.9.8
+    . fixed foreign title
+
+
   2018/11/24 - v1.9.7
     . added compliance to ABNT NBR 6022:2018 for article template
     . added \tituloestrangeiro (title in foreign language) for article template
