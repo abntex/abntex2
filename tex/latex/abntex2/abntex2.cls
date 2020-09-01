@@ -572,11 +572,11 @@
 
   % tamanhos de fontes de chapter e part	
    \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-     \setlength\beforechapskip{\baselineskip}
-     \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}
+     \setlength\beforechapskip{\baselineskip}%
+     \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}%
    }{%else
-     \setlength{\beforechapskip}{0pt}
-     \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}
+     \setlength{\beforechapskip}{0pt}%
+     \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}%
    }
   
   \renewcommand{\chapnumfont}{\chaptitlefont}
@@ -595,7 +595,7 @@
   
   % impressao do nome do capitulo
   \renewcommand{\printchaptername}{%
-   \chaptitlefont
+   \chaptitlefont%
    \ifthenelse{\boolean{abntex@apendiceousecao}}{\appendixname}{}%
   }
     
@@ -610,25 +610,25 @@
       }{%
         \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
         \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}}%
-     }    
+     }%
   }
        
   % impressao do numero do capitulo     	
   \renewcommand{\printchapternum}{%
-     \tocprintchapter
-     \setboolean{abntex@innonumchapter}{false}
+     \tocprintchapter%
+     \setboolean{abntex@innonumchapter}{false}%
      \chapnumfont%
      \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
-       \tocinnonumchapter
+       \tocinnonumchapter%
        \ABNTEXcaptiondelim%
-     }{} % else
+     }{}%
   }
   \renewcommand{\afterchapternum}{}
   
   % impressao do capitulo nao numerado
   \renewcommand\printchapternonum{%
-     \tocprintchapternonum
+     \tocprintchapternonum%
      \setboolean{abntex@innonumchapter}{true}%
     }
 }
