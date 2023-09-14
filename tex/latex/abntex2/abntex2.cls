@@ -618,11 +618,12 @@
      \tocprintchapter
      \setboolean{abntex@innonumchapter}{false}
      \chapnumfont%
-     \space\thechapter\space%
+     \space\thechapter%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
        \tocinnonumchapter
        \ABNTEXcaptiondelim%
-     }{} % else
+     }{}%
+     \space%
   }
   \renewcommand{\afterchapternum}{}
   
