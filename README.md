@@ -57,7 +57,7 @@ Sua ajuda é muito importante! [Você pode ajudar no desenvolvimento e na divulg
 
 ### Customizações do abnTeX2 ###
 
-**Customizações conhecidas**: já são dezenas de customizações para universidades e instituições. Veja a lista de [customizações conhecidas](https://github.com/abntex/abntex2/wiki/CustomizacoesConhecidas).
+**Customizações conhecidas**: já são dezenas de customizações para universidades e instituições. Veja a lista de [customizações conhecidas](https://github.com/abntex/abntex2/wiki/Customiza%C3%A7%C3%B5es-Conhecidas).
 
 **Deseja customizar o abnTeX2?** Caso você pretenda alterar e/ou redistribuir os modelos canônicos do abnTeX2, recomendamos fortemente que leia com atenção as [orientações sobre como customizar o abnTeX2](https://github.com/abntex/abntex2/wiki/ComoCustomizar).
 
