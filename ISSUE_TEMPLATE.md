@@ -1,3 +1,8 @@
+## Antes de tudo
+
+NÃO POSTE DÚVIDAS SOBRE LATEX.
+Leia isto antes: https://github.com/abntex/abntex2/blob/master/CONTRIBUTING.md
+
 ## Problema/Erro
 
 Para reportar seu problema forneça as informações abaixo:
