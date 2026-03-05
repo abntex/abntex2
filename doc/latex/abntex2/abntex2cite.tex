@@ -1,5 +1,5 @@
 %% abntex2cite.tex, v<VERSION> laurocesar
-%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://www.abntex.net.br/
 %%
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
@@ -24,13 +24,13 @@
 \else
 %from /usr/share/texmf/doc/pdftex/base/pdftexman.pdf
 \pdfinfo{
-  /Title        (O pacote abntex2cite: Estilos bibliográficos compatíveis com a ABNT NBR 6023) 
+  /Title        (O pacote abntex2cite: Estilos bibliográficos compatíveis com a ABNT NBR 6023)
   /Author       (G. Weber - Grupo abnTeX, Lauro César Araujo - Grupo abnTeX2)
   /Subject      (referencias bibliograficas)
   /Keywords     (ABNT, bibliografia, 6023:2000, 6023:2002)}
 \fi
 
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage[brazil]{babel}
@@ -230,7 +230,7 @@ parana1997,microsoft1995,mpc1993,sony1990,accioly2000}
 
 % \begin{htmlonly}
 % \title{\titulo}
-% 
+%
 % \author{Equipe \abnTeX2\\\htmladdnormallink\texttt{
 % http://www.abntex.net.br/}{http://www.abntex.net.br/}}
 % \date{\today}
@@ -253,7 +253,7 @@ pelos estilos \textsf{bibtex} compatíveis com a ABNT NBR 6023.
 
 O objetivo deste manual é descrever os estilos bibliográficos
 \textsf{abntex-alf.bst} e \textsf{abntex-num.bst}, responsáveis pelos estilos
-\textsf{bibtex} compatíveis com a ABNT NBR 6023. 
+\textsf{bibtex} compatíveis com a ABNT NBR 6023.
 
 Este documento é parte integrante da suíte \abnTeX2 e é complementado pelo
 documento \citeonline{abntex2cite-alf}.
@@ -478,7 +478,7 @@ exemplos:
 
 \noindent\begin{minipage}[t]{8cm}\latex{\small}\vspace{0pt}\begin{verbatim}
 Em \citeyear{Tsen86} \citeauthoronline{Tsen86}
-mostraram que elétrons podem relaxar via 
+mostraram que elétrons podem relaxar via
 interação elétron-fônon\cite{Tsen86}.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{4.5cm}\latex{\small}\vspace{12pt}
@@ -492,7 +492,7 @@ como se vê no exemplo:
 
 \noindent\begin{minipage}[t]{7cm}\latex{\small}\vspace{0pt}\begin{verbatim}
 Em \citeyear{Tsen86} \citeauthor{Tsen86}
-mostraram que elétrons podem relaxar via 
+mostraram que elétrons podem relaxar via
 interação elétron-fônon.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{5.5cm}\latex{\small}\vspace{12pt}
@@ -535,7 +535,7 @@ Para a opção 1, utilize:
 \begin{verbatim}
 \usepackage[num,overcite]{abntex2cite}
 \citebrackets()
-\end{verbatim} 
+\end{verbatim}
 
 
 Para a opção 2, utilize:
@@ -543,13 +543,13 @@ Para a opção 2, utilize:
 \begin{verbatim}
 \usepackage[num,overcite]{abntex2cite}
 \citebrackets{}
-\end{verbatim} 
+\end{verbatim}
 
 
 
 Como o segundo estilo entra em conflito com a numeração das notas de
 rodapé, recomenda-se não utilizar notas de rodapé com citações numéricas. Também no estilo sobrescrito não se deve deixar espaço entre o texto e a citação. %Portanto agora o estilo \texttt{[num]} coloca colchetes na primeira opção
-%listada pela `norma'\cite{NBR6023:2000}. 
+%listada pela `norma'\cite{NBR6023:2000}.
 %Este comportamento pode ser alterado com:
 %com os comandos %\verb+\leftovercite+ e \verb+\rightovercite+. %% leftovercite e rightovercite não funcionam.
 %\verb|\citebrackets[]| ou \verb|\citebrackets()|
@@ -597,7 +597,7 @@ bibliográficos (\texttt{*.bib}). Como mostrado em \cite{brasil1988}, não há p
 escrevem os nomes dos autores. Na ~\autoref{tabela-acentos} você encontra alguns
 exemplos das conversões mais importantes. Preste atenção especial para `ç' e `í'
 que devem estar envoltos em chaves. A regra geral é sempre usar a acentuação
-neste modo quando houver conversão para letras maiúsculas (ou seja, nos \textit{autores}). 
+neste modo quando houver conversão para letras maiúsculas (ou seja, nos \textit{autores}).
 
 \begin{table}[htbp]
 \caption{Tabela de conversão de acentuação.}
@@ -623,7 +623,7 @@ referências estejam ou não em letras maiúsculas. Na versão anterior, se houv
 com uma letra ou conjunto de letras que precisasse necessariamente ficar em letras maiúsculas, era necessário
 colocar os elementos entre chaves, por exemplo: \verb|{{C}onstituiçãoo da {R}epública {F}ederativa do {B}rasil}|.
 
-Esta é uma característica de muitos estilos bibliográficos para \verb|bibtex| que colocam 
+Esta é uma característica de muitos estilos bibliográficos para \verb|bibtex| que colocam
 em maiúscula somente a primeira palavra do título. No entanto, é inconveniente e trabalhoso para aqueles que lidam com bibliografias cujo títulos incluem siglas ou substantivos próprios. Desta forma, nesta versão dos estilos \verb|abntex2-cite-alf| e \verb|abntex2-cite-num|,
 pode-se simplesmente escrever em maiúsculas o que se desejar nos títulos, por exemplo em \cite{brasil1988}:
 
@@ -657,7 +657,7 @@ Para inserir uma referência cujo autor seja impresso como BARBOSA NETO, J. F., 
 \end{verbatim}
 
 Note que há um espaço entre as chaves: \verb+{ }+.
-   
+
 Ou então:
 
 \begin{verbatim}
@@ -674,7 +674,7 @@ Ou então:
 O pacote lida com URLs longas carregando os pacotes \texttt{url} e
 \texttt{breakurl} onde necessário (ou seja, carregando o último em
 compilação com \LaTeX, ou em ``modo \texttt{dvi}''). Estes pacotes,
-contudo, não inserem quebras de linha em URLs com hífens por padrão. 
+contudo, não inserem quebras de linha em URLs com hífens por padrão.
 
 Caso sejam necessárias quebras de linha com URLs longas e hifenizadas,
 deve-se passar as opções correspondentes para tais pacotes, chamando-os
@@ -1111,7 +1111,7 @@ O arquivo \texttt{abntex2-options.bib} define opções que agrupam outras opçõ
 definidas na \autoref{tabela-opcoes-formatacao} a na
 \autoref{tabela-opcoes-funcionamento}. A tabela \autoref{tabela-subestilos} e a
 \autoref{tabela-versao-normas} mostram os grupos de opções disponíveis. Consulte
-o próprio arquivo \texttt{abntex2-options.bib} para ver as opções 
+o próprio arquivo \texttt{abntex2-options.bib} para ver as opções
 definidas\footnote{Note que essas opções só podem ser usadas se for usado o
 arquivo \texttt{abntex2-options.bib} na bibliografia.}.
 
@@ -1356,7 +1356,7 @@ campo & descrição \\ \midrule
 
 Algumas novas entradas tiveram que ser criadas. Entradas são objetos de citação
 bibliográficas como \verb+@book+ e \verb+@article+ que ficam no arquivo de
-bibliografias (arquivo \texttt{.bib}). Note que outros estilos bibliográficos 
+bibliografias (arquivo \texttt{.bib}). Note que outros estilos bibliográficos
 tratarão essas entradas como \verb+@misc+.
 
 \subsection{\texttt{@ABNT-option} --- Mudança no estilo ABNT}
@@ -1413,7 +1413,7 @@ maneira como \texttt{@mastersthesis} e \texttt{@phdthesis}. Exemplos:
 
 \DescribeEnv{@thesis}
 Esta entrada funciona como \texttt{@phdthesis} com a diferença que o campo \texttt{
-type} deve conter toda a informação sobre o tipo de tese. 
+type} deve conter toda a informação sobre o tipo de tese.
 
 Por exemplo, se tivermos:
 
@@ -1567,7 +1567,7 @@ ser escrito assim: author=\{Roque de Brito Alves\}, aqui ficou ``First=Roque'',
 a `norma'. O nosso estilo consegue contornar o problema e gerar ``ALVES, Roque de
 Brito'', mas existe a possibilidade de que o nosso mecanismo gere problemas.
 Se você quiser reverter ao modo usual do \textsf{bibtex}, use a opção
-\texttt{bibtex} descrita na \autoref{tabela-opcoes-composicao}. 
+\texttt{bibtex} descrita na \autoref{tabela-opcoes-composicao}.
 
 Outro problema é a questão de elementos tipo ``Jr.'' tais como ``Filho'',
 ``Neto'' etc. A `norma' não diz nada explicitamente sobre o que fazer com isso.
@@ -1587,8 +1587,8 @@ por dois pontos.
 Exemplos:
 \texttt{article}\cite{ribeiro1998}
 \texttt{book}
-\cite{houaiss1996,torelly1991,michalany1981,passos1995,pastro1993,franco1993} 
-\texttt{incollection}\cite{romano1996} 
+\cite{houaiss1996,torelly1991,michalany1981,passos1995,pastro1993,franco1993}
+\texttt{incollection}\cite{romano1996}
 \texttt{manual}\cite{NBR6023:2000,secretaria1989,museu1997,moreira1997,geografico1986,brasileira1988}
 \texttt{mastersthesis}\cite{araujo1986}
 \texttt{misc}\cite{birds1998}.

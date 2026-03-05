@@ -1,4 +1,4 @@
-%% abtex2-modelo-livro.tex, v<VERSION> 
+%% abtex2-modelo-livro.tex, v<VERSION>
 %% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
@@ -11,9 +11,9 @@
 %%
 %% This work has the LPPL maintenance status `maintained'.
 %%
-%% Further information is available on 
+%% Further information is available on
 %% http://www.abntex.net.br/
-%% 
+%%
 
 
 \documentclass[
@@ -21,7 +21,7 @@
 	10pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a5paper,			% tamanho do papel. 
+	a5paper,			% tamanho do papel.
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
@@ -51,22 +51,22 @@
 \setmainfont[Numbers=OldStyle]{Minion Pro} %fonte principal (serifada)
 \setsansfont[Scale=0.9]{Myriad Pro} %fonte sem serifas
 \setmonofont[Scale=MatchLowercase]{Consolas} % fonte monoespaçada
-  
+
   \usepackage{polyglossia} %always load polyblossia after fonts for digits in math mode
   \setmainlanguage{brazil}
-  \setotherlanguages{french,english,spanish,german,italian}  
-  
+  \setotherlanguages{french,english,spanish,german,italian}
+
 \else
   % % se for utilizar pdflatex
 \usepackage[utf8]{inputenc}
-\usepackage{newtxmath} 
+\usepackage{newtxmath}
 \usepackage{Alegreya}
 \usepackage{AlegreyaSans}
 \usepackage[lf]{FiraMono}
 \usepackage[italic]{mathastext}
 \fi
 
-%% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel. 
+%% Observação: o pacote polyglossia pode apresentar erro ao ser utilizado com ifxetex + babel.
 %% Se isso acontecer, atualize o pacote para a versão mais recente ou utilize somente uma das sequências (pdflatex ou xelatex), comentando ou apagando a outra.
 
 \usepackage{microtype} 				% para melhorias de justificação
@@ -122,11 +122,11 @@
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
+		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{livro}, 
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{livro},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -141,20 +141,20 @@
 % ---
 % Estilo de capítulos
 %
-% \chapterstyle{pedersen} 
-% \chapterstyle{lyhne} 
-%\chapterstyle{madsen} 
-\chapterstyle{veelo} 
+% \chapterstyle{pedersen}
+% \chapterstyle{lyhne}
+%\chapterstyle{madsen}
+\chapterstyle{veelo}
 %
 % Veja outros estilos em:
 % https://www.ctan.org/tex-archive/info/MemoirChapStyles
 % ---
 
 % para cabeçalhos sem estar em maiúsculas
-%\nouppercaseheads 
+%\nouppercaseheads
 
 % -----
-% Declarações de cabecalhos 
+% Declarações de cabecalhos
 % -----
 % Cabecalho padrao
 \makepagestyle{abntbookheadings}
@@ -171,13 +171,13 @@
   \pagestyle{abntbookheadings}%
   \aliaspagestyle{chapter}{abntbookchapfirst}% customizing chapter pagestyle
   \nouppercaseheads%
-  \bookmarksetup{startatroot}% 
+  \bookmarksetup{startatroot}%
 }
 % ---
 
 
 
-% Margens do documento 
+% Margens do documento
 %% (margens do abntex2 não combinam nem com A5 nem com estilos de capítulo da
 % classe memoir.)
 \setlrmarginsandblock{2.5cm}{3.5cm}{*}
@@ -204,12 +204,12 @@
 \raggedright
 \imprimirautor\\
 \vspace{2.5cm}
-\huge 
+\huge
 {\raggedleft
 \includegraphics[scale=0.9]{abntex2-modelo-img-marca.pdf}\\[1cm]
 \textit{\textcolor{blue}{\imprimirtitulo}}\\[1cm]
 }
-\centering 
+\centering
   %este é um símbolo que só aparecerá com a fonte Minion.
 \vfill
 \Large
@@ -229,12 +229,12 @@
 \raggedright
 \imprimirautor\\
 \vspace{2.5cm}
-\huge 
+\huge
 {\raggedleft
 \includegraphics[scale=0.9]{abntex2-modelo-img-marca.pdf}\\[1cm]
 \textit{\textcolor{blue}{\imprimirtitulo}}\\[1cm]
 }
-\centering 
+\centering
 % %este é um símbolo que só aparecerá com a fonte Minion.
 \vfill
 \Large
@@ -320,7 +320,7 @@ ISBN XXXX-XXXX-XX.
 do projeto \abnTeX\footnote{\url{http://www.abntex.net.br/}}, e destina-se
 a servir de modelo para composição e diagramação de livros e folhetos em
 \LaTeX em conformidade com a norma ABNT NBR 6029:2006 \emph{Informação e
-documentação - Livros e folhetos - Apresentação}. 
+documentação - Livros e folhetos - Apresentação}.
 
 Em geral, qualquer classe do \LaTeX\ que contemple o formato de livros poderia
 ser utilizada (como \textsf{book}, \textsf{memoir} e \textsf{scrbook}, entre
@@ -330,7 +330,7 @@ fontes, etc., segundo a norma ABNT em questão, pode ser modificada pelo usuári
 
 Porém, este modelo foi composto com a classe \textsf{abntex2.cls} com o intuito
 de estimular que autores de teses e dissertações convertam e publiquem seus
-trabalhos em forma de livro. 
+trabalhos em forma de livro.
 
 Essencialmente, este modelo é idêntico aos demais modelos distribuídos com o
 \abnTeX. Porém, este documento exemplifica como customizar a formatação final do
@@ -360,11 +360,11 @@ bibliografia, índice remissivo (inglês: \textit{index}), colofão, etc;
 
 \end{description}
 
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
 \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{memoir}. 
+\cite{memoir}.
 
-  
+
 % ------------------------------------------------------------
 \chapter{Um exemplo de capítulo}
 % ------------------------------------------------------------
@@ -497,7 +497,7 @@ Armadillo & frozen      & 8.99       \\
 % ------------------------------------------------------------
 % Colofão: última página com informações sobre a composição do livro.
 \cleardoublepage
-\thispagestyle{empty} 
+\thispagestyle{empty}
 
 Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
 \url{http://www.abntex.net.br/}. Também fique livre para conhecer, estudar,

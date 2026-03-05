@@ -1,5 +1,5 @@
 %% abntex2cite-alf.tex, v<VERSION> laurocesar
-%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,16 +10,16 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://www.abntex.net.br/
 %%
 %% Creator and original mantainer: Gerald Weber <gweber@codigolivre.org.br>
 %% Copyright 2001-2003 by the abnTeX group at http://codigolivre.org.br/projects/abntex
 
 \documentclass[a4paper]{ltxdoc}
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
 \usepackage[brazil]{babel}
@@ -73,8 +73,8 @@
 \pdfinfo{
   /Title        (O pacote abntex2cite: Tópicos específicos da ABNT NBR 10520:2002 e o estilo bibliográfico alfabético (sistema
                  autor-data))
-  /Author       (G. Weber - Grupo abnTeX, Lauro César Araujo - Grupo abnTeX2) 
-  /Subject      (referencias bibliograficas) 
+  /Author       (G. Weber - Grupo abnTeX, Lauro César Araujo - Grupo abnTeX2)
+  /Subject      (referencias bibliograficas)
   /Keywords     (ABNT, bibliografia, 6023:2000, 6023:2002, 10520:1988, 10520:2001, 10520:2002)}
 \fi
 
@@ -140,7 +140,7 @@ específicos da ABNT NBR 10520:2002 e o \\ estilo bibliográfico alfabético
 \newcommand{\optiondefaultval}[1]{\underline{\texttt{#1}}}
 
 \title{\titulo}
-\author{ 
+\author{
 Lauro César Araujo\\\abnTeXSite}
 \date{\today, v<VERSION>}
 
@@ -167,7 +167,7 @@ autor-data).
 \section{Escopo}
 
 O objetivo deste manual é abordar tópicos específicos da ABNT NBR 10520:2002 e
-o estilo bibliográfico alfabético (sistema autor-data). 
+o estilo bibliográfico alfabético (sistema autor-data).
 
 Este documento é parte integrante da suíte \abnTeX2 e é um complemento do
 documento \citeonline{abntex2cite}.
@@ -206,8 +206,8 @@ banca, seja por que não leram a sua tese ou porque não entenderam nada
 realmente (ou ambos), acabem se enroscando em picuinhas.
 
 Aí mandam você colocar todas as suas referências numéricas em formato
-autor-data. Comentamos isso porque tudo isso já aconteceu e continua acontecendo 
-com outras pessoas. Portanto, \emph{esteja preparado}. 
+autor-data. Comentamos isso porque tudo isso já aconteceu e continua acontecendo
+com outras pessoas. Portanto, \emph{esteja preparado}.
 
 Antes de começar a escrever recomendamos verificar quais são as regras \emph{de
 fato} da sua universidade ou instituição.
@@ -284,13 +284,13 @@ A ironia será assim uma \ldots\ proposta
 por \citeonline{10520:2000:4.1-1}.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-A ironia será assim uma \ldots\ proposta 
+A ironia será assim uma \ldots\ proposta
 por \citeonline{10520:2000:4.1-1}.
 \end{minipage}\\
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 \citeonline[p.~146]{10520:2000:4.2-2}
-dizem que \ldots\ 
+dizem que \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 \citeonline[p.~146]{10520:2000:4.2-2} dizem que \latexhtml{\ldots\ }{...}
@@ -437,11 +437,11 @@ Exemplos:
 \vspace{5mm}
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 para que \ldots\  à sociedade
-\cite[p.~46, grifo nosso]{10520:2000:4.8}  
+\cite[p.~46, grifo nosso]{10520:2000:4.8}
 \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-para que \ldots\ à sociedade 
+para que \ldots\ à sociedade
 \cite[p.~46, grifo nosso]{10520:2000:4.8}
 \ldots\
 \end{minipage}\\
@@ -675,7 +675,7 @@ mais de três autores. Mesmo entre os 204 exemplos da `norma'
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 Segundo \citeonline{urani1994}
-entende-se que \ldots\ 
+entende-se que \ldots\
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Segundo \citeonline{urani1994}
@@ -684,12 +684,12 @@ entende-se que \latexhtml{\ldots\ }{...}
 
 \noindent\begin{minipage}[t]{\VerbL}\latex{\small}\begin{verbatim}
 Em recente estudo \cite{Deng00}
-foram investigados estados em 
+foram investigados estados em
 fios quânticos.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
 Em recente estudo \cite{Deng00}
-foram investigados estados em 
+foram investigados estados em
 fios quânticos.
 \end{minipage}\\
 
@@ -716,7 +716,7 @@ mencionada por
 \citeauthoronline{10520:2000:4.2-1}.
 \end{verbatim}\end{minipage}\hspace{5mm}
 \begin{minipage}[t]{\LatL}\latex{\small}\vspace{12pt}
-A produção de \ldots\ em 1928  
+A produção de \ldots\ em 1928
 mencionada por
 \citeauthoronline{10520:2000:4.2-1}.
 \end{minipage}\\
@@ -873,7 +873,7 @@ de um único documento. Ou o exemplo da seção 5.1.5 está errado: faltam datas
 outros autores, ou foi uma tentativa desastrada de agrupar três documentos com
 o mesmo ano de publicação. Já exemplo anterior, da seção 5.1.4, há problemas
 também com um ponto-e-vírgula após o COSTA, quando deveria haver apenas uma
-vírgula. 
+vírgula.
 
 Veja na \autoref{mult-ref} como fica a nossa solução.
 

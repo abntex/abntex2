@@ -1,5 +1,5 @@
 %% abtex2-modelo-relatorio-tecnico.tex, v<VERSION> laurocesar
-%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/ 
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
 %%
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -10,9 +10,9 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
+%% by Lauro César Araujo. Further information are available on
 %% http://www.abntex.net.br/
 %%
 %% This work consists of the files abntex2-modelo-relatorio-tecnico.tex,
@@ -21,10 +21,10 @@
 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
-% abnTeX2: Modelo de Relatório Técnico/Acadêmico em conformidade com 
+% abnTeX2: Modelo de Relatório Técnico/Acadêmico em conformidade com
 % ABNT NBR 10719:2015 Informação e documentação - Relatório técnico e/ou
 % científico - Apresentação
-% ------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 \documentclass[
@@ -32,7 +32,7 @@
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
-	a4paper,			% tamanho do papel. 
+	a4paper,			% tamanho do papel.
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
@@ -51,7 +51,7 @@
 % ---
 
 % ---
-% Pacotes fundamentais 
+% Pacotes fundamentais
 % ---
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
@@ -68,7 +68,7 @@
 \usepackage{multicol}
 \usepackage{multirow}
 % ---
-	
+
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
@@ -81,9 +81,9 @@
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -116,8 +116,8 @@
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Relatório técnico}
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
 \preambulo{Modelo canônico de Relatório Técnico e/ou Científico em conformidade
 com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 % ---
@@ -132,11 +132,11 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
+		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico}, 
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=blue,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -145,11 +145,11 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 		bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
@@ -173,7 +173,7 @@ com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
 \selectlanguage{brazil}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -207,24 +207,24 @@ deve conter:
 
 \begin{alineas}
   \item nome do órgão ou entidade responsável que solicitou ou gerou o
-   relatório; 
+   relatório;
   \item título do projeto, programa ou plano que o relatório está relacionado;
   \item título do relatório;
   \item subtítulo, se houver, deve ser precedido de dois pontos, evidenciando a
    sua subordinação ao título. O relatório em vários volumes deve ter um título
-   geral. Além deste, cada volume pode ter um título específico; 
+   geral. Além deste, cada volume pode ter um título específico;
   \item número do volume, se houver mais de um, deve constar em cada folha de
-   rosto a especificação do respectivo volume, em algarismo arábico; 
+   rosto a especificação do respectivo volume, em algarismo arábico;
   \item código de identificação, se houver, recomenda-se que seja formado
    pela sigla da instituição, indicação da categoria do relatório, data,
-   indicação do assunto e número sequencial do relatório na série; 
+   indicação do assunto e número sequencial do relatório na série;
   \item classificação de segurança. Todos os órgãos, privados ou públicos, que
    desenvolvam pesquisa de interesse nacional de conteúdo sigiloso, devem
-    informar a classificação adequada, conforme a legislação em vigor; 
+    informar a classificação adequada, conforme a legislação em vigor;
   \item nome do autor ou autor-entidade. O título e a qualificação ou a função
    do autor podem ser incluídos, pois servem para indicar sua autoridade no
    assunto. Caso a instituição que solicitou o relatório seja a mesma que o
-   gerou, suprime-se o nome da instituição no campo de autoria; 
+   gerou, suprime-se o nome da instituição no campo de autoria;
   \item local (cidade) da instituição responsável e/ou solicitante; NOTA: No
    caso de cidades homônimas, recomenda-se o acréscimo da sigla da unidade da
    federação.
@@ -332,7 +332,7 @@ contribuirão para a evolução do abn\TeX.
 \addcontentsline{toc}{chapter}{Introdução}
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
+\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento
 exemplifica a elaboração de relatórios técnicos e/ou científicos produzidos
 conforme a ABNT NBR 10719:2015 \emph{Informação e documentação - Relatório
 técnico e/ou científico - Apresentação}.
@@ -357,11 +357,11 @@ Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
 incompatíveis com as customizações promovidas. Consulte
 \citeonline{abntex2-wiki-como-customizar} para mais informações.
 
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
+Este documento deve ser utilizado como complemento dos manuais do \abnTeX\
 \cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{memoir}. 
+\cite{memoir}.
 
-Equipe \abnTeX 
+Equipe \abnTeX
 
 Lauro César Araujo
 
@@ -372,7 +372,7 @@ Lauro César Araujo
 \part{Preparação do relatório}
 
 % ----------------------------------------------------------
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% Capitulo com exemplos de comandos inseridos de arquivo externo
 % ----------------------------------------------------------
 
 \include{abntex2-modelo-include-comandos}
@@ -519,7 +519,7 @@ norma, ele é o último elemento pós-textual e opcional do relatório.
                    \cline{2-2}
                    & No.\\
                    & \\
-				
+
 \hline
 Tipo de relatório & Data\\
 \hline

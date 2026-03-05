@@ -29,17 +29,17 @@ function compileLaTeX(){
 
 # initialize directories
 function initialize(){
-       
+
         # initializing: create empty directories
         rm -rf target
 
         # creating directories for CTAN zip
         mkdir -p target/abntex2/{tex,doc}
-       
+
         # copying all abntex2source files
         mkdir -p target/abntex2source/
         cp -rf Makefile doc tex bibtex target/abntex2source/
-       
+
         # creating doc directory (only documentation, without examples)
         mkdir -p target/doc
 }
@@ -58,37 +58,37 @@ function buildPdf(){
         cp -rf target/abntex2source/bibtex/bst/abntex2/* target/abntex2source/doc/latex/abntex2/examples
         cp -rf .latexmkrc target/abntex2source/doc/latex/abntex2/examples
 
-   
+
     echo "Compiling base documentation"
-       
+
         cd target/abntex2source/doc/latex/abntex2/
-   
+
     echo "Compiling abntex2"
         compileLaTeX abntex2
-       
+
         echo "Compiling abntex2cite"
         compileLaTeX abntex2cite
-       
+
         echo "Compiling abntex2cite-alf"
         compileLaTeX abntex2cite-alf
-       
-   
+
+
     echo "Compiling examples"
-   
+
         cd examples/
-               
+
         echo "Compiling abntex2-modelo-relatorio-tecnico"
         compileLaTeX abntex2-modelo-relatorio-tecnico
-       
+
         echo "Compiling abntex2-modelo-trabalho-academico"
         compileLaTeX abntex2-modelo-trabalho-academico
-       
+
         echo "Compiling abntex2-modelo-glossarios"
         compileLaTeX abntex2-modelo-glossarios
-       
+
         echo "Compiling abntex2-modelo-modelo-artigo"
         compileLaTeX abntex2-modelo-artigo
-       
+
         echo "Compiling abntex2-modelo-projeto-pesquisa"
         compileLaTeX abntex2-modelo-projeto-pesquisa
 
@@ -97,10 +97,10 @@ function buildPdf(){
 
         echo "Compiling abntex2-modelo-slides"
         compileLaTeX abntex2-modelo-slides
-       
-       
+
+
         cd ../../../../../../
-       
+
         echo "removing abnTeX2 files from doc files"
         rm -rf target/abntex2source/doc/latex/abntex2/*.cls
         rm -rf target/abntex2source/doc/latex/abntex2/*.sty
@@ -115,7 +115,7 @@ function buildPdf(){
 # change permissions of folders and files
 function changePermissions(){
         find target/abntex2source/ -type d -exec chmod 755 {} \;
-        
+
         find target/abntex2source/ -type f -exec chmod 644 {} \;
 }
 
@@ -127,12 +127,12 @@ function buildCompressed(){
         cd target/doc
         zip -j ../../$ZIP_DOC * -i *README \*.tex \*.pdf \*.bib
         cd ../..
-       
+
         echo "$ZIP_TDS (tds directory structure):"
         cd target/abntex2source
         zip -r ../../$ZIP_TDS bibtex doc tex -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.jpg
         cd ../..
-       
+
         echo "$ZIP_CTAN (tex and doc browsable content + abntex2-tds.zip + README):"
         cp $ZIP_TDS target/abntex2.tds.zip
         cp -rf target/abntex2source/tex/latex/abntex2/* target/abntex2/tex
@@ -144,7 +144,7 @@ function buildCompressed(){
         zip -r ../$ZIP_CTAN abntex2 -i *README \*.tex \*.pdf \*.bib \*.bst \*.cls \*.sty \*.jpg
         zip ../$ZIP_CTAN abntex2.tds.zip
         cd ..
-       
+
         echo "$ZIP_TDS - add Makefile to existing file:"
         cd target/abntex2source
         zip ../../$ZIP_TDS Makefile
@@ -172,12 +172,12 @@ function clean() {
 # replace tokens in the source files
 function replaceTokens(){
 		# replace version number in all files with <VERSION> string
-        find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"  
-        
+        find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<VERSION>/$VERSAO/g"
+
         # replace current date in all files with <CURRENT_DATE> string
         CURRENT_DATE=`date +'%Y\/%m\/%d'`
         find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<CURRENT_DATE>/$CURRENT_DATE/g"
-        
+
         # replace copyright year in all files with <COPYRIGHT_YEAR> string
         CURRENT_YEAR=`date +'%Y'`
         find target/abntex2source \( -name *.sty -or -name *.cls -or -name *.tex -or -name README -or -name *.bst \) | xargs sed -i -e "s/<COPYRIGHT_YEAR>/$CURRENT_YEAR/g"
@@ -199,19 +199,19 @@ function buildAll(){
 
         # initializing files
         initialize
-       
+
         # update version number in files
         replaceTokens
-       
+
         # compile latex
         buildPdf
-        
+
         # change permissions of folders and files in the target directory
         changePermissions
-       
+
         # building compressed files
         buildCompressed
-       
+
         # clean temp files
         clean
 }
@@ -309,7 +309,7 @@ else
                 else
                         deploy $2 $3
                 fi
-               
+
                 printEndingInformation
         fi
 fi

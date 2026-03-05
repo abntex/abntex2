@@ -24,9 +24,9 @@ Caso não encontrou a solução, você deve postar: **uma versão reduzida do se
 
 * Crie uma cópia do seu trabalho e remova tudo o que for irrelevante sobre sua dúvida/problema.
   * Fazer uma cópia é necessário porque você deverá realizar alterações no documento que será enviado.
-  * **Remova tudo o que for irrelevante:** se você está com problemas com uma única citação, apague tudo o que não for relacionado com isso. 
+  * **Remova tudo o que for irrelevante:** se você está com problemas com uma única citação, apague tudo o que não for relacionado com isso.
   * Quanto menor o documento mais fácil será de analisá-lo.
-    
+
 O penúltimo passo é facilitar a reprodução do seu problema. Isso consiste em fornecer todos os arquivos necessários para que possamos compilar o código.
 
 * Se possível gere um arquivo zip da cópia do seu projeto, pois facilita o download e reduz a probabilidade de faltar algum arquivo necessário para compilação.
