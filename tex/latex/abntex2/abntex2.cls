@@ -572,11 +572,11 @@
 
   % tamanhos de fontes de chapter e part	
    \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-     \setlength\beforechapskip{\baselineskip}
-     \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}
+     \setlength\beforechapskip{\baselineskip}%
+     \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}%
    }{%else
-     \setlength{\beforechapskip}{0pt}
-     \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}
+     \setlength{\beforechapskip}{0pt}%
+     \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize}%
    }
   
   \renewcommand{\chapnumfont}{\chaptitlefont}
@@ -595,7 +595,7 @@
   
   % impressao do nome do capitulo
   \renewcommand{\printchaptername}{%
-   \chaptitlefont
+   \chaptitlefont%
    \ifthenelse{\boolean{abntex@apendiceousecao}}{\appendixname}{}%
   }
     
@@ -610,26 +610,25 @@
       }{%
         \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
         \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{##1}}}%
-     }    
+     }%
   }
        
   % impressao do numero do capitulo     	
   \renewcommand{\printchapternum}{%
-     \tocprintchapter
-     \setboolean{abntex@innonumchapter}{false}
+     \tocprintchapter%
+     \setboolean{abntex@innonumchapter}{false}%
      \chapnumfont%
-     \space\thechapter%
+     \space\thechapter\space%
      \ifthenelse{\boolean{abntex@apendiceousecao}}{%
-       \tocinnonumchapter
+       \tocinnonumchapter%
        \ABNTEXcaptiondelim%
      }{}%
-     \space%
   }
   \renewcommand{\afterchapternum}{}
   
   % impressao do capitulo nao numerado
   \renewcommand\printchapternonum{%
-     \tocprintchapternonum
+     \tocprintchapternonum%
      \setboolean{abntex@innonumchapter}{true}%
     }
 }
@@ -696,8 +695,7 @@
 \newcommand{\imprimirtitulo}{\thetitle}
 
 % Comandos de dados - titulo do documento
-\providecommand{\theforeigntitle}[1]{}
-\newcommand{\tituloestrangeiro}[1]{\renewcommand{\theforeigntitle}{#1}}
+\newcommand{\tituloestrangeiro}[1]{\providecommand{\theforeigntitle}{#1}}
 \newcommand{\imprimirtituloestrangeiro}{\theforeigntitle}
 
 
@@ -991,7 +989,7 @@
 % Ambiente para alineas e e subalineas (incisos)
 % ABNT NBR 6024/2012 - 4.2 e 4.3
 \newlist{alineas}{enumerate}{2}
-\setlist[alineas,1]{label={\alph*)},topsep=0pt,itemsep=0pt,left=\parindent}%
+\setlist[alineas,1]{label={\alph*)},topsep=0pt,itemsep=0pt,leftmargin=\parindent+\labelwidth-\labelsep}%
 \setlist[alineas,2]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}
 \newlist{subalineas}{enumerate}{1}
 \setlist[subalineas,1]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}%
