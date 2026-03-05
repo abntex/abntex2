@@ -243,7 +243,8 @@ FUNCTION {space.word} { " " swap$ * " " * }
 
 FUNCTION {bbl.and}
 { abnt.and.type #0 = {" e "} 'skip$ if$
-  abnt.and.type #1 = {" \& "} 'skip$ if$}
+  abnt.and.type #1 = {" \& "} 'skip$ if$
+  abnt.and.type #2 = {" and "} 'skip$ if$}
 FUNCTION {bbl.chapter} { "cap." }
 FUNCTION {bbl.colon} {": "}
 FUNCTION {bbl.editors} { "Ed." }
@@ -1509,7 +1510,8 @@ FUNCTION { abnt-options2 }
     abnt-and-type empty$
     'skip$ {abnt-and-type "e" =
               {#0} {abnt-and-type "&" =
-                {#1} {#0} if$} if$
+                {#1} {abnt-and-type "and" =
+                  {#2} {#0} if$} if$} if$
             'abnt.and.type :=
       "abnt-and-type" abnt-and-type abnt.display.options}
     if$
@@ -2032,7 +2034,7 @@ FUNCTION {set.default.abnt.variables}
   %
   "abnt-alf.bst,v " = 'abnt.alf := % #1 para abnt-alf #0 para abnt-num
   "$Revision: v<VERSION> $" extract.cvs.key 'abnt.bst.revision :=
-  #0 'abnt.and.type     :=     % #0 "e"; #1 "&"
+  #0 'abnt.and.type     :=     % #0 "e"; #1 "&"; #2 "and"
   "\emph" 'abnt.emphasize :=
   #0 'abnt.cite.style :=       %default norm version for NBR10520
                                %#0 \cite=(AUTHOR, YEAR)
