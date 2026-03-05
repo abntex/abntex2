@@ -30,15 +30,15 @@
 %
 \providecommand{\ABNTEXisarticle}{false}
 \DeclareOption{article}{
-	\renewcommand{\ABNTEXisarticle}{true}
-	\PassOptionsToClass{article}{memoir}%}
+  \renewcommand{\ABNTEXisarticle}{true}
+  \PassOptionsToClass{article}{memoir}%}
 }
 \providecommand{\ABNTEXistwocolumn}{false}
 \DeclareOption{twocolumn}{
-	\renewcommand{\ABNTEXistwocolumn}{true}
-	\PassOptionsToClass{twocolumn}{memoir}%}
+  \renewcommand{\ABNTEXistwocolumn}{true}
+  \PassOptionsToClass{twocolumn}{memoir}%}
 }
-%	
+%
 % Opcoes chapter=TITLE, section=TITLE, subsection=TITLE e
 % subsubsection=TITLE: titulos em letras maiusculas
 % 
@@ -72,7 +72,7 @@
   \setboolean{ABNTEXsumario-abnt-6027-2012}{true}
   \setboolean{ABNTEXsumario-tradicional}{false}}
 %
-% Repassa demais opcoes a memoir	
+% Repassa demais opcoes a memoir
 %
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{memoir}%
@@ -129,7 +129,7 @@
 
 % ---
 % Controla os bookmarks do PDF
-\RequirePackage{bookmark}   			
+\RequirePackage{bookmark}
 % ---
 
 % ---
@@ -433,7 +433,7 @@
  
 % lista de tabelas  
 \renewcommand{\cfttablename}{\tablename\space}
-\renewcommand*{\cfttableaftersnum}{\hfill\textendash\hfill}	
+\renewcommand*{\cfttableaftersnum}{\hfill\textendash\hfill}
  
 % fonte das partes e do capitulo do TOC
 \renewcommand{\tocheadstart}{\ABNTEXchapterfont}
@@ -570,7 +570,7 @@
     \newlength{\chapternamenumlength}
   \fi
 
-  % tamanhos de fontes de chapter e part	
+  % tamanhos de fontes de chapter e part
    \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
      \setlength\beforechapskip{\baselineskip}%
      \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}%
@@ -613,7 +613,7 @@
      }%
   }
        
-  % impressao do numero do capitulo     	
+  % impressao do numero do capitulo
   \renewcommand{\printchapternum}{%
      \tocprintchapter%
      \setboolean{abntex@innonumchapter}{false}%
@@ -817,7 +817,7 @@
 \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
     % em artigos, margens e fontes são as mesmas de memoir
   }{ % else
-  	% Ajusta as margens para serem a mesma do documento
+    % Ajusta as margens para serem a mesma do documento
     \setlength\absleftindent{0cm}
     \setlength\absrightindent{0cm}
     % Garante que a fonte do texto do abstract será a mesma do documento, pois
@@ -1072,17 +1072,17 @@
 
     %\vspace*{1cm}
     {\ABNTEXchapterfont\large\imprimirautor}
-	
+
     \vspace*{\fill}\vspace*{\fill}
     \begin{center}
       \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
     \end{center}
     \vspace*{\fill}
-	
+
     \abntex@ifnotempty{\imprimirpreambulo}{%
       \hspace{.45\textwidth}
       \begin{minipage}{.5\textwidth}
-      	\SingleSpacing
+        \SingleSpacing
          \imprimirpreambulo
        \end{minipage}%
        \vspace*{\fill}
