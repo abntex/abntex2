@@ -26,6 +26,7 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.hd
 doc/latex/abntex2/abntex2abrev.sty
 doc/latex/abntex2/abntex2-options.bib
 doc/latex/abntex2/abntex2.cls
@@ -39,5 +40,5 @@ abntex2-modelo-trabalho-academico.pdf
 abntex2.pdf
 abntex2cite.pdf
 .DS_Store
-doc/NBR/Abnt_nbr_10520_2023.pdf
-doc/NBR/Referencias-NBR-6023-2025.pdf
+doc/NBR/
+
