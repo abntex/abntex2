@@ -221,6 +221,15 @@
 \setboolean{ABNTversalete}{false}
 \DeclareOption{versalete}{\setboolean{ABNTversalete}{true}}
 
+% NBR 10520:2023 - autoria com inicial maiúscula em citações parentéticas
+\newboolean{ABNTnbr10520v2023}
+\setboolean{ABNTnbr10520v2023}{true}
+\DeclareOption{nbr10520=2023}{\setboolean{ABNTnbr10520v2023}{true}}
+\DeclareOption{nbr10520=2002}{%
+  \setboolean{ABNTnbr10520v2023}{false}%
+  \addtociteoptionlist{abnt-nbr10520=2002}%
+}
+
 % 10520:2002 does not allow (XX) or [XX] for superscript cites
 \newboolean{ABNTstrictnumformat}
 
@@ -334,6 +343,12 @@
   {}
   {\AtBeginDocument{\citeoption{\citeoptionlist}}}
 
+\def\ABNTciteparensuffix{IMPL}%
+\ifthenelse{\boolean{ABNTnbr10520v2023}}{%
+  \def\ABNTciteparenstylecmd{\authorstyle}%
+}{%
+  \def\ABNTciteparenstylecmd{\authorcapstyle}%
+}
 
 % \citeoption - equal to \nocite  (I copied source from \nocite)
 %               but not complains about this option be obviously undefined
@@ -606,8 +621,8 @@
   %
   %               \cite[optional]{list of keys}
   %
-  %  Implicit citation - author in capital letters and year; 
-  %                       mechanism to deal with repeated names;
+  %  Parenthetical citation - author and year; 
+  %                           mechanism to deal with repeated names;
   %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   
@@ -624,9 +639,8 @@
         {%
          \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
          %
-         % here, a tricky \let\@citename\"b@\@citekey++IMPL"
          \expandafter\let\expandafter\@citename%
-             \csname b@\@citekey++IMPL\endcsname%
+             \csname b@\@citekey++\ABNTciteparensuffix\endcsname%
          \expandafter\let\expandafter\@citeyear%
              \csname b@\@citekey++YEAR\endcsname%
          \ifx\@citeprevious\@empty%
@@ -640,7 +654,7 @@
          % writing on aux file
          \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
          % if undefined bibitem
-         \@ifundefined{b@\@citekey++IMPL}%
+         \@ifundefined{b@\@citekey++\ABNTciteparensuffix}%
            {% if undefined
                {\bfseries??}% echoing ?
             \G@refundefinedtrue%
@@ -651,7 +665,7 @@
              \ifx\@citename\@citeprevious%
                {\yearstyle\@citeyear\@}\@%
              \else%
-               {\authorcapstyle\@citename}, %
+               {\ABNTciteparenstylecmd\@citename}, %
                {\yearstyle\@citeyear\@}%
              \fi%
              \let\@citeprevious\@citename%
@@ -966,7 +980,7 @@
 %
 %               \citeauthor{list of keys}
 %
-%  Implicit citation (capital letters)
+%  Author citation (parenthetical style)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -980,11 +994,11 @@
   \@for\@citekey:=#1\do %\@citekey contains the key
     {%
 %     \edef\@citekey{\expandafter\@firstofone\@citekey\@empty}%
-     \expandafter\let\expandafter\@citename\csname b@\@citekey++IMPL\endcsname%
+     \expandafter\let\expandafter\@citename\csname b@\@citekey++\ABNTciteparensuffix\endcsname%
      % writing on aux file
      \if@filesw\immediate\write\@auxout{\string\citation{\@citekey}}\fi%
      % if undefined bibitem
-     \@ifundefined{b@\@citekey++IMPL}%
+     \@ifundefined{b@\@citekey++\ABNTciteparensuffix}%
        {% if undefined
         {\bfseries??}%
         \G@refundefinedtrue%
@@ -998,7 +1012,7 @@
             \else%
               ; % echoing "; "
             \fi%
-            {\authorcapstyle\@citename\@}%
+            {\ABNTciteparenstylecmd\@citename\@}%
          \fi%
          \let\@citeprevious\@citename%
        }%
@@ -1298,17 +1312,46 @@
      }%
 }
 
-\newcommand{\apudname}{apud}
-\newcommand{\Idemname}{Id.}
-\newcommand{\Ibidemname}{Ibid.}
-\newcommand{\opcitname}{op.\ cit.}
-\newcommand{\passimname}{passim}
-\newcommand{\loccitname}{loc.\ cit.}
-\newcommand{\cfcitename}{Cf.}
-\newcommand{\etseqname}{et seq.}
+\ifthenelse{\boolean{ABNTnbr10520v2023}}{%
+  \newcommand{\apudname}{\textit{apud}}%
+  \newcommand{\Idemname}{\textit{Id.}}%
+  \newcommand{\Ibidemname}{\textit{Ibid.}}%
+  \newcommand{\opcitname}{\textit{op.\ cit.}}%
+  \newcommand{\passimname}{\textit{passim}}%
+  \newcommand{\loccitname}{\textit{loc.\ cit.}}%
+  \newcommand{\cfcitename}{\textit{Cf.}}%
+  \newcommand{\etseqname}{\textit{et seq.}}%
+}{%
+  \newcommand{\apudname}{apud}%
+  \newcommand{\Idemname}{Id.}%
+  \newcommand{\Ibidemname}{Ibid.}%
+  \newcommand{\opcitname}{op.\ cit.}%
+  \newcommand{\passimname}{passim}%
+  \newcommand{\loccitname}{loc.\ cit.}%
+  \newcommand{\cfcitename}{Cf.}%
+  \newcommand{\etseqname}{et seq.}%
+}
 
-\DeclareRobustCommand{\footciteref}[1]{%
-\footnote{\citetext{#1}}
+% NBR 10520:2023 - reduced footnote references for subsequent citations
+\newcommand{\ABNTlastfootcitekey}{}
+
+\DeclareRobustCommand{\footciteref}[2][]{%
+\ifthenelse{\boolean{ABNTnbr10520v2023}}{%
+  \@ifundefined{ABNTfootcited@#2}{%
+    \footnote{\citetext{#2}\ifthenelse{\equal{#1}{}}{}{, #1}}%
+    \expandafter\gdef\csname ABNTfootcited@#2\endcsname{}%
+  }{%
+    \ifthenelse{\equal{\ABNTlastfootcitekey}{#2}}{%
+      \footnote{\Ibidemname\ifthenelse{\equal{#1}{}}{}{, #1}}%
+    }{%
+      \footnote{\citeauthor{#2}, \citeyear{#2}%
+        \ifthenelse{\equal{#1}{}}{}{, #1}}%
+    }%
+  }%
+  \gdef\ABNTlastfootcitekey{#2}%
+}{%
+  \footnote{\citetext{#2}\ifthenelse{\equal{#1}{}}{}{, #1}}%
+}%
 }
 
 \newcommand{\apud}[3][]{(\citeauthor{#2}, \citeyear{#2} \apudname\ %

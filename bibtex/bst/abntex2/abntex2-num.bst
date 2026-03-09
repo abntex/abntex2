@@ -1330,7 +1330,8 @@ FUNCTION {calc.extended.label}
      {org-short empty$ not
       {org-short * "}{" * org-short "u" change.case$ *}
       {organization empty$ not
-       {organization * "}{" * organization "u" change.case$ *}
+       {organization * "}{" * organization
+        abnt.cite.style #0 = {"u" change.case$} 'skip$ if$ *}
         {title empty$ not
          {title format.title.for.label *}
          {"nada}{NADA" *}
@@ -2034,14 +2035,14 @@ FUNCTION {set.default.abnt.variables}
   "$Revision: v<VERSION> $" extract.cvs.key 'abnt.bst.revision :=
   #0 'abnt.and.type     :=     % #0 "e"; #1 "&"
   "\emph" 'abnt.emphasize :=
-  #0 'abnt.cite.style :=       %default norm version for NBR10520
-                               %#0 \cite=(AUTHOR, YEAR)
-			       %#1 \cite=(Author, YEAR)
+  #1 'abnt.cite.style :=       %default norm version for NBR10520:2023
+                               %#0 \cite=(AUTHOR, YEAR) [NBR10520:2002]
+			       %#1 \cite=(Author, YEAR) [NBR10520:2023]
   #0 'abnt.experimental :=
   abnt.doi.expand.to.url 'abnt.doi :=
   #3 'abnt.etal.cite :=
   #3 'abnt.etal.list :=
-  "et al." 'abnt.etal.text :=
+  "\textit{et al.}" 'abnt.etal.text :=
   #0 'abnt.full.initials :=
   #0 'abnt.last.names :=      %#0 abnt-style, #1 bibtex-style
   #1 'abnt.ldots.type :=      %#0 use nothing, #1 use \ldots, #2 use $\ldots$, 3# use {...}

@@ -968,7 +968,7 @@
 % ------------------------------------------------------------------------
 
 % ---
-% Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
+% Citacao direta com mais de 3 linhas - ABNT NBR 10520/2023
 \newlength{\ABNTEXcitacaorecuo}% recuo de 4 cm da margem esquerda
 \ifthenelse{\equal{\ABNTEXistwocolumn}{true}}{%
   \setlength{\ABNTEXcitacaorecuo}{1.8cm}
